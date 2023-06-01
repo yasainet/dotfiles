@@ -1,0 +1,11 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =9
+let g:netrw_dirhist_9='/Users/yasainet/Sites/loveorhate/app/controllers'
+let g:netrw_dirhist_8='/Users/yasainet/Sites/loveorhate/app'
+let g:netrw_dirhist_7='/Users/yasainet/Sites/loveorhate'
+let g:netrw_dirhist_6='/Users/yasainet/Sites/loveorhate/app/views/people'
+let g:netrw_dirhist_5='/Users/yasainet/Sites/loveorhate/app/views'
+let g:netrw_dirhist_4='/Users/yasainet/Sites/loveorhate/app'
+let g:netrw_dirhist_3='/Users/yasainet/Sites/loveorhate'
+let g:netrw_dirhist_2='/Users/yasainet'
+let g:netrw_dirhist_1='/Users/yasainet/dotfiles/.vim'
