@@ -1,3 +1,4 @@
+set fenc=utf-8
 set number
 set ruler
 " set showcmd
