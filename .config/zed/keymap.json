@@ -1,0 +1,32 @@
+// Zed keymap
+//
+// For information on binding keys, see the Zed
+// documentation: https://zed.dev/docs/key-bindings
+//
+// To see the default key bindings run `zed: Open Default Keymap`
+// from the command palette.
+[
+  {
+    "bindings": {
+      // Zoom In 無効化
+      "cmd--": "zed::ResetBufferFontSize"
+    }
+  },
+  {
+    "context": "Workspace",
+    "bindings": {
+      "cmd-ctrl-k": [
+        "projects::OpenRecent",
+        {
+          "create_new_window": false
+        }
+      ]
+    }
+  },
+  {
+    "context": "Terminal",
+    "bindings": {
+      "cmd-n": "workspace::NewTerminal"
+    }
+  }
+]

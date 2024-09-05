@@ -1,0 +1,64 @@
+{
+  // vim
+  "vim_mode": true,
+  "vim": {
+    "use_system_clipboard": "always",
+    "use_multiline_find": true
+  },
+  // theme
+  "theme": {
+    "mode": "dark",
+    "light": "Nord",
+    "dark": "Nord"
+  },
+  // ui
+  "ui_font_size": 15,
+  "chat_panel": {
+    "button": false
+  },
+  "collaboration_panel": {
+    "button": false
+  },
+  "notification_panel": {
+    "button": false
+  },
+  "toolbar": {
+    "quick_actions": false
+  },
+  // editor
+  "buffer_font_size": 15,
+  "buffer_font_family": "Sarasa Mono J",
+  "current_line_highlight": "none",
+  "scrollbar": {
+    "show": "never",
+    "cursors": false,
+    "git_diff": false
+  },
+  "vertical_scroll_margin": 0,
+  "soft_wrap": "editor_width",
+  "journal": {
+    "hour_format": "hour24"
+  },
+  // terminal
+  "terminal": {
+    "copy_on_select": true,
+    "blinking": "on"
+  },
+  // Git
+  "git": {
+    "inline_blame": {
+      "enabled": false
+    }
+  },
+  // GitHub Copilot
+  "show_inline_completions": false,
+  // Assistant Panel
+  "assistant": {
+    "version": "2",
+    "default_model": {
+      "provider": "anthropic",
+      "model": "claude-3-5-sonnet-20240620"
+    },
+    "default_width": 600
+  }
+}
