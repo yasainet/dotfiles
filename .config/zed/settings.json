@@ -11,8 +11,17 @@
     "light": "Nord",
     "dark": "Nord"
   },
+  // theme override
   "experimental.theme_overrides": {
     "ignored": "#4c566a"
+  },
+  // syntax highlighting
+  "file_types": {
+    "Shell Script": [".env.*"]
+  },
+  // outline_panel
+  "outline_panel": {
+    "button": false
   },
   // ui
   "ui_font_size": 14,
@@ -27,13 +36,21 @@
     "button": false
   },
   "toolbar": {
-    "quick_actions": false
+    "quick_actions": false,
+    "breadcrumbs": false
+  },
+  "tabs": {
+    "file_icons": true,
+    "git_status": true
+  },
+  "project_panel": {
+    "auto_fold_dirs": false
   },
   // editor
   "buffer_font_size": 14,
   "current_line_highlight": "none",
   "scrollbar": {
-    "show": "never",
+    "show": "auto",
     "cursors": false,
     "git_diff": false
   },
@@ -45,7 +62,8 @@
   // terminal
   "terminal": {
     "copy_on_select": true,
-    "blinking": "on"
+    "blinking": "on",
+    "button": false
   },
   // Git
   "git": {
@@ -57,6 +75,7 @@
   "show_inline_completions": false,
   // Assistant Panel
   "assistant": {
+    "button": false,
     "version": "2",
     "default_model": {
       "provider": "zed.dev",
