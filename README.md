@@ -1,186 +1,253 @@
-# Setup
-- `chmod +x setup.sh`
-
+# Initial Setup
 ## Homebrew
 1. インストール:
-- `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"`
+```sh
+`/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
+
 2. PATH:
-- `echo 'eval "$(/opt/homebrew/bin/brew shellenv)"') >> /Users/yasainet/.zprofile`
-- `eval "$(/opt/homebrew/bin/brew shellenv)"`
+```sh
+echo 'eval "$(/opt/homebrew/bin/brew shellenv)"') >> /Users/yasainet/.zprofile
+eval "$(/opt/homebrew/bin/brew shellenv)"
+```
 3. 確認:
-- `brew --version`
+```sh
+brew --version
+```
 
 ## Git
-- `brew install git`
-- `git config --global user.name "yasainet"`
-- `git config --global user.email "takumi.mizoguchi@gmail.com"`
+```sh
+brew install git
 
-### 便利設定
-- `git config --global push.default current`
-- `git config --global color.ui auto`
-- `git config --global diff.tool vimdiff` # `git difftool --no-prompt <filename>` で利用できる
-
-- `vim ~/.gitconfig`
+git config --global user.name "yasainet"
+git config --global user.email "takumi.mizoguchi@gmail.com"
 ```
-[diff]
-	tool = vimdiff
-[difftool]
-  prompt = false
+
+## Github CLI
+```sh
+brew install gh
+gh auth login
 ```
 
 ### Git Credential Manager（GCM）
-- `brew tap microsoft/git`
-- `brew install --cask git-credential-manager-core`
-- `git config --global credential.helper manager-core`
+```sh
+brew tap microsoft/git
+brew install --cask git-credential-manager-core
 
-確認（option）:
-- `git config --global -l`
-
-## .dotfiles
-- `git clone https://github.com/yasainet/dotfiles.git`
-
-### シンボリックリンク
-- `ln -s ~/dotfiles/.vimrc ~/`
-- `ln -s ~/dotfiles/.vim ~/`
-- `ln -s ~/dotfiles/.zshrc ~/`
-
-## Terminal.app
-### font: Sarasa-Gothic
-- `brew install --cask font-sarasa-gothic`
-- `Sarasa Mono J`
-
-### vim-plug
-1. ダウンロード
+# 確認
+git config --global -l
 ```
+
+# Terminal
+## dotfiles
+```sh
+git clone https://github.com/yasainet/dotfiles.git
+```
+
+## Setup
+```sh
+ln -s ~/dotfiles/.vimrc ~/
+ln -s ~/dotfiles/.vim ~/
+ln -s ~/dotfiles/.zshrc ~/
+```
+
+## font
+```sh
+brew install --cask font-zed-mono-nerd-font
+```
+
+## vim-plug
+```sh
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 ```
 
-2. `:PlugInstall`
-
-### p10k
-- `p10k configure`
-
 ## dircolors
-- `cd dotfiles`
-- `git clone https://github.com/nordtheme/dircolors`
-- `ln -sr ~/dotfiles/src/dir_colors" ~/.dir_colors`
-- `vim ~/.zshrc`
+```sh
+brew install coreutils
+
+git clone https://github.com/nordtheme/dircolors ~/dotfiles
+ln -s ~/dotfiles/dircolors/src/dir_colors ~/.dir_colors
 ```
-test -r ~/.dir_colors && eval $(gdircolors ~/.dir_colors)
+
+## p10k
+```sh
+p10k configure
 ```
-- `brew install coreutils`
+
+# Library
+## Google Cloud SDK
+```sh
+brew install --cask google-cloud-sdk
+```
 
 ## Nord.js
-- `brew install node`
+```sh
+brew install node
+```
 
 ## nvm（Node Version Manager）
-- `curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash`
-- `source ~/.nvm/nvm.sh`
+```sh
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+source ~/.nvm/nvm.sh
 
-- `nvm install --lts` (option)
+nvm install --lts # option
+```
 
 ## Java
-- `brew install openjdk`
-- `sudo ln -sfn $(brew --prefix)/opt/openjdk/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk.jdk`
-
-
-# Tools
-## Google Cloud SDK
-- `brew install --cask google-cloud-sdk`
-- `vim ~/.zshrc`
+```sh
+brew install openjdk
+sudo ln -sfn $(brew --prefix)/opt/openjdk/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk.jdk
 ```
-source "$(brew --prefix)/share/google-cloud-sdk/path.zsh.inc"
-source "$(brew --prefix)/share/google-cloud-sdk/completion.zsh.inc"
-```
-
-## Github CLI
-- `brew install gh`
-- `gh auth login`
 
 ## Miniconda
-- `brew install --cask miniconda`
+```sh
+brew install --cask miniconda
+```
+
+## Firebase CLI
+```sh
+npm install -g firebase-tools
+```
+
+## Firebase Admin SDK
+```sh
+npm install firebase-admin
+```
 
 ## clasp
-- `npm i @google/clasp -g`
+```sh
+npm i @google/clasp -g
+```
 
 ## ffmpeg
-- `brew install ffmpeg`
+```sh
+brew install ffmpeg
+```
 
 ## tree
-- `brew install tree`
+```sh
+brew install tree
+```
 
 ## ./jq
-- `brew install jq`
+```sh
+brew install jq
+```
 
 ## Glances
-- `brew install glances`
+```sh
+brew install glances
+```
 
 ## OpenCommit
-- `npm install -g opencommit`
-- `oco config set OCO_OPENAI_API_KEY=<your_api_key>`
+```sh
+npm install -g opencommit
+oco config set OCO_OPENAI_API_KEY=<your_api_key>
+```
 
 ## Stripe CLI
-- `brew install stripe/stripe-cli/stripe`
-- `stripe login`
+```sh
+brew install stripe/stripe-cli/stripe
+stripe login
+```
 
 # Application
 ## mas-cli
-- `brew install mas`
+```sh
+brew install mas
+```
 
 ## LINE
-- `mas install 539883307`
+```sh
+mas install 539883307
+```
 
 ## Github Desktop
-- `brew install --cask github`
+```sh
+brew install --cask github
+```
 
 ## Google Chrome
-- `brew install --cask google-chrome`
+```sh
+brew install --cask google-chrome
+```
 
-## Google 日本語
-- `brew install google-japanese-ime`
+Google 日本語入力
+```sh
+sudo softwareupdate --install-rosetta
+brew install google-japanese-ime
+
+sudo reboot
+```
 
 ## Google Drive
-- `brew install --cask google-drive`
+```sh
+brew install --cask google-drive
+
+sudo rm -rf Downloads
+ln -s ~/Google\ Drive/My\ Drive/Downloads ~/Downloads
+```
+
+## Raycast
+```sh
+brew install --cask raycast
+```
 
 ## AppCleaner
-- `brew install --cask appcleaner`
+```sh
+brew install --cask appcleaner
+```
 
 ## CleanShot X
-- `brew install --cask cleanshot`
+```sh
+brew install --cask cleanshot
+```
 
 ## Docker
-- `brew install --cask docker`
+```sh
+brew install --cask docker
+```
 
 ## Zed
-- `brew install --cask zed`
+```sh
+brew install --cask zed
+
+ln -s ~/dotfiles/.config/zed/keymap.json ~/.config/zed
+ln -s ~/dotfiles/.config/zed/settings.json ~/.config/zed
+```
 
 ## Slack
-- `brew install --cask slack`
+```sh
+brew install --cask slack
+```
 
 ## Discord
-- `brew install --cask discord`
+```sh
+brew install --cask discord
+```
 
 ## Proton VPN
-- `brew install --cask protonvpn`
-
-## UTM
-- `brew install --cask utm`
+```sh
+brew install --cask protonvpn
+```
 
 ## Tor
-- `brew install --cask tor-browser`
+```sh
+brew install --cask tor-browser
+```
 
 ## KeyboardCleanTool
-- `brew install --cask keyboardcleantool`
+```sh
+brew install --cask keyboardcleantool
+```
 
 ## Karabiner-Elements
-- `brew install --cask karabiner-elements`
+```sh
+brew install --cask karabiner-elements
+```
 
 ## The Unarchiver
-- `brew install --cask the-unarchiver`
-
-
-# その他
-## ~/Downloads
-- `sudo rm -rf Downloads`
-- `ln -s ~/Google\ Drive/My\ Drive/Downloads ~/Downloads`
+```sh
+brew install --cask the-unarchiver
+```
