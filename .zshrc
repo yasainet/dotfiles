@@ -44,7 +44,7 @@ alias dc='docker-compose'
 alias dps='docker ps'
 
 # Zed エイリアス
-alias code='zed' # code で zed 開く
+# alias code='zed'
 
 # cd した後に ls -la を実行する
 chpwd() {

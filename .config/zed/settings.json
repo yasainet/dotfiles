@@ -59,8 +59,8 @@
   "assistant": {
     "version": "2",
     "default_model": {
-      "provider": "ollama",
-      "model": "llama3.1:latest"
+      "provider": "zed.dev",
+      "model": "claude-3-5-sonnet-20240620"
     },
     "default_width": 600
   }
