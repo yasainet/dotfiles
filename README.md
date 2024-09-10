@@ -21,6 +21,8 @@ brew install git
 
 git config --global user.name "yasainet"
 git config --global user.email "takumi.mizoguchi@gmail.com"
+git config --global color.ui auto
+git config --global push.default current
 ```
 
 ## Github CLI
@@ -29,14 +31,23 @@ brew install gh
 gh auth login
 ```
 
-### Git Credential Manager（GCM）
+## Git Credential Manager（GCM）
 ```sh
 brew tap microsoft/git
 brew install --cask git-credential-manager-core
-
-# 確認
-git config --global -l
 ```
+確認:
+```sh
+git config --global -l
+
+user.name=yasainet
+user.email=takumi.mizoguchi@gmail.com
+color.ui=auto
+push.default=current
+credential.helper=/usr/local/share/gcm-core/git-credential-manager
+credential.https://dev.azure.com.usehttppath=true
+```
+
 
 # Terminal
 ## dotfiles
@@ -73,6 +84,13 @@ ln -s ~/dotfiles/dircolors/src/dir_colors ~/.dir_colors
 ## p10k
 ```sh
 p10k configure
+```
+
+# Mac Setup
+```sh
+chmod +x ~/dotfiles/setup.sh
+
+./dotfiles/setup.sh
 ```
 
 # Library
