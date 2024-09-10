@@ -8,7 +8,6 @@
 [
   {
     "bindings": {
-      // Zoom In 無効化
       "cmd--": "zed::ResetBufferFontSize"
     }
   },
