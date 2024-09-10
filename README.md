@@ -176,7 +176,7 @@ oco config set OCO_API_KEY=<your_api_key>
 
 ## Stripe CLI
 ```sh
-brew install stripe/stripe-cli/stripe
+brew install stripe-cli
 stripe login
 ```
 
@@ -265,6 +265,11 @@ brew install --cask protonvpn
 brew install --cask tor-browser
 ```
 
+## Transmission
+```sh
+brew install --cask transmission
+```
+
 ## KeyboardCleanTool
 ```sh
 brew install --cask keyboardcleantool
@@ -278,4 +283,14 @@ brew install --cask karabiner-elements
 ## The Unarchiver
 ```sh
 brew install --cask the-unarchiver
+```
+
+## Ollama
+```sh
+brew install ollama
+```
+
+## DeepL
+```sh
+brew install --cask deepl
 ```
