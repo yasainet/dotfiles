@@ -31,6 +31,11 @@ brew install gh
 gh auth login
 ```
 
+## delta
+```sh
+brew install git-delta
+```
+
 ## Git Credential Manager（GCM）
 ```sh
 brew tap microsoft/git
@@ -39,15 +44,36 @@ brew install --cask git-credential-manager-core
 確認:
 ```sh
 git config --global -l
-
-user.name=yasainet
-user.email=takumi.mizoguchi@gmail.com
-color.ui=auto
-push.default=current
-credential.helper=/usr/local/share/gcm-core/git-credential-manager
-credential.https://dev.azure.com.usehttppath=true
 ```
 
+```ini
+[user]
+    name = yasainet
+    email = takumi.mizoguchi@gmail.com
+[credential]
+    helper = /usr/local/share/gcm-core/git-credential-manager
+[credential "https://dev.azure.com"]
+    useHttpPath = true
+[color]
+    ui = auto
+[push]
+    default = current
+[core]
+    pager = delta
+[interactive]
+    diffFilter = delta --color-only
+[delta]
+    features = Nord
+    syntax-theme = Nord
+    navigate = true # use n and N to move between diff sections
+    dark = true
+    side-by-side = true
+    line-numbers = true
+[merge]
+    conflictstyle = diff3
+[diff]
+    colorMoved = default
+```
 
 # Terminal
 ## dotfiles
