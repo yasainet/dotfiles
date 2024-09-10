@@ -31,16 +31,17 @@ brew install gh
 gh auth login
 ```
 
-## delta
-```sh
-brew install git-delta
-```
-
 ## Git Credential Manager（GCM）
 ```sh
 brew tap microsoft/git
 brew install --cask git-credential-manager-core
 ```
+
+## delta
+```sh
+brew install git-delta
+```
+
 確認:
 ```sh
 git config --global -l
