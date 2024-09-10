@@ -132,10 +132,7 @@ zinit light-mode for \
 ### End of Zinit's installer chunk
 
 # Powerlevel10k configuration
-[[ ! -f ~/.dotfiles/.zsh/.p10k.zsh ]] || source ~/.dotfiles/.zsh/.p10k.zsh
-
-# Brew設定
-eval "$(/opt/homebrew/bin/brew shellenv)"
+[[ ! -f ~/dotfiles/.zsh/.p10k.zsh ]] || source ~/dotfiles/.zsh/.p10k.zsh
 
 # Java設定
 export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"

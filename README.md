@@ -115,12 +115,17 @@ nvm install --lts # option
 ## Java
 ```sh
 brew install openjdk
-sudo ln -sfn $(brew --prefix)/opt/openjdk/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk.jdk
+sudo ln -sfn /opt/homebrew/opt/openjdk/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk.jdk
 ```
 
 ## Miniconda
 ```sh
 brew install --cask miniconda
+```
+
+## Firebase
+```sh
+npm install firebase
 ```
 
 ## Firebase CLI
@@ -131,6 +136,11 @@ npm install -g firebase-tools
 ## Firebase Admin SDK
 ```sh
 npm install firebase-admin
+```
+
+## Firebase Functions
+```sh
+npm install firebase-functions
 ```
 
 ## clasp
@@ -161,7 +171,7 @@ brew install glances
 ## OpenCommit
 ```sh
 npm install -g opencommit
-oco config set OCO_OPENAI_API_KEY=<your_api_key>
+oco config set OCO_API_KEY=<your_api_key>
 ```
 
 ## Stripe CLI
