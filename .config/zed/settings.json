@@ -12,7 +12,8 @@
     "dark": "Nord"
   },
   // ui
-  "ui_font_size": 15,
+  "ui_font_size": 14,
+  "buffer_font_family": "ZedMono Nerd Font Mono",
   "chat_panel": {
     "button": false
   },
@@ -26,8 +27,7 @@
     "quick_actions": false
   },
   // editor
-  "buffer_font_size": 15,
-  "buffer_font_family": "Sarasa Mono J",
+  "buffer_font_size": 14,
   "current_line_highlight": "none",
   "scrollbar": {
     "show": "never",

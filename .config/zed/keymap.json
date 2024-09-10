@@ -13,14 +13,9 @@
     }
   },
   {
-    "context": "Workspace",
+    "context": "vim_mode == insert",
     "bindings": {
-      "cmd-ctrl-k": [
-        "projects::OpenRecent",
-        {
-          "create_new_window": false
-        }
-      ]
+      "ctrl-d": "editor::Delete"
     }
   },
   {
