@@ -201,7 +201,7 @@ brew install --cask github
 brew install --cask google-chrome
 ```
 
-Google 日本語入力
+## Google 日本語入力
 ```sh
 sudo softwareupdate --install-rosetta
 brew install google-japanese-ime
