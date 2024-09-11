@@ -68,7 +68,10 @@
   "terminal": {
     "copy_on_select": true,
     "blinking": "on",
-    "button": false
+    "button": false,
+    "env": {
+      "EDITOR": "zed --wait"
+    }
   },
   // Git
   "git": {
