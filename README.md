@@ -113,13 +113,6 @@ ln -s ~/dotfiles/dircolors/src/dir_colors ~/.dir_colors
 p10k configure
 ```
 
-# Mac Setup
-```sh
-chmod +x ~/dotfiles/setup.sh
-
-./dotfiles/setup.sh
-```
-
 # Library
 ## Google Cloud SDK
 ```sh
@@ -340,4 +333,9 @@ brew install ollama
 ## DeepL
 ```sh
 brew install --cask deepl
+```
+
+# Mac Setup
+```sh
+chmod +x ~/dotfiles/setup.sh
 ```
