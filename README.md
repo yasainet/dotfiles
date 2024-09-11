@@ -195,6 +195,21 @@ brew install jq
 brew install glances
 ```
 
+## bat
+```sh
+brew install bat
+```
+
+```sh
+mkdir -p ~/.config/bat
+vim ~/.config/bat/config
+```
+
+```sh
+--theme="Nord"
+--plain
+```
+
 ## OpenCommit
 ```sh
 npm install -g opencommit

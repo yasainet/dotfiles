@@ -24,7 +24,8 @@ unsetopt case_glob
 test -r ~/.dir_colors && eval $(gdircolors ~/.dir_colors)
 
 # エイリアス設定
-alias top='glances' # たぶん、 top 使わないからおk
+alias top='glances'
+alias cat='bat'
 alias ll='ls -la'
 alias grep='grep --color=auto'
 alias ls='gls --color=auto'
@@ -62,33 +63,34 @@ clipcopy() {
   fi
 }
 
-# Alias for cat command to copy output to clipboard
-alias cat='cat_with_clipboard'
+# # Alias for cat command to copy output to clipboard
+# alias cat='cat_with_clipboard'
 
-cat_with_clipboard() {
-  if [ $# -eq 0 ]; then
-    /bin/cat
-  else
-    /bin/cat "$@"
+# cat_with_clipboard() {
+#   if [ $# -eq 0 ]; then
+#     /bin/cat
+#   else
+#     /bin/cat "$@"
+#     # Copy the content to the clipboard
+#     if command -v pbcopy &> /dev/null; then
+#       # macOS
+#       /bin/cat "$@" | pbcopy
+#       echo "Content copied to clipboard."
+#     elif command -v xclip &> /dev/null; then
+#       # Linux with xclip
+#       /bin/cat "$@" | xclip -selection clipboard
+#       echo "Content copied to clipboard."
+#     elif command -v xsel &> /dev/null; then
+#       # Linux with xsel
+#       /bin/cat "$@" | xsel --clipboard --input
+#       echo "Content copied to clipboard."
+#     else
+#       echo "No clipboard utility found. Please install pbcopy, xclip, or xsel."
+#     fi
+#   fi
+# }
 
-    # Copy the content to the clipboard
-    if command -v pbcopy &> /dev/null; then
-      # macOS
-      /bin/cat "$@" | pbcopy
-      echo "Content copied to clipboard."
-    elif command -v xclip &> /dev/null; then
-      # Linux with xclip
-      /bin/cat "$@" | xclip -selection clipboard
-      echo "Content copied to clipboard."
-    elif command -v xsel &> /dev/null; then
-      # Linux with xsel
-      /bin/cat "$@" | xsel --clipboard --input
-      echo "Content copied to clipboard."
-    else
-      echo "No clipboard utility found. Please install pbcopy, xclip, or xsel."
-    fi
-  fi
-}
+
 
 # Powerlevel10k instant prompt
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
