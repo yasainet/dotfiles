@@ -22,5 +22,11 @@
     "bindings": {
       "cmd-n": "workspace::NewTerminal"
     }
+  },
+  {
+    "context": "AssistantPanel",
+    "bindings": {
+      "cmd-n": "assistant::NewContext"
+    }
   }
 ]
