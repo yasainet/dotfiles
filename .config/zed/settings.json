@@ -30,7 +30,6 @@
   },
   // ui
   "ui_font_size": 14,
-  "buffer_font_family": "ZedMono Nerd Font Mono",
   "chat_panel": {
     "button": false
   },
@@ -45,7 +44,6 @@
     "breadcrumbs": false
   },
   "tabs": {
-    "file_icons": true,
     "git_status": true
   },
   "project_panel": {
