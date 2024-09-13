@@ -31,7 +31,13 @@ alias grep='grep --color=auto'
 alias ls='gls --color=auto'
 
 # tree エイリアス
-alias tree="tree -I 'node_modules|.next|out|.git|*.log'"
+alias tree='
+  if git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
+    git ls-files | tree --fromfile .
+  else
+    command tree
+  fi
+'
 
 # Git エイリアス
 alias g='git'
