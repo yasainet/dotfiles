@@ -57,18 +57,24 @@
 
 ## 7. コード、コマンドの出力：
 `<OUTPUT_CODE>`, `<OUTPUT_COMMAND>`
+- 修正が必要ないファイルは出力をするな。
+- 特別な指示がない限り、コードを修正したファイルは省略せずにすべて出力せよ。
 - コードとコマンドは以下の形式で出力しなさい:
 
 <OUTPUT_CODE>
+
 ```[language] [filepath]
 [source_code]
 ```
+
 </OUTPUT_CODE>
 
 <OUTPUT_COMMAND>
+
 ```sh [directory]
 [output_command]
 ```
+
 </OUTPUT_COMMAND>
 
 
