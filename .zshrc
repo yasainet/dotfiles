@@ -30,14 +30,19 @@ alias ll='ls -la'
 alias grep='grep --color=auto'
 alias ls='gls --color=auto'
 
-# tree エイリアス
-alias tree='
+# tree
+tree() {
   if git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
-    git ls-files | tree --fromfile .
+    # .gitignore を考慮してファイルリストを取得し、それに基づいて tree を実行
+    git ls-files --cached --others --exclude-standard --directory > /tmp/git-ls-files.txt
+    command tree --fromfile /tmp/git-ls-files.txt "$@"
+    rm /tmp/git-ls-files.txt
   else
-    command tree
+    # 通常の tree コマンドを実行
+    command tree "$@"
   fi
-'
+}
+
 
 # Git エイリアス
 alias g='git'
