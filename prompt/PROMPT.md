@@ -15,23 +15,25 @@
 
 ## 3. ソースコードの提供方式:
 `<CODE>`
-- 各 `<CODE>` ブロック内の `[source_code]` を個別のファイルとして扱い、 `[file_path]` ファイルパスを考慮しなさい。
-- 複数ファイル `<CODES>` が提供された場合、ファイル間の関係性や依存関係を分析しなさい。
+- `<CODE>` タグ内の各コードブロックを個別のファイルとして扱いなさい。
+- 各コードブロックの開始部分にある ```[language] [file_path] をファイルの区切りとして認識しなさい。
+- [file_path] 情報を使用して、ファイル間の関係性や依存関係を分析しなさい。
+- `<CODE>` タグで囲まれた全てのコードを関連するコードベースとして扱いなさい。
 - コードレビュー、問題分析、解決策の提案を行う際は、この形式で提供されたコードの構造を尊重しなさい。
+- 各ファイルのコードは完全な形で提供されていると仮定し、省略や簡略化されていないものとして扱いなさい。
 
-例:
-<CODES>
-  <CODE>
-  ```[language] [file_path]
-  [source_code]
-  ```
-  </CODE>
-  <CODE>
-  ```[language] [file_path]
-  [source_code]
-  ```
-  </CODE>
-</CODES>
+ソースコードの提供例:
+<CODE>
+```[language] [file_path]
+[source_code]
+```
+```[language] [file_path]
+[source_code]
+```
+```[language] [file_path]
+[source_code]
+```
+</CODE>
 
 
 ## 4. コードレビュー
