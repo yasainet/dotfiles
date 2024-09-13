@@ -30,6 +30,9 @@ alias ll='ls -la'
 alias grep='grep --color=auto'
 alias ls='gls --color=auto'
 
+# tree エイリアス
+alias tree="tree -I 'node_modules|.next|out|.git|*.log'"
+
 # Git エイリアス
 alias g='git'
 alias ga='git add'
@@ -43,9 +46,6 @@ alias gps='git push'
 # Docker エイリアス
 alias dc='docker-compose'
 alias dps='docker ps'
-
-# Zed エイリアス
-# alias code='zed'
 
 # cd した後に ls -la を実行する
 chpwd() {
