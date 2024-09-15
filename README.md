@@ -280,11 +280,6 @@ ln -s ~/dotfiles/.config/zed/keymap.json ~/.config/zed
 ln -s ~/dotfiles/.config/zed/settings.json ~/.config/zed
 ```
 
-## VS Code
-```sh
-brew install --cask visual-studio-code
-```
-
 ## Slack
 ```sh
 brew install --cask slack
