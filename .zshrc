@@ -30,31 +30,6 @@ alias ll='ls -la'
 alias grep='grep --color=auto'
 alias ls='gls --color=auto'
 
-# tree
-tree() {
-  if git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
-    git_root=$(git rev-parse --show-toplevel)
-    if [ -n "$git_root" ]; then
-      # 現在のディレクトリからGitルートまでの相対パスを取得
-      if [ "$PWD" = "$git_root" ]; then
-        relative_path=""
-      else
-        relative_path="${PWD#$git_root/}"
-      fi
-      # .gitignore に無視されていないファイルリストを取得
-      git ls-files --cached --others --exclude-standard --directory "$relative_path" > /tmp/git-ls-files.txt
-      current_dir_name=$(basename "$PWD")
-      # tree を実行（ディレクトリを変更しない）
-      command tree --fromfile /tmp/git-ls-files.txt "$@" | sed "1s|^.*|$current_dir_name|"
-      rm /tmp/git-ls-files.txt
-    else
-      command tree "$@"
-    fi
-  else
-    command tree "$@"
-  fi
-}
-
 # Git エイリアス
 alias g='git'
 alias ga='git add'
@@ -162,6 +137,3 @@ unset __conda_setup
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
-# POWERLEVEL9K_DIR_CONTENT_EXPANSIONの設定
-typeset -g POWERLEVEL9K_DIR_CONTENT_EXPANSION='$(custom_dir_path)'
