@@ -33,16 +33,27 @@ alias ls='gls --color=auto'
 # tree
 tree() {
   if git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
-    # .gitignore を考慮してファイルリストを取得し、それに基づいて tree を実行
-    git ls-files --cached --others --exclude-standard --directory > /tmp/git-ls-files.txt
-    command tree --fromfile /tmp/git-ls-files.txt "$@"
-    rm /tmp/git-ls-files.txt
+    git_root=$(git rev-parse --show-toplevel)
+    if [ -n "$git_root" ]; then
+      # 現在のディレクトリからGitルートまでの相対パスを取得
+      if [ "$PWD" = "$git_root" ]; then
+        relative_path=""
+      else
+        relative_path="${PWD#$git_root/}"
+      fi
+      # .gitignore に無視されていないファイルリストを取得
+      git ls-files --cached --others --exclude-standard --directory "$relative_path" > /tmp/git-ls-files.txt
+      current_dir_name=$(basename "$PWD")
+      # tree を実行（ディレクトリを変更しない）
+      command tree --fromfile /tmp/git-ls-files.txt "$@" | sed "1s|^.*|$current_dir_name|"
+      rm /tmp/git-ls-files.txt
+    else
+      command tree "$@"
+    fi
   else
-    # 通常の tree コマンドを実行
     command tree "$@"
   fi
 }
-
 
 # Git エイリアス
 alias g='git'
@@ -73,35 +84,6 @@ clipcopy() {
     command pbcopy < "$1"
   fi
 }
-
-# # Alias for cat command to copy output to clipboard
-# alias cat='cat_with_clipboard'
-
-# cat_with_clipboard() {
-#   if [ $# -eq 0 ]; then
-#     /bin/cat
-#   else
-#     /bin/cat "$@"
-#     # Copy the content to the clipboard
-#     if command -v pbcopy &> /dev/null; then
-#       # macOS
-#       /bin/cat "$@" | pbcopy
-#       echo "Content copied to clipboard."
-#     elif command -v xclip &> /dev/null; then
-#       # Linux with xclip
-#       /bin/cat "$@" | xclip -selection clipboard
-#       echo "Content copied to clipboard."
-#     elif command -v xsel &> /dev/null; then
-#       # Linux with xsel
-#       /bin/cat "$@" | xsel --clipboard --input
-#       echo "Content copied to clipboard."
-#     else
-#       echo "No clipboard utility found. Please install pbcopy, xclip, or xsel."
-#     fi
-#   fi
-# }
-
-
 
 # Powerlevel10k instant prompt
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
