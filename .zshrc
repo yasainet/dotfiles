@@ -163,25 +163,5 @@ unset __conda_setup
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-
-# カスタムプロンプト関数
-function custom_dir_path() {
-  local base_prefix="/Users/yasainet/Library/CloudStorage/GoogleDrive-takumi.mizoguchi@gmail.com/My Drive"
-  local home_dir="/Users/yasainet"
-  local current_path="$PWD"
-
-  if [[ "$current_path" == "$base_prefix/Projects"* ]]; then
-    echo "${current_path/$base_prefix\/Projects/~/Projects}"
-  elif [[ "$current_path" == "$base_prefix/Tools"* ]]; then
-    echo "${current_path/$base_prefix\/Tools/~/Tools}"
-  elif [[ "$current_path" == "$base_prefix/Works"* ]]; then
-    echo "${current_path/$base_prefix\/Works/~/Works}"
-  elif [[ "$current_path" == "$home_dir"* ]]; then
-    echo "${current_path/$home_dir/~}"
-  else
-    echo "$current_path"
-  fi
-}
-
 # POWERLEVEL9K_DIR_CONTENT_EXPANSIONの設定
 typeset -g POWERLEVEL9K_DIR_CONTENT_EXPANSION='$(custom_dir_path)'
