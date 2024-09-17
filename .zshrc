@@ -111,6 +111,9 @@ export CPPFLAGS="-I/opt/homebrew/opt/openjdk/include"
 # JAVA_HOME設定
 export JAVA_HOME=$(/usr/libexec/java_home -v 22)
 
+# Rust
+. "$HOME/.cargo/env"
+
 # nvm設定
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm

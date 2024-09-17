@@ -45,6 +45,8 @@ nnoremap k gk
 nnoremap gk k
 nnoremap gj j
 
+nnoremap U <c-r>
+
 " vim-plug
 call plug#begin('~/.vim/plugged')
 
