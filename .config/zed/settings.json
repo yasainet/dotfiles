@@ -13,10 +13,9 @@
   },
   // theme override
   "experimental.theme_overrides": {
-    "ignored": "#4c566a",
     "syntax": {
       "comment": {
-        "font_style": "italic"
+        // "font_style": "italic"
       }
     }
   },
