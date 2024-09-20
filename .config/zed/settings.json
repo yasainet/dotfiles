@@ -83,17 +83,34 @@
     "button": false,
     "version": "2",
     "default_model": {
-      "provider": "zed.dev",
-      "model": "claude-3-5-sonnet-20240620"
+      "provider": "openai",
+      "model": "gpt-4o-2024-08-06"
     }
   },
   "language_models": {
-    // "anthropic": {
-    //   "version": "1",
-    //   "available_models": [{}]
-    // },
+    "anthropic": {
+      "version": "1",
+      "low_speed_timeout_in_seconds": 60
+      // "available_models": [
+      //   {
+      //     "custom": {
+      //       "name": "claude-3-5-sonnet-20240620",
+      //       "display_name": "claude-3-5-sonnet-2024062",
+      //       "max_tokens": 200000,
+      //       "max_output_tokens": 8192,
+      //       "cache_configuration": {
+      //         "max_cache_anchors": 10,
+      //         "min_total_token": 10000,
+      //         "should_speculate": false
+      //       },
+      //       "tool_override": ""
+      //     }
+      //   }
+      // ]
+    },
     "openai": {
       "version": "1",
+      "low_speed_timeout_in_seconds": 60,
       "available_models": [
         {
           "provider": "openai",
@@ -109,16 +126,17 @@
         //   "max_output_tokens": 16384
         // }
       ]
+    },
+    "google": {
+      "low_speed_timeout_in_seconds": 60
+      //   "available_models": [
+      //     {
+      //       "name": "gemini-1.5-flash-exp-0827",
+      //       "display_name": "Gemini 1.5 Pro Exp 0827",
+      //       "max_tokens": 2097152,
+      //       "max_output_tokens": 8192
+      //     }
+      //   ]
     }
-    // "google": {
-    //   "available_models": [
-    //     {
-    //       "name": "gemini-1.5-flash-exp-0827",
-    //       "display_name": "Gemini 1.5 Pro Exp 0827",
-    //       "max_tokens": 2097152,
-    //       "max_output_tokens": 8192
-    //     }
-    //   ]
-    // }
   }
 }
