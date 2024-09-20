@@ -67,7 +67,7 @@
     "blinking": "on",
     "button": false,
     "env": {
-      "EDITOR": "zed --wait"
+      // "EDITOR": "zed --wait"
     }
   },
   // Git
@@ -86,6 +86,39 @@
       "provider": "zed.dev",
       "model": "claude-3-5-sonnet-20240620"
     }
-    // "default_width": 640
+  },
+  "language_models": {
+    // "anthropic": {
+    //   "version": "1",
+    //   "available_models": [{}]
+    // },
+    "openai": {
+      "version": "1",
+      "available_models": [
+        {
+          "provider": "openai",
+          "name": "gpt-4o-2024-08-06",
+          "display_name": "gpt-4o-2024-08-06",
+          "max_tokens": 128000,
+          "max_output_tokens": 16384
+        }
+        // {
+        //   "name": "o1-mini",
+        //   "display_name": "o1-mini",
+        //   "max_tokens": 128000,
+        //   "max_output_tokens": 16384
+        // }
+      ]
+    }
+    // "google": {
+    //   "available_models": [
+    //     {
+    //       "name": "gemini-1.5-flash-exp-0827",
+    //       "display_name": "Gemini 1.5 Pro Exp 0827",
+    //       "max_tokens": 2097152,
+    //       "max_output_tokens": 8192
+    //     }
+    //   ]
+    // }
   }
 }
