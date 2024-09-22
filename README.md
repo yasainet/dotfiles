@@ -226,6 +226,11 @@ brew install mas
 mas install 539883307
 ```
 
+## Paste
+```sh
+mas install 967805235
+```
+
 ## Github Desktop
 ```sh
 brew install --cask github
@@ -252,14 +257,14 @@ sudo rm -rf Downloads
 ln -s ~/Google\ Drive/My\ Drive/Downloads ~/Downloads
 ```
 
-## Raycast
-```sh
-brew install --cask raycast
-```
-
 ## AppCleaner
 ```sh
 brew install --cask appcleaner
+```
+
+## Rectangle
+```sh
+brew install --cask rectangle
 ```
 
 ## CleanShot X

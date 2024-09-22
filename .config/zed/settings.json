@@ -23,12 +23,12 @@
   "file_types": {
     "Shell Script": [".env.*"]
   },
-  // outline_panel
+  // ui
+  "ui_font_size": 14,
+  "unstable.ui_density": "compact",
   "outline_panel": {
     "button": false
   },
-  // ui
-  "ui_font_size": 14,
   "chat_panel": {
     "button": false
   },
@@ -56,7 +56,8 @@
     "cursors": false,
     "git_diff": false
   },
-  "vertical_scroll_margin": 0,
+  "scroll_beyond_last_line": "vertical_scroll_margin",
+  "vertical_scroll_margin": 3,
   "soft_wrap": "editor_width",
   "journal": {
     "hour_format": "hour24"
@@ -68,6 +69,9 @@
     "button": false,
     "env": {
       // "EDITOR": "zed --wait"
+    },
+    "toolbar": {
+      "title": false
     }
   },
   // Git
@@ -83,14 +87,14 @@
     "button": false,
     "version": "2",
     "default_model": {
-      "provider": "openai",
-      "model": "gpt-4o-2024-08-06"
+      "provider": "zed.dev",
+      "model": "claude-3-5-sonnet-20240620"
     }
   },
   "language_models": {
     "anthropic": {
       "version": "1",
-      "low_speed_timeout_in_seconds": 60
+      "low_speed_timeout_in_seconds": 600
       // "available_models": [
       //   {
       //     "custom": {
@@ -110,7 +114,7 @@
     },
     "openai": {
       "version": "1",
-      "low_speed_timeout_in_seconds": 60,
+      "low_speed_timeout_in_seconds": 600,
       "available_models": [
         {
           "provider": "openai",
@@ -128,7 +132,7 @@
       ]
     },
     "google": {
-      "low_speed_timeout_in_seconds": 60
+      "low_speed_timeout_in_seconds": 600
       //   "available_models": [
       //     {
       //       "name": "gemini-1.5-flash-exp-0827",

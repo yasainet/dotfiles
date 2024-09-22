@@ -12,6 +12,13 @@
       "cmd--": "zed::ResetBufferFontSize"
     }
   },
+  // Editor
+  {
+    "context": "Editor",
+    "bindings": {
+      "cmd-shift-alt-v": "markdown::OpenPreview"
+    }
+  },
   // vim
   // https://github.com/zed-industries/zed/blob/main/assets/keymaps/vim.json
   {
