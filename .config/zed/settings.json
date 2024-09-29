@@ -13,11 +13,17 @@
   },
   // theme override
   "experimental.theme_overrides": {
+    "predictive": "#616E88",
     "syntax": {
       "comment": {
         // "font_style": "italic"
       }
-    }
+    },
+    "players": [
+      {
+        "cursor": "#eceff4"
+      }
+    ]
   },
   // syntax highlighting
   "file_types": {
@@ -56,11 +62,17 @@
     "cursors": false,
     "git_diff": false
   },
-  "scroll_beyond_last_line": "vertical_scroll_margin",
-  "vertical_scroll_margin": 3,
+  // "scroll_beyond_last_line": "vertical_scroll_margin",
+  // "vertical_scroll_margin": 16,
   "soft_wrap": "editor_width",
   "journal": {
     "hour_format": "hour24"
+  },
+  // linting
+  "format_on_save": {
+    "code_actions": {
+      "source.organizeImports": true
+    }
   },
   // terminal
   "terminal": {
@@ -81,11 +93,12 @@
     }
   },
   // GitHub Copilot
-  "show_inline_completions": false,
+  "show_inline_completions": true,
   // Assistant Panel
   "assistant": {
     "button": false,
     "version": "2",
+    "default_width": 640,
     "default_model": {
       "provider": "zed.dev",
       "model": "claude-3-5-sonnet-20240620"
@@ -126,8 +139,10 @@
         // {
         //   "name": "o1-mini",
         //   "display_name": "o1-mini",
-        //   "max_tokens": 128000,
-        //   "max_output_tokens": 16384
+        // },
+        // {
+        //   "name": "o1-preview",
+        //   "display_name": "o1-preview"
         // }
       ]
     },
@@ -141,6 +156,18 @@
       //       "max_output_tokens": 8192
       //     }
       //   ]
+    },
+    "ollama": {
+      "low_speed_timeout_in_seconds": 600,
+      "available_models": [
+        {
+          "provider": "ollama",
+          "name": "qwen2.5-coder",
+          "display_name": "qwen2.5-coder-128k",
+          "max_tokens": 128000,
+          "max_output_tokens": 8192
+        }
+      ]
     }
   }
 }

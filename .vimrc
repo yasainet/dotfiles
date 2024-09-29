@@ -62,19 +62,16 @@ Plug 'Yggdroot/indentLine'
 " git の追加、削除、変更を表示
 Plug 'airblade/vim-gitgutter'
 
-" status line
+" lightline
 Plug 'itchyny/lightline.vim'
 
-" Nord
+" Catppuccin
 Plug 'arcticicestudio/nord-vim'
 
 call plug#end()
 
-" Nord
 colorscheme nord
 
 " ステータスライン
 set laststatus=2
-let g:lightline = {
-      \ 'colorscheme': 'nord',
-      \ }
+let g:lightline = {'colorscheme': 'nord'}
