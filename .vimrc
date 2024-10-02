@@ -1,8 +1,8 @@
-" 英語化
+" Language
 set langmenu=en_US
 let $LANG = 'en_US'
 
-" 基本設定
+" Settings
 set number
 set tabstop=2
 set shiftwidth=2
@@ -19,7 +19,7 @@ set backspace=indent,eol,start
 set encoding=utf-8
 set fileencodings=utf-8,ucs-bom,sjis,euc-jp,iso-2022-jp
 
-" キーマッピング
+" Keymap
 inoremap <C-c> <ESC>
 inoremap <C-b> <left>
 inoremap <C-f> <right>
@@ -47,6 +47,10 @@ nnoremap gj j
 
 nnoremap U <c-r>
 
+" Cursor
+let &t_SI = "\e[6 q"
+let &t_EI = "\e[2 q"
+
 " vim-plug
 call plug#begin('~/.vim/plugged')
 
@@ -56,22 +60,16 @@ if empty(glob('~/.vim/autoload/plug.vim'))
  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
-" インデント可視化
 Plug 'Yggdroot/indentLine'
-
-" git の追加、削除、変更を表示
 Plug 'airblade/vim-gitgutter'
-
-" lightline
 Plug 'itchyny/lightline.vim'
-
-" Catppuccin
-Plug 'arcticicestudio/nord-vim'
+Plug 'nordtheme/vim'
 
 call plug#end()
 
 colorscheme nord
 
-" ステータスライン
 set laststatus=2
-let g:lightline = {'colorscheme': 'nord'}
+let g:lightline = {
+      \ 'colorscheme': 'nord',
+      \ }

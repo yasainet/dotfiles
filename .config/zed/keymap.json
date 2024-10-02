@@ -6,21 +6,26 @@
 // To see the default key bindings run `zed: Open Default Keymap`
 // from the command palette.
 [
-  // General
   {
     "bindings": {
       "cmd--": "zed::ResetBufferFontSize"
     }
   },
-  // Editor
   {
     "context": "Editor",
     "bindings": {
       "cmd-shift-alt-v": "markdown::OpenPreview"
     }
   },
-  // vim
-  // https://github.com/zed-industries/zed/blob/main/assets/keymaps/vim.json
+  {
+  "context": "Dock",
+    "bindings": {
+      "ctrl-w h": ["workspace::ActivatePaneInDirection", "Left"],
+      "ctrl-w l": ["workspace::ActivatePaneInDirection", "Right"],
+      "ctrl-w k": ["workspace::ActivatePaneInDirection", "Up"],
+      "ctrl-w j": ["workspace::ActivatePaneInDirection", "Down"]
+      }
+  },
   {
     "context": "vim_mode == normal",
     "bindings": {
@@ -35,14 +40,12 @@
       // "ctrl-n": "editor::MoveDown"
     }
   },
-  // Terminal
   {
     "context": "Terminal",
     "bindings": {
       "cmd-n": "workspace::NewTerminal"
     }
   },
-  // AssistantPanel
   {
     "context": "AssistantPanel",
     "bindings": {
