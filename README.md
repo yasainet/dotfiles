@@ -113,6 +113,16 @@ ln -s ~/dotfiles/dircolors/src/dir_colors ~/.dir_colors
 p10k configure
 ```
 
+# Hyper
+```sh
+brew install --cask hyper
+```
+
+# Neovim
+```sh
+brew install neovim
+```
+
 # Library
 ## Google Cloud SDK
 ```sh
@@ -194,12 +204,28 @@ brew install bat
 ```
 
 ```sh
-mkdir -p ~/.config/bat
-vim ~/.config/bat/config
+bat --config-file
 ```
 
 ```sh
---theme="Nord"
+mkdir -p ~/.config/bat/themes
+
+wget -P "$(bat --config-dir)/themes" https://github.com/catppuccin/bat/raw/main/themes/Catppuccin%20Latte.tmTheme
+wget -P "$(bat --config-dir)/themes" https://github.com/catppuccin/bat/raw/main/themes/Catppuccin%20Frappe.tmTheme
+wget -P "$(bat --config-dir)/themes" https://github.com/catppuccin/bat/raw/main/themes/Catppuccin%20Macchiato.tmTheme
+wget -P "$(bat --config-dir)/themes" https://github.com/catppuccin/bat/raw/main/themes/Catppuccin%20Mocha.tmTheme
+
+bat cache --build
+
+bat --list-themes
+```
+
+```sh
+nvim ~/.config/bat/config
+```
+
+```ini
+--theme="Catppuccin Mocha"
 --plain
 ```
 

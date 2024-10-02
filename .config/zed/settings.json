@@ -8,23 +8,11 @@
   // theme
   "theme": {
     "mode": "dark",
-    "light": "Nord",
-    "dark": "Nord"
+    "light": "Catppuccin Latte - No Italics",
+    "dark": "Catppuccin Macchiato - No Italics"
   },
   // theme override
-  "experimental.theme_overrides": {
-    "predictive": "#616E88",
-    "syntax": {
-      "comment": {
-        // "font_style": "italic"
-      }
-    },
-    "players": [
-      {
-        "cursor": "#eceff4"
-      }
-    ]
-  },
+  "experimental.theme_overrides": {},
   // syntax highlighting
   "file_types": {
     "Shell Script": [".env.*"]
