@@ -106,7 +106,7 @@ module.exports = {
         // An absolute file path to a sound file on the machine.
         // bellSoundURL: '/path/to/sound/file',
         // if `true` (without backticks and without quotes), selected text will automatically be copied to the clipboard
-        copyOnSelect: false,
+        copyOnSelect: true,
         // if `true` (without backticks and without quotes), hyper will be set as the default protocol client for SSH
         defaultSSHApp: true,
         // if `true` (without backticks and without quotes), on right click selected text will be copied or pasted if no
@@ -115,7 +115,7 @@ module.exports = {
         // choose either `'vertical'`, if you want the column mode when Option key is hold during selection (Default)
         // or `'force'`, if you want to force selection regardless of whether the terminal is in mouse events mode
         // (inside tmux or vim with mouse mode enabled for example).
-        macOptionSelectionMode: 'vertical',
+        macOptionSelectionMode: 'force',
         // Whether to use the WebGL renderer. Set it to false to use canvas-based
         // rendering (slower, but supports transparent backgrounds)
         webGLRenderer: true,
