@@ -20,19 +20,17 @@ setopt correct
 setopt extended_glob
 unsetopt case_glob
 
-# dircolors
-test -r ~/.dir_colors && eval $(gdircolors ~/.dir_colors)
-
 # エイリアス設定
+alias vim='nvim'
+alias vi='nvim'
+alias v='nvim'
 alias top='glances'
 alias cat='bat'
-alias ls='ls -G'
+alias ls='gls --color=auto'
 alias ll='ls -la'
 alias grep='grep --color=auto'
-alias ls='gls --color=auto'
 
 # Git エイリアス
-alias g='git'
 alias ga='git add'
 alias gb='git branch'
 alias gst='git status'
@@ -61,11 +59,6 @@ clipcopy() {
   fi
 }
 
-# Powerlevel10k instant prompt
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
 # Zinit
 source "$HOME/.local/share/zinit/zinit.git/zinit.zsh"
 
@@ -74,11 +67,10 @@ zinit ice depth=1
 zinit snippet OMZ::lib/completion.zsh
 
 # Zinit Plugins
-zinit load zsh-users/zsh-syntax-highlighting
+zinit light zsh-users/zsh-syntax-highlighting
 zinit light zsh-users/zsh-autosuggestions
-zinit load zsh-users/zsh-completions
-zinit load romkatv/powerlevel10k
-zinit load zsh-users/zsh-history-substring-search
+zinit light zsh-users/zsh-completions
+zinit light zsh-users/zsh-history-substring-search
 
 ### Zinit's installer chunk
 if [[ ! -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]]; then
@@ -101,9 +93,6 @@ zinit light-mode for \
     zdharma-continuum/zinit-annex-rust
 
 ### End of Zinit's installer chunk
-
-# Powerlevel10k configuration
-[[ ! -f ~/dotfiles/.zsh/.p10k.zsh ]] || source ~/dotfiles/.zsh/.p10k.zsh
 
 # Java設定
 export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
@@ -139,5 +128,9 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+# Syntax highlighting
+source ~/.zsh/themes/catppuccin_mocha-zsh-syntax-highlighting.zsh
+
+# Starship
+eval "$(starship init zsh)"
+starship preset pure-preset -o ~/.config/starship.toml

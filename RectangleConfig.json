@@ -53,7 +53,7 @@
       "bool" : false
     },
     "disabledApps" : {
-
+      "string" : "[]"
     },
     "doubleClickTitleBar" : {
       "int" : 0

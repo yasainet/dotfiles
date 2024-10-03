@@ -18,28 +18,18 @@ brew --version
 ## Git
 ```sh
 brew install git
-
-git config --global user.name "yasainet"
-git config --global user.email "takumi.mizoguchi@gmail.com"
-git config --global color.ui auto
-git config --global push.default current
 ```
 
-## Github CLI
+### Github CLI
 ```sh
 brew install gh
 gh auth login
 ```
 
-## Git Credential Manager（GCM）
+### Git Credential Manager（GCM）
 ```sh
 brew tap microsoft/git
 brew install --cask git-credential-manager-core
-```
-
-## delta
-```sh
-brew install git-delta
 ```
 
 確認:
@@ -47,70 +37,23 @@ brew install git-delta
 git config --global -l
 ```
 
-```ini
-[user]
-    name = yasainet
-    email = takumi.mizoguchi@gmail.com
-[credential]
-    helper = /usr/local/share/gcm-core/git-credential-manager
-[credential "https://dev.azure.com"]
-    useHttpPath = true
-[color]
-    ui = auto
-[push]
-    default = current
-[core]
-    pager = delta
-[interactive]
-    diffFilter = delta --color-only
-[delta]
-    features = Nord
-    syntax-theme = Nord
-    navigate = true # use n and N to move between diff sections
-    dark = true
-    side-by-side = true
-    line-numbers = true
-[merge]
-    conflictstyle = diff3
-[diff]
-    colorMoved = default
-```
-
-# Terminal
-## dotfiles
-```sh
-git clone https://github.com/yasainet/dotfiles.git
-```
-
-## Setup
-```sh
-ln -s ~/dotfiles/.vimrc ~/
-ln -s ~/dotfiles/.vim ~/
-ln -s ~/dotfiles/.zshrc ~/
-```
-
-## font
+# Font
 ```sh
 brew install --cask font-zed-mono-nerd-font
 ```
 
-## vim-plug
+# dotfiles
 ```sh
-curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+git clone https://github.com/yasainet/dotfiles.git
 ```
 
-## dircolors
+設定:
 ```sh
-brew install coreutils
+ln -s ~/dotfiles/.zshrc ~/
+ln -s ~/dotfiles/.zsh ~/
 
-git clone https://github.com/nordtheme/dircolors ~/dotfiles
-ln -s ~/dotfiles/dircolors/src/dir_colors ~/.dir_colors
-```
-
-## p10k
-```sh
-p10k configure
+ln -s ~/dotfiles/starship.toml ~/.config/
+ln -sf ~/dotfiles/.gitconfig ~/
 ```
 
 # Hyper
@@ -118,9 +61,20 @@ p10k configure
 brew install --cask hyper
 ```
 
+設定:
+```sh
+ln -s ~/dotfiles/.hyper.js ~/
+ln -s ~/dotfiles/.hyper_plugins ~/
+```
+
 # Neovim
 ```sh
 brew install neovim
+```
+
+設定:
+```sh
+ln -s ~/dotfiles/.config/nvim ~/.config/
 ```
 
 # Library
@@ -203,30 +157,25 @@ brew install glances
 brew install bat
 ```
 
+設定:
 ```sh
-bat --config-file
-```
-
-```sh
-mkdir -p ~/.config/bat/themes
-
-wget -P "$(bat --config-dir)/themes" https://github.com/catppuccin/bat/raw/main/themes/Catppuccin%20Latte.tmTheme
-wget -P "$(bat --config-dir)/themes" https://github.com/catppuccin/bat/raw/main/themes/Catppuccin%20Frappe.tmTheme
-wget -P "$(bat --config-dir)/themes" https://github.com/catppuccin/bat/raw/main/themes/Catppuccin%20Macchiato.tmTheme
-wget -P "$(bat --config-dir)/themes" https://github.com/catppuccin/bat/raw/main/themes/Catppuccin%20Mocha.tmTheme
-
-bat cache --build
-
-bat --list-themes
-```
-
-```sh
-nvim ~/.config/bat/config
+ln -s ~/dotfiles/.config/bat ~/.config/
+vim ~/.config/bat/config
 ```
 
 ```ini
---theme="Catppuccin Mocha"
+--theme="Catppuccin Macchiato"
 --plain
+```
+
+### delta
+```sh
+brew install git-delta
+```
+
+設定:
+```sh
+ln -s ~/dotfiles/delta ~/
 ```
 
 ## OpenCommit
@@ -278,9 +227,11 @@ sudo reboot
 ## Google Drive
 ```sh
 brew install --cask google-drive
+```
 
-sudo rm -rf Downloads
-ln -s ~/Google\ Drive/My\ Drive/Downloads ~/Downloads
+設定:
+```sh
+ln -sf ~/Google\ Drive/My\ Drive/Downloads ~/Downloads
 ```
 
 ## AppCleaner
@@ -306,7 +257,10 @@ brew install --cask docker
 ## Zed
 ```sh
 brew install --cask zed
+```
 
+設定:
+```sh
 ln -s ~/dotfiles/.config/zed/keymap.json ~/.config/zed
 ln -s ~/dotfiles/.config/zed/settings.json ~/.config/zed
 ```
