@@ -40,6 +40,7 @@ git config --global -l
 # Font
 ```sh
 brew install --cask font-zed-mono-nerd-font
+brew install --cask font-blex-mono-nerd-font
 ```
 
 # dotfiles
