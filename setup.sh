@@ -2,6 +2,10 @@
 
 echo "🏁 Set up is starting..."
 
+# General
+## アクセントメニューの無効化
+defaults write -g ApplePressAndHoldEnabled -bool false
+
 # Dcok
 ## Dock から全て削除
 defaults write com.apple.dock persistent-apps -array
