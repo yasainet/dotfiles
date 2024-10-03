@@ -161,10 +161,11 @@ brew install bat
 設定:
 ```sh
 ln -s ~/dotfiles/.config/bat ~/.config/
+bat cache --build
 vim ~/.config/bat/config
 ```
 
-```ini
+```
 --theme="Catppuccin Macchiato"
 --plain
 ```
