@@ -1,8 +1,8 @@
 vim.opt.encoding = "utf-8"
 vim.opt.langmenu = "en"
 vim.cmd("language en_US")
-vim.opt.tabstop = 4
-vim.opt.shiftwidth = 4
+vim.opt.tabstop = 2
+vim.opt.shiftwidth = 2
 vim.opt.expandtab = true
 vim.opt.autoindent = true
 vim.opt.wrap = true
@@ -28,38 +28,38 @@ vim.api.nvim_set_keymap('i', '<D-v>', '<C-r>+', { noremap = true, silent = true 
 -- lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
-  vim.fn.system({
-    "git",
-    "clone",
-    "--filter=blob:none",
-    "https://github.com/folke/lazy.nvim.git",
-    "--branch=stable",
-    lazypath,
-  })
+    vim.fn.system({
+        "git",
+        "clone",
+        "--filter=blob:none",
+        "https://github.com/folke/lazy.nvim.git",
+        "--branch=stable",
+        lazypath,
+    })
 end
 
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-  {
-    "catppuccin/nvim",
-    name = "catppuccin",
-    config = function()
-      require("catppuccin").setup({
-        transparent_background = true,
-      })
-      vim.cmd.colorscheme "catppuccin"
-    end,
-  },
-  {
-    'nvim-lualine/lualine.nvim',
-    config = function()
-      require('lualine').setup({
-        options = {
-          theme = 'catppuccin',
-          icons_enabled = false,
-        },
-      })
-    end,
-  },
+    {
+        "catppuccin/nvim",
+        name = "catppuccin",
+        config = function()
+            require("catppuccin").setup({
+                transparent_background = true,
+            })
+            vim.cmd.colorscheme "catppuccin"
+        end,
+    },
+    {
+        'nvim-lualine/lualine.nvim',
+        config = function()
+            require('lualine').setup({
+                options = {
+                    theme = 'catppuccin',
+                    icons_enabled = false,
+                },
+            })
+        end,
+    },
 })

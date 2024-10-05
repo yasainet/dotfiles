@@ -13,7 +13,9 @@
     "background.appearance": "transparent"
   },
   "file_types": {
-    "Shell Script": [".env.*"]
+    "Shell Script": [
+      ".env.*"
+    ]
   },
   "ui_font_size": 14,
   "unstable.ui_density": "compact",
@@ -50,9 +52,11 @@
   "journal": {
     "hour_format": "hour24"
   },
+  "format_on_save": "on",
+  "formatter": "language_server",
   "code_actions_on_format": {
-    "source.fixAll.biome": true,
-    "source.organizeImports.biome": true
+    "source.organizeImports": true,
+    "source.fixAll.eslint": true
   },
   "terminal": {
     "copy_on_select": true,
