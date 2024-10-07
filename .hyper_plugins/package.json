@@ -9,6 +9,7 @@
   "dependencies": {
     "hypurr": "latest",
     "hyper-opacity": "latest",
-    "hypercwd": "latest"
+    "hypercwd": "latest",
+    "hyper-search": "latest"
   }
 }
