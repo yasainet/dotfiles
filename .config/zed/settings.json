@@ -38,6 +38,11 @@
   "tabs": {
     "git_status": true
   },
+  "gutter": {
+    "code_actions": false,
+    "runnables": false,
+    "folds": false
+  },
   "project_panel": {
     "auto_fold_dirs": false
   },

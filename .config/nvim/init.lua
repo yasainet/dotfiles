@@ -1,6 +1,7 @@
 vim.opt.encoding = "utf-8"
 vim.opt.langmenu = "en"
 vim.cmd("language en_US")
+vim.opt.number = true
 vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
 vim.opt.expandtab = true

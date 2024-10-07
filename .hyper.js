@@ -93,7 +93,7 @@ module.exports = {
     //
     // Cygwin
     // - Example: `C:\\cygwin64\\bin\\bash.exe`
-    shell: "",
+    shell: "/opt/homebrew/bin/fish",
     // for setting shell arguments (i.e. for using interactive shellArgs: `['-i']`)
     // by default `['--login']` will be used
     shellArgs: ["--login"],
@@ -143,7 +143,7 @@ module.exports = {
   //   `hyperpower`
   //   `@company/project`
   //   `project#1.0.1`
-  plugins: ["hypurr#latest", "hyper-opacity", "hypercwd"],
+  plugins: ["hypurr#latest", "hyper-opacity", "hypercwd", "hyper-tokyo-night"],
   // in development, you can create a directory under
   // `~/.hyper_plugins/local/` and include it here
   // to load it and avoid it being `npm install`ed
