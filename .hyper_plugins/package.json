@@ -9,7 +9,6 @@
   "dependencies": {
     "hypurr": "latest",
     "hyper-opacity": "latest",
-    "hypercwd": "latest",
-    "hyper-tokyo-night": "latest"
+    "hypercwd": "latest"
   }
 }
