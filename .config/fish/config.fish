@@ -75,3 +75,8 @@ fish_add_path /opt/homebrew/bin
 set -gx RUSTUP_HOME $HOME/.rustup
 set -gx CARGO_HOME $HOME/.cargo
 fish_add_path $CARGO_HOME/bin
+
+# Optional
+function oco
+    env NODE_NO_WARNINGS=1 command oco $argv
+end
