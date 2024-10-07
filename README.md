@@ -5,12 +5,7 @@
 `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 
-2. PATH:
-```sh
-echo 'eval "$(/opt/homebrew/bin/brew shellenv)"') >> /Users/yasainet/.zprofile
-eval "$(/opt/homebrew/bin/brew shellenv)"
-```
-3. 確認:
+2. 確認:
 ```sh
 brew --version
 ```
@@ -56,11 +51,13 @@ brew install openjdk
 sudo ln -sfn /opt/homebrew/opt/openjdk/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk.jdk
 ```
 
+
 # Font
 ```sh
 brew install --cask font-zed-mono-nerd-font
 brew install --cask font-blex-mono-nerd-font
 ```
+
 
 # dotfiles
 ```sh
@@ -84,9 +81,23 @@ ln -s ~/dotfiles/.hyper_plugins ~/
 brew install fish
 ```
 
+追加:
+```sh
+sudo vim /etc/shells
+```
+
+```sh
+/opt/homebrew/bin/fish
+```
+
 設定:
 ```sh
 ln -s ~/dotfiles/.config/fish ~/.config/
+```
+
+確認:
+```sh
+echo $SHELL
 ```
 
 ## fisher
@@ -104,6 +115,7 @@ brew install neovim
 ```sh
 ln -s ~/dotfiles/.config/nvim ~/.config/
 ```
+
 
 # Library
 ## Google Cloud SDK
