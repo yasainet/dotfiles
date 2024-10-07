@@ -194,6 +194,12 @@ npm install -g opencommit
 oco config set OCO_API_KEY=<your_api_key>
 ```
 
+optional:
+`/usr/local/bin` に PATH が通っていないときの対処方法
+```sh
+sudo ln -s ~/.nvm/versions/node/v20.17.0/bin/oco /usr/local/bin/oco
+```
+
 ## Stripe CLI
 ```sh
 brew install stripe-cli
