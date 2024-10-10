@@ -234,6 +234,11 @@ mas install 539883307
 mas install 967805235
 ```
 
+## Xcode
+```sh
+mas install 497799835
+```
+
 ## Github Desktop
 ```sh
 brew install --cask github
