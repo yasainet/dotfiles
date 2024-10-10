@@ -41,7 +41,7 @@
   "gutter": {
     "code_actions": false,
     "runnables": false,
-    "folds": false
+    // "folds": false
   },
   "project_panel": {
     "auto_fold_dirs": false
@@ -54,6 +54,7 @@
     "git_diff": false
   },
   "soft_wrap": "editor_width",
+  // "scroll_beyond_last_line": "off",
   "journal": {
     "hour_format": "hour24"
   },
@@ -79,6 +80,22 @@
       "enabled": false
     }
   },
+  // "languages": {
+  //   "JavaScript": {
+  //     "code_actions_on_format": {}
+  //   },
+  //   "TypeScript": {
+  //     "code_actions_on_format": {}
+  //   }
+  // },
+  // "prettier": {
+  //   "allowed": true,
+  //   "plugins": [],
+  //   "tabWidth": 2,
+  //   "jsxSingleQuote": true,
+  //   "singleQuote": true,
+  //   "semi": true
+  // },
   "show_inline_completions": true,
   "assistant": {
     "button": false,

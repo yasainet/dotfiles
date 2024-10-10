@@ -71,6 +71,7 @@ end
 
 # PATH
 fish_add_path /opt/homebrew/bin
+fish_add_path $HOME/.nvm/versions/node/v20.17.0/bin
 
 set -gx RUSTUP_HOME $HOME/.rustup
 set -gx CARGO_HOME $HOME/.cargo
