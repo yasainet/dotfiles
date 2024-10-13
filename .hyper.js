@@ -11,7 +11,8 @@ module.exports = {
     fontSize: 14,
     // font family with optional fallbacks
     // fontFamily: 'Menlo, "DejaVu Sans Mono", Consolas, "Lucida Console", monospace',
-    fontFacmily: "BlexMono Nerd Font Mono",
+    fontFamily: '"BlexMono Nerd Font Mono", Menlo, "DejaVu Sans Mono", Consolas, "Lucida Console", monospace',
+    // fontFamily: '"BlexMono Nerd Font Mono", monospace',
     // default font weight: 'normal' or 'bold'
     fontWeight: "normal",
     // font weight for bold characters: 'normal' or 'bold'

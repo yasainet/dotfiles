@@ -133,8 +133,8 @@
       "available_models": [
         {
           "provider": "openai",
-          "name": "gpt-4o-2024-08-06",
-          "display_name": "gpt-4o-2024-08-06",
+          "name": "chatgpt-4o-latest",
+          "display_name": "chatgpt-4o-latest",
           "max_tokens": 128000,
           "max_output_tokens": 16384
         }

@@ -51,19 +51,16 @@ brew install openjdk
 sudo ln -sfn /opt/homebrew/opt/openjdk/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk.jdk
 ```
 
-
 # Font
 ```sh
 brew install --cask font-zed-mono-nerd-font
 brew install --cask font-blex-mono-nerd-font
 ```
 
-
 # dotfiles
 ```sh
 git clone https://github.com/yasainet/dotfiles.git
 ```
-
 
 # Hyper
 ```sh
@@ -105,7 +102,6 @@ echo $SHELL
 curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher
 ```
 
-
 # Neovim
 ```sh
 brew install neovim
@@ -115,7 +111,6 @@ brew install neovim
 ```sh
 ln -s ~/dotfiles/.config/nvim ~/.config/
 ```
-
 
 # Library
 ## Google Cloud SDK
