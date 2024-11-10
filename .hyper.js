@@ -136,7 +136,7 @@ module.exports = {
     // theme
     catppuccinTheme: "Macchiato",
     // opacity
-    opacity: 0.9,
+    opacity: 0.85,
   },
   // a list of plugins to fetch and install from npm
   // format: [@org/]project[#version]
