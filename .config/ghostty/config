@@ -1,0 +1,14 @@
+# theme
+theme = "tokyonight"
+background-opacity = 0.85
+
+# font
+font-family = "BlexMono Nerd Font Mono"
+font-size = 14
+
+# cursor
+cursor-style = "block"
+
+# window
+window-padding-balance = true
+window-theme = "auto"

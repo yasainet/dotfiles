@@ -67,6 +67,23 @@ git clone https://github.com/yasainet/dotfiles.git
 brew install --cask ghostty
 ```
 
+設定:
+以下の設定ファイルとは別に、新規ファイルを作成する。
+```sh
+$HOME/Library/Application\ Support/com.mitchellh.ghostty/config
+```
+
+```sh
+mkdir -p ~/dotfiles/.config/ghostty
+
+ln -s ~/dotfiles/.config/ghostty ~/.config
+```
+
+設定ファイルを作成:
+```sh
+vim ~/dotfiles/.config./ghostty/config
+```
+
 # fish
 ```sh
 brew install fish
