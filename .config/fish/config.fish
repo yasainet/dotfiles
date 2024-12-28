@@ -81,3 +81,6 @@ fish_add_path $CARGO_HOME/bin
 function oco
     env NODE_NO_WARNINGS=1 command oco $argv
 end
+
+# Theme
+source ~/dotfiles/.config/fish/themes/tokyonight_night.fish

@@ -10,7 +10,7 @@
     "dark": "Tokyo Night"
   },
   "experimental.theme_overrides": {
-    // "background.appearance": "transparent",
+    "background.appearance": "transparent"
     // "border.variant": "#313244",
     // "scrollbar.thumb.border": "#1e1e2e"
   },
