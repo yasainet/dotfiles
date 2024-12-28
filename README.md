@@ -62,15 +62,9 @@ brew install --cask font-blex-mono-nerd-font
 git clone https://github.com/yasainet/dotfiles.git
 ```
 
-# Hyper
+# Ghostty
 ```sh
-brew install --cask hyper
-```
-
-設定:
-```sh
-ln -s ~/dotfiles/.hyper.js ~/
-ln -s ~/dotfiles/.hyper_plugins ~/
+brew install --cask ghostty
 ```
 
 # fish
@@ -123,24 +117,9 @@ brew install --cask google-cloud-sdk
 brew install --cask miniconda
 ```
 
-## Firebase
-```sh
-npm install firebase
-```
-
 ## Firebase CLI
 ```sh
 npm install -g firebase-tools
-```
-
-## Firebase Admin SDK
-```sh
-npm install firebase-admin
-```
-
-## Firebase Functions
-```sh
-npm install firebase-functions
 ```
 
 ## clasp
@@ -176,13 +155,23 @@ brew install bat
 設定:
 ```sh
 ln -s ~/dotfiles/.config/bat ~/.config/
+```
+
+```sh
+cd ~/dotfiles/.config/bat/themes
+
+curl -O https://raw.githubusercontent.com/folke/tokyonight.nvim/main/extras/sublime/tokyonight_night.tmTheme
+
 bat cache --build
+```
+
+```sh
 vim ~/.config/bat/config
 ```
 
-```
---theme="Catppuccin Macchiato"
+```txt
 --plain
+--theme="tokyonight_night"
 ```
 
 ### delta
@@ -341,6 +330,11 @@ brew install ollama
 ## DeepL
 ```sh
 brew install --cask deepl
+```
+
+## Obsidian
+```sh
+brew install --cask obsidian
 ```
 
 # Mac Setup

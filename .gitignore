@@ -2,7 +2,5 @@
 .DS_Store
 
 # Directory
-.hyper_plugins/node_modules/
-.hyper_plugins/cache/
 
 

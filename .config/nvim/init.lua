@@ -42,32 +42,32 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-    {
-        "catppuccin/nvim",
-        name = "catppuccin",
-        config = function()
-            require("catppuccin").setup({
-                transparent_background = true,
-            })
-            vim.cmd.colorscheme "catppuccin"
-        end,
-    },
-    {
+   {
+        "folke/tokyonight.nvim",
+        lazy = false,
+       priority = 1000,
+       opts = {
+         style = "night",
+       },
+     },
+     {
         'nvim-lualine/lualine.nvim',
         config = function()
             require('lualine').setup({
                 options = {
-                    theme = 'catppuccin',
-                    icons_enabled = false,
+                    theme = 'tokyonight',
+                    -- icons_enabled = false,
                 },
             })
         end,
     },
     {
-      "lukas-reineke/indent-blankline.nvim",
-      main = "ibl",
-      ---@module "ibl"
-      ---@type ibl.config
-      opts = {},
+        "lukas-reineke/indent-blankline.nvim",
+        main = "ibl",
+        ---@module "ibl"
+        ---@type ibl.config
+        opts = {},
     }
 })
+
+vim.cmd.colorscheme "tokyonight"

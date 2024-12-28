@@ -10,20 +10,19 @@
 [push]
 	default = current
 [core]
-    pager = delta
+  pager = delta
 [interactive]
-    diffFilter = delta --color-only
+  diffFilter = delta --color-only
 [include]
-	path = ~/delta/themes/catppuccin.gitconfig
+  path = ~/delta/themes/tokyonight_night.gitconfig
 [delta]
-	features = catppuccin-macchiato
-    navigate = true # use n and N to move between diff sections
-    line-numbers = true
-    side-by-side = true
+  navigate = true # use n and N to move between diff sections
+  line-numbers = true
+  side-by-side = true
 [merge]
-    conflictstyle = diff3
+  conflictstyle = diff3
 [diff]
-    colorMoved = default
+  colorMoved = default
 [filter "lfs"]
 	process = git-lfs filter-process
 	required = true
