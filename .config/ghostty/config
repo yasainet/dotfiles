@@ -1,14 +1,17 @@
 # theme
-theme = "tokyonight"
+theme = catppuccin-mocha
 background-opacity = 0.85
 
 # font
-font-family = "BlexMono Nerd Font Mono"
+font-family = BlexMono Nerd Font Mono
 font-size = 14
 
 # cursor
-cursor-style = "block"
+cursor-style = block
+cursor-style-blink = true
 
 # window
 window-padding-balance = true
-window-theme = "auto"
+window-save-state = always
+window-height = 9999
+window-width = 9999

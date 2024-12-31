@@ -6,13 +6,13 @@
   },
   "theme": {
     "mode": "dark",
-    "light": "Tokyo Night Light",
-    "dark": "Tokyo Night"
+    "light": "Catppuccin Latte - No Italics",
+    "dark": "Catppuccin Mocha - No Italics"
   },
   "experimental.theme_overrides": {
-    "background.appearance": "transparent"
-    // "border.variant": "#313244",
-    // "scrollbar.thumb.border": "#1e1e2e"
+    // "background.appearance": "transparent"
+    "border.variant": "#313244",
+    "scrollbar.thumb.border": "#1e1e2e"
   },
   // "file_types": {},
   "ui_font_size": 14,
@@ -92,8 +92,8 @@
     "version": "2",
     "default_width": 640,
     "default_model": {
-      "provider": "anthropic",
-      "model": "claude-3-5-sonnet-latest"
+      "provider": "copilot_chat",
+      "model": "claude-3-5-sonnet"
     }
   },
   "language_models": {
