@@ -9,6 +9,7 @@ font-size = 14
 # cursor
 cursor-style = block
 cursor-style-blink = true
+shell-integration-features = no-cursor
 
 # window
 window-padding-balance = true

@@ -69,6 +69,13 @@ function dps
   docker ps $argv
 end
 
+# Utils
+functions --copy cd standard_cd
+
+function cd
+  standard_cd $argv; and la
+end
+
 # PATH
 fish_add_path /opt/homebrew/bin
 fish_add_path $HOME/.nvm/versions/node/v20.17.0/bin
@@ -77,7 +84,7 @@ set -gx RUSTUP_HOME $HOME/.rustup
 set -gx CARGO_HOME $HOME/.cargo
 fish_add_path $CARGO_HOME/bin
 
-# Optional
+# OpenCommit
 function oco
     env NODE_NO_WARNINGS=1 command oco $argv
 end
