@@ -86,6 +86,9 @@
   "languages": {
     "Markdown": {
       "show_inline_completions": false
+    },
+    "Lua": {
+      "tab_size": 2
     }
   },
   "show_inline_completions": true,

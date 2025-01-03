@@ -8,7 +8,6 @@ vim.opt.expandtab = true
 vim.opt.autoindent = true
 vim.opt.wrap = true
 vim.opt.linebreak = true
-vim.opt.number = true
 vim.opt.hlsearch = true
 vim.opt.incsearch = true
 vim.opt.history = 10000
@@ -16,6 +15,7 @@ vim.opt.backup = false
 vim.opt.writebackup = false
 vim.opt.swapfile = false
 vim.opt.showmode = false
+vim.opt.laststatus = 3
 vim.opt.clipboard:append({ 'unnamedplus' })
 vim.opt.wildmenu = true
 vim.opt.wildmode = { "longest", "list", "full" }
@@ -31,49 +31,52 @@ vim.opt.guicursor = {
   "sm:block-blinkon100"
 }
 
-vim.api.nvim_set_keymap('v', '<D-c>', '"+y', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<D-v>', '"+p', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('i', '<D-v>', '<C-r>+', { noremap = true, silent = true })
+-- 保存: Cmd + S
+vim.keymap.set('n', '<D-s>', ':w<CR>', { noremap = true, silent = true })
+vim.keymap.set('i', '<D-s>', '<C-o>:w<CR>', { noremap = true, silent = true })
+
+-- システムクリップボードと連携: Cmd + C / Cmd + V
+vim.keymap.set('v', '<D-c>', '"+y', { noremap = true, silent = true })
+vim.keymap.set('n', '<D-v>', '"+p', { noremap = true, silent = true })
+vim.keymap.set('i', '<D-v>', '<C-r>+', { noremap = true, silent = true })
+
 
 -- lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
-    vim.fn.system({
-        "git",
-        "clone",
-        "--filter=blob:none",
-        "https://github.com/folke/lazy.nvim.git",
-        "--branch=stable",
-        lazypath,
-    })
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable",
+    lazypath,
+  })
 end
 
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-    {
-      "catppuccin/nvim",
-      name = "catppuccin",
-      priority = 1000
-    },
-    {
-        'nvim-lualine/lualine.nvim',
-        config = function()
-            require('lualine').setup({
-                options = {
-                    theme = 'catppuccin',
-                    -- icons_enabled = false,
-                },
-            })
-        end,
-    },
-    {
-        "lukas-reineke/indent-blankline.nvim",
-        main = "ibl",
-        ---@module "ibl"
-        ---@type ibl.config
-        opts = {},
-    }
+  {
+    "catppuccin/nvim",
+    name = "catppuccin",
+    priority = 1000
+  },
+  {
+    'nvim-lualine/lualine.nvim',
+    config = function()
+      require('lualine').setup({
+        options = {
+          theme = 'catppuccin',
+        },
+      })
+    end,
+  },
+  {
+    "lukas-reineke/indent-blankline.nvim", -- 微妙かも
+    main = "ibl",
+    opts = {},
+  },
 })
 
 require("catppuccin").setup({
