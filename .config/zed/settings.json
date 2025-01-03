@@ -10,9 +10,11 @@
     "dark": "Catppuccin Mocha - No Italics"
   },
   "experimental.theme_overrides": {
-    // "background.appearance": "transparent"
     "border.variant": "#313244",
     "scrollbar.thumb.border": "#1e1e2e"
+    // "background.appearance": "blurred",
+    // "background": "#00000000",
+    // "editor.background": "#00000000"
   },
   // "file_types": {},
   "ui_font_size": 14,
@@ -97,48 +99,14 @@
     }
   },
   "language_models": {
-    // "anthropic": {
-    //   "version": "1",
-    //   "low_speed_timeout_in_seconds": 600,
-    //   "available_models": [
-    //     {
-    //       "name": "claude-3-5-sonnet-latest",
-    //       "display_name": "claude-3-5-sonnet-latest",
-    //       "max_tokens": 200000,
-    //       "tool_override": "",
-    //       "cache_configuration": {
-    //         "max_cache_anchors": 10,
-    //         "should_speculate": false,
-    //         "min_total_token": 10000
-    //       },
-    //       "max_output_tokens": 8192,
-    //       "default_temperature": null
-    //     }
-    //   ]
-    // },
-    "openai": {
+    "anthropic": {
       "version": "1",
-      "available_models": [
-        {
-          "provider": "openai",
-          "name": "chatgpt-4o-latest",
-          "display_name": "chatgpt-4o-latest",
-          "max_tokens": 128000,
-          "max_output_tokens": 16384
-        }
-      ]
     },
-    "ollama": {
-      "low_speed_timeout_in_seconds": 600,
-      "available_models": [
-        {
-          "provider": "ollama",
-          "name": "qwen2.5-coder",
-          "display_name": "qwen2.5-coder-128k",
-          "max_tokens": 128000,
-          "max_output_tokens": 8192
-        }
-      ]
-    }
+    "openai": {
+      "version": "1"
+    },
+    "google": {},
+    "copilot_chat": {},
+    "ollama": {}
   }
 }

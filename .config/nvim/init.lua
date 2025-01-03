@@ -22,6 +22,15 @@ vim.opt.wildmode = { "longest", "list", "full" }
 vim.opt.mouse = "a"
 vim.opt.mousemodel = 'popup'
 
+vim.opt.guicursor = {
+  "n-v-c:block-blinkon100",
+  "i-ci:ver25-blinkon100",
+  "r-cr:hor20-blinkon100",
+  "o:hor50",
+  "a:blinkwait700-blinkoff400-blinkon250",
+  "sm:block-blinkon100"
+}
+
 vim.api.nvim_set_keymap('v', '<D-c>', '"+y', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<D-v>', '"+p', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('i', '<D-v>', '<C-r>+', { noremap = true, silent = true })
@@ -65,6 +74,10 @@ require("lazy").setup({
         ---@type ibl.config
         opts = {},
     }
+})
+
+require("catppuccin").setup({
+  transparent_background = true
 })
 
 vim.cmd.colorscheme "catppuccin"

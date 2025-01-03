@@ -1,18 +1,27 @@
+# shell
+shell-integration = fish
+shell-integration-features = no-cursor
+
 # theme
-theme = catppuccin-mocha
+theme = dark:catppuccin-mocha,light:catppuccin-latte
 background-opacity = 0.85
+
+# macos-icon = custom-style
+# macos-icon-frame = aluminum
+# macos-icon-ghost-color = black
+# macos-icon-screen-color = black
 
 # font
 font-family = BlexMono Nerd Font Mono
 font-size = 14
 
-# cursor
+# cursor & mouse
 cursor-style = block
 cursor-style-blink = true
-shell-integration-features = no-cursor
+# mouse-hide-while-typing = true
 
 # window
 window-padding-balance = true
 window-save-state = always
-window-height = 9999
-window-width = 9999
+# fullscreen = true
+# macos-non-native-fullscreen = visible-menu
