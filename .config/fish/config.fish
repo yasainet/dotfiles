@@ -80,7 +80,7 @@ end
 fish_add_path /opt/homebrew/bin
 fish_add_path $CARGO_HOME/bin
 
-# NVM
+# nvm
 if test -d ~/.nvm
     set -gx nvm_default_version lts
 end

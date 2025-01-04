@@ -38,6 +38,26 @@ vim.keymap.set('v', '<D-c>', '"+y', { noremap = true, silent = true })
 vim.keymap.set('n', '<D-v>', '"+p', { noremap = true, silent = true })
 vim.keymap.set('i', '<D-v>', '<C-r>+', { noremap = true, silent = true })
 
+-- leader
+vim.g.mapleader = " "
+
+-- NvimTree
+vim.keymap.set('n', '<leader>e', ':NvimTreeToggle<CR>', { noremap = true, silent = true }) 
+vim.keymap.set('n', '<leader>tf', ':NvimTreeFocus<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>tb', ':NvimTreeFocus<CR><C-w>p', { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>tr', ':NvimTreeRefresh<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>tf', ':NvimTreeFindFile<CR>', { noremap = true, silent = true })
+
+-- ToggleTerm
+function _G.set_terminal_keymaps()
+  local opts = { buffer = 0 }
+  vim.keymap.set('t', '<esc>', [[<C-\><C-n>]], opts)
+  vim.keymap.set('t', 'jk', [[<C-\><C-n>]], opts)
+  vim.keymap.set('t', '<C-h>', [[<Cmd>wincmd h<CR>]], opts)
+  vim.keymap.set('t', '<C-j>', [[<Cmd>wincmd j<CR>]], opts)
+  vim.keymap.set('t', '<C-k>', [[<Cmd>wincmd k<CR>]], opts)
+  vim.keymap.set('t', '<C-l>', [[<Cmd>wincmd l<CR>]], opts)
+end
 
 -- lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
@@ -90,7 +110,65 @@ require("lazy").setup({
     config = function()
       require("nvim-tree").setup {}
     end,
-  }
+  },
+  {
+    "yetone/avante.nvim",
+    event = "VeryLazy",
+    lazy = false,
+    version = false,
+    opts = {
+      provider = "claude",
+      auto_suggestions_provider = "claude",
+      claude = {
+        endpoint = "https://api.anthropic.com",
+        model = "claude-3-5-sonnet-latest",
+        temperature = 0,
+        max_tokens = 8192,
+      },
+      behaviour = {
+        auto_suggestions = false,
+        auto_set_highlight_group = true,
+        auto_set_keymaps = true,
+        auto_apply_diff_after_generation = false,
+        support_paste_from_clipboard = false,
+        minimize_diff = true,
+      },
+      windows = {
+        position = "right",
+        wrap = true,
+        width = 30,
+      },
+    },
+    build = "make",
+    dependencies = {
+      "stevearc/dressing.nvim",
+      "nvim-lua/plenary.nvim",
+      "MunifTanjim/nui.nvim",
+      "nvim-tree/nvim-web-devicons",
+      "hrsh7th/nvim-cmp",
+      {
+        "HakonHarnes/img-clip.nvim",
+        event = "VeryLazy",
+        opts = {
+          default = {
+            embed_image_as_base64 = false,
+            prompt_for_file_name = false,
+            drag_and_drop = {
+              insert_mode = true,
+            },
+            use_absolute_path = true,
+          },
+        },
+      },
+      {
+        'MeanderingProgrammer/render-markdown.nvim',
+        opts = {
+          file_types = { "markdown", "Avante" },
+        },
+        ft = { "markdown", "Avante" },
+      },
+    },
+  },
 })
 
 require("catppuccin").setup({
@@ -104,8 +182,14 @@ require("ibl").setup({
 })
 
 require("toggleterm").setup({
-  open_mapping = [[<C-t>]],
+  open_mapping = [[<C-\>]],
   direction = "float",
+  float_opts = {
+    border = "curved"
+  }
 })
+
+require('avante_lib').load()
+require('avante').setup()
 
 vim.cmd.colorscheme "catppuccin"
