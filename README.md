@@ -40,8 +40,12 @@ brew install node
 ## nvm（Node Version Manager）
 ```sh
 brew install nvm
+```
 
-nvm install --lts # option
+設定:
+```sh
+nvm install --lts
+nvm use lts
 ```
 
 ## Java
@@ -67,11 +71,6 @@ brew install --cask ghostty
 ```
 
 設定:
-以下の設定ファイルとは別に、新規ファイルを作成する。
-```sh
-$HOME/Library/Application\ Support/com.mitchellh.ghostty/config
-```
-
 ```sh
 mkdir -p ~/dotfiles/.config/ghostty
 
@@ -204,12 +203,6 @@ ln -s ~/dotfiles/delta ~/
 ```sh
 npm install -g opencommit
 oco config set OCO_API_KEY=<your_api_key>
-```
-
-optional:
-`/usr/local/bin` に PATH が通っていないときの対処方法
-```sh
-sudo ln -s ~/.nvm/versions/node/v20.17.0/bin/oco /usr/local/bin/oco
 ```
 
 ## Stripe CLI
