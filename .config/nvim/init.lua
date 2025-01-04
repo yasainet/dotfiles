@@ -34,29 +34,29 @@ vim.opt.guicursor = {
 }
 
 -- cmd
-vim.keymap.set('v', '<D-c>', '"+y', { noremap = true, silent = true })
-vim.keymap.set('n', '<D-v>', '"+p', { noremap = true, silent = true })
-vim.keymap.set('i', '<D-v>', '<C-r>+', { noremap = true, silent = true })
+vim.keymap.set("v", "<D-c>", "\"+y", { noremap = true, silent = true })
+vim.keymap.set("n", "<D-v>", "\"+p", { noremap = true, silent = true })
+vim.keymap.set("i", "<D-v>", "<C-r>+", { noremap = true, silent = true })
 
 -- leader
 vim.g.mapleader = " "
 
 -- NvimTree
-vim.keymap.set('n', '<leader>e', ':NvimTreeToggle<CR>', { noremap = true, silent = true }) 
-vim.keymap.set('n', '<leader>tf', ':NvimTreeFocus<CR>', { noremap = true, silent = true })
-vim.keymap.set('n', '<leader>tb', ':NvimTreeFocus<CR><C-w>p', { noremap = true, silent = true })
-vim.keymap.set('n', '<leader>tr', ':NvimTreeRefresh<CR>', { noremap = true, silent = true })
-vim.keymap.set('n', '<leader>tf', ':NvimTreeFindFile<CR>', { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>tf", ":NvimTreeFocus<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>tb", ":NvimTreeFocus<CR><C-w>p", { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>tr", ":NvimTreeRefresh<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>tf", ":NvimTreeFindFile<CR>", { noremap = true, silent = true })
 
 -- ToggleTerm
 function _G.set_terminal_keymaps()
   local opts = { buffer = 0 }
-  vim.keymap.set('t', '<esc>', [[<C-\><C-n>]], opts)
-  vim.keymap.set('t', 'jk', [[<C-\><C-n>]], opts)
-  vim.keymap.set('t', '<C-h>', [[<Cmd>wincmd h<CR>]], opts)
-  vim.keymap.set('t', '<C-j>', [[<Cmd>wincmd j<CR>]], opts)
-  vim.keymap.set('t', '<C-k>', [[<Cmd>wincmd k<CR>]], opts)
-  vim.keymap.set('t', '<C-l>', [[<Cmd>wincmd l<CR>]], opts)
+  vim.keymap.set("t", "<esc>", [[<C-\><C-n>]], opts)
+  vim.keymap.set("t", "jk", [[<C-\><C-n>]], opts)
+  vim.keymap.set("t", "<C-h>", [[<Cmd>wincmd h<CR>]], opts)
+  vim.keymap.set("t", "<C-j>", [[<Cmd>wincmd j<CR>]], opts)
+  vim.keymap.set("t", "<C-k>", [[<Cmd>wincmd k<CR>]], opts)
+  vim.keymap.set("t", "<C-l>", [[<Cmd>wincmd l<CR>]], opts)
 end
 
 -- lazy.nvim
@@ -81,14 +81,8 @@ require("lazy").setup({
     priority = 1000
   },
   {
-    'nvim-lualine/lualine.nvim',
-    config = function()
-      require('lualine').setup({
-        options = {
-          theme = 'catppuccin',
-        },
-      })
-    end,
+    "nvim-lualine/lualine.nvim",
+    dependencies = { "nvim-tree/nvim-web-devicons" }
   },
   {
     "lukas-reineke/indent-blankline.nvim",
@@ -96,7 +90,7 @@ require("lazy").setup({
     opts = {},
   },
   {
-    'akinsho/toggleterm.nvim',
+    "akinsho/toggleterm.nvim",
     version = "*",
     config = true
   },
@@ -106,10 +100,7 @@ require("lazy").setup({
     lazy = false,
     dependencies = {
       "nvim-tree/nvim-web-devicons",
-    },
-    config = function()
-      require("nvim-tree").setup {}
-    end,
+    }
   },
   {
     "yetone/avante.nvim",
@@ -161,7 +152,7 @@ require("lazy").setup({
         },
       },
       {
-        'MeanderingProgrammer/render-markdown.nvim',
+        "MeanderingProgrammer/render-markdown.nvim",
         opts = {
           file_types = { "markdown", "Avante" },
         },
@@ -173,6 +164,12 @@ require("lazy").setup({
 
 require("catppuccin").setup({
   transparent_background = true
+})
+
+require("lualine").setup({
+  options = {
+    theme = "catppuccin",
+  },
 })
 
 require("ibl").setup({
@@ -189,7 +186,9 @@ require("toggleterm").setup({
   }
 })
 
-require('avante_lib').load()
-require('avante').setup()
+require("nvim-tree").setup {}
+
+require("avante_lib").load()
+require("avante").setup()
 
 vim.cmd.colorscheme "catppuccin"
