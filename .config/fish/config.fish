@@ -95,5 +95,7 @@ set -gx CARGO_HOME $HOME/.cargo
 starship init fish | source
 set -gx STARSHIP_CONFIG ~/dotfiles/.config/fish/starship.toml
 
-# OpenCommits
-set -gx NODE_NO_WARNINGS 1
+# OpenCommit
+function oco
+    NODE_NO_WARNINGS=1 command oco $argv
+end
