@@ -93,7 +93,7 @@ set -gx CARGO_HOME $HOME/.cargo
 
 # Starship
 starship init fish | source
-set -gx STARSHIP_CONFIG ~/dotfiles/.config/fish/starship.toml
+set -gx STARSHIP_CONFIG ~/.config/fish/starship.toml
 
 # OpenCommit
 function oco
