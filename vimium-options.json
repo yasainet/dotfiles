@@ -1,0 +1,39 @@
+{
+  "keyMappings": "unmapAll\nmap j scrollDown\nmap k scrollUp\nmap gg scrollToTop\nmap G scrollToBottom",
+  "scrollStepSize": 200,
+  "settingsVersion": "2.1.2",
+  "exclusionRules": [
+    {
+      "passKeys": "",
+      "pattern": "https?://mail.google.com/*"
+    },
+    {
+      "passKeys": "",
+      "pattern": "https?://www.google.com/*"
+    },
+    {
+      "passKeys": "",
+      "pattern": "https?://www.google.co.jp/*"
+    },
+    {
+      "passKeys": "",
+      "pattern": "https?://www.youtube.com/watch*"
+    },
+    {
+      "passKeys": "",
+      "pattern": "https?://b.hatena.ne.jp/hotentry*"
+    },
+    {
+      "passKeys": "",
+      "pattern": "https?://x.com/*"
+    },
+    {
+      "passKeys": "",
+      "pattern": "https?://sushida.net/*"
+    },
+    {
+      "passKeys": "",
+      "pattern": "https?://www.e-typing.ne.jp/*"
+    }
+  ]
+}

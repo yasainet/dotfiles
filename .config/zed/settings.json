@@ -1,0 +1,109 @@
+{
+  "vim_mode": true,
+  "vim": {
+    "use_system_clipboard": "always",
+    "use_multiline_find": true
+  },
+  "theme": {
+    "mode": "dark",
+    "light": "Catppuccin Latte - No Italics",
+    "dark": "Catppuccin Mocha - No Italics"
+  },
+  "experimental.theme_overrides": {
+    "border.variant": "#313244",
+    "scrollbar.thumb.border": "#1e1e2e",
+    "background.appearance": "transparent"
+  },
+  "ui_font_size": 14,
+  "tab_size": 2,
+  "unstable.ui_density": "compact",
+  "show_user_picture": false,
+  "outline_panel": {
+    "button": false
+  },
+  "chat_panel": {
+    "button": false
+  },
+  "collaboration_panel": {
+    "button": false
+  },
+  "notification_panel": {
+    "button": false
+  },
+  "toolbar": {
+    "quick_actions": false,
+    "breadcrumbs": false
+  },
+  "tab_bar": {
+    "show_nav_history_buttons": false
+  },
+  "tabs": {
+    "git_status": true
+  },
+  "gutter": {
+    "code_actions": false,
+    "runnables": false
+    // "folds": false
+  },
+  "project_panel": {
+    "auto_fold_dirs": false
+  },
+  "buffer_font_size": 14,
+  "current_line_highlight": "none",
+  "scrollbar": {
+    "show": "auto",
+    "cursors": false,
+    "git_diff": false
+  },
+  "soft_wrap": "editor_width",
+  "scroll_beyond_last_line": "vertical_scroll_margin",
+  "vertical_scroll_margin": 5,
+  "journal": {
+    "hour_format": "hour24"
+  },
+  "format_on_save": "on",
+  "formatter": "language_server",
+  "code_actions_on_format": {
+    "source.organizeImports": true,
+    "source.fixAll.eslint": true
+  },
+  "terminal": {
+    "copy_on_select": true,
+    "blinking": "on",
+    "button": false,
+    "toolbar": {
+      "title": false,
+      "breadcrumbs": false
+    }
+  },
+  "git": {
+    "inline_blame": {
+      "enabled": false
+    }
+  },
+  "languages": {
+    "Markdown": {
+      "show_inline_completions": false
+    },
+    "Lua": {}
+  },
+  "language_models": {
+    "anthropic": {
+      "version": "1"
+    },
+    "openai": {
+      "version": "1"
+    },
+    "google": {},
+    "copilot_chat": {},
+    "ollama": {}
+  },
+  "show_inline_completions": true,
+  "assistant": {
+    "default_model": {
+      "provider": "anthropic",
+      "model": "claude-3-5-sonnet-latest"
+    },
+    "version": "2"
+  }
+}

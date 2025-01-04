@@ -1,0 +1,7 @@
+# File
+.DS_Store
+
+# Directory
+.config/zed/conversations/**
+.config/zed/embeddings/**
+.config/zed/prompts/**
