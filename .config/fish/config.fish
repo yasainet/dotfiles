@@ -70,7 +70,9 @@ function dps
 end
 
 # Utils
-functions --copy cd standard_cd
+if not functions -q standard_cd
+    functions --copy cd standard_cd
+end
 
 function cd
   standard_cd $argv; and la
@@ -79,6 +81,7 @@ end
 # PATH
 fish_add_path /opt/homebrew/bin
 fish_add_path $CARGO_HOME/bin
+fish_add_path (npm prefix -g)/bin
 
 # nvm
 if test -d ~/.nvm
@@ -95,7 +98,16 @@ set -gx CARGO_HOME $HOME/.cargo
 starship init fish | source
 set -gx STARSHIP_CONFIG ~/.config/fish/starship.toml
 
-# OpenCommit
+# Node.js
+# @note Disable warnings
+function run_node_command
+    NODE_NO_WARNINGS=1 command $argv
+end
+
+function firebase
+    run_node_command firebase $argv
+end
+
 function oco
-    NODE_NO_WARNINGS=1 command oco $argv
+    run_node_command oco $argv
 end

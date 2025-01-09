@@ -127,6 +127,11 @@ ln -s ~/dotfiles/.config/nvim ~/.config/
 brew install --cask google-cloud-sdk
 ```
 
+## CloudFlare
+```sh
+brew install cloudflared
+```
+
 ## Miniconda
 ```sh
 brew install --cask miniconda

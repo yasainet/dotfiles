@@ -33,6 +33,10 @@ vim.opt.guicursor = {
   "sm:block-blinkon100"
 }
 
+-- alias
+vim.api.nvim_create_user_command('W', 'w', {})
+vim.api.nvim_create_user_command('Wq', 'wq', {})
+
 -- cmd
 vim.keymap.set("v", "<D-c>", "\"+y", { noremap = true, silent = true })
 vim.keymap.set("n", "<D-v>", "\"+p", { noremap = true, silent = true })
@@ -78,21 +82,43 @@ require("lazy").setup({
   {
     "catppuccin/nvim",
     name = "catppuccin",
-    priority = 1000
+    priority = 1000,
+    opts = {
+      transparent_background = true
+    },
+    config = function(_, opts)
+      require("catppuccin").setup(opts)
+      vim.cmd.colorscheme "catppuccin"
+    end
   },
   {
     "nvim-lualine/lualine.nvim",
-    dependencies = { "nvim-tree/nvim-web-devicons" }
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    opts = {
+      options = {
+        theme = "catppuccin",
+      },
+    },
   },
   {
     "lukas-reineke/indent-blankline.nvim",
     main = "ibl",
-    opts = {},
+    opts = {
+      indent = {
+        char = "▏"
+      }
+    },
   },
   {
     "akinsho/toggleterm.nvim",
     version = "*",
-    config = true
+    opts = {
+      open_mapping = [[<C-\>]],
+      direction = "float",
+      float_opts = {
+        border = "curved"
+      }
+    },
   },
   {
     "nvim-tree/nvim-tree.lua",
@@ -100,7 +126,34 @@ require("lazy").setup({
     lazy = false,
     dependencies = {
       "nvim-tree/nvim-web-devicons",
-    }
+    },
+    opts = {}
+  },
+  {
+    "nvim-treesitter/nvim-treesitter",
+    build = ":TSUpdate",
+    config = function()
+      require("nvim-treesitter.configs").setup({
+        ensure_installed = {
+          "lua",
+          "vim",
+          "vimdoc",
+          "javascript",
+          "typescript",
+          "html",
+          "css",
+          "json",
+          "markdown",
+          "markdown_inline",
+        },
+        highlight = {
+          enable = true,
+          additional_vim_regex_highlighting = false,
+        },
+        indent = { enable = true },
+        auto_install = true,
+      })
+    end,
   },
   {
     "yetone/avante.nvim",
@@ -159,36 +212,9 @@ require("lazy").setup({
         ft = { "markdown", "Avante" },
       },
     },
+    config = function(_, opts)
+      require("avante_lib").load()
+      require("avante").setup(opts)
+    end
   },
 })
-
-require("catppuccin").setup({
-  transparent_background = true
-})
-
-require("lualine").setup({
-  options = {
-    theme = "catppuccin",
-  },
-})
-
-require("ibl").setup({
-  indent = {
-    char = "▏"
-  }
-})
-
-require("toggleterm").setup({
-  open_mapping = [[<C-\>]],
-  direction = "float",
-  float_opts = {
-    border = "curved"
-  }
-})
-
-require("nvim-tree").setup {}
-
-require("avante_lib").load()
-require("avante").setup()
-
-vim.cmd.colorscheme "catppuccin"

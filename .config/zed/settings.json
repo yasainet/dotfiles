@@ -16,7 +16,7 @@
   },
   "ui_font_size": 14,
   "tab_size": 2,
-  "unstable.ui_density": "compact",
+  "unstable.ui_density": "default",
   "show_user_picture": false,
   "outline_panel": {
     "button": false
@@ -96,7 +96,16 @@
     },
     "google": {},
     "copilot_chat": {},
-    "ollama": {}
+    "ollama": {
+      "api_url": "http://localhost:11434",
+      "available_models": [
+        {
+          "name": "qwen2.5-coder",
+          "display_name": "qwen2.5-coder",
+          "max_tokens": 32768
+        }
+      ]
+    }
   },
   "show_inline_completions": true,
   "assistant": {

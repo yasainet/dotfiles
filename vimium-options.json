@@ -1,5 +1,5 @@
 {
-  "keyMappings": "unmapAll\nmap j scrollDown\nmap k scrollUp\nmap gg scrollToTop\nmap G scrollToBottom",
+  "keyMappings": "unmapAll\nmap j scrollDown\nmap k scrollUp\nmap gg scrollToTop\nmap G scrollToBottom\nmap <c-d> scrollFullPageDown\nmap <c-u> scrollFullPageUp",
   "scrollStepSize": 200,
   "settingsVersion": "2.1.2",
   "exclusionRules": [
