@@ -142,6 +142,11 @@ brew install --cask miniconda
 npm install -g firebase-tools
 ```
 
+## Vercel
+```sh
+npm i -g vercel
+```
+
 ## clasp
 ```sh
 npm install -g @google/clasp
@@ -180,7 +185,7 @@ ln -s ~/dotfiles/.config/bat ~/.config/
 ```sh
 cd ~/dotfiles/.config/bat/themes
 
-curl -O https://raw.githubusercontent.com/folke/tokyonight.nvim/main/extras/sublime/tokyonight_night.tmTheme
+wget -P "$(bat --config-dir)/themes" https://github.com/catppuccin/bat/raw/main/themes/Catppuccin%20Mocha.tmTheme
 
 bat cache --build
 ```
@@ -189,9 +194,9 @@ bat cache --build
 vim ~/.config/bat/config
 ```
 
-```txt
+```config
 --plain
---theme="tokyonight_night"
+--theme="Catppuccin Mocha"
 ```
 
 ### delta
@@ -235,11 +240,6 @@ mas install 967805235
 ## Xcode
 ```sh
 mas install 497799835
-```
-
-## Github Desktop
-```sh
-brew install --cask github
 ```
 
 ## Google Chrome
@@ -292,8 +292,7 @@ brew install --cask zed
 
 設定:
 ```sh
-ln -s ~/dotfiles/.config/zed/keymap.json ~/.config/zed
-ln -s ~/dotfiles/.config/zed/settings.json ~/.config/zed
+ln -s ~/dotfiles/.config/zed/ ~/.config/
 ```
 
 ## Slack
@@ -344,11 +343,6 @@ brew install ollama
 ## DeepL
 ```sh
 brew install --cask deepl
-```
-
-## Obsidian
-```sh
-brew install --cask obsidian
 ```
 
 # Mac Setup

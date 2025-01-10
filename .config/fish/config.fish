@@ -31,10 +31,6 @@ function mv
   command mv -i $argv
 end
 
-function cp
-  command cp -i $argv
-end
-
 # Git
 function ga
   git add $argv
@@ -80,8 +76,8 @@ end
 
 # PATH
 fish_add_path /opt/homebrew/bin
-fish_add_path $CARGO_HOME/bin
 fish_add_path (npm prefix -g)/bin
+fish_add_path $CARGO_HOME/bin
 
 # nvm
 if test -d ~/.nvm
@@ -100,14 +96,4 @@ set -gx STARSHIP_CONFIG ~/.config/fish/starship.toml
 
 # Node.js
 # @note Disable warnings
-function run_node_command
-    NODE_NO_WARNINGS=1 command $argv
-end
-
-function firebase
-    run_node_command firebase $argv
-end
-
-function oco
-    run_node_command oco $argv
-end
+set -gx NODE_NO_WARNINGS 1
