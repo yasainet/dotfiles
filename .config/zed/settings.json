@@ -22,7 +22,7 @@
     "button": false
   },
   "chat_panel": {
-    "button": false
+    "button": "never"
   },
   "collaboration_panel": {
     "button": false
@@ -55,7 +55,7 @@
     "cursors": false,
     "git_diff": false
   },
-  "soft_wrap": "editor_width",
+  "soft_wrap": "none",
   "scroll_beyond_last_line": "vertical_scroll_margin",
   "vertical_scroll_margin": 5,
   "journal": {
@@ -100,7 +100,7 @@
       "api_url": "http://localhost:11434",
       "available_models": [
         {
-          "name": "qwen2.5-coder",
+          "name": "qwen2.5-coder:32b",
           "display_name": "qwen2.5-coder",
           "max_tokens": 32768
         }

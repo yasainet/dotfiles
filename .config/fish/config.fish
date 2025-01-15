@@ -94,6 +94,11 @@ set -gx CARGO_HOME $HOME/.cargo
 starship init fish | source
 set -gx STARSHIP_CONFIG ~/.config/fish/starship.toml
 
+# avante
+if test -f ~/.config/fish/secrets.fish
+    source ~/.config/fish/secrets.fish
+end
+
 # Node.js
-# @note Disable warnings
+# NOTE: Disable warnings
 set -gx NODE_NO_WARNINGS 1

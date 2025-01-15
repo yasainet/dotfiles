@@ -132,6 +132,11 @@ brew install --cask google-cloud-sdk
 brew install cloudflared
 ```
 
+## ngrok
+```sh
+brew install --cask ngrok
+```
+
 ## Miniconda
 ```sh
 brew install --cask miniconda
@@ -318,6 +323,11 @@ brew install --cask tor-browser
 ## Transmission
 ```sh
 brew install --cask transmission
+```
+
+## Telegram
+```sh
+brew install --cask telegram
 ```
 
 ## KeyboardCleanTool

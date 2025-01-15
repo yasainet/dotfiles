@@ -128,6 +128,11 @@ require("lazy").setup({
       "nvim-tree/nvim-web-devicons",
     },
     opts = {}
+    -- Keybind
+    -- <leader>e: 表示/非表示
+    -- <leader>tf: ファイルツリーにフォーカス
+    -- <leader>tb: エディタにフォーカス
+    -- <leadert>tr: ファイルツリーを更新
   },
   {
     "nvim-treesitter/nvim-treesitter",
@@ -168,6 +173,31 @@ require("lazy").setup({
         model = "claude-3-5-sonnet-latest",
         temperature = 0,
         max_tokens = 8192,
+        -- vendors = {
+        --   ollama = {
+        --     ['local'] = true,
+        --     endpoint = "http://127.0.0.1:11434/v1",
+        --     model = "qwen2.5-coder:32b",
+        --     parse_curl_args = function(opts, code_opts)
+        --       return {
+        --         url = opts.endpoint .. "/chat/completions",
+        --         headers = {
+        --           ["Accept"] = "application/json",
+        --           ["Content-Type"] = "application/json",
+        --         },
+        --         body = {
+        --           model = opts.model,
+        --           messages = require("avante.providers").copilot.parse_message(code_opts),
+        --           max_tokens = 2048,
+        --           stream = true,
+        --         },
+        --       }
+        --     end,
+        --     parse_response_data = function(data_stream, event_state, opts)
+        --       require("avante.providers").openai.parse_response(data_stream, event_state, opts)
+        --     end,
+        --   }
+        -- }
       },
       behaviour = {
         auto_suggestions = false,
@@ -216,5 +246,30 @@ require("lazy").setup({
       require("avante_lib").load()
       require("avante").setup(opts)
     end
+  },
+  {
+    "lewis6991/gitsigns.nvim",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    config = function()
+      require("gitsigns").setup({
+        signs = {
+          add          = { text = '┃' },
+          change       = { text = '┃' },
+          delete       = { text = '_' },
+          topdelete    = { text = '‾' },
+          changedelete = { text = '~' },
+          untracked    = { text = '┆' },
+        },
+        numhl = false,
+        linehl = false,
+        watch_gitdir = {
+          interval = 1000,
+          follow_files = true,
+        },
+        sign_priority = 6,
+        update_debounce = 100,
+        status_formatter = nil, -- Use default
+      })
+    end,
   },
 })
