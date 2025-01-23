@@ -51,20 +51,31 @@ require("lazy").setup({
     version = "*",
     opts = {
       open_mapping = [[<C-\>]],
-      direction = "float",
+      direction = 'float',
       float_opts = {
-        border = "curved"
-      }
+        border = 'curved',
+      },
+
+      start_in_insert = true,
+      insert_mappings = true,
+      terminal_mappings = true,
+      persist_size = true,
+      persist_mode = true,
+      close_on_exit = true,
+      auto_scroll = true,
     },
-    config = function()
+
+    config = function(_, opts)
+      require("toggleterm").setup(opts)
+
       function _G.set_terminal_keymaps()
-        local opts = { buffer = 0 }
-        vim.keymap.set("t", "<esc>", [[<C-\><C-n>]], opts)
-        vim.keymap.set("t", "jk", [[<C-\><C-n>]], opts)
-        vim.keymap.set("t", "<C-h>", [[<Cmd>wincmd h<CR>]], opts)
-        vim.keymap.set("t", "<C-j>", [[<Cmd>wincmd j<CR>]], opts)
-        vim.keymap.set("t", "<C-k>", [[<Cmd>wincmd k<CR>]], opts)
-        vim.keymap.set("t", "<C-l>", [[<Cmd>wincmd l<CR>]], opts)
+        local keymap_opts = { buffer = 0 }
+        vim.keymap.set('t', '<esc>', [[<C-\><C-n>]], keymap_opts)
+        vim.keymap.set('t', 'jk', [[<C-\><C-n>]], keymap_opts)
+        vim.keymap.set('t', '<C-h>', [[<Cmd>wincmd h<CR>]], keymap_opts)
+        vim.keymap.set('t', '<C-j>', [[<Cmd>wincmd j<CR>]], keymap_opts)
+        vim.keymap.set('t', '<C-k>', [[<Cmd>wincmd k<CR>]], keymap_opts)
+        vim.keymap.set('t', '<C-l>', [[<Cmd>wincmd l<CR>]], keymap_opts)
       end
 
       vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')
@@ -133,8 +144,91 @@ require("lazy").setup({
         },
         sign_priority = 6,
         update_debounce = 100,
-        status_formatter = nil, -- Use default
+        status_formatter = nil,
       })
     end,
   },
+  {
+    "CopilotC-Nvim/CopilotChat.nvim",
+    branch = "main",
+    dependencies = {
+      { "github/copilot.vim" },
+      { "nvim-lua/plenary.nvim" },
+    },
+    opts = {
+      debug = false,
+      show_help = true,
+      show_folds = true,
+      auto_follow_cursor = true,
+      auto_insert_mode = false,
+      clear_chat_on_new_prompt = false,
+
+      window = {
+        layout = "float",
+        relative = "editor",
+        border = "single",
+        width = 0.8,
+        height = 0.8,
+        row = nil,
+        col = nil,
+        title = "Copilot Chat",
+      },
+
+      mappings = {
+        close = {
+          normal = "q",
+          insert = "<C-c>",
+        },
+        reset = {
+          normal = "<C-l>",
+          insert = "<C-l>",
+        },
+        submit_prompt = {
+          normal = "<CR>",
+          insert = "<C-s>",
+        },
+        accept_diff = {
+          normal = "<C-y>",
+          insert = "<C-y>",
+        },
+      },
+    },
+
+    keys = {
+      {
+        "<leader>cc",
+        function()
+          local input = vim.fn.input("Chat: ")
+          if input ~= "" then
+            require("CopilotChat").ask(input, { selection = require("CopilotChat.select").buffer })
+          end
+        end,
+        desc = "CopilotChat - Quick chat",
+      },
+
+      {
+        "<leader>ct",
+        function()
+          require("CopilotChat").toggle()
+        end,
+        desc = "CopilotChat - Toggle chat window",
+      },
+
+      {
+        "<leader>ce",
+        function()
+          require("CopilotChat").ask("Explain this code.")
+        end,
+        desc = "CopilotChat - Explain code",
+      },
+
+      {
+        "<leader>cr",
+        function()
+          require("CopilotChat").ask("Review this code.")
+        end,
+        desc = "CopilotChat - Review code",
+      },
+    },
+  }
 })
