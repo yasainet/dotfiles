@@ -159,18 +159,14 @@ require("lazy").setup({
       debug = false,
       show_help = true,
       show_folds = true,
-      auto_follow_cursor = true,
+      auto_follow_cursor = false,
       auto_insert_mode = false,
       clear_chat_on_new_prompt = false,
 
       window = {
-        layout = "float",
-        relative = "editor",
+        layout = "vertical",
+        width = 0.3,
         border = "single",
-        width = 0.8,
-        height = 0.8,
-        row = nil,
-        col = nil,
         title = "Copilot Chat",
       },
 
@@ -198,10 +194,11 @@ require("lazy").setup({
       {
         "<leader>cc",
         function()
-          local input = vim.fn.input("Chat: ")
-          if input ~= "" then
-            require("CopilotChat").ask(input, { selection = require("CopilotChat.select").buffer })
-          end
+          vim.ui.input({ prompt = "Chat: " }, function(input)
+            if input and input ~= "" then
+              require("CopilotChat").ask(input, { selection = require("CopilotChat.select").buffer })
+            end
+          end)
         end,
         desc = "CopilotChat - Quick chat",
       },
