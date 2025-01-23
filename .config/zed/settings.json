@@ -49,13 +49,14 @@
     "auto_fold_dirs": false
   },
   "buffer_font_size": 14,
-  "current_line_highlight": "none",
+  "current_line_highlight": "line",
   "scrollbar": {
     "show": "auto",
     "cursors": false,
     "git_diff": false
   },
-  "soft_wrap": "none",
+  "soft_wrap": "editor_width",
+  "preferred_line_length": 120,
   "scroll_beyond_last_line": "vertical_scroll_margin",
   "vertical_scroll_margin": 5,
   "journal": {
@@ -100,8 +101,8 @@
       "api_url": "http://localhost:11434",
       "available_models": [
         {
-          "name": "qwen2.5-coder:32b",
-          "display_name": "qwen2.5-coder",
+          "name": "deepseek-r1:latest",
+          "display_name": "deepseek-r1:latest",
           "max_tokens": 32768
         }
       ]

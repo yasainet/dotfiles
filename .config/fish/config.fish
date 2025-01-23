@@ -74,6 +74,10 @@ function cd
   standard_cd $argv; and la
 end
 
+# Editor, Visula
+set -x EDITOR "zed"
+set -x VISUAL "zed"
+
 # PATH
 fish_add_path /opt/homebrew/bin
 fish_add_path (npm prefix -g)/bin

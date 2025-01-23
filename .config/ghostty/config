@@ -7,7 +7,7 @@ clipboard-read = allow
 clipboard-write = allow
 
 # Window
-window-title-font-family = BlexMono Nerd Font Mono
+window-title-font-family = IBM Plex Sans Regular
 window-theme = system
 window-save-state = always
 window-padding-balance = true
@@ -24,6 +24,9 @@ theme = light: catppuccin-latte,dark:catppuccin-mocha
 # font
 font-family = BlexMono Nerd Font Mono
 font-size = 14
+font-feature = -calt
+font-feature = -dlig
+font-feature = -liga
 bold-is-bright= true
 
 # cursor

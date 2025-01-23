@@ -1,0 +1,78 @@
+---@diagnostic disable: undefined-global
+
+-- Language
+vim.opt.langmenu = "en"
+vim.cmd("language en_US")
+
+-- Character encoding
+vim.opt.encoding = "utf-8"
+vim.opt.fileencoding = "utf-8"
+
+-- History
+vim.opt.history = 10000
+
+-- UI
+vim.opt.number = true
+vim.opt.cursorline = true
+vim.opt.wrap = true
+vim.opt.linebreak = true
+vim.opt.showcmd = true
+vim.opt.laststatus = 3
+
+-- Search
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
+vim.opt.incsearch = true
+vim.opt.hlsearch = true
+
+-- Menu
+vim.opt.wildmenu = true
+vim.opt.wildmode = { "longest", "list", "full" }
+
+-- Indentation
+vim.opt.tabstop = 2
+vim.opt.shiftwidth = 2
+vim.opt.expandtab = true
+vim.opt.autoindent = true
+vim.opt.smartindent = true
+
+-- File
+vim.opt.swapfile = false
+vim.opt.backup = false
+vim.opt.writebackup = false
+vim.opt.undofile = true
+vim.opt.autoread = true
+
+-- Clipboard
+vim.opt.clipboard = "unnamedplus"
+
+-- Splits
+vim.opt.splitbelow = true
+vim.opt.splitright = true
+
+-- Mouse
+vim.opt.mouse = "a"
+vim.opt.mousemodel = "popup"
+
+-- Cursor
+vim.opt.guicursor = {
+  "n-v-c:block-blinkon100",
+  "i-ci:ver25-blinkon100",
+  "r-cr:hor20-blinkon100",
+  "o:hor50",
+  "a:blinkwait700-blinkoff400-blinkon250",
+  "sm:block-blinkon100"
+}
+
+-- Key mapping
+-- Leader
+vim.g.mapleader = " "
+
+-- Alias
+vim.api.nvim_create_user_command('W', 'w', {})
+vim.api.nvim_create_user_command('Wq', 'wq', {})
+
+-- Cmd
+vim.keymap.set("v", "<D-c>", "\"+y", { noremap = true, silent = true })
+vim.keymap.set("n", "<D-v>", "\"+p", { noremap = true, silent = true })
+vim.keymap.set("i", "<D-v>", "<C-r>+", { noremap = true, silent = true })
