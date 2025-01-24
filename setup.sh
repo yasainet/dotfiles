@@ -9,8 +9,6 @@ defaults write -g ApplePressAndHoldEnabled -bool false
 # Dcok
 ## Dock から全て削除
 defaults write com.apple.dock persistent-apps -array
-## Dock の表示遅延
-defaults write com.apple.dock autohide-delay -int 10; killall Dock
 
 # Finder
 ## 拡張子表示

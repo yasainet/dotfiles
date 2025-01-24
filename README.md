@@ -359,3 +359,13 @@ brew install --cask deepl
 ```sh
 chmod +x ~/dotfiles/setup.sh
 ```
+
+## MX Master 3S
+```sh
+brew install --cask logi-options+
+```
+
+## Mos
+```sh
+brew install --cask mos
+```

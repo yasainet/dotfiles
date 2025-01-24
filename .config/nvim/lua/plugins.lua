@@ -1,5 +1,15 @@
 ---@diagnostic disable: undefined-global
 
+-- telescoop? fzf
+-- comment系
+-- git 差分表示
+-- lazygit
+-- copilot
+-- lsp
+-- nvim-cmp
+-- im-select
+
+
 -- lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then

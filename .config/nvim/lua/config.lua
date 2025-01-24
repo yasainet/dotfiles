@@ -13,7 +13,6 @@ vim.opt.history = 10000
 
 -- UI
 vim.opt.number = true
-vim.opt.cursorline = true
 vim.opt.wrap = true
 vim.opt.linebreak = true
 vim.opt.showcmd = true
