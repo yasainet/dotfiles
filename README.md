@@ -355,6 +355,12 @@ brew install ollama
 brew install --cask deepl
 ```
 
+## brew macism
+```sh
+brew tap laishulu/homebrew
+brew install macism
+```
+
 # Mac Setup
 ```sh
 chmod +x ~/dotfiles/setup.sh

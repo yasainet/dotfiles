@@ -70,6 +70,7 @@ vim.g.mapleader = " "
 -- Alias
 vim.api.nvim_create_user_command('W', 'w', {})
 vim.api.nvim_create_user_command('Wq', 'wq', {})
+vim.api.nvim_set_keymap("i", "<C-c>", "<ESC>", { noremap = true, silent = true }) -- 影響あるかもしれない
 
 -- Cmd
 vim.keymap.set("v", "<D-c>", "\"+y", { noremap = true, silent = true })
@@ -93,4 +94,3 @@ vim.keymap.set("n", "<C-l>", "<C-w>l", { noremap = true, silent = true })
 -- Insert mode
 vim.keymap.set("i", "<C-j>", "<Down>", { noremap = true, silent = true })
 vim.keymap.set("i", "<C-k>", "<Up>", { noremap = true, silent = true })
-
