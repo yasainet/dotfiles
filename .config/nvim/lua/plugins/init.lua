@@ -30,8 +30,9 @@ require("lazy").setup({
   { import = "plugins.toggleterm" },
   { import = "plugins.nvim-tree" },
   { import = "plugins.nvim-treesitter" },
+  { import = "plugins.nvim-cmp" },
   { import = "plugins.gitsigns" },
-  { import = "plugins.CopilotChat" },
+  { import = "plugins.codecompanion" }
 
   -- Appearance
   -- Coding
