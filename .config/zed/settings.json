@@ -12,7 +12,7 @@
   "experimental.theme_overrides": {
     "border.variant": "#313244",
     "scrollbar.thumb.border": "#1e1e2e",
-    "background.appearance": "transparent"
+    // "background.appearance": "transparent"
   },
   "ui_font_size": 14,
   "tab_size": 2,

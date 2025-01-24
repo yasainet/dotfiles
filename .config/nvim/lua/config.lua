@@ -76,3 +76,22 @@ vim.api.nvim_create_user_command('Wq', 'wq', {})
 vim.keymap.set("v", "<D-c>", "\"+y", { noremap = true, silent = true })
 vim.keymap.set("n", "<D-v>", "\"+p", { noremap = true, silent = true })
 vim.keymap.set("i", "<D-v>", "<C-r>+", { noremap = true, silent = true })
+vim.keymap.set("n", "<D-z>", "u", { noremap = true, silent = true })
+vim.keymap.set("n", "<D-S-z>", "<C-r>", { noremap = true, silent = true })
+vim.keymap.set("n", "<D-s>", ":w<CR>", { noremap = true, silent = true })
+vim.keymap.set("i", "<D-s>", "<Esc>:w<CR>a", { noremap = true, silent = true })
+
+-- Split
+vim.keymap.set("n", "<Leader>sv", ":vsplit<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<Leader>sh", ":split<CR>", { noremap = true, silent = true })
+
+-- Window
+vim.keymap.set("n", "<C-h>", "<C-w>h", { noremap = true, silent = true })
+vim.keymap.set("n", "<C-j>", "<C-w>j", { noremap = true, silent = true })
+vim.keymap.set("n", "<C-k>", "<C-w>k", { noremap = true, silent = true })
+vim.keymap.set("n", "<C-l>", "<C-w>l", { noremap = true, silent = true })
+
+-- Insert mode
+vim.keymap.set("i", "<C-j>", "<Down>", { noremap = true, silent = true })
+vim.keymap.set("i", "<C-k>", "<Up>", { noremap = true, silent = true })
+

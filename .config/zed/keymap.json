@@ -47,9 +47,9 @@
   {
     "context": "vim_mode == insert",
     "bindings": {
-      "ctrl-d": "editor::Delete"
-      // "ctrl-p": "editor::MoveUp",
-      // "ctrl-n": "editor::MoveDown"
+      "ctrl-d": "editor::Delete",
+      "ctrl-k": "editor::MoveUp",
+      "ctrl-j": "editor::MoveDown"
     }
   },
   {
