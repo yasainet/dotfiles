@@ -7,7 +7,15 @@ return {
   dependencies = {
     "nvim-tree/nvim-web-devicons",
   },
-  opts = {},
+  opts = {
+    filters = {
+      dotfiles = false,
+      git_ignored = false
+    },
+    git = {
+      enable = true,
+    },
+  },
   keys = {
     { "<leader>e",  ":NvimTreeToggle<CR>",      desc = "Toggle NvimTree" },
     { "<leader>tf", ":NvimTreeFocus<CR>",       desc = "Focus NvimTree" },
