@@ -200,15 +200,15 @@
     // "default_width": 380
   },
   "assistant": {
-    // "version": "2",
+    "version": "2",
     // "enabled": true,
     // "button": true,
     // "dock": "right",
     "default_width": 600,
     // "default_height": 320,
     "default_model": {
-      "provider": "zed.dev",
-      "model": "claude-3-5-sonnet"
+      "provider": "anthropic",
+      "model": "claude-3-5-sonnet-latest"
     }
   },
   "slash_commands": {
