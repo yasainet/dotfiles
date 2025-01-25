@@ -17,6 +17,16 @@ return {
           adapter = "anthropic",
         },
       },
+      display = {
+        chat = {
+          window = {
+            width = 0.3,
+          }
+        }
+      },
+      opts = {
+        language = "Japanese"
+      },
     })
 
     vim.cmd([[cab cc CodeCompanion]])

@@ -29,8 +29,10 @@ require("lazy").setup({
   { import = "plugins.indent-blankline" },
   { import = "plugins.toggleterm" },
   { import = "plugins.nvim-tree" },
+  { import = "plugins.telescope" },
   { import = "plugins.nvim-treesitter" },
   { import = "plugins.nvim-cmp" },
+  { import = "plugins.lazygit" },
   { import = "plugins.gitsigns" },
   { import = "plugins.codecompanion" }
 

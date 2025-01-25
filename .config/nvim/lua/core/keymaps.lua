@@ -7,7 +7,7 @@ vim.g.maplocalleader = ","
 -- Alias
 vim.api.nvim_create_user_command('W', 'w', {})
 vim.api.nvim_create_user_command('Wq', 'wq', {})
-vim.api.nvim_set_keymap("i", "<C-c>", "<ESC>", { noremap = true, silent = true }) -- 影響あるかもしれない
+vim.api.nvim_create_user_command('Q', 'q', {})
 
 -- Cmd
 vim.keymap.set("v", "<D-c>", "\"+y", { noremap = true, silent = true })
@@ -29,8 +29,12 @@ vim.keymap.set("n", "<C-k>", "<C-w>k", { noremap = true, silent = true })
 vim.keymap.set("n", "<C-l>", "<C-w>l", { noremap = true, silent = true })
 
 -- Insert mode
-vim.keymap.set("i", "<C-j>", "<Down>", { noremap = true, silent = true })
-vim.keymap.set("i", "<C-k>", "<Up>", { noremap = true, silent = true })
+vim.keymap.set("i", "jj", "<Esc>", { noremap = true, silent = true, desc = "Exit Insert mode with jj" })
+vim.keymap.set("i", "jk", "<Esc>", { noremap = true, silent = true, desc = "Exit Insert mode with jk" })
+vim.keymap.set("i", "kj", "<Esc>", { noremap = true, silent = true, desc = "Exit Insert mode with kj" })
+
+-- @see https://qiita.com/astropenguin/items/e8eb3462d26de4192efa
+-- `jj` の連打を調整する
 
 -- Plugins
 -- codecompanion
