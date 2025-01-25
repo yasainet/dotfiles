@@ -211,7 +211,7 @@ brew install git-delta
 
 設定:
 ```sh
-ln -s ~/dotfiles/delta ~/
+mv ~/delta ~/dotflies/delta
 ```
 
 ## OpenCommit

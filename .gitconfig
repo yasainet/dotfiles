@@ -11,7 +11,7 @@
 [interactive]
   diffFilter = delta --color-only
 [include]
-  path = ~/delta/themes/catppuccin.gitconfig
+  path = ~/dotfiles/delta/themes/catppuccin.gitconfig
 [delta]
   features = catppuccin-mocha
   navigate = true # use n and N to move between diff sections
@@ -27,7 +27,6 @@
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
 [credential]
-	helper = 
 	helper = /usr/local/share/gcm-core/git-credential-manager
 [credential "https://dev.azure.com"]
 	useHttpPath = true
