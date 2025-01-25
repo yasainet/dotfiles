@@ -207,8 +207,8 @@
     "default_width": 600,
     // "default_height": 320,
     "default_model": {
-      "provider": "anthropic",
-      "model": "claude-3-5-sonnet-latest"
+      "provider": "zed.dev",
+      "model": "claude-3-5-sonnet"
     }
   },
   "slash_commands": {
@@ -315,7 +315,7 @@
       "breadcrumbs": true
     }
   },
-  // "code_actions_on_format": {},
+  // "code_actions_on_format": {}, // TODO: 調べる
   // "tasks": {
   // "variables": {}
   // },
@@ -333,98 +333,98 @@
   // "auto_install_extensions": {
   // "html": true
   // },
-  // "languages": {
-  //   "Astro": {
-  //     "language_servers": ["astro-language-server", "..."],
-  //     "prettier": {
-  //       "allowed": true,
-  //       "plugins": ["prettier-plugin-astro"]
-  //     }
-  //   },
-  //   "Blade": {
-  //     "prettier": {
-  //       "allowed": true
-  //     }
-  //   },
-  //   "C": {
-  //     "format_on_save": "off",
-  //     "use_on_type_format": false,
-  //     "prettier": {
-  //       "allowed": false
-  //     }
-  //   },
-  //   "C++": {
-  //     "format_on_save": "off",
-  //     "use_on_type_format": false,
-  //     "prettier": {
-  //       "allowed": false
-  //     }
-  //   },
-  //   "CSS": {
-  //     "prettier": {
-  //       "allowed": true
-  //     }
-  //   },
-  //   "Dart": {
-  //     "tab_size": 2
-  //   },
-  //   "Diff": {
-  //     "remove_trailing_whitespace_on_save": false,
-  //     "ensure_final_newline_on_save": false
-  //   },
-  //   "Elixir": {
-  //     "language_servers": ["elixir-ls", "!next-ls", "!lexical", "..."]
-  //   },
-  //   "Erlang": {
-  //     "language_servers": ["erlang-ls", "!elp", "..."]
-  //   },
-  //   "Go": {
-  //     "code_actions_on_format": {
-  //       "source.organizeImports": true
-  //     }
-  //   },
-  //   "GraphQL": {
-  //     "prettier": {
-  //       "allowed": true
-  //     }
-  //   },
-  //   "HEEX": {
-  //     "language_servers": ["elixir-ls", "!next-ls", "!lexical", "..."]
-  //   },
-  //   "HTML": {
-  //     "prettier": {
-  //       "allowed": true
-  //     }
-  //   },
-  //   "Java": {
-  //     "prettier": {
-  //       "allowed": true,
-  //       "plugins": ["prettier-plugin-java"]
-  //     }
-  //   },
-  //   "JavaScript": {
-  //     "language_servers": ["!typescript-language-server", "vtsls", "..."],
-  //     "prettier": {
-  //       "allowed": true
-  //     }
-  //   },
-  //   "JSON": {
-  //     "prettier": {
-  //       "allowed": true
-  //     }
-  //   },
-  //   "JSONC": {
-  //     "prettier": {
-  //       "allowed": true
-  //     }
-  //   },
-  //   "Markdown": {
-  //     "format_on_save": "off",
-  //     "use_on_type_format": false,
-  //     "prettier": {
-  //       "allowed": true
-  //     }
-  //   },
+  "languages": {
+    //   "Astro": {
+    //     "language_servers": ["astro-language-server", "..."],
+    //     "prettier": {
+    //       "allowed": true,
+    //       "plugins": ["prettier-plugin-astro"]
+    //     }
+    //   },
+    //   "Blade": {
+    //     "prettier": {
+    //       "allowed": true
+    //     }
+    //   },
+    //   "C": {
+    //     "format_on_save": "off",
+    //     "use_on_type_format": false,
+    //     "prettier": {
+    //       "allowed": false
+    //     }
+    //   },
+    //   "C++": {
+    //     "format_on_save": "off",
+    //     "use_on_type_format": false,
+    //     "prettier": {
+    //       "allowed": false
+    //     }
+    //   },
+    //   "CSS": {
+    //     "prettier": {
+    //       "allowed": true
+    //     }
+    //   },
+    //   "Dart": {
+    //     "tab_size": 2
+    //   },
+    //   "Diff": {
+    //     "remove_trailing_whitespace_on_save": false,
+    //     "ensure_final_newline_on_save": false
+    //   },
+    //   "Elixir": {
+    //     "language_servers": ["elixir-ls", "!next-ls", "!lexical", "..."]
+    //   },
+    //   "Erlang": {
+    //     "language_servers": ["erlang-ls", "!elp", "..."]
+    //   },
+    //   "Go": {
+    //     "code_actions_on_format": {
+    //       "source.organizeImports": true
+    //     }
+    //   },
+    //   "GraphQL": {
+    //     "prettier": {
+    //       "allowed": true
+    //     }
+    //   },
+    //   "HEEX": {
+    //     "language_servers": ["elixir-ls", "!next-ls", "!lexical", "..."]
+    //   },
+    //   "HTML": {
+    //     "prettier": {
+    //       "allowed": true
+    //     }
+    //   },
+    //   "Java": {
+    //     "prettier": {
+    //       "allowed": true,
+    //       "plugins": ["prettier-plugin-java"]
+    //     }
+    //   },
+    //   "JavaScript": {
+    //     "language_servers": ["!typescript-language-server", "vtsls", "..."],
+    //     "prettier": {
+    //       "allowed": true
+    //     }
+    //   },
+    //   "JSON": {
+    //     "prettier": {
+    //       "allowed": true
+    //     }
+    //   },
+    //   "JSONC": {
+    //     "prettier": {
+    //       "allowed": true
+    //     }
+  },
+  "Markdown": {
+    "format_on_save": "on"
+    // "use_on_type_format": false,
+    // "prettier": {
+    // "allowed": true
+    // }
+  },
   //   "PHP": {
   //     "language_servers": ["phpactor", "!intelephense", "..."],
   //     "prettier": {
@@ -495,50 +495,51 @@
   //     "language_servers": ["zls", "..."]
   //   }
   // },
-  // "language_models": {
-  //   "anthropic": {
-  //     "version": "1",
-  //     "api_url": "https://api.anthropic.com"
-  //   },
-  //   "google": {
-  //     "api_url": "https://generativelanguage.googleapis.com"
-  //   },
-  //   "ollama": {
-  //     "api_url": "http://localhost:11434"
-  //   },
-  //   "openai": {
-  //     "version": "1",
-  //     "api_url": "https://api.openai.com/v1"
-  //   },
-  //   "lmstudio": {
-  //     "api_url": "http://localhost:1234/api/v0"
-  //   }
-  // },
-  // "prettier": {},
-  // "lsp": {},
-  // "jupyter": {
-  // "enabled": true
-  // },
-  // "vim": {
-  // "toggle_relative_line_numbers": false,
-  // "use_system_clipboard": "always",
-  // "use_multiline_find": false,
-  // "use_smartcase_find": false,
-  // "highlight_on_yank_duration": 200,
-  // "custom_digraphs": {}
-  // },
-  // "server_url": "https://zed.dev",
-  // "preview": {},
-  // "nightly": {},
-  // "stable": {},
-  // "dev": {},
-  // "task": {
-  // "show_status_indicator": true
-  // },
-  // "line_indicator_format": "long",
-  // "proxy": null,
-  // "command_aliases": {},
-  "show_user_picture": false
-  // "ssh_connections": [],
-  // "context_servers": {}
+  "language_models": {
+    "anthropic": {
+      "version": "1",
+      "api_url": "https://api.anthropic.com"
+    },
+    "google": {
+      "api_url": "https://generativelanguage.googleapis.com"
+    },
+    "ollama": {
+      "api_url": "http://localhost:11434"
+    },
+    "openai": {
+      "version": "1",
+      "api_url": "https://api.openai.com/v1"
+    },
+    //   "lmstudio": {
+    //     "api_url": "http://localhost:1234/api/v0"
+    //   }
+    // },
+    // "prettier": {},
+    // "lsp": {},
+    // "jupyter": {
+    // "enabled": true
+    // },
+    // "vim": {
+    // "toggle_relative_line_numbers": false,
+    // "use_system_clipboard": "always",
+    // "use_multiline_find": false,
+    // "use_smartcase_find": false,
+    // "highlight_on_yank_duration": 200,
+    // "custom_digraphs": {}
+    // },
+    // "server_url": "https://zed.dev",
+    // "preview": {},
+    // "nightly": {},
+    // "stable": {},
+    // "dev": {},
+    // "task": {
+    // "show_status_indicator": true
+    // },
+    // "line_indicator_format": "long",
+    // "proxy": null,
+    // "command_aliases": {},
+    "show_user_picture": false
+    // "ssh_connections": [],
+    // "context_servers": {}
+  }
 }
