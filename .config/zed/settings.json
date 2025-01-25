@@ -6,8 +6,7 @@
   },
   "experimental.theme_overrides": {
     "border.variant": "#313244",
-    "scrollbar.thumb.border": "#1e1e2e",
-    "background.appearance": "blurred"
+    "scrollbar.thumb.border": "#1e1e2e"
   },
   // "base_keymap": "VSCode",
   // "features": {
@@ -112,8 +111,8 @@
   // "coloring": "fixed",
   // "background_coloring": "disabled"
   // },
-  "scroll_beyond_last_line": "off",
-  // "vertical_scroll_margin": 3,
+  "scroll_beyond_last_line": "vertical_scroll_margin",
+  "vertical_scroll_margin": 3,
   // "autoscroll_on_clicks": false,
   // "horizontal_scroll_margin": 5, // TODO: 無効がいいかも
   // "scroll_sensitivity": 1.0,
@@ -311,11 +310,12 @@
     // }
     // },
     "toolbar": {
-      // Example: `echo -e "\e]2;New Title\007";`
-      "breadcrumbs": true
+      "breadcrumbs": false
     }
   },
-  // "code_actions_on_format": {}, // TODO: 調べる
+  "code_actions_on_format": {
+    "source.fixAll.eslint": true
+  },
   // "tasks": {
   // "variables": {}
   // },
@@ -402,12 +402,12 @@
     //       "plugins": ["prettier-plugin-java"]
     //     }
     //   },
-    //   "JavaScript": {
-    //     "language_servers": ["!typescript-language-server", "vtsls", "..."],
-    //     "prettier": {
-    //       "allowed": true
-    //     }
-    //   },
+    //  "JavaScript": {
+    //    "language_servers": ["!typescript-language-server", "vtsls", "..."],
+    //    "prettier": {
+    //      "allowed": true
+    //    }
+    //  },
     //   "JSON": {
     //     "prettier": {
     //       "allowed": true
@@ -417,84 +417,84 @@
     //     "prettier": {
     //       "allowed": true
     //     }
+    // },
+    "Markdown": {
+      "format_on_save": "on"
+      // "use_on_type_format": false,
+      // "prettier": {
+      // "allowed": true
+      // }
+    }
+    //   "PHP": {
+    //     "language_servers": ["phpactor", "!intelephense", "..."],
+    //     "prettier": {
+    //       "allowed": true,
+    //       "plugins": ["@prettier/plugin-php"],
+    //       "parser": "php"
+    //     }
+    //   },
+    //   "Ruby": {
+    //     "language_servers": ["solargraph", "!ruby-lsp", "!rubocop", "..."]
+    //   },
+    //   "SCSS": {
+    //     "prettier": {
+    //       "allowed": true
+    //     }
+    //   },
+    //   "SQL": {
+    //     "prettier": {
+    //       "allowed": true,
+    //       "plugins": ["prettier-plugin-sql"]
+    //     }
+    //   },
+    //   "Starlark": {
+    //     "language_servers": ["starpls", "!buck2-lsp", "..."]
+    //   },
+    //   "Svelte": {
+    //     "language_servers": ["svelte-language-server", "..."],
+    //     "prettier": {
+    //       "allowed": true,
+    //       "plugins": ["prettier-plugin-svelte"]
+    //     }
+    //   },
+    //   "TSX": {
+    //     "language_servers": ["!typescript-language-server", "vtsls", "..."],
+    //     "prettier": {
+    //       "allowed": true
+    //     }
+    //   },
+    //   "Twig": {
+    //     "prettier": {
+    //       "allowed": true
+    //     }
+    //   },
+    //   "TypeScript": {
+    //     "language_servers": ["!typescript-language-server", "vtsls", "..."],
+    //     "prettier": {
+    //       "allowed": true
+    //     }
+    //   },
+    //   "Vue.js": {
+    //     "language_servers": ["vue-language-server", "..."],
+    //     "prettier": {
+    //       "allowed": true
+    //     }
+    //   },
+    //   "XML": {
+    //     "prettier": {
+    //       "allowed": true,
+    //       "plugins": ["@prettier/plugin-xml"]
+    //     }
+    //   },
+    //   "YAML": {
+    //     "prettier": {
+    //       "allowed": true
+    //     }
+    //   },
+    //   "Zig": {
+    //     "language_servers": ["zls", "..."]
+    //   }
   },
-  "Markdown": {
-    "format_on_save": "on"
-    // "use_on_type_format": false,
-    // "prettier": {
-    // "allowed": true
-    // }
-  },
-  //   "PHP": {
-  //     "language_servers": ["phpactor", "!intelephense", "..."],
-  //     "prettier": {
-  //       "allowed": true,
-  //       "plugins": ["@prettier/plugin-php"],
-  //       "parser": "php"
-  //     }
-  //   },
-  //   "Ruby": {
-  //     "language_servers": ["solargraph", "!ruby-lsp", "!rubocop", "..."]
-  //   },
-  //   "SCSS": {
-  //     "prettier": {
-  //       "allowed": true
-  //     }
-  //   },
-  //   "SQL": {
-  //     "prettier": {
-  //       "allowed": true,
-  //       "plugins": ["prettier-plugin-sql"]
-  //     }
-  //   },
-  //   "Starlark": {
-  //     "language_servers": ["starpls", "!buck2-lsp", "..."]
-  //   },
-  //   "Svelte": {
-  //     "language_servers": ["svelte-language-server", "..."],
-  //     "prettier": {
-  //       "allowed": true,
-  //       "plugins": ["prettier-plugin-svelte"]
-  //     }
-  //   },
-  //   "TSX": {
-  //     "language_servers": ["!typescript-language-server", "vtsls", "..."],
-  //     "prettier": {
-  //       "allowed": true
-  //     }
-  //   },
-  //   "Twig": {
-  //     "prettier": {
-  //       "allowed": true
-  //     }
-  //   },
-  //   "TypeScript": {
-  //     "language_servers": ["!typescript-language-server", "vtsls", "..."],
-  //     "prettier": {
-  //       "allowed": true
-  //     }
-  //   },
-  //   "Vue.js": {
-  //     "language_servers": ["vue-language-server", "..."],
-  //     "prettier": {
-  //       "allowed": true
-  //     }
-  //   },
-  //   "XML": {
-  //     "prettier": {
-  //       "allowed": true,
-  //       "plugins": ["@prettier/plugin-xml"]
-  //     }
-  //   },
-  //   "YAML": {
-  //     "prettier": {
-  //       "allowed": true
-  //     }
-  //   },
-  //   "Zig": {
-  //     "language_servers": ["zls", "..."]
-  //   }
-  // },
   "language_models": {
     "anthropic": {
       "version": "1",
