@@ -36,6 +36,10 @@ function ga
   git add $argv
 end
 
+function gcm
+  git commit -m $argv
+end
+
 function gb
   git branch $argv
 end
