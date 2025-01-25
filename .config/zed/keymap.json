@@ -1,10 +1,3 @@
-// Zed keymap
-//
-// For information on binding keys, see the Zed
-// documentation: https://zed.dev/docs/key-bindings
-//
-// To see the default key bindings run `zed: Open Default Keymap`
-// from the command palette.
 [
   {
     "bindings": {
@@ -12,54 +5,12 @@
     }
   },
   {
-    "context": "Editor",
-    "bindings": {
-      "cmd-shift-alt-v": "markdown::OpenPreview"
-    }
-  },
-  {
     "context": "Dock",
     "bindings": {
-      "ctrl-w h": [
-        "workspace::ActivatePaneInDirection",
-        "Left"
-      ],
-      "ctrl-w l": [
-        "workspace::ActivatePaneInDirection",
-        "Right"
-      ],
-      "ctrl-w k": [
-        "workspace::ActivatePaneInDirection",
-        "Up"
-      ],
-      "ctrl-w j": [
-        "workspace::ActivatePaneInDirection",
-        "Down"
-      ]
-    }
-  },
-  {
-    "context": "vim_mode == normal",
-    "bindings": {
-      "shift-u": "vim::Redo"
-    }
-  },
-  {
-    "context": "vim_mode == insert",
-    "bindings": {
-      "ctrl-d": "editor::Delete"
-    }
-  },
-  {
-    "context": "Terminal",
-    "bindings": {
-      "cmd-n": "workspace::NewTerminal"
-    }
-  },
-  {
-    "context": "AssistantPanel",
-    "bindings": {
-      "cmd-n": "assistant::NewContext",
+      "ctrl-w h": ["workspace::ActivatePaneInDirection", "Left"],
+      "ctrl-w l": ["workspace::ActivatePaneInDirection", "Right"],
+      "ctrl-w k": ["workspace::ActivatePaneInDirection", "Up"],
+      "ctrl-w j": ["workspace::ActivatePaneInDirection", "Down"]
     }
   }
 ]

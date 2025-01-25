@@ -537,7 +537,11 @@
     // },
     // "line_indicator_format": "long",
     // "proxy": null,
-    // "command_aliases": {},
+    "command_aliases": {
+      "W": "w",
+      "Wq": "wq",
+      "Q": "q"
+    },
     "show_user_picture": false
     // "ssh_connections": [],
     // "context_servers": {}
