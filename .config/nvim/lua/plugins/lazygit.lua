@@ -1,5 +1,3 @@
----@diagnostic disable: undefined-global
-
 return {
     "kdheepak/lazygit.nvim",
     lazy = true,

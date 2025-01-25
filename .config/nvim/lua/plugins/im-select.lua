@@ -1,5 +1,3 @@
----@diagnostic disable: undefined-global
-
 return {
   "keaising/im-select.nvim",
   config = function()

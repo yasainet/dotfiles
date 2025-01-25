@@ -1,5 +1,4 @@
----@diagnostic disable: undefined-global
-
+-- TODO:
 -- telescoop? fzf
 -- comment系
 -- git 差分表示

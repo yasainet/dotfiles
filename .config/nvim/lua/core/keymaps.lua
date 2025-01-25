@@ -1,5 +1,3 @@
----@diagnostic disable: undefined-global
-
 -- Leader
 vim.g.mapleader = " "
 vim.g.maplocalleader = ","
@@ -29,12 +27,8 @@ vim.keymap.set("n", "<C-k>", "<C-w>k", { noremap = true, silent = true })
 vim.keymap.set("n", "<C-l>", "<C-w>l", { noremap = true, silent = true })
 
 -- Insert mode
-vim.keymap.set("i", "jj", "<Esc>", { noremap = true, silent = true, desc = "Exit Insert mode with jj" })
-vim.keymap.set("i", "jk", "<Esc>", { noremap = true, silent = true, desc = "Exit Insert mode with jk" })
-vim.keymap.set("i", "kj", "<Esc>", { noremap = true, silent = true, desc = "Exit Insert mode with kj" })
+-- vim.keymap.set("i", "jj", "<Esc>", { noremap = true, silent = true, desc = "Exit Insert mode with jj" })
 
--- @see https://qiita.com/astropenguin/items/e8eb3462d26de4192efa
--- `jj` の連打を調整する
 
 -- Plugins
 -- codecompanion

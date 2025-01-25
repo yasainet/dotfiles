@@ -1,5 +1,3 @@
----@diagnostic disable: undefined-global
-
 return {
   "akinsho/toggleterm.nvim",
   version = "*",
