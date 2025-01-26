@@ -22,15 +22,6 @@ function cat
   bat $argv
 end
 
-# Check
-function rm
-  command rm -i $argv
-end
-
-function mv
-  command mv -i $argv
-end
-
 # Git
 function ga
   git add $argv
@@ -69,6 +60,15 @@ function dps
   docker ps $argv
 end
 
+# Check
+function rm
+  command rm -i $argv
+end
+
+function mv
+  command mv -i $argv
+end
+
 # Utils
 if not functions -q standard_cd
     functions --copy cd standard_cd
@@ -98,7 +98,7 @@ set -gx CARGO_HOME $HOME/.cargo
 starship init fish | source
 set -gx STARSHIP_CONFIG ~/.config/fish/starship.toml
 
-# avante
+# CodeCompanion
 if test -f ~/.config/fish/secrets.fish
     source ~/.config/fish/secrets.fish
 end
