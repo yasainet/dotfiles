@@ -16,12 +16,12 @@ window-width = 999
 macos-titlebar-style = transparent
 macos-titlebar-proxy-icon = hidden
 macos-window-shadow = false
-background-opacity = 0.9
+background-opacity = 0.85
 
-# theme
+# Theme
 theme = light: catppuccin-latte,dark:catppuccin-mocha
 
-# font
+# Font
 font-family = BlexMono Nerd Font Mono
 font-family = IBM Plex Sans Japanese
 font-size = 14
@@ -30,9 +30,15 @@ font-feature = -dlig
 font-feature = -liga
 bold-is-bright= true
 
-# cursor
+# Cursor
 cursor-style = block
 cursor-style-blink = true
 
-# mouse
+# Mouse
 mouse-hide-while-typing = true
+
+# Quick Terminal
+quick-terminal-position = bottom
+
+# Keybindings
+keybind = global:cmd+ctrl+\=toggle_quick_terminal
