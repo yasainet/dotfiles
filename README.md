@@ -177,6 +177,11 @@ brew install jq
 brew install glances
 ```
 
+## Un
+```sh
+brew install uv
+```
+
 ## bat
 ```sh
 brew install bat
