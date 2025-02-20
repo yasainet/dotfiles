@@ -231,6 +231,11 @@ brew install stripe-cli
 stripe login
 ```
 
+## fzf
+```sh
+brew install fzf
+```
+
 # Application
 ## mas-cli
 ```sh
