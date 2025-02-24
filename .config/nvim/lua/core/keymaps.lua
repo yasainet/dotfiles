@@ -41,3 +41,11 @@ vim.keymap.set("n", "<leader>tf", ":NvimTreeFocus<CR>", { desc = "Focus NvimTree
 vim.keymap.set("n", "<leader>tb", ":NvimTreeFocus<CR><C-w>p", { desc = "Focus back to editor" })
 vim.keymap.set("n", "<leader>tr", ":NvimTreeRefresh<CR>", { desc = "Refresh NvimTree" })
 vim.keymap.set("n", "<leader>tf", ":NvimTreeFindFile<CR>", { desc = "Find file in NvimTree" })
+
+-- Telescope
+vim.keymap.set('n', '<leader>ff', function() require('telescope.builtin').find_files() end, { desc = "Find files" })
+vim.keymap.set('n', '<leader>fg', function() require('telescope.builtin').live_grep() end, { desc = "Live grep" })
+vim.keymap.set('n', '<leader>fb', function() require('telescope.builtin').buffers() end, { desc = "Find buffers" })
+vim.keymap.set('n', '<leader>fh', function() require('telescope.builtin').help_tags() end, { desc = "Help tags" })
+vim.keymap.set('n', '<leader>fs', function() require('telescope.builtin').git_status() end, { desc = "Git status" })
+vim.keymap.set('n', '<leader>fc', function() require('telescope.builtin').git_commits() end, { desc = "Git commits" })

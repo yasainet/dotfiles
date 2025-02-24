@@ -26,14 +26,6 @@
     {
       "passKeys": "",
       "pattern": "https?://x.com/*"
-    },
-    {
-      "passKeys": "",
-      "pattern": "https?://sushida.net/*"
-    },
-    {
-      "passKeys": "",
-      "pattern": "https?://www.e-typing.ne.jp/*"
     }
   ]
 }

@@ -1,19 +1,20 @@
 #!/bin/bash
 
-echo "🏁 Set up is starting..."
+echo "Set up is starting..."
 
-# General
-## アクセントメニューの無効化
+# Keyboard
 defaults write -g ApplePressAndHoldEnabled -bool false
 
 # Dcok
-## Dock から全て削除
 defaults write com.apple.dock persistent-apps -array
 
 # Finder
-## 拡張子表示
 defaults write NSGlobalDomain AppleShowAllExtensions -bool true
-## 隠しファイル表示
 defaults write com.apple.Finder AppleShowAllFiles -bool true
+defaults write com.apple.finder ShowPathbar -bool true
+defaults write com.apple.finder ShowStatusBar -bool true
 
-echo "🎉 Set up is done."
+echo "Set up is done."
+
+# Memo
+# https://dev.classmethod.jp/articles/mac-recommended-initial-settings/

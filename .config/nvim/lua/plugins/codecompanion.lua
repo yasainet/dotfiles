@@ -4,6 +4,7 @@ return {
     "nvim-lua/plenary.nvim",
     "nvim-treesitter/nvim-treesitter",
     "hrsh7th/nvim-cmp",
+    "nvim-telescope/telescope.nvim",
   },
   config = function()
     require("codecompanion").setup({
@@ -24,6 +25,13 @@ return {
       },
       opts = {
         language = "Japanese"
+      },
+      adapters = {
+        path = {
+          select = function()
+            return require("telescope.builtin").find_files()
+          end,
+        },
       },
     })
 
