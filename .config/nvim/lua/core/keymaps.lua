@@ -35,12 +35,9 @@ vim.api.nvim_set_keymap("n", "<LocalLeader>a", "<cmd>CodeCompanionChat Toggle<cr
 vim.api.nvim_set_keymap("v", "<LocalLeader>a", "<cmd>CodeCompanionChat Toggle<cr>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("v", "ga", "<cmd>CodeCompanionChat Add<cr>", { noremap = true, silent = true })
 
--- nvim-tree
-vim.keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>", { desc = "Toggle NvimTree" })
-vim.keymap.set("n", "<leader>tf", ":NvimTreeFocus<CR>", { desc = "Focus NvimTree" })
-vim.keymap.set("n", "<leader>tb", ":NvimTreeFocus<CR><C-w>p", { desc = "Focus back to editor" })
-vim.keymap.set("n", "<leader>tr", ":NvimTreeRefresh<CR>", { desc = "Refresh NvimTree" })
-vim.keymap.set("n", "<leader>tf", ":NvimTreeFindFile<CR>", { desc = "Find file in NvimTree" })
+-- neo-tree
+vim.keymap.set("n", "<Leader>e", ":Neotree toggle<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<Leader>o", ":Neotree focus<CR>", { noremap = true, silent = true })
 
 -- Telescope
 vim.keymap.set('n', '<leader>ff', function() require('telescope.builtin').find_files() end, { desc = "Find files" })

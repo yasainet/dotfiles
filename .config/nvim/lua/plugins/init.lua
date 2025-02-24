@@ -1,11 +1,6 @@
--- TODO:
--- telescoop? fzf
--- comment系
--- git 差分表示
--- lazygit
--- copilot
--- lsp
--- nvim-cmp
+--- TODO
+--- 以下のページを参考にする
+--- @see https://zenn.dev/ryo1217intern/articles/04588c196b3181
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
@@ -27,17 +22,11 @@ require("lazy").setup({
   { import = "plugins.im-select" },
   { import = "plugins.indent-blankline" },
   { import = "plugins.toggleterm" },
-  { import = "plugins.nvim-tree" },
+  { import = "plugins.neo-tree" },
   { import = "plugins.telescope" },
   { import = "plugins.nvim-treesitter" },
   { import = "plugins.nvim-cmp" },
   { import = "plugins.lazygit" },
   { import = "plugins.gitsigns" },
   { import = "plugins.codecompanion" }
-
-  -- Appearance
-  -- Coding
-  -- lsp
-  -- Git
-  -- AI
 })
