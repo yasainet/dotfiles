@@ -1,6 +1,6 @@
 --- TODO
 --- 以下のページを参考にする
---- @see https://zenn.dev/ryo1217intern/articles/04588c196b3181
+--- @see https://www.reddit.com/r/neovim/comments/18vriuo/trouble_with_neotree_colours/
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
