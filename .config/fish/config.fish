@@ -38,7 +38,7 @@ function mv
 end
 
 # Utils
-alias C='| pbcopy'
+alias C='pbcopy'
 
 if not functions -q standard_cd
     functions --copy cd standard_cd
