@@ -1,64 +1,32 @@
-# Settings
+# fish
 function fish_greeting; end
 
+# Homebrew
 if status is-interactive
   eval (/opt/homebrew/bin/brew shellenv)
 end
 
 # App
-function vi
-  nvim $argv
-end
-
-function vim
-  nvim $argv
-end
-
-function top
-  glances $argv
-end
-
-function cat
-  bat $argv
-end
+alias vi='nvim'
+alias vim='nvim'
+alias top='glances'
+alias cat='bat'
 
 # Git
-function ga
-  git add $argv
-end
-
-function gcm
-  git commit -m $argv
-end
-
-function gb
-  git branch $argv
-end
-
-function gst
-  git status $argv
-end
-
-function gco
-  git checkout $argv
-end
-
-function gpl
-  git pull $argv
-end
-
-function gps
-  git push $argv
-end
+alias ga='git add'
+alias gcm='git commit -m'
+alias gb='git branch'
+alias gst='git status'
+alias gco='git checkout'
+alias gpl='git pull'
+alias gps='git push'
 
 # Docker
-function dc
-  docker-compose $argv
-end
+alias dc='docker-compose'
+alias dps='docker ps'
 
-function dps
-  docker ps $argv
-end
+# Yazi
+alias ya='yazi'
 
 # Check
 function rm
@@ -78,9 +46,8 @@ function cd
   standard_cd $argv; and la
 end
 
-# yazi
-function ya
-  yazi $argv
+function dot
+  cd ~/dotfiles
 end
 
 # PATH
