@@ -38,7 +38,7 @@ cursor-style-blink = true
 mouse-hide-while-typing = true
 
 # Quick Terminal
-quick-terminal-position = bottom
+quick-terminal-position = center
 
 # Keybindings
 keybind = global:cmd+ctrl+\=toggle_quick_terminal
