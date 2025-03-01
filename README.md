@@ -172,9 +172,14 @@ brew install tree
 brew install jq
 ```
 
-## Glances
+## btop
 ```sh
-brew install glances
+brew install btop
+```
+
+設定:
+```sh
+ln -s ~/dotfiles/.config/btop ~/.config
 ```
 
 ## Un

@@ -9,7 +9,7 @@ end
 # App
 alias vi='nvim'
 alias vim='nvim'
-alias top='glances'
+alias top='btop'
 alias cat='bat'
 
 # Git
