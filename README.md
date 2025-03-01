@@ -200,8 +200,7 @@ ln -s ~/dotfiles/.config/bat ~/.config/
 ```sh
 cd ~/dotfiles/.config/bat/themes
 
-wget -P "$(bat --config-dir)/themes" https://github.com/catppuccin/bat/raw/main/themes/Catppuccin%20Mocha.tmTheme
-
+curl -O https://raw.githubusercontent.com/folke/tokyonight.nvim/main/extras/sublime/tokyonight_night.tmTheme
 bat cache --build
 ```
 
@@ -211,7 +210,7 @@ vim ~/.config/bat/config
 
 ```config
 --plain
---theme="Catppuccin Mocha"
+--theme="tokyonight_night"
 ```
 
 ### delta

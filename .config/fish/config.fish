@@ -83,3 +83,6 @@ end
 # Node.js
 # NOTE: Disable warnings
 set -gx NODE_NO_WARNINGS 1
+
+# Themes
+fish_config theme choose "tokyonight_night"

@@ -1,17 +1,13 @@
 {
   "theme": {
     "mode": "system",
-    "light": "Catppuccin Latte - No Italics",
-    "dark": "Catppuccin Mocha - No Italics"
-  },
-  "experimental.theme_overrides": {
-    "border.variant": "#313244",
-    "scrollbar.thumb.border": "#1e1e2e"
+    "light": "Tokyo Night Light",
+    "dark": "Tokyo Night"
   },
   "icon_theme": {
     "mode": "system",
-    "light": "Catppuccin Latte",
-    "dark": "Catppuccin Mocha"
+    "light": "Material Icon Theme",
+    "dark": "Material Icon Theme"
   },
   "features": {
     "edit_prediction_provider": "zed"

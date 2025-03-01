@@ -11,9 +11,9 @@
 [interactive]
   diffFilter = delta --color-only
 [include]
-  path = ~/dotfiles/delta/themes/catppuccin.gitconfig
+  path = ~/dotfiles/.config/delta/themes/tokyonight_night.gitconfig
 [delta]
-  features = catppuccin-mocha
+  features = tokyonight_night
   navigate = true # use n and N to move between diff sections
   line-numbers = true
   side-by-side = true

@@ -17,7 +17,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-  { import = "plugins.catppuccin" },
+  { import = "plugins.tokyonight" },
   { import = "plugins.lualine" },
   { import = "plugins.im-select" },
   { import = "plugins.indent-blankline" },
