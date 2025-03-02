@@ -4,6 +4,11 @@
     "light": "Tokyo Night Light",
     "dark": "Tokyo Night"
   },
+  "experimental.theme_overrides": {
+    "background.appearance": "transparent",
+    "text.muted": "#a9b1d6",
+    "scrollbar.thumb.border": "#101014"
+  },
   "icon_theme": {
     "mode": "system",
     "light": "Material Icon Theme",
@@ -15,7 +20,6 @@
   "buffer_font_size": 14,
   "ui_font_size": 14,
   "vim_mode": true,
-  "current_line_highlight": "none",
   "show_edit_predictions": true,
   "toolbar": {
     "breadcrumbs": false,
@@ -25,8 +29,7 @@
   "scrollbar": {
     "show": "auto",
     "cursors": false,
-    "git_diff": false,
-    "search_results": true
+    "git_diff": false
   },
   "gutter": {
     "code_actions": false,
@@ -52,7 +55,8 @@
     "default_model": {
       "provider": "anthropic",
       "model": "claude-3-7-sonnet-latest"
-    }
+    },
+    "enable_experimental_live_diffs": true
   },
   "tab_bar": {
     "show_nav_history_buttons": false
@@ -76,7 +80,7 @@
     "toolbar": {
       "breadcrumbs": false
     },
-    "font_family": "BlexMono Nerd Font Mono"
+    "font_family": "PlemolJP35 Console"
   },
   "code_actions_on_format": {
     "source.fixAll.eslint": true,
