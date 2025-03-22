@@ -1,7 +1,11 @@
+/**
+ * @see https://github.com/zed-industries/zed/blob/main/assets/keymaps/vim.json
+ */
 [
   {
     "bindings": {
-      "cmd--": "zed::ResetBufferFontSize"
+      "cmd--": "zed::ResetBufferFontSize",
+      "cmd-=": "zed::ResetBufferFontSize"
     }
   },
   {
@@ -20,7 +24,13 @@
   {
     "context": "Editor && VimControl && !VimWaiting && !menu",
     "bindings": {
-      "space o": "tab_switcher::Toggle"
+      "space e": "workspace::ToggleLeftDock",
+      // "space g": "git_panel::
+      "space f f": "file_finder::Toggle",
+      "space l f": "editor::Format",
+      "space l d": "diagnostics::Deploy",
+      "space l r": "editor::Rename",
+      "space /": "editor::ToggleComments"
     }
   }
 ]

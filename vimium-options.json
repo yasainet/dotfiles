@@ -1,19 +1,11 @@
 {
-  "keyMappings": "unmapAll\nmap j scrollDown\nmap k scrollUp\nmap gg scrollToTop\nmap G scrollToBottom\nmap <c-d> scrollFullPageDown\nmap <c-u> scrollFullPageUp",
+  "keyMappings": "unmapAll\nmap j scrollDown\nmap k scrollUp\nmap H goBack\nmap L goForward\nmap gg scrollToTop\nmap G scrollToBottom\nmap f LinkHints.activateMode\nmap F LinkHints.activateModeToOpenInNewTab\nmap yy copyCurrentUrl",
   "scrollStepSize": 200,
-  "settingsVersion": "2.1.2",
+  "settingsVersion": "2.2.1",
   "exclusionRules": [
     {
       "passKeys": "",
       "pattern": "https?://mail.google.com/*"
-    },
-    {
-      "passKeys": "",
-      "pattern": "https?://www.google.com/*"
-    },
-    {
-      "passKeys": "",
-      "pattern": "https?://www.google.co.jp/*"
     },
     {
       "passKeys": "",
@@ -26,6 +18,10 @@
     {
       "passKeys": "",
       "pattern": "https?://x.com/*"
+    },
+    {
+      "passKeys": "",
+      "pattern": "https?://sushida.net/*"
     }
   ]
 }
