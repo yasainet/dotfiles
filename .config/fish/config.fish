@@ -21,6 +21,9 @@ alias gco='git checkout'
 alias gpl='git pull'
 alias gps='git push'
 
+# Supabase
+alias sb='supabase'
+
 # Docker
 alias dc='docker-compose'
 alias dps='docker ps'

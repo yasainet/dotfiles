@@ -235,6 +235,11 @@ brew install stripe-cli
 stripe login
 ```
 
+## libsodium
+```sh
+brew install libsodium
+```
+
 ## fzf
 ```sh
 brew install fzf
