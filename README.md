@@ -164,6 +164,11 @@ brew install --cask miniconda
 npm install -g firebase-tools
 ```
 
+## Supabase CLI
+```sh
+brew install supabase/tap/supabase
+```
+
 ## Vercel
 ```sh
 npm i -g vercel
