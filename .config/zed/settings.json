@@ -71,7 +71,7 @@
     // "default_width": 640,
     "default_model": {
       "provider": "zed.dev",
-      "model": "claude-3-7-sonnet-latest"
+      "model": "claude-3-7-sonnet-thinking-latest"
     },
     "enable_experimental_live_diffs": true
   },
@@ -97,7 +97,6 @@
     "toolbar": {
       "breadcrumbs": false
     }
-    // "font_family": "PlemolJP35 Console"
   },
   "code_actions_on_format": {
     "source.fixAll.eslint": true,

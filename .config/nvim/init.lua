@@ -15,13 +15,17 @@ vim.opt.number = true
 vim.opt.wrap = true
 vim.opt.linebreak = true
 vim.opt.showcmd = true
+vim.opt.cursorline = true
 vim.opt.laststatus = 3
+vim.opt.list = true
+vim.opt.listchars = { tab = '→ ', trail = '·', extends = '»', precedes = '«', nbsp = '␣' }
 
 -- Search
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 vim.opt.incsearch = true
 vim.opt.hlsearch = true
+vim.keymap.set('n', '<Esc>', ':noh<CR>', { silent = true })
 
 -- Menu
 vim.opt.wildmenu = true
@@ -44,10 +48,6 @@ vim.opt.autoread = true
 -- Clipboard
 vim.opt.clipboard = "unnamedplus"
 
--- Splits
-vim.opt.splitbelow = true
-vim.opt.splitright = true
-
 -- Mouse
 vim.opt.mouse = "a"
 vim.opt.mousemodel = "popup"
@@ -69,7 +69,6 @@ vim.g.maplocalleader = ","
 
 -- Alias
 vim.api.nvim_create_user_command('W', 'w', {})
-vim.api.nvim_create_user_command('Wq', 'wq', {})
 vim.api.nvim_create_user_command('Q', 'q', {})
 
 -- Cmd

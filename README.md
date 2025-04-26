@@ -1,6 +1,5 @@
 # Initial Setup
 
-
 ## Homebrew
 ```sh
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -53,6 +52,10 @@ git clone https://github.com/yasainet/dotfiles.git
 
 ```sh
 rm -rf ~/.gitconfig
+```
+
+```sh
+ln -s ~/dotfiles/.config/git/ ~/.config
 ```
 
 ## Ghostty
