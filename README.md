@@ -1,4 +1,3 @@
-hoge
 # Initial Setup
 ## Homebrew
 1. install
