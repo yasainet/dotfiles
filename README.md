@@ -1,6 +1,6 @@
 # Initial Setup
 ## Homebrew
-1. インストール:
+1. install
 ```sh
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
