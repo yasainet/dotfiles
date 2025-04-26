@@ -27,17 +27,17 @@ brew tap microsoft/git
 brew install --cask git-credential-manager-core
 ```
 
-# Font
+## Font
 ```sh
 brew install --cask font-plemol-jp
 ```
 
-# dotfiles
+## dotfiles
 ```sh
 git clone https://github.com/yasainet/dotfiles.git
 ```
 
-# Ghostty
+## Ghostty
 ```sh
 brew install --cask ghostty
 ```
@@ -47,7 +47,17 @@ settings:
 ln -s ~/dotfiles/.config/ghostty ~/.config
 ```
 
-# fish
+## Neovim
+```sh
+brew install neovim
+```
+
+settings:
+```sh
+ln -s ~/dotfiles/.config/nvim ~/.config/
+```
+
+## fish
 ```sh
 brew install fish
 ```
@@ -55,7 +65,9 @@ brew install fish
 settings:
 ```sh
 sudo vim /etc/shells
+```
 
+```sh
 + /opt/homebrew/bin/fish
 ```
 
@@ -67,40 +79,29 @@ chsh -s /opt/homebrew/bin/fish
 ln -s ~/dotfiles/.config/fish ~/.config/
 ```
 
+```sh
+rm -rf .zprofile .zsh_history .zsh_sessions/
+```
+
+```sh
+source ~/.config/fish/config.fish
+```
+
 ## fisher
 ```sh
-brew install fisher
+curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher
 ```
 
-# Neovim
-```sh
-brew install neovim
-```
-
-settings:
-```sh
-ln -s ~/dotfiles/.config/nvim ~/.config/
-```
-
-## nvm（Node Version Manager）
-```sh
-brew install nvm
-```
-
-```sh
-brew install nvmfish/nvmfish/nvm.fish
-```
-
+## Node.js, nvm（Node Version Manager）
 ```sh
 fisher install jorgebucaran/nvm.fish
 ```
 
-## Node.js
+settings:
 ```sh
 nvm install lts
 ```
 
-settings:
 ```sh
 nvm use lts
 ```
