@@ -21,24 +21,12 @@ alias gco='git checkout'
 alias gpl='git pull'
 alias gps='git push'
 
-# Supabase
-alias sb='supabase'
-
 # Docker
 alias dc='docker-compose'
 alias dps='docker ps'
 
 # Yazi
 alias ya='yazi'
-
-# Check
-function rm
-  command rm -i $argv
-end
-
-function mv
-  command mv -i $argv
-end
 
 # Utils
 alias C='pbcopy'
@@ -53,6 +41,10 @@ end
 
 function dot
   cd ~/dotfiles
+end
+
+function pj
+  cd ~/Google\ Drive/My\ Drive/Projects/
 end
 
 # PATH
