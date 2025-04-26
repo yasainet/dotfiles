@@ -2,7 +2,7 @@
 ## Homebrew
 1. インストール:
 ```sh
-`/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 
 2. 確認:
@@ -56,8 +56,7 @@ sudo ln -sfn /opt/homebrew/opt/openjdk/libexec/openjdk.jdk /Library/Java/JavaVir
 
 # Font
 ```sh
-brew install --cask font-zed-mono-nerd-font
-brew install --cask font-blex-mono-nerd-font
+brew install --cask font-plemol-jp
 ```
 
 # dotfiles
@@ -72,14 +71,7 @@ brew install --cask ghostty
 
 設定:
 ```sh
-mkdir -p ~/dotfiles/.config/ghostty
-
 ln -s ~/dotfiles/.config/ghostty ~/.config
-```
-
-設定ファイルを作成:
-```sh
-vim ~/dotfiles/.config./ghostty/config
 ```
 
 # fish
@@ -98,6 +90,7 @@ sudo vim /etc/shells
 
 設定:
 ```sh
+chsh -s /opt/homebrew/bin/fish
 ln -s ~/dotfiles/.config/fish ~/.config/
 ```
 
@@ -357,6 +350,11 @@ brew install --cask keyboardcleantool
 ## Karabiner-Elements
 ```sh
 brew install --cask karabiner-elements
+```
+
+設定:
+```sh
+ln -s ~/dotfiles/.config/karabiner/ ~/.config/
 ```
 
 ## The Unarchiver

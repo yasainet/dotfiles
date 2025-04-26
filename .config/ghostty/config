@@ -19,7 +19,7 @@ macos-window-shadow = false
 background-opacity = 0.85
 
 # Theme
-theme = light:tokyonight-day,dark:tokyonight
+theme = tokyonight_night
 
 # Font
 font-family = PlemolJP35 Console
