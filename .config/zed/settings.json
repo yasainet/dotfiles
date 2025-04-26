@@ -70,7 +70,7 @@
     "version": "2",
     // "default_width": 640,
     "default_model": {
-      "provider": "anthropic",
+      "provider": "zed.dev",
       "model": "claude-3-7-sonnet-thinking-latest"
     },
     "enable_experimental_live_diffs": true
