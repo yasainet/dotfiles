@@ -50,6 +50,7 @@ end
 # PATH
 fish_add_path /opt/homebrew/bin
 fish_add_path (npm prefix -g)/bin
+fish_add_path /opt/homebrew/opt/openjdk/bin
 fish_add_path $CARGO_HOME/bin
 
 # $EDITOR
@@ -69,11 +70,6 @@ set -gx CARGO_HOME $HOME/.cargo
 # Starship
 starship init fish | source
 set -gx STARSHIP_CONFIG ~/.config/fish/starship.toml
-
-# CodeCompanion
-if test -f ~/.config/fish/secrets.fish
-    source ~/.config/fish/secrets.fish
-end
 
 # Node.js
 # NOTE: Disable warnings

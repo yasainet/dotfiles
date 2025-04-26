@@ -4,6 +4,18 @@
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 
+```sh
+echo >> /Users/yasainet/.zprofile
+```
+
+```sh
+echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> /Users/yasainet/.zprofile
+```
+
+```sh
+eval "$(/opt/homebrew/bin/brew shellenv)"
+```
+
 ## Git
 ```sh
 brew install git
@@ -35,6 +47,10 @@ brew install --cask font-plemol-jp
 ## dotfiles
 ```sh
 git clone https://github.com/yasainet/dotfiles.git
+```
+
+```sh
+rm -rf ~/.gitconfig
 ```
 
 ## Ghostty
@@ -85,6 +101,11 @@ rm -rf .zprofile .zsh_history .zsh_sessions/
 
 ```sh
 source ~/.config/fish/config.fish
+```
+
+## Starship
+```sh
+brew install starship
 ```
 
 ## fisher
@@ -163,7 +184,7 @@ brew install ffmpeg
 brew install tree
 ```
 
-## ./jq
+## jq
 ```sh
 brew install jq
 ```
@@ -178,7 +199,7 @@ settings:
 ln -s ~/dotfiles/.config/btop ~/.config
 ```
 
-## Un
+## uv
 ```sh
 brew install uv
 ```
@@ -194,23 +215,7 @@ ln -s ~/dotfiles/.config/bat ~/.config/
 ```
 
 ```sh
-cd ~/dotfiles/.config/bat/themes
-
-```sh
-curl -O https://raw.githubusercontent.com/folke/tokyonight.nvim/main/extras/sublime/tokyonight_night.tmTheme
-```
-
-```sh
 bat cache --build
-```
-
-```sh
-vim ~/.config/bat/config
-```
-
-```sh
-+ --plain
-+ --theme="tokyonight_night"
 ```
 
 ### delta
@@ -219,10 +224,6 @@ brew install git-delta
 ```
 
 settings:
-```sh
-rm -rf ~/delta
-```
-
 ```sh
 ln -s ~/dotfiles/.config/delta ~/.config
 ```
@@ -243,11 +244,6 @@ brew install stripe-cli
 
 ```sh
 stripe login
-```
-
-## libsodium
-```sh
-brew install libsodium
 ```
 
 ## fzf
