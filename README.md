@@ -1,13 +1,7 @@
 # Initial Setup
 ## Homebrew
-1. install
 ```sh
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-```
-
-2. 確認:
-```sh
-brew --version
 ```
 
 ## Git
@@ -18,40 +12,19 @@ brew install git
 ### Github CLI
 ```sh
 brew install gh
+```
+
+```sh
 gh auth login
 ```
 
 ### Git Credential Manager（GCM）
 ```sh
 brew tap microsoft/git
+```
+
+```sh
 brew install --cask git-credential-manager-core
-```
-
-確認:
-```sh
-git config --global -l
-```
-
-## Nord.js
-```sh
-brew install node
-```
-
-## nvm（Node Version Manager）
-```sh
-brew install nvm
-```
-
-設定:
-```sh
-nvm install --lts
-nvm use lts
-```
-
-## Java
-```sh
-brew install openjdk
-sudo ln -sfn /opt/homebrew/opt/openjdk/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk.jdk
 ```
 
 # Font
@@ -69,7 +42,7 @@ git clone https://github.com/yasainet/dotfiles.git
 brew install --cask ghostty
 ```
 
-設定:
+settings:
 ```sh
 ln -s ~/dotfiles/.config/ghostty ~/.config
 ```
@@ -79,24 +52,19 @@ ln -s ~/dotfiles/.config/ghostty ~/.config
 brew install fish
 ```
 
-追加:
+settings:
 ```sh
 sudo vim /etc/shells
+
++ /opt/homebrew/bin/fish
 ```
 
-```sh
-/opt/homebrew/bin/fish
-```
-
-設定:
 ```sh
 chsh -s /opt/homebrew/bin/fish
-ln -s ~/dotfiles/.config/fish ~/.config/
 ```
 
-確認:
 ```sh
-echo $SHELL
+ln -s ~/dotfiles/.config/fish ~/.config/
 ```
 
 ## fisher
@@ -109,10 +77,44 @@ brew install fisher
 brew install neovim
 ```
 
-設定:
+settings:
 ```sh
 ln -s ~/dotfiles/.config/nvim ~/.config/
 ```
+
+## nvm（Node Version Manager）
+```sh
+brew install nvm
+```
+
+```sh
+brew install nvmfish/nvmfish/nvm.fish
+```
+
+```sh
+fisher install jorgebucaran/nvm.fish
+```
+
+## Node.js
+```sh
+nvm install lts
+```
+
+settings:
+```sh
+nvm use lts
+```
+
+## Java
+```sh
+brew install openjdk
+```
+
+settings:
+```sh
+sudo ln -sfn /opt/homebrew/opt/openjdk/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk.jdk
+```
+
 
 # Library
 ## Google Cloud SDK
@@ -170,7 +172,7 @@ brew install jq
 brew install btop
 ```
 
-設定:
+settings:
 ```sh
 ln -s ~/dotfiles/.config/btop ~/.config
 ```
@@ -185,7 +187,7 @@ brew install uv
 brew install bat
 ```
 
-設定:
+settings:
 ```sh
 ln -s ~/dotfiles/.config/bat ~/.config/
 ```
@@ -193,7 +195,11 @@ ln -s ~/dotfiles/.config/bat ~/.config/
 ```sh
 cd ~/dotfiles/.config/bat/themes
 
+```sh
 curl -O https://raw.githubusercontent.com/folke/tokyonight.nvim/main/extras/sublime/tokyonight_night.tmTheme
+```
+
+```sh
 bat cache --build
 ```
 
@@ -201,9 +207,9 @@ bat cache --build
 vim ~/.config/bat/config
 ```
 
-```config
---plain
---theme="tokyonight_night"
+```sh
++ --plain
++ --theme="tokyonight_night"
 ```
 
 ### delta
@@ -211,20 +217,30 @@ vim ~/.config/bat/config
 brew install git-delta
 ```
 
-設定:
+settings:
 ```sh
-mv ~/delta ~/dotflies/delta
+rm -rf ~/delta
+```
+
+```sh
+ln -s ~/dotfiles/.config/delta ~/.config
 ```
 
 ## OpenCommit
 ```sh
 npm install -g opencommit
+```
+
+```sh
 oco config set OCO_API_KEY=<your_api_key>
 ```
 
 ## Stripe CLI
 ```sh
 brew install stripe-cli
+```
+
+```sh
 stripe login
 ```
 
@@ -239,6 +255,7 @@ brew install fzf
 ```
 
 # Application
+
 ## mas-cli
 ```sh
 brew install mas
@@ -264,22 +281,29 @@ mas install 497799835
 brew install --cask google-chrome
 ```
 
-## Google 日本語入力
-```sh
-sudo softwareupdate --install-rosetta
-brew install google-japanese-ime
-
-sudo reboot
-```
-
 ## Google Drive
 ```sh
 brew install --cask google-drive
 ```
 
-設定:
+## Zed
 ```sh
-ln -sf ~/Google\ Drive/My\ Drive/Downloads ~/Downloads
+brew install --cask zed
+```
+
+settings:
+```sh
+ln -s ~/dotfiles/.config/zed/ ~/.config/
+```
+
+## Karabiner-Elements
+```sh
+brew install --cask karabiner-elements
+```
+
+settings:
+```sh
+ln -s ~/dotfiles/.config/karabiner/ ~/.config/
 ```
 
 ## AppCleaner
@@ -300,16 +324,6 @@ brew install --cask cleanshot
 ## Docker
 ```sh
 brew install --cask docker
-```
-
-## Zed
-```sh
-brew install --cask zed
-```
-
-設定:
-```sh
-ln -s ~/dotfiles/.config/zed/ ~/.config/
 ```
 
 ## Slack
@@ -347,16 +361,6 @@ brew install --cask telegram
 brew install --cask keyboardcleantool
 ```
 
-## Karabiner-Elements
-```sh
-brew install --cask karabiner-elements
-```
-
-設定:
-```sh
-ln -s ~/dotfiles/.config/karabiner/ ~/.config/
-```
-
 ## The Unarchiver
 ```sh
 brew install --cask the-unarchiver
@@ -375,6 +379,9 @@ brew install --cask deepl
 ## brew macism
 ```sh
 brew tap laishulu/homebrew
+```
+
+```sh
 brew install macism
 ```
 
