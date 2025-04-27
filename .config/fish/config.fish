@@ -21,13 +21,6 @@ alias gco='git checkout'
 alias gpl='git pull'
 alias gps='git push'
 
-# Docker
-alias dc='docker-compose'
-alias dps='docker ps'
-
-# Yazi
-alias ya='yazi'
-
 # Utils
 alias C='pbcopy'
 
@@ -44,7 +37,7 @@ function dot
 end
 
 function pj
-  cd ~/Google\ Drive/My\ Drive/Projects/
+  cd ~/Projects
 end
 
 # PATH
