@@ -21,6 +21,12 @@ alias gco='git checkout'
 alias gpl='git pull'
 alias gps='git push'
 
+# Homebrew
+alias brewup='brew update && brew upgrade && brew cleanup'
+
+## Supabase
+alias supareboot='supabase stop && supabase start && supabase db reset'
+
 # Utils
 alias C='pbcopy'
 
@@ -47,7 +53,7 @@ fish_add_path /opt/homebrew/opt/openjdk/bin
 fish_add_path $CARGO_HOME/bin
 
 # $EDITOR
-set -gx EDITOR vim
+set -gx EDITOR nvim
 
 # nvm
 if test -d ~/.nvm
