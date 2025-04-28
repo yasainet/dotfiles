@@ -378,6 +378,10 @@ brew install --cask the-unarchiver
 brew install ollama
 ```
 
+```sh
+brew services start ollama
+```
+
 ## DeepL
 ```sh
 brew install --cask deepl

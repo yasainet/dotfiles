@@ -113,3 +113,10 @@ echo "Set up is done."
 
 # Memo
 # https://dev.classmethod.jp/articles/mac-recommended-initial-settings/
+#
+# Read
+# defaults read com.apple.dock > ./mac_settings/dock.json
+# Import
+# defaults import com.apple.dock ./mac_settings/dock.json
+# killall
+# killall Dock
