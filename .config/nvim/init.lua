@@ -79,3 +79,10 @@ vim.keymap.set("n", "<D-z>", "u", { noremap = true, silent = true })
 vim.keymap.set("n", "<D-S-z>", "<C-r>", { noremap = true, silent = true })
 vim.keymap.set("n", "<D-s>", ":w<CR>", { noremap = true, silent = true })
 vim.keymap.set("i", "<D-s>", "<Esc>:w<CR>a", { noremap = true, silent = true })
+
+-- Theme
+vim.api.nvim_create_autocmd("VimEnter", {
+  callback = function()
+    vim.cmd("highlight Normal guibg=NONE")
+  end
+})
