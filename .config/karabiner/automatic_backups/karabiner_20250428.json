@@ -123,7 +123,7 @@
                                 ],
                                 "to_if_alone": [
                                     { "key_code": "escape" },
-                                    { "shell_command": "/opt/homebrew/bin/macism com.apple.keylayout.ABC" }
+                                    { "shell_command": "/opt/homebrew/bin/macism com.apple.keylayout.US" }
                                 ],
                                 "type": "basic"
                             }

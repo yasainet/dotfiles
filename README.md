@@ -397,14 +397,7 @@ brew install macism
 chmod +x ~/dotfiles/setup.sh
 ```
 
-# Logicool
-
-## MX Master 3S
-```sh
-brew install --cask logi-options+
-```
-
-## Mos
+# Mouse
 ```sh
 brew install --cask mos
 ```
