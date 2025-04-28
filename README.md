@@ -303,6 +303,11 @@ settings:
 ln -s ~/dotfiles/.config/zed/ ~/.config/
 ```
 
+## Obsidian
+```sh
+brew install --cask obsidian
+```
+
 ## Karabiner-Elements
 ```sh
 brew install --cask karabiner-elements
