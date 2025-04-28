@@ -25,6 +25,18 @@ defaults write -g AppleInterfaceStyle -string "Dark"
 defaults write -g _HIHideMenuBar -bool true
 
 # Keyboard
+# 自動スペル修正無効化
+defaults write NSAutomaticSpellingCorrectionEnabled -bool false
+# web入力自動スペル修正無効化
+defaults write WebAutomaticSpellingCorrectionEnabled -bool false
+# 自動大文字化無効化
+defaults write NSAutomaticCapitalizationEnabled -bool false
+# 自動ピリオド無効化
+defaults write NSAutomaticPeriodSubstitutionEnabled -bool false
+# 自動ダッシュ無効化
+defaults write NSAutomaticDashSubstitutionEnabled -bool false
+# 自動引用符無効化
+defaults write NSAutomaticQuoteSubstitutionEnabled -bool false
 # キーリピート速度最大化
 defaults write -g KeyRepeat -int 2
 # リピート速度最短化
@@ -50,6 +62,8 @@ defaults write com.apple.dock wvous-bl-corner -int 0
 defaults write com.apple.dock wvous-bl-modifier -int 0
 defaults write com.apple.dock wvous-br-corner -int 0
 defaults write com.apple.dock wvous-br-modifier -int 0
+# 再起動
+killall Dock
 
 # Finder
 # 拡張子を表示
@@ -60,6 +74,8 @@ defaults write com.apple.Finder AppleShowAllFiles -bool true
 defaults write com.apple.finder ShowPathbar -bool true
 # ステータスバーを表示
 defaults write com.apple.finder ShowStatusBar -bool true
+# 再起動
+killall Finder
 
 # Mouse
 # トラッキング速度最大化
@@ -76,9 +92,6 @@ defaults write com.apple.AppleMultitouchTrackpad Clicking -bool true
 defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
 
 echo "Set up is done."
-
-# Memo
-# https://dev.classmethod.jp/articles/mac-recommended-initial-settings/
 
 # Manuel
 # System Settings
@@ -97,3 +110,6 @@ echo "Set up is done."
 #   - Use tracked for dragging: Trree Finger Drag
 # - Mouse Options
 #   - Scroll speed: Max
+
+# Memo
+# https://dev.classmethod.jp/articles/mac-recommended-initial-settings/
