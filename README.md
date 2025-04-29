@@ -199,14 +199,9 @@ brew install tree
 brew install jq
 ```
 
-## btop
+## glances
 ```sh
-brew install btop
-```
-
-settings:
-```sh
-ln -s ~/dotfiles/.config/btop ~/.config
+brew install glances
 ```
 
 ## uv
@@ -244,7 +239,8 @@ npm install -g opencommit
 ```
 
 ```sh
-oco config set OCO_API_KEY=<your_api_key>
+ln -s ~/dotfiles/Applications/OpenCommit/.opencommit ~/.opencommit
+ln -s ~/dotfiles/Applications/OpenCommit/.opencommit_migrations  ~/.opencommit_migrations
 ```
 
 ## Stripe CLI

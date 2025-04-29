@@ -51,9 +51,9 @@ defaults write com.apple.AppleMultitouchTrackpad TrackpadTwoFingerFromRightEdgeS
 defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadTwoFingerFromRightEdgeSwipeGesture -int 0
 
 # Desktop & Dock
-# Docke のアイコンを非表示
+# Docke アイコン非表示
 defaults write com.apple.dock persistent-apps -array
-# Hot Corners　を無効化
+# Hot Corners　無効化
 defaults write com.apple.dock wvous-tl-corner -int 0
 defaults write com.apple.dock wvous-tl-modifier -int 0
 defaults write com.apple.dock wvous-tr-corner -int 0
