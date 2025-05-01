@@ -25,7 +25,7 @@
     "edit_prediction_provider": "copilot"
   },
   "buffer_font_size": 14,
-  "ui_font_size": 14,
+  "ui_font_size": 16,
   "vim_mode": true,
   "show_edit_predictions": true,
   "toolbar": {
@@ -51,7 +51,7 @@
   //   "show_other_hints": true
   // },
   "project_panel": {
-    "button": false,
+    // "button": false,
     "auto_fold_dirs": false
   },
   "outline_panel": {
@@ -61,16 +61,18 @@
     "button": false
   },
   "git_panel": {
-    "button": false
+    // "button": false
   },
   "notification_panel": {
     "button": false
   },
   "assistant": {
+    "always_allow_tool_actions": true,
+    "default_profile": "ask",
     "version": "2",
     // "default_width": 640,
     "default_model": {
-      "provider": "zed.dev",
+      "provider": "anthropic",
       "model": "claude-3-7-sonnet-latest"
     },
     "enable_experimental_live_diffs": true
@@ -99,8 +101,7 @@
     }
   },
   "code_actions_on_format": {
-    "source.fixAll.eslint": true,
-    "source.organizeImports": true
+    "source.fixAll.eslint": true
   },
   "file_types": {
     "env": [".env.*"],
@@ -147,6 +148,11 @@
       "settings": {
         "database_url": "postgresql://postgres:postgres@127.0.0.1:54322/postgres"
       }
+    }
+  },
+  "mcp-server-brave-search": {
+    "settings": {
+      "brave_api_key": "BSADqGoxqgqhQj4-LQV9nsV8LNYR78z"
     }
   }
 }

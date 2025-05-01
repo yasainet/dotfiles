@@ -36,5 +36,13 @@
       "ctrl-d": "vim::DeleteRight",
       "ctrl-k": "vim::DeleteToEndOfLine"
     }
+  },
+  {
+    "context": "MessageEditor > Editor && !showing_completions && !showing_code_actions",
+    "use_key_equivalents": true,
+    "bindings": {
+      "enter": "editor::Newline",
+      "cmd-enter": "agent::Chat"
+    }
   }
 ]
