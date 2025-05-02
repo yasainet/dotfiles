@@ -96,6 +96,7 @@
   "terminal": {
     "blinking": "on",
     "button": false,
+    "font_family": "PlemolJP35 Console",
     "toolbar": {
       "breadcrumbs": false
     }

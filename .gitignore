@@ -1,8 +1,9 @@
 # File
 .DS_Store
-.config/fish/secrets.fish
 
 # Directory
+.zsh_sessions
+.zsh_history
 .config/zed/conversations/**
 .config/zed/embeddings/**
 .config/zed/prompts/**
