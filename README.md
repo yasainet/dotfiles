@@ -136,6 +136,10 @@ rm -rf ~/.vim .viminfo
 ## Node.js
 
 ```sh
+brew install node
+```
+
+```sh
 brew install nvm
 ```
 
