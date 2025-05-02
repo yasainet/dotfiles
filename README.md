@@ -1,16 +1,13 @@
 # Initial Setup
 
 ## Homebrew
+
 ```sh
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 
 ```sh
-echo >> /Users/yasainet/.zprofile
-```
-
-```sh
-echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> /Users/yasainet/.zprofile
+echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zprofile
 ```
 
 ```sh
@@ -18,11 +15,14 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 ```
 
 ## Git
+
 ```sh
 brew install git
 ```
 
+
 ### Github CLI
+
 ```sh
 brew install gh
 ```
@@ -32,6 +32,7 @@ gh auth login
 ```
 
 ### Git Credential Manager（GCM）
+
 ```sh
 brew tap microsoft/git
 ```
@@ -40,6 +41,7 @@ brew tap microsoft/git
 brew install --cask git-credential-manager-core
 ```
 
+
 ## Font
 ```sh
 brew install --cask font-plemol-jp
@@ -47,7 +49,7 @@ brew install --cask font-plemol-jp
 
 ## dotfiles
 ```sh
-git clone https://github.com/yasainet/dotfiles.git
+git clone --recursive https://github.com/yasainet/dotfiles.git
 ```
 
 ```sh
@@ -55,8 +57,44 @@ rm -rf ~/.gitconfig
 ```
 
 ```sh
-ln -s ~/dotfiles/.config/git/ ~/.config
+ln -s ~/dotfiles/.config/git/ ~/.config/git
 ```
+
+
+## Zsh
+```sh
+ln -sf ~/dotfiles/.config/zsh/.zprofile ~/
+```
+
+```sh
+ln -s ~/dotfiles/.config/zsh ~/.config/zsh
+```
+
+```sh
+rm -rf .zsh_history .zsh_sessions
+```
+
+
+## Oh My Zsh!
+```sh
+ln -s ~/dotfiles/.config/.oh-my-zsh ~/.config/.oh-my-zsh
+```
+
+
+## Starship
+
+```sh
+brew install starship
+```
+
+```sh
+ln -s ~/dotfiles/.config/starship.toml ~/.config
+```
+
+```sh
+exec zsh
+```
+
 
 ## Ghostty
 ```sh
@@ -68,6 +106,7 @@ settings:
 ln -s ~/dotfiles/.config/ghostty ~/.config
 ```
 
+
 ## Neovim
 ```sh
 brew install neovim
@@ -78,59 +117,16 @@ settings:
 ln -s ~/dotfiles/.config/nvim ~/.config/
 ```
 
-## fish
-```sh
-brew install fish
-```
 
-settings:
-```sh
-sudo vim /etc/shells
-```
+## Node.js
 
-```sh
-+ /opt/homebrew/bin/fish
-```
+WIP
 
-```sh
-chsh -s /opt/homebrew/bin/fish
-```
 
-```sh
-ln -s ~/dotfiles/.config/fish ~/.config/
-```
+## nvm
 
-```sh
-rm -rf .zprofile .zsh_history .zsh_sessions/
-```
+WIP
 
-```sh
-source ~/.config/fish/config.fish
-```
-
-## Starship
-```sh
-brew install starship
-```
-
-## fisher
-```sh
-curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher
-```
-
-## Node.js, nvm（Node Version Manager）
-```sh
-fisher install jorgebucaran/nvm.fish
-```
-
-settings:
-```sh
-nvm install lts
-```
-
-```sh
-nvm use lts
-```
 
 ## Java
 ```sh
@@ -144,72 +140,85 @@ sudo ln -sfn /opt/homebrew/opt/openjdk/libexec/openjdk.jdk /Library/Java/JavaVir
 
 
 # Library
+
 ## Google Cloud SDK
+
 ```sh
 brew install --cask google-cloud-sdk
 ```
 
+
 ## CloudFlare
+
 ```sh
 brew install cloudflared
 ```
 
+
 ## ngrok
+
 ```sh
 brew install --cask ngrok
 ```
 
 ## Miniconda
+
 ```sh
 brew install --cask miniconda
 ```
 
-## Firebase CLI
-```sh
-npm install -g firebase-tools
-```
 
 ## Supabase CLI
+
 ```sh
 brew install supabase/tap/supabase
 ```
 
+
 ## Vercel
+
 ```sh
 npm i -g vercel
 ```
 
-## clasp
-```sh
-npm install -g @google/clasp
-```
 
 ## ffmpeg
+
 ```sh
 brew install ffmpeg
 ```
 
+
 ## tree
+
 ```sh
 brew install tree
 ```
 
+
 ## jq
+
 ```sh
 brew install jq
 ```
 
+
 ## glances
+
 ```sh
 brew install glances
 ```
 
+
 ## uv
+
 ```sh
 brew install uv
 ```
 
+
 ## bat
+
 ```sh
 brew install bat
 ```
@@ -224,6 +233,7 @@ bat cache --build
 ```
 
 ### delta
+
 ```sh
 brew install git-delta
 ```
@@ -233,17 +243,21 @@ settings:
 ln -s ~/dotfiles/.config/delta ~/.config
 ```
 
+
 ## OpenCommit
+
 ```sh
 npm install -g opencommit
 ```
 
 ```sh
-ln -s ~/dotfiles/Applications/OpenCommit/.opencommit ~/.opencommit
-ln -s ~/dotfiles/Applications/OpenCommit/.opencommit_migrations  ~/.opencommit_migrations
+ln -sf ~/dotfiles/Applications/OpenCommit/.opencommit ~/.opencommit
+ln -sf ~/dotfiles/Applications/OpenCommit/.opencommit_migrations  ~/.opencommit_migrations
 ```
 
+
 ## Stripe CLI
+
 ```sh
 brew install stripe-cli
 ```
@@ -252,44 +266,60 @@ brew install stripe-cli
 stripe login
 ```
 
+
 ## fzf
+
 ```sh
 brew install fzf
 ```
 
+
 # Application
 
 ## mas-cli
+
 ```sh
 brew install mas
 ```
 
+
 ## LINE
+
 ```sh
 mas install 539883307
 ```
 
+
 ## Paste
+
 ```sh
 mas install 967805235
 ```
 
+
 ## Xcode
+
 ```sh
 mas install 497799835
 ```
 
+
 ## Google Chrome
+
 ```sh
 brew install --cask google-chrome
 ```
 
+
 ## Google Drive
+
 ```sh
 brew install --cask google-drive
 ```
 
+
 ## Zed
+
 ```sh
 brew install --cask zed
 ```
@@ -299,12 +329,16 @@ settings:
 ln -s ~/dotfiles/.config/zed/ ~/.config/
 ```
 
+
 ## Obsidian
+
 ```sh
 brew install --cask obsidian
 ```
 
+
 ## Karabiner-Elements
+
 ```sh
 brew install --cask karabiner-elements
 ```
@@ -314,67 +348,77 @@ settings:
 ln -s ~/dotfiles/.config/karabiner/ ~/.config/
 ```
 
-## AppCleaner
-```sh
-brew install --cask appcleaner
-```
-
-## Rectangle
-```sh
-brew install --cask rectangle
-```
 
 ## CleanShot X
+
 ```sh
 brew install --cask cleanshot
 ```
 
+
 ## Docker
+
 ```sh
 brew install --cask docker
 ```
 
 ## Slack
+
 ```sh
 brew install --cask slack
 ```
 
+
 ## Discord
+
 ```sh
 brew install --cask discord
 ```
 
+
 ## Proton VPN
+
 ```sh
 brew install --cask protonvpn
 ```
 
+
 ## Tor
+
 ```sh
 brew install --cask tor-browser
 ```
 
 ## Transmission
+
 ```sh
 brew install --cask transmission
 ```
 
+
 ## Telegram
+
 ```sh
 brew install --cask telegram
 ```
 
+
 ## KeyboardCleanTool
+
 ```sh
 brew install --cask keyboardcleantool
 ```
 
+
 ## The Unarchiver
+
 ```sh
 brew install --cask the-unarchiver
 ```
 
+
 ## Ollama
+
 ```sh
 brew install ollama
 ```
@@ -383,12 +427,16 @@ brew install ollama
 brew services start ollama
 ```
 
+
 ## DeepL
+
 ```sh
 brew install --cask deepl
 ```
 
-## brew macism
+
+## macism
+
 ```sh
 brew tap laishulu/homebrew
 ```
@@ -397,12 +445,16 @@ brew tap laishulu/homebrew
 brew install macism
 ```
 
+
 # Mac Setup
+
 ```sh
 chmod +x ~/dotfiles/setup.sh
 ```
 
+
 # Mouse
+
 ```sh
 brew install --cask mos
 ```
