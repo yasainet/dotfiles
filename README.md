@@ -81,6 +81,17 @@ ln -s ~/dotfiles/.config/.oh-my-zsh ~/.config/.oh-my-zsh
 ```
 
 
+# Zsh Plugins
+
+```sh
+cd ~/dotfiles/.config/zsh/plugins
+```
+
+```sh
+git submodule update --init --recursive
+```
+
+
 ## Starship
 
 ```sh
@@ -117,15 +128,24 @@ settings:
 ln -s ~/dotfiles/.config/nvim ~/.config/
 ```
 
+```sh
+rm -rf ~/.vim .viminfo
+```
+
 
 ## Node.js
 
-WIP
+```sh
+brew install nvm
+```
 
+```sh
+mkdir ~/.nvm
+```
 
-## nvm
-
-WIP
+```sh
+nvm install --lts
+```
 
 
 ## Java
@@ -388,6 +408,7 @@ brew install --cask protonvpn
 ```sh
 brew install --cask tor-browser
 ```
+
 
 ## Transmission
 
