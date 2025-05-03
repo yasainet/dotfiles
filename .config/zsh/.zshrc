@@ -14,19 +14,31 @@ cd() {
 }
 
 dot() {
-  cd ~/dotfiles
+  cd $HOME/dotfiles
 }
 
-config() {
-  cd ~/.config
+conf() {
+  cd $HOME/.config
+}
+
+confZ() {
+  cd $HOME/.config/zsh
+}
+
+confV(){
+  cd $HOME/.config/nvim
+}
+
+drive() {
+  cd "$HOME/Google Drive/My Drive"
 }
 
 pj() {
-  cd ~/Projects
+  cd $HOME/Projects
 }
 
 pjS() {
-  cd ~/Projects/supaboards.com
+  cd $HOME/Projects/supaboards.com
 }
 
 # .zsh
