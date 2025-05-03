@@ -76,6 +76,38 @@
     "button": false
   },
   "assistant": {
+    "profiles": {
+      "ask": {
+        "name": "Ask",
+        "tools": {
+          "contents": true,
+          "diagnostics": true,
+          "fetch": true,
+          "list_directory": false,
+          "now": true,
+          "find_path": true,
+          "read_file": true,
+          "grep": true,
+          "thinking": true,
+          "web_search": true
+        },
+        "enable_all_context_servers": false,
+        "context_servers": {
+          "postgres-context-server": {
+            "tools": {
+              "query": true,
+              "pg-schema": true
+            }
+          },
+          "mcp-server-context7": {
+            "tools": {
+              "resolve-library-id": true,
+              "get-library-docs": true
+            }
+          }
+        }
+      }
+    },
     "always_allow_tool_actions": true,
     "default_profile": "ask",
     "version": "2",
@@ -119,8 +151,21 @@
   },
   "languages": {
     "SQL": {
-      "prettier": {
-        "language": "postgresql"
+      "enable_language_server": true,
+      "formatter": {
+        "external": {
+          "command": "pg_format",
+          "arguments": ["--spaces", "2", "-"]
+        }
+      }
+    },
+    "TOML": {
+      "enable_language_server": true,
+      "formatter": {
+        "external": {
+          "command": "taplo",
+          "arguments": ["fmt", "-"]
+        }
       }
     }
   },
@@ -158,11 +203,6 @@
       "settings": {
         "database_url": "postgresql://postgres:postgres@127.0.0.1:54322/postgres"
       }
-    }
-  },
-  "mcp-server-brave-search": {
-    "settings": {
-      "brave_api_key": "BSAHhnI6JdXVjj5BbBcDejInIRcnNHV"
     }
   }
 }

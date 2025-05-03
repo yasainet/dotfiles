@@ -471,6 +471,13 @@ brew install macism
 ```
 
 
+## Rectangle
+
+```sh
+brew install --cask rectangle
+```
+
+
 # Mac Setup
 
 ```sh

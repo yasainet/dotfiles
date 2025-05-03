@@ -8,16 +8,6 @@ alias cat='bat'
 alias C='pbcopy'
 
 
-# Git
-alias ga='git add'
-alias gcm='git commit -m'
-alias gb='git branch'
-alias gst='git status'
-alias gco='git checkout'
-alias gpl='git pull'
-alias gps='git push'
-
-
 # functions
 cd() {
   builtin cd "$@" && la
@@ -35,6 +25,9 @@ pj() {
   cd ~/Projects
 }
 
+pjS() {
+  cd ~/Projects/supaboards.com
+}
 
 # .zsh
 export HISTFILE="$ZDOTDIR/.zsh_history"
@@ -43,7 +36,7 @@ export ZSH_SESSION_DIR="$ZDOTDIR/.zsh_sessions"
 
 # Oh My Zsh!
 export ZSH="$HOME/.config/.oh-my-zsh"
-plugins=(git)
+plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
 source "$ZSH/oh-my-zsh.sh"
 
 
@@ -68,9 +61,3 @@ source /opt/homebrew/opt/fzf/shell/completion.zsh
 
 # Starship
 eval "$(starship init zsh)"
-
-# Autosuggestions
-source ~/.config/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-
-# Syntax highlighting
-source ~/.config/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
