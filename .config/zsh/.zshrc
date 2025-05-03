@@ -53,21 +53,27 @@ nvm() {
 }
 
 node() {
-  unset -f node npm npx
+  unset -f nvm node npm npx
+  [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && . "/opt/homebrew/opt/nvm/nvm.sh"
+  [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && . "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"
   nvm use --lts > /dev/null
-  node "$@"
+  command node "$@"
 }
 
 npm() {
-  unset -f node npm npx
+  unset -f nvm node npm npx
+  [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && . "/opt/homebrew/opt/nvm/nvm.sh"
+  [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && . "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"
   nvm use --lts > /dev/null
-  npm "$@"
+  command npm "$@"
 }
 
 npx() {
-  unset -f node npm npx
+  unset -f nvm node npm npx
+  [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && . "/opt/homebrew/opt/nvm/nvm.sh"
+  [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && . "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"
   nvm use --lts > /dev/null
-  npx "$@"
+  command npx "$@"
 }
 
 export NODE_NO_WARNINGS=1 # Disable Node.js warnings
