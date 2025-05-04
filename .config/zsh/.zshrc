@@ -56,38 +56,11 @@ source "$ZSH/oh-my-zsh.sh"
 
 # nvm, node, npm, npx
 export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+[ -s "$NVM_DIR/bash_completion" ] && . "$NVM_DIR/bash_completion"
 
-nvm() {
-  unset -f nvm node npm npx
-  [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && . "/opt/homebrew/opt/nvm/nvm.sh"
-  [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && . "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"
-  nvm "$@"
-}
-
-node() {
-  unset -f nvm node npm npx
-  [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && . "/opt/homebrew/opt/nvm/nvm.sh"
-  [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && . "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"
-  nvm use --lts > /dev/null
-  command node "$@"
-}
-
-npm() {
-  unset -f nvm node npm npx
-  [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && . "/opt/homebrew/opt/nvm/nvm.sh"
-  [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && . "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"
-  nvm use --lts > /dev/null
-  command npm "$@"
-}
-
-npx() {
-  unset -f nvm node npm npx
-  [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && . "/opt/homebrew/opt/nvm/nvm.sh"
-  [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && . "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"
-  nvm use --lts > /dev/null
-  command npx "$@"
-}
-
+nvm use --lts &> /dev/null
+export PATH="$NVM_DIR/versions/node/$(nvm current)/bin:$PATH"
 export NODE_NO_WARNINGS=1 # Disable Node.js warnings
 
 

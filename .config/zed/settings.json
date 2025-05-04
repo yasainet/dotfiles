@@ -61,6 +61,7 @@
   // },
   "project_panel": {
     // "button": false,
+    "dock": "right",
     "auto_fold_dirs": false
   },
   "outline_panel": {
@@ -80,11 +81,12 @@
       "write": {
         "name": "Write",
         "tools": {
+          "open": true,
           "batch_tool": false,
           "code_actions": false,
           "code_symbols": false,
-          "contents": false,
-          "copy_path": false,
+          "contents": true,
+          "copy_path": true,
           "create_file": true,
           "delete_path": false,
           "diagnostics": true,
@@ -96,8 +98,8 @@
           "find_path": true,
           "read_file": true,
           "grep": true,
-          "rename": false,
-          "symbol_info": false,
+          "rename": true,
+          "symbol_info": true,
           "terminal": true,
           "thinking": true,
           "web_search": true
@@ -108,10 +110,14 @@
       "ask": {
         "name": "Ask",
         "tools": {
+          "copy_path": true,
+          "terminal": true,
+          "symbol_info": true,
+          "open": true,
           "contents": true,
           "diagnostics": true,
           "fetch": true,
-          "list_directory": false,
+          "list_directory": true,
           "now": true,
           "find_path": true,
           "read_file": true,
@@ -119,7 +125,7 @@
           "thinking": true,
           "web_search": true
         },
-        "enable_all_context_servers": false,
+        "enable_all_context_servers": true,
         "context_servers": {
           "postgres-context-server": {
             "tools": {
@@ -139,6 +145,7 @@
     "always_allow_tool_actions": true,
     "default_profile": "ask",
     "version": "2",
+    "dock": "left",
     // "default_width": 640,
     "default_model": {
       "provider": "anthropic",
@@ -165,7 +172,6 @@
   "terminal": {
     "blinking": "on",
     "button": false,
-    "font_family": "PlemolJP35 Console",
     "toolbar": {
       "breadcrumbs": false
     }
