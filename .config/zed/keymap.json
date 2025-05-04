@@ -11,7 +11,23 @@
   {
     "use_key_equivalents": true,
     "bindings": {
-      "cmd-shift-c": null
+      "cmd-shift-c": null // for DeepL
+    }
+  },
+  {
+    "context": "Workspace",
+    "use_key_equivalents": true,
+    "bindings": {
+      "cmd-shift-a": "assistant::ToggleFocus", // cmd-?
+      "cmd-shift-g": "git_panel::ToggleFocus" // ctrl-shift-g
+    }
+  },
+  {
+    "context": "Pane",
+    "use_key_equivalents": true,
+    "bindings": {
+      "cmd-shift-a": "assistant::ToggleFocus", // cmd-?
+      "cmd-shift-g": "git_panel::ToggleFocus" // ctrl-shift-g
     }
   },
   {
@@ -30,10 +46,8 @@
   {
     "context": "vim_mode == normal && !menu",
     "bindings": {
-      "space e": "workspace::ToggleLeftDock",
-      "space f f": "file_finder::Toggle",
-      "space l f": "editor::Format",
-      "space /": "editor::ToggleComments"
+      "n": "search::SelectNextMatch", // cmd-g
+      "shift-n": "search::SelectPreviousMatch" // cmd-shift-g
     }
   },
   {
@@ -49,6 +63,24 @@
     "bindings": {
       "enter": "editor::Newline",
       "cmd-enter": "agent::Chat"
+    }
+  },
+  {
+    "context": "EditMessageEditor > Editor && !showing_completions && !showing_code_actions",
+    "use_key_equivalents": true,
+    "bindings": {
+      "escape": "menu::Cancel",
+      "enter": "editor::Newline",
+      "cmd-enter": "menu::Confirm"
+    }
+  },
+  {
+    "context": "AgentFeedbackMessageEditor > Editor && !showing_completions && !showing_code_actions",
+    "use_key_equivalents": true,
+    "bindings": {
+      "escape": "menu::Cancel",
+      "enter": "editor::Newline",
+      "cmd-enter": "menu::Confirm"
     }
   }
 ]

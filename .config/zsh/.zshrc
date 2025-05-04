@@ -1,11 +1,24 @@
 # Utils
 alias ls='ls -G'
 alias la='ls -laG'
+alias f='find . -name'
+alias ff='find . -type f -name'
+alias fd='find . -type d -name'
+alias mkdir='mkdir -p'
+alias cp='cp -i'
+alias mv='mv -i'
+alias rm='rm -i'
 alias vi='nvim'
 alias vim='nvim'
 alias top='glances'
 alias cat='bat'
 alias C='pbcopy'
+
+## tree
+NODE_IGNORE='"node_modules|.next"'
+
+alias treeJ='tree -J -I '"$NODE_IGNORE"' | jq'
+alias treeJC='tree -J -I '"$NODE_IGNORE"' | jq | pbcopy'
 
 
 # functions
@@ -46,6 +59,9 @@ export HISTFILE="$ZDOTDIR/.zsh_history"
 export ZSH_SESSION_DIR="$ZDOTDIR/.zsh_sessions"
 export SAVEHIST=10000
 export HISTSIZE=10000
+setopt HIST_IGNORE_DUPS
+setopt HIST_IGNORE_SPACE
+setopt SHARE_HISTORY
 
 
 # Oh My Zsh!
