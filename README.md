@@ -151,6 +151,10 @@ mkdir ~/.nvm
 nvm install --lts
 ```
 
+```sh
+nvm alias default 'lts/*'
+```
+
 
 ## Java
 ```sh
