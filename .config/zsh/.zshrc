@@ -7,7 +7,6 @@ alias fd='find . -type d -name'
 alias mkdir='mkdir -p'
 alias cp='cp -i'
 alias mv='mv -i'
-alias rm='rm -i'
 alias vi='nvim'
 alias vim='nvim'
 alias top='glances'
@@ -24,6 +23,19 @@ alias treeJC='tree -J -I '"$NODE_IGNORE"' | jq | pbcopy'
 # functions
 cd() {
   builtin cd "$@" && la
+}
+
+rm() {
+  local opts="-i"
+  if [[ "$@" == *"-rf"* || "$@" == *"-fr"* ]]; then
+    echo "⚠️ Are you sure?[y/N]"
+    read answer
+    if [[ ! "$answer" =~ ^[Yy] ]]; then
+      echo "Canceled."
+      return 1
+    fi
+  fi
+  command rm $opts "$@"
 }
 
 dot() {
