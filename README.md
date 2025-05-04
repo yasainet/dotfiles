@@ -490,3 +490,7 @@ chmod +x ~/dotfiles/setup.sh
 ```sh
 brew install --cask mos
 ```
+
+```sh
+brew install --cask logi-options+
+```
