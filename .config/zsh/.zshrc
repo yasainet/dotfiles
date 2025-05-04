@@ -78,7 +78,7 @@ setopt SHARE_HISTORY
 
 # Oh My Zsh!
 export ZSH="$HOME/.config/.oh-my-zsh"
-plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(git zsh-autosuggestions zsh-syntax-highlighting zsh-completions)
 source "$ZSH/oh-my-zsh.sh"
 
 
