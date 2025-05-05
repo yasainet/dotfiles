@@ -11,6 +11,7 @@ alias vi='nvim'
 alias vim='nvim'
 alias top='glances'
 alias cat='bat'
+alias code='zed'
 alias C='pbcopy'
 
 ## tree
@@ -64,6 +65,10 @@ pj() {
 
 pjS() {
   cd $HOME/Projects/supaboards.com
+}
+
+pjA() {
+  cd $HOME/Projects/asmr
 }
 
 # .zsh

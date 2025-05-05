@@ -58,6 +58,13 @@
     }
   },
   {
+    "context": "MessageEditor > Editor",
+    "use_key_equivalents": true,
+    "bindings": {
+      "cmd-shift-r": "agent::OpenAgentDiff" // shift-ctrl-r
+    }
+  },
+  {
     "context": "MessageEditor > Editor && !showing_completions && !showing_code_actions",
     "use_key_equivalents": true,
     "bindings": {
