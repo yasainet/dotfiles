@@ -141,7 +141,7 @@
     "dock": "left",
     "default_model": {
       "provider": "anthropic",
-      "model": "claude-3-7-sonnet-latest"
+      "model": "claude-3-7-sonnet-thinking-latest"
     },
     "enable_experimental_live_diffs": true
   },
