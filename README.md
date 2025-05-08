@@ -14,6 +14,7 @@ echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zprofile
 eval "$(/opt/homebrew/bin/brew shellenv)"
 ```
 
+
 ## Git
 
 ```sh
@@ -31,6 +32,7 @@ brew install gh
 gh auth login
 ```
 
+
 ### Git Credential Manager（GCM）
 
 ```sh
@@ -46,6 +48,7 @@ brew install --cask git-credential-manager-core
 ```sh
 brew install --cask font-plemol-jp
 ```
+
 
 ## dotfiles
 ```sh
@@ -78,17 +81,6 @@ rm -rf .zsh_history .zsh_sessions
 ## Oh My Zsh!
 ```sh
 ln -s ~/dotfiles/.config/.oh-my-zsh ~/.config/.oh-my-zsh
-```
-
-
-# Zsh Plugins
-
-```sh
-cd ~/dotfiles/.config/zsh/plugins
-```
-
-```sh
-git submodule update --init --recursive
 ```
 
 
