@@ -17,6 +17,7 @@ macos-titlebar-style = transparent
 macos-titlebar-proxy-icon = hidden
 macos-window-shadow = false
 background-opacity = 0.85
+title=" "
 
 # Theme
 theme = tokyonight_night

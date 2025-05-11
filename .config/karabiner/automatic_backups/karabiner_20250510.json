@@ -8,20 +8,6 @@
             "complex_modifications": {
                 "rules": [
                     {
-                        "description": "Right Option: Right Click when tapped alone, Option when held",
-                        "manipulators": [
-                            {
-                                "from": {
-                                    "key_code": "right_option",
-                                    "modifiers": { "optional": ["any"] }
-                                },
-                                "to": [{ "key_code": "right_option" }],
-                                "to_if_alone": [{ "pointing_button": "button2" }],
-                                "type": "basic"
-                            }
-                        ]
-                    },
-                    {
                         "description": "Ctrl+j/k/l/;/quote to fn+F6/F7/F8/F9/F10 when IME is Japanese",
                         "manipulators": [
                             {

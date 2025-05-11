@@ -43,7 +43,7 @@
     "selections_menu": true
   },
   "scrollbar": {
-    "show": "auto"
+    "show": "never"
   },
   "gutter": {
     "code_actions": false,
@@ -146,7 +146,8 @@
     "enable_experimental_live_diffs": true
   },
   "tab_bar": {
-    "show_nav_history_buttons": false
+    "show_nav_history_buttons": false,
+    "show_tab_bar_buttons": false
   },
   "tabs": {
     "git_status": true

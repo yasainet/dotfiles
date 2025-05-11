@@ -252,17 +252,6 @@ ln -s ~/dotfiles/.config/bat ~/.config/
 bat cache --build
 ```
 
-### delta
-
-```sh
-brew install git-delta
-```
-
-settings:
-```sh
-ln -s ~/dotfiles/.config/delta ~/.config
-```
-
 
 ## OpenCommit
 
@@ -381,6 +370,7 @@ brew install --cask cleanshot
 ```sh
 brew install --cask docker
 ```
+
 
 ## Slack
 
