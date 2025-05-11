@@ -6,7 +6,17 @@
 [push]
 	default = current
 [core]
+  pager = delta
   ignorecase = false
+[interactive]
+  diffFilter = delta --color-only
+[include]
+  path = ~/dotfiles/.config/delta/themes/tokyonight_night.gitconfig
+[delta]
+  features = tokyonight_night
+  navigate = true # use n and N to move between diff sections
+  line-numbers = true
+  side-by-side = true
 [merge]
   conflictstyle = diff3
 [diff]

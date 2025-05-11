@@ -253,6 +253,18 @@ bat cache --build
 ```
 
 
+### delta
+
+```sh
+brew install git-delta
+```
+
+settings:
+```sh
+ln -s ~/dotfiles/.config/delta ~/.config
+```
+
+
 ## OpenCommit
 
 ```sh
