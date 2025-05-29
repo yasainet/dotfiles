@@ -1,5 +1,5 @@
 # Shell Integration
-shell-integration = fish
+shell-integration = zsh
 shell-integration-features = no-cursor
 
 # Clipboard
@@ -42,3 +42,4 @@ quick-terminal-position = center
 
 # Keybindings
 keybind = global:cmd+ctrl+\=toggle_quick_terminal
+keybind = shift+enter=text:\n

@@ -18,16 +18,9 @@
     "context": "Workspace",
     "use_key_equivalents": true,
     "bindings": {
-      "cmd-shift-a": "assistant::ToggleFocus", // cmd-?
-      "cmd-shift-g": "git_panel::ToggleFocus" // ctrl-shift-g
-    }
-  },
-  {
-    "context": "Pane",
-    "use_key_equivalents": true,
-    "bindings": {
-      "cmd-shift-a": "assistant::ToggleFocus", // cmd-?
-      "cmd-shift-g": "git_panel::ToggleFocus" // ctrl-shift-g
+      "cmd-shift-g": "git_panel::ToggleFocus",
+      "cmd-shift-a": "agent::ToggleFocus",
+      "cmd-shift-r": "agent::OpenAgentDiff"
     }
   },
   {
@@ -58,16 +51,10 @@
     }
   },
   {
-    "context": "MessageEditor > Editor",
-    "use_key_equivalents": true,
-    "bindings": {
-      "cmd-shift-r": "agent::OpenAgentDiff" // shift-ctrl-r
-    }
-  },
-  {
     "context": "MessageEditor > Editor && !showing_completions && !showing_code_actions",
     "use_key_equivalents": true,
     "bindings": {
+      "escape": "menu::Cancel",
       "enter": "editor::Newline",
       "cmd-enter": "agent::Chat"
     }

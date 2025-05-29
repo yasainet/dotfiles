@@ -1,3 +1,7 @@
+# Editor
+export EDITOR='nvim'
+export VISUAL='nvim'
+
 # Utils
 alias ls='ls -G'
 alias la='ls -laG'

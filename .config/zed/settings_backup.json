@@ -1,5 +1,9 @@
 {
-  "theme": "Tokyo Night",
+  "theme": {
+    "mode": "system",
+    "light": "Tokyo Night Light",
+    "dark": "Tokyo Night"
+  },
   "experimental.theme_overrides": {
     "background.appearance": "transparent",
     "tab.active_background": "#363b54",
@@ -27,12 +31,11 @@
       "proxy": null,
       "proxy_no_verify": null
     },
-    "enabled_in_text_threads": true
+    "enabled_in_assistant": true
   },
   "buffer_font_size": 14,
   "ui_font_size": 16,
   "agent_font_size": 18,
-  "inline_code_actions": false,
   "vim_mode": true,
   "show_edit_predictions": true,
   "toolbar": {
@@ -72,8 +75,7 @@
   "notification_panel": {
     "button": false
   },
-  "agent": {
-    "model_parameters": [],
+  "assistant": {
     "profiles": {
       "write": {
         "name": "Write",
@@ -159,10 +161,12 @@
     "always_allow_tool_actions": true,
     "default_profile": "ask",
     "version": "2",
+    // "dock": "left",
     "default_model": {
       "provider": "anthropic",
-      "model": "claude-sonnet-4-thinking-latest"
-    }
+      "model": "claude-3-7-sonnet-thinking-latest"
+    },
+    "enable_experimental_live_diffs": true
   },
   "tab_bar": {
     "show_nav_history_buttons": false,
@@ -262,6 +266,12 @@
         "database_url": "postgresql://postgres:postgres@127.0.0.1:54322/postgres"
       }
     },
+    "browser-tools-context-server": {
+      "settings": {
+        "port": 3025,
+        "host": "127.0.0.1"
+      }
+    },
     "mcp-server-brave-search": {
       "settings": {
         "brave_api_key": "BSAVMzhMM8yw6RtZVl8VBNFvSzhBX6O"
@@ -276,12 +286,6 @@
           "--access-token",
           "sbp_9288a01db86d0128d55e678c823603e1869ef6de"
         ]
-      }
-    },
-    "mcpServers": {
-      "puppeteer": {
-        "command": "npx",
-        "args": ["-y", "@modelcontextprotocol/server-puppeteer"]
       }
     }
   }
