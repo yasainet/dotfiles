@@ -40,7 +40,8 @@
     "context": "vim_mode == normal && !menu",
     "bindings": {
       "n": "search::SelectNextMatch", // cmd-g
-      "shift-n": "search::SelectPreviousMatch" // cmd-shift-g
+      "shift-n": "search::SelectPreviousMatch", // cmd-shift-g
+      "space l f": "editor::Format"
     }
   },
   {

@@ -80,7 +80,13 @@ vim.keymap.set("n", "<D-S-z>", "<C-r>", { noremap = true, silent = true })
 vim.keymap.set("n", "<D-s>", ":w<CR>", { noremap = true, silent = true })
 vim.keymap.set("i", "<D-s>", "<Esc>:w<CR>a", { noremap = true, silent = true })
 
--- Theme
+-- Plugin Manager
+local plugins_path = vim.fn.stdpath("config") .. "/plugins/lazy.lua"
+if vim.fn.filereadable(plugins_path) == 1 then
+  dofile(plugins_path)
+end
+
+-- Theme (transparent background compatibility with existing config)
 vim.api.nvim_create_autocmd("VimEnter", {
   callback = function()
     vim.cmd("highlight Normal guibg=NONE")

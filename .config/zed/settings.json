@@ -157,7 +157,7 @@
       }
     },
     "always_allow_tool_actions": true,
-    "default_profile": "ask",
+    "default_profile": "write",
     "version": "2",
     "default_model": {
       "provider": "anthropic",
@@ -182,8 +182,9 @@
     "hour_format": "hour24"
   },
   "terminal": {
+    // "dock": "right",
     "blinking": "on",
-    "button": false,
+    // "button": false,
     "toolbar": {
       "breadcrumbs": false
     }
@@ -267,17 +268,23 @@
         "brave_api_key": "BSAVMzhMM8yw6RtZVl8VBNFvSzhBX6O"
       }
     },
-    "supabase": {
-      "command": {
-        "path": "npx",
-        "args": [
-          "-y",
-          "@supabase/mcp-server-supabase@latest",
-          "--access-token",
-          "sbp_9288a01db86d0128d55e678c823603e1869ef6de"
-        ]
-      }
-    },
+    // "supabase": {
+    //   "command": {
+    //     "path": "npx",
+    //     "args": [
+    //       "-y",
+    //       "@supabase/mcp-server-supabase@latest",
+    //       "--access-token",
+    //       "sbp_9288a01db86d0128d55e678c823603e1869ef6de"
+    //     ]
+    //   }
+    // },
+    // "mcp-server-supabase": {
+    //   "settings": {
+    //     "supabase_access_token": "sbp_9288a01db86d0128d55e678c823603e1869ef6de",
+    //     "read_only": true
+    //   }
+    // },
     "mcpServers": {
       "puppeteer": {
         "command": "npx",

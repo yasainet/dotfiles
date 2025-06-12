@@ -71,10 +71,6 @@ pjS() {
   cd $HOME/Projects/supaboards.com
 }
 
-pjA() {
-  cd $HOME/Projects/asmr
-}
-
 # .zsh
 export HISTFILE="$ZDOTDIR/.zsh_history"
 export ZSH_SESSION_DIR="$ZDOTDIR/.zsh_sessions"
