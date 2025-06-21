@@ -1,10 +1,16 @@
 -- Theme transparency
 local function set_transparency()
   vim.cmd("highlight Normal guibg=NONE")
+  -- neo-tree
   vim.cmd("highlight NeoTreeNormal guibg=NONE")
   vim.cmd("highlight NeoTreeNormalNC guibg=NONE")
   vim.cmd("highlight NeoTreeEndOfBuffer guibg=NONE")
   vim.cmd("highlight NeoTreeWinSeparator guibg=NONE")
+  -- terminal
+  vim.cmd("highlight Terminal guibg=NONE")
+  vim.cmd("highlight TerminalNormal guibg=NONE")
+  vim.cmd("highlight FloatBorder guibg=NONE")
+  vim.cmd("highlight NormalFloat guibg=NONE")
 end
 
 vim.api.nvim_create_autocmd("ColorScheme", {

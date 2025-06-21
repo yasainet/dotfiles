@@ -8,4 +8,5 @@ return {
   require("plugins.mason"),
   require("plugins.lsp"),
   require("plugins.cmp"),
+  require("plugins.claudecode"),
 }
