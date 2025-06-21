@@ -37,9 +37,12 @@ return {
       position = "left",
       auto_expand_width = true,
       mappings = {
+        ["<space>"] = "toggle_node",
+        ["<cr>"] = "open",
         ["H"] = "toggle_hidden",
         ["S"] = "open_split",
         ["s"] = "open_vsplit",
+        ["t"] = "open_tabnew",
         ["a"] = "add",
         ["A"] = "add_directory",
         ["d"] = "delete",
@@ -47,10 +50,11 @@ return {
         ["y"] = "copy_to_clipboard",
         ["R"] = "refresh",
         ["/"] = "fuzzy_finder",
+        ["P"] = { "toggle_preview", config = { use_float = true } },
+        ["l"] = "focus_preview",
       }
     },
     close_if_last_window = false,
-    enable_git_status = true,
     default_component_configs = {
       git_status = {
         symbols = {
@@ -65,6 +69,26 @@ return {
           conflict = "!"
         }
       }
-    }
+    },
+    enable_git_status = true,
+    enable_diagnostics = true,
+    -- nesting_rules = {
+    --   ["package.json"] = {
+    --     pattern = "^package%.json$",
+    --     files = { "package-lock.json", "yarn.lock", "pnpm-lock.yaml" }
+    --   },
+    --   [".env"] = {
+    --     pattern = "^%.env$",
+    --     files = { ".env.*" }
+    --   },
+    --   ["tsconfig.json"] = {
+    --     pattern = "^tsconfig%.json$",
+    --     files = { "tsconfig.*.json" }
+    --   }
+    -- },
+    -- source_selector = {
+    --   winbar = true,
+    --   statusline = false
+    -- },
   },
 }
