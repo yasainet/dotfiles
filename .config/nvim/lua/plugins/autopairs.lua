@@ -9,6 +9,5 @@ return {
         javascript = { "string", "template_string" },
       },
     })
-
   end,
 }
