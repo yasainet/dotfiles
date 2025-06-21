@@ -4,14 +4,17 @@
 - [ ] null-ls の調査, nvim-lint, conform.nvim とかと比較
 - [ ] telescope.nvim の調査
 - [ ] format_on_save に該当する機能の実装を行う
-- [ ] neovim 側に git status の表示
+- [x] neovim 側に git status の表示
 - [ ] diagnostics を lualine, neo-tree に表示する
 - [ ] bufferline.nvim の調査
 - [ ] nvim-cmp, cmp-nvim-lsp, cmp-buffer, cmp-path, cmp-cmdline などの調査
 - [ ] LuaSnip の調査
 - [ ] Comment.nvim
 - [ ] todo-comments.nvim
-- [ ] toggleterm.nvim
+- [x] toggleterm.nvim
 - [ ] lazygit.nvim
-- [ ] neovim で xx を押すと、Cmd-cc が送信される？
-- [ ] 最終行でスクロールを止める
+- [x] neovim で xx を押すと、Cmd-cc が送信される？
+- [x] 最終行でスクロールを止める
+- [x] lualine に ime の情報表示
+- [x] lualine に 時間表示
+- [ ] neo-tree 自動更新できないのか？

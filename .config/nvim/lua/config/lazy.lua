@@ -14,4 +14,8 @@ require("lazy").setup("plugins", {
   install = {
     missing = true,
   },
+  change_detection = {
+    enabled = false,
+    notify = false,
+  },
 })
