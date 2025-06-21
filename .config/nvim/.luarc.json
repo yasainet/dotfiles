@@ -3,11 +3,12 @@
     "version": "LuaJIT"
   },
   "diagnostics": {
-    "globals": ["vim"]
+    "globals": ["vim", "require"]
   },
   "workspace": {
     "library": [
-      "$VIMRUNTIME"
+      "$VIMRUNTIME/lua",
+      "~/.local/share/nvim/lazy/*/lua"
     ],
     "checkThirdParty": false
   }

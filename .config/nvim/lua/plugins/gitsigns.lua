@@ -18,13 +18,13 @@ return {
         changedelete = { text = '~' },
         untracked    = { text = '┆' },
       },
-      current_line_blame = true,
       signs_staged_enable = true,
       preview_config = {
         border = 'rounded',
         style = 'minimal',
         relative = 'cursor',
       },
+      -- current_line_blame = true,
     })
   end,
 }

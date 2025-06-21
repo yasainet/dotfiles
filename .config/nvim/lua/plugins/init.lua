@@ -5,5 +5,7 @@ return {
   require("plugins.lualine"),
   require("plugins.toggleterm"),
   require("plugins.gitsigns"),
-  require("plugins.lsp")
+  require("plugins.mason"),
+  require("plugins.lsp"),
+  require("plugins.cmp"),
 }

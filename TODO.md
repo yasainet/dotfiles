@@ -13,4 +13,5 @@
 - [ ] todo-comments.nvim
 - [ ] toggleterm.nvim
 - [ ] lazygit.nvim
-
+- [ ] neovim で xx を押すと、Cmd-cc が送信される？
+- [ ] 最終行でスクロールを止める
