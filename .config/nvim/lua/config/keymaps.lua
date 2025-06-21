@@ -18,6 +18,14 @@ vim.keymap.set("n", "<D-S-z>", "<C-r>", { noremap = true, silent = true })
 vim.keymap.set("n", "<D-s>", ":w<CR>", { noremap = true, silent = true })
 vim.keymap.set("i", "<D-s>", "<Esc>:w<CR>a", { noremap = true, silent = true })
 
+-- Insert mode Emacs-style
+vim.keymap.set('i', '<C-a>', '<Home>', { desc = 'Beginning of line' })
+vim.keymap.set('i', '<C-e>', '<End>', { desc = 'End of line' })
+vim.keymap.set('i', '<C-b>', '<Left>', { desc = 'Move backward' })
+vim.keymap.set('i', '<C-f>', '<Right>', { desc = 'Move forward' })
+vim.keymap.set('i', '<C-d>', '<Del>', { desc = 'Delete character' })
+vim.keymap.set('i', '<C-k>', '<C-o>D', { desc = 'Kill to end of line' })
+
 -- Neo-tree
 vim.keymap.set("n", "<leader>e", "<Cmd>Neotree toggle<CR>")
 
@@ -57,6 +65,11 @@ vim.keymap.set('n', '<leader>fh', '<Cmd>Telescope help_tags<CR>', { desc = 'Help
 vim.keymap.set('n', '<leader>lf', function()
   require('conform').format({ async = true, lsp_fallback = true })
 end, { desc = 'Format buffer' })
+
+-- Todo Comments
+vim.keymap.set('n', '<leader>ft', '<Cmd>TodoTelescope<CR>', { desc = 'Find todos' })
+vim.keymap.set('n', ']t', '<Cmd>lua require("todo-comments").jump_next()<CR>', { desc = 'Next todo' })
+vim.keymap.set('n', '[t', '<Cmd>lua require("todo-comments").jump_prev()<CR>', { desc = 'Previous todo' })
 
 -- Config reload
 vim.keymap.set('n', '<leader>rr', function()
