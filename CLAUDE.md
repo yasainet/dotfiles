@@ -142,6 +142,35 @@ The Neovim setup uses lazy.nvim as the plugin manager with modular configuration
 - **Mason**: LSP server and tool management within Neovim
 - **lazy.nvim**: Neovim plugin management with lazy loading
 
+## Neovim Plugin Configuration Guidelines
+
+When adding or modifying Neovim plugins, follow these conventions:
+- **Plugin Files**: Create separate files in `.config/nvim/lua/plugins/` for each plugin (except lsp.lua)
+- **Configuration Separation**: Keep plugin setup in plugin files, keymaps in `.config/nvim/lua/config/keymaps.lua`
+- **Keymap Structure**: Use descriptive `desc` attributes for all keymaps for documentation
+- **Plugin Options**: Focus on minimal, essential configurations (YAGNI principle)
+- **Float Windows**: For terminal and popup plugins, prefer `direction = "float"` with `border = "curved"`
+
+### Example Plugin Structure
+```lua
+-- .config/nvim/lua/plugins/pluginname.lua
+return {
+  "author/plugin.nvim",
+  config = function()
+    require("plugin").setup({
+      -- minimal essential config only
+    })
+  end,
+}
+```
+
+### Example Keymap Addition
+```lua
+-- .config/nvim/lua/config/keymaps.lua
+-- PluginName
+vim.keymap.set('n', '<C-key>', '<Cmd>PluginCommand<CR>', { desc = 'Description' })
+```
+
 ## Notes
 
 - This setup is optimized for macOS development environment

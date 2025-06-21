@@ -1,6 +1,6 @@
 - [x] ファイル名が長い場合、neo-treeの幅が広がる問題を解決する
-- [ ] LSP 導入
-- [ ] mason.nvim の調査
+- [x] LSP 導入
+- [x] mason.nvim の調査
 - [ ] null-ls の調査, nvim-lint, conform.nvim とかと比較
 - [ ] telescope.nvim の調査
 - [ ] format_on_save に該当する機能の実装を行う

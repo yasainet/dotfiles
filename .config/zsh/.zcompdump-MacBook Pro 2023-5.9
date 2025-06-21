@@ -1,4 +1,4 @@
-#files: 982	version: 5.9
+#files: 966	version: 5.9
 
 _comps=(
 '_arguments' '__arguments'
@@ -174,7 +174,6 @@ _comps=(
 'basename' '_basename'
 'basenc' '_basenc'
 'bash' '_bash'
-'bat' '_bat'
 'batch' '_at'
 'baz' '_baz'
 'beadm' '_beadm'
@@ -197,7 +196,6 @@ _comps=(
 'bpython3-gtk' '_bpython'
 'bpython3-urwid' '_bpython'
 'brctl' '_brctl'
-'brew' '_brew'
 'bsdconfig' '_bsdconfig'
 'bsdgrep' '_grep'
 'bsdinstall' '_bsdinstall'
@@ -357,8 +355,7 @@ _comps=(
 'debuild' '_debuild'
 'declare' '_typeset'
 'defaults' '_defaults'
-'delta' '_delta'
-'deno' '_deno'
+'delta' '_sccs'
 'designate' '_openstack'
 'devtodo' '_devtodo'
 'df' '_df'
@@ -389,9 +386,6 @@ _comps=(
 'dnf-2' '_dnf'
 'dnf-3' '_dnf'
 'doas' '_doas'
-'docker' '_docker'
-'docker-compose' '_docker-compose'
-'dockerd' '_docker'
 'domainname' '_yp'
 'dos2unix' '_dos2unix'
 'dosdel' '_floppy'
@@ -468,7 +462,6 @@ _comps=(
 'extractres' '_psutils'
 'fakeroot' '_fakeroot'
 'false' '_nothing'
-'fastfetch' '_fastfetch'
 'fc' '_fc'
 'fc-list' '_xft_fonts'
 'fc-match' '_xft_fonts'
@@ -580,15 +573,18 @@ _comps=(
 'ggetopt' '_getopt'
 'ggrep' '_grep'
 'ggv' '_gnome-gv'
-'gh' '_gh'
 'ghead' '_head'
 'ghostscript' '_ghostscript'
-'ghostty' '_ghostty'
 'ghostview' '_pspdf'
 'gid' '_id'
 'ginstall' '_install'
 'git' '_git'
 'git-buildpackage' '_git-buildpackage'
+'git-cvsserver' '_git'
+'git-receive-pack' '_git'
+'git-shell' '_git'
+'git-upload-archive' '_git'
+'git-upload-pack' '_git'
 'gitk' '_git'
 'gjoin' '_join'
 'glance' '_openstack'
@@ -1338,7 +1334,6 @@ _comps=(
 'sha512sum' '_md5sum'
 'sha512t256' '_cksum'
 'shasum' '_shasum'
-'sheldon' '_sheldon'
 'shift' '_arrays'
 'show' '_mh'
 'showchar' '_psutils'
@@ -1388,7 +1383,6 @@ _comps=(
 'ssh-keyscan' '_ssh'
 'sshfs' '_sshfs'
 'star' '_tar'
-'starship' '_starship'
 'start' '_initctl'
 'stat' '_stat'
 'status' '_initctl'
@@ -1401,7 +1395,6 @@ _comps=(
 'strftime' '_strftime'
 'strings' '_strings'
 'strip' '_strip'
-'stripe' '_stripe'
 'strongswan' '_ipsec'
 'stty' '_stty'
 'su' '_su'
@@ -1409,7 +1402,6 @@ _comps=(
 'sudo' '_sudo'
 'sudoedit' '_sudo'
 'sum' '_cksum'
-'supabase' '_supabase'
 'surfraw' '_surfraw'
 'SuSEconfig' '_SUSEconfig'
 'sv' '_runit'
@@ -1460,6 +1452,7 @@ _comps=(
 'texindex' '_texinfo'
 'tg' '_topgit'
 'tidy' '_tidy'
+'tig' '_git'
 'time' '_precommand'
 'timeout' '_timeout'
 'times' '_nothing'
@@ -1490,7 +1483,6 @@ _comps=(
 'trap' '_trap'
 'trash' '_trash'
 'tree' '_tree'
-'tree-sitter' '_tree-sitter'
 'trial' '_twisted'
 'trove' '_openstack'
 'true' '_nothing'
@@ -1846,10 +1838,7 @@ bindkey '^[,' _history-complete-newer
 bindkey '^[/' _history-complete-older
 bindkey '^[~' _bash_complete-word
 
-autoload -Uz _bat _brew _delta _deno _docker \
-            _docker-compose _fastfetch _gh _ghostty _git \
-            _sheldon _starship _stripe _supabase _tree-sitter \
-            __arguments _a2ps _a2utils _aap _abcde \
+autoload -Uz __arguments _a2ps _a2utils _aap _abcde \
             _absolute_command_paths _ack _acpi _acpitool _acroread \
             _adb _add-zle-hook-widget _add-zsh-hook _alias _aliases \
             _all_labels _all_matches _alsa-utils _alternative _analyseplugin \
@@ -2048,4 +2037,4 @@ typeset -gUa _comp_assocs
 _comp_assocs=( '' )
 
 #omz revision: f6a7bbf81a18d30f75bad72de3398d0f55c8792b
-#omz fpath: /Users/yasainet/.config/.oh-my-zsh/custom/plugins/zsh-completions /Users/yasainet/.config/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting /Users/yasainet/.config/.oh-my-zsh/custom/plugins/zsh-autosuggestions /Users/yasainet/.config/.oh-my-zsh/plugins/git /Users/yasainet/.config/.oh-my-zsh/functions /Users/yasainet/.config/.oh-my-zsh/completions /Users/yasainet/.config/.oh-my-zsh/custom/functions /Users/yasainet/.config/.oh-my-zsh/custom/completions /Users/yasainet/.config/.oh-my-zsh/cache/completions /opt/homebrew/share/zsh/site-functions /usr/local/share/zsh/site-functions /usr/share/zsh/site-functions /usr/share/zsh/5.9/functions
+#omz fpath: /Users/yasainet/.config/.oh-my-zsh/custom/plugins/zsh-completions /Users/yasainet/.config/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting /Users/yasainet/.config/.oh-my-zsh/custom/plugins/zsh-autosuggestions /Users/yasainet/.config/.oh-my-zsh/plugins/git /Users/yasainet/.config/.oh-my-zsh/functions /Users/yasainet/.config/.oh-my-zsh/completions /Users/yasainet/.config/.oh-my-zsh/custom/functions /Users/yasainet/.config/.oh-my-zsh/custom/completions /Users/yasainet/.config/.oh-my-zsh/cache/completions /usr/local/share/zsh/site-functions /usr/share/zsh/site-functions /usr/share/zsh/5.9/functions
