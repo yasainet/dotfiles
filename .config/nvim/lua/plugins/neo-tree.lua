@@ -72,23 +72,5 @@ return {
     },
     enable_git_status = true,
     enable_diagnostics = true,
-    -- nesting_rules = {
-    --   ["package.json"] = {
-    --     pattern = "^package%.json$",
-    --     files = { "package-lock.json", "yarn.lock", "pnpm-lock.yaml" }
-    --   },
-    --   [".env"] = {
-    --     pattern = "^%.env$",
-    --     files = { ".env.*" }
-    --   },
-    --   ["tsconfig.json"] = {
-    --     pattern = "^tsconfig%.json$",
-    --     files = { "tsconfig.*.json" }
-    --   }
-    -- },
-    -- source_selector = {
-    --   winbar = true,
-    --   statusline = false
-    -- },
   },
 }
