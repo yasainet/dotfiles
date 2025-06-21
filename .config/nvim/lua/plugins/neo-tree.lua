@@ -30,9 +30,9 @@ return {
         always_show_by_pattern = {
           ".env*"
         }
-      }
+      },
+      use_libuv_file_watcher = true
     },
-    use_libuv_file_watcher = true,
     window = {
       width = 30,
       position = "left",

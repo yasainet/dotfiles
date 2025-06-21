@@ -9,4 +9,5 @@ return {
   require("plugins.lsp"),
   require("plugins.cmp"),
   require("plugins.claudecode"),
+  require("plugins.autopairs"),
 }
