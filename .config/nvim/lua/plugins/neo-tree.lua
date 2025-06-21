@@ -36,7 +36,7 @@ return {
     window = {
       width = 30,
       position = "left",
-      auto_expand_width = true,
+      auto_expand_width = false,
       mappings = {
         ["<space>"] = "toggle_node",
         ["<cr>"] = "open",

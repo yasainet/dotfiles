@@ -1,3 +1,8 @@
+# Language
+export LANG='en_US.UTF-8'
+export LC_ALL='en_US.UTF-8'
+export LC_CTYPE='en_US.UTF-8'
+
 # Editor
 export EDITOR='nvim'
 export VISUAL='nvim'
@@ -11,6 +16,7 @@ alias fd='find . -type d -name'
 alias mkdir='mkdir -p'
 alias cp='cp -i'
 alias mv='mv -i'
+alias v='nvim'
 alias vi='nvim'
 alias vim='nvim'
 alias top='glances'
