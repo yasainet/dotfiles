@@ -32,3 +32,13 @@ vim.keymap.set('n', '<leader>ht', '<Cmd>Gitsigns toggle_signs<CR>')
 vim.keymap.set('n', '<leader>hd', '<Cmd>Gitsigns toggle_deleted<CR>')
 vim.keymap.set('n', '<leader>hl', '<Cmd>Gitsigns toggle_linehl<CR>')
 vim.keymap.set('n', '<leader>hn', '<Cmd>Gitsigns toggle_numhl<CR>')
+
+-- Claude Code
+vim.keymap.set('n', '<leader>ac', '<Cmd>ClaudeCode<CR>', { desc = 'Toggle Claude' })
+vim.keymap.set('n', '<leader>af', '<Cmd>ClaudeCodeFocus<CR>', { desc = 'Focus Claude' })
+vim.keymap.set('n', '<leader>ar', '<Cmd>ClaudeCode --resume<CR>', { desc = 'Resume Claude' })
+vim.keymap.set('n', '<leader>aC', '<Cmd>ClaudeCode --continue<CR>', { desc = 'Continue Claude' })
+vim.keymap.set('n', '<leader>ab', '<Cmd>ClaudeCodeAdd %<CR>', { desc = 'Add current buffer' })
+vim.keymap.set('v', '<leader>as', '<Cmd>ClaudeCodeSend<CR>', { desc = 'Send to Claude' })
+vim.keymap.set('n', '<leader>aa', '<Cmd>ClaudeCodeDiffAccept<CR>', { desc = 'Accept diff' })
+vim.keymap.set('n', '<leader>ad', '<Cmd>ClaudeCodeDiffDeny<CR>', { desc = 'Deny diff' })
