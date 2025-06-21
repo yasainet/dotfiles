@@ -17,6 +17,7 @@ return {
         visible = false,
         hide_dotfiles = true,
         hide_gitignored = true,
+        show_hidden_count = false,
         hide_by_name = {
           "node_modules",
           ".git",
