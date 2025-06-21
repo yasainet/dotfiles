@@ -18,7 +18,7 @@
     "dark": "Colored Zed Icons Theme Dark"
   },
   "features": {
-    "edit_prediction_provider": "copilot"
+    "edit_prediction_provider": "zed"
   },
   "edit_predictions": {
     "disabled_globs": [],
@@ -73,6 +73,7 @@
     "button": false
   },
   "agent": {
+    "play_sound_when_agent_done": true,
     "model_parameters": [],
     "profiles": {
       "write": {
@@ -159,6 +160,7 @@
     "always_allow_tool_actions": true,
     "default_profile": "write",
     "version": "2",
+    "default_width": 640,
     "default_model": {
       "provider": "anthropic",
       "model": "claude-sonnet-4-thinking-latest"

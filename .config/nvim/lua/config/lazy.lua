@@ -1,4 +1,5 @@
 ---@diagnostic disable: undefined-global
+
 -- Bootstrap lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
@@ -10,12 +11,12 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
--- Setup lazy.nvim (minimal)
+-- Setup lazy.nvim
 require("lazy").setup({
-  dofile(vim.fn.stdpath("config") .. "/plugins/treesitter.lua"),
-  dofile(vim.fn.stdpath("config") .. "/plugins/theme.lua"),
+  require("plugins.treesitter"),
+  require("plugins.theme"),
 }, {
   install = {
-    missing = true, -- Auto-install missing plugins
+    missing = true,
   },
 })
