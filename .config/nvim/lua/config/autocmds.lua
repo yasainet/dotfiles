@@ -9,17 +9,18 @@ local function set_transparency()
   vim.cmd("highlight NeoTreeWinSeparator guibg=NONE")
 end
 
-vim.api.nvim_create_autocmd("VimEnter", {
-  callback = set_transparency
-})
-
 vim.api.nvim_create_autocmd("ColorScheme", {
-  callback = set_transparency
+  callback = function()
+    set_transparency()
+  end
 })
 
 -- neo-tree
 vim.api.nvim_create_autocmd("VimEnter", {
   callback = function()
-    vim.cmd("Neotree show")
+    set_transparency()
+    if vim.fn.argc() == 0 then
+      vim.cmd("Neotree show")
+    end
   end
 })

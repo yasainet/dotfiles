@@ -8,6 +8,7 @@ return {
   },
   lazy = false,
   opts = {
+    popup_border_style = "rounded",
     filesystem = {
       follow_current_file = {
         enabled = true,
