@@ -1,4 +1,4 @@
-- [ ] ファイル名が長い場合、neo-treeの幅が広がる問題を解決する
+- [x] ファイル名が長い場合、neo-treeの幅が広がる問題を解決する
 - [ ] LSP 導入
 - [ ] mason.nvim の調査
 - [ ] null-ls の調査, nvim-lint, conform.nvim とかと比較

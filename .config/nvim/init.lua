@@ -1,5 +1,3 @@
----@diagnostic disable: undefined-global
-
 -- Core configuration
 require("config.options")
 require("config.keymaps")

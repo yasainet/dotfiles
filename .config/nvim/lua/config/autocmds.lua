@@ -1,5 +1,3 @@
----@diagnostic disable: undefined-global
-
 -- Theme transparency
 local function set_transparency()
   vim.cmd("highlight Normal guibg=NONE")

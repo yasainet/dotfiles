@@ -1,5 +1,3 @@
----@diagnostic disable: undefined-global
-
 -- Leader
 vim.g.mapleader = " "
 vim.g.maplocalleader = ","
