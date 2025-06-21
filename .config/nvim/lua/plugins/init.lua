@@ -12,4 +12,5 @@ return {
   require("plugins.autopairs"),
   require("plugins.comment"),
   require("plugins.todo-comments"),
+  require("plugins.indent-blankline"),
 }
