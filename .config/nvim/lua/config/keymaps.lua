@@ -46,3 +46,26 @@ vim.keymap.set('n', '<leader>ab', '<Cmd>ClaudeCodeAdd %<CR>', { desc = 'Add curr
 vim.keymap.set('v', '<leader>as', '<Cmd>ClaudeCodeSend<CR>', { desc = 'Send to Claude' })
 vim.keymap.set('n', '<leader>aa', '<Cmd>ClaudeCodeDiffAccept<CR>', { desc = 'Accept diff' })
 vim.keymap.set('n', '<leader>ad', '<Cmd>ClaudeCodeDiffDeny<CR>', { desc = 'Deny diff' })
+
+-- Telescope
+vim.keymap.set('n', '<leader>ff', '<Cmd>Telescope find_files<CR>', { desc = 'Find files' })
+vim.keymap.set('n', '<leader>fg', '<Cmd>Telescope live_grep<CR>', { desc = 'Live grep' })
+vim.keymap.set('n', '<leader>fb', '<Cmd>Telescope buffers<CR>', { desc = 'Find buffers' })
+vim.keymap.set('n', '<leader>fh', '<Cmd>Telescope help_tags<CR>', { desc = 'Help tags' })
+
+-- Conform
+vim.keymap.set('n', '<leader>lf', function()
+  require('conform').format({ async = true, lsp_fallback = true })
+end, { desc = 'Format buffer' })
+
+-- Config reload
+vim.keymap.set('n', '<leader>rr', function()
+  for name, _ in pairs(package.loaded) do
+    if name:match('^config') or name:match('^plugins') then
+      package.loaded[name] = nil
+    end
+  end
+  dofile(vim.env.MYVIMRC)
+  print('Config reloaded!')
+end, { desc = 'Reload config' })
+vim.keymap.set('n', '<leader>rc', '<Cmd>Lazy clear<CR>', { desc = 'Clear lazy cache' })

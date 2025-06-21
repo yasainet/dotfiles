@@ -295,6 +295,13 @@ brew install fzf
 ```
 
 
+## ripgrep
+
+```sh
+brew install ripgrep
+```
+
+
 # Application
 
 ## mas-cli

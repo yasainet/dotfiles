@@ -25,7 +25,8 @@ return {
           ".DS_Store"
         },
         always_show = {
-          ".gitignore"
+          ".gitignore",
+          ".config"
         },
         always_show_by_pattern = {
           ".env*"
