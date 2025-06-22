@@ -23,7 +23,7 @@ title=" "
 theme = tokyonight_night
 
 # Font
-font-family = PlemolJP35 Console
+font-family = BlexMono Nerd Font
 font-size = 14
 font-feature = -calt
 font-feature = -dlig
@@ -41,5 +41,4 @@ mouse-hide-while-typing = true
 quick-terminal-position = center
 
 # Keybindings
-keybind = global:cmd+ctrl+\=toggle_quick_terminal
 keybind = shift+enter=text:\n

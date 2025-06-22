@@ -21,7 +21,6 @@ alias vi='nvim'
 alias vim='nvim'
 alias top='glances'
 alias cat='bat'
-alias code='zed'
 alias C='pbcopy'
 
 ## tree
@@ -75,6 +74,15 @@ pj() {
 
 pjS() {
   cd $HOME/Projects/supaboards.com
+}
+
+# tmux
+code() {
+  if [[ -n "$TMUX" ]] && [[ $(tmux list-panes | wc -l) -eq 1 ]]; then
+    tmux split-window -v -p 20 -c "#{pane_current_path}"
+    tmux select-pane -t 0
+  fi
+  nvim .
 }
 
 # .zsh
