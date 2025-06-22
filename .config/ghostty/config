@@ -16,7 +16,7 @@ window-width = 999
 macos-titlebar-style = transparent
 macos-titlebar-proxy-icon = hidden
 macos-window-shadow = false
-background-opacity = 0.85
+background-opacity = 0.9
 title=" "
 
 # Theme
@@ -39,6 +39,8 @@ mouse-hide-while-typing = true
 
 # Quick Terminal
 quick-terminal-position = center
+quick-terminal-screen = main
 
 # Keybindings
+keybind = "global:cmd+ctrl+\=toggle_quick_terminal"
 keybind = shift+enter=text:\n

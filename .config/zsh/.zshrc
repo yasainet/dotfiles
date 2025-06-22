@@ -23,12 +23,16 @@ alias top='glances'
 alias cat='bat'
 alias C='pbcopy'
 
-## tree
+# tree
 NODE_IGNORE='"node_modules|.next"'
 
 alias treeJ='tree -J -I '"$NODE_IGNORE"' | jq'
 alias treeJC='tree -J -I '"$NODE_IGNORE"' | jq | pbcopy'
 
+# claude code
+alias cc='claude'
+alias ccc='claude -c'
+alias ccr='claude -r'
 
 # functions
 cd() {
@@ -74,15 +78,6 @@ pj() {
 
 pjS() {
   cd $HOME/Projects/supaboards.com
-}
-
-# tmux
-code() {
-  if [[ -n "$TMUX" ]] && [[ $(tmux list-panes | wc -l) -eq 1 ]]; then
-    tmux split-window -v -p 20 -c "#{pane_current_path}"
-    tmux select-pane -t 0
-  fi
-  nvim .
 }
 
 # .zsh

@@ -1,6 +1,3 @@
-/**
- * @see https://github.com/zed-industries/zed/blob/main/assets/keymaps/vim.json
- */
 [
   {
     "bindings": {
@@ -18,9 +15,9 @@
     "context": "Workspace",
     "use_key_equivalents": true,
     "bindings": {
-      "cmd-shift-g": "git_panel::ToggleFocus",
-      "cmd-shift-a": "agent::ToggleFocus",
-      "cmd-shift-r": "agent::OpenAgentDiff"
+      "cmd-shift-g": "git_panel::ToggleFocus"
+      // "cmd-shift-a": "agent::ToggleFocus",
+      // "cmd-shift-r": "agent::OpenAgentDiff"
     }
   },
   {
@@ -41,12 +38,15 @@
     "bindings": {
       "n": "search::SelectNextMatch", // cmd-g
       "shift-n": "search::SelectPreviousMatch", // cmd-shift-g
-      "space l f": "editor::Format"
+      "space l f": "editor::Format",
+      "space f f": "file_finder::Toggle",
+      "space o": "tab_switcher::Toggle"
     }
   },
   {
     "context": "vim_mode == insert",
     "bindings": {
+      // emacs keybindings
       "ctrl-d": "vim::DeleteRight",
       "ctrl-k": "vim::DeleteToEndOfLine"
     }

@@ -54,12 +54,12 @@
   "search": {
     "button": false
   },
-  // "inlay_hints": {
-  //   "enabled": true,
-  //   "show_type_hints": true,
-  //   "show_parameter_hints": true,
-  //   "show_other_hints": true
-  // },
+  "inlay_hints": {
+    "enabled": true,
+    "show_type_hints": true,
+    "show_parameter_hints": true,
+    "show_other_hints": true
+  },
   "project_panel": {
     "auto_fold_dirs": false
   },
@@ -73,6 +73,7 @@
     "button": false
   },
   "agent": {
+    "dock": "right",
     "play_sound_when_agent_done": true,
     "model_parameters": [],
     "profiles": {
@@ -158,7 +159,7 @@
       }
     },
     "always_allow_tool_actions": true,
-    "default_profile": "write",
+    "default_profile": "ask",
     "version": "2",
     "default_width": 640,
     "default_model": {
