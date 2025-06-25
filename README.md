@@ -46,7 +46,7 @@ brew install --cask git-credential-manager-core
 
 ## Font
 ```sh
-brew install --cask font-plemol-jp
+brew install --cask font-blex-mono-nerd-font
 ```
 
 

@@ -42,5 +42,5 @@ quick-terminal-position = center
 quick-terminal-screen = main
 
 # Keybindings
-keybind = "global:cmd+ctrl+\=toggle_quick_terminal"
+keybind = global:ctrl+\=toggle_quick_terminal
 keybind = shift+enter=text:\n
