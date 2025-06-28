@@ -128,23 +128,24 @@ rm -rf ~/.vim .viminfo
 ## Node.js
 
 ```sh
-brew install node
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
 ```
 
 ```sh
-brew install nvm
+\. "$HOME/.nvm/nvm.sh"
 ```
 
 ```sh
-mkdir ~/.nvm
+nvm install 22
 ```
 
 ```sh
-nvm install --lts
+node -v # Should print "v22.17.0".
+nvm current # Should print "v22.17.0".
 ```
 
 ```sh
-nvm alias default 'lts/*'
+npm -v # Should print "10.9.2".
 ```
 
 

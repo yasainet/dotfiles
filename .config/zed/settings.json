@@ -164,7 +164,7 @@
     "default_width": 640,
     "default_model": {
       "provider": "anthropic",
-      "model": "claude-sonnet-4-thinking-latest"
+      "model": "claude-sonnet-4-latest"
     }
   },
   "tab_bar": {
