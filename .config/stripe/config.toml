@@ -1,0 +1,10 @@
+color = ''
+project-name = 'default'
+
+[default]
+account_id = 'acct_1RYmDUQkHCA8kDu8'
+device_name = 'MacBook-Pro-2023.local'
+display_name = 'OYATSU sandbox'
+test_mode_api_key = 'sk_test_51RYmDUQkHCA8kDu8jrgN0oydZs85tGPJPMPvS8Gjduwz6HVEUyYa0ui2LLghLpPsmhTjRP1Glxt67ALDSj5TuYeu00isIx2vkp'
+test_mode_key_expires_at = '2025-09-09'
+test_mode_pub_key = 'pk_test_51RYmDUQkHCA8kDu8IwNrY8bFwLLlY0P3NrrGEkrjRYrG0h8QKXZ4CWhM2hFEC8xvauwlEt5NwVyXgViuC5LeP8rw00mMLg7PuI'

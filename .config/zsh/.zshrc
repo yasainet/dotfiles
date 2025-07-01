@@ -116,3 +116,6 @@ source /opt/homebrew/opt/fzf/shell/completion.zsh
 
 # Starship
 eval "$(starship init zsh)"
+
+# Claude Code
+export PATH="$HOME/.claude/local:$PATH"
