@@ -1,0 +1,49 @@
+{
+    "editor.fontSize": 14,
+    "workbench.colorTheme": "Tokyo Night",
+    "editor.tabSize": 2,
+    "debug.console.fontSize": 14,
+    "scm.inputFontSize": 14,
+    "terminal.integrated.fontSize": 14,
+    "editor.fontFamily": "BlexMono Nerd Font",
+    "chat.editor.fontSize": 14,
+    "editor.minimap.enabled": false,
+    "workbench.statusBar.visible": false,
+    "editor.hideCursorInOverviewRuler": false,
+    "editor.overviewRulerBorder": false,
+    "editor.scrollbar.horizontal": "hidden",
+    "editor.scrollbar.vertical": "hidden",
+    "breadcrumbs.enabled": false,
+    "workbench.activityBar.location": "hidden",
+    "github.copilot.enable": {
+        "*": false
+    },
+    "github.copilot.editor.enableCodeActions": false,
+    "editor.inlineSuggest.enabled": false,
+    "editor.glyphMargin": false,
+    "editor.folding": false,
+    "editor.codeActionsOnSave": {
+        // fixAll, fixAll.eslint, fixAll.prettier
+        "source.fixAll.eslint": "explicit"
+    },
+    "editor.formatOnSave": true,
+    "editor.tokenColorCustomizations": {
+        "comments": {
+            "fontStyle": ""
+        }
+    },
+    "editor.scrollBeyondLastLine": false,
+    "[toml]": {
+        "editor.defaultFormatter": "tamasfe.even-better-toml"
+    },
+    "scm.diffDecorations.gutter": false,
+    "scm.diffDecorations.overview": false,
+    "git.decorations.enabled": false,
+    "git.enabled": false,
+    "scm.diffDecorations.enabled": false,
+    "problems.decorations.enabled": false,
+    "editor.renderValidationDecorations": "off",
+    "editor.renderLineHighlight": "none",
+    "editor.guides.indentation": false,
+    "editor.wordWrap": "on",
+}
