@@ -30,6 +30,7 @@ alias treeJ='tree -J -I '"$NODE_IGNORE"' | jq'
 alias treeJC='tree -J -I '"$NODE_IGNORE"' | jq | pbcopy'
 
 # claude code
+alias claude='~/.claude/local/claude'
 alias cc='claude'
 alias ccc='claude -c'
 alias ccr='claude -r'
