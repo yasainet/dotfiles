@@ -11,7 +11,7 @@ This is a personal dotfiles repository for macOS development environment setup, 
 - `.config/` - Configuration files for development tools
   - `nvim/` - Neovim configuration with Lua plugins
   - `zsh/` - Zsh shell configuration and aliases
-  - `git/` - Git configuration with delta diff viewer
+  - `git/` - Git configuration
   - `tmux/` - tmux terminal multiplexer configuration
   - `starship.toml` - Starship prompt configuration
   - `ghostty/` - Ghostty terminal configuration
@@ -38,7 +38,7 @@ This is a personal dotfiles repository for macOS development environment setup, 
 - Terminal: Ghostty with Tokyo Night theme
 - Shell: Zsh with Oh My Zsh, autosuggestions, and syntax highlighting
 - Prompt: Starship with custom configuration
-- Git: Configured with delta diff viewer and LFS support
+- Git: Configured with LFS support
 
 ## Theme and Styling
 
@@ -47,7 +47,6 @@ Consistent Tokyo Night theme across:
 - Ghostty terminal
 - tmux
 - bat syntax highlighting
-- delta git diff
 
 ## Key Development Tools Configured
 

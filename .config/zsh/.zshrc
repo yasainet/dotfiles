@@ -19,7 +19,6 @@ alias mv='mv -i'
 alias v='nvim'
 alias vi='nvim'
 alias vim='nvim'
-alias top='glances'
 alias cat='bat'
 alias C='pbcopy'
 
@@ -81,6 +80,10 @@ pjS() {
   cd $HOME/Projects/supaboards.com
 }
 
+pjO () {
+  cd $HOME/Projects/oyatsu/
+}
+
 # .zsh
 export HISTFILE="$ZDOTDIR/.zsh_history"
 export ZSH_SESSION_DIR="$ZDOTDIR/.zsh_sessions"
@@ -120,3 +123,11 @@ eval "$(starship init zsh)"
 
 # Claude Code
 export PATH="$HOME/.claude/local:$PATH"
+
+# Docker CLI
+fpath=(/Users/yasainet/.docker/completions $fpath)
+autoload -Uz compinit
+compinit
+
+# Rust
+export PATH="$HOME/.cargo/bin:$PATH"
