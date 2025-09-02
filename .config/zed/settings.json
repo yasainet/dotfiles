@@ -31,7 +31,7 @@
   },
   "buffer_font_size": 14,
   "ui_font_size": 16,
-  "agent_font_size": 18,
+  "agent_font_size": 16,
   "inline_code_actions": false,
   "vim_mode": true,
   "show_edit_predictions": true,
@@ -47,7 +47,6 @@
     "show": "never"
   },
   "gutter": {
-    "code_actions": false,
     "runnables": false
   },
   "scroll_beyond_last_line": "off",
@@ -61,12 +60,16 @@
   //   "show_other_hints": true
   // },
   "project_panel": {
-    "auto_fold_dirs": false
+    "auto_fold_dirs": false,
+    "button": false
   },
   "outline_panel": {
-    // "button": false
+    "button": false
   },
   "collaboration_panel": {
+    "button": false
+  },
+  "git_panel": {
     "button": false
   },
   "notification_panel": {
@@ -160,11 +163,20 @@
     },
     "always_allow_tool_actions": true,
     "default_profile": "ask",
-    "version": "2",
     "default_width": 640,
     "default_model": {
       "provider": "anthropic",
       "model": "claude-sonnet-4-latest"
+    }
+  },
+  "agent_servers": {
+    "claude-code": {
+      "command": "node",
+      "args": ["/Users/yasainet/Projects/acp-claude-code/dist/index.js"],
+      "env": {
+        "CLAUDE_CODE_OAUTH_TOKEN": "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",
+        "ACP_DEBUG": "true"
+      }
     }
   },
   "tab_bar": {
@@ -234,7 +246,6 @@
   },
   "language_models": {
     "anthropic": {
-      "version": "1",
       "api_url": "https://api.anthropic.com"
     },
     "google": {
@@ -244,7 +255,6 @@
       "api_url": "http://localhost:11434"
     },
     "openai": {
-      "version": "1",
       "api_url": "https://api.openai.com/v1"
     },
     "lmstudio": {
@@ -262,11 +272,13 @@
   },
   "context_servers": {
     "postgres-context-server": {
+      "source": "extension",
       "settings": {
         "database_url": "postgresql://postgres:postgres@127.0.0.1:54322/postgres"
       }
     },
     "mcp-server-brave-search": {
+      "source": "extension",
       "settings": {
         "brave_api_key": "BSAVMzhMM8yw6RtZVl8VBNFvSzhBX6O"
       }
@@ -289,10 +301,8 @@
     //   }
     // },
     "mcpServers": {
-      "puppeteer": {
-        "command": "npx",
-        "args": ["-y", "@modelcontextprotocol/server-puppeteer"]
-      }
+      "source": "extension",
+      "settings": {}
     }
   }
 }

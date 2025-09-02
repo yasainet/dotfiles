@@ -60,13 +60,6 @@ conf() {
   cd $HOME/.config
 }
 
-confZ() {
-  cd $HOME/.config/zsh
-}
-
-confV(){
-  cd $HOME/.config/nvim
-}
 
 drive() {
   cd "$HOME/Google Drive/My Drive"
@@ -74,14 +67,6 @@ drive() {
 
 pj() {
   cd $HOME/Projects
-}
-
-pjS() {
-  cd $HOME/Projects/supaboards.com
-}
-
-pjO () {
-  cd $HOME/Projects/oyatsu/
 }
 
 # .zsh
