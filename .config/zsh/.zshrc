@@ -40,16 +40,17 @@ cd() {
 }
 
 rm() {
-  local opts="-i"
   if [[ "$@" == *"-rf"* || "$@" == *"-fr"* ]]; then
-    echo "⚠️ Are you sure?[y/N]"
+    echo -n "⚠️  Execute 'rm -rf'? [y/N]: "
     read answer
     if [[ ! "$answer" =~ ^[Yy] ]]; then
       echo "Canceled."
       return 1
     fi
+    command rm "$@"
+  else
+    command rm -i "$@"
   fi
-  command rm $opts "$@"
 }
 
 dot() {
@@ -59,7 +60,6 @@ dot() {
 conf() {
   cd $HOME/.config
 }
-
 
 drive() {
   cd "$HOME/Google Drive/My Drive"

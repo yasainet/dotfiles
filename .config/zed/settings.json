@@ -12,11 +12,7 @@
     "ghost_element.hover": "#363b54", // or 1a1b26
     "ghost_element.selected": "#363b54" // or 1a1b26
   },
-  "icon_theme": {
-    "mode": "system",
-    "light": "Colored Zed Icons Theme Dark",
-    "dark": "Colored Zed Icons Theme Dark"
-  },
+  "icon_theme": "Colored Zed Icons Theme Dark",
   "features": {
     "edit_prediction_provider": "copilot"
   },
@@ -31,7 +27,7 @@
   },
   "buffer_font_size": 14,
   "ui_font_size": 16,
-  "agent_font_size": 16,
+  "agent_font_size": 18,
   "inline_code_actions": false,
   "vim_mode": true,
   "show_edit_predictions": true,
@@ -40,11 +36,14 @@
     "quick_actions": false,
     "selections_menu": true
   },
+  "use_system_window_tabs": true,
   "title_bar": {
     "show_user_picture": false
   },
   "scrollbar": {
-    "show": "never"
+    "show": "auto",
+    "git_diff": false,
+    "diagnostics": "all"
   },
   "gutter": {
     "runnables": false
@@ -169,16 +168,6 @@
       "model": "claude-sonnet-4-latest"
     }
   },
-  "agent_servers": {
-    "claude-code": {
-      "command": "node",
-      "args": ["/Users/yasainet/Projects/acp-claude-code/dist/index.js"],
-      "env": {
-        "CLAUDE_CODE_OAUTH_TOKEN": "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",
-        "ACP_DEBUG": "true"
-      }
-    }
-  },
   "tab_bar": {
     "show_nav_history_buttons": false,
     "show_tab_bar_buttons": false
@@ -200,6 +189,7 @@
     // "dock": "right",
     "blinking": "on",
     // "button": false,
+    "line_height": "standard",
     "toolbar": {
       "breadcrumbs": false
     }
@@ -271,35 +261,6 @@
     "W": "w"
   },
   "context_servers": {
-    "postgres-context-server": {
-      "source": "extension",
-      "settings": {
-        "database_url": "postgresql://postgres:postgres@127.0.0.1:54322/postgres"
-      }
-    },
-    "mcp-server-brave-search": {
-      "source": "extension",
-      "settings": {
-        "brave_api_key": "BSAVMzhMM8yw6RtZVl8VBNFvSzhBX6O"
-      }
-    },
-    // "supabase": {
-    //   "command": {
-    //     "path": "npx",
-    //     "args": [
-    //       "-y",
-    //       "@supabase/mcp-server-supabase@latest",
-    //       "--access-token",
-    //       "sbp_9288a01db86d0128d55e678c823603e1869ef6de"
-    //     ]
-    //   }
-    // },
-    // "mcp-server-supabase": {
-    //   "settings": {
-    //     "supabase_access_token": "sbp_9288a01db86d0128d55e678c823603e1869ef6de",
-    //     "read_only": true
-    //   }
-    // },
     "mcpServers": {
       "source": "extension",
       "settings": {}

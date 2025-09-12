@@ -7,7 +7,7 @@ clipboard-read = allow
 clipboard-write = allow
 
 # Window
-window-title-font-family = SF Mono
+# window-title-font-family = SF Mono
 window-theme = system
 window-save-state = always
 window-padding-balance = true
@@ -23,7 +23,7 @@ title=" "
 theme = tokyonight_night
 
 # Font
-font-family = BlexMono Nerd Font
+font-family = ["BlexMono Nerd Font Mono", "PlemolJP Console"]
 font-size = 14
 font-feature = -calt
 font-feature = -dlig

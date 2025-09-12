@@ -49,6 +49,10 @@ brew install --cask git-credential-manager-core
 brew install --cask font-blex-mono-nerd-font
 ```
 
+```sh
+brew install --cask font-plemol-jp
+```
+
 
 ## dotfiles
 ```sh
@@ -128,6 +132,7 @@ rm -rf ~/.vim .viminfo
 ## Node.js
 
 ```sh
+# @see @see https://nodejs.org/ja/download
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
 ```
 
@@ -140,12 +145,12 @@ nvm install 22
 ```
 
 ```sh
-node -v # Should print "v22.17.0".
-nvm current # Should print "v22.17.0".
+node -v
+nvm current
 ```
 
 ```sh
-npm -v # Should print "10.9.2".
+npm -v
 ```
 
 
@@ -181,6 +186,7 @@ brew install cloudflared
 ```sh
 brew install --cask ngrok
 ```
+
 
 ## Miniconda
 
@@ -273,10 +279,6 @@ ln -sf ~/dotfiles/Applications/OpenCommit/.opencommit_migrations  ~/.opencommit_
 brew install stripe-cli
 ```
 
-```sh
-stripe login
-```
-
 
 ## fzf
 
@@ -348,13 +350,6 @@ ln -s ~/dotfiles/.config/zed/ ~/.config/
 ```
 
 
-## Obsidian
-
-```sh
-brew install --cask obsidian
-```
-
-
 ## Karabiner-Elements
 
 ```sh
@@ -367,17 +362,17 @@ ln -s ~/dotfiles/.config/karabiner/ ~/.config/
 ```
 
 
-## CleanShot X
-
-```sh
-brew install --cask cleanshot
-```
-
-
 ## Docker
 
 ```sh
 brew install --cask docker
+```
+
+
+## CleanShot X
+
+```sh
+brew install --cask cleanshot
 ```
 
 
@@ -470,13 +465,6 @@ brew install macism
 
 ```sh
 brew install --cask rectangle
-```
-
-
-# Mac Setup
-
-```sh
-chmod +x ~/dotfiles/setup.sh
 ```
 
 
