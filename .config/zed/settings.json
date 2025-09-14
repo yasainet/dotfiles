@@ -41,9 +41,8 @@
     "show_user_picture": false
   },
   "scrollbar": {
-    "show": "auto",
-    "git_diff": false,
-    "diagnostics": "all"
+    "show": "system",
+    "cursors": false
   },
   "gutter": {
     "runnables": false
@@ -75,98 +74,11 @@
     "button": false
   },
   "agent": {
-    "dock": "right",
-    "play_sound_when_agent_done": true,
-    "model_parameters": [],
-    "profiles": {
-      "write": {
-        "name": "Write",
-        "tools": {
-          "create_directory": true,
-          "open": true,
-          "batch_tool": true,
-          "code_actions": true,
-          "code_symbols": true,
-          "contents": true,
-          "copy_path": true,
-          "create_file": true,
-          "delete_path": true,
-          "diagnostics": true,
-          "edit_file": true,
-          "fetch": true,
-          "list_directory": true,
-          "move_path": true,
-          "now": true,
-          "find_path": true,
-          "read_file": true,
-          "grep": true,
-          "rename": true,
-          "symbol_info": true,
-          "terminal": true,
-          "thinking": true,
-          "web_search": true
-        },
-        "enable_all_context_servers": true,
-        "context_servers": {}
-      },
-      "ask": {
-        "name": "Ask",
-        "tools": {
-          "copy_path": true,
-          "terminal": false,
-          "symbol_info": true,
-          "open": true,
-          "contents": true,
-          "diagnostics": true,
-          "fetch": true,
-          "list_directory": true,
-          "now": true,
-          "find_path": true,
-          "read_file": true,
-          "grep": true,
-          "thinking": true,
-          "web_search": true
-        },
-        "enable_all_context_servers": true,
-        "context_servers": {
-          "supabase": {
-            "tools": {
-              "restore_project": false,
-              "reset_branch": false,
-              "rebase_branch": false,
-              "pause_project": false,
-              "merge_branch": false,
-              "execute_sql": false,
-              "deploy_edge_function": false,
-              "delete_branch": false,
-              "create_project": false,
-              "create_branch": false,
-              "confirm_cost": false,
-              "apply_migration": false
-            }
-          },
-          "postgres-context-server": {
-            "tools": {
-              "query": true,
-              "pg-schema": true
-            }
-          },
-          "mcp-server-context7": {
-            "tools": {
-              "resolve-library-id": true,
-              "get-library-docs": true
-            }
-          }
-        }
-      }
-    },
-    "always_allow_tool_actions": true,
-    "default_profile": "ask",
-    "default_width": 640,
     "default_model": {
       "provider": "anthropic",
       "model": "claude-sonnet-4-latest"
-    }
+    },
+    "play_sound_when_agent_done": true
   },
   "tab_bar": {
     "show_nav_history_buttons": false,
@@ -179,16 +91,14 @@
   "tab_size": 2,
   "git": {
     "inline_blame": {
-      "enabled": false
+      // "enabled": false
     }
   },
   "journal": {
     "hour_format": "hour24"
   },
   "terminal": {
-    // "dock": "right",
     "blinking": "on",
-    // "button": false,
     "line_height": "standard",
     "toolbar": {
       "breadcrumbs": false

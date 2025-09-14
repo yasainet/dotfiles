@@ -57,10 +57,6 @@ dot() {
   cd $HOME/dotfiles
 }
 
-conf() {
-  cd $HOME/.config
-}
-
 drive() {
   cd "$HOME/Google Drive/My Drive"
 }
