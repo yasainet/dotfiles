@@ -1,6 +1,7 @@
 OCO_AI_PROVIDER=ollama
 OCO_MODEL=gpt-oss:20b
-OCO_API_URL=undefined
+OCO_API_URL=http://localhost:11434/api/chat
+OCO_API_KEY=undefined
 OCO_API_CUSTOM_HEADERS=undefined
 OCO_TOKENS_MAX_INPUT=40960
 OCO_TOKENS_MAX_OUTPUT=4096
