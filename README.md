@@ -337,6 +337,12 @@ brew install --cask google-chrome
 brew install --cask google-drive
 ```
 
+```sh
+rm ~/Downloads 
+
+ln -s "/Users/yasainet/Library/CloudStorage/GoogleDrive-takumi.mizoguchi@gmail.com/My Drive/Downloads" ~/Downloads
+```
+
 
 ## Zed
 

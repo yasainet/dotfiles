@@ -1,4 +1,9 @@
 {
+  "agent_servers": {
+    "claude": {
+      "default_mode": "default"
+    }
+  },
   "theme": "Tokyo Night",
   "experimental.theme_overrides": {
     "background.appearance": "transparent",
@@ -36,13 +41,11 @@
     "quick_actions": false,
     "selections_menu": true
   },
-  "use_system_window_tabs": true,
   "title_bar": {
     "show_user_picture": false
   },
   "scrollbar": {
-    "show": "system",
-    "cursors": false
+    "show": "never"
   },
   "gutter": {
     "runnables": false
