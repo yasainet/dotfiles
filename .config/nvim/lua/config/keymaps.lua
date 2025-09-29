@@ -41,9 +41,6 @@ vim.keymap.set('n', '<leader>hd', '<Cmd>Gitsigns toggle_deleted<CR>')
 vim.keymap.set('n', '<leader>hl', '<Cmd>Gitsigns toggle_linehl<CR>')
 vim.keymap.set('n', '<leader>hn', '<Cmd>Gitsigns toggle_numhl<CR>')
 
--- ToggleTerm
-vim.keymap.set('n', '<C-\\>', '<Cmd>ToggleTerm<CR>', { desc = 'Toggle terminal' })
-vim.keymap.set('t', '<C-\\>', '<C-\\><C-n><Cmd>ToggleTerm<CR>', { desc = 'Toggle terminal' })
 
 -- Telescope
 vim.keymap.set('n', '<leader>ff', '<Cmd>Telescope find_files<CR>', { desc = 'Find files' })

@@ -20,7 +20,6 @@ return {
         "lazy",
         "mason",
         "notify",
-        "toggleterm",
         "lazyterm",
       },
     },
