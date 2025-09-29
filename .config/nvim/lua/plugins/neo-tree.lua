@@ -16,21 +16,8 @@ return {
       },
       filtered_items = {
         visible = false,
-        hide_dotfiles = true,
-        hide_gitignored = true,
+        hide_dotfiles = false,
         show_hidden_count = false,
-        hide_by_name = {
-          "node_modules",
-          ".git",
-          ".DS_Store"
-        },
-        always_show = {
-          ".gitignore",
-          ".config"
-        },
-        always_show_by_pattern = {
-          ".env*"
-        }
       },
       use_libuv_file_watcher = true
     },
@@ -56,7 +43,7 @@ return {
         ["l"] = "focus_preview",
       }
     },
-    close_if_last_window = false,
+    close_if_last_window = true,
     default_component_configs = {
       git_status = {
         symbols = {

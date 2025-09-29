@@ -5,6 +5,7 @@ shell-integration-features = no-cursor
 # Clipboard
 clipboard-read = allow
 clipboard-write = allow
+clipboard-paste-protection = false
 
 # Window
 window-title-font-family = SF Mono
@@ -44,5 +45,5 @@ quick-terminal-position = center
 quick-terminal-screen = main
 
 # Keybindings
-keybind = global:ctrl+\=toggle_quick_terminal
-keybind = shift+enter=text:\n
+# keybind = global:ctrl+\=toggle_quick_terminal
+keybind = shift+enter=text:\x1b\r
