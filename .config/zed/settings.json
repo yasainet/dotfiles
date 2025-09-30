@@ -1,7 +1,7 @@
 {
   "agent_servers": {
     "claude": {
-      "default_mode": "default"
+      "default_mode": null
     }
   },
   "theme": "Tokyo Night",
@@ -81,7 +81,8 @@
       "provider": "anthropic",
       "model": "claude-sonnet-4-latest"
     },
-    "play_sound_when_agent_done": true
+    "play_sound_when_agent_done": true,
+    "single_file_review": false
   },
   "tab_bar": {
     "show_nav_history_buttons": false,
