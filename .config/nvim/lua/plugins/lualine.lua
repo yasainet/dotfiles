@@ -3,8 +3,12 @@ return {
   dependencies = {
     "nvim-tree/nvim-web-devicons"
   },
+  event = "VeryLazy",
   config = function()
     local ime = require("utils.ime")
+
+    -- Start background timer for IME status updates
+    ime.start_timer()
 
     require("lualine").setup({
       options = {
@@ -13,9 +17,9 @@ return {
         component_separators = { left = '', right = '' },
         section_separators = { left = '', right = '' },
         refresh = {
-          statusline = 200,
+          statusline = 1000,
           tabline = 1000,
-          winbar = 1000
+          winbar = 1000,
         }
       },
       sections = {

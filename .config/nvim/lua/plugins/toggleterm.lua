@@ -23,7 +23,7 @@ return {
       bottom_term:toggle()
     end
 
-    -- Right terminal using native vim split
+    -- Right terminal using vim split
     local right_term_bufnr = nil
     local right_term_winnr = nil
 
@@ -34,7 +34,7 @@ return {
         right_term_winnr = nil
       else
         -- Calculate 35% of screen width
-        local width = math.floor(vim.o.columns * 0.30)
+        local width = math.floor(vim.o.columns * 0.35)
 
         -- Create vertical split
         vim.cmd("botright vsplit")

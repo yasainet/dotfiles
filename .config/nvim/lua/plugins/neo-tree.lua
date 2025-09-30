@@ -59,7 +59,8 @@ return {
         }
       }
     },
-    enable_git_status = true,
-    enable_diagnostics = true,
+    -- NOTE: 軽量化
+    -- enable_git_status = false,
+    -- enable_diagnostics = false,
   },
 }
