@@ -310,13 +310,6 @@ mas install 539883307
 ```
 
 
-## Paste
-
-```sh
-mas install 967805235
-```
-
-
 ## Xcode
 
 ```sh

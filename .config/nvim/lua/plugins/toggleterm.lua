@@ -34,7 +34,7 @@ return {
         right_term_winnr = nil
       else
         -- Calculate 35% of screen width
-        local width = math.floor(vim.o.columns * 0.35)
+        local width = math.floor(vim.o.columns * 0.30)
 
         -- Create vertical split
         vim.cmd("botright vsplit")

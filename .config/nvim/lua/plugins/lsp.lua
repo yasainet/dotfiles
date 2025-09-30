@@ -3,9 +3,10 @@ return {
   dependencies = { "mason.nvim", "mason-lspconfig.nvim" },
   event = { "BufReadPre", "BufNewFile" },
   config = function()
-    local lspconfig = require("lspconfig")
     local capabilities = require("cmp_nvim_lsp").default_capabilities()
-    lspconfig.lua_ls.setup({
+
+    -- Configure LSP server
+    vim.lsp.config("lua_ls", {
       capabilities = capabilities,
       settings = {
         Lua = {
@@ -13,6 +14,10 @@ return {
         },
       },
     })
+
+    -- Enable LSP server
+    vim.lsp.enable("lua_ls")
+
     vim.diagnostic.config({
       virtual_text = {
         spacing = 4,
