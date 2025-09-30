@@ -25,9 +25,9 @@ M.start_timer = function()
 
   update_ime_status()
 
-  -- 500 ms
+  -- 1000 ms
   timer = vim.uv.new_timer()
-  timer:start(500, 500, vim.schedule_wrap(update_ime_status))
+  timer:start(1000, 1000, vim.schedule_wrap(update_ime_status))
 end
 
 M.get_status = function()
