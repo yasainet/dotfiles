@@ -6,18 +6,13 @@
     }
   },
   {
-    "use_key_equivalents": true,
-    "bindings": {
-      "cmd-shift-c": null // for DeepL
-    }
+    "use_key_equivalents": true
   },
   {
     "context": "Workspace",
     "use_key_equivalents": true,
     "bindings": {
       "cmd-shift-g": "git_panel::ToggleFocus"
-      // "cmd-shift-a": "agent::ToggleFocus",
-      // "cmd-shift-r": "agent::OpenAgentDiff"
     }
   },
   {
@@ -39,8 +34,7 @@
       "n": "search::SelectNextMatch", // cmd-g
       "shift-n": "search::SelectPreviousMatch", // cmd-shift-g
       "space l f": "editor::Format",
-      "space f f": "file_finder::Toggle",
-      "space o": "tab_switcher::Toggle"
+      "space f f": "file_finder::Toggle"
     }
   },
   {
@@ -52,31 +46,4 @@
       "ctrl-e": "editor::MoveToEndOfLine"
     }
   }
-  // {
-  //   "context": "MessageEditor > Editor && !showing_completions && !showing_code_actions",
-  //   "use_key_equivalents": true,
-  //   "bindings": {
-  //     "escape": "menu::Cancel",
-  //     "enter": "editor::Newline",
-  //     "cmd-enter": "agent::Chat"
-  //   }
-  // },
-  // {
-  //   "context": "EditMessageEditor > Editor && !showing_completions && !showing_code_actions",
-  //   "use_key_equivalents": true,
-  //   "bindings": {
-  //     "escape": "menu::Cancel",
-  //     "enter": "editor::Newline",
-  //     "cmd-enter": "menu::Confirm"
-  //   }
-  // },
-  // {
-  //   "context": "AgentFeedbackMessageEditor > Editor && !showing_completions && !showing_code_actions",
-  //   "use_key_equivalents": true,
-  //   "bindings": {
-  //     "escape": "menu::Cancel",
-  //     "enter": "editor::Newline",
-  //     "cmd-enter": "menu::Confirm"
-  //   }
-  // }
 ]
