@@ -18,7 +18,6 @@ Important custom commands from `.config/zsh/.zshrc`:
 - **Editor**: `v`, `vi`, `vim` → all mapped to `nvim`
 - **Navigation shortcuts**:
   - `dot()` → ~/dotfiles
-  - `conf()` → ~/.config  
   - `pj()` → ~/Projects
   - `drive()` → Google Drive
 - **Enhanced tools**:
@@ -56,9 +55,10 @@ ln -s ~/dotfiles/.config/karabiner/ ~/.config/
 - **Development Tools**:
   - **Neovim** (`.config/nvim/`): Lua-based configuration with lazy.nvim package manager
     - Entry: `init.lua` → loads config/{options,keymaps,autocmds} → config/lazy
-    - Plugins in `lua/plugins/` including LSP, treesitter, telescope, completion
-  - **Git** (`.config/git/config`): Configured with user info, LFS support, credential manager
-  - **tmux** (`.config/tmux/tmux.conf`): Prefix `C-a`, vim navigation, toggle bottom pane with `t`
+    - Plugins in `lua/plugins/` including LSP (mason, lspconfig), treesitter, telescope, nvim-cmp, neo-tree, gitsigns, toggleterm
+    - Tokyo Night colorscheme with snacks.nvim for UI components
+  - **Git** (`.config/git/config`): Configured with user info, LFS support, credential manager, case-sensitive file handling
+  - **bat** (`.config/bat/`): Syntax highlighting with Tokyo Night theme (rebuild cache with `bat cache --build`)
 
 ### macOS System Automation
 `setup.sh` automates system preferences:
@@ -71,16 +71,19 @@ ln -s ~/dotfiles/.config/karabiner/ ~/.config/
 Tokyo Night theme applied across:
 - Neovim colorscheme
 - Ghostty terminal
-- tmux status line
 - bat syntax highlighting
+- fzf with multiple variant themes (day, night, moon, storm)
 
 ## Development Workflow Notes
 
 - **File Management**: Use symbolic links (not copies) to maintain single source of truth
-- **Shell Customization**: `cd` command enhanced to auto-list files
+- **Shell Customization**: `cd` command enhanced to auto-list files (`la`)
 - **Git Workflow**: Push default is current branch, case-sensitive file handling
 - **Editor**: Neovim is the primary editor with full IDE features via LSP
-- **Terminal Multiplexing**: tmux for session management with custom Tokyo Night styling
+- **Package Management**:
+  - Node.js via nvm (`.nvm` directory)
+  - Homebrew for system packages
+  - Rust via cargo (`~/.cargo/bin` in PATH)
 
 ## Critical Paths
 - Zsh history: `~/.config/zsh/.zsh_history`

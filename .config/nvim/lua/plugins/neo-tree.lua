@@ -19,10 +19,10 @@ return {
         hide_dotfiles = false,
         show_hidden_count = false,
       },
-      use_libuv_file_watcher = true
+      use_libuv_file_watcher = false,
     },
     window = {
-      width = 25,
+      width = 30,
       position = "left",
       auto_expand_width = false,
       mappings = {

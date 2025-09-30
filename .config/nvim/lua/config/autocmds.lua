@@ -19,10 +19,13 @@ vim.api.nvim_create_autocmd("ColorScheme", {
   end
 })
 
--- Apply transparency on VimEnter
+-- Auto open neo-tree
 vim.api.nvim_create_autocmd("VimEnter", {
   callback = function()
     set_transparency()
+    if vim.fn.argc() == 0 then
+      vim.cmd("Neotree show")
+    end
   end
 })
 
