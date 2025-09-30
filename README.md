@@ -94,9 +94,9 @@ ln -s ~/dotfiles/.config/.oh-my-zsh ~/.config/.oh-my-zsh
 brew install starship
 ```
 
-```sh
-ln -s ~/dotfiles/.config/starship.toml ~/.config
-```
+Starship configuration is now managed within `.config/zsh/` directory:
+- `starship.toml` - Normal terminal (Zero Width Space symbols)
+- `starship-nvim.toml` - Neovim terminal (visible git status symbols)
 
 ```sh
 exec zsh
@@ -331,7 +331,7 @@ brew install --cask google-drive
 ```
 
 ```sh
-rm ~/Downloads 
+rm ~/Downloads
 
 ln -s "/Users/yasainet/Library/CloudStorage/GoogleDrive-takumi.mizoguchi@gmail.com/My Drive/Downloads" ~/Downloads
 ```

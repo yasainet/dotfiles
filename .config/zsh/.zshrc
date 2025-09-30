@@ -100,6 +100,11 @@ source /opt/homebrew/opt/fzf/shell/completion.zsh
 
 
 # Starship
+if [ -n "$NVIM" ]; then
+  export STARSHIP_CONFIG="$ZDOTDIR/starship-nvim.toml"
+else
+  export STARSHIP_CONFIG="$ZDOTDIR/starship.toml"
+fi
 eval "$(starship init zsh)"
 
 # Claude Code
