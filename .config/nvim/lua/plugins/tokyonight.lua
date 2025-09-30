@@ -10,11 +10,19 @@ return {
       styles = {
         comments = { italic = false },
         keywords = { italic = false },
+        functions = {},
+        variables = {},
         sidebars = "dark",
         floats = "dark",
-      }
+      },
+      plugins = {
+        auto = true,
+      },
+      -- NeoTreeRootName
+      on_highlights = function(hl, _)
+        hl.NeoTreeRootName = { bold = true, italic = false }
+      end,
     })
-
     vim.cmd([[colorscheme tokyonight-night]])
   end
 }
