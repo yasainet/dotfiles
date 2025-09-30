@@ -16,25 +16,16 @@
     }
   },
   {
-    "context": "Dock",
-    "bindings": {
-      "ctrl-w h": "workspace::ActivatePaneLeft",
-      "ctrl-w l": "workspace::ActivatePaneRight",
-      "ctrl-w k": "workspace::ActivatePaneUp",
-      "ctrl-w j": "workspace::ActivatePaneDown",
-      "ctrl-w ctrl-h": "workspace::ActivatePaneLeft",
-      "ctrl-w ctrl-l": "workspace::ActivatePaneRight",
-      "ctrl-w ctrl-k": "workspace::ActivatePaneUp",
-      "ctrl-w ctrl-j": "workspace::ActivatePaneDown"
-    }
-  },
-  {
     "context": "vim_mode == normal && !menu",
     "bindings": {
-      "n": "search::SelectNextMatch", // cmd-g
-      "shift-n": "search::SelectPreviousMatch", // cmd-shift-g
+      "n": "search::SelectNextMatch", // replace: cmd-g
+      "shift-n": "search::SelectPreviousMatch", // replace: cmd-shift-g
       "space l f": "editor::Format",
-      "space f f": "file_finder::Toggle"
+      "space f f": "file_finder::Toggle",
+      "ctrl-h": "workspace::ActivatePaneLeft",
+      "ctrl-j": "workspace::ActivatePaneDown",
+      "ctrl-k": "workspace::ActivatePaneUp",
+      "ctrl-l": "workspace::ActivatePaneRight"
     }
   },
   {
