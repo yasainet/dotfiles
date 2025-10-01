@@ -47,7 +47,7 @@
     "show_user_picture": false
   },
   "scrollbar": {
-    "show": "system"
+    "show": "never"
   },
   "gutter": {
     "runnables": false
