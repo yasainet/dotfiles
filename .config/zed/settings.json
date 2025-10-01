@@ -32,7 +32,7 @@
   },
   "buffer_font_size": 14,
   "ui_font_size": 16,
-  "agent_font_size": 18,
+  "agent_font_size": 16,
   "inline_code_actions": false,
   "vim_mode": true,
   "show_edit_predictions": true,
