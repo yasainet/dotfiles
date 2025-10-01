@@ -13,3 +13,14 @@ vim.api.nvim_create_autocmd("ColorScheme", {
     set_transparency()
   end
 })
+
+-- Auto reload file when changed
+-- TEST: This line was added by Claude Code to test auto-reload functionality
+vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter", "CursorHold", "CursorHoldI" }, {
+  callback = function()
+    if vim.fn.mode() ~= 'c' then
+      vim.cmd('checktime')
+    end
+  end,
+  pattern = { "*" }
+})
