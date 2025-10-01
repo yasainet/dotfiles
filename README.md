@@ -154,6 +154,17 @@ npm -v
 ```
 
 
+## tmux
+
+```sh
+brew install tmux
+```
+
+```sh
+ln -s ~/dotfiles/.config/tmux ~/.config/
+```
+
+
 ## Java
 ```sh
 brew install openjdk
