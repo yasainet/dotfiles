@@ -14,8 +14,8 @@ return {
       options = {
         theme = "tokyonight",
         globalstatus = true,
-        component_separators = { left = '', right = '' },
-        section_separators = { left = '', right = '' },
+        component_separators = { left = '', right = '' },
+        section_separators = { left = '', right = '' },
         refresh = {
           statusline = 1000,
           tabline = 1000,
@@ -24,18 +24,6 @@ return {
       },
       sections = {
         lualine_x = {
-          {
-            ime.get_status,
-            color = function()
-              local status = ime.get_status()
-              if status == "あ" then
-                return { fg = "#f7768e" }
-              elseif status == "_A" then
-                return { fg = "#9ece6a" }
-              end
-              return nil
-            end
-          },
           "encoding",
           "fileformat",
           "filetype"
@@ -43,9 +31,7 @@ return {
         lualine_y = { "progress" },
         lualine_z = {
           "location",
-          function()
-            return os.date("%H:%M")
-          end
+          ime.get_status
         }
       }
     })

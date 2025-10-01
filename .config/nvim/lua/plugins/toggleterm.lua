@@ -3,8 +3,35 @@ return {
   version = "*",
   config = function()
     require("toggleterm").setup({
-      size = 20,
+      size = 15,
       open_mapping = [[<c-\>]],
+      on_open = function()
+        vim.opt_local.signcolumn = "no"
+        vim.schedule(function()
+          -- Find neo-tree window and reset viewport
+          for _, win in ipairs(vim.api.nvim_list_wins()) do
+            local buf = vim.api.nvim_win_get_buf(win)
+            if vim.bo[buf].filetype == "neo-tree" then
+              vim.api.nvim_win_call(win, function()
+                vim.cmd("normal! gg")
+              end)
+            end
+          end
+        end)
+      end,
+      on_close = function()
+        vim.schedule(function()
+          -- Find neo-tree window and reset viewport
+          for _, win in ipairs(vim.api.nvim_list_wins()) do
+            local buf = vim.api.nvim_win_get_buf(win)
+            if vim.bo[buf].filetype == "neo-tree" then
+              vim.api.nvim_win_call(win, function()
+                vim.cmd("normal! gg")
+              end)
+            end
+          end
+        end)
+      end,
     })
 
     -- Toggle
