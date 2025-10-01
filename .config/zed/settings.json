@@ -30,7 +30,9 @@
     },
     "enabled_in_text_threads": true
   },
+  "buffer_font_family": "PlemolJP35 Console",
   "buffer_font_size": 14,
+  "ui_font_family": "PlemolJP Console",
   "ui_font_size": 16,
   "agent_font_size": 16,
   "inline_code_actions": false,

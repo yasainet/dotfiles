@@ -50,7 +50,7 @@ brew install --cask font-blex-mono-nerd-font
 ```
 
 ```sh
-brew install --cask font-plemol-jp
+brew install --cask font-plemol-jp-nf
 ```
 
 
