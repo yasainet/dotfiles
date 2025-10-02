@@ -1,6 +1,8 @@
 # File
 .DS_Store
 .zcompdump*
+*.local
+.env
 
 # Directory
 .zsh_sessions

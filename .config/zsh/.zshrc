@@ -117,3 +117,6 @@ compinit
 
 # Rust
 export PATH="$HOME/.cargo/bin:$PATH"
+
+# env
+[ -f "$ZDOTDIR/.zshenv.local" ] && source "$ZDOTDIR/.zshenv.local"
