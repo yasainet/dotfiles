@@ -6,16 +6,9 @@
   },
   "theme": "Tokyo Night",
   "experimental.theme_overrides": {
-    "background.appearance": "transparent",
+    "ghost_element.hover": "#267ead3d",
     "tab.active_background": "#363b54",
-    "text.muted": "#a9b1d6",
-    "scrollbar.thumb.border": "#101014",
-    // "element.active": "#363b54",
-    "element.hover": "#363b54", // or 1a1b26
-    "element.selected": "#363b54", // or 1a1b26
-    // "ghost_element.active": "#363b54",
-    "ghost_element.hover": "#363b54", // or 1a1b26
-    "ghost_element.selected": "#363b54" // or 1a1b26
+    "text.muted": "#a9b1d6"
   },
   "icon_theme": "Colored Zed Icons Theme Dark",
   "features": {
