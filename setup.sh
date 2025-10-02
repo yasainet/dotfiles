@@ -1,7 +1,5 @@
 #!/bin/bash
 
-echo "Set up is starting..."
-
 # General
 # Macbook Pro {year}
 
