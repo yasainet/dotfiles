@@ -327,6 +327,12 @@ mas install 539883307
 mas install 497799835
 ```
 
+## Paste
+
+```sh
+mas install 967805235
+```
+
 
 ## Google Chrome
 
