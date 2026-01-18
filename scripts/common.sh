@@ -31,9 +31,6 @@ create_symlinks() {
     link "$dir" "$HOME/.config/$name"
   done
 
-  # .zprofile
-  link "$DOTFILES/.config/zsh/.zprofile" "$HOME/.zprofile"
-
   # .zshenv
   link "$DOTFILES/.config/zsh/.zshenv" "$HOME/.zshenv"
 

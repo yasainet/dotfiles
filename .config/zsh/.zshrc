@@ -15,7 +15,7 @@ export LC_CTYPE='en_US.UTF-8'
 export EDITOR='nvim'
 export VISUAL='nvim'
 
-# Aliases (common)
+# Aliases - Common
 alias ff='find . -type f -name'
 alias fd='find . -type d -name'
 alias mkdir='mkdir -p'
@@ -26,14 +26,15 @@ alias v='nvim'
 alias vi='nvim'
 alias vim='nvim'
 
-# Aliases - macOS
+# Aliases
 if [[ "$OSTYPE" == "darwin"* ]]; then
+  # macOS
   alias ls='ls -G'
   alias la='ls -laG'
   alias C='pbcopy'
   alias sd='sudo shutdown -h now'
-# Aliases - Linux
 else
+  # Linux
   alias ls='ls --color=auto'
   alias la='ls -la --color=auto'
   alias C='xclip -selection clipboard'
@@ -116,13 +117,15 @@ export NODE_NO_WARNINGS=1
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 
-# Starship
-if [ -n "$NVIM" ]; then
-  export STARSHIP_CONFIG="$ZDOTDIR/starship-nvim.toml"
-else
-  export STARSHIP_CONFIG="$ZDOTDIR/starship.toml"
+# Starship - macOS
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  if [ -n "$NVIM" ]; then
+    export STARSHIP_CONFIG="$ZDOTDIR/starship-nvim.toml"
+  else
+    export STARSHIP_CONFIG="$ZDOTDIR/starship.toml"
+  fi
+  eval "$(starship init zsh)"
 fi
-eval "$(starship init zsh)"
 
 # fzf
 if [[ "$OSTYPE" == "darwin"* ]]; then
