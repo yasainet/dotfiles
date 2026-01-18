@@ -33,7 +33,7 @@ install_cli_tools() {
 set_default_shell() {
   if [ "$SHELL" != "$(which zsh)" ]; then
     echo "Setting zsh as default shell..."
-    chsh -s "$(which zsh)"
+    sudo chsh -s "$(which zsh)" "$USER"
   fi
 }
 
