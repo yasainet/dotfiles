@@ -1,0 +1,45 @@
+# Shell Integration
+shell-integration = none
+shell-integration-features = no-cursor, title
+
+# Clipboard
+clipboard-read = allow
+clipboard-write = allow
+clipboard-paste-protection = false
+
+# Window
+window-title-font-family = SF Mono
+window-theme = system
+window-save-state = always
+window-padding-balance = true
+macos-titlebar-style = tabs
+macos-titlebar-proxy-icon = visible
+background-opacity = 0.9
+maximize = true
+
+# Theme
+theme = TokyoNight Night
+
+# Font
+font-family = "PlemolJP35 Console NF"
+font-size = 14
+# font-feature = -calt
+# font-feature = -liga
+# font-feature = -dlig
+bold-is-bright= true
+
+# Cursor
+cursor-style = block
+cursor-style-blink = true
+
+# Mouse
+mouse-hide-while-typing = true
+
+# Quick Terminal
+quick-terminal-position = center
+quick-terminal-screen = main
+
+# Keybindings
+keybind = global:cmd+ctrl+\=toggle_quick_terminal
+keybind = shift+enter=text:\x1b\r
+

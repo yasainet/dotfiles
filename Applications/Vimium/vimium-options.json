@@ -1,0 +1,27 @@
+{
+  "keyMappings": "unmapAll\nmap j scrollDown\nmap k scrollUp\nmap H goBack\nmap L goForward\nmap gg scrollToTop\nmap G scrollToBottom\nmap f LinkHints.activateMode\nmap F LinkHints.activateModeToOpenInNewTab\nmap yy copyCurrentUrl",
+  "scrollStepSize": 200,
+  "settingsVersion": "2.2.1",
+  "exclusionRules": [
+    {
+      "passKeys": "",
+      "pattern": "https?://mail.google.com/*"
+    },
+    {
+      "passKeys": "",
+      "pattern": "https?://www.youtube.com/watch*"
+    },
+    {
+      "passKeys": "",
+      "pattern": "https?://b.hatena.ne.jp/hotentry*"
+    },
+    {
+      "passKeys": "",
+      "pattern": "https?://x.com/*"
+    },
+    {
+      "passKeys": "",
+      "pattern": "https?://sushida.net/*"
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+# File
+*.local
+.config/aws/config
+.config/aws/credentials
+.DS_Store
+.env
+.envrc
+.envrc.local
+.zcompdump*
+.zsh_history
+.ssh/id_*
+.ssh/known_hosts*
+
+# Directory
+.zsh_sessions
+.claude
+.config/zed/prompts/**
