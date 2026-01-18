@@ -56,6 +56,7 @@ vim.keymap.set("n", "<leader>ff", "<Cmd>Telescope find_files<CR>", { desc = "Fin
 vim.keymap.set("n", "<leader>fg", "<Cmd>Telescope live_grep<CR>", { desc = "Live grep" })
 vim.keymap.set("n", "<leader>fb", "<Cmd>Telescope buffers<CR>", { desc = "Find buffers" })
 vim.keymap.set("n", "<leader>fh", "<Cmd>Telescope help_tags<CR>", { desc = "Help tags" })
+vim.keymap.set("n", "<leader>fd", "<Cmd>Telescope diagnostics<CR>", { desc = "Diagnostics" })
 vim.keymap.set("n", "<leader>gs", "<Cmd>Telescope git_status<CR>", { desc = "Git status" })
 
 -- Conform

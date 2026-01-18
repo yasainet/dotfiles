@@ -117,7 +117,7 @@ export NODE_NO_WARNINGS=1
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 
-# Prompt - macOS (Starship)
+# Prompt - macOS
 if [[ "$OSTYPE" == "darwin"* ]]; then
   if [ -n "$NVIM" ]; then
     export STARSHIP_CONFIG="$ZDOTDIR/starship-nvim.toml"
