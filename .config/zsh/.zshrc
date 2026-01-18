@@ -75,6 +75,10 @@ pj() {
   cd $HOME/Projects
 }
 
+memo() {
+  nvim +"set buftype=nofile" +"autocmd QuitPre * %y+"
+}
+
 # yazi
 y() {
   local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
