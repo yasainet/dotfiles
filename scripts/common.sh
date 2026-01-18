@@ -61,12 +61,38 @@ install_nvm() {
 }
 
 # ====================
+# bat theme
+# ====================
+setup_bat_theme() {
+  echo "Setting up bat theme..."
+
+  # Determine bat command (macOS: bat, Linux: batcat)
+  if command -v bat &> /dev/null; then
+    BAT_CMD="bat"
+  elif command -v batcat &> /dev/null; then
+    BAT_CMD="batcat"
+  else
+    echo "  [skip] bat not installed"
+    return
+  fi
+
+  BAT_CONFIG_DIR="$($BAT_CMD --config-dir)"
+  mkdir -p "$BAT_CONFIG_DIR/themes"
+
+  # Download tokyonight theme
+  THEME_URL="https://raw.githubusercontent.com/folke/tokyonight.nvim/main/extras/sublime/tokyonight_night.tmTheme"
+  curl -sL "$THEME_URL" -o "$BAT_CONFIG_DIR/themes/tokyonight_night.tmTheme"
+  echo "  [download] tokyonight_night.tmTheme"
+
+  # Build cache
+  $BAT_CMD cache --build
+  echo "  [done] bat theme setup complete"
+}
+
+# ====================
 # Post-install
 # ====================
 post_install() {
   echo "Running post-install setup..."
-
-  if command -v bat &> /dev/null; then
-    bat cache --build
-  fi
+  setup_bat_theme
 }

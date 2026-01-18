@@ -15,9 +15,16 @@ install_cli_tools() {
   sudo apt install -y locales
   sudo locale-gen en_US.UTF-8
 
-  sudo apt install -y curl wget zsh
-  sudo apt install -y neovim
+  sudo apt install -y curl wget zsh software-properties-common
   sudo apt install -y bat fzf ripgrep tree jq
+
+  # Neovim
+  if ! command -v nvim &> /dev/null || [[ "$(nvim --version | head -1)" < "NVIM v0.10" ]]; then
+    echo "Installing Neovim from PPA..."
+    sudo add-apt-repository -y ppa:neovim-ppa/unstable
+    sudo apt update
+    sudo apt install -y neovim
+  fi
   sudo apt install -y ffmpeg
   sudo apt install -y xclip
 
