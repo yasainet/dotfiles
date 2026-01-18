@@ -12,6 +12,10 @@ install_cli_tools() {
 
   sudo apt update
 
+  # Locale (required for UTF-8 support)
+  sudo apt install -y locales
+  sudo locale-gen en_US.UTF-8
+
   sudo apt install -y curl wget zsh
   sudo apt install -y neovim
   sudo apt install -y bat fzf ripgrep tree jq
