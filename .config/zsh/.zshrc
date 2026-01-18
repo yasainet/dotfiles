@@ -2,9 +2,9 @@
 export PATH="$HOME/.local/bin:$PATH"
 
 # Terminal
-# if [[ "$OSTYPE" != "darwin"* ]] && ! infocmp "$TERM" &>/dev/null 2>&1; then
-#   export TERM=xterm-256color
-# fi
+if [[ "$OSTYPE" != "darwin"* ]] && ! infocmp "$TERM" &>/dev/null 2>&1; then
+  export TERM=xterm-256color
+fi
 
 # Language
 export LANG='en_US.UTF-8'
