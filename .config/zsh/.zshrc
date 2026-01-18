@@ -2,18 +2,14 @@
 export PATH="$HOME/.local/bin:$PATH"
 
 # Terminal
-if [[ "$OSTYPE" != "darwin"* ]] && ! infocmp "$TERM" &>/dev/null 2>&1; then
-  export TERM=xterm-256color
-fi
+# if [[ "$OSTYPE" != "darwin"* ]] && ! infocmp "$TERM" &>/dev/null 2>&1; then
+#   export TERM=xterm-256color
+# fi
 
 # Language
 export LANG='en_US.UTF-8'
 export LC_ALL='en_US.UTF-8'
 export LC_CTYPE='en_US.UTF-8'
-
-# Editor
-export EDITOR='nvim'
-export VISUAL='nvim'
 
 # Aliases - Common
 alias ff='find . -type f -name'

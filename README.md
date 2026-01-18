@@ -6,7 +6,7 @@ Personal dotfiles for macOS and Linux.
 
 ### macOS
 
-```bash
+```sh
 xcode-select --install
 
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -19,7 +19,7 @@ cd ~/dotfiles
 
 ### Linux (Ubuntu)
 
-```bash
+```sh
 sudo apt update && sudo apt install -y git
 
 git clone --recursive https://github.com/yasainet/dotfiles.git ~/dotfiles

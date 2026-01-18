@@ -9,6 +9,7 @@ return {
 			"vimdoc",
 			"markdown",
 			"markdown_inline",
+			"comment",
 			"typescript",
 			"tsx",
 			"javascript",
@@ -22,7 +23,6 @@ return {
 			"bash",
 		})
 
-		-- Enable treesitter highlighting for all filetypes
 		vim.api.nvim_create_autocmd("FileType", {
 			callback = function()
 				pcall(vim.treesitter.start)
