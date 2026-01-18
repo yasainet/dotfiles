@@ -22,11 +22,6 @@ cd ~/dotfiles
 ```bash
 sudo apt update && sudo apt install -y git
 
-# option
-sudo adduser <username>
-sudo usermod -aG sudo <username>
-su - anon
-
 git clone --recursive https://github.com/yasainet/dotfiles.git ~/dotfiles
 cd ~/dotfiles
 ./install.sh

@@ -8,8 +8,7 @@
 install_cli_tools() {
   echo "Installing CLI tools..."
 
-  # Establish sudo session upfront
-  sudo -v
+  sudo true
 
   sudo apt update
 
