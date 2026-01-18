@@ -22,7 +22,7 @@ return {
 					".DS_Store",
 				},
 			},
-			use_libuv_file_watcher = false,
+			use_libuv_file_watcher = true,
 		},
 		window = {
 			width = 30,
