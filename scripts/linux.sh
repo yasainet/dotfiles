@@ -18,7 +18,7 @@ install_cli_tools() {
   sudo apt install -y ffmpeg
   sudo apt install -y xclip
 
-  # Starship (run with sudo since it installs to /usr/local/bin)
+  # Starship
   if ! command -v starship &> /dev/null; then
     echo "Installing Starship..."
     curl -sS https://starship.rs/install.sh -o /tmp/starship-install.sh
