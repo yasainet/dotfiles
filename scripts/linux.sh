@@ -8,6 +8,9 @@
 install_cli_tools() {
   echo "Installing CLI tools..."
 
+  # Establish sudo session upfront
+  sudo -v
+
   sudo apt update
 
   sudo apt install -y curl wget zsh
@@ -19,7 +22,9 @@ install_cli_tools() {
   # Starship
   if ! command -v starship &> /dev/null; then
     echo "Installing Starship..."
-    curl -sS https://starship.rs/install.sh | sh -s -- -y
+    curl -sS https://starship.rs/install.sh -o /tmp/starship-install.sh
+    sh /tmp/starship-install.sh -y
+    rm -f /tmp/starship-install.sh
   fi
 }
 
