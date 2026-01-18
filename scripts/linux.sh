@@ -12,7 +12,6 @@ install_cli_tools() {
 
   sudo apt update
 
-  # Locale (required for UTF-8 support)
   sudo apt install -y locales
   sudo locale-gen en_US.UTF-8
 
@@ -32,27 +31,6 @@ install_cli_tools() {
 }
 
 # ====================
-# Oh My Zsh Plugins
-# ====================
-install_omz_plugins() {
-  local plugins_dir="$HOME/.config/.oh-my-zsh/custom/plugins"
-
-  echo "Installing Oh My Zsh plugins..."
-
-  if [ ! -d "$plugins_dir/zsh-autosuggestions" ]; then
-    git clone https://github.com/zsh-users/zsh-autosuggestions "$plugins_dir/zsh-autosuggestions"
-  fi
-
-  if [ ! -d "$plugins_dir/zsh-syntax-highlighting" ]; then
-    git clone https://github.com/zsh-users/zsh-syntax-highlighting "$plugins_dir/zsh-syntax-highlighting"
-  fi
-
-  if [ ! -d "$plugins_dir/zsh-completions" ]; then
-    git clone https://github.com/zsh-users/zsh-completions "$plugins_dir/zsh-completions"
-  fi
-}
-
-# ====================
 # Set Zsh as Default Shell
 # ====================
 set_default_shell() {
@@ -67,6 +45,5 @@ set_default_shell() {
 # ====================
 install_packages() {
   install_cli_tools
-  install_omz_plugins
   set_default_shell
 }

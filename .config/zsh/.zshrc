@@ -21,18 +21,19 @@ alias v='nvim'
 alias vi='nvim'
 alias vim='nvim'
 
-# Aliases (OS-specific)
+# Aliases - macOS
 if [[ "$OSTYPE" == "darwin"* ]]; then
   alias ls='ls -G'
   alias la='ls -laG'
   alias C='pbcopy'
+  alias sd='sudo shutdown -h now'
+# Aliases - Linux
 else
   alias ls='ls --color=auto'
   alias la='ls -la --color=auto'
   alias C='xclip -selection clipboard'
+  alias bat='batcat'
 fi
-
-alias sd='sudo shutdown -h now'
 
 # tree
 NODE_IGNORE='"node_modules|.next"'
@@ -97,10 +98,12 @@ setopt HIST_IGNORE_SPACE
 setopt SHARE_HISTORY
 
 # Oh My Zsh
-export ZSH="$HOME/.config/.oh-my-zsh"
-export ZSH_COMPDUMP="$ZDOTDIR/.zcompdump"
-plugins=(git zsh-autosuggestions zsh-syntax-highlighting zsh-completions)
-source "$ZSH/oh-my-zsh.sh"
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  export ZSH="$HOME/.config/.oh-my-zsh"
+  export ZSH_COMPDUMP="$ZDOTDIR/.zcompdump"
+  plugins=(git zsh-autosuggestions zsh-syntax-highlighting zsh-completions)
+  source "$ZSH/oh-my-zsh.sh"
+fi
 
 # nvm
 export NVM_DIR="$HOME/.nvm"
@@ -118,7 +121,7 @@ eval "$(starship init zsh)"
 
 # fzf
 if [[ "$OSTYPE" == "darwin"* ]]; then
-  # macOS (Homebrew)
+  # macOS
   [[ ! "$PATH" == */opt/homebrew/opt/fzf/bin* ]] && PATH="${PATH:+${PATH}:}/opt/homebrew/opt/fzf/bin"
   [ -f /opt/homebrew/opt/fzf/shell/key-bindings.zsh ] && source /opt/homebrew/opt/fzf/shell/key-bindings.zsh
   [ -f /opt/homebrew/opt/fzf/shell/completion.zsh ] && source /opt/homebrew/opt/fzf/shell/completion.zsh

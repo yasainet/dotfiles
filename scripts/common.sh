@@ -37,8 +37,10 @@ create_symlinks() {
   # .zshenv
   link "$DOTFILES/.config/zsh/.zshenv" "$HOME/.zshenv"
 
-  # .oh-my-zsh
-  link "$DOTFILES/.config/.oh-my-zsh" "$HOME/.config/.oh-my-zsh"
+  # .oh-my-zsh - macOS
+  if [[ "$OSTYPE" == "darwin"* ]]; then
+    link "$DOTFILES/.config/.oh-my-zsh" "$HOME/.config/.oh-my-zsh"
+  fi
 }
 
 # ====================
@@ -64,7 +66,6 @@ install_nvm() {
 post_install() {
   echo "Running post-install setup..."
 
-  # bat cache
   if command -v bat &> /dev/null; then
     bat cache --build
   fi
