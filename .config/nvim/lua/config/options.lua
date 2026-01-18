@@ -1,6 +1,6 @@
 -- Language
 vim.opt.langmenu = "en"
-vim.cmd("language en_US")
+vim.cmd("language en_US.UTF-8")
 
 -- Encoding
 vim.opt.encoding = "utf-8"
