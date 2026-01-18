@@ -87,6 +87,13 @@ vim.api.nvim_create_autocmd("LspAttach", {
 	end,
 })
 
+-- Yank path
+vim.keymap.set("n", "<leader>yp", function()
+	local path = vim.fn.expand("%:p")
+	vim.fn.setreg("+", path)
+	print("Yanked: " .. path)
+end, { desc = "Yank full path" })
+
 -- Config reload
 vim.keymap.set("n", "<leader>rr", function()
 	for name, _ in pairs(package.loaded) do
