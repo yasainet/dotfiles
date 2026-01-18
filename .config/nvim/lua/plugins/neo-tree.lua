@@ -18,6 +18,9 @@ return {
 				visible = true,
 				hide_dotfiles = false,
 				show_hidden_count = false,
+				never_show = {
+					".DS_Store",
+				},
 			},
 			use_libuv_file_watcher = false,
 		},

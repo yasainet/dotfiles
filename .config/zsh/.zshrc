@@ -63,6 +63,10 @@ dot() {
   cd $HOME/dotfiles
 }
 
+doc() {
+  cd $HOME/Documents
+}
+
 drive() {
   cd "$HOME/Google Drive/My Drive"
 }
@@ -99,7 +103,7 @@ setopt HIST_IGNORE_DUPS
 setopt HIST_IGNORE_SPACE
 setopt SHARE_HISTORY
 
-# Oh My Zsh
+# Oh My Zsh - macOS
 if [[ "$OSTYPE" == "darwin"* ]]; then
   export ZSH="$HOME/.config/.oh-my-zsh"
   export ZSH_COMPDUMP="$ZDOTDIR/.zcompdump"
