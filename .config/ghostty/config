@@ -39,6 +39,9 @@ mouse-hide-while-typing = true
 quick-terminal-position = center
 quick-terminal-screen = main
 
+# Option key as Alt
+macos-option-as-alt = left
+
 # Keybindings
 keybind = global:cmd+ctrl+\=toggle_quick_terminal
 keybind = shift+enter=text:\x1b\r
