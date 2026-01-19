@@ -40,8 +40,21 @@ vim.keymap.set("t", "<C-l>", "<C-\\><C-n><C-w>l")
 vim.keymap.set("n", "<leader>e", "<Cmd>Neotree toggle<CR>")
 
 -- Gitsigns
-vim.keymap.set("n", "]c", "<Cmd>Gitsigns next_hunk<CR>", { desc = "Next hunk" })
-vim.keymap.set("n", "[c", "<Cmd>Gitsigns prev_hunk<CR>", { desc = "Prev hunk" })
+vim.keymap.set("n", "]c", function()
+	if vim.wo.diff then
+		vim.cmd.normal({ "]c", bang = true })
+	else
+		require("gitsigns").nav_hunk("next")
+	end
+end, { desc = "Next hunk" })
+
+vim.keymap.set("n", "[c", function()
+	if vim.wo.diff then
+		vim.cmd.normal({ "[c", bang = true })
+	else
+		require("gitsigns").nav_hunk("prev")
+	end
+end, { desc = "Prev hunk" })
 vim.keymap.set("n", "<leader>hs", "<Cmd>Gitsigns stage_hunk<CR>", { desc = "Stage hunk" })
 vim.keymap.set("n", "<leader>hr", "<Cmd>Gitsigns reset_hunk<CR>", { desc = "Reset hunk" })
 vim.keymap.set("n", "<leader>hp", "<Cmd>Gitsigns preview_hunk<CR>", { desc = "Preview hunk" })
@@ -108,6 +121,12 @@ vim.keymap.set("n", "<leader>ab", "<Cmd>ClaudeCodeAdd %<CR>", { desc = "Add curr
 vim.keymap.set("v", "<leader>as", "<Cmd>ClaudeCodeSend<CR>", { desc = "Send to Claude" })
 vim.keymap.set("n", "<leader>aa", "<Cmd>ClaudeCodeDiffAccept<CR>", { desc = "Accept diff" })
 vim.keymap.set("n", "<leader>ad", "<Cmd>ClaudeCodeDiffDeny<CR>", { desc = "Deny diff" })
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = { "neo-tree" },
+	callback = function()
+		vim.keymap.set("n", "<leader>as", "<Cmd>ClaudeCodeTreeAdd<CR>", { buffer = true, desc = "Add file to Claude" })
+	end,
+})
 
 -- Config reload
 vim.keymap.set("n", "<leader>rr", function()
