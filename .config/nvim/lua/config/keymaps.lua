@@ -31,6 +31,10 @@ vim.keymap.set("n", "<C-h>", "<C-w>h")
 vim.keymap.set("n", "<C-j>", "<C-w>j")
 vim.keymap.set("n", "<C-k>", "<C-w>k")
 vim.keymap.set("n", "<C-l>", "<C-w>l")
+vim.keymap.set("t", "<C-h>", "<C-\\><C-n><C-w>h")
+vim.keymap.set("t", "<C-j>", "<C-\\><C-n><C-w>j")
+vim.keymap.set("t", "<C-k>", "<C-\\><C-n><C-w>k")
+vim.keymap.set("t", "<C-l>", "<C-\\><C-n><C-w>l")
 
 -- Neo-tree
 vim.keymap.set("n", "<leader>e", "<Cmd>Neotree toggle<CR>")
@@ -93,6 +97,17 @@ vim.keymap.set("n", "<leader>yp", function()
 	vim.fn.setreg("+", path)
 	print("Yanked: " .. path)
 end, { desc = "Yank full path" })
+
+-- Claude Code
+vim.keymap.set("n", "<leader>ac", "<Cmd>ClaudeCode<CR>", { desc = "Toggle Claude" })
+vim.keymap.set("n", "<leader>af", "<Cmd>ClaudeCodeFocus<CR>", { desc = "Focus Claude" })
+vim.keymap.set("n", "<leader>ar", "<Cmd>ClaudeCode --resume<CR>", { desc = "Resume Claude" })
+vim.keymap.set("n", "<leader>aC", "<Cmd>ClaudeCode --continue<CR>", { desc = "Continue Claude" })
+vim.keymap.set("n", "<leader>am", "<Cmd>ClaudeCodeSelectModel<CR>", { desc = "Select Claude model" })
+vim.keymap.set("n", "<leader>ab", "<Cmd>ClaudeCodeAdd %<CR>", { desc = "Add current buffer" })
+vim.keymap.set("v", "<leader>as", "<Cmd>ClaudeCodeSend<CR>", { desc = "Send to Claude" })
+vim.keymap.set("n", "<leader>aa", "<Cmd>ClaudeCodeDiffAccept<CR>", { desc = "Accept diff" })
+vim.keymap.set("n", "<leader>ad", "<Cmd>ClaudeCodeDiffDeny<CR>", { desc = "Deny diff" })
 
 -- Config reload
 vim.keymap.set("n", "<leader>rr", function()
