@@ -10,24 +10,27 @@ Personal dotfiles for macOS and Linux.
 
 ```
 .
+├── .claude/          # Claude Code
 ├── .config/
+│   ├── .oh-my-zsh/   # Oh My Zsh (submodule)
 │   ├── aws/          # AWS CLI
-│   ├── bat/          # bat (cat alternative)
+│   ├── bat/          # bat
 │   ├── fzf/          # fzf
 │   ├── gh/           # GitHub CLI
 │   ├── ghostty/      # Ghostty terminal
-│   ├── git/          # Git
 │   ├── karabiner/    # Karabiner-Elements
-│   ├── nvim/         # Neovim (lazy.nvim)
-│   ├── .oh-my-zsh/   # Oh My Zsh (submodule)
+│   ├── nvim/         # Neovim
+│   ├── tmux/         # tmux
 │   ├── yazi/         # Yazi file manager
 │   ├── zed/          # Zed editor
 │   └── zsh/          # Zsh + Starship
+├── .ssh/             # SSH config
+├── Applications/
+│   ├── Terminal/     # Terminal themes
+│   └── Vimium/       # Vimium config
 ├── scripts/
 │   ├── common.sh     # Common setup
 │   ├── darwin.sh     # macOS setup
 │   └── linux.sh      # Linux setup
-├── .ssh/             # SSH config
-├── Applications/     # macOS apps
 └── install.sh        # Entry point
 ```
