@@ -17,6 +17,17 @@ All commands start with `C-b` (Ctrl+b).
 | `C-b :new -s <name>`   | Create new named session |
 | `C-b :kill-session`    | Kill current session     |
 
+#### Tree View (C-b s / C-b w)
+
+| Key         | Description             |
+| ----------- | ----------------------- |
+| `$`         | Rename session          |
+| `x`         | Kill session/window     |
+| `Enter`     | Switch to selected item |
+| `←` / `h`   | Collapse tree           |
+| `→` / `l`   | Expand tree             |
+| `q` / `Esc` | Exit tree view          |
+
 ```sh
 tmux                    # Start new session
 tmux new -s <name>      # Start new session with name
