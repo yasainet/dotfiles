@@ -8,11 +8,14 @@ All commands start with `C-b` (Ctrl+b).
 
 ### Session
 
-| Key     | Description         |
-| ------- | ------------------- |
-| `C-b d` | Detach from session |
-| `C-b s` | List sessions       |
-| `C-b $` | Rename session      |
+| Key                    | Description              |
+| ---------------------- | ------------------------ |
+| `C-b d`                | Detach from session      |
+| `C-b s`                | List sessions            |
+| `C-b $`                | Rename session           |
+| `C-b :new`             | Create new session       |
+| `C-b :new -s <name>`   | Create new named session |
+| `C-b :kill-session`    | Kill current session     |
 
 ```sh
 tmux                    # Start new session
