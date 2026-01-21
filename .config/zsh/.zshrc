@@ -111,7 +111,7 @@ setopt SHARE_HISTORY
 if [[ "$OSTYPE" == "darwin"* ]]; then
   export ZSH="$HOME/.config/.oh-my-zsh"
   export ZSH_COMPDUMP="$ZDOTDIR/.zcompdump"
-  plugins=(git zsh-autosuggestions zsh-syntax-highlighting zsh-completions)
+  plugins=(gitfast zsh-autosuggestions zsh-syntax-highlighting zsh-completions)
   source "$ZSH/oh-my-zsh.sh"
 fi
 
