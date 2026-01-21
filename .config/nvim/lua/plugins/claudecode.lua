@@ -5,6 +5,9 @@ return {
 		require("claudecode").setup({
 			split_side = "right",
 			split_width_percentage = 0.35,
+			diff_opts = {
+				keep_terminal_focus = true,
+			},
 			terminal = {
 				provider = "snacks",
 				snacks_win_opts = {
