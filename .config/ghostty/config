@@ -72,3 +72,7 @@ keybind = cmd+nine=text:\x029
 keybind = cmd+shift+bracket_left=text:\x02p
 keybind = cmd+shift+bracket_right=text:\x02n
 
+# tmux integration: Cmd+t -> new window
+keybind = cmd+t=unbind
+keybind = cmd+t=text:\x02c
+
