@@ -25,6 +25,8 @@ vim.keymap.set("i", "<C-b>", "<Left>", { desc = "Move backward" })
 vim.keymap.set("i", "<C-f>", "<Right>", { desc = "Move forward" })
 vim.keymap.set("i", "<C-d>", "<Del>", { desc = "Delete character" })
 vim.keymap.set("i", "<C-k>", "<C-o>D", { desc = "Kill to end of line" })
+vim.keymap.set("i", "<C-n>", "<Down>", { desc = "Next line" })
+vim.keymap.set("i", "<C-p>", "<Up>", { desc = "Previous line" })
 
 -- Window navigation
 vim.keymap.set("n", "<C-h>", "<C-w>h")
@@ -84,10 +86,12 @@ end, { desc = "Format buffer" })
 -- Comment
 vim.keymap.set("n", "<C-/>", "gcc", { remap = true, desc = "Toggle comment" })
 vim.keymap.set("v", "<C-/>", "gc", { remap = true, desc = "Toggle comment" })
+vim.keymap.set("i", "<C-/>", "<Esc>gccgi", { desc = "Toggle comment" })
 
 -- Comment tmux
 vim.keymap.set("n", "<C-_>", "gcc", { remap = true, desc = "Toggle comment" })
 vim.keymap.set("v", "<C-_>", "gc", { remap = true, desc = "Toggle comment" })
+vim.keymap.set("i", "<C-_>", "<Esc>gccgi", { desc = "Toggle comment" })
 
 -- Todo Comments
 vim.keymap.set("n", "<leader>ft", "<Cmd>TodoTelescope<CR>", { desc = "Find todos" })

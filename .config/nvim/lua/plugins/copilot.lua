@@ -12,7 +12,6 @@ return {
 			["typescriptreact"] = true,
 		}
 
-		-- Ensure .env* files are disabled
 		vim.api.nvim_create_autocmd("BufEnter", {
 			pattern = { "*.env", "*.env.*", ".env*" },
 			callback = function()

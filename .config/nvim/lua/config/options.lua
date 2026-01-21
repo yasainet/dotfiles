@@ -32,6 +32,7 @@ vim.opt.wildmenu = true
 vim.opt.wildmode = { "longest", "list", "full" }
 
 -- Indentation
+vim.g.markdown_recommended_style = 0
 vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
 vim.opt.expandtab = true
