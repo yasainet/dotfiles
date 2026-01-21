@@ -8,7 +8,7 @@ Personal dotfiles for macOS and Linux.
 
 ## Directory Structure
 
-```
+```tree
 .
 ├── .claude/          # Claude Code
 ├── .config/

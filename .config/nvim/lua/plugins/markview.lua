@@ -6,11 +6,24 @@ return {
 	},
 	config = function()
 		local presets = require("markview.presets")
+
+		local headings = vim.tbl_deep_extend("force", presets.headings.marker, {
+			heading_1 = { sign = false },
+			heading_2 = { sign = false },
+			heading_3 = { sign = false },
+			heading_4 = { sign = false },
+			heading_5 = { sign = false },
+			heading_6 = { sign = false },
+		})
+
 		require("markview").setup({
 			markdown = {
-				headings = presets.headings.glow,
+				headings = headings,
 				horizontal_rules = presets.horizontal_rules.thin,
 				tables = presets.tables.rounded,
+				code_blocks = {
+					sign = false,
+				},
 			},
 		})
 	end,
