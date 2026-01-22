@@ -11,6 +11,9 @@ export LANG='en_US.UTF-8'
 export LC_ALL='en_US.UTF-8'
 export LC_CTYPE='en_US.UTF-8'
 
+# Emacs
+bindkey -e
+
 # Aliases - Common
 alias ff='find . -type f -name'
 alias fd='find . -type d -name'
