@@ -10,13 +10,13 @@ vim.api.nvim_create_user_command("W", "w", {})
 vim.api.nvim_create_user_command("Q", "q", {})
 
 -- Mac Cmd
-vim.keymap.set("v", "<D-c>", '"+y', { noremap = true, silent = true })
-vim.keymap.set("n", "<D-v>", '"+p', { noremap = true, silent = true })
-vim.keymap.set("i", "<D-v>", "<C-r>+", { noremap = true, silent = true })
-vim.keymap.set("n", "<D-z>", "u", { noremap = true, silent = true })
-vim.keymap.set("n", "<D-S-z>", "<C-r>", { noremap = true, silent = true })
-vim.keymap.set("n", "<D-s>", ":w<CR>", { noremap = true, silent = true })
-vim.keymap.set("i", "<D-s>", "<Esc>:w<CR>a", { noremap = true, silent = true })
+-- vim.keymap.set("v", "<D-c>", '"+y', { noremap = true, silent = true })
+-- vim.keymap.set("n", "<D-v>", '"+p', { noremap = true, silent = true })
+-- vim.keymap.set("i", "<D-v>", "<C-r>+", { noremap = true, silent = true })
+-- vim.keymap.set("n", "<D-z>", "u", { noremap = true, silent = true })
+-- vim.keymap.set("n", "<D-S-z>", "<C-r>", { noremap = true, silent = true })
+-- vim.keymap.set("n", "<D-s>", ":w<CR>", { noremap = true, silent = true })
+-- vim.keymap.set("i", "<D-s>", "<Esc>:w<CR>a", { noremap = true, silent = true })
 
 -- Insert mode Emacs-style
 vim.keymap.set("i", "<C-a>", "<Home>", { desc = "Beginning of line" })
@@ -29,14 +29,14 @@ vim.keymap.set("i", "<C-n>", "<Down>", { desc = "Next line" })
 vim.keymap.set("i", "<C-p>", "<Up>", { desc = "Previous line" })
 
 -- Window navigation
-vim.keymap.set("n", "<C-h>", "<C-w>h")
-vim.keymap.set("n", "<C-j>", "<C-w>j")
-vim.keymap.set("n", "<C-k>", "<C-w>k")
-vim.keymap.set("n", "<C-l>", "<C-w>l")
-vim.keymap.set("t", "<C-h>", "<C-\\><C-n><C-w>h")
-vim.keymap.set("t", "<C-j>", "<C-\\><C-n><C-w>j")
-vim.keymap.set("t", "<C-k>", "<C-\\><C-n><C-w>k")
-vim.keymap.set("t", "<C-l>", "<C-\\><C-n><C-w>l")
+-- vim.keymap.set("n", "<C-h>", "<C-w>h")
+-- vim.keymap.set("n", "<C-j>", "<C-w>j")
+-- vim.keymap.set("n", "<C-k>", "<C-w>k")
+-- vim.keymap.set("n", "<C-l>", "<C-w>l")
+-- vim.keymap.set("t", "<C-h>", "<C-\\><C-n><C-w>h")
+-- vim.keymap.set("t", "<C-j>", "<C-\\><C-n><C-w>j")
+-- vim.keymap.set("t", "<C-k>", "<C-\\><C-n><C-w>k")
+-- vim.keymap.set("t", "<C-l>", "<C-\\><C-n><C-w>l")
 
 -- Neo-tree
 vim.keymap.set("n", "<leader>e", "<Cmd>Neotree toggle<CR>")

@@ -46,6 +46,8 @@ macos-option-as-alt = left
 keybind = global:cmd+ctrl+\=toggle_quick_terminal
 keybind = shift+enter=text:\x1b\r
 
+# === tmux === #
+
 # tmux integration: unbind default Cmd+number
 keybind = cmd+digit_1=unbind
 keybind = cmd+digit_2=unbind
@@ -75,4 +77,16 @@ keybind = cmd+shift+bracket_right=text:\x02n
 # tmux integration: Cmd+t -> new window
 keybind = cmd+t=unbind
 keybind = cmd+t=text:\x02c
+
+# tmux integration: Cmd+D -> split horizontal
+keybind = cmd+d=unbind
+keybind = cmd+d=text:\x02v
+
+# tmux integration: Cmd+Shift+D -> split vertical
+keybind = cmd+shift+d=unbind
+keybind = cmd+shift+d=text:\x02s
+
+# tmux integration: Cmd+[/] -> previous/next pane
+keybind = cmd+bracket_left=text:\x02;
+keybind = cmd+bracket_right=text:\x02o
 

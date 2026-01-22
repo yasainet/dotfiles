@@ -10,6 +10,7 @@ set -g message-command-style "fg=#7aa2f7,bg=#3b4261"
 
 set -g pane-border-style "fg=#3b4261"
 set -g pane-active-border-style "fg=#7aa2f7"
+set -g pane-border-lines single
 
 # Status line settings (managed by tmux-dotbar)
 # set -g status "on"
