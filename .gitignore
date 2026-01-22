@@ -8,8 +8,6 @@
 .envrc.local
 .zcompdump*
 .zsh_history
-.ssh/id_*
-.ssh/known_hosts*
 
 # Directory
 .zsh_sessions
