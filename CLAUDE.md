@@ -13,7 +13,6 @@ Personal dotfiles for macOS and Linux.
 ├── .claude/          # Claude Code
 ├── .config/
 │   ├── .oh-my-zsh/   # Oh My Zsh (submodule)
-│   ├── aws/          # AWS CLI
 │   ├── bat/          # bat
 │   ├── fzf/          # fzf
 │   ├── gh/           # GitHub CLI

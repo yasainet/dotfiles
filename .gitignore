@@ -1,7 +1,5 @@
 # File
 *.local
-.config/aws/config
-.config/aws/credentials
 .DS_Store
 .env
 .envrc
