@@ -24,9 +24,8 @@ Personal dotfiles for macOS and Linux.
 │   ├── zed/          # Zed editor
 │   └── zsh/          # Zsh + Starship
 ├── .ssh/             # SSH config
-├── Applications/
-│   ├── Terminal/     # Terminal themes
-│   └── Vimium/       # Vimium config
+├── extras/
+│   └── vimium/       # Vimium config
 ├── scripts/
 │   ├── common.sh     # Common setup
 │   ├── darwin.sh     # macOS setup

@@ -13,11 +13,11 @@
     },
     {
       "passKeys": "",
-      "pattern": "https?://b.hatena.ne.jp/hotentry*"
+      "pattern": "https?://x.com/*"
     },
     {
       "passKeys": "",
-      "pattern": "https?://x.com/*"
+      "pattern": "https?://b.hatena.ne.jp/hotentry*"
     },
     {
       "passKeys": "",
