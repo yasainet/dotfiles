@@ -42,7 +42,8 @@ NODE_IGNORE='"node_modules|.next"'
 
 # Functions
 cd() {
-  builtin cd "$@" && la
+  builtin cd "$@"
+  [[ "$PWD" != "$HOME" ]] && la
 }
 
 rm() {
@@ -73,10 +74,6 @@ drive() {
 
 pj() {
   cd $HOME/Projects
-}
-
-memo() {
-  nvim +"set buftype=nofile" +"autocmd QuitPre * %y+"
 }
 
 # yazi
@@ -112,14 +109,11 @@ export GIT_MERGE_AUTOEDIT=no
 # Less
 export LESSHISTFILE=-
 
-# PostgreSQL
-export PSQL_HISTORY=/dev/null
-
 # .zsh history
 export HISTFILE="$ZDOTDIR/.zsh_history"
 export ZSH_SESSION_DIR="$ZDOTDIR/.zsh_sessions"
-export SAVEHIST=10000
-export HISTSIZE=10000
+export SAVEHIST=1000
+export HISTSIZE=1000
 setopt HIST_IGNORE_DUPS
 setopt HIST_IGNORE_SPACE
 setopt SHARE_HISTORY
@@ -138,18 +132,17 @@ export NODE_NO_WARNINGS=1
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 
-# Prompt - macOS
+# Prompt
 if [[ "$OSTYPE" == "darwin"* ]]; then
+  # macOS
   if [ -n "$NVIM" ]; then
     export STARSHIP_CONFIG="$ZDOTDIR/starship-nvim.toml"
   else
     export STARSHIP_CONFIG="$ZDOTDIR/starship.toml"
   fi
   eval "$(starship init zsh)"
-fi
-
-# Prompt - Linux
-if [[ "$OSTYPE" != "darwin"* ]]; then
+else
+  # Linux
   PS1='%F{blue}%B%~%b%f %F{green}❯%f '
 fi
 
@@ -169,6 +162,3 @@ fi
 
 # OrbStack
 [ -f ~/.orbstack/shell/init.zsh ] && source ~/.orbstack/shell/init.zsh
-
-# Local
-[ -f "$ZDOTDIR/.zshrc.local" ] && source "$ZDOTDIR/.zshrc.local"
