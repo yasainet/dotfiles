@@ -80,11 +80,11 @@ keybind = cmd+t=text:\x02c
 
 # tmux integration: Cmd+D -> split horizontal
 keybind = cmd+d=unbind
-keybind = cmd+d=text:\x02v
+keybind = cmd+d=text:\x02\x16
 
 # tmux integration: Cmd+Shift+D -> split vertical
 keybind = cmd+shift+d=unbind
-keybind = cmd+shift+d=text:\x02s
+keybind = cmd+shift+d=text:\x02\x13
 
 # tmux integration: Cmd+[/] -> previous/next pane
 keybind = cmd+bracket_left=text:\x02;
