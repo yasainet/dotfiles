@@ -126,6 +126,47 @@ install_java() {
 }
 
 # ====================
+# iCloud Downloads
+# ====================
+setup_icloud_downloads() {
+  echo "Setting up iCloud Downloads..."
+
+  local icloud_drive="$HOME/Library/Mobile Documents/com~apple~CloudDocs"
+  local icloud_downloads="$icloud_drive/Downloads"
+  local local_downloads="$HOME/Downloads"
+
+  # Check if iCloud Drive exists
+  if [[ ! -d "$icloud_drive" ]]; then
+    echo "iCloud Drive not found. Please sign in to iCloud first."
+    return 1
+  fi
+
+  # Skip if already a symlink
+  if [[ -L "$local_downloads" ]]; then
+    echo "~/Downloads is already a symlink. Skipping."
+    return 0
+  fi
+
+  # Create iCloud Downloads folder if not exists
+  if [[ ! -d "$icloud_downloads" ]]; then
+    echo "Creating Downloads folder in iCloud Drive..."
+    mkdir -p "$icloud_downloads"
+  fi
+
+  # Backup existing Downloads if not empty
+  if [[ -d "$local_downloads" ]] && [[ -n "$(ls -A "$local_downloads" 2>/dev/null)" ]]; then
+    echo "Backing up existing Downloads to ~/Downloads.local..."
+    mv "$local_downloads" "$HOME/Downloads.local"
+  else
+    rm -rf "$local_downloads"
+  fi
+
+  # Create symlink
+  ln -s "$icloud_downloads" "$local_downloads"
+  echo "iCloud Downloads setup complete."
+}
+
+# ====================
 # System Preferences
 # ====================
 configure_system() {

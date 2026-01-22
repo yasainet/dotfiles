@@ -27,6 +27,17 @@ return {
 		window = {
 			width = 30,
 			position = "left",
+			mappings = {
+				["Y"] = {
+					function(state)
+						local node = state.tree:get_node()
+						local path = node.path
+						vim.fn.setreg("+", path)
+						vim.notify("Copied: " .. path)
+					end,
+					desc = "Copy path to clipboard",
+				},
+			},
 		},
 		close_if_last_window = true,
 		default_component_configs = {
