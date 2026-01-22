@@ -89,6 +89,23 @@ y() {
   rm -f -- "$tmp"
 }
 
+# Clean clipboard (for Claude Code)
+cc() {
+  echo "Paste your command, then press Ctrl+D:"
+  input=$(cat)
+  echo "$input" | \
+    perl -CS -pe 's/[\x{200B}\x{200C}\x{200D}\x{FEFF}]//g' | \
+    perl -CS -pe 's/[\x{2190}-\x{21FF}]//g' | \
+    sed 's/\\$//' | \
+    tr '\n' ' ' | \
+    sed 's/  */ /g; s/^ //; s/ $//' | \
+    pbcopy
+  echo ""
+  echo "Cleaned. Result:"
+  pbpaste
+  echo ""
+}
+
 # Git
 export GIT_MERGE_AUTOEDIT=no
 
