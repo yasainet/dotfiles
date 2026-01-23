@@ -24,6 +24,7 @@ alias cat='bat'
 alias v='nvim'
 alias vi='nvim'
 alias vim='nvim'
+alias sudo='sudo '
 
 # Aliases
 if [[ "$OSTYPE" == "darwin"* ]]; then
