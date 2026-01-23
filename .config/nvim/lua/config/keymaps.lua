@@ -52,18 +52,28 @@ vim.keymap.set("n", "<leader>dc", "<Cmd>DiffviewClose<CR>", { desc = "Diffview c
 vim.keymap.set("n", "<leader>dh", "<Cmd>DiffviewFileHistory<CR>", { desc = "Diffview file history" })
 
 -- Lazygit
-local lazygit_term = nil
 vim.keymap.set("n", "<leader>gg", function()
-	if not lazygit_term then
-		local Terminal = require("toggleterm.terminal").Terminal
-		lazygit_term = Terminal:new({
-			cmd = "lazygit",
-			direction = "float",
-			hidden = true,
-		})
-	end
-	lazygit_term:toggle()
+	require("snacks").lazygit()
 end, { desc = "Lazygit" })
+
+-- Terminal
+vim.keymap.set({ "n", "t" }, "<C-\\>", function()
+	require("snacks").terminal.toggle()
+end, { desc = "Toggle terminal" })
+
+-- Smart Splits
+vim.keymap.set({ "n", "t" }, "<C-h>", function()
+	require("smart-splits").move_cursor_left()
+end, { desc = "Move to left window" })
+vim.keymap.set({ "n", "t" }, "<C-j>", function()
+	require("smart-splits").move_cursor_down()
+end, { desc = "Move to lower window" })
+vim.keymap.set({ "n", "t" }, "<C-k>", function()
+	require("smart-splits").move_cursor_up()
+end, { desc = "Move to upper window" })
+vim.keymap.set({ "n", "t" }, "<C-l>", function()
+	require("smart-splits").move_cursor_right()
+end, { desc = "Move to right window" })
 
 -- Telescope
 vim.keymap.set("n", "<leader>ff", "<Cmd>Telescope find_files<CR>", { desc = "Find files" })
