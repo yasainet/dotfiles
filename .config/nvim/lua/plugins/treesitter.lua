@@ -21,6 +21,8 @@ return {
 			"yaml",
 			"toml",
 			"bash",
+			"dockerfile",
+			"gitignore",
 		})
 
 		vim.api.nvim_create_autocmd("FileType", {

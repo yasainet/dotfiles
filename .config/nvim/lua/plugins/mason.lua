@@ -29,6 +29,8 @@ return {
 					"jsonls",
 					"marksman",
 					"taplo",
+					"dockerls",
+					"docker_compose_language_service",
 				},
 				automatic_installation = true,
 				handlers = {

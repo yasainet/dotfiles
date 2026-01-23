@@ -57,7 +57,7 @@ vim.opt.mousemodel = "popup"
 -- Filetype
 vim.filetype.add({
 	pattern = {
-		[".*/.config/zed/.*%.json"] = "jsonc",
+		[".*%.dockerignore"] = "gitignore",
 	},
 })
 
