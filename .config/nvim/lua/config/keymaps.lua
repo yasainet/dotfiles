@@ -9,15 +9,6 @@ vim.keymap.set("n", "<Esc>", ":noh<CR>", { silent = true })
 vim.api.nvim_create_user_command("W", "w", {})
 vim.api.nvim_create_user_command("Q", "q", {})
 
--- Mac Cmd
--- vim.keymap.set("v", "<D-c>", '"+y', { noremap = true, silent = true })
--- vim.keymap.set("n", "<D-v>", '"+p', { noremap = true, silent = true })
--- vim.keymap.set("i", "<D-v>", "<C-r>+", { noremap = true, silent = true })
--- vim.keymap.set("n", "<D-z>", "u", { noremap = true, silent = true })
--- vim.keymap.set("n", "<D-S-z>", "<C-r>", { noremap = true, silent = true })
--- vim.keymap.set("n", "<D-s>", ":w<CR>", { noremap = true, silent = true })
--- vim.keymap.set("i", "<D-s>", "<Esc>:w<CR>a", { noremap = true, silent = true })
-
 -- Insert mode Emacs-style
 vim.keymap.set("i", "<C-a>", "<Home>", { desc = "Beginning of line" })
 vim.keymap.set("i", "<C-e>", "<End>", { desc = "End of line" })
@@ -27,16 +18,6 @@ vim.keymap.set("i", "<C-d>", "<Del>", { desc = "Delete character" })
 vim.keymap.set("i", "<C-k>", "<C-o>D", { desc = "Kill to end of line" })
 vim.keymap.set("i", "<C-n>", "<Down>", { desc = "Next line" })
 vim.keymap.set("i", "<C-p>", "<Up>", { desc = "Previous line" })
-
--- Window navigation
--- vim.keymap.set("n", "<C-h>", "<C-w>h")
--- vim.keymap.set("n", "<C-j>", "<C-w>j")
--- vim.keymap.set("n", "<C-k>", "<C-w>k")
--- vim.keymap.set("n", "<C-l>", "<C-w>l")
--- vim.keymap.set("t", "<C-h>", "<C-\\><C-n><C-w>h")
--- vim.keymap.set("t", "<C-j>", "<C-\\><C-n><C-w>j")
--- vim.keymap.set("t", "<C-k>", "<C-\\><C-n><C-w>k")
--- vim.keymap.set("t", "<C-l>", "<C-\\><C-n><C-w>l")
 
 -- Neo-tree
 vim.keymap.set("n", "<leader>e", "<Cmd>Neotree toggle<CR>")
@@ -69,6 +50,20 @@ vim.keymap.set("n", "<leader>td", "<Cmd>Gitsigns toggle_deleted<CR>", { desc = "
 vim.keymap.set("n", "<leader>dv", "<Cmd>DiffviewOpen<CR>", { desc = "Diffview open" })
 vim.keymap.set("n", "<leader>dc", "<Cmd>DiffviewClose<CR>", { desc = "Diffview close" })
 vim.keymap.set("n", "<leader>dh", "<Cmd>DiffviewFileHistory<CR>", { desc = "Diffview file history" })
+
+-- Lazygit
+local lazygit_term = nil
+vim.keymap.set("n", "<leader>gg", function()
+	if not lazygit_term then
+		local Terminal = require("toggleterm.terminal").Terminal
+		lazygit_term = Terminal:new({
+			cmd = "lazygit",
+			direction = "float",
+			hidden = true,
+		})
+	end
+	lazygit_term:toggle()
+end, { desc = "Lazygit" })
 
 -- Telescope
 vim.keymap.set("n", "<leader>ff", "<Cmd>Telescope find_files<CR>", { desc = "Find files" })
@@ -111,6 +106,15 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
 	end,
 })
+
+-- LSP Restart
+vim.keymap.set("n", "<leader>lr", function()
+	vim.diagnostic.reset()
+	vim.cmd("LspRestart")
+	print("LSP restarted and diagnostics cleared")
+end, { desc = "Restart LSP" })
+
+vim.keymap.set("n", "<leader>li", "<Cmd>LspInfo<CR>", { desc = "LSP info" })
 
 -- Yank path
 vim.keymap.set("n", "<leader>yp", function()

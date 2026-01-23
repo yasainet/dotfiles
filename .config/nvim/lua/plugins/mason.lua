@@ -22,7 +22,7 @@ return {
 			require("mason-lspconfig").setup({
 				ensure_installed = {
 					"lua_ls",
-					"ts_ls",
+					"vtsls",
 					"eslint",
 					"html",
 					"cssls",
@@ -35,6 +35,36 @@ return {
 					function(server_name)
 						require("lspconfig")[server_name].setup({
 							capabilities = capabilities,
+						})
+					end,
+					["vtsls"] = function()
+						require("lspconfig").vtsls.setup({
+							capabilities = capabilities,
+							settings = {
+								typescript = {
+									tsserver = { maxTsServerMemory = 8092 },
+									experimental = {
+										completion = {
+											enableServerSideFuzzyMatch = true,
+											entriesLimit = 5000,
+										},
+									},
+									suggest = { completeFunctionCalls = true },
+								},
+								javascript = {
+									tsserver = { maxTsServerMemory = 8092 },
+									experimental = {
+										completion = {
+											enableServerSideFuzzyMatch = true,
+											entriesLimit = 5000,
+										},
+									},
+									suggest = { completeFunctionCalls = true },
+								},
+								vtsls = {
+									autoUseWorkspaceTsdk = true,
+								},
+							},
 						})
 					end,
 				},
