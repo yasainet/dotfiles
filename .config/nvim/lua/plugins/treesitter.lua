@@ -23,6 +23,13 @@ return {
 			"bash",
 			"dockerfile",
 			"gitignore",
+			"diff",
+			"gitcommit",
+			"git_config",
+			"git_rebase",
+			"jsdoc",
+			"regex",
+			"ssh_config",
 		})
 
 		vim.api.nvim_create_autocmd("FileType", {
