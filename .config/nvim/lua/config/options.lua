@@ -10,6 +10,7 @@ vim.opt.fileencoding = "utf-8"
 vim.opt.history = 10000
 
 -- UI
+vim.o.winborder = "rounded"
 vim.opt.number = true
 vim.opt.wrap = true
 vim.opt.linebreak = true
