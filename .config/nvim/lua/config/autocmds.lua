@@ -14,7 +14,7 @@ vim.api.nvim_create_autocmd("ColorScheme", {
 	end,
 })
 
--- .env files syntax highlighting
+-- Syntax highlighting
 vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
 	pattern = { ".env", ".env.*" },
 	callback = function()
@@ -30,4 +30,16 @@ vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter", "CursorHold", "CursorHo
 		end
 	end,
 	pattern = { "*" },
+})
+
+-- Refresh neo-tree
+vim.api.nvim_create_autocmd({ "FocusGained", "TermLeave" }, {
+	callback = function()
+		local ok, _ = pcall(require, "neo-tree")
+		if ok then
+			vim.schedule(function()
+				vim.cmd("Neotree refresh")
+			end)
+		end
+	end,
 })
