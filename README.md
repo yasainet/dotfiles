@@ -17,7 +17,7 @@ cd ~/dotfiles
 ./install.sh
 ```
 
-### Linux (Ubuntu)
+### Linux
 
 ```sh
 sudo apt update && sudo apt install -y git
