@@ -93,6 +93,9 @@ y() {
 # Git
 export GIT_MERGE_AUTOEDIT=no
 
+# lazygit
+export LG_CONFIG_FILE="$HOME/.config/lazygit/config.yml,$HOME/.config/lazygit/themes/tokyonight_night.yml"
+
 # Less
 export LESSHISTFILE=-
 

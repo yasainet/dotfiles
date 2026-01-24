@@ -120,8 +120,19 @@ vim.api.nvim_create_autocmd("LspAttach", {
 -- LSP Restart
 vim.keymap.set("n", "<leader>lr", function()
 	vim.diagnostic.reset()
+
+	vim.cmd("silent! bufdo e!")
+
+	local clients = vim.lsp.get_clients({ name = "vtsls" })
+	for _, client in ipairs(clients) do
+		client:exec_cmd({
+			command = "typescript.reloadProjects",
+			arguments = {},
+		})
+	end
+
 	vim.cmd("LspRestart")
-	print("LSP restarted and diagnostics cleared")
+	print("LSP restarted and TypeScript project reloaded")
 end, { desc = "Restart LSP" })
 
 vim.keymap.set("n", "<leader>li", "<Cmd>LspInfo<CR>", { desc = "LSP info" })
