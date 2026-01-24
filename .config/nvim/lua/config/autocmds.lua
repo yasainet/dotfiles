@@ -22,7 +22,7 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
 	end,
 })
 
--- Auto reload file when changed
+-- Auto reload
 vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter", "CursorHold", "CursorHoldI" }, {
 	callback = function()
 		if vim.fn.mode() ~= "c" then
@@ -35,10 +35,10 @@ vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter", "CursorHold", "CursorHo
 -- Refresh neo-tree
 vim.api.nvim_create_autocmd({ "FocusGained", "TermLeave" }, {
 	callback = function()
-		local ok, _ = pcall(require, "neo-tree")
+		local ok, manager = pcall(require, "neo-tree.sources.manager")
 		if ok then
 			vim.schedule(function()
-				vim.cmd("Neotree refresh")
+				pcall(manager.refresh, "filesystem")
 			end)
 		end
 	end,
