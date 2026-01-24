@@ -103,6 +103,20 @@ vim.keymap.set("n", "<leader>ft", "<Cmd>TodoTelescope<CR>", { desc = "Find todos
 vim.keymap.set("n", "]t", '<Cmd>lua require("todo-comments").jump_next()<CR>', { desc = "Next todo" })
 vim.keymap.set("n", "[t", '<Cmd>lua require("todo-comments").jump_prev()<CR>', { desc = "Previous todo" })
 
+-- Translate
+vim.keymap.set("v", "<leader>tj", function()
+	vim.cmd('normal! "ty')
+	local text = vim.fn.getreg("t")
+	text = text:gsub("'", "'\\''")
+	vim.fn.system(string.format("tmux display-popup -E \"echo '%s' | trans -b :ja; read\"", text))
+end, { desc = "Translate to Japanese" })
+vim.keymap.set("v", "<leader>te", function()
+	vim.cmd('normal! "ty')
+	local text = vim.fn.getreg("t")
+	text = text:gsub("'", "'\\''")
+	vim.fn.system(string.format("tmux display-popup -E \"echo '%s' | trans -b :en; read\"", text))
+end, { desc = "Translate to English" })
+
 -- LSP
 vim.api.nvim_create_autocmd("LspAttach", {
 	callback = function(event)
