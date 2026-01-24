@@ -80,6 +80,17 @@ pj() {
   cd $HOME/Projects
 }
 
+# claude
+claude() {
+  if [ -n "$TMUX" ]; then
+    tmux rename-window "claude"
+  fi
+  command claude "$@"
+  if [ -n "$TMUX" ]; then
+    tmux set-window-option automatic-rename on
+  fi
+}
+
 # yazi
 y() {
   local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
