@@ -114,7 +114,10 @@ vim.keymap.set("v", "<leader>te", function()
 	vim.cmd('normal! "ty')
 	local text = vim.fn.getreg("t")
 	text = text:gsub("'", "'\\''")
-	vim.fn.system(string.format("tmux display-popup -E \"echo '%s' | trans -b :en; read\"", text))
+	vim.fn.system(string.format(
+		"tmux display-popup -E \"r=\\$(echo '%s' | trans -b :en); echo \\\"\\$r\\\"; echo \\\"\\$r\\\" | pbcopy; read\"",
+		text
+	))
 end, { desc = "Translate to English" })
 
 -- LSP
