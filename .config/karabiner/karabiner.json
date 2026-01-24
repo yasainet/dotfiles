@@ -119,6 +119,29 @@
                 "type": "basic"
               }
             ]
+          },
+          {
+            "description": "Ctrl+b (tmux prefix) switches to English",
+            "manipulators": [
+              {
+                "from": {
+                  "key_code": "b",
+                  "modifiers": {
+                    "mandatory": ["control"]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "b",
+                    "modifiers": ["control"]
+                  },
+                  {
+                    "key_code": "japanese_eisuu"
+                  }
+                ],
+                "type": "basic"
+              }
+            ]
           }
         ]
       },
