@@ -46,6 +46,14 @@ macos-option-as-alt = left
 keybind = global:cmd+ctrl+\=toggle_quick_terminal
 keybind = shift+enter=text:\x1b\r
 
+# Accidental close prevention: unbind Cmd+w, Cmd+q
+keybind = cmd+w=unbind
+keybind = cmd+q=unbind
+
+# Use Cmd+Shift+w/q instead
+keybind = cmd+shift+w=close_surface
+keybind = cmd+shift+q=quit
+
 # === tmux === #
 
 # tmux integration: unbind default Cmd+number
