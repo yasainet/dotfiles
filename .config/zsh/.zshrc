@@ -115,7 +115,9 @@ export HISTFILE="$ZDOTDIR/.zsh_history"
 export ZSH_SESSION_DIR="$ZDOTDIR/.zsh_sessions"
 export SAVEHIST=1000
 export HISTSIZE=1000
-setopt HIST_IGNORE_DUPS
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_SAVE_NO_DUPS
+setopt HIST_FIND_NO_DUPS
 setopt HIST_IGNORE_SPACE
 setopt SHARE_HISTORY
 
