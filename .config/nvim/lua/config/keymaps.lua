@@ -98,6 +98,15 @@ vim.keymap.set("n", "<C-_>", "gcc", { remap = true, desc = "Toggle comment" })
 vim.keymap.set("v", "<C-_>", "gc", { remap = true, desc = "Toggle comment" })
 vim.keymap.set("i", "<C-_>", "<Esc>gccgi", { desc = "Toggle comment" })
 
+-- Grug-far
+vim.keymap.set("n", "<leader>sr", "<Cmd>GrugFar<CR>", { desc = "Search & Replace" })
+vim.keymap.set("n", "<leader>sw", function()
+	require("grug-far").open({ prefills = { search = vim.fn.expand("<cword>") } })
+end, { desc = "Search word under cursor" })
+vim.keymap.set("v", "<leader>sr", function()
+	require("grug-far").with_visual_selection()
+end, { desc = "Search selection" })
+
 -- Todo Comments
 vim.keymap.set("n", "<leader>ft", "<Cmd>TodoTelescope<CR>", { desc = "Find todos" })
 vim.keymap.set("n", "]t", '<Cmd>lua require("todo-comments").jump_next()<CR>', { desc = "Next todo" })
