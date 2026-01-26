@@ -1,22 +1,25 @@
 return {
-	"github/copilot.vim",
-	config = function()
-		vim.g.copilot_filetypes = {
-			["*"] = true,
-			["env"] = false,
-			["gitcommit"] = false,
-			["markdown"] = true,
-			["yaml"] = true,
-			["sql"] = true,
-			["typescript"] = true,
-			["typescriptreact"] = true,
-		}
-
-		vim.api.nvim_create_autocmd("BufEnter", {
-			pattern = { "*.env", "*.env.*", ".env*" },
-			callback = function()
-				vim.b.copilot_enabled = false
-			end,
-		})
-	end,
+	{
+		"zbirenbaum/copilot.lua",
+		cmd = "Copilot",
+		event = "InsertEnter",
+		config = function()
+			require("copilot").setup({
+				suggestion = { enabled = false },
+				panel = { enabled = false },
+				filetypes = {
+					["*"] = true,
+					["env"] = false,
+					["gitcommit"] = false,
+				},
+			})
+		end,
+	},
+	{
+		"zbirenbaum/copilot-cmp",
+		dependencies = "zbirenbaum/copilot.lua",
+		config = function()
+			require("copilot_cmp").setup()
+		end,
+	},
 }
