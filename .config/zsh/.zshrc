@@ -113,13 +113,14 @@ export LESSHISTFILE=-
 # .zsh history
 export HISTFILE="$ZDOTDIR/.zsh_history"
 export ZSH_SESSION_DIR="$ZDOTDIR/.zsh_sessions"
-export SAVEHIST=1000
-export HISTSIZE=1000
+export SAVEHIST=10000
+export HISTSIZE=10000
 setopt HIST_IGNORE_ALL_DUPS
 setopt HIST_SAVE_NO_DUPS
 setopt HIST_FIND_NO_DUPS
 setopt HIST_IGNORE_SPACE
 setopt SHARE_HISTORY
+setopt HIST_REDUCE_BLANKS
 
 # Oh My Zsh - macOS
 if [[ "$OSTYPE" == "darwin"* ]]; then
