@@ -27,6 +27,7 @@ font-size = 14
 # font-feature = -liga
 # font-feature = -dlig
 bold-is-bright= true
+adjust-cell-height = 25%
 
 # Cursor
 cursor-style = block
