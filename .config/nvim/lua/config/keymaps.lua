@@ -27,6 +27,7 @@ vim.keymap.set("n", "<leader>bc", function()
 			vim.api.nvim_buf_delete(buf, {})
 		end
 	end
+	print("Buffers cleared")
 end, { desc = "Clear other buffers" })
 
 -- Neo-tree
@@ -207,6 +208,6 @@ vim.keymap.set("n", "<leader>rr", function()
 		end
 	end
 	dofile(vim.env.MYVIMRC)
-	print("Config reloaded!")
+	print("Config reloaded")
 end, { desc = "Reload config" })
 vim.keymap.set("n", "<leader>rc", "<Cmd>Lazy clear<CR>", { desc = "Clear lazy cache" })
