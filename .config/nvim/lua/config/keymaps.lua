@@ -19,6 +19,16 @@ vim.keymap.set("i", "<C-k>", "<C-o>D", { desc = "Kill to end of line" })
 vim.keymap.set("i", "<C-n>", "<Down>", { desc = "Next line" })
 vim.keymap.set("i", "<C-p>", "<Up>", { desc = "Previous line" })
 
+-- Buffer
+vim.keymap.set("n", "<leader>bc", function()
+	local current = vim.api.nvim_get_current_buf()
+	for _, buf in ipairs(vim.api.nvim_list_bufs()) do
+		if buf ~= current and vim.bo[buf].buftype == "" and vim.api.nvim_buf_is_loaded(buf) then
+			vim.api.nvim_buf_delete(buf, {})
+		end
+	end
+end, { desc = "Clear other buffers" })
+
 -- Neo-tree
 vim.keymap.set("n", "<leader>e", "<Cmd>Neotree toggle<CR>")
 
