@@ -81,6 +81,8 @@ pj() {
 }
 
 # claude
+# export CLAUDE_CONFIG_DIR="$HOME/.claude" # NOTE: Experimental
+
 claude() {
   if [ -n "$TMUX" ]; then
     tmux rename-window "claude"
