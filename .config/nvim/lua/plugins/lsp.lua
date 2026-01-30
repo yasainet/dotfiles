@@ -3,10 +3,8 @@ return {
 	dependencies = { "mason.nvim", "mason-lspconfig.nvim" },
 	event = { "BufReadPre", "BufNewFile" },
 	config = function()
-		local lspconfig = require("lspconfig")
-
-		-- HACK: CSS
-		lspconfig.cssls.setup({
+		-- HACK: CSS LSP
+		vim.lsp.config.cssls = {
 			settings = {
 				css = {
 					lint = {
@@ -14,7 +12,7 @@ return {
 					},
 				},
 			},
-		})
+		}
 
 		vim.diagnostic.config({
 			virtual_text = {
