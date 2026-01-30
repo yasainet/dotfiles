@@ -169,3 +169,6 @@ bindkey -r '^T'  # Disable: Ctrl+t
 
 # OrbStack
 [ -f ~/.orbstack/shell/init.zsh ] && source ~/.orbstack/shell/init.zsh
+
+# direnv
+eval "$(direnv hook zsh)"
