@@ -24,6 +24,9 @@ return {
 				-- HACK: JSX/TSX
 				hl["@tag.tsx"] = { fg = c.cyan }
 				hl["@tag.javascript"] = { fg = c.cyan }
+				-- HACK: html
+				hl["@tag.builtin.tsx"] = { fg = c.red }
+				hl["@tag.builtin.javascript"] = { fg = c.red }
 			end,
 		})
 		vim.cmd([[colorscheme tokyonight-night]])
