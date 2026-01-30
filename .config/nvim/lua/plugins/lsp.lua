@@ -3,6 +3,19 @@ return {
 	dependencies = { "mason.nvim", "mason-lspconfig.nvim" },
 	event = { "BufReadPre", "BufNewFile" },
 	config = function()
+		local lspconfig = require("lspconfig")
+
+		-- HACK: CSS
+		lspconfig.cssls.setup({
+			settings = {
+				css = {
+					lint = {
+						unknownAtRules = "ignore",
+					},
+				},
+			},
+		})
+
 		vim.diagnostic.config({
 			virtual_text = {
 				spacing = 4,
