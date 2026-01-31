@@ -17,6 +17,12 @@ return {
 		})
 
 		require("markview").setup({
+			preview = {
+				hybrid_modes = { "n" },
+				linewise_hybrid_mode = true,
+				edit_range = { 0, 0 },
+				debounce = 0,
+			},
 			markdown = {
 				headings = headings,
 				horizontal_rules = presets.horizontal_rules.thin,
