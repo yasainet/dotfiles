@@ -20,7 +20,9 @@ return {
 			markdown = {
 				headings = headings,
 				horizontal_rules = presets.horizontal_rules.thin,
-				tables = presets.tables.rounded,
+				tables = vim.tbl_deep_extend("force", presets.tables.rounded, {
+					use_virt_lines = true,
+				}),
 				code_blocks = {
 					sign = false,
 				},

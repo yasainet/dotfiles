@@ -8,14 +8,14 @@ All commands start with `C-b` (Ctrl+b).
 
 ### Session
 
-| Key                    | Description              |
-| ---------------------- | ------------------------ |
-| `C-b d`                | Detach from session      |
-| `C-b s`                | List sessions            |
-| `C-b $`                | Rename session           |
-| `C-b :new`             | Create new session       |
-| `C-b :new -s <name>`   | Create new named session |
-| `C-b :kill-session`    | Kill current session     |
+| Key                  | Description              |
+| -------------------- | ------------------------ |
+| `C-b d`              | Detach from session      |
+| `C-b s`              | List sessions            |
+| `C-b $`              | Rename session           |
+| `C-b :new`           | Create new session       |
+| `C-b :new -s <name>` | Create new named session |
+| `C-b :kill-session`  | Kill current session     |
 
 #### Tree View (C-b s / C-b w)
 
@@ -36,6 +36,13 @@ tmux a                  # Attach to last session
 tmux a -t <name>        # Attach to named session
 tmux kill-session -t <name>  # Kill session
 ```
+
+### Session Restore (tmux-resurrect)
+
+| Key       | Description     |
+| --------- | --------------- |
+| `C-b C-s` | Save session    |
+| `C-b C-r` | Restore session |
 
 ### Window
 
