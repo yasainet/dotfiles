@@ -58,6 +58,9 @@ install_cli_tools() {
 
   # AWS CLI
   brew install awscli
+
+  # direnv
+  brew install direnv
 }
 
 # ====================

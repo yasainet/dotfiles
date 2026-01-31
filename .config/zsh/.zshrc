@@ -175,4 +175,7 @@ bindkey -r '^T'  # Disable: Ctrl+t
 [ -f ~/.orbstack/shell/init.zsh ] && source ~/.orbstack/shell/init.zsh
 
 # direnv
-eval "$(direnv hook zsh)"
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  # macOS
+  eval "$(direnv hook zsh)"
+fi
