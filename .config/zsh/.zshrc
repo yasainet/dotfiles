@@ -6,6 +6,8 @@ if [[ "$OSTYPE" != "darwin"* ]] && ! infocmp "$TERM" &>/dev/null 2>&1; then
   export TERM=xterm-256color
 fi
 
+DISABLE_AUTO_TITLE="true"
+
 # Language
 export LANG='en_US.UTF-8'
 export LC_ALL='en_US.UTF-8'
@@ -26,7 +28,6 @@ alias vi='nvim'
 alias vim='nvim'
 alias sudo='sudo '
 
-# Aliases
 if [[ "$OSTYPE" == "darwin"* ]]; then
   # macOS
   alias ls='ls -G'
@@ -40,6 +41,9 @@ else
   alias C='xclip -selection clipboard'
   alias bat='batcat'
 fi
+
+# Aliases - tmux
+alias ta='tmux a'
 
 # tree
 NODE_IGNORE='"node_modules|.next"'

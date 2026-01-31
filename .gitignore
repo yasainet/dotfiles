@@ -2,13 +2,10 @@
 *.local
 .DS_Store
 .env
-.envrc
-.envrc.local
 .zcompdump*
 .zsh_history
 .config/github-copilot/apps.json
 
 # Directory
-.zsh_sessions
-.claude
-.config/zed/prompts/**
+.zsh_sessions/
+.claude/

@@ -6,6 +6,8 @@ This file provides guidance to Claude Code when working with this repository.
 
 Personal dotfiles for macOS and Linux.
 
+---
+
 ## Environment
 
 - **OS**: macOS (primary), Linux (secondary)
@@ -15,6 +17,8 @@ Personal dotfiles for macOS and Linux.
 - **Multiplexer**: tmux
 - **File Manager**: Yazi
 
+---
+
 ## Important Rules
 
 ### Before Making Changes
@@ -22,6 +26,8 @@ Personal dotfiles for macOS and Linux.
 1. **ALWAYS read existing config files first** before suggesting any changes
 2. **Use web search** to check for latest best practices and updates
 3. **Combine both** - understand the current setup AND latest information before proposing solutions
+
+---
 
 ## Directory Structure
 

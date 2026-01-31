@@ -21,7 +21,7 @@ maximize = true
 theme = TokyoNight Night
 
 # Font
-font-family = "PlemolJP35 Console NF"
+font-family = "PlemolJP Console NF"
 font-size = 14
 # font-feature = -calt
 # font-feature = -liga
