@@ -71,12 +71,12 @@ install_gui_apps() {
 
   # Terminal & Editor
   brew install --cask ghostty
-  brew install --cask zed
 
   # Browser
   brew install --cask google-chrome
   brew install --cask google-chrome@dev
   brew install --cask tor-browser
+  brew install --cask brave-browser
 
   # Productivity
   brew install --cask google-drive
@@ -84,7 +84,6 @@ install_gui_apps() {
   brew install --cask discord
   brew install --cask telegram
   brew install --cask signal
-  brew install --cask deepl
 
   # Development
   brew install --cask orbstack
@@ -96,7 +95,6 @@ install_gui_apps() {
   brew install --cask keyboardcleantool
   brew install --cask the-unarchiver
   brew install --cask iina
-  # brew install --cask logi-options+
 
   # Privacy
   brew install --cask protonvpn
@@ -119,6 +117,7 @@ install_mas_apps() {
 # ====================
 # Java
 # ====================
+# TODO: もう利用していない可能性がある
 install_java() {
   echo "Installing Java..."
   brew install openjdk

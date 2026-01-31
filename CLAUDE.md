@@ -40,13 +40,14 @@ Personal dotfiles for macOS and Linux.
 │   ├── fzf/          # fzf
 │   ├── gh/           # GitHub CLI
 │   ├── ghostty/      # Ghostty terminal
+│   ├── git/          # Git config
+│   ├── github-copilot/ # GitHub Copilot
 │   ├── karabiner/    # Karabiner-Elements
+│   ├── lazygit/      # lazygit
 │   ├── nvim/         # Neovim
 │   ├── tmux/         # tmux
 │   ├── yazi/         # Yazi file manager
-│   ├── zed/          # Zed editor
 │   └── zsh/          # Zsh + Starship
-├── .ssh/             # SSH config
 ├── extras/
 │   └── vimium/       # Vimium config
 ├── scripts/
