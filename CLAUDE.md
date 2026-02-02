@@ -2,13 +2,7 @@
 
 This file provides guidance to Claude Code when working with this repository.
 
-## Overview
-
-Personal dotfiles for macOS and Linux.
-
----
-
-## Environment
+## 1. Environment
 
 - **OS**: macOS (primary), Linux (secondary)
 - **Terminal**: Ghostty
@@ -19,9 +13,7 @@ Personal dotfiles for macOS and Linux.
 
 ---
 
-## Important Rules
-
-### Before Making Changes
+## 2. Important Rules
 
 1. **ALWAYS read existing config files first** before suggesting any changes
 2. **Use web search** to check for latest best practices and updates
@@ -29,7 +21,7 @@ Personal dotfiles for macOS and Linux.
 
 ---
 
-## Directory Structure
+## 3. Directory Structure
 
 ```tree
 .

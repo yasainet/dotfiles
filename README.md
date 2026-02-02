@@ -2,9 +2,9 @@
 
 Personal dotfiles for macOS and Linux.
 
-## Setup
+## 1. Setup
 
-### macOS
+### 1.1 macOS
 
 ```sh
 xcode-select --install
@@ -17,7 +17,7 @@ cd ~/dotfiles
 ./install.sh
 ```
 
-### Linux (Ubuntu)
+### 1.2 Linux (Ubuntu)
 
 ```sh
 sudo apt update && sudo apt install -y git
