@@ -9,3 +9,4 @@
 # Directory
 .zsh_sessions/
 .claude/
+.config/tmux/resurrect/
