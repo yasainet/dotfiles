@@ -3,14 +3,15 @@ return {
 	dependencies = { "nvim-lua/plenary.nvim" },
 	opts = {
 		highlight = {
-			comments_only = false, -- match outside of comments (for markdown callouts)
+			comments_only = false,
 			pattern = {
-				[[.*<(KEYWORDS)\s*:]], -- default: TODO:
-				[=[.*>\s*\[!(KEYWORDS)\]]=], -- obsidian: > [!TODO]
+				[[.*<(KEYWORDS)\s*:]],
+				[=[.*>\s*\[!TODO\]]=], -- `> [!TODO]`
+				[[.*Todo]], -- `Todo`
 			},
 		},
 		search = {
-			pattern = [=[\b(KEYWORDS):|>\s*\[!(KEYWORDS)\]]=], -- both patterns
+			pattern = [=[\b(KEYWORDS):|>\s*\[!TODO\]]=],
 		},
 	},
 }
