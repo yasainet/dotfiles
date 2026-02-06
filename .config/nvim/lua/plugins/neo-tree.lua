@@ -11,6 +11,19 @@ return {
 		enable_diagnostics = false,
 		popup_border_style = "rounded",
 		filesystem = {
+			components = {
+				name = function(config, node, state)
+					local cc = require("neo-tree.sources.common.components")
+					local result = cc.name(config, node, state)
+					if node:get_depth() == 1 then
+						local projects_dir = vim.fn.expand("~/Projects") .. "/"
+						if node.path:sub(1, #projects_dir) == projects_dir then
+							result.text = node.path:sub(#projects_dir + 1)
+						end
+					end
+					return result
+				end,
+			},
 			follow_current_file = {
 				enabled = true,
 				leave_dirs_open = false,
