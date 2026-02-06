@@ -1,19 +1,31 @@
 return {
-	"neovim/nvim-lspconfig",
-	dependencies = { "mason.nvim", "mason-lspconfig.nvim" },
+	"hrsh7th/cmp-nvim-lsp",
 	event = { "BufReadPre", "BufNewFile" },
 	config = function()
-		-- HACK: CSS LSP
-		vim.lsp.config.cssls = {
-			settings = {
-				css = {
-					lint = {
-						unknownAtRules = "ignore",
-					},
-				},
-			},
-		}
+		-- Capabilities
+		local capabilities = require("cmp_nvim_lsp").default_capabilities()
+		capabilities.workspace = capabilities.workspace or {}
+		capabilities.workspace.didChangeWatchedFiles = { dynamicRegistration = true }
 
+		vim.lsp.config("*", {
+			capabilities = capabilities,
+		})
+
+		-- Enable servers
+		vim.lsp.enable({
+			"lua_ls",
+			"vtsls",
+			"eslint",
+			"cssls",
+			"html",
+			"jsonls",
+			"marksman",
+			"taplo",
+			"dockerls",
+			"docker_compose_language_service",
+		})
+
+		-- Diagnostics
 		vim.diagnostic.config({
 			virtual_text = {
 				spacing = 4,

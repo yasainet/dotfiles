@@ -181,7 +181,7 @@ vim.keymap.set("n", "<leader>lr", function()
 	print("LSP restarted and TypeScript project reloaded")
 end, { desc = "Restart LSP" })
 
-vim.keymap.set("n", "<leader>li", "<Cmd>LspInfo<CR>", { desc = "LSP info" })
+vim.keymap.set("n", "<leader>li", "<Cmd>checkhealth vim.lsp<CR>", { desc = "LSP info" })
 
 -- Yank path
 vim.keymap.set("n", "<leader>yp", function()

@@ -23,9 +23,9 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
 })
 
 -- Auto reload
-vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter", "CursorHold", "CursorHoldI" }, {
+vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter", "CursorHold", "CursorHoldI", "TermLeave", "WinEnter" }, {
 	callback = function()
-		if vim.fn.mode() ~= "c" then
+		if vim.fn.mode() ~= "c" and vim.bo.buftype == "" then
 			vim.cmd("checktime")
 		end
 	end,
@@ -39,6 +39,21 @@ vim.api.nvim_create_autocmd({ "FocusGained", "TermLeave" }, {
 		if ok then
 			vim.schedule(function()
 				pcall(manager.refresh, "filesystem")
+			end)
+		end
+	end,
+})
+
+-- Refresh diffview
+vim.api.nvim_create_autocmd({ "FocusGained", "TermLeave" }, {
+	callback = function()
+		local ok, lib = pcall(require, "diffview.lib")
+		if ok then
+			vim.schedule(function()
+				local view = lib.get_current_view()
+				if view then
+					pcall(view.update_files, view)
+				end
 			end)
 		end
 	end,
