@@ -24,6 +24,7 @@ return {
 		validate = "on",
 		format = false,
 		codeActionOnSave = { enable = false },
-		workingDirectories = { mode = "auto" },
+		nodePath = vim.NIL, -- Node.js v24
+		experimental = {}, -- Node.js v24
 	},
 }
