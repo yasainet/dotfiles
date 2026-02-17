@@ -40,6 +40,7 @@ This file provides guidance to Claude Code when working with this repository.
 │   ├── tmux/         # tmux
 │   ├── yazi/         # Yazi file manager
 │   └── zsh/          # Zsh + Starship
+├── claude-code/      # Claude Code global config
 ├── extras/
 │   └── vimium/       # Vimium config
 ├── scripts/

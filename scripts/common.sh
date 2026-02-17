@@ -38,6 +38,11 @@ create_symlinks() {
   if [[ "$OSTYPE" == "darwin"* ]]; then
     link "$DOTFILES/.config/.oh-my-zsh" "$HOME/.config/.oh-my-zsh"
   fi
+
+  # Claude Code
+  mkdir -p "$HOME/.claude"
+  link "$DOTFILES/claude-code/CLAUDE.md" "$HOME/.claude/CLAUDE.md"
+  link "$DOTFILES/claude-code/settings.json" "$HOME/.claude/settings.json"
 }
 
 # ====================

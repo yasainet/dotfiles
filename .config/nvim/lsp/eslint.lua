@@ -22,9 +22,33 @@ return {
 	},
 	settings = {
 		validate = "on",
+		packageManager = nil,
+		useESLintClass = false,
+		experimental = {
+			useFlatConfig = true,
+		},
+		codeActionOnSave = {
+			enable = false,
+			mode = "all",
+		},
 		format = false,
-		codeActionOnSave = { enable = false },
+		quiet = false,
+		onIgnoredFiles = "off",
+		rulesCustomizations = {},
+		run = "onType",
+		problems = {
+			shortenToSingleLine = false,
+		},
 		nodePath = vim.NIL, -- Node.js v24
-		experimental = {}, -- Node.js v24
+		workingDirectory = { mode = "auto" },
+		codeAction = {
+			disableRuleComment = {
+				enable = true,
+				location = "separateLine",
+			},
+			showDocumentation = {
+				enable = true,
+			},
+		},
 	},
 }
