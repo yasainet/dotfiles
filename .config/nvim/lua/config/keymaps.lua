@@ -166,10 +166,12 @@ vim.api.nvim_create_autocmd("LspAttach", {
 -- LSP Restart
 vim.keymap.set("n", "<leader>lr", function()
 	vim.diagnostic.reset()
+	local current_buf = vim.api.nvim_get_current_buf()
 	for _, client in ipairs(vim.lsp.get_clients()) do
 		client:stop()
 	end
 	vim.cmd("silent! bufdo e!")
+	vim.api.nvim_set_current_buf(current_buf)
 	print("LSP restarted")
 end, { desc = "Restart LSP" })
 
