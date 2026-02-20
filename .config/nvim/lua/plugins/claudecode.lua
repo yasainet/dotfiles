@@ -3,12 +3,13 @@ return {
 	dependencies = { "folke/snacks.nvim" },
 	config = function()
 		require("claudecode").setup({
-			split_side = "right",
-			split_width_percentage = 0.35,
 			diff_opts = {
+				auto_close_on_accept = true,
 				keep_terminal_focus = true,
 			},
 			terminal = {
+				split_side = "right",
+				split_width_percentage = 0.4,
 				provider = "snacks",
 				snacks_win_opts = {
 					keys = {

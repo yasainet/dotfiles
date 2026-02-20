@@ -86,10 +86,14 @@ tmux kill-session -t <name>  # Kill session
 
 ### Resize Pane
 
-| Key          | Description             |
-| ------------ | ----------------------- |
-| `C-b C-↑↓←→` | Resize pane (hold Ctrl) |
-| `C-b M-↑↓←→` | Resize pane by 5 cells  |
+| Key                          | Description             |
+| ---------------------------- | ----------------------- |
+| `C-b C-↑↓←→`                 | Resize pane (hold Ctrl) |
+| `C-b M-↑↓←→`                 | Resize pane by 5 cells  |
+| `C-b :resize-pane -D <n>`    | Resize down by n cells  |
+| `C-b :resize-pane -U <n>`    | Resize up by n cells    |
+| `C-b :resize-pane -L <n>`    | Resize left by n cells  |
+| `C-b :resize-pane -R <n>`    | Resize right by n cells |
 
 ### Misc
 
