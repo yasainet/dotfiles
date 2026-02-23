@@ -58,3 +58,15 @@ vim.api.nvim_create_autocmd({ "FocusGained", "TermLeave" }, {
 		end
 	end,
 })
+
+-- Refresh gitsigns
+vim.api.nvim_create_autocmd({ "FocusGained", "TermLeave" }, {
+	callback = function()
+		local ok, gs = pcall(require, "gitsigns")
+		if ok then
+			vim.schedule(function()
+				pcall(gs.refresh)
+			end)
+		end
+	end,
+})

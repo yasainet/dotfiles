@@ -13,7 +13,6 @@
     "deny": [],
     "defaultMode": "default"
   },
-  "model": "opus",
   "enabledPlugins": {},
   "language": "English/Japanese",
   "autoUpdatesChannel": "latest"

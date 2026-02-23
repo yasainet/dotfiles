@@ -1,3 +1,6 @@
+# Limits
+ulimit -n 10240
+
 # Path
 export PATH="$HOME/.local/bin:$PATH"
 
