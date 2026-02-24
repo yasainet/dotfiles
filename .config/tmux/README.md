@@ -27,6 +27,7 @@ All commands start with `C-b` (Ctrl+b).
 | `←` / `h`   | Collapse tree           |
 | `→` / `l`   | Expand tree             |
 | `q` / `Esc` | Exit tree view          |
+| `O`         | Sort (index/name/time)  |
 
 ```sh
 tmux                    # Start new session
