@@ -26,6 +26,7 @@
   - YAGNI: You Aren't Gonna Need It
   - KISS: Keep It Simple, Stupid
   - DRY: Don't Repeat Yourself
+- Write all code comments and JSDoc descriptions in simple English
 
 ### 4. Verification
 
