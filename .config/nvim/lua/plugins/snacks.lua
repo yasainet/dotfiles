@@ -11,11 +11,24 @@ return {
 		picker = {
 			sources = {
 				explorer = {
-					hidden = true,
-					ignored = true,
+					hidden = false,
+					ignored = false,
 					follow_file = true,
 					git_status = true,
-					diagnostics = true,
+					diagnostics = false,
+					format = function(item, picker)
+						local ret = {}
+						if item.parent then
+							vim.list_extend(ret, Snacks.picker.format.tree(item, picker))
+						end
+						-- side effect only: sets item.filename_hl for git coloring
+						if item.status then
+							Snacks.picker.format.file_git_status(item, picker)
+						end
+						-- filename with icon (git coloring applied via item.filename_hl)
+						vim.list_extend(ret, Snacks.picker.format.filename(item, picker))
+						return ret
+					end,
 					layout = {
 						layout = {
 							position = "left",

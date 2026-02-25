@@ -29,6 +29,7 @@ install_cli_tools() {
   brew install bat
   brew install fzf
   brew install ripgrep
+  brew install fd
   brew install tree
   brew install jq
   brew install ffmpeg

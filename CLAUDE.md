@@ -7,7 +7,7 @@ This file provides guidance to Claude Code when working with this repository.
 - **OS**: macOS (primary), Linux (secondary)
 - **Terminal**: Ghostty
 - **Shell**: Zsh + Oh My Zsh + Starship
-- **Editor**: Neovim (LazyVim based)
+- **Editor**: Neovim (LazyVim based) + fd (snacks.nvim explorer dependency)
 - **Multiplexer**: tmux
 - **File Manager**: Yazi
 
