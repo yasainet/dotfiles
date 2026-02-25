@@ -11,7 +11,7 @@ return {
 		picker = {
 			hidden = true,
 			ignored = false,
-			exclude = { "node_modules", ".git", ".next", ".vercel" },
+			exclude = { "node_modules", ".git", ".next", ".vercel", "package-lock.json" },
 			sources = {
 				explorer = {
 					hidden = true,
