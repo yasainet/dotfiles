@@ -57,15 +57,9 @@ vim.keymap.set("n", "<leader>hb", "<Cmd>Gitsigns blame_line<CR>", { desc = "Blam
 vim.keymap.set("n", "<leader>tb", "<Cmd>Gitsigns toggle_current_line_blame<CR>", { desc = "Toggle line blame" })
 vim.keymap.set("n", "<leader>td", "<Cmd>Gitsigns toggle_deleted<CR>", { desc = "Toggle deleted" })
 
--- Diffview
-vim.keymap.set("n", "<leader>dv", "<Cmd>DiffviewOpen<CR>", { desc = "Diffview open" })
-vim.keymap.set("n", "<leader>dV", "<Cmd>DiffviewOpen origin/main...HEAD<CR>", { desc = "Diffview diff vs main" })
-vim.keymap.set("n", "<leader>dc", "<Cmd>DiffviewClose<CR>", { desc = "Diffview close" })
-vim.keymap.set("n", "<leader>dh", "<Cmd>DiffviewFileHistory<CR>", { desc = "Diffview file history" })
-
 -- Lazygit
 vim.keymap.set("n", "<leader>gg", function()
-	require("snacks").lazygit()
+	vim.fn.system("tmux display-popup -E -w 100% -h 100% 'lazygit'")
 end, { desc = "Lazygit" })
 
 -- Terminal

@@ -1,6 +1,6 @@
 [user]
 	name = yasainet
-	email = takumi.mizoguchi@gmail.com
+	email = mail@yasainet.com
 
 [color]
 	ui = auto
@@ -10,6 +10,12 @@
 
 [core]
 	ignorecase = false
+	pager = delta
+
+[delta]
+	side-by-side = true
+	syntax-theme = tokyonight_night
+	hunk-header-style = omit
 
 [filter "lfs"]
 	process = git-lfs filter-process

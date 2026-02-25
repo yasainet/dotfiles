@@ -6,11 +6,7 @@ return {
 	event = "VeryLazy",
 	config = function()
 		require("lualine").setup({
-			tabline = {
-				lualine_a = { "tabs" },
-			},
 			options = {
-				always_show_tabline = false,
 				theme = "tokyonight",
 				globalstatus = true,
 				component_separators = { left = "", right = "" },

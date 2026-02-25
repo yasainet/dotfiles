@@ -1,2 +1,9 @@
+gui:
+  sidePanelWidth: 0.2
+  scrollPastBottom: false
 os:
   editPreset: "nvim"
+git:
+  pagers:
+    - colorArg: always
+      pager: delta --paging=never

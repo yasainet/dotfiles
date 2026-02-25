@@ -4,12 +4,7 @@
     "CLAUDE_CODE_DISABLE_AUTO_MEMORY": "1"
   },
   "permissions": {
-    "allow": [
-      "WebFetch(domain:gist.github.com)",
-      "WebFetch(domain:github.com)",
-      "WebFetch(domain:raw.githubusercontent.com)",
-      "WebSearch"
-    ],
+    "allow": [],
     "deny": [],
     "defaultMode": "default"
   },

@@ -44,21 +44,6 @@ vim.api.nvim_create_autocmd({ "FocusGained", "TermLeave" }, {
 	end,
 })
 
--- Refresh diffview
-vim.api.nvim_create_autocmd({ "FocusGained", "TermLeave" }, {
-	callback = function()
-		local ok, lib = pcall(require, "diffview.lib")
-		if ok then
-			vim.schedule(function()
-				local view = lib.get_current_view()
-				if view then
-					pcall(view.update_files, view)
-				end
-			end)
-		end
-	end,
-})
-
 -- Refresh gitsigns
 vim.api.nvim_create_autocmd({ "FocusGained", "TermLeave" }, {
 	callback = function()
