@@ -1,19 +1,3 @@
--- Theme transparency
-local function set_transparency()
-	vim.cmd("highlight Normal guibg=NONE")
-	-- snacks explorer
-	-- vim.cmd("highlight SnacksPickerExplorerNormal guibg=NONE")
-	-- vim.cmd("highlight SnacksPickerExplorerNormalNC guibg=NONE")
-	-- vim.cmd("highlight SnacksPickerExplorerEndOfBuffer guibg=NONE")
-	-- vim.cmd("highlight SnacksPickerExplorerWinSeparator guibg=NONE")
-end
-
-vim.api.nvim_create_autocmd("ColorScheme", {
-	callback = function()
-		set_transparency()
-	end,
-})
-
 -- Syntax highlighting
 vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
 	pattern = { ".env", ".env.*" },

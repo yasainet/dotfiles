@@ -1,4 +1,3 @@
--- TODO: 透過されていない
 return {
 	"folke/snacks.nvim",
 	priority = 1000,

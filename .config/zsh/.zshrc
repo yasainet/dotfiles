@@ -1,6 +1,3 @@
-# Limits
-ulimit -n 10240
-
 # Path
 export PATH="$HOME/.local/bin:$PATH"
 
@@ -15,6 +12,9 @@ DISABLE_AUTO_TITLE="true"
 export LANG='en_US.UTF-8'
 export LC_ALL='en_US.UTF-8'
 export LC_CTYPE='en_US.UTF-8'
+
+# Limits
+ulimit -n 10240
 
 # Emacs
 bindkey -e
@@ -88,8 +88,6 @@ pj() {
 }
 
 # claude
-# export CLAUDE_CONFIG_DIR="$HOME/.claude" # NOTE: Experimental
-
 claude() {
   if [ -n "$TMUX" ]; then
     tmux rename-window "claude"

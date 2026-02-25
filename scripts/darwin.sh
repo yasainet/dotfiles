@@ -120,16 +120,6 @@ install_mas_apps() {
 }
 
 # ====================
-# Java
-# ====================
-# TODO: もう利用していない可能性がある
-install_java() {
-  echo "Installing Java..."
-  brew install openjdk
-  sudo ln -sfn /opt/homebrew/opt/openjdk/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk.jdk
-}
-
-# ====================
 # iCloud Downloads
 # ====================
 setup_icloud_downloads() {
@@ -242,5 +232,4 @@ install_packages() {
   install_cli_tools
   install_gui_apps
   install_mas_apps
-  install_java
 }

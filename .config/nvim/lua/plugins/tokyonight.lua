@@ -12,8 +12,8 @@ return {
 				keywords = { italic = false },
 				functions = {},
 				variables = {},
-				sidebars = "dark",
-				floats = "dark",
+				sidebars = "transparent",
+				floats = "transparent",
 			},
 			plugins = {
 				auto = true,
