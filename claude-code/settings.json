@@ -43,7 +43,11 @@
       "WebFetch",
       "WebSearch"
     ],
-    "deny": [],
+    "deny": [
+      "Bash(supabase db diff:*)",
+      "Bash(supabase db push:*)",
+      "Bash(supabase db reset:*)"
+    ],
     "defaultMode": "acceptEdits"
   },
   "enableAllProjectMcpServers": true,
