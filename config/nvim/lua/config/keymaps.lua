@@ -5,6 +5,9 @@ vim.g.maplocalleader = ","
 -- Search
 vim.keymap.set("n", "<Esc>", ":noh<CR>", { silent = true })
 
+-- Quit
+vim.keymap.set("n", "<leader>q", "<Cmd>qa<CR>", { desc = "Quit all" })
+
 -- Aliases
 vim.api.nvim_create_user_command("W", "w", {})
 vim.api.nvim_create_user_command("Q", "q", {})

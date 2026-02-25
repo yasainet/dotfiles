@@ -28,6 +28,8 @@ return {
 						return ret
 					end,
 					layout = {
+						hidden = { "input" },
+						auto_hide = { "input" },
 						preview = "main",
 						layout = {
 							position = "left",
@@ -53,6 +55,25 @@ return {
 				width = 0,
 				height = 0,
 			},
+		},
+		indent = {
+			enabled = true,
+			indent = {
+				char = "│",
+			},
+			scope = {
+				enabled = false,
+			},
+		},
+		image = {
+			enabled = true,
+			backend = "kitty",
+		},
+		bigfile = {
+			enabled = true,
+		},
+		quickfile = {
+			enabled = true,
 		},
 		terminal = {
 			enabled = true,

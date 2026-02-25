@@ -6,7 +6,11 @@ return {
 	event = "VeryLazy",
 	config = function()
 		require("lualine").setup({
+			tabline = {
+				lualine_a = { "tabs" },
+			},
 			options = {
+				always_show_tabline = false,
 				theme = "tokyonight",
 				globalstatus = true,
 				component_separators = { left = "", right = "" },
@@ -27,7 +31,14 @@ return {
 						ignore_lsp = { "GitHub Copilot", "eslint", "marksman", "stylua" },
 					},
 					"encoding",
-					"fileformat",
+					{
+						"fileformat",
+						symbols = {
+							unix = "LF", -- mini.icons: 󰌽 (linux)
+							dos = "CRLF", -- mini.icons: 󰖳 (windows)
+							mac = "CR", -- mini.icons: 󰀵 (macos)
+						},
+					},
 					"filetype",
 				},
 				lualine_y = { "progress" },
