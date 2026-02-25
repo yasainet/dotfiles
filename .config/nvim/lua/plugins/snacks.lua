@@ -12,10 +12,6 @@ return {
 		},
 		terminal = {
 			enabled = true,
-			win = {
-				position = "float",
-				border = "rounded",
-			},
 		},
 	},
 }

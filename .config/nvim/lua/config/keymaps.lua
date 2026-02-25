@@ -67,11 +67,6 @@ vim.keymap.set("n", "<leader>gg", function()
 	end
 end, { desc = "Lazygit" })
 
--- Terminal
-vim.keymap.set({ "n", "t" }, "<C-\\>", function()
-	require("snacks").terminal.toggle()
-end, { desc = "Toggle terminal" })
-
 -- Smart Splits
 vim.keymap.set({ "n", "t" }, "<C-h>", function()
 	require("smart-splits").move_cursor_left()
