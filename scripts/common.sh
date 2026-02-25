@@ -43,6 +43,7 @@ create_symlinks() {
   mkdir -p "$HOME/.claude"
   link "$DOTFILES/claude-code/CLAUDE.md" "$HOME/.claude/CLAUDE.md"
   link "$DOTFILES/claude-code/settings.json" "$HOME/.claude/settings.json"
+  link "$DOTFILES/claude-code/rules" "$HOME/.claude/rules"
 }
 
 # ====================

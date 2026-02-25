@@ -18,10 +18,6 @@
     {
       "passKeys": "",
       "pattern": "https?://b.hatena.ne.jp/hotentry*"
-    },
-    {
-      "passKeys": "",
-      "pattern": "https?://sushida.net/*"
     }
   ]
 }
