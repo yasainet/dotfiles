@@ -75,12 +75,12 @@ vim.keymap.set({ "n", "t" }, "<C-l>", function()
 	require("smart-splits").move_cursor_right()
 end, { desc = "Move to right window" })
 
--- Telescope
-vim.keymap.set("n", "<leader>ff", "<Cmd>Telescope find_files<CR>", { desc = "Find files" })
-vim.keymap.set("n", "<leader>fg", "<Cmd>Telescope live_grep<CR>", { desc = "Live grep" })
-vim.keymap.set("n", "<leader>fb", "<Cmd>Telescope buffers<CR>", { desc = "Find buffers" })
-vim.keymap.set("n", "<leader>fh", "<Cmd>Telescope help_tags<CR>", { desc = "Help tags" })
-vim.keymap.set("n", "<leader>gs", "<Cmd>Telescope git_status<CR>", { desc = "Git status" })
+-- Picker (Snacks)
+vim.keymap.set("n", "<leader>ff", function() Snacks.picker.files() end, { desc = "Find files" })
+vim.keymap.set("n", "<leader>fg", function() Snacks.picker.grep() end, { desc = "Live grep" })
+vim.keymap.set("n", "<leader>fb", function() Snacks.picker.buffers() end, { desc = "Find buffers" })
+vim.keymap.set("n", "<leader>fh", function() Snacks.picker.help() end, { desc = "Help tags" })
+vim.keymap.set("n", "<leader>gs", function() Snacks.picker.git_status() end, { desc = "Git status" })
 
 -- Buffer
 vim.keymap.set("n", "<leader>bc", function()
@@ -127,7 +127,7 @@ vim.keymap.set("v", "<C-_>", "gc", { remap = true, desc = "Toggle comment" })
 vim.keymap.set("i", "<C-_>", "<Esc>gccgi", { desc = "Toggle comment" })
 
 -- Todo Comments
-vim.keymap.set("n", "<leader>ft", "<Cmd>TodoTelescope<CR>", { desc = "Find todos" })
+vim.keymap.set("n", "<leader>ft", function() Snacks.picker.todo_comments() end, { desc = "Find todos" })
 vim.keymap.set("n", "]t", '<Cmd>lua require("todo-comments").jump_next()<CR>', { desc = "Next todo" })
 vim.keymap.set("n", "[t", '<Cmd>lua require("todo-comments").jump_prev()<CR>', { desc = "Previous todo" })
 

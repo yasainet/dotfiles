@@ -9,6 +9,9 @@ return {
 			replace_netrw = true,
 		},
 		picker = {
+			hidden = true,
+			ignored = false,
+			exclude = { "node_modules", ".git", ".next", ".vercel" },
 			sources = {
 				explorer = {
 					hidden = true,
