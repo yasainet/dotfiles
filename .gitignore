@@ -6,6 +6,5 @@
 config/github-copilot/apps.json
 
 # Directory
-.claude/
 .zsh_sessions/
 config/tmux/resurrect/
