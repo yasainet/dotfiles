@@ -2,6 +2,7 @@ return {
 	"folke/todo-comments.nvim",
 	dependencies = { "nvim-lua/plenary.nvim" },
 	opts = {
+		signs = false,
 		highlight = {
 			comments_only = false,
 			pattern = {
@@ -15,4 +16,3 @@ return {
 		},
 	},
 }
--- TODO: sign のエリアにアイコン不要
