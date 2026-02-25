@@ -39,4 +39,3 @@ This file provides guidance to Claude Code when working with this repository.
 │   └── linux.sh      # Linux setup
 └── install.sh        # Entry point
 ```
-
