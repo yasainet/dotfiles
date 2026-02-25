@@ -186,21 +186,19 @@ vim.keymap.set("n", "<leader>yp", function()
 end, { desc = "Yank full path" })
 
 -- Claude Code
-vim.keymap.set("n", "<leader>ac", "<Cmd>ClaudeCode<CR>", { desc = "Toggle Claude" })
-vim.keymap.set("n", "<leader>af", "<Cmd>ClaudeCodeFocus<CR>", { desc = "Focus Claude" })
-vim.keymap.set("n", "<leader>ar", "<Cmd>ClaudeCode --resume<CR>", { desc = "Resume Claude" })
-vim.keymap.set("n", "<leader>aC", "<Cmd>ClaudeCode --continue<CR>", { desc = "Continue Claude" })
-vim.keymap.set("n", "<leader>am", "<Cmd>ClaudeCodeSelectModel<CR>", { desc = "Select Claude model" })
-vim.keymap.set("n", "<leader>ab", "<Cmd>ClaudeCodeAdd %<CR>", { desc = "Add current buffer" })
-vim.keymap.set("v", "<leader>as", "<Cmd>ClaudeCodeSend<CR>", { desc = "Send to Claude" })
-vim.keymap.set("n", "<leader>aa", "<Cmd>ClaudeCodeDiffAccept<CR>", { desc = "Accept diff" })
-vim.keymap.set("n", "<leader>ad", "<Cmd>ClaudeCodeDiffDeny<CR>", { desc = "Deny diff" })
-vim.api.nvim_create_autocmd("FileType", {
-	pattern = { "snacks_picker_explorer" },
-	callback = function()
-		vim.keymap.set("n", "<leader>as", "<Cmd>ClaudeCodeTreeAdd<CR>", { buffer = true, desc = "Add file to Claude" })
-	end,
-})
+vim.keymap.set("n", "<leader>cc", function()
+	if _G._claude_pane_id then
+		local ok = vim.fn.system("tmux display-message -p -t " .. _G._claude_pane_id .. ' "#{pane_id}" 2>/dev/null')
+		if vim.v.shell_error == 0 and ok:match("%S") then
+			vim.fn.system("tmux kill-pane -t " .. _G._claude_pane_id)
+			_G._claude_pane_id = nil
+			return
+		end
+		_G._claude_pane_id = nil
+	end
+	local pane_id = vim.fn.system('tmux split-window -h -l 40% -P -F "#{pane_id}" "claude"')
+	_G._claude_pane_id = vim.trim(pane_id)
+end, { desc = "Claude Code" })
 
 -- Config reload
 vim.keymap.set("n", "<leader>rr", function()

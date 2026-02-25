@@ -17,3 +17,17 @@ vim.api.nvim_create_autocmd("FocusGained", {
 		end
 	end,
 })
+
+-- Refresh snacks explorer
+vim.api.nvim_create_autocmd("FocusGained", {
+	callback = function()
+		local ok, snacks = pcall(require, "snacks")
+		if ok and snacks.picker then
+			for _, picker in ipairs(snacks.picker.get({ source = "explorer" })) do
+				if not picker.closed then
+					picker:find()
+				end
+			end
+		end
+	end,
+})
