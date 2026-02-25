@@ -4,11 +4,73 @@
     "CLAUDE_CODE_DISABLE_AUTO_MEMORY": "1"
   },
   "permissions": {
-    "allow": [],
+    "allow": [
+      "Bash(alias *)",
+      "Bash(bash *)",
+      "Bash(bindkey *)",
+      "Bash(cat *)",
+      "Bash(chmod *)",
+      "Bash(crontab *)",
+      "Bash(defaults *)",
+      "Bash(docker *)",
+      "Bash(echo *)",
+      "Bash(find *)",
+      "Bash(gh *)",
+      "Bash(ghostty *)",
+      "Bash(git *)",
+      "Bash(grep *)",
+      "Bash(lazygit *)",
+      "Bash(ln *)",
+      "Bash(ls *)",
+      "Bash(luac *)",
+      "Bash(nvim *)",
+      "Bash(osascript *)",
+      "Bash(prettier *)",
+      "Bash(python3 *)",
+      "Bash(sips *)",
+      "Bash(stty *)",
+      "Bash(tail *)",
+      "Bash(test *)",
+      "Bash(tmux *)",
+      "Bash(tree *)",
+      "Bash(tree-sitter *)",
+      "Bash(tty *)",
+      "Bash(vim *)",
+      "Bash(xargs *)",
+      "Bash(xattr *)",
+      "Bash(yazi *)",
+      "Bash(zsh *)",
+      "WebFetch",
+      "WebSearch"
+    ],
     "deny": [],
-    "defaultMode": "default"
+    "defaultMode": "acceptEdits"
   },
-  "enabledPlugins": {},
+  "enableAllProjectMcpServers": true,
+  "hooks": {
+    "Notification": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/notify.sh"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/notify.sh"
+          }
+        ]
+      }
+    ]
+  },
   "language": "English/Japanese",
   "autoUpdatesChannel": "latest"
 }

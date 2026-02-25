@@ -72,6 +72,17 @@ return {
 			enabled = true,
 			backend = "kitty",
 		},
+		dashboard = {
+			enabled = true,
+			sections = {
+				{ section = "header" },
+				{ section = "keys", gap = 0, padding = 1 },
+				{ section = "startup" },
+			},
+		},
+		input = {
+			enabled = true,
+		},
 		bigfile = {
 			enabled = true,
 		},
