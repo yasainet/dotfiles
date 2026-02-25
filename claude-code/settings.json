@@ -8,6 +8,19 @@
     "deny": [],
     "defaultMode": "default"
   },
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit|MultiEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "nvim --server $NVIM --remote-expr 'execute(\"checktime\")'"
+          }
+        ]
+      }
+    ]
+  },
   "enabledPlugins": {},
   "language": "English/Japanese",
   "autoUpdatesChannel": "latest"

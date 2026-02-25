@@ -31,27 +31,3 @@ vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter", "CursorHold", "CursorHo
 	end,
 	pattern = { "*" },
 })
-
--- Refresh neo-tree
-vim.api.nvim_create_autocmd({ "FocusGained", "TermLeave" }, {
-	callback = function()
-		local ok, manager = pcall(require, "neo-tree.sources.manager")
-		if ok then
-			vim.schedule(function()
-				pcall(manager.refresh, "filesystem")
-			end)
-		end
-	end,
-})
-
--- Refresh gitsigns
-vim.api.nvim_create_autocmd({ "FocusGained", "TermLeave" }, {
-	callback = function()
-		local ok, gs = pcall(require, "gitsigns")
-		if ok then
-			vim.schedule(function()
-				pcall(gs.refresh)
-			end)
-		end
-	end,
-})

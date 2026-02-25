@@ -60,6 +60,11 @@ vim.keymap.set("n", "<leader>td", "<Cmd>Gitsigns toggle_deleted<CR>", { desc = "
 -- Lazygit
 vim.keymap.set("n", "<leader>gg", function()
 	vim.fn.system("tmux display-popup -E -w 100% -h 100% 'lazygit'")
+	vim.cmd("checktime")
+	local ok, gs = pcall(require, "gitsigns")
+	if ok then
+		gs.refresh()
+	end
 end, { desc = "Lazygit" })
 
 -- Terminal
@@ -90,9 +95,19 @@ vim.keymap.set("n", "<leader>gs", "<Cmd>Telescope git_status<CR>", { desc = "Git
 
 -- Trouble
 vim.keymap.set("n", "<leader>xx", "<Cmd>Trouble diagnostics toggle<CR>", { desc = "Diagnostics (Trouble)" })
-vim.keymap.set("n", "<leader>xX", "<Cmd>Trouble diagnostics toggle filter.buf=0<CR>", { desc = "Buffer Diagnostics (Trouble)" })
+vim.keymap.set(
+	"n",
+	"<leader>xX",
+	"<Cmd>Trouble diagnostics toggle filter.buf=0<CR>",
+	{ desc = "Buffer Diagnostics (Trouble)" }
+)
 vim.keymap.set("n", "<leader>cs", "<Cmd>Trouble symbols toggle focus=false<CR>", { desc = "Symbols (Trouble)" })
-vim.keymap.set("n", "<leader>cl", "<Cmd>Trouble lsp toggle focus=false win.position=right<CR>", { desc = "LSP Definitions / references (Trouble)" })
+vim.keymap.set(
+	"n",
+	"<leader>cl",
+	"<Cmd>Trouble lsp toggle focus=false win.position=right<CR>",
+	{ desc = "LSP Definitions / references (Trouble)" }
+)
 vim.keymap.set("n", "<leader>xL", "<Cmd>Trouble loclist toggle<CR>", { desc = "Location List (Trouble)" })
 vim.keymap.set("n", "<leader>xQ", "<Cmd>Trouble qflist toggle<CR>", { desc = "Quickfix List (Trouble)" })
 
