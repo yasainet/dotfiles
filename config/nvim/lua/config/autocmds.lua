@@ -16,7 +16,7 @@ vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter", "CursorHold", "CursorHo
 	pattern = { "*" },
 })
 
--- Refresh gitsigns when focus returns from external git tools (e.g. tmux lazygit popup)
+-- Refresh gitsigns
 vim.api.nvim_create_autocmd("FocusGained", {
 	callback = function()
 		local ok, gs = pcall(require, "gitsigns")

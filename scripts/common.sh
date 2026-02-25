@@ -25,18 +25,18 @@ create_symlinks() {
   echo "Creating symlinks..."
   mkdir -p "$HOME/.config"
 
-  for dir in "$DOTFILES/.config/"*/; do
+  for dir in "$DOTFILES/config/"*/; do
     [ -d "$dir" ] || continue
     name=$(basename "$dir")
     link "$dir" "$HOME/.config/$name"
   done
 
   # .zshenv
-  link "$DOTFILES/.config/zsh/.zshenv" "$HOME/.zshenv"
+  link "$DOTFILES/config/zsh/.zshenv" "$HOME/.zshenv"
 
   # .oh-my-zsh - macOS
   if [[ "$OSTYPE" == "darwin"* ]]; then
-    link "$DOTFILES/.config/.oh-my-zsh" "$HOME/.config/.oh-my-zsh"
+    link "$DOTFILES/config/.oh-my-zsh" "$HOME/.config/.oh-my-zsh"
   fi
 
   # Claude Code
@@ -93,9 +93,30 @@ setup_bat_theme() {
 }
 
 # ====================
+# Oh My Zsh plugins
+# ====================
+install_omz_plugins() {
+  echo "Installing Oh My Zsh plugins..."
+
+  local ZSH_CUSTOM="$HOME/.config/.oh-my-zsh/custom"
+  local plugins=(zsh-autosuggestions zsh-syntax-highlighting zsh-completions)
+
+  for plugin in "${plugins[@]}"; do
+    local dest="$ZSH_CUSTOM/plugins/$plugin"
+    if [ -d "$dest" ]; then
+      echo "  [skip] $plugin (already installed)"
+    else
+      git clone "https://github.com/zsh-users/$plugin.git" "$dest"
+      echo "  [done] $plugin"
+    fi
+  done
+}
+
+# ====================
 # Post-install
 # ====================
 post_install() {
   echo "Running post-install setup..."
   setup_bat_theme
+  install_omz_plugins
 }

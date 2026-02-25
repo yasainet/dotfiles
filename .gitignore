@@ -4,9 +4,9 @@
 .env
 .zcompdump*
 .zsh_history
-.config/github-copilot/apps.json
+config/github-copilot/apps.json
 
 # Directory
 .zsh_sessions/
 .claude/
-.config/tmux/resurrect/
+config/tmux/resurrect/

@@ -16,7 +16,7 @@ This file provides guidance to Claude Code when working with this repository.
 ```
 .
 ├── .claude/          # Claude Code
-├── .config/
+├── config/
 │   ├── .oh-my-zsh/   # Oh My Zsh (submodule)
 │   ├── bat/          # bat
 │   ├── fzf/          # fzf
