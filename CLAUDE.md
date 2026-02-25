@@ -2,7 +2,7 @@
 
 This file provides guidance to Claude Code when working with this repository.
 
-## 1. Environment
+## Environment
 
 - **OS**: macOS (primary), Linux (secondary)
 - **Terminal**: Ghostty
@@ -11,19 +11,9 @@ This file provides guidance to Claude Code when working with this repository.
 - **Multiplexer**: tmux
 - **File Manager**: Yazi
 
----
+## Directory Structure
 
-## 2. Important Rules
-
-1. **ALWAYS read existing config files first** before suggesting any changes
-2. **Use web search** to check for latest best practices and updates
-3. **Combine both** - understand the current setup AND latest information before proposing solutions
-
----
-
-## 3. Directory Structure
-
-```tree
+```
 .
 ├── .claude/          # Claude Code
 ├── .config/
