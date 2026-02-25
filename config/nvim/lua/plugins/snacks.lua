@@ -28,6 +28,7 @@ return {
 						return ret
 					end,
 					layout = {
+						preview = "main",
 						layout = {
 							position = "left",
 							width = 30,

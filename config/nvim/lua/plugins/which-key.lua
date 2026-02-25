@@ -3,7 +3,10 @@ return {
 	event = "VeryLazy",
 	config = function()
 		require("which-key").setup({
-			preset = "helix",
+			preset = "modern",
+			win = {
+				border = "rounded",
+			},
 			expand = function()
 				return true
 			end,
