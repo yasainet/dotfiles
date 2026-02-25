@@ -21,11 +21,9 @@ return {
 						if item.parent then
 							vim.list_extend(ret, Snacks.picker.format.tree(item, picker))
 						end
-						-- side effect only: sets item.filename_hl for git coloring
 						if item.status then
 							Snacks.picker.format.file_git_status(item, picker)
 						end
-						-- filename with icon (git coloring applied via item.filename_hl)
 						vim.list_extend(ret, Snacks.picker.format.filename(item, picker))
 						return ret
 					end,
@@ -36,6 +34,14 @@ return {
 						},
 					},
 					exclude = { ".DS_Store" },
+					win = {
+						list = {
+							keys = {
+								["s"] = { "edit_vsplit", mode = { "n" } },
+								["S"] = { "edit_split", mode = { "n" } },
+							},
+						},
+					},
 				},
 			},
 		},

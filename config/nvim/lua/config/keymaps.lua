@@ -19,17 +19,6 @@ vim.keymap.set("i", "<C-k>", "<C-o>D", { desc = "Kill to end of line" })
 vim.keymap.set("i", "<C-n>", "<Down>", { desc = "Next line" })
 vim.keymap.set("i", "<C-p>", "<Up>", { desc = "Previous line" })
 
--- Buffer
-vim.keymap.set("n", "<leader>bc", function()
-	local current = vim.api.nvim_get_current_buf()
-	for _, buf in ipairs(vim.api.nvim_list_bufs()) do
-		if buf ~= current and vim.bo[buf].buftype == "" and vim.api.nvim_buf_is_loaded(buf) then
-			vim.api.nvim_buf_delete(buf, {})
-		end
-	end
-	print("Buffers cleared")
-end, { desc = "Clear other buffers" })
-
 -- Explorer
 vim.keymap.set("n", "<leader>e", function()
 	require("snacks").explorer()
@@ -90,6 +79,17 @@ vim.keymap.set("n", "<leader>fb", "<Cmd>Telescope buffers<CR>", { desc = "Find b
 vim.keymap.set("n", "<leader>fh", "<Cmd>Telescope help_tags<CR>", { desc = "Help tags" })
 vim.keymap.set("n", "<leader>gs", "<Cmd>Telescope git_status<CR>", { desc = "Git status" })
 
+-- Buffer
+vim.keymap.set("n", "<leader>bc", function()
+	local current = vim.api.nvim_get_current_buf()
+	for _, buf in ipairs(vim.api.nvim_list_bufs()) do
+		if buf ~= current and vim.bo[buf].buftype == "" and vim.api.nvim_buf_is_loaded(buf) then
+			vim.api.nvim_buf_delete(buf, {})
+		end
+	end
+	print("Buffers cleared")
+end, { desc = "Clear other buffers" })
+
 -- Trouble
 vim.keymap.set("n", "<leader>xx", "<Cmd>Trouble diagnostics toggle<CR>", { desc = "Diagnostics (Trouble)" })
 vim.keymap.set(
@@ -122,15 +122,6 @@ vim.keymap.set("i", "<C-/>", "<Esc>gccgi", { desc = "Toggle comment" })
 vim.keymap.set("n", "<C-_>", "gcc", { remap = true, desc = "Toggle comment" })
 vim.keymap.set("v", "<C-_>", "gc", { remap = true, desc = "Toggle comment" })
 vim.keymap.set("i", "<C-_>", "<Esc>gccgi", { desc = "Toggle comment" })
-
--- Grug-far
-vim.keymap.set("n", "<leader>sr", "<Cmd>GrugFar<CR>", { desc = "Search & Replace" })
-vim.keymap.set("n", "<leader>sw", function()
-	require("grug-far").open({ prefills = { search = vim.fn.expand("<cword>") } })
-end, { desc = "Search word under cursor" })
-vim.keymap.set("v", "<leader>sr", function()
-	require("grug-far").with_visual_selection()
-end, { desc = "Search selection" })
 
 -- Todo Comments
 vim.keymap.set("n", "<leader>ft", "<Cmd>TodoTelescope<CR>", { desc = "Find todos" })
