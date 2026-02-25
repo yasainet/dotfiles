@@ -18,9 +18,7 @@ return {
 			plugins = {
 				auto = true,
 			},
-			-- NeoTreeRootName
 			on_highlights = function(hl, c)
-				hl.NeoTreeRootName = { bold = true, italic = false }
 				-- HACK: JSX/TSX
 				hl["@tag.tsx"] = { fg = c.cyan }
 				hl["@tag.javascript"] = { fg = c.cyan }

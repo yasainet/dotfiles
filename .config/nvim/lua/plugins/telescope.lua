@@ -18,6 +18,11 @@ return {
 		require("telescope").setup({
 			defaults = {
 				file_ignore_patterns = { "node_modules", ".git/", ".next", ".vercel" },
+				mappings = {
+					n = {
+						["q"] = actions.close,
+					},
+				},
 			},
 			pickers = {
 				find_files = {

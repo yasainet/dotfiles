@@ -30,8 +30,10 @@ vim.keymap.set("n", "<leader>bc", function()
 	print("Buffers cleared")
 end, { desc = "Clear other buffers" })
 
--- Neo-tree
-vim.keymap.set("n", "<leader>e", "<Cmd>Neotree toggle<CR>")
+-- Explorer
+vim.keymap.set("n", "<leader>e", function()
+	require("snacks").explorer()
+end, { desc = "Explorer" })
 
 -- Gitsigns
 vim.keymap.set("n", "]c", function()
@@ -200,7 +202,7 @@ vim.keymap.set("v", "<leader>as", "<Cmd>ClaudeCodeSend<CR>", { desc = "Send to C
 vim.keymap.set("n", "<leader>aa", "<Cmd>ClaudeCodeDiffAccept<CR>", { desc = "Accept diff" })
 vim.keymap.set("n", "<leader>ad", "<Cmd>ClaudeCodeDiffDeny<CR>", { desc = "Deny diff" })
 vim.api.nvim_create_autocmd("FileType", {
-	pattern = { "neo-tree" },
+	pattern = { "snacks_picker_explorer" },
 	callback = function()
 		vim.keymap.set("n", "<leader>as", "<Cmd>ClaudeCodeTreeAdd<CR>", { buffer = true, desc = "Add file to Claude" })
 	end,
