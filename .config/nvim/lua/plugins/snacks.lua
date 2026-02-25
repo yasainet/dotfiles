@@ -10,7 +10,7 @@ return {
 		picker = {
 			sources = {
 				explorer = {
-					hidden = false,
+					hidden = true,
 					ignored = false,
 					follow_file = true,
 					git_status = true,
