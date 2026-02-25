@@ -28,6 +28,7 @@ return {
 						n = { ["dd"] = actions.delete_buffer },
 					},
 				},
+				-- TODO: trouble が役目を果たしているから重複しているかも
 				diagnostics = {
 					mappings = {
 						n = { ["y"] = yank_diagnostic },

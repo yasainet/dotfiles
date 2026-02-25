@@ -36,15 +36,10 @@ cursor-style-blink = true
 # Mouse
 mouse-hide-while-typing = true
 
-# Quick Terminal
-quick-terminal-position = center
-quick-terminal-screen = main
-
 # Option key as Alt
 macos-option-as-alt = left
 
 # Keybindings
-keybind = global:cmd+ctrl+\=toggle_quick_terminal
 keybind = shift+enter=text:\x1b\r
 
 # Accidental close prevention: unbind Cmd+w, Cmd+q
@@ -97,5 +92,3 @@ keybind = cmd+shift+d=text:\x02"
 keybind = cmd+bracket_left=text:\x02;
 keybind = cmd+bracket_right=text:\x02o
 
-# NOTE: Ctrl+j/k for IME conversion does not work in Ghostty.
-# This is a known bug. See: https://github.com/ghostty-org/ghostty/issues/4539
