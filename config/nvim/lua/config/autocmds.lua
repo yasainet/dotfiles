@@ -1,11 +1,3 @@
--- Syntax highlighting
-vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
-	pattern = { ".env", ".env.*" },
-	callback = function()
-		vim.bo.filetype = "sh"
-	end,
-})
-
 -- Auto reload
 vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter", "CursorHold", "CursorHoldI", "TermLeave", "WinEnter" }, {
 	callback = function()

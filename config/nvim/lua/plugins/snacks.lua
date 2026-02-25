@@ -40,6 +40,7 @@ return {
 							keys = {
 								["s"] = { "edit_vsplit", mode = { "n" } },
 								["S"] = { "edit_split", mode = { "n" } },
+								["<esc>"] = "none",
 							},
 						},
 					},
