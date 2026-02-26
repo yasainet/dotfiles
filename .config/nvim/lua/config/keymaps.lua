@@ -61,19 +61,11 @@ vim.keymap.set("n", "<leader>gg", function()
 	end
 end, { desc = "Lazygit" })
 
--- Smart Splits
-vim.keymap.set({ "n", "t" }, "<C-h>", function()
-	require("smart-splits").move_cursor_left()
-end, { desc = "Move to left window" })
-vim.keymap.set({ "n", "t" }, "<C-j>", function()
-	require("smart-splits").move_cursor_down()
-end, { desc = "Move to lower window" })
-vim.keymap.set({ "n", "t" }, "<C-k>", function()
-	require("smart-splits").move_cursor_up()
-end, { desc = "Move to upper window" })
-vim.keymap.set({ "n", "t" }, "<C-l>", function()
-	require("smart-splits").move_cursor_right()
-end, { desc = "Move to right window" })
+-- Window navigation
+vim.keymap.set("n", "<C-h>", "<C-w>h", { desc = "Move to left window" })
+vim.keymap.set("n", "<C-j>", "<C-w>j", { desc = "Move to lower window" })
+vim.keymap.set("n", "<C-k>", "<C-w>k", { desc = "Move to upper window" })
+vim.keymap.set("n", "<C-l>", "<C-w>l", { desc = "Move to right window" })
 
 -- Picker (Snacks)
 vim.keymap.set("n", "<leader>ff", function()
