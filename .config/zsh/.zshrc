@@ -45,9 +45,6 @@ else
   alias bat='batcat'
 fi
 
-# Aliases - tmux
-alias ta='tmux a'
-
 # tree
 NODE_IGNORE='"node_modules|.next"'
 
