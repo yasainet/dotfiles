@@ -39,11 +39,8 @@ macos-option-as-alt = left
 # Keybindings
 keybind = shift+enter=text:\x1b\r
 
-# Accidental close prevention: unbind Cmd+w, Cmd+q
-keybind = cmd+w=unbind
-
-# Use Cmd+Shift+w/q instead
-keybind = cmd+shift+w=close_surface
+# tmux integration: Cmd+w -> kill window (C-b &)
+keybind = cmd+w=text:\x02&
 
 # === tmux === #
 
