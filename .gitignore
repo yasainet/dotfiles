@@ -7,5 +7,5 @@
 .DS_Store
 .zcompdump*
 .zsh_history
-config/github-copilot/apps.json
+.config/github-copilot/apps.json
 

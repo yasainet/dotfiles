@@ -1,5 +1,8 @@
 return {
   "mrjones2014/smart-splits.nvim",
   lazy = false,
-  opts = {},
+  opts = {
+    at_edge = "wrap",
+    tmux_integration = false,
+  },
 }
