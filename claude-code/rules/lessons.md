@@ -3,7 +3,7 @@ paths:
   - "**/*"
 ---
 
-# Lessons
+# Lessons Rules
 
 - Record user feedback here
 - Add and write according to the template
