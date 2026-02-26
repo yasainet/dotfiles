@@ -23,9 +23,6 @@ theme = TokyoNight Night
 # Font
 font-family = "PlemolJP Console NF"
 font-size = 14
-# font-feature = -calt
-# font-feature = -liga
-# font-feature = -dlig
 bold-is-bright= true
 adjust-cell-height = 20%
 
