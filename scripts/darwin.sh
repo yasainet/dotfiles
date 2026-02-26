@@ -25,7 +25,6 @@ install_cli_tools() {
   brew install gh
   brew install glab
   brew install neovim
-  brew install starship
   brew install bat
   brew install fzf
   brew install ripgrep

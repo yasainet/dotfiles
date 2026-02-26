@@ -34,10 +34,8 @@ create_symlinks() {
   # .zshenv
   link "$DOTFILES/config/zsh/.zshenv" "$HOME/.zshenv"
 
-  # .oh-my-zsh - macOS
-  if [[ "$OSTYPE" == "darwin"* ]]; then
-    link "$DOTFILES/config/.oh-my-zsh" "$HOME/.config/.oh-my-zsh"
-  fi
+  # .oh-my-zsh
+  link "$DOTFILES/config/.oh-my-zsh" "$HOME/.config/.oh-my-zsh"
 
   # Claude Code
   mkdir -p "$HOME/.claude"
@@ -111,6 +109,15 @@ install_omz_plugins() {
       echo "  [done] $plugin"
     fi
   done
+
+  # Pure prompt
+  local pure_dest="$ZSH_CUSTOM/plugins/pure"
+  if [ -d "$pure_dest" ]; then
+    echo "  [skip] pure (already installed)"
+  else
+    git clone "https://github.com/sindresorhus/pure.git" "$pure_dest"
+    echo "  [done] pure"
+  fi
 }
 
 # ====================

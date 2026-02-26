@@ -6,7 +6,7 @@ This file provides guidance to Claude Code when working with this repository.
 
 - **OS**: macOS (primary), Linux (secondary)
 - **Terminal**: Ghostty
-- **Shell**: Zsh + Oh My Zsh + Starship
+- **Shell**: Zsh + Oh My Zsh + Pure
 - **Editor**: Neovim (LazyVim based) + fd (snacks.nvim explorer dependency)
 - **Multiplexer**: tmux
 - **File Manager**: Yazi
@@ -29,7 +29,7 @@ This file provides guidance to Claude Code when working with this repository.
 │   ├── nvim/         # Neovim
 │   ├── tmux/         # tmux
 │   ├── yazi/         # Yazi file manager
-│   └── zsh/          # Zsh + Starship
+│   └── zsh/          # Zsh + Pure
 ├── claude-code/      # Claude Code global config
 ├── extras/
 │   └── vimium/       # Vimium config

@@ -129,13 +129,21 @@ setopt HIST_IGNORE_SPACE
 setopt SHARE_HISTORY
 setopt HIST_REDUCE_BLANKS
 
-# Oh My Zsh - macOS
-if [[ "$OSTYPE" == "darwin"* ]]; then
-  export ZSH="$HOME/.config/.oh-my-zsh"
-  export ZSH_COMPDUMP="$ZDOTDIR/.zcompdump"
-  plugins=(gitfast zsh-autosuggestions zsh-syntax-highlighting zsh-completions)
-  source "$ZSH/oh-my-zsh.sh"
-fi
+# Oh My Zsh
+export ZSH="$HOME/.config/.oh-my-zsh"
+export ZSH_COMPDUMP="$ZDOTDIR/.zcompdump"
+zstyle ':omz:update' mode auto
+zstyle ':omz:update' frequency 30
+DISABLE_MAGIC_FUNCTIONS="true"
+DISABLE_COMPFIX="true"
+zstyle ':omz:lib:compinit' cache-policy once-a-day
+plugins=(gitfast zsh-autosuggestions zsh-syntax-highlighting zsh-completions)
+source "$ZSH/oh-my-zsh.sh"
+
+# Prompt: Pure
+fpath+=("$ZSH_CUSTOM/plugins/pure")
+autoload -U promptinit; promptinit
+prompt pure
 
 # nvm (lazy load)
 export NVM_DIR="$HOME/.nvm"
@@ -149,20 +157,6 @@ nvm()  { _load_nvm; nvm "$@"; }
 node() { _load_nvm; node "$@"; }
 npm()  { _load_nvm; npm "$@"; }
 npx()  { _load_nvm; npx "$@"; }
-
-# Prompt
-if [[ "$OSTYPE" == "darwin"* ]]; then
-  # macOS
-  if [ -n "$NVIM" ]; then
-    export STARSHIP_CONFIG="$ZDOTDIR/starship-nvim.toml"
-  else
-    export STARSHIP_CONFIG="$ZDOTDIR/starship.toml"
-  fi
-  eval "$(starship init zsh)"
-else
-  # Linux
-  PS1='%F{blue}%B%~%b%f %F{green}❯%f '
-fi
 
 # fzf
 if [[ "$OSTYPE" == "darwin"* ]]; then
