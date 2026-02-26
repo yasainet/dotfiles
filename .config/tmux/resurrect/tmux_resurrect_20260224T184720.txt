@@ -1,0 +1,19 @@
+pane	bitcomic_net	1	1	:*	1	MacBook-Pro-2023.local	:/Users/yasainet/Projects/anon/bitcomic.net	1	zsh	:
+pane	dotfiles	1	1	:*	1	MacBook-Pro-2023.local	:/Users/yasainet/dotfiles	0	nvim	:nvim
+pane	dotfiles	1	1	:*	2	✳ tmux設定確認	:/Users/yasainet/dotfiles	1	2.1.52	:claude
+pane	supaboards_com	1	1	:*	1	MacBook-Pro-2023.local	:/Users/yasainet/Projects/yasainet/supaboards.com	1	nvim	:nvim
+pane	supaboards_com	1	1	:*	2	✳ rm -rf permission	:/Users/yasainet/Projects/yasainet/supaboards.com	0	2.1.50	:claude
+pane	supaboards_com	2	0	:-	1	MacBook-Pro-2023.local	:/Users/yasainet/Projects/yasainet/supaboards.com	1	zsh	:
+pane	supaboards_com	3	0	:	1	MacBook-Pro-2023.local	:/Users/yasainet/Projects/yasainet/supaboards.com	1	zsh	:
+pane	supaboards_com	4	0	:	1	MacBook-Pro-2023.local	:/Users/yasainet/Projects/yasainet/supaboards.com	1	zsh	:
+pane	supaboards_com	5	0	:	1	MacBook-Pro-2023.local	:/Users/yasainet/Projects/yasainet/supaboards.com	1	node	:npm run dev   
+pane	supadb	1	1	:*	1	MacBook-Pro-2023.local	:/Users/yasainet/Projects/yasainet/supadb	1	nvim	:nvim
+window	bitcomic_net	1	:zsh	1	:*	bdde,239x53,0,0,1	:
+window	dotfiles	1	:claude	1	:*	e35e,239x52,0,0{119x52,0,0,2,119x52,120,0,29}	off
+window	supaboards_com	1	:claude	1	:*	aedb,239x52,0,0{143x52,0,0,4,95x52,144,0,14}	off
+window	supaboards_com	2	:zsh	0	:-	dd27,239x52,0,0,28	:
+window	supaboards_com	3	:zsh	0	:	dd25,239x52,0,0,26	:
+window	supaboards_com	4	:zsh	0	:	dd24,239x52,0,0,25	:
+window	supaboards_com	5	:node	0	:	b9e5,239x52,0,0,8	:
+window	supadb	1	:nvim	1	:*	dd23,239x52,0,0,24	:
+state	dotfiles	supaboards_com

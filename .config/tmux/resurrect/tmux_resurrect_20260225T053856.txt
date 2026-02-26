@@ -1,0 +1,17 @@
+pane	0_dotfiles	1	1	:*	1	MacBook-Pro-2023.local	:/Users/yasainet/dotfiles	1	nvim	:nvim
+pane	1_eslint	1	1	:*	1	MacBook-Pro-2023.local	:/Users/yasainet/Projects/yasainet/eslint	1	nvim	:nvim
+pane	1_eslint	1	1	:*	2	✳ Push v0.1.1	:/Users/yasainet/Projects/yasainet/eslint	0	2.1.52	:claude
+pane	2_bitcomic_net	1	1	:*	1	MacBook-Pro-2023.local	:/Users/yasainet/Projects/anon/bitcomic.net	1	nvim	:nvim
+pane	3_supaboards_com	1	1	:*	1	MacBook-Pro-2023.local	:/Users/yasainet/Projects/yasainet/supaboards.com	0	nvim	:nvim
+pane	3_supaboards_com	1	1	:*	2	✳ TypeScript エラー分析	:/Users/yasainet/Projects/yasainet/supaboards.com	1	2.1.52	:claude
+pane	3_supaboards_com	2	0	:-	1	MacBook-Pro-2023.local	:/Users/yasainet/Projects/yasainet/supaboards.com	1	node	:npm run dev   
+pane	4_supadb	1	1	:*	1	MacBook-Pro-2023.local	:/Users/yasainet/Projects/yasainet/supadb	1	nvim	:nvim
+pane	4_supadb	1	1	:*	2	✳ tsx command error	:/Users/yasainet/Projects/yasainet/supadb	0	2.1.52	:claude
+pane	4_supadb	1	1	:*	3	MacBook-Pro-2023.local	:/Users/yasainet/Projects/yasainet/supadb	0	zsh	:
+window	0_dotfiles	1	:[tmux]	1	:*	b9df,239x52,0,0,2	on
+window	1_eslint	1	:claude	1	:*	267b,239x52,0,0{119x52,0,0,30,119x52,120,0,34}	off
+window	2_bitcomic_net	1	:nvim	1	:*	b9de,239x52,0,0,1	:
+window	3_supaboards_com	1	:claude	1	:*	331c,239x53,0,0{143x53,0,0,4,95x53,144,0,14}	off
+window	3_supaboards_com	2	:node	0	:-	b9e5,239x52,0,0,8	:
+window	4_supadb	1	:claude	1	:*	1122,239x52,0,0{119x52,0,0,24,119x52,120,0[119x26,120,0,35,119x25,120,27,36]}	off
+state	0_dotfiles	1_eslint

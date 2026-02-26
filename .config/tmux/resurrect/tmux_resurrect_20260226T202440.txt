@@ -1,0 +1,30 @@
+pane	01_dotfiles	1	0	:	1	dotfiles: nvim	:/Users/yasainet/dotfiles	1	nvim	:nvim
+-zsh
+pane	01_dotfiles	2	1	:*	1	✳ Claude Code	:/Users/yasainet/dotfiles	1	2.1.59	:claude
+-zsh
+pane	01_dotfiles	3	0	:-	1	✳ Claude Code	:/Users/yasainet/dotfiles	1	2.1.59	:claude
+-zsh
+pane	02_eslint-next	1	1	:*	1	eslint-next: nvim	:/Users/yasainet/Projects/yasainet/eslint-next	1	nvim	:nvim
+-zsh
+pane	03_bitcomic_net	1	1	:*	1	bitcomic.net: nvim	:/Users/yasainet/Projects/anon/bitcomic.net	1	nvim	:nvim
+-zsh
+pane	04_supaboards_com	1	1	:*	1	supaboards.com: nvim	:/Users/yasainet/Projects/yasainet/supaboards.com	1	nvim	:nvim
+-zsh
+pane	04_supaboards_com	2	0	:-	1	✳ Claude Code	:/Users/yasainet/Projects/yasainet/supaboards.com	1	2.1.59	:claude
+-zsh
+pane	04_supaboards_com	3	0	:	1	supaboards.com: npm run dev	:/Users/yasainet/Projects/yasainet/supaboards.com	1	node	:npm run dev   
+-zsh
+pane	05_supadb	1	1	:*	1	supadb: nvim	:/Users/yasainet/Projects/yasainet/supadb	1	nvim	:nvim
+-zsh
+pane	06_oyatsu	1	1	:*	1	~/Projects/yasainet/oyatsu	:/Users/yasainet/Projects/yasainet/oyatsu	1	zsh	:-zsh
+window	01_dotfiles	1	:nvim	0	:	6ec2,239x52,0,0,231	:
+window	01_dotfiles	2	:claude	1	:*	6ec3,239x52,0,0,232	off
+window	01_dotfiles	3	:claude	0	:-	eec7,239x52,0,0,265	off
+window	02_eslint-next	1	:nvim	1	:*	eec4,239x52,0,0,262	:
+window	03_bitcomic_net	1	:nvim	1	:*	eec9,239x52,0,0,248	:
+window	04_supaboards_com	1	:nvim	1	:*	eec3,239x52,0,0,242	:
+window	04_supaboards_com	2	:claude	0	:-	eec5,239x52,0,0,244	off
+window	04_supaboards_com	3	:node	0	:	eec6,239x52,0,0,245	:
+window	05_supadb	1	:nvim	1	:*	6ec2,239x52,0,0,250	:
+window	06_oyatsu	1	:zsh	1	:*	6ec3,239x52,0,0,251	:
+state	01_dotfiles	05_supadb

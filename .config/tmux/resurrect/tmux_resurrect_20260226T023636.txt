@@ -1,0 +1,19 @@
+pane	0_terminal	1	1	:*	1	MacBook-Pro-2023.local	:/Users/yasainet/dotfiles	1	zsh	:
+pane	1_dotfiles	1	1	:*	1	MacBook-Pro-2023.local	:/Users/yasainet/dotfiles	1	tmux	:(direnv)
+pane	1_dotfiles	2	0	:-	1	✳ Getting Started	:/Users/yasainet/dotfiles	1	2.1.56	:claude
+pane	1_dotfiles	3	0	:	1	✳ Claude Code 通知問題	:/Users/yasainet/dotfiles	1	2.1.56	:claude
+pane	2_eslint	1	1	:*	1	MacBook-Pro-2023.local	:/Users/yasainet/Projects/yasainet/eslint	1	nvim	:nvim
+pane	3_bitcomic_net	1	1	:*	1	MacBook-Pro-2023.local	:/Users/yasainet/Projects/anon/bitcomic.net	1	nvim	:nvim
+pane	4_supaboards_com	1	1	:*	1	✳ tmux ghostty config	:/Users/yasainet/Projects/yasainet/supaboards.com	1	nvim	:nvim
+pane	4_supaboards_com	2	0	:-	1	MacBook-Pro-2023.local	:/Users/yasainet/Projects/yasainet/supaboards.com	1	node	:npm run dev   
+pane	5_supadb	1	1	:*	1	MacBook-Pro-2023.local	:/Users/yasainet/Projects/yasainet/supadb	1	nvim	:nvim
+window	0_terminal	1	:zsh	1	:*	2fc0,239x53,0,0,110	:
+window	1_dotfiles	1	:zsh	1	:*	5d2c,239x52,0,0,99	on
+window	1_dotfiles	2	:claude	0	:-	2ec9,239x52,0,0,138	off
+window	1_dotfiles	3	:claude	0	:	2eca,239x52,0,0,139	off
+window	2_eslint	1	:nvim	1	:*	61f0,319x64,0,0,30	on
+window	3_bitcomic_net	1	:nvim	1	:*	bdde,239x53,0,0,1	:
+window	4_supaboards_com	1	:nvim	1	:*	df24,239x53,0,0,44	on
+window	4_supaboards_com	2	:node	0	:-	c385,319x64,0,0,8	:
+window	5_supadb	1	:nvim	1	:*	afc4,239x53,0,0,105	:
+state	1_dotfiles	4_supaboards_com

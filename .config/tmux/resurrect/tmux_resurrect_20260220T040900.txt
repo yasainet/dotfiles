@@ -1,0 +1,9 @@
+pane	bitcomic_net	1	1	:*	1	MacBook-Pro-2023.local	:/Users/yasainet/Projects/anon/bitcomic.net	1	zsh	:
+pane	dotfiles	1	1	:*	1	MacBook-Pro-2023.local	:/Users/yasainet/dotfiles	1	nvim	:nvim
+pane	supaboards_com	1	1	:*	1	MacBook-Pro-2023.local	:/Users/yasainet/Projects/yasainet/supaboards.com	1	nvim	:nvim
+pane	supaboards_com	2	0	:-	1	MacBook-Pro-2023.local	:/Users/yasainet/Projects/yasainet/supaboards.com	1	zsh	:
+window	bitcomic_net	1	:zsh	1	:*	b9de,239x52,0,0,1	:
+window	dotfiles	1	:nvim	1	:*	b9df,239x52,0,0,2	on
+window	supaboards_com	1	:nvim	1	:*	b9e2,239x52,0,0,5	:
+window	supaboards_com	2	:zsh	0	:-	b9e3,239x52,0,0,6	:
+state	dotfiles	supaboards_com

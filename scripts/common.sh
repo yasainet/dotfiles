@@ -25,17 +25,17 @@ create_symlinks() {
   echo "Creating symlinks..."
   mkdir -p "$HOME/.config"
 
-  for dir in "$DOTFILES/config/"*/; do
+  for dir in "$DOTFILES/.config/"*/; do
     [ -d "$dir" ] || continue
     name=$(basename "$dir")
     link "$dir" "$HOME/.config/$name"
   done
 
   # .zshenv
-  link "$DOTFILES/config/zsh/.zshenv" "$HOME/.zshenv"
+  link "$DOTFILES/.config/zsh/.zshenv" "$HOME/.zshenv"
 
   # .oh-my-zsh
-  link "$DOTFILES/config/.oh-my-zsh" "$HOME/.config/.oh-my-zsh"
+  link "$DOTFILES/.config/.oh-my-zsh" "$HOME/.config/.oh-my-zsh"
 
   # Claude Code
   mkdir -p "$HOME/.claude"
