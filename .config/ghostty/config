@@ -70,9 +70,9 @@ keybind = cmd+seven=text:\x027
 keybind = cmd+eight=text:\x028
 keybind = cmd+nine=text:\x029
 
-# Cmd+[/] -> C-h/C-l
-keybind = cmd+bracket_left=text:\x08
-keybind = cmd+bracket_right=text:\x0c
+# Cmd+[/] -> pane navigation
+keybind = cmd+bracket_left=text:\x02h
+keybind = cmd+bracket_right=text:\x02l
 
 # Cmd+Shift+[/] -> previous/next window
 keybind = cmd+shift+bracket_left=text:\x02p
