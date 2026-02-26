@@ -1,28 +1,30 @@
-# Rules
+# Workflow Orchestration
 
-## Workflows
+## Task Management
 
-- Follow these steps: `Investigation`, `Planning`, `Implementation`, `Verification`
-- Ask for my confirmation before proceeding to the next step
+> [!IMPORTANT]
+>
+> - Follow these steps in order: Summary, Investigation, Planning, Execute, Verification
+> - Get user confirmation before moving to the next step
 
-### 1. Investigation
+1. Summary: Summarize the user's request. Confirm the goal and check for misunderstandings
+2. Investigation: Search related files, web, and docs needed for the goal
+3. Planning: Always use plan mode. Propose a TODO list for the implementation
+4. Execute: Follow Core Principles below
+5. Verification: Run the verification steps defined in the project's CLAUDE.md
+6. Capture Lessons: If the user points out a mistake, record it in `~/.claude/rules/lessons.md`
 
-- Understand my instructions and goals, then summarize them in your own words
-- Gather relevant files and information to investigate my request
+## Core Principles
 
-### 2. Planning
+- YAGNI: You Aren't Gonna Need It
+- KISS: Keep It Simple, Stupid
+- DRY: Don't Repeat Yourself
+- SRP: Single Responsibility Principle
+- ESLint: Follow the linting rules defined in the project
 
-- Create an implementation plan based on your investigation
-- Propose the plan as a TODO list
+## Code Comments, JSDoc
 
-### 3. Implementation
-
-- Follow these software development principles:
-  - YAGNI: You Aren't Gonna Need It
-  - KISS: Keep It Simple, Stupid
-  - DRY: Don't Repeat Yourself
 - Write all code comments and JSDoc descriptions in simple English
-
-### 4. Verification
-
-- After creating or modifying code, run the verification commands defined in the project's CLAUDE.md
+- Use bullet list format when the description gets long
+- Only use `@description`. No other JSDoc tags
+- Describe "why" this code exists, not the implementation details

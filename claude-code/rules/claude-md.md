@@ -12,4 +12,4 @@ paths:
   4. `## Environment Architecture` - development/preview/production environment differences
   5. `## Directory Structure` - Directory tree in a code block
   6. `## Commands` - Build, test, lint commands in a code block
-  7. `## Test` - Test credentials, URLs, and environment info
+  7. `## Verification` - Commands to verify the project after implementation
