@@ -4,12 +4,12 @@
 # Usage: status.sh <waiting|done>
 # Sets tmux window options to show dot indicators via dotbar
 
-[ -z "${TMUX:-}" ] && exit 0
-
 TMUX_BIN="/opt/homebrew/bin/tmux"
 ACTION="${1:-waiting}"
 
 cat > /dev/null
+
+[ -z "${TMUX:-}" ] && exit 0
 
 case "$ACTION" in
   waiting)
