@@ -73,7 +73,7 @@ install_gui_apps() {
   # Fonts
   brew install --cask font-plemol-jp-nf
 
-  # Terminal & Editor
+  # Terminal
   brew install --cask ghostty
 
   # Browser
