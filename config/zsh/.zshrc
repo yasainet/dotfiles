@@ -137,11 +137,18 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
   source "$ZSH/oh-my-zsh.sh"
 fi
 
-# nvm
+# nvm (lazy load)
 export NVM_DIR="$HOME/.nvm"
 export NODE_NO_WARNINGS=1
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+_load_nvm() {
+  unfunction nvm node npm npx 2>/dev/null
+  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+  [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+}
+nvm()  { _load_nvm; nvm "$@"; }
+node() { _load_nvm; node "$@"; }
+npm()  { _load_nvm; npm "$@"; }
+npx()  { _load_nvm; npx "$@"; }
 
 # Prompt
 if [[ "$OSTYPE" == "darwin"* ]]; then
