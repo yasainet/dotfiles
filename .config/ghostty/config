@@ -41,6 +41,9 @@ keybind = shift+enter=text:\x1b\r
 
 # === tmux === #
 
+# Cmd+b -> copy-mode
+keybind = cmd+b=text:\x02v
+
 # Cmd+w -> kill window
 keybind = cmd+w=unbind
 keybind = cmd+w=text:\x02&
