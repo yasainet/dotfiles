@@ -53,7 +53,7 @@ vim.keymap.set("n", "<leader>td", "<Cmd>Gitsigns toggle_deleted<CR>", { desc = "
 
 -- Lazygit
 vim.keymap.set("n", "<leader>gg", function()
-	vim.fn.system("tmux display-popup -E -w 100% -h 100% 'lazygit'")
+	vim.fn.system("tmux display-popup -E -w 100% -h 100% -d " .. vim.fn.shellescape(vim.fn.getcwd()) .. " 'lazygit'")
 	vim.cmd("checktime")
 	local ok, gs = pcall(require, "gitsigns")
 	if ok then
