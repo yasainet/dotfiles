@@ -6,10 +6,7 @@ vim.g.maplocalleader = ","
 vim.keymap.set("n", "<Esc>", ":noh<CR>", { silent = true })
 
 -- Quit
-vim.keymap.set("n", "<leader>q", "<Cmd>qa<CR>", { desc = "Quit all" })
-
--- Dashboard
-vim.keymap.set("n", "<leader>;", function() Snacks.dashboard() end, { desc = "Dashboard" })
+vim.keymap.set("n", "<leader>q", "<Cmd>qa!<CR>", { desc = "Quit all" })
 
 -- Aliases
 vim.api.nvim_create_user_command("W", "w", {})
@@ -79,12 +76,24 @@ vim.keymap.set({ "n", "t" }, "<C-l>", function()
 end, { desc = "Move to right window" })
 
 -- Picker (Snacks)
-vim.keymap.set("n", "<leader>ff", function() Snacks.picker.files() end, { desc = "Find files" })
-vim.keymap.set("n", "<leader>fg", function() Snacks.picker.grep() end, { desc = "Live grep" })
-vim.keymap.set("n", "<leader>fb", function() Snacks.picker.buffers() end, { desc = "Find buffers" })
-vim.keymap.set("n", "<leader>fr", function() Snacks.picker.recent() end, { desc = "Recent files" })
-vim.keymap.set("n", "<leader>fh", function() Snacks.picker.help() end, { desc = "Help tags" })
-vim.keymap.set("n", "<leader>gs", function() Snacks.picker.git_status() end, { desc = "Git status" })
+vim.keymap.set("n", "<leader>ff", function()
+	Snacks.picker.files()
+end, { desc = "Find files" })
+vim.keymap.set("n", "<leader>fg", function()
+	Snacks.picker.grep()
+end, { desc = "Live grep" })
+vim.keymap.set("n", "<leader>fb", function()
+	Snacks.picker.buffers()
+end, { desc = "Find buffers" })
+vim.keymap.set("n", "<leader>fr", function()
+	Snacks.picker.recent()
+end, { desc = "Recent files" })
+vim.keymap.set("n", "<leader>fh", function()
+	Snacks.picker.help()
+end, { desc = "Help tags" })
+vim.keymap.set("n", "<leader>gs", function()
+	Snacks.picker.git_status()
+end, { desc = "Git status" })
 
 -- Buffer
 vim.keymap.set("n", "<leader>bc", function()
@@ -131,7 +140,9 @@ vim.keymap.set("v", "<C-_>", "gc", { remap = true, desc = "Toggle comment" })
 vim.keymap.set("i", "<C-_>", "<Esc>gccgi", { desc = "Toggle comment" })
 
 -- Todo Comments
-vim.keymap.set("n", "<leader>ft", function() Snacks.picker.todo_comments() end, { desc = "Find todos" })
+vim.keymap.set("n", "<leader>ft", function()
+	Snacks.picker.todo_comments()
+end, { desc = "Find todos" })
 vim.keymap.set("n", "]t", '<Cmd>lua require("todo-comments").jump_next()<CR>', { desc = "Next todo" })
 vim.keymap.set("n", "[t", '<Cmd>lua require("todo-comments").jump_prev()<CR>', { desc = "Previous todo" })
 

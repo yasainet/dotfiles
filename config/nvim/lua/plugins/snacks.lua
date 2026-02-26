@@ -12,6 +12,12 @@ return {
 			ignored = false,
 			exclude = { "node_modules", ".git", ".next", ".vercel", "package-lock.json" },
 			sources = {
+				files = {
+					hidden = true,
+				},
+				grep = {
+					hidden = true,
+				},
 				explorer = {
 					hidden = true,
 					ignored = false,
@@ -83,14 +89,6 @@ return {
 		image = {
 			enabled = true,
 			backend = "kitty",
-		},
-		dashboard = {
-			enabled = true,
-			sections = {
-				{ section = "header" },
-				{ section = "keys", gap = 0, padding = 1 },
-				{ section = "startup" },
-			},
 		},
 		input = {
 			enabled = true,

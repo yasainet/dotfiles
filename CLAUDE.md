@@ -13,7 +13,7 @@ This file provides guidance to Claude Code when working with this repository.
 
 ## Directory Structure
 
-```
+```text
 .
 ├── .claude/          # Claude Code
 ├── config/
