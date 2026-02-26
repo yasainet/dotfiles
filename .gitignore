@@ -1,10 +1,10 @@
+# Directory
+.zsh_sessions/
+config/tmux/resurrect/
+
 # File
 *.local
 .DS_Store
 .zcompdump*
 .zsh_history
 config/github-copilot/apps.json
-
-# Directory
-.zsh_sessions/
-config/tmux/resurrect/

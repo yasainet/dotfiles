@@ -26,3 +26,14 @@ git clone --recursive https://github.com/yasainet/dotfiles.git ~/dotfiles
 cd ~/dotfiles
 ./install.sh
 ```
+
+## Commands
+
+```typescript
+export const commands = {
+  install: "Install dotfiles",
+  update: "Update dotfiles",
+  backup: "Backup current dotfiles",
+  restore: "Restore dotfiles from backup",
+};
+```
