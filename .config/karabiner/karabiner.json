@@ -142,6 +142,29 @@
                 "type": "basic"
               }
             ]
+          },
+          {
+            "description": "Ctrl+q (tmux choose-tree) switches to English",
+            "manipulators": [
+              {
+                "from": {
+                  "key_code": "q",
+                  "modifiers": {
+                    "mandatory": ["control"]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "q",
+                    "modifiers": ["control"]
+                  },
+                  {
+                    "key_code": "japanese_eisuu"
+                  }
+                ],
+                "type": "basic"
+              }
+            ]
           }
         ]
       },
