@@ -34,9 +34,9 @@ return {
 					{
 						"fileformat",
 						symbols = {
-							unix = "󰌽 LF",
-							dos = "󰖳 CRLF",
-							mac = "󰀵 CR",
+							unix = "LF",
+							dos = "CRLF",
+							mac = "CR",
 						},
 					},
 					"filetype",
