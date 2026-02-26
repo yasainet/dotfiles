@@ -213,6 +213,19 @@ vim.keymap.set("n", "<leader>cc", function()
 	_G._claude_pane_id = vim.trim(pane_id)
 end, { desc = "Claude Code" })
 
+-- Terminal
+vim.keymap.set({ "n", "t" }, "<C-\\>", function()
+	Snacks.terminal(nil, {
+		cwd = vim.fn.getcwd(),
+		win = {
+			position = "float",
+			border = "rounded",
+			width = 0.95,
+			height = 0.95,
+		},
+	})
+end, { desc = "Toggle terminal" })
+
 -- Config reload
 vim.keymap.set("n", "<leader>rr", function()
 	for name, _ in pairs(package.loaded) do

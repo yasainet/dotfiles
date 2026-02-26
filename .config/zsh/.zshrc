@@ -185,6 +185,14 @@ else
 fi
 bindkey -r '^T'  # Disable: Ctrl+t
 
+# Toggle tmux popup with C-\
+if [[ -n "$TMUX_POPUP" ]]; then
+  stty quit undef
+  _tmux_popup_close() { exit 0 }
+  zle -N _tmux_popup_close
+  bindkey '^\' _tmux_popup_close
+fi
+
 # OrbStack
 [ -f ~/.orbstack/shell/init.zsh ] && source ~/.orbstack/shell/init.zsh
 
