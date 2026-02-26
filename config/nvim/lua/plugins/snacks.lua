@@ -19,6 +19,18 @@ return {
 					follow_file = true,
 					git_status = true,
 					diagnostics = false,
+					config = function(opts)
+						local actions = require("snacks.explorer.actions")
+						local original_confirm = actions.actions.confirm
+						function actions.actions.confirm(picker, item, action)
+							local was_searching = picker.input.filter.meta.searching
+							original_confirm(picker, item, action)
+							if was_searching then
+								vim.cmd("stopinsert")
+							end
+						end
+						return require("snacks.picker.source.explorer").setup(opts)
+					end,
 					format = function(item, picker)
 						local ret = {}
 						if item.parent then
@@ -33,7 +45,7 @@ return {
 					layout = {
 						hidden = { "input" },
 						auto_hide = { "input" },
-						preview = "main",
+						preview = false,
 						layout = {
 							position = "left",
 							width = 30,
@@ -45,6 +57,7 @@ return {
 							keys = {
 								["s"] = { "edit_vsplit", mode = { "n" } },
 								["S"] = { "edit_split", mode = { "n" } },
+								["P"] = "none",
 								["<esc>"] = "none",
 							},
 						},

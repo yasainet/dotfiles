@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# Claude Code desktop notification via terminal-notifier
+# Usage: notify.sh
+# Sends a macOS notification with tmux session/window info when available
+
 NOTIFIER="/opt/homebrew/bin/terminal-notifier"
 if [ ! -x "$NOTIFIER" ]; then
   NOTIFIER=$(which terminal-notifier 2>/dev/null || true)
