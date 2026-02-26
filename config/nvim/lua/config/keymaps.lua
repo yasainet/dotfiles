@@ -8,6 +8,9 @@ vim.keymap.set("n", "<Esc>", ":noh<CR>", { silent = true })
 -- Quit
 vim.keymap.set("n", "<leader>q", "<Cmd>qa<CR>", { desc = "Quit all" })
 
+-- Dashboard
+vim.keymap.set("n", "<leader>;", function() Snacks.dashboard() end, { desc = "Dashboard" })
+
 -- Aliases
 vim.api.nvim_create_user_command("W", "w", {})
 vim.api.nvim_create_user_command("Q", "q", {})
