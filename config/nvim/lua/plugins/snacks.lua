@@ -1,4 +1,3 @@
----@diagnostic disable: undefined-global
 return {
 	"folke/snacks.nvim",
 	priority = 1000,
@@ -55,9 +54,9 @@ return {
 					win = {
 						list = {
 							keys = {
-								["s"] = { "edit_vsplit", mode = { "n" } },
-								["S"] = { "edit_split", mode = { "n" } },
-								["P"] = "none",
+								["<C-v>"] = { "edit_vsplit", mode = { "n" } },
+								["<C-s>"] = { "edit_split", mode = { "n" } },
+								["P"] = "none", -- Disable preview
 								["<esc>"] = "none",
 							},
 						},
