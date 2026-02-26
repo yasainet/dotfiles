@@ -39,12 +39,13 @@ macos-option-as-alt = left
 # Keybindings
 keybind = shift+enter=text:\x1b\r
 
-# tmux integration: Cmd+w -> kill window (C-b &)
-keybind = cmd+w=text:\x02&
-
 # === tmux === #
 
-# tmux integration: unbind default Cmd+number
+# Cmd+w -> kill window
+keybind = cmd+w=unbind
+keybind = cmd+w=text:\x02&
+
+# unbind default Cmd+number
 keybind = cmd+digit_1=unbind
 keybind = cmd+digit_2=unbind
 keybind = cmd+digit_3=unbind
@@ -55,7 +56,7 @@ keybind = cmd+digit_7=unbind
 keybind = cmd+digit_8=unbind
 keybind = cmd+digit_9=unbind
 
-# tmux integration: Cmd+number -> select-window
+# Cmd+number -> select-window
 keybind = cmd+one=text:\x021
 keybind = cmd+two=text:\x022
 keybind = cmd+three=text:\x023
@@ -66,23 +67,22 @@ keybind = cmd+seven=text:\x027
 keybind = cmd+eight=text:\x028
 keybind = cmd+nine=text:\x029
 
-# tmux integration: Cmd+Shift+[/] -> previous/next window
+# Cmd+[/] -> C-h/C-l
+keybind = cmd+bracket_left=text:\x08
+keybind = cmd+bracket_right=text:\x0c
+
+# Cmd+Shift+[/] -> previous/next window
 keybind = cmd+shift+bracket_left=text:\x02p
 keybind = cmd+shift+bracket_right=text:\x02n
 
-# tmux integration: Cmd+t -> new window
+# Cmd+t -> new window
 keybind = cmd+t=unbind
 keybind = cmd+t=text:\x02c
 
-# tmux integration: Cmd+D -> split horizontal (C-b %)
+# Cmd+D -> split horizontal (C-b %)
 keybind = cmd+d=unbind
 keybind = cmd+d=text:\x02%
 
-# tmux integration: Cmd+Shift+D -> split vertical (C-b ")
+# Cmd+Shift+D -> split vertical (C-b ")
 keybind = cmd+shift+d=unbind
 keybind = cmd+shift+d=text:\x02"
-
-# tmux integration: Cmd+[/] -> previous/next pane
-keybind = cmd+bracket_left=text:\x02;
-keybind = cmd+bracket_right=text:\x02o
-
