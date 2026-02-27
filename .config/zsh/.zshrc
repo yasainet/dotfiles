@@ -160,6 +160,13 @@ PROMPT="${PROMPT/\%~/%1v}"
 # nvm (lazy load)
 export NVM_DIR="$HOME/.nvm"
 export NODE_NO_WARNINGS=1
+# Eagerly add default node to PATH (for non-interactive tools like Neovim)
+if [[ -f "$NVM_DIR/alias/default" ]]; then
+  _nvm_ver=$(cat "$NVM_DIR/alias/default")
+  _nvm_dirs=("$NVM_DIR/versions/node/v${_nvm_ver}"*(N/))
+  (( ${#_nvm_dirs} )) && export PATH="${_nvm_dirs[1]}/bin:$PATH"
+  unset _nvm_ver _nvm_dirs
+fi
 _load_nvm() {
   unfunction nvm node npm npx 2>/dev/null
   [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
