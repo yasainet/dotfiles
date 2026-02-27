@@ -12,7 +12,6 @@
 3. Planning: Always use plan mode. Propose a TODO list for the implementation
 4. Execute: Follow Core Principles below
 5. Verification: Run the verification steps defined in the project's CLAUDE.md
-6. Capture Lessons: If the user points out a mistake, record it in `~/.claude/rules/lessons.md`
 
 ## Core Principles
 
@@ -28,3 +27,8 @@
 - Use bullet list format when the description gets long
 - Only use `@description`. No other JSDoc tags
 - Describe "why" this code exists, not the implementation details
+
+---
+
+> [!NOTE]
+> Capture Lessons: If the user points out, record it in `~/.claude/rules/lessons.md`
