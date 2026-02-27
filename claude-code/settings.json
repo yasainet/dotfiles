@@ -68,10 +68,6 @@
           {
             "type": "command",
             "command": "~/.claude/hooks/notify.sh"
-          },
-          {
-            "type": "command",
-            "command": "~/.claude/hooks/status.sh waiting"
           }
         ]
       }
@@ -83,10 +79,6 @@
           {
             "type": "command",
             "command": "~/.claude/hooks/notify.sh"
-          },
-          {
-            "type": "command",
-            "command": "~/.claude/hooks/status.sh done"
           }
         ]
       }
