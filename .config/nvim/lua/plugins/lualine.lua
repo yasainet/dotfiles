@@ -13,8 +13,8 @@ return {
 				always_show_tabline = false,
 				theme = "tokyonight",
 				globalstatus = true,
-				component_separators = { left = "", right = "" },
-				section_separators = { left = "", right = "" },
+				component_separators = "",
+				section_separators = "",
 				refresh = {
 					statusline = 1000,
 					tabline = 1000,
