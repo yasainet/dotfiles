@@ -160,7 +160,6 @@ PROMPT="${PROMPT/\%~/%1v}"
 # nvm (lazy load)
 export NVM_DIR="$HOME/.nvm"
 export NODE_NO_WARNINGS=1
-# Eagerly add default node to PATH (for non-interactive tools like Neovim)
 if [[ -f "$NVM_DIR/alias/default" ]]; then
   _nvm_ver=$(cat "$NVM_DIR/alias/default")
   _nvm_dirs=("$NVM_DIR/versions/node/v${_nvm_ver}"*(N/))
