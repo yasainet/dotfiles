@@ -32,7 +32,6 @@ main() {
   install_nvm
   post_install
 
-  # macOS-specific system configuration
   if [ "$OS" = "Darwin" ]; then
     configure_system
   fi
