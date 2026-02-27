@@ -93,5 +93,8 @@
     ]
   },
   "language": "Japanese",
-  "autoUpdatesChannel": "latest"
+  "autoUpdatesChannel": "latest",
+  "enabledPlugins": {
+    "context7@claude-plugins-official": true
+  }
 }
