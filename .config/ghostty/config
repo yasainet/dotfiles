@@ -1,9 +1,6 @@
 # Shell Integration
 shell-integration = none
 
-# tmux auto-attach
-command = tmux attach
-
 # Clipboard
 clipboard-read = allow
 clipboard-write = allow
