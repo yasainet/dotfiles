@@ -8,17 +8,14 @@ vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter", "CursorHold", "CursorHo
 	pattern = { "*" },
 })
 
--- Refresh gitsigns
-vim.api.nvim_create_autocmd("FocusGained", {
+-- Reload buffer
+vim.api.nvim_create_autocmd("FileChangedShell", {
 	callback = function()
-		local ok, gs = pcall(require, "gitsigns")
-		if ok then
-			gs.refresh()
-		end
+		vim.v.fcs_choice = "reload"
 	end,
 })
 
--- Refresh snacks explorer
+-- Reload snacks explorer
 vim.api.nvim_create_autocmd("FocusGained", {
 	callback = function()
 		local ok, snacks = pcall(require, "snacks")
