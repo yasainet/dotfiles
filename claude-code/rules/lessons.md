@@ -1,8 +1,3 @@
----
-paths:
-  - "**/*"
----
-
 # Lessons Rules
 
 - Record user feedback here
