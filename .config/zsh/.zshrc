@@ -84,6 +84,10 @@ pj() {
   cd $HOME/Projects
 }
 
+eslint() {
+  cd $HOME/Projects/eslint
+}
+
 # claude
 claude() {
   if [ -n "$TMUX" ]; then
