@@ -41,6 +41,14 @@ keybind = shift+enter=text:\x1b\r
 
 # === tmux === #
 
+# Cmd+` -> next session
+keybind = cmd+grave_accent=unbind
+keybind = cmd+grave_accent=text:\x02q
+
+# Cmd+Shift+` -> previous session
+keybind = cmd+shift+grave_accent=unbind
+keybind = cmd+shift+grave_accent=text:\x02Q
+
 # Cmd+b -> copy-mode
 keybind = cmd+b=text:\x02v
 
