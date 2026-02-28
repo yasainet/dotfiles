@@ -27,8 +27,3 @@
 - Use bullet list format when the description gets long
 - Only use `@description`. No other JSDoc tags
 - Describe "why" this code exists, not the implementation details
-
----
-
-> [!NOTE]
-> Capture Lessons: If the user points out, record it in `~/.claude/rules/lessons.md`
