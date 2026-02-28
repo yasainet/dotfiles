@@ -114,6 +114,10 @@
       }
     ]
   },
+  "statusLine": {
+    "type": "command",
+    "command": "jq -r '.workspace.project_dir | sub(\"^/Users/[^/]+\"; \"~\")'"
+  },
   "language": "Japanese",
   "autoUpdatesChannel": "latest",
   "enabledPlugins": {
