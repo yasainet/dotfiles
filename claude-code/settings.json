@@ -61,6 +61,17 @@
   },
   "enableAllProjectMcpServers": true,
   "hooks": {
+    "UserPromptSubmit": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash ~/.config/tmux/plugins/tmux-agent-indicator/scripts/agent-state.sh --agent claude --state running"
+          }
+        ]
+      }
+    ],
     "Notification": [
       {
         "matcher": "",
@@ -68,6 +79,10 @@
           {
             "type": "command",
             "command": "~/.claude/hooks/notify.sh"
+          },
+          {
+            "type": "command",
+            "command": "bash ~/.config/tmux/plugins/tmux-agent-indicator/scripts/agent-state.sh --agent claude --state needs-input"
           }
         ]
       }
@@ -79,6 +94,21 @@
           {
             "type": "command",
             "command": "~/.claude/hooks/notify.sh"
+          },
+          {
+            "type": "command",
+            "command": "bash ~/.config/tmux/plugins/tmux-agent-indicator/scripts/agent-state.sh --agent claude --state done"
+          }
+        ]
+      }
+    ],
+    "PermissionRequest": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash ~/.config/tmux/plugins/tmux-agent-indicator/scripts/agent-state.sh --agent claude --state needs-input"
           }
         ]
       }
