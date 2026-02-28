@@ -24,15 +24,15 @@ set -g status-right-length "100"
 set -g status-left-style NONE
 set -g status-right-style NONE
 
-set -g status-left "#{?pane_in_mode,#[fg=#15161e#,bg=#9ece6a#,bold] #S #[fg=#9ece6a#,bg=#16161e#,nobold#,nounderscore#,noitalics],#{?client_prefix,#[fg=#15161e#,bg=#e0af68#,bold] #S #[fg=#e0af68#,bg=#16161e#,nobold#,nounderscore#,noitalics],#{?pane_synchronized,#[fg=#15161e#,bg=#f7768e#,bold] #S #[fg=#f7768e#,bg=#16161e#,nobold#,nounderscore#,noitalics],#[fg=#15161e#,bg=#7aa2f7#,bold] #S #[fg=#7aa2f7#,bg=#16161e#,nobold#,nounderscore#,noitalics]}}}"
-set -g status-right "#[fg=#3b4261,bg=#16161e,nobold,nounderscore,noitalics]#[fg=#7aa2f7,bg=#3b4261] %Y-%m-%d  %I:%M %p #[fg=#7aa2f7,bg=#3b4261,nobold,nounderscore,noitalics]#[fg=#15161e,bg=#7aa2f7,bold] #h "
+set -g status-left "#{?pane_in_mode,#[fg=#15161e#,bg=#9ece6a#,nobold] #S #[fg=#9ece6a#,bg=#16161e#,nobold#,nounderscore#,noitalics],#{?client_prefix,#[fg=#15161e#,bg=#e0af68#,nobold] #S #[fg=#e0af68#,bg=#16161e#,nobold#,nounderscore#,noitalics],#{?pane_synchronized,#[fg=#15161e#,bg=#f7768e#,nobold] #S #[fg=#f7768e#,bg=#16161e#,nobold#,nounderscore#,noitalics],#[fg=#15161e#,bg=#7aa2f7#,nobold] #S #[fg=#7aa2f7#,bg=#16161e#,nobold#,nounderscore#,noitalics]}}}"
+set -g status-right "#[fg=#3b4261,bg=#16161e,nobold,nounderscore,noitalics]#[fg=#7aa2f7,bg=#3b4261] %Y-%m-%d  %I:%M %p #[fg=#7aa2f7,bg=#3b4261,nobold,nounderscore,noitalics]#[fg=#15161e,bg=#7aa2f7,nobold] #h "
 if-shell '[ "$(tmux show-option -gqv "clock-mode-style")" == "24" ]' {
-  set -g status-right "#[fg=#3b4261,bg=#16161e,nobold,nounderscore,noitalics]#[fg=#7aa2f7,bg=#3b4261] %Y-%m-%d  %H:%M #[fg=#7aa2f7,bg=#3b4261,nobold,nounderscore,noitalics]#[fg=#15161e,bg=#7aa2f7,bold] #h "
+  set -g status-right "#[fg=#3b4261,bg=#16161e,nobold,nounderscore,noitalics]#[fg=#7aa2f7,bg=#3b4261] %Y-%m-%d  %H:%M #[fg=#7aa2f7,bg=#3b4261,nobold,nounderscore,noitalics]#[fg=#15161e,bg=#7aa2f7,nobold] #h "
 }
 
 setw -g window-status-activity-style "underscore,fg=#a9b1d6,bg=#16161e"
 setw -g window-status-separator ""
 setw -g window-status-style "NONE,fg=#a9b1d6,bg=#16161e"
 setw -g window-status-format "#[fg=#16161e,bg=#16161e,nobold,nounderscore,noitalics]#[default] #I  #W #F #[fg=#16161e,bg=#16161e,nobold,nounderscore,noitalics]"
-setw -g window-status-current-format "#[fg=#16161e,bg=#3b4261,nobold,nounderscore,noitalics]#[fg=#7aa2f7,bg=#3b4261,bold] #I  #W #F #[fg=#3b4261,bg=#16161e,nobold,nounderscore,noitalics]"
+setw -g window-status-current-format "#[fg=#16161e,bg=#3b4261,nobold,nounderscore,noitalics]#[fg=#7aa2f7,bg=#3b4261,nobold] #I  #W #F #[fg=#3b4261,bg=#16161e,nobold,nounderscore,noitalics]"
 
