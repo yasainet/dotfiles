@@ -72,6 +72,7 @@ install_gui_apps() {
 
   # Fonts
   brew install --cask font-plemol-jp-nf
+  brew install --cask font-lilex
 
   # Terminal
   brew install --cask ghostty
