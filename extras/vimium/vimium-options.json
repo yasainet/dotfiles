@@ -1,7 +1,4 @@
 {
-  "keyMappings": "unmapAll\nmap j scrollDown\nmap k scrollUp\nmap H goBack\nmap L goForward\nmap gg scrollToTop\nmap G scrollToBottom\nmap f LinkHints.activateMode\nmap F LinkHints.activateModeToOpenInNewTab\nmap yy copyCurrentUrl",
-  "scrollStepSize": 200,
-  "settingsVersion": "2.2.1",
   "exclusionRules": [
     {
       "passKeys": "",
@@ -19,5 +16,8 @@
       "passKeys": "",
       "pattern": "https?://b.hatena.ne.jp/hotentry*"
     }
-  ]
+  ],
+  "keyMappings": "unmapAll\nmap j scrollDown\nmap k scrollUp\nmap gg scrollToTop\nmap G scrollToBottom",
+  "scrollStepSize": 200,
+  "settingsVersion": "2.4.0"
 }

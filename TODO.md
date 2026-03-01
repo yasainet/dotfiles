@@ -1,0 +1,3 @@
+- [ ] delta on lazygit の表示方法について調査する
+- [ ] lazygit 不要になるかも
+  - [ ] lazygit 不要になったら delta も不要になる
