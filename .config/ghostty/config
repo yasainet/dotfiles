@@ -15,7 +15,7 @@ window-padding-balance = true
 macos-titlebar-style = transparent
 title = " "
 macos-titlebar-proxy-icon = hidden
-background-opacity = 0.9
+background-opacity = 0.95
 maximize = true
 
 # Theme
@@ -38,10 +38,13 @@ mouse-hide-while-typing = true
 # Option key as Alt
 macos-option-as-alt = left
 
-# Keybindings
+# Keybindings for Claude Code
 keybind = shift+enter=text:\x1b\r
 
 # === tmux === #
+
+# Cmd+b -> copy-mode
+keybind = cmd+b=text:\x02v
 
 # Cmd+` -> next session
 keybind = cmd+grave_accent=unbind
@@ -51,14 +54,12 @@ keybind = cmd+grave_accent=text:\x02q
 keybind = cmd+shift+grave_accent=unbind
 keybind = cmd+shift+grave_accent=text:\x02Q
 
-# Cmd+b -> copy-mode
-keybind = cmd+b=text:\x02v
-
 # Cmd+w -> kill window
 keybind = cmd+w=unbind
 keybind = cmd+w=text:\x02&
 
-# unbind default Cmd+number
+# Cmd+number -> select-window
+keybind = cmd+one=text:\x021
 keybind = cmd+digit_1=unbind
 keybind = cmd+digit_2=unbind
 keybind = cmd+digit_3=unbind
@@ -68,9 +69,6 @@ keybind = cmd+digit_6=unbind
 keybind = cmd+digit_7=unbind
 keybind = cmd+digit_8=unbind
 keybind = cmd+digit_9=unbind
-
-# Cmd+number -> select-window
-keybind = cmd+one=text:\x021
 keybind = cmd+two=text:\x022
 keybind = cmd+three=text:\x023
 keybind = cmd+four=text:\x024
