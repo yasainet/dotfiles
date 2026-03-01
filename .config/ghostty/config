@@ -9,6 +9,7 @@ clipboard-paste-protection = false
 # Window
 window-title-font-family = SF Mono
 window-theme = system
+window-colorspace = display-p3
 window-save-state = always
 window-padding-balance = true
 macos-titlebar-style = transparent
