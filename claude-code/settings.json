@@ -53,9 +53,9 @@
       "WebSearch"
     ],
     "deny": [
-      "Bash(supabase db diff:*)",
-      "Bash(supabase db push:*)",
-      "Bash(supabase db reset:*)"
+      "Bash(supabase db diff *)",
+      "Bash(supabase db push *)",
+      "Bash(supabase db reset *)"
     ],
     "defaultMode": "acceptEdits"
   },
