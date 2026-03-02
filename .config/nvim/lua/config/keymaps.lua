@@ -61,10 +61,22 @@ vim.keymap.set("n", "<leader>gf", "<Cmd>DiffviewFileHistory %<CR>", { desc = "Di
 vim.keymap.set("n", "<leader>gq", "<Cmd>DiffviewClose<CR>", { desc = "Diffview close" })
 
 -- Window navigation
-vim.keymap.set("n", "<C-h>", "<C-w>h", { desc = "Move to left window" })
+vim.keymap.set("n", "<C-h>", function()
+	local win = vim.api.nvim_get_current_win()
+	vim.cmd("wincmd h")
+	if vim.api.nvim_get_current_win() == win and vim.env.TMUX then
+		vim.fn.system("tmux select-pane -L")
+	end
+end, { desc = "Navigate left" })
 vim.keymap.set("n", "<C-j>", "<C-w>j", { desc = "Move to lower window" })
 vim.keymap.set("n", "<C-k>", "<C-w>k", { desc = "Move to upper window" })
-vim.keymap.set("n", "<C-l>", "<C-w>l", { desc = "Move to right window" })
+vim.keymap.set("n", "<C-l>", function()
+	local win = vim.api.nvim_get_current_win()
+	vim.cmd("wincmd l")
+	if vim.api.nvim_get_current_win() == win and vim.env.TMUX then
+		vim.fn.system("tmux select-pane -R")
+	end
+end, { desc = "Navigate right" })
 
 -- Picker (Snacks)
 vim.keymap.set("n", "<leader>ff", function()
