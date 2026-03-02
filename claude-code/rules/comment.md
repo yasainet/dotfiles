@@ -23,13 +23,12 @@ paths:
 
 ### Multi-line
 
-When the function has 2 or more independent conditions or behaviors, write a summary followed by a bullet list.
+When the function has 2 or more independent conditions or behaviors, write a summary followed by a bullet list. List every condition — one bullet per condition.
 
 ```js
 /**
  * <summary>:
- * - <condition or behavior A>
- * - <condition or behavior B>
- * - <condition or behavior C>
+ * - <condition or behavior>
+ * - ...
  */
 ```
