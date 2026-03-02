@@ -1,9 +1,6 @@
 ---
 paths:
-  - "**/supabase/schemas/*.sql"
-  - "**/supabase/migrations/*.sql"
-  - "**/supabase/seeds/**/*.sql"
-  - "**/supabase/config.toml"
+  - "**/supabase/**"
 ---
 
 # Supabase Rules
