@@ -14,7 +14,7 @@ $ARGUMENTS
 ## Rules
 
 - Append the new entry to the "Entries" section of this file
-- When a pattern repeats, promote it to `rules/*.md` or eslint(`@yasainet/eslint-next`, `@yasainet/eslint-node`) rules
+- When a pattern repeats, promote it to `rules/*.md` or eslint(`@yasainet/eslint`) rules
 
 ## Template
 
