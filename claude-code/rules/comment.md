@@ -4,15 +4,16 @@ paths:
   - "**/*.mjs"
 ---
 
-## Comment
+# Comment Rules
+
+## Comment, JSDoc
 
 - Write in simple English
 - Describe "why" this code exists, not the implementation details
+- Do not use any JSDoc tags (`@description`, `@param`, `@example`, etc.). Use the comment body directly.
 
-## JSDoc
-
-Write a JSDoc comment for every exported function.
-Do not use any JSDoc tags (`@description`, `@param`, `@example`, etc.). Use the comment body directly.
+> [!NOTE]
+> Humans read only JSDoc, not the code. Claude Code read JSDoc for intent and code for implementation truth.
 
 ### Single-line (default)
 
