@@ -1,6 +1,7 @@
 ---
 paths:
   - "**/*.ts"
+  - "**/*.mjs"
 ---
 
 ## Comment Rules
