@@ -65,7 +65,7 @@ project/
 ### Scripts-only (Pattern A)
 
 - No `paths` aliases
-- Use relative paths with `.js` extension (e.g., `./utils.js`)
+- Use relative paths with `.js` extension
 - `module: "nodenext"`, `moduleResolution: "nodenext"`
 
 ### Next.js projects (Patterns B, C, D)
@@ -74,4 +74,3 @@ project/
 - `moduleResolution: "bundler"`
 - `scripts/` can also reference `src/` via `@/` alias (when present in the same project)
 - `supabase/functions/` is excluded from `tsconfig.json` — uses Deno's own `deno.json` import map, no `@/` alias
-
