@@ -6,5 +6,8 @@ paths:
 
 # ESLint Rules
 
-- Next.js project: `@yasainet/eslint-next`
-- Node.js project: `@yasainet/eslint-node`
+- `@yasainet/eslint`
+  - Common: `src/common`
+  - Next.js: `src/next`
+  - Node.js: `src/node`
+  - Deno: `src/deno`
