@@ -116,7 +116,7 @@
   },
   "statusLine": {
     "type": "command",
-    "command": "jq -r '.workspace.project_dir | sub(\"^/Users/[^/]+\"; \"~\")'"
+    "command": "sh ~/.claude/statusline-command.sh"
   },
   "enabledPlugins": {
     "context7@claude-plugins-official": true

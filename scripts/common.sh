@@ -37,6 +37,11 @@ create_symlinks() {
   # .oh-my-zsh
   link "$DOTFILES/.config/.oh-my-zsh" "$HOME/.config/.oh-my-zsh"
 
+  # Espanso (macOS uses ~/Library/Application Support/espanso)
+  if [ "$(uname -s)" = "Darwin" ]; then
+    link "$DOTFILES/.config/espanso" "$HOME/Library/Application Support/espanso"
+  fi
+
   # Claude Code
   mkdir -p "$HOME/.claude"
   link "$DOTFILES/claude-code/CLAUDE.md" "$HOME/.claude/CLAUDE.md"
