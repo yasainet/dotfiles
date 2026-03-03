@@ -38,6 +38,9 @@ mouse-hide-while-typing = true
 # Option key as Alt
 macos-option-as-alt = left
 
+# Disable Cmd+Shift+P
+keybind = cmd+shift+p=unbind
+
 # Keybindings for Claude Code
 keybind = shift+enter=text:\x1b\r
 
