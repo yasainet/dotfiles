@@ -84,7 +84,7 @@ pj() {
   cd $HOME/Projects
 }
 
-eslint() {
+lint() {
   cd $HOME/Projects/eslint
 }
 
