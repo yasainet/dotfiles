@@ -27,6 +27,9 @@ return {
 				hl["@tag.builtin.javascript"] = { fg = c.red }
 				-- snacks explorer
 				hl.SnacksPickerGitStatusUntracked = { fg = c.git.add }
+				-- Dim panel
+				hl.TroubleNormal = { fg = c.fg, bg = c.bg_dark }
+				hl.TroubleNormalNC = { fg = c.fg, bg = c.bg_dark }
 			end,
 		})
 		vim.cmd([[colorscheme tokyonight-night]])
