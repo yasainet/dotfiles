@@ -5,7 +5,7 @@ paths:
 
 # RULES.md ドキュメントスタイルガイド
 
-`docs/RULES.md` は全 ESLint ルールの唯一の正式ドキュメントである。ルールセクションの追加・編集時は以下の規約に厳密に従うこと。
+`~/Projects/eslint/docs/RULES.md` は全 ESLint ルールの唯一の正式ドキュメントである。ルールセクションの追加・編集時は以下の規約に厳密に従うこと。
 
 ## セクション構成
 
@@ -23,31 +23,11 @@ paths:
   正しいコード
   \`\`\`
 
-\`\`\`ts
-// file-path/example.ts
-正しいコード 2
-\`\`\`
-
-\`\`\`ts
-// file-path/example.ts
-正しいコード 3
-\`\`\`
-
 - **NG 例**:
 
 \`\`\`ts
 // file-path/example.ts
 違反コード // 違反理由のインラインコメント
-\`\`\`
-
-\`\`\`ts
-// file-path/example.ts
-違反コード 2
-\`\`\`
-
-\`\`\`ts
-// file-path/example.ts
-違反コード 3
 \`\`\`
 ```
 
