@@ -76,6 +76,12 @@ return {
 				width = 0,
 				height = 0,
 			},
+			on_close = function()
+				local ok, gitsigns = pcall(require, "gitsigns")
+				if ok then
+					gitsigns.refresh()
+				end
+			end,
 		},
 		indent = {
 			enabled = true,

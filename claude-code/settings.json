@@ -67,7 +67,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "bash ~/.config/tmux/plugins/tmux-agent-indicator/scripts/agent-state.sh --agent claude --state running"
+            "command": "bash ~/.config/tmux/scripts/agent-state-wrapper.sh --agent claude --state running"
           }
         ]
       }
@@ -82,7 +82,7 @@
           },
           {
             "type": "command",
-            "command": "bash ~/.config/tmux/plugins/tmux-agent-indicator/scripts/agent-state.sh --agent claude --state needs-input"
+            "command": "bash ~/.config/tmux/scripts/agent-state-wrapper.sh --agent claude --state needs-input"
           }
         ]
       }
@@ -97,7 +97,7 @@
           },
           {
             "type": "command",
-            "command": "bash ~/.config/tmux/plugins/tmux-agent-indicator/scripts/agent-state.sh --agent claude --state done"
+            "command": "bash ~/.config/tmux/scripts/agent-state-wrapper.sh --agent claude --state done"
           }
         ]
       }
@@ -108,7 +108,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "bash ~/.config/tmux/plugins/tmux-agent-indicator/scripts/agent-state.sh --agent claude --state needs-input"
+            "command": "bash ~/.config/tmux/scripts/agent-state-wrapper.sh --agent claude --state needs-input"
           }
         ]
       }
