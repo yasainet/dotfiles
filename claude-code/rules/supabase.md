@@ -10,5 +10,9 @@ Edit `supabase/schemas/*.sql` to declare the desired state; migrations are gener
 
 ## Migration
 
-- Don't Use: execute `apply_migration` with `supabase-mcp`
-- After editing `*.schema.sql` → tell the user to run `/migrate <name>`
+- **Don't** edit `migrations/*.sql` files
+- **Don't** run `apply_migration` with `supabase-mcp`
+- **Don't** run `supabase db diff` yourself
+- **Don't** run `supabase db reset` yourself
+- **Don't** run `supabase gen types` yourself
+- **Do** tell the user to run `/migrate <name>` after editing `*.schema.sql`
