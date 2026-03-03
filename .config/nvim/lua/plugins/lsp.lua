@@ -14,6 +14,7 @@ return {
 		-- Enable servers
 		vim.lsp.enable({
 			"lua_ls",
+			"denols",
 			"vtsls",
 			"eslint",
 			"cssls",
