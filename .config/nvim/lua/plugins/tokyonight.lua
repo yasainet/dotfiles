@@ -25,6 +25,8 @@ return {
 				-- HACK: html
 				hl["@tag.builtin.tsx"] = { fg = c.red }
 				hl["@tag.builtin.javascript"] = { fg = c.red }
+				-- snacks explorer
+				hl.SnacksPickerGitStatusUntracked = { fg = c.git.add }
 			end,
 		})
 		vim.cmd([[colorscheme tokyonight-night]])
