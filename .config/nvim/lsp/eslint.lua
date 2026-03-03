@@ -6,20 +6,29 @@ return {
 		"typescript",
 		"typescriptreact",
 	},
-	root_markers = {
-		"eslint.config.js",
-		"eslint.config.mjs",
-		"eslint.config.cjs",
-		"eslint.config.ts",
-		"eslint.config.mts",
-		"eslint.config.cts",
-		".eslintrc.js",
-		".eslintrc.cjs",
-		".eslintrc.yaml",
-		".eslintrc.yml",
-		".eslintrc.json",
-		".eslintrc",
-	},
+	root_dir = function(bufnr, on_dir)
+		local bufname = vim.api.nvim_buf_get_name(bufnr)
+		if vim.fs.root(bufname, { "deno.json", "deno.jsonc" }) then
+			return
+		end
+		local root = vim.fs.root(bufname, {
+			"eslint.config.js",
+			"eslint.config.mjs",
+			"eslint.config.cjs",
+			"eslint.config.ts",
+			"eslint.config.mts",
+			"eslint.config.cts",
+			".eslintrc.js",
+			".eslintrc.cjs",
+			".eslintrc.yaml",
+			".eslintrc.yml",
+			".eslintrc.json",
+			".eslintrc",
+		})
+		if root then
+			on_dir(root)
+		end
+	end,
 	settings = {
 		validate = "on",
 		packageManager = nil,

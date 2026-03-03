@@ -6,7 +6,16 @@ return {
 		"typescript",
 		"typescriptreact",
 	},
-	root_markers = { "tsconfig.json", "package.json", "jsconfig.json", ".git" },
+	root_dir = function(bufnr, on_dir)
+		local bufname = vim.api.nvim_buf_get_name(bufnr)
+		if vim.fs.root(bufname, { "deno.json", "deno.jsonc" }) then
+			return
+		end
+		local root = vim.fs.root(bufname, { "tsconfig.json", "package.json", "jsconfig.json", ".git" })
+		if root then
+			on_dir(root)
+		end
+	end,
 	settings = {
 		typescript = {
 			tsserver = { maxTsServerMemory = 8092 },
