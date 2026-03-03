@@ -7,3 +7,7 @@ matches:
     replace: "Node.js"
   - trigger: ";su"
     replace: "Supabase"
+  - trigger: ";dot"
+    replace: "~/dotfiles"
+  - trigger: ";lint"
+    replace: "~/Projects/eslint"

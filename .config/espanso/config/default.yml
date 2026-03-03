@@ -1,2 +1,7 @@
 search_shortcut: "off"
 show_icon: false
+
+backend: inject
+clipboard_threshold: 30
+key_delay: 10
+inject_delay: 5
