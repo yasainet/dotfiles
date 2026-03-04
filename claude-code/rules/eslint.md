@@ -17,13 +17,14 @@ paths:
 - **説明**: ルールの内容と存在理由
 - **対象**: 対象ファイルの Glob パターン
 
-- **OK 例**:
-  \`\`\`ts
-  // file-path/example.ts
-  正しいコード
-  \`\`\`
+- **Good**:
 
-- **NG 例**:
+\`\`\`ts
+// file-path/example.ts
+正しいコード
+\`\`\`
+
+- **Bad**:
 
 \`\`\`ts
 // file-path/example.ts
