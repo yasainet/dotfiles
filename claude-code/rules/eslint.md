@@ -17,18 +17,18 @@ paths:
 - **Description**: ルールの内容と存在理由
 - **Path**: 対象ファイルの Glob パターン
 
-- **Good**:
-
-\`\`\`ts
-// file-path/example.ts
-Good Code...
-\`\`\`
-
 - **Bad**:
 
 \`\`\`ts
 // file-path/example.ts
 Bad Code...
+\`\`\`
+
+- **Good**:
+
+\`\`\`ts
+// file-path/example.ts
+Good Code...
 \`\`\`
 ```
 
@@ -43,8 +43,8 @@ Bad Code...
 **インライン**形式の場合、箇条書きで列挙する:
 
 ```markdown
-- **Good**: `good`
 - **Bad**: `bad`
+- **Good**: `good`
 ```
 
 **コードブロック**形式の場合、各例をファイルパスコメント付きの個別ブロックにする。
@@ -52,17 +52,17 @@ Bad Code...
 **テーブル**形式の場合:
 
 ```markdown
-| ディレクトリ | パターン  | Good  | Bad   |
+| ディレクトリ | パターン  | Bad   | Good  |
 | ------------ | --------- | ----- | ----- |
-| `dir/`       | `pattern` | `ok1` | `ng1` |
-|              |           | `ok2` | `ng2` |
-|              |           | `ok3` | `ng3` |
+| `dir/`       | `pattern` | `ng1` | `ok1` |
+|              |           | `ng2` | `ok2` |
+|              |           | `ng3` | `ok3` |
 ```
 
 ## コードブロックの規約
 
-- 1 行目に必ずファイルパスコメントを含める: `// services/server.service.ts`
-- NG の理由をインラインコメントで説明する: `// lateral 違反`
+- 1 行目に必ずファイルパスコメントを含める: `// src/features/**/*.*.ts`
+- NG の理由をインラインコメントで説明する: `// comment`
 - 例は最小限にし、関連する行のみを示す
 
 ## 見出し階層
