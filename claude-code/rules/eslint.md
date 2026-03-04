@@ -3,7 +3,7 @@ paths:
   - "~/Projects/eslint/docs/**/*.md"
 ---
 
-# RULES.md ドキュメントスタイルガイド
+# ESLint Rules
 
 `~/Projects/eslint/docs/RULES.md` は全 ESLint ルールの唯一の正式ドキュメントである。ルールセクションの追加・編集時は以下の規約に厳密に従うこと。
 
@@ -12,23 +12,23 @@ paths:
 各ルールセクションには、以下のフィールドをこの順序で必ず含めること:
 
 ```markdown
-#### ルール名 (`eslint-rule/name`)
+#### Rule name (`eslint-rule/name`)
 
-- **説明**: ルールの内容と存在理由
-- **対象**: 対象ファイルの Glob パターン
+- **Description**: ルールの内容と存在理由
+- **Path**: 対象ファイルの Glob パターン
 
 - **Good**:
 
 \`\`\`ts
 // file-path/example.ts
-正しいコード
+Good Code...
 \`\`\`
 
 - **Bad**:
 
 \`\`\`ts
 // file-path/example.ts
-違反コード // 違反理由のインラインコメント
+Bad Code...
 \`\`\`
 ```
 
