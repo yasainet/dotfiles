@@ -9,7 +9,7 @@ if [ -n "$branch" ]; then
   if [ -n "$stats" ]; then
     added=$(echo "$stats" | awk '{ a += $1 } END { print a+0 }')
     removed=$(echo "$stats" | awk '{ r += $2 } END { print r+0 }')
-    printf "%s (%s) +%s -%s" "$short_dir" "$branch" "$added" "$removed"
+    printf "%s (%s) \033[38;2;158;206;106m+%s\033[0m \033[38;2;247;118;142m-%s\033[0m" "$short_dir" "$branch" "$added" "$removed"
   else
     printf "%s (%s)" "$short_dir" "$branch"
   fi
