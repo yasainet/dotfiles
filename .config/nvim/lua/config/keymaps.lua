@@ -132,16 +132,6 @@ vim.keymap.set("n", "<leader>lf", function()
 	require("conform").format({ async = true, lsp_fallback = true })
 end, { desc = "Format buffer" })
 
--- Comment
-vim.keymap.set("n", "<C-/>", "gcc", { remap = true, desc = "Toggle comment" })
-vim.keymap.set("v", "<C-/>", "gc", { remap = true, desc = "Toggle comment" })
-vim.keymap.set("i", "<C-/>", "<Esc>gccgi", { desc = "Toggle comment" })
-
--- Comment tmux
-vim.keymap.set("n", "<C-_>", "gcc", { remap = true, desc = "Toggle comment" })
-vim.keymap.set("v", "<C-_>", "gc", { remap = true, desc = "Toggle comment" })
-vim.keymap.set("i", "<C-_>", "<Esc>gccgi", { desc = "Toggle comment" })
-
 -- Todo Comments
 vim.keymap.set("n", "<leader>ft", function()
 	Snacks.picker.todo_comments()
@@ -234,17 +224,20 @@ vim.keymap.set("n", "<leader>cc", function()
 end, { desc = "Claude Code" })
 
 -- Terminal
-vim.keymap.set({ "n", "t" }, "<C-\\>", function()
+local function toggle_terminal()
 	Snacks.terminal(nil, {
 		cwd = vim.fn.getcwd(),
 		win = {
 			position = "float",
 			border = "rounded",
-			width = 0.95,
-			height = 0.95,
+			width = 0.9,
+			height = 0.9,
 		},
 	})
-end, { desc = "Toggle terminal" })
+end
+vim.keymap.set({ "n", "t" }, "<C-/>", toggle_terminal, { desc = "Toggle terminal" })
+vim.keymap.set({ "n", "t" }, "<C-_>", toggle_terminal, { desc = "Toggle terminal" })
+vim.keymap.set("t", "<C-v>", "<C-\\><C-n>", { desc = "Terminal normal mode" })
 
 -- Config reload
 vim.keymap.set("n", "<leader>rr", function()
