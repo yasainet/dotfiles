@@ -50,7 +50,7 @@ values
     'authenticated',                         -- aud
     'authenticated',                         -- role
     'test@mail.com',                         -- email
-    crypt('pass1234', gen_salt('bf')),        -- encrypted_password
+    crypt('hogehoge!', gen_salt('bf')),        -- encrypted_password
     now(),                                   -- email_confirmed_at
     '{"provider": "email", "providers": ["email"]}',
     '{}',
