@@ -1,5 +1,5 @@
 ---
-name: supabase-migrate
+name: migrate
 description: Run the Supabase migration workflow (diff, push, gen types)
 argument-hint: <migration-name>
 disable-model-invocation: true
