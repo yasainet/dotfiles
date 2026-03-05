@@ -1,10 +1,9 @@
 ---
-name: structure
-description: Explain project structure patterns (Next.js/Node.js/Deno), tsconfig differences, and ESLint rules
-disable-model-invocation: false
+status: draft
+date: 2026-03-05
 ---
 
-# Project Structure Guide
+# Projects Docs
 
 ## 1. Project Patterns
 
