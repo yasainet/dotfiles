@@ -81,7 +81,6 @@ install_gui_apps() {
   brew install --cask google-chrome
   brew install --cask google-chrome@dev
   brew install --cask tor-browser
-  brew install --cask brave-browser
 
   # Productivity
   brew install --cask google-drive
