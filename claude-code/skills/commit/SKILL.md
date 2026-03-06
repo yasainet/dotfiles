@@ -13,7 +13,7 @@ allowed-tools: Bash(git *), AskUserQuestion
 3. Run `git log --oneline -5` to check the existing commit message style
 4. **Security check**: If any sensitive files are being committed (e.g. `.env`, `.env.local`, `credentials.json`, `*.pem`, `*.key`, `secret*`), warn the user and confirm before proceeding
 5. Stage changes using individual file paths (`git add <file1> <file2> ...`), not `git add -A`
-6. Generate a concise commit message following the style from step 3
+6. Generate a concise commit message following the style from step 3. Do NOT include `Co-Authored-By` or any signature trailers
 7. Use the `AskUserQuestion` tool to ask the user with these options:
    - Use the generated message (show it in the label)
    - Cancel
