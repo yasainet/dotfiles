@@ -53,7 +53,7 @@ return {
 						preview = false,
 						layout = {
 							position = "left",
-							width = 30,
+							width = 25,
 						},
 					},
 					exclude = { ".DS_Store" },
