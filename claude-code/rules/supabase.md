@@ -24,13 +24,13 @@ Edit `supabase/schemas/*.sql` to declare the desired state; migrations are gener
 schema_paths = ["./schemas/*.sql"]
 
 [db.seed]
-sql_paths = ["./seeds/**/*.sql", "./seeds/scripts/*.local.sql"]
+sql_paths = ["./seeds/**/*.seed.sql", "./seeds/scripts/*.local.sql"]
 ```
 
-- `supabase/seeds/**/*.sql` — Seed files (auto-executed on `db reset`)
+- `supabase/seeds/**/*.seed.sql` — Seed files (auto-executed on `db reset`)
 - `supabase/seeds/storages/*.storage.seed.sql` — Storage bucket seed files (RLS policies, bucket creation)
 - `supabase/seeds/scripts/*.local.sql` — Local environment setup (auto-executed on `db reset` via `sql_paths`)
-- `supabase/scripts/*.production.sql` — Production environment setup (manual execution only, excluded from seed)
+- `supabase/seeds/scripts/*.production.sql` — Production environment setup (manual execution only, excluded from seed)
 - `supabase/seeds/storages/<bucket_name>/` — Seed asset files for storage buckets (images, etc.)
 
 ## Directory Structure
@@ -44,8 +44,10 @@ supabase/
 │   ├── *.seed.sql             # Table seed data (numbered: 01_users.seed.sql)
 │   ├── storages/              # Storage bucket seeds (*.storage.seed.sql)
 │   │   └── <bucket_name>/            # Seed asset files (e.g. users/**/default.jpg)
-│   └── scripts/               # Environment scripts (*.production.sql, manual only))
-├── snippets/          # SQL snippets
-├── templates/         # Templates
-└── functions/         # Supabase Edge Functions
+│   └── scripts/               # Environment scripts (optional)
+│       ├── *.local.sql                # Local setup (auto-executed on db reset)
+│       └── *.production.sql           # Production setup (manual execution only)
+├── snippets/          # SQL snippets (optional)
+├── templates/         # Templates (optional)
+└── functions/         # Supabase Edge Functions (optional)
 ```
