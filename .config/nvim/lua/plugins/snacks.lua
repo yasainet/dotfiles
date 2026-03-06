@@ -74,7 +74,8 @@ return {
 			enabled = true,
 			win = {
 				width = 0,
-				height = 0,
+				height = 0.95,
+				row = 0,
 			},
 			on_close = function()
 				local ok, gitsigns = pcall(require, "gitsigns")
