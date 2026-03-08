@@ -145,6 +145,9 @@ source "$ZSH/oh-my-zsh.sh"
 
 # Prompt: Pure
 fpath+=("$ZSH_CUSTOM/plugins/pure")
+if [[ "$OSTYPE" != "darwin"* ]]; then
+  PURE_ALWAYS_SHOW_USER=1
+fi
 autoload -U promptinit; promptinit
 prompt pure
 
