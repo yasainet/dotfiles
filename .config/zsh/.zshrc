@@ -165,7 +165,6 @@ _pure_truncate_to_repo() {
 }
 add-zsh-hook precmd _pure_truncate_to_repo
 PROMPT="${PROMPT/\%~/%1v}"
-PROMPT="${PROMPT/\%n\%f/}"
 
 # nvm (lazy load)
 export NVM_DIR="$HOME/.nvm"
