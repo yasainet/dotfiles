@@ -14,9 +14,14 @@ return {
 			sources = {
 				files = {
 					hidden = true,
+					layout = { fullscreen = true },
 				},
 				grep = {
 					hidden = true,
+					layout = { fullscreen = true },
+				},
+				todo_comments = {
+					layout = { fullscreen = true },
 				},
 				explorer = {
 					hidden = true,
