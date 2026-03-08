@@ -22,6 +22,28 @@ vim.keymap.set("i", "<C-k>", "<C-o>D", { desc = "Kill to end of line" })
 vim.keymap.set("i", "<C-n>", "<Down>", { desc = "Next line" })
 vim.keymap.set("i", "<C-p>", "<Up>", { desc = "Previous line" })
 
+-- Cmd keybindings (Ghostty sends Alt sequence as carrier)
+vim.keymap.set("n", "<M-p>", function()
+	Snacks.picker.files()
+end, { desc = "Find files (Cmd+p)" })
+vim.keymap.set("n", "<M-F>", function()
+	Snacks.picker.grep()
+end, { desc = "Live grep (Cmd+Shift+f)" })
+vim.keymap.set({ "n", "i" }, "<M-s>", "<Cmd>w<CR>", { desc = "Save (Cmd+s)" })
+vim.keymap.set("n", "<M-/>", "gcc", { remap = true, desc = "Comment toggle (Cmd+/)" })
+vim.keymap.set("v", "<M-/>", "gc", { remap = true, desc = "Comment toggle (Cmd+/)" })
+vim.keymap.set("n", "<M-e>", function()
+	require("snacks").explorer()
+end, { desc = "Explorer (Cmd+Shift+e)" })
+vim.keymap.set("n", "<M-G>", function()
+	local lib_ok, lib = pcall(require, "diffview.lib")
+	if lib_ok and lib.get_current_view() then
+		vim.cmd("DiffviewClose")
+	else
+		vim.cmd("DiffviewOpen")
+	end
+end, { desc = "Diffview toggle (Cmd+Shift+g)" })
+
 -- Explorer
 vim.keymap.set("n", "<leader>e", function()
 	require("snacks").explorer()
@@ -237,6 +259,7 @@ local function toggle_terminal()
 end
 vim.keymap.set({ "n", "t" }, "<C-/>", toggle_terminal, { desc = "Toggle terminal" })
 vim.keymap.set({ "n", "t" }, "<C-_>", toggle_terminal, { desc = "Toggle terminal" })
+vim.keymap.set({ "n", "t" }, "<M-j>", toggle_terminal, { desc = "Toggle terminal (Cmd+j)" })
 vim.keymap.set("t", "<C-v>", "<C-\\><C-n>", { desc = "Terminal normal mode" })
 
 -- Config reload

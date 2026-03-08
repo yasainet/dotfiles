@@ -44,6 +44,32 @@ keybind = cmd+shift+p=unbind
 # Keybindings for Claude Code
 keybind = shift+enter=text:\x1b\r
 
+# === nvim === #
+
+# Cmd+p -> find files (via Alt sequence as carrier)
+keybind = cmd+p=text:\x1bp
+
+# Cmd+Shift+f -> live grep
+keybind = cmd+shift+f=text:\x1bF
+
+# Cmd+s -> save
+keybind = cmd+s=text:\x1bs
+
+# Cmd+/ -> comment toggle
+keybind = cmd+/=text:\x1b/
+
+# Cmd+j -> toggle terminal
+keybind = cmd+j=text:\x1bj
+
+# Cmd+Shift+e -> explorer
+keybind = cmd+shift+e=text:\x1be
+
+# Cmd+Shift+g -> diffview
+keybind = cmd+shift+g=text:\x1bG
+
+# Cmd+k -> clear screen (via tmux prefix + K)
+keybind = cmd+k=text:\x02K
+
 # === tmux === #
 
 # Cmd+b -> copy-mode
