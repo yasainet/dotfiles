@@ -30,7 +30,6 @@ alias v='nvim'
 alias vi='nvim'
 alias vim='nvim'
 alias sudo='sudo '
-alias glances='glances --disable-bg'
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
   # macOS
