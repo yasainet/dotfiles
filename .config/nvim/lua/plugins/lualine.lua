@@ -28,7 +28,7 @@ return {
 				lualine_x = {
 					{
 						"lsp_status",
-						ignore_lsp = { "GitHub Copilot", "eslint", "marksman", "stylua" },
+						ignore_lsp = { "GitHub Copilot", "eslint", "stylua" },
 					},
 					"encoding",
 					{

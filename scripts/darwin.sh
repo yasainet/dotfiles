@@ -213,8 +213,8 @@ configure_system() {
   defaults write com.apple.dock wvous-br-corner -int 0
   defaults write com.apple.dock wvous-br-modifier -int 0
 
-  # Ghostty: Disable Cmd+Shift+\ (Show All Tabs)
-  defaults write com.mitchellh.ghostty NSUserKeyEquivalents -dict-add "Show All Tabs" "\\0"
+  # Ghostty: Disable macOS menu shortcuts that conflict with tmux keybinds
+  defaults write com.mitchellh.ghostty NSUserKeyEquivalents -dict-add "Show All Tabs" '\0' "Select Previous Split" '\0' "Select Next Split" '\0'
 
   # Finder
   defaults write NSGlobalDomain AppleShowAllExtensions -bool true

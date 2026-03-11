@@ -64,6 +64,10 @@
           {
             "type": "command",
             "command": "bash ~/.config/tmux/scripts/agent-state-wrapper.sh --agent claude --state running"
+          },
+          {
+            "type": "command",
+            "command": "/opt/homebrew/bin/macism com.apple.keylayout.ABC"
           }
         ]
       }
@@ -105,6 +109,10 @@
           {
             "type": "command",
             "command": "bash ~/.config/tmux/scripts/agent-state-wrapper.sh --agent claude --state needs-input"
+          },
+          {
+            "type": "command",
+            "command": "/opt/homebrew/bin/macism com.apple.keylayout.ABC"
           }
         ]
       }
@@ -118,5 +126,6 @@
     "context7@claude-plugins-official": true
   },
   "language": "Japanese",
-  "autoUpdatesChannel": "latest"
+  "autoUpdatesChannel": "latest",
+  "voiceEnabled": true
 }
