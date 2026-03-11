@@ -36,7 +36,3 @@ setw -g window-status-style "NONE,fg=#a9b1d6,bg=#16161e"
 setw -g window-status-format "#[fg=#16161e,bg=#16161e,nobold,nounderscore,noitalics]#[default] #I  #W #F #[fg=#16161e,bg=#16161e,nobold,nounderscore,noitalics]"
 setw -g window-status-current-format "#[fg=#16161e,bg=#3b4261,nobold,nounderscore,noitalics]#[fg=#7aa2f7,bg=#3b4261,nobold] #I  #W #F #[fg=#3b4261,bg=#16161e,nobold,nounderscore,noitalics]"
 
-# Dim panel
-set -g window-style 'bg=#16161e'
-set -g window-active-style 'bg=terminal'
-

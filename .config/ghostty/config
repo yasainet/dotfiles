@@ -38,19 +38,21 @@ mouse-hide-while-typing = true
 # Option key as Alt
 macos-option-as-alt = left
 
-# Disable Cmd+Shift+P
+# Disable defaults
 keybind = cmd+shift+p=unbind
 
+# ==============================
 # Keybindings for Claude Code
+# ==============================
+
 keybind = shift+enter=text:\x1b\r
 
-# === nvim === #
+# ==============================
+# Keybindings for nvim
+# ==============================
 
-# Cmd+p -> find files (via Alt sequence as carrier)
+# Cmd+p -> find files
 keybind = cmd+p=text:\x1bp
-
-# Cmd+Shift+f -> live grep
-keybind = cmd+shift+f=text:\x1bF
 
 # Cmd+s -> save
 keybind = cmd+s=text:\x1bs
@@ -61,34 +63,38 @@ keybind = cmd+/=text:\x1b/
 # Cmd+j -> toggle terminal
 keybind = cmd+j=text:\x1bj
 
+# Cmd+Shift+f -> live grep
+keybind = cmd+shift+f=text:\x1bF
+
 # Cmd+Shift+e -> explorer
 keybind = cmd+shift+e=text:\x1be
 
 # Cmd+Shift+g -> diffview
 keybind = cmd+shift+g=text:\x1bG
 
-# Cmd+k -> clear screen (via tmux prefix + K)
-keybind = cmd+k=text:\x02K
+# ==============================
+# Keybindings for tmux
+# ==============================
 
-# === tmux === #
+# --- session ---
 
-# Cmd+b -> copy-mode
-keybind = cmd+b=text:\x02v
-
-# Cmd+` -> next session
+# Cmd+` / Cmd+Shift+` -> next/previous session
 keybind = cmd+grave_accent=unbind
 keybind = cmd+grave_accent=text:\x02q
-
-# Cmd+Shift+` -> previous session
 keybind = cmd+shift+grave_accent=unbind
 keybind = cmd+shift+grave_accent=text:\x02Q
+
+# --- window ---
+
+# Cmd+t -> new window
+keybind = cmd+t=unbind
+keybind = cmd+t=text:\x02c
 
 # Cmd+w -> kill window
 keybind = cmd+w=unbind
 keybind = cmd+w=text:\x02&
 
-# Cmd+number -> select-window
-keybind = cmd+one=text:\x021
+# Cmd+1~9 -> select window
 keybind = cmd+digit_1=unbind
 keybind = cmd+digit_2=unbind
 keybind = cmd+digit_3=unbind
@@ -98,6 +104,7 @@ keybind = cmd+digit_6=unbind
 keybind = cmd+digit_7=unbind
 keybind = cmd+digit_8=unbind
 keybind = cmd+digit_9=unbind
+keybind = cmd+one=text:\x021
 keybind = cmd+two=text:\x022
 keybind = cmd+three=text:\x023
 keybind = cmd+four=text:\x024
@@ -107,22 +114,26 @@ keybind = cmd+seven=text:\x027
 keybind = cmd+eight=text:\x028
 keybind = cmd+nine=text:\x029
 
-# Cmd+[/] -> pane navigation
-keybind = cmd+bracket_left=text:\x08
-keybind = cmd+bracket_right=text:\x0c
-
 # Cmd+Shift+[/] -> previous/next window
 keybind = cmd+shift+bracket_left=text:\x02p
 keybind = cmd+shift+bracket_right=text:\x02n
 
-# Cmd+t -> new window
-keybind = cmd+t=unbind
-keybind = cmd+t=text:\x02c
+# Cmd+b -> copy mode
+keybind = cmd+b=text:\x02v
 
-# Cmd+D -> split horizontal (C-b %)
+# --- pane ---
+
+# Cmd+d -> split right
 keybind = cmd+d=unbind
 keybind = cmd+d=text:\x02%
 
-# Cmd+Shift+D -> split vertical (C-b ")
+# Cmd+Shift+d -> split down
 keybind = cmd+shift+d=unbind
 keybind = cmd+shift+d=text:\x02"
+
+# Cmd+[/] -> select pane left/right
+keybind = cmd+bracket_left=text:\x08
+keybind = cmd+bracket_right=text:\x0c
+
+# Cmd+k -> clear pane history
+keybind = cmd+k=text:\x02K

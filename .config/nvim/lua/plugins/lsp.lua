@@ -20,7 +20,6 @@ return {
 			"cssls",
 			"html",
 			"jsonls",
-			"marksman",
 			"taplo",
 			"dockerls",
 			"docker_compose_language_service",
