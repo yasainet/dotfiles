@@ -12,6 +12,7 @@ return {
 			css = { "prettier" },
 			markdown = { "prettier" },
 			yaml = { "prettier" },
+			python = { "ruff_format" },
 			toml = { "taplo" },
 			sql = { "sql_formatter" },
 		},

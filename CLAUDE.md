@@ -19,6 +19,7 @@ This file provides guidance to Claude Code when working with this repository.
 ├── .config/
 │   ├── .oh-my-zsh/   # Oh My Zsh (submodule)
 │   ├── bat/          # bat
+│   ├── btop/         # btop
 │   ├── fzf/          # fzf
 │   ├── gh/           # GitHub CLI
 │   ├── ghostty/      # Ghostty terminal

@@ -23,6 +23,8 @@ return {
 			"taplo",
 			"dockerls",
 			"docker_compose_language_service",
+			"basedpyright",
+			"ruff",
 		})
 
 		-- Diagnostics

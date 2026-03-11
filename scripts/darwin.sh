@@ -32,7 +32,7 @@ install_cli_tools() {
   brew install tree
   brew install jq
   brew install ffmpeg
-  brew install glances
+  brew install btop
   brew install uv
   brew install yazi
   brew install git-delta
