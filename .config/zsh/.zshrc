@@ -119,6 +119,9 @@ export LG_CONFIG_FILE="$HOME/.config/lazygit/config.yml,$HOME/.config/lazygit/th
 # Less
 export LESSHISTFILE=-
 
+# psql
+export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
+
 # .zsh history
 export HISTFILE="$ZDOTDIR/.zsh_history"
 export ZSH_SESSION_DIR="$ZDOTDIR/.zsh_sessions"
