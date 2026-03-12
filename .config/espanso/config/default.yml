@@ -3,5 +3,5 @@ show_icon: false
 
 backend: inject
 clipboard_threshold: 30
-key_delay: 10
+key_delay: 5
 inject_delay: 5
