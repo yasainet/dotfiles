@@ -90,8 +90,20 @@ vim.keymap.set("n", "<C-h>", function()
 		vim.fn.system("tmux select-pane -L")
 	end
 end, { desc = "Navigate left" })
-vim.keymap.set("n", "<C-j>", "<C-w>j", { desc = "Move to lower window" })
-vim.keymap.set("n", "<C-k>", "<C-w>k", { desc = "Move to upper window" })
+vim.keymap.set("n", "<C-j>", function()
+	local win = vim.api.nvim_get_current_win()
+	vim.cmd("wincmd j")
+	if vim.api.nvim_get_current_win() == win and vim.env.TMUX then
+		vim.fn.system("tmux select-pane -D")
+	end
+end, { desc = "Navigate down" })
+vim.keymap.set("n", "<C-k>", function()
+	local win = vim.api.nvim_get_current_win()
+	vim.cmd("wincmd k")
+	if vim.api.nvim_get_current_win() == win and vim.env.TMUX then
+		vim.fn.system("tmux select-pane -U")
+	end
+end, { desc = "Navigate up" })
 vim.keymap.set("n", "<C-l>", function()
 	local win = vim.api.nvim_get_current_win()
 	vim.cmd("wincmd l")
@@ -222,28 +234,28 @@ vim.keymap.set("n", "<leader>yp", function()
 end, { desc = "Yank full path" })
 
 -- Claude Code
-vim.keymap.set("n", "<leader>cc", function()
-	if _G._claude_pane_id then
-		local ok = vim.fn.system("tmux display-message -p -t " .. _G._claude_pane_id .. ' "#{pane_id}" 2>/dev/null')
-		if vim.v.shell_error == 0 and ok:match("%S") then
-			vim.fn.system("tmux kill-pane -t " .. _G._claude_pane_id)
-			_G._claude_pane_id = nil
-			vim.fn.system("tmux set-hook -uw pane-focus-in")
-			vim.fn.system("tmux set-option -wu allow-rename")
-			vim.fn.system("tmux set-option -w automatic-rename on")
-			return
-		end
-		_G._claude_pane_id = nil
-	end
-	local pane_id = vim.fn.system('tmux split-window -h -l 40% -P -F "#{pane_id}" "claude"')
-	_G._claude_pane_id = vim.trim(pane_id)
-	vim.fn.system("tmux set-option -w allow-rename off")
-	local hook = 'if-shell -F "#{==:#{pane_id},'
-		.. _G._claude_pane_id
-		.. '}" "rename-window claude" "set-option -w automatic-rename on"'
-	vim.fn.system("tmux set-hook -w pane-focus-in '" .. hook .. "'")
-	vim.fn.system("tmux rename-window claude")
-end, { desc = "Claude Code" })
+-- vim.keymap.set("n", "<leader>cc", function()
+-- 	if _G._claude_pane_id then
+-- 		local ok = vim.fn.system("tmux display-message -p -t " .. _G._claude_pane_id .. ' "#{pane_id}" 2>/dev/null')
+-- 		if vim.v.shell_error == 0 and ok:match("%S") then
+-- 			vim.fn.system("tmux kill-pane -t " .. _G._claude_pane_id)
+-- 			_G._claude_pane_id = nil
+-- 			vim.fn.system("tmux set-hook -uw pane-focus-in")
+-- 			vim.fn.system("tmux set-option -wu allow-rename")
+-- 			vim.fn.system("tmux set-option -w automatic-rename on")
+-- 			return
+-- 		end
+-- 		_G._claude_pane_id = nil
+-- 	end
+-- 	local pane_id = vim.fn.system('tmux split-window -h -l 40% -P -F "#{pane_id}" "claude"')
+-- 	_G._claude_pane_id = vim.trim(pane_id)
+-- 	vim.fn.system("tmux set-option -w allow-rename off")
+-- 	local hook = 'if-shell -F "#{==:#{pane_id},'
+-- 		.. _G._claude_pane_id
+-- 		.. '}" "rename-window claude" "set-option -w automatic-rename on"'
+-- 	vim.fn.system("tmux set-hook -w pane-focus-in '" .. hook .. "'")
+-- 	vim.fn.system("tmux rename-window claude")
+-- end, { desc = "Claude Code" })
 
 -- Terminal
 local function toggle_terminal()
