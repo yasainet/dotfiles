@@ -99,7 +99,6 @@ install_gui_apps() {
   brew install --cask keyboardcleantool
   brew install --cask the-unarchiver
   brew install --cask iina
-  brew install --cask espanso
 
   # Privacy
   brew install --cask protonvpn
@@ -116,7 +115,6 @@ install_mas_apps() {
 
   mas install 539883307  # LINE
   mas install 497799835  # Xcode
-  mas install 967805235  # Paste
 }
 
 # ====================
