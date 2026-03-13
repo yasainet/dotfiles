@@ -13,10 +13,28 @@
 4. Execute: Follow Core Principles below
 5. Verification: Run the verification steps defined in the project's CLAUDE.md
 
-## Core Principles
+## Plan to Issue
 
-- YAGNI: You Aren't Gonna Need It
-- KISS: Keep It Simple, Stupid
-- DRY: Don't Repeat Yourself
-- SRP: Single Responsibility Principle
-- ESLint: Follow the linting rules defined in the project
+- Create an issue with `gh issue create` once a `Plan` is finalized
+- Issue template:
+
+```markdown
+## Why
+
+(Purpose — why this needs to be solved)
+
+## How
+
+(Strategy — how to solve it)
+
+## What
+
+(Tactics — what to implement)
+
+- [ ] task 1
+- [ ] task 2
+```
+
+### Linking commits to issues
+
+- Include `Closes #N` in commit messages to auto-close issues when merged into main
