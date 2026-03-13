@@ -11,30 +11,9 @@
       "Bash(dd if=/dev/*)",
       "Bash(mkfs*)",
       "Bash(diskutil eraseDisk*)",
-      "Bash(diskutil partitionDisk*)",
-      "Read(**/.env)",
-      "Read(**/.env.*)"
+      "Bash(diskutil partitionDisk*)"
     ],
-    "ask": [
-      "Bash(rm -rf ~*)",
-      "Bash(rm -rf .*)",
-      "Bash(rm -rf .)",
-      "Bash(sudo *)",
-      "Bash(git push --force*)",
-      "Bash(git push * --force*)",
-      "Bash(git push -f *)",
-      "Bash(git reset --hard*)",
-      "Bash(git clean -f*)",
-      "Bash(git checkout -- .)",
-      "Bash(git branch -D *)",
-      "Bash(* --no-verify*)",
-      "Bash(* --no-gpg-sign*)",
-      "Read(~/.ssh/**)",
-      "Edit(~/.bashrc)",
-      "Edit(~/.zshrc)",
-      "Write(~/.bashrc)",
-      "Write(~/.zshrc)"
-    ],
+    "ask": ["Bash(rm -rf *)", "Bash(git push *)"],
     "defaultMode": "bypassPermissions"
   },
   "enableAllProjectMcpServers": true,
@@ -80,17 +59,6 @@
           {
             "type": "command",
             "command": "bash ~/.config/tmux/scripts/agent-state-wrapper.sh --agent claude --state done"
-          }
-        ]
-      }
-    ],
-    "PostToolUse": [
-      {
-        "matcher": "ExitPlanMode",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "echo 'Plan finalized. Create a GitHub issue with gh issue create following the Issue template in CLAUDE.md.'"
           }
         ]
       }
