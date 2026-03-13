@@ -6,10 +6,8 @@
   "permissions": {
     "allow": [],
     "deny": [
+      "Bash(rm -rf /)",
       "Bash(rm -rf /*)",
-      "Bash(rm -rf ~*)",
-      "Bash(rm -rf .*)",
-      "Bash(rm -rf .)",
       "Bash(dd if=/dev/*)",
       "Bash(mkfs*)",
       "Bash(diskutil eraseDisk*)",
@@ -18,6 +16,9 @@
       "Read(**/.env.*)"
     ],
     "ask": [
+      "Bash(rm -rf ~*)",
+      "Bash(rm -rf .*)",
+      "Bash(rm -rf .)",
       "Bash(sudo *)",
       "Bash(git push --force*)",
       "Bash(git push * --force*)",
@@ -79,6 +80,17 @@
           {
             "type": "command",
             "command": "bash ~/.config/tmux/scripts/agent-state-wrapper.sh --agent claude --state done"
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "ExitPlanMode",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo 'Plan finalized. Create a GitHub issue with gh issue create following the Issue template in CLAUDE.md.'"
           }
         ]
       }
