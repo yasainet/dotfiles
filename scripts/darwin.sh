@@ -94,7 +94,7 @@ install_gui_apps() {
 
   # Utilities
   brew install --cask karabiner-elements
-  brew install --cask rectangle
+  brew install --cask raycast
   brew install --cask cleanshot
   brew install --cask keyboardcleantool
   brew install --cask the-unarchiver
