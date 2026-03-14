@@ -15,7 +15,7 @@ window-padding-balance = true
 macos-titlebar-style = transparent
 title = " "
 macos-titlebar-proxy-icon = hidden
-background-opacity = 0.95
+background-opacity = 0.90
 maximize = true
 
 # Theme
@@ -40,6 +40,7 @@ macos-option-as-alt = left
 
 # Disable defaults
 keybind = cmd+shift+p=unbind
+keybind = cmd+f=unbind
 
 # ==============================
 # Keybindings for Claude Code
@@ -50,6 +51,9 @@ keybind = shift+enter=text:\x1b\r
 # ==============================
 # Keybindings for nvim
 # ==============================
+
+# Cmd+f -> search
+keybind = cmd+f=text:\x1bf
 
 # Cmd+p -> find files
 keybind = cmd+p=text:\x1bp
