@@ -62,6 +62,12 @@ install_cli_tools() {
 
   # direnv
   brew install direnv
+
+  # Zsh plugins
+  brew install zsh-autosuggestions
+  brew install zsh-syntax-highlighting
+  brew install zsh-completions
+  brew install pure
 }
 
 # ====================

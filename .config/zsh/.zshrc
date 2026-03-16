@@ -134,20 +134,27 @@ setopt HIST_IGNORE_SPACE
 setopt SHARE_HISTORY
 setopt HIST_REDUCE_BLANKS
 
-# Oh My Zsh
-export ZSH="$HOME/.config/.oh-my-zsh"
-export ZSH_COMPDUMP="$ZDOTDIR/.zcompdump"
-zstyle ':omz:update' mode auto
-zstyle ':omz:update' frequency 30
-DISABLE_MAGIC_FUNCTIONS="true"
-DISABLE_COMPFIX="true"
-zstyle ':omz:lib:compinit' cache-policy once-a-day
-plugins=(gitfast zsh-autosuggestions zsh-syntax-highlighting zsh-completions)
-source "$ZSH/oh-my-zsh.sh"
+# Completions
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  fpath=(/opt/homebrew/share/zsh-completions $fpath)
+  fpath=(/opt/homebrew/share/zsh/site-functions $fpath)
+else
+  [[ -d /usr/share/zsh-completions ]] && fpath=(/usr/share/zsh-completions $fpath)
+  [[ -d $HOME/.local/share/zsh/plugins/zsh-completions/src ]] && fpath+=($HOME/.local/share/zsh/plugins/zsh-completions/src)
+fi
+
+# compinit
+autoload -Uz compinit
+ZSH_COMPDUMP="${ZDOTDIR}/.zcompdump"
+if [[ -n "$ZSH_COMPDUMP"(#qN.mh+24) ]] || [[ ! -f "$ZSH_COMPDUMP" ]]; then
+  compinit -d "$ZSH_COMPDUMP"
+else
+  compinit -C -d "$ZSH_COMPDUMP"
+fi
 
 # Prompt: Pure
-fpath+=("$ZSH_CUSTOM/plugins/pure")
 if [[ "$OSTYPE" != "darwin"* ]]; then
+  [[ -d $HOME/.local/share/zsh/plugins/pure ]] && fpath+=($HOME/.local/share/zsh/plugins/pure)
   export PROMPT_PURE_SSH_CONNECTION=1
 fi
 autoload -U promptinit; promptinit
@@ -167,6 +174,15 @@ _pure_truncate_to_repo() {
 }
 add-zsh-hook precmd _pure_truncate_to_repo
 PROMPT="${PROMPT/\%~/%1v}"
+
+# Plugins
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+  source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+else
+  [[ -f /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]] && source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+  [[ -f /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]] && source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+fi
 
 # nvm (lazy load)
 export NVM_DIR="$HOME/.nvm"
