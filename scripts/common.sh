@@ -34,10 +34,6 @@ create_symlinks() {
   # .zshenv
   link "$DOTFILES/.config/zsh/.zshenv" "$HOME/.zshenv"
 
-  # .oh-my-zsh
-  link "$DOTFILES/.config/.oh-my-zsh" "$HOME/.config/.oh-my-zsh"
-
-
   # Claude Code
   mkdir -p "$HOME/.claude"
   link "$DOTFILES/claude-code/CLAUDE.md" "$HOME/.claude/CLAUDE.md"
@@ -93,39 +89,9 @@ setup_bat_theme() {
 }
 
 # ====================
-# Oh My Zsh plugins
-# ====================
-install_omz_plugins() {
-  echo "Installing Oh My Zsh plugins..."
-
-  local ZSH_CUSTOM="$HOME/.config/.oh-my-zsh/custom"
-  local plugins=(zsh-autosuggestions zsh-syntax-highlighting zsh-completions)
-
-  for plugin in "${plugins[@]}"; do
-    local dest="$ZSH_CUSTOM/plugins/$plugin"
-    if [ -d "$dest" ]; then
-      echo "  [skip] $plugin (already installed)"
-    else
-      git clone "https://github.com/zsh-users/$plugin.git" "$dest"
-      echo "  [done] $plugin"
-    fi
-  done
-
-  # Pure prompt
-  local pure_dest="$ZSH_CUSTOM/plugins/pure"
-  if [ -d "$pure_dest" ]; then
-    echo "  [skip] pure (already installed)"
-  else
-    git clone "https://github.com/sindresorhus/pure.git" "$pure_dest"
-    echo "  [done] pure"
-  fi
-}
-
-# ====================
 # Post-install
 # ====================
 post_install() {
   echo "Running post-install setup..."
   setup_bat_theme
-  install_omz_plugins
 }

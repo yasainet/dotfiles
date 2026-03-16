@@ -17,6 +17,7 @@ install_cli_tools() {
 
   sudo apt install -y curl wget zsh software-properties-common
   sudo apt install -y bat fd-find fzf ripgrep tree jq
+  sudo apt install -y zsh-autosuggestions zsh-syntax-highlighting
 
   # Neovim
   if ! command -v nvim &> /dev/null || [[ "$(nvim --version | head -1)" < "NVIM v0.10" ]]; then
@@ -40,9 +41,36 @@ set_default_shell() {
 }
 
 # ====================
+# Zsh Plugins (git clone fallback)
+# ====================
+install_zsh_plugins() {
+  echo "Installing Zsh plugins..."
+
+  local plugin_dir="$HOME/.local/share/zsh/plugins"
+  mkdir -p "$plugin_dir"
+
+  # Pure prompt
+  if [ ! -d "$plugin_dir/pure" ]; then
+    git clone "https://github.com/sindresorhus/pure.git" "$plugin_dir/pure"
+    echo "  [done] pure"
+  else
+    echo "  [skip] pure (already installed)"
+  fi
+
+  # zsh-completions
+  if [ ! -d "$plugin_dir/zsh-completions" ]; then
+    git clone "https://github.com/zsh-users/zsh-completions.git" "$plugin_dir/zsh-completions"
+    echo "  [done] zsh-completions"
+  else
+    echo "  [skip] zsh-completions (already installed)"
+  fi
+}
+
+# ====================
 # Main (Linux)
 # ====================
 install_packages() {
   install_cli_tools
   set_default_shell
+  install_zsh_plugins
 }
