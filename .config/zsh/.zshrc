@@ -227,5 +227,3 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
   eval "$(direnv hook zsh)"
 fi
 
-# ComfyUI
-[[ -d ~/Projects/ComfyUI ]] && alias comfy='cd ~/Projects/ComfyUI && source venv/bin/activate && python main.py --listen --port 8188 --preview-method auto'
