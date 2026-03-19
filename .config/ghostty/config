@@ -4,6 +4,9 @@ desktop-notifications = true
 # Shell Integration
 shell-integration = none
 
+# tmux
+command = /bin/sh -c '/opt/homebrew/bin/tmux attach || /opt/homebrew/bin/tmux new-session'
+
 # Clipboard
 clipboard-read = allow
 clipboard-write = allow
