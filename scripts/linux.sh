@@ -16,7 +16,7 @@ install_cli_tools() {
   sudo locale-gen en_US.UTF-8
 
   sudo apt install -y curl wget zsh software-properties-common
-  sudo apt install -y bat fd-find fzf ripgrep tree jq
+  sudo apt install -y bat btop fd-find fzf ripgrep tree jq
   sudo apt install -y zsh-autosuggestions zsh-syntax-highlighting
 
   # Neovim
