@@ -1,3 +1,6 @@
+# Notifications
+desktop-notifications = true
+
 # Shell Integration
 shell-integration = none
 
