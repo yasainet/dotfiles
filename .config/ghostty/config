@@ -142,8 +142,8 @@ keybind = cmd+shift+d=unbind
 keybind = cmd+shift+d=text:\x02"
 
 # Cmd+[/] -> select pane left/right
-keybind = cmd+bracket_left=text:\x08
-keybind = cmd+bracket_right=text:\x0c
+# keybind = cmd+bracket_left=text:\x08
+# keybind = cmd+bracket_right=text:\x0c
 
 # Cmd+k -> clear pane history
 keybind = cmd+k=text:\x02K
