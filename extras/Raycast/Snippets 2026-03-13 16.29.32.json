@@ -1,1 +1,18 @@
-[{"name":"Next.js","text":"Next.js","keyword":";ne"},{"name":"Node.js","text":"Node.js","keyword":";no"},{"name":"JavaScript","text":"JavaScript","keyword":";js"},{"name":"TypeScript","text":"TypeScript","keyword":";ts"},{"name":"PostgreSQL","text":"PostgreSQL","keyword":";pg"},{"name":"Supabase","text":"Supabase","keyword":";su"},{"name":"Database Functions","text":"Database Functions","keyword":";df"},{"name":"Edge Functions","text":"Edge Functions","keyword":";ef"},{"name":"~\/Projects\/","text":"~\/Projects\/","keyword":";pj"},{"name":"~\/dotfiles\/","text":"~\/dotfiles\/","keyword":";dot"},{"name":"~\/Documents\/","text":"~\/Documents\/","keyword":";doc"}]
+[
+  { "name": "Next.js", "text": "Next.js", "keyword": ";ne" },
+  { "name": "Node.js", "text": "Node.js", "keyword": ";no" },
+  { "name": "JavaScript", "text": "JavaScript", "keyword": ";js" },
+  { "name": "TypeScript", "text": "TypeScript", "keyword": ";ts" },
+  { "name": "PostgreSQL", "text": "PostgreSQL", "keyword": ";pg" },
+  { "name": "Supabase", "text": "Supabase", "keyword": ";su" },
+  {
+    "name": "Database Functions",
+    "text": "Database Functions",
+    "keyword": ";df"
+  },
+  { "name": "Edge Functions", "text": "Edge Functions", "keyword": ";ef" },
+  { "name": "~\/Projects\/", "text": "~\/Projects\/", "keyword": ";pj" },
+  { "name": "~\/dotfiles\/", "text": "~\/dotfiles\/", "keyword": ";dot" },
+  { "name": "~\/Documents\/", "text": "~\/Documents\/", "keyword": ";doc" }
+]
+
