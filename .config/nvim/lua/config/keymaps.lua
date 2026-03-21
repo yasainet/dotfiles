@@ -22,7 +22,7 @@ vim.keymap.set("i", "<C-k>", "<C-o>D", { desc = "Kill to end of line" })
 vim.keymap.set("i", "<C-n>", "<Down>", { desc = "Next line" })
 vim.keymap.set("i", "<C-p>", "<Up>", { desc = "Previous line" })
 
--- Cmd keybindings (Ghostty sends Alt sequence as carrier)
+-- Cmd keybindings
 vim.keymap.set("n", "<M-p>", function()
 	Snacks.picker.files()
 end, { desc = "Find files (Cmd+p)" })
@@ -112,7 +112,7 @@ vim.keymap.set("n", "<C-l>", function()
 	end
 end, { desc = "Navigate right" })
 
--- Picker (Snacks)
+-- Picker
 vim.keymap.set("n", "<leader>ff", function()
 	Snacks.picker.files()
 end, { desc = "Find files" })
@@ -251,7 +251,6 @@ local function toggle_terminal()
 	})
 end
 vim.keymap.set({ "n", "t" }, "<C-/>", toggle_terminal, { desc = "Toggle terminal" })
-vim.keymap.set({ "n", "t" }, "<C-_>", toggle_terminal, { desc = "Toggle terminal" })
 vim.keymap.set({ "n", "t" }, "<M-j>", toggle_terminal, { desc = "Toggle terminal (Cmd+j)" })
 vim.keymap.set("t", "<C-v>", "<C-\\><C-n>", { desc = "Terminal normal mode" })
 
