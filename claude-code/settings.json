@@ -42,10 +42,6 @@
         "hooks": [
           {
             "type": "command",
-            "command": "~/.claude/hooks/notify.sh"
-          },
-          {
-            "type": "command",
             "command": "bash ~/.config/tmux/scripts/agent-state-wrapper.sh --agent claude --state needs-input"
           }
         ]
@@ -55,10 +51,6 @@
       {
         "matcher": "",
         "hooks": [
-          {
-            "type": "command",
-            "command": "~/.claude/hooks/notify.sh"
-          },
           {
             "type": "command",
             "command": "bash ~/.config/tmux/scripts/agent-state-wrapper.sh --agent claude --state done"
