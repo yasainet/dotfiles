@@ -25,6 +25,7 @@ return {
 			"docker_compose_language_service",
 			"basedpyright",
 			"ruff",
+			"tailwindcss",
 		})
 
 		-- Diagnostics

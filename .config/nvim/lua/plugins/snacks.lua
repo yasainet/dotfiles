@@ -101,6 +101,9 @@ return {
 		image = {
 			enabled = true,
 			backend = "kitty",
+			doc = {
+				enabled = false,
+			},
 		},
 		input = {
 			enabled = true,
