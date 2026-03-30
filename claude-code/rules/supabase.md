@@ -17,6 +17,14 @@ Edit `supabase/schemas/*.sql` to declare the desired state; migrations are gener
 - **Don't** run `supabase gen types` yourself
 - **Do** tell the user to run `/migrate <name>` after editing `*.schema.sql`
 
+## Secrets Management
+
+| Mechanism               | Config Location                                                   | Scope                                 | Access                         |
+| ----------------------- | ----------------------------------------------------------------- | ------------------------------------- | ------------------------------ |
+| **Vault Secrets**       | `config.toml` `[db.vault]` + root `.env`                          | SQL (pg_cron, triggers, functions)    | `vault.decrypted_secrets` view |
+| **Edge Functions env**  | `supabase/functions/.env` (local) / `supabase secrets set` (prod) | Edge Functions                        | `Deno.env.get()`               |
+| **config.toml `env()`** | root `.env`                                                       | config.toml values (auth, smtp, etc.) | `env(VAR_NAME)`                |
+
 ## Seeds & Scripts
 
 ```toml
@@ -37,8 +45,9 @@ sql_paths = ["./seeds/*.seed.sql", "./seeds/**/*.seed.sql", "./seeds/scripts/*.l
 ## Directory Structure
 
 ```text
+.env                   # Vault secrets for config.toml env()
 supabase/
-├── config.toml        # Supabase configuration
+├── config.toml        # Supabase configuration ([db.vault] reads from root .env)
 ├── migrations/        # Auto-generated migration files (DO NOT edit)
 ├── schemas/           # Declarative schema definitions (numbered: 01_users.schema.sql)
 ├── seeds/             # Seed data (auto-executed on db reset)
@@ -51,4 +60,30 @@ supabase/
 ├── snippets/          # SQL snippets (optional)
 ├── templates/         # Templates (optional)
 └── functions/         # Supabase Edge Functions (optional)
+    └── .env           # Edge Functions secrets (gitignored)
+```
+
+### Example `.env`
+
+```.env ~/Projects/**/.env
+# Vault Secrets
+VAULT_SUPABASE_URL=
+VAULT_SERVICE_ROLE_KEY=
+
+# Run the Terminal
+#
+# Production
+# VAULT_SUPABASE_URL=https:*.supabase.co
+# VAULT_SERVICE_ROLE_KEY=
+```
+
+```.env ~/Projects/**/supabase/functions/.env
+# Edge Function Secrets
+ENVIRONMENT=development
+
+# Run the Terminal
+#
+# Production
+# supabase secrets set ENVIRONMENT=production --project-ref wwfdzwjhjzuwjcgchqhl
+
 ```
