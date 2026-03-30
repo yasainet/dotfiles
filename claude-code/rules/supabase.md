@@ -19,24 +19,13 @@ Edit `supabase/schemas/*.sql` to declare the desired state; migrations are gener
 
 ## Seeds & Scripts
 
-### Without scripts directory
-
 ```toml
 [db.migrations]
 schema_paths = ["./schemas/*.sql"]
 
 [db.seed]
-sql_paths = ["./seeds/**/*.seed.sql"]
-```
+sql_paths = ["./seeds/*.seed.sql", "./seeds/**/*.seed.sql", "./seeds/scripts/*.local.sql"]
 
-### With scripts directory
-
-```toml
-[db.migrations]
-schema_paths = ["./schemas/*.sql"]
-
-[db.seed]
-sql_paths = ["./seeds/**/*.seed.sql", "./seeds/scripts/*.local.sql"]
 ```
 
 - `supabase/seeds/**/*.seed.sql` — Seed files (auto-executed on `db reset`)

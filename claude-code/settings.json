@@ -79,7 +79,8 @@
     "command": "sh ~/.claude/statusline-command.sh"
   },
   "enabledPlugins": {
-    "context7@claude-plugins-official": true
+    "context7@claude-plugins-official": true,
+    "typescript-lsp@claude-plugins-official": true
   },
   "language": "Japanese",
   "autoUpdatesChannel": "latest",
