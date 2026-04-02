@@ -83,3 +83,6 @@ vim.opt.guicursor = {
 	"a:blinkwait700-blinkoff400-blinkon250",
 	"sm:block-blinkon100",
 }
+
+-- Options
+vim.deprecate = function() end

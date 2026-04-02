@@ -10,7 +10,10 @@
       "Bash(diskutil eraseDisk*)",
       "Bash(diskutil partitionDisk*)"
     ],
-    "ask": ["Bash(rm -rf *)", "Bash(git push *)"],
+    "ask": [
+      "Bash(rm -rf *)",
+      "Bash(git push *)"
+    ],
     "defaultMode": "bypassPermissions"
   },
   "enableAllProjectMcpServers": true,
