@@ -82,6 +82,5 @@
   "language": "Japanese",
   "autoUpdatesChannel": "latest",
   "voiceEnabled": true,
-  "skipDangerousModePermissionPrompt": true,
-  "model": "sonnet"
+  "skipDangerousModePermissionPrompt": true
 }
