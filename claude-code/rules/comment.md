@@ -8,12 +8,11 @@ paths:
 
 ## Comment, JSDoc
 
-- Write in simple English
-- Describe "why" this code exists, not the implementation details
-- Do not use any JSDoc tags (`@description`, `@param`, `@example`, etc.). Use the comment body directly.
+- 実装の詳細ではなく、「なぜ（why）」このコードが存在するのかを記述する
+- JSDoc タグ（`@description`、`@param`、`@example` など）は使わない。コメント本文を直接書く
 
 > [!NOTE]
-> Humans read only JSDoc, not the code. Claude Code read JSDoc for intent and code for implementation truth.
+> 人間は JSDoc しか読まず、コードは読まない。Claude Code は意図を JSDoc から、実装の真実をコードから読み取る。
 
 ### Single-line (default)
 
@@ -23,7 +22,7 @@ paths:
 
 ### Multi-line
 
-When the function has 2 or more independent conditions or behaviors, write a summary followed by a bullet list. List every condition — one bullet per condition.
+関数に独立した条件や挙動が 2 つ以上ある場合は、サマリーを書いた上で箇条書きを続ける。すべての条件を列挙すること（1 条件 1 項目）。
 
 ```js
 /**

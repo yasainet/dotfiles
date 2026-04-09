@@ -1,22 +1,19 @@
 ---
 name: push
-description: Push current branch. With --tag, also increment the latest tag and push it
+description: 現在のブランチを push する。--tag を付けると、最新タグをインクリメントして push する
 argument-hint: [--tag]
 allowed-tools: Bash(git *)
 ---
 
 # Push
 
-Arguments: $ARGUMENTS
-
-Latest tag: `!git describe --tags --abbrev=0`
-
-## Instructions
+- 引数: $ARGUMENTS
+- 最新タグ: `!git describe --tags --abbrev=0`
 
 1. `git push`
 
-If `$ARGUMENTS` contains `--tag`, also do:
+`$ARGUMENTS` に `--tag` が含まれる場合は、追加で:
 
-2. Increment the **patch** version of the latest tag (e.g., `v0.0.0` → `v0.0.1`)
+2. 最新タグの **patch** バージョンをインクリメントする（例: `v0.0.0` → `v0.0.1`）
 3. `git tag vX.X.X`
 4. `git push origin vX.X.X`

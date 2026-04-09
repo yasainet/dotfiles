@@ -1,15 +1,13 @@
 ---
 name: issue
-description: Create a GitHub issue and add it to the Board project
+description: GitHub issue を作成し、Board プロジェクトに追加する
 allowed-tools: Bash(gh *), AskUserQuestion
 ---
 
 # Issue
 
-## Instructions
-
-1. If the user provided a title and body, use them directly
-2. Otherwise, summarize the current conversation context to draft an appropriate issue title and body
-3. Show the drafted title and body to the user for confirmation before creating
-4. Run `gh issue create --project "Board" --title "<title>" --body "<body>"` in the current repository
-5. Show the created issue URL to the user
+1. ユーザーがタイトルと本文を指定している場合は、それをそのまま使用する
+2. 指定がない場合は、現在の会話のコンテキストを要約し、適切な issue タイトルと本文をドラフトする
+3. 作成前に、ドラフトしたタイトルと本文をユーザーに見せて確認を取る
+4. カレントリポジトリで `gh issue create --project "Board" --title "<title>" --body "<body>"` を実行する
+5. 作成された issue の URL をユーザーに表示する

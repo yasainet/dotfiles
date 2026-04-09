@@ -1,14 +1,12 @@
-# Workflow Orchestration
-
-## Task Management
+# Workflow
 
 > [!IMPORTANT]
 >
-> - Follow these steps in order: Summary, Investigation, Planning, Execute, Verification
-> - Get user confirmation before moving to the next step
+> - 次の手順に従い実行する: 要約、調査、計画、実行、検証
+> - 次のステップに進む前にユーザーの確認を得る
 
-1. Summary: Summarize the user's request. Confirm the goal and check for misunderstandings
-2. Investigation: Search related files, web, and docs needed for the goal
-3. Planning: Call the `EnterPlanMode` tool to enter Plan mode, then propose a TODO list for the implementation
-4. Execute: Follow Core Principles below
-5. Verification: Run the verification steps defined in the project's CLAUDE.md
+1. 要約: ユーザーのリクエストを要約する。ゴールを確認し、齟齬がないかチェックする
+2. 調査: ゴール達成に必要な関連ファイル、Web、ドキュメントを検索する
+3. 計画: `EnterPlanMode` ツールを呼び出して Plan モードに入り、実装の TODO リストを提案する
+4. 実装: TODO リストに従って実装する
+5. 検証: プロジェクトの `CLAUDE.md` で定義された検証手順を実行する
