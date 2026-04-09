@@ -5,25 +5,25 @@ paths:
 
 # Supabase Rules
 
-This project uses [Declarative Database Schemas](https://supabase.com/docs/guides/local-development/declarative-database-schemas).
-Edit `supabase/schemas/*.sql` to declare the desired state; migrations are generated via `supabase db diff --local` or `supabase db push --local`.
+このプロジェクトは [Declarative Database Schemas](https://supabase.com/docs/guides/local-development/declarative-database-schemas) を使用している。
+`supabase/schemas/*.sql` を編集して目的の状態を宣言し、マイグレーションは `supabase db diff --local` または `supabase db push --local` で生成する。
 
 ## Migration
 
-- **Don't** edit `migrations/*.sql` files
-- **Don't** run `apply_migration` with `supabase-mcp`
-- **Don't** run `supabase db diff` yourself
-- **Don't** run `supabase db reset` yourself
-- **Don't** run `supabase gen types` yourself
-- **Do** tell the user to run `/migrate <name>` after editing `*.schema.sql`
+- `migrations/*.sql` ファイルを**編集しない**こと
+- `supabase-mcp` で `apply_migration` を**実行しない**こと
+- `supabase db diff` を自分で**実行しない**こと
+- `supabase db reset` を自分で**実行しない**こと
+- `supabase gen types` を自分で**実行しない**こと
+- `*.schema.sql` 編集後は、ユーザーに `/migrate <name>` を実行するよう**伝える**こと
 
 ## Secrets Management
 
-| Mechanism               | Config Location                                                   | Scope                                 | Access                         |
-| ----------------------- | ----------------------------------------------------------------- | ------------------------------------- | ------------------------------ |
-| **Vault Secrets**       | `config.toml` `[db.vault]` + root `.env`                          | SQL (pg_cron, triggers, functions)    | `vault.decrypted_secrets` view |
-| **Edge Functions env**  | `supabase/functions/.env` (local) / `supabase secrets set` (prod) | Edge Functions                        | `Deno.env.get()`               |
-| **config.toml `env()`** | root `.env`                                                       | config.toml values (auth, smtp, etc.) | `env(VAR_NAME)`                |
+| 仕組み                  | 設定場所                                                              | スコープ                          | アクセス方法                   |
+| ----------------------- | --------------------------------------------------------------------- | --------------------------------- | ------------------------------ |
+| **Vault Secrets**       | `config.toml` `[db.vault]` + ルートの `.env`                          | SQL（pg_cron、トリガー、関数）    | `vault.decrypted_secrets` view |
+| **Edge Functions env**  | `supabase/functions/.env`（ローカル）/ `supabase secrets set`（本番） | Edge Functions                    | `Deno.env.get()`               |
+| **config.toml `env()`** | ルートの `.env`                                                       | config.toml の値（auth、smtp 等） | `env(VAR_NAME)`                |
 
 ## Seeds & Scripts
 
@@ -36,31 +36,31 @@ sql_paths = ["./seeds/*.seed.sql", "./seeds/**/*.seed.sql", "./seeds/scripts/*.l
 
 ```
 
-- `supabase/seeds/**/*.seed.sql` — Seed files (auto-executed on `db reset`)
-- `supabase/seeds/storages/*.storage.seed.sql` — Storage bucket seed files (RLS policies, bucket creation)
-- `supabase/seeds/scripts/*.local.sql` — Local environment setup (auto-executed on `db reset` via `sql_paths`)
-- `supabase/seeds/scripts/*.production.sql` — Production environment setup (manual execution only, excluded from seed)
-- `supabase/seeds/storages/<bucket_name>/` — Seed asset files for storage buckets (images, etc.)
+- `supabase/seeds/**/*.seed.sql` — シードファイル（`db reset` 時に自動実行）
+- `supabase/seeds/storages/*.storage.seed.sql` — ストレージバケットのシードファイル（RLS ポリシー、バケット作成）
+- `supabase/seeds/scripts/*.local.sql` — ローカル環境セットアップ（`sql_paths` 経由で `db reset` 時に自動実行）
+- `supabase/seeds/scripts/*.production.sql` — 本番環境セットアップ（手動実行のみ、シードからは除外）
+- `supabase/seeds/storages/<bucket_name>/` — ストレージバケット用のシードアセットファイル（画像など）
 
 ## Directory Structure
 
 ```text
-.env                   # Vault secrets for config.toml env()
+.env                   # config.toml env() 用の Vault シークレット
 supabase/
-├── config.toml        # Supabase configuration ([db.vault] reads from root .env)
-├── migrations/        # Auto-generated migration files (DO NOT edit)
-├── schemas/           # Declarative schema definitions (numbered: 01_users.schema.sql)
-├── seeds/             # Seed data (auto-executed on db reset)
-│   ├── *.seed.sql             # Table seed data (numbered: 01_users.seed.sql)
-│   ├── storages/              # Storage bucket seeds (*.storage.seed.sql)
-│   │   └── <bucket_name>/            # Seed asset files (e.g. users/**/default.jpg)
-│   └── scripts/               # Environment scripts (optional)
-│       ├── *.local.sql                # Local setup (auto-executed on db reset)
-│       └── *.production.sql           # Production setup (manual execution only)
-├── snippets/          # SQL snippets (optional)
-├── templates/         # Templates (optional)
-└── functions/         # Supabase Edge Functions (optional)
-    └── .env           # Edge Functions secrets (gitignored)
+├── config.toml        # Supabase 設定（[db.vault] はルートの .env を読む）
+├── migrations/        # 自動生成されるマイグレーションファイル（編集禁止）
+├── schemas/           # 宣言的スキーマ定義（番号付き: 01_users.schema.sql）
+├── seeds/             # シードデータ（db reset 時に自動実行）
+│   ├── *.seed.sql             # テーブルのシードデータ（番号付き: 01_users.seed.sql）
+│   ├── storages/              # ストレージバケットのシード（*.storage.seed.sql）
+│   │   └── <bucket_name>/            # シードアセットファイル（例: users/**/default.jpg）
+│   └── scripts/               # 環境スクリプト（任意）
+│       ├── *.local.sql                # ローカルセットアップ（db reset 時に自動実行）
+│       └── *.production.sql           # 本番セットアップ（手動実行のみ）
+├── snippets/          # SQL スニペット（任意）
+├── templates/         # テンプレート（任意）
+└── functions/         # Supabase Edge Functions（任意）
+    └── .env           # Edge Functions のシークレット（gitignore 対象）
 ```
 
 ### Example `.env`

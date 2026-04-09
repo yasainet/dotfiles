@@ -1,6 +1,6 @@
 ---
 name: migrate
-description: Run the Supabase migration workflow (diff, push, gen types)
+description: Supabase のマイグレーションワークフロー（diff、push、gen types）を実行する
 argument-hint: <migration-name>
 disable-model-invocation: true
 allowed-tools: Bash(supabase *)
@@ -8,9 +8,7 @@ allowed-tools: Bash(supabase *)
 
 # Supabase Migrate
 
-## Instructions
-
-Run all commands sequentially without confirmation:
+確認を取らず、すべてのコマンドを順番に実行する:
 
 1. `supabase db diff -f $ARGUMENTS`
 2. `supabase db push --local`
