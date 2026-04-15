@@ -174,6 +174,7 @@ vim.keymap.set("n", "]t", '<Cmd>lua require("todo-comments").jump_next()<CR>', {
 vim.keymap.set("n", "[t", '<Cmd>lua require("todo-comments").jump_prev()<CR>', { desc = "Previous todo" })
 
 -- LSP
+vim.lsp.document_color.enable(false)
 vim.api.nvim_create_autocmd("LspAttach", {
 	callback = function(event)
 		local opts = { buffer = event.buf }
