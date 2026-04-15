@@ -15,9 +15,14 @@
     {
       "passKeys": "",
       "pattern": "https?://b.hatena.ne.jp/hotentry*"
+    },
+    {
+      "passKeys": "",
+      "pattern": "https?://www.threads.com/*"
     }
   ],
   "keyMappings": "unmapAll\nmap j scrollDown\nmap k scrollUp\nmap gg scrollToTop\nmap G scrollToBottom",
+  "newTabDestination": "browserNewTabPage",
   "scrollStepSize": 200,
-  "settingsVersion": "2.4.0"
+  "settingsVersion": "2.4.2"
 }

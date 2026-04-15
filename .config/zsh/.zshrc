@@ -125,8 +125,8 @@ export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 # .zsh history
 export HISTFILE="$ZDOTDIR/.zsh_history"
 export ZSH_SESSION_DIR="$ZDOTDIR/.zsh_sessions"
-export SAVEHIST=10000
-export HISTSIZE=10000
+export SAVEHIST=1000
+export HISTSIZE=1000
 setopt AUTO_CD
 setopt HIST_IGNORE_ALL_DUPS
 setopt HIST_SAVE_NO_DUPS
