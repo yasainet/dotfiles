@@ -36,10 +36,10 @@ create_symlinks() {
 
   # Claude Code
   mkdir -p "$HOME/.claude"
-  link "$DOTFILES/claude-code/CLAUDE.md" "$HOME/.claude/CLAUDE.md"
-  link "$DOTFILES/claude-code/settings.json" "$HOME/.claude/settings.json"
-  link "$DOTFILES/claude-code/hooks" "$HOME/.claude/hooks"
-  link "$DOTFILES/claude-code/rules" "$HOME/.claude/rules"
+  link "$DOTFILES/dot-claude/CLAUDE.md" "$HOME/.claude/CLAUDE.md"
+  link "$DOTFILES/dot-claude/settings.json" "$HOME/.claude/settings.json"
+  link "$DOTFILES/dot-claude/rules" "$HOME/.claude/rules"
+  link "$DOTFILES/dot-claude/skills" "$HOME/.claude/skills"
 }
 
 # ====================

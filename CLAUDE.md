@@ -30,7 +30,7 @@ This file provides guidance to Claude Code when working with this repository.
 │   ├── tmux/         # tmux
 │   ├── yazi/         # Yazi file manager
 │   └── zsh/          # Zsh + Pure
-├── claude-code/      # Claude Code global config
+├── dot-claude/       # Claude Code global config (linked to ~/.claude/)
 ├── extras/
 │   └── vimium/       # Vimium config
 ├── scripts/
