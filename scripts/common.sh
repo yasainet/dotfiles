@@ -40,6 +40,8 @@ create_symlinks() {
   link "$DOTFILES/dot-claude/settings.json" "$HOME/.claude/settings.json"
   link "$DOTFILES/dot-claude/rules" "$HOME/.claude/rules"
   link "$DOTFILES/dot-claude/skills" "$HOME/.claude/skills"
+  link "$DOTFILES/dot-claude/docs" "$HOME/.claude/docs"
+  link "$DOTFILES/dot-claude/statusline-command.sh" "$HOME/.claude/statusline-command.sh"
 }
 
 # ====================
