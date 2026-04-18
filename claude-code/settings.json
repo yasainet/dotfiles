@@ -81,6 +81,8 @@
   },
   "language": "Japanese",
   "autoUpdatesChannel": "latest",
+  "tui": "default",
+  "skipDangerousModePermissionPrompt": true,
   "voiceEnabled": true,
-  "skipDangerousModePermissionPrompt": true
+  "effortLevel": "high"
 }
