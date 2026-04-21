@@ -220,7 +220,7 @@ vim.keymap.set("n", "<leader>cc", function()
 		end
 		_G._claude_pane_id = nil
 	end
-	local pane_id = vim.fn.system('tmux split-window -h -l 50% -P -F "#{pane_id}" "claude"')
+	local pane_id = vim.fn.system('tmux split-window -h -l 45% -P -F "#{pane_id}" "claude"')
 	_G._claude_pane_id = vim.trim(pane_id)
 	vim.fn.system("tmux set-option -w allow-rename off")
 	local hook = 'if-shell -F "#{==:#{pane_id},'
