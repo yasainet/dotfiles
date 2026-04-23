@@ -14,11 +14,15 @@
     },
     {
       "passKeys": "",
-      "pattern": "https?://b.hatena.ne.jp/hotentry*"
+      "pattern": "https?://www.threads.com/*"
     },
     {
       "passKeys": "",
-      "pattern": "https?://www.threads.com/*"
+      "pattern": "https?://www.facebook.com/*"
+    },
+    {
+      "passKeys": "",
+      "pattern": "https?://b.hatena.ne.jp/hotentry*"
     }
   ],
   "keyMappings": "unmapAll\nmap j scrollDown\nmap k scrollUp\nmap gg scrollToTop\nmap G scrollToBottom",
