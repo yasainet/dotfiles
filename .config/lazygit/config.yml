@@ -1,6 +1,8 @@
 gui:
   sidePanelWidth: 0.2
   scrollPastBottom: false
+  showCommandLog: false
+  showRandomTip: false
 os:
   editPreset: "nvim"
 git:

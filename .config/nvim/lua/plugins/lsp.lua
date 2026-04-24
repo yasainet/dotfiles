@@ -26,6 +26,7 @@ return {
 			"basedpyright",
 			"ruff",
 			"tailwindcss",
+			"ruby_lsp",
 		})
 
 		-- Diagnostics

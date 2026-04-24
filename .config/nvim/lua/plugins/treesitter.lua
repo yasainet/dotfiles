@@ -30,6 +30,8 @@ return {
 			"jsdoc",
 			"regex",
 			"ssh_config",
+			"ruby",
+			"embedded_template",
 		})
 
 		vim.api.nvim_create_autocmd("FileType", {
