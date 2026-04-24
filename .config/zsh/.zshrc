@@ -228,3 +228,8 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
   eval "$(direnv hook zsh)"
 fi
 
+# mise (Ruby etc.)
+if [[ "$OSTYPE" == "darwin"* ]] && command -v mise &>/dev/null; then
+  eval "$(mise activate zsh)"
+fi
+
