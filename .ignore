@@ -1,3 +1,2 @@
 # Exclude submodules/plugins
-config/.oh-my-zsh/
-config/tmux/plugins/
+.config/tmux/plugins/

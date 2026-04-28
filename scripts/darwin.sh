@@ -86,6 +86,7 @@ install_gui_apps() {
   # Browser
   brew install --cask google-chrome
   brew install --cask google-chrome@dev
+  brew install --cask brave-browser
   brew install --cask tor-browser
 
   # Productivity
@@ -100,15 +101,11 @@ install_gui_apps() {
 
   # Utilities
   brew install --cask karabiner-elements
-  brew install --cask raycast
-  brew install --cask cleanshot
   brew install --cask keyboardcleantool
   brew install --cask the-unarchiver
-  brew install --cask iina
 
   # Privacy
   brew install --cask protonvpn
-  brew install --cask transmission
 }
 
 # ====================
