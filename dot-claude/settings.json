@@ -12,11 +12,8 @@
       "Bash(diskutil eraseDisk*)",
       "Bash(diskutil partitionDisk*)"
     ],
-    "ask": [
-      "Bash(rm -rf *)",
-      "Bash(git push *)"
-    ],
-    "defaultMode": "bypassPermissions"
+    "ask": ["Bash(rm -rf *)", "Bash(git push *)"],
+    "defaultMode": "auto"
   },
   "enableAllProjectMcpServers": true,
   "hooks": {
@@ -83,9 +80,9 @@
     "lua-lsp@claude-plugins-official": true
   },
   "language": "Japanese",
-  "effortLevel": "high",
+  "effortLevel": "xhigh",
   "autoUpdatesChannel": "latest",
   "tui": "default",
-  "skipDangerousModePermissionPrompt": true,
-  "voiceEnabled": true
+  "voiceEnabled": true,
+  "skipAutoPermissionPrompt": true
 }

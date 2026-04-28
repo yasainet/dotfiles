@@ -16,6 +16,7 @@ return {
 			"jsx",
 			"html",
 			"css",
+			"scss",
 			"json",
 			"sql",
 			"yaml",
@@ -32,6 +33,10 @@ return {
 			"ssh_config",
 			"ruby",
 			"embedded_template",
+			"java",
+			"kotlin",
+			"swift",
+			"groovy",
 		})
 
 		vim.api.nvim_create_autocmd("FileType", {
