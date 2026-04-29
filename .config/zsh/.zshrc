@@ -160,21 +160,6 @@ fi
 autoload -U promptinit; promptinit
 prompt pure
 
-# Truncate path to git repo root
-_pure_truncate_to_repo() {
-  local git_root
-  git_root=$(git rev-parse --show-toplevel 2>/dev/null)
-  if [[ -n "$git_root" ]]; then
-    local repo_name=${git_root:t}
-    local relative=${PWD#$git_root}
-    psvar[1]="${repo_name}${relative}"
-  else
-    psvar[1]="${(%):-%~}"
-  fi
-}
-add-zsh-hook precmd _pure_truncate_to_repo
-PROMPT="${PROMPT/\%~/%1v}"
-
 # Plugins
 if [[ "$OSTYPE" == "darwin"* ]]; then
   source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
