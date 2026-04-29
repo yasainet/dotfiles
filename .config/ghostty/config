@@ -21,7 +21,7 @@ window-padding-balance = true
 macos-titlebar-style = transparent
 title = " "
 macos-titlebar-proxy-icon = hidden
-background-opacity = 0.90
+background-opacity = 0.95
 maximize = true
 
 # Theme
