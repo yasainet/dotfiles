@@ -36,7 +36,6 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
   alias ls='ls -G'
   alias la='ls -laG'
   alias C='pbcopy'
-  alias reboot="osascript -e 'tell app \"System Events\" to restart'"
   find ~ -maxdepth 1 -name "* - Google Drive" -type l -delete 2>/dev/null # Delete Google Drive Symlink
 else
   # Linux
