@@ -90,19 +90,19 @@ keybind = cmd+shift+g=text:\x1bG
 
 # Cmd+` / Cmd+Shift+` -> next/previous session
 keybind = cmd+grave_accent=unbind
-keybind = cmd+grave_accent=text:\x02q
+keybind = cmd+grave_accent=text:\x00q
 keybind = cmd+shift+grave_accent=unbind
-keybind = cmd+shift+grave_accent=text:\x02Q
+keybind = cmd+shift+grave_accent=text:\x00Q
 
 # --- window ---
 
 # Cmd+t -> new window
 keybind = cmd+t=unbind
-keybind = cmd+t=text:\x02c
+keybind = cmd+t=text:\x00c
 
 # Cmd+w -> kill window
 keybind = cmd+w=unbind
-keybind = cmd+w=text:\x02&
+keybind = cmd+w=text:\x00&
 
 # Cmd+1~9 -> select window
 keybind = cmd+digit_1=unbind
@@ -114,36 +114,36 @@ keybind = cmd+digit_6=unbind
 keybind = cmd+digit_7=unbind
 keybind = cmd+digit_8=unbind
 keybind = cmd+digit_9=unbind
-keybind = cmd+one=text:\x021
-keybind = cmd+two=text:\x022
-keybind = cmd+three=text:\x023
-keybind = cmd+four=text:\x024
-keybind = cmd+five=text:\x025
-keybind = cmd+six=text:\x026
-keybind = cmd+seven=text:\x027
-keybind = cmd+eight=text:\x028
-keybind = cmd+nine=text:\x029
+keybind = cmd+one=text:\x001
+keybind = cmd+two=text:\x002
+keybind = cmd+three=text:\x003
+keybind = cmd+four=text:\x004
+keybind = cmd+five=text:\x005
+keybind = cmd+six=text:\x006
+keybind = cmd+seven=text:\x007
+keybind = cmd+eight=text:\x008
+keybind = cmd+nine=text:\x009
 
 # Cmd+Shift+[/] -> previous/next window
-keybind = cmd+shift+bracket_left=text:\x02p
-keybind = cmd+shift+bracket_right=text:\x02n
+keybind = cmd+shift+bracket_left=text:\x00p
+keybind = cmd+shift+bracket_right=text:\x00n
 
 # Cmd+b -> copy mode
-keybind = cmd+b=text:\x02v
+keybind = cmd+b=text:\x00v
 
 # --- pane ---
 
 # Cmd+d -> split right
 keybind = cmd+d=unbind
-keybind = cmd+d=text:\x02%
+keybind = cmd+d=text:\x00%
 
 # Cmd+Shift+d -> split down
 keybind = cmd+shift+d=unbind
-keybind = cmd+shift+d=text:\x02"
+keybind = cmd+shift+d=text:\x00"
 
 # Cmd+[/] -> select pane left/right
 # keybind = cmd+bracket_left=text:\x08
 # keybind = cmd+bracket_right=text:\x0c
 
 # Cmd+k -> clear pane history
-keybind = cmd+k=text:\x02K
+keybind = cmd+k=text:\x00K

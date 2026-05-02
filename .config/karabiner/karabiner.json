@@ -121,18 +121,18 @@
             ]
           },
           {
-            "description": "Ctrl+b (tmux prefix) switches to English",
+            "description": "Ctrl+Space (tmux prefix) switches to English",
             "manipulators": [
               {
                 "from": {
-                  "key_code": "b",
+                  "key_code": "spacebar",
                   "modifiers": {
                     "mandatory": ["control"]
                   }
                 },
                 "to": [
                   {
-                    "key_code": "b",
+                    "key_code": "spacebar",
                     "modifiers": ["control"]
                   },
                   {
@@ -215,30 +215,6 @@
                   {
                     "key_code": "f",
                     "modifiers": ["fn", "left_control"]
-                  }
-                ],
-                "type": "basic"
-              }
-            ]
-          },
-          {
-            "description": "Cmd+Option+V -> Spotlight Clipboard History (Cmd+Space, Cmd+4)",
-            "manipulators": [
-              {
-                "from": {
-                  "key_code": "v",
-                  "modifiers": {
-                    "mandatory": ["command", "option"]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "spacebar",
-                    "modifiers": ["left_command"]
-                  },
-                  {
-                    "key_code": "4",
-                    "modifiers": ["left_command"]
                   }
                 ],
                 "type": "basic"

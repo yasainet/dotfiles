@@ -12,7 +12,10 @@
       "Bash(diskutil eraseDisk*)",
       "Bash(diskutil partitionDisk*)"
     ],
-    "ask": ["Bash(rm -rf *)", "Bash(git push *)"],
+    "ask": [
+      "Bash(rm -rf *)",
+      "Bash(git push *)"
+    ],
     "defaultMode": "auto"
   },
   "enableAllProjectMcpServers": true,
@@ -77,12 +80,13 @@
   "enabledPlugins": {
     "context7@claude-plugins-official": true,
     "typescript-lsp@claude-plugins-official": true,
-    "lua-lsp@claude-plugins-official": true
+    "lua-lsp@claude-plugins-official": true,
+    "ruby-lsp@claude-plugins-official": true
   },
   "language": "Japanese",
   "effortLevel": "xhigh",
   "autoUpdatesChannel": "latest",
   "tui": "default",
-  "voiceEnabled": true,
-  "skipAutoPermissionPrompt": true
+  "skipAutoPermissionPrompt": true,
+  "voiceEnabled": true
 }
