@@ -216,6 +216,17 @@ vim.keymap.set("n", "<leader>yp", function()
 	print("Yanked: " .. path)
 end, { desc = "Yank full path" })
 
+-- Claude Code
+vim.keymap.set("n", "<leader>cc", "<Cmd>ClaudeCode<CR>", { desc = "Toggle Claude Code" })
+vim.keymap.set("n", "<leader>cf", "<Cmd>ClaudeCodeFocus<CR>", { desc = "Focus Claude" })
+vim.keymap.set("n", "<leader>cr", "<Cmd>ClaudeCode --resume<CR>", { desc = "Resume Claude" })
+vim.keymap.set("n", "<leader>cC", "<Cmd>ClaudeCode --continue<CR>", { desc = "Continue Claude" })
+vim.keymap.set("n", "<leader>cm", "<Cmd>ClaudeCodeSelectModel<CR>", { desc = "Select model" })
+vim.keymap.set("n", "<leader>cb", "<Cmd>ClaudeCodeAdd %<CR>", { desc = "Add current buffer" })
+vim.keymap.set("v", "<leader>cs", "<Cmd>ClaudeCodeSend<CR>", { desc = "Send selection" })
+vim.keymap.set("n", "<leader>ca", "<Cmd>ClaudeCodeDiffAccept<CR>", { desc = "Accept diff" })
+vim.keymap.set("n", "<leader>cd", "<Cmd>ClaudeCodeDiffDeny<CR>", { desc = "Deny diff" })
+
 -- Terminal
 local function toggle_terminal()
 	Snacks.terminal(nil, {
@@ -230,7 +241,6 @@ local function toggle_terminal()
 end
 vim.keymap.set({ "n", "t" }, "<C-/>", toggle_terminal, { desc = "Toggle terminal" })
 vim.keymap.set({ "n", "t" }, "<M-j>", toggle_terminal, { desc = "Toggle terminal (Cmd+j)" })
-vim.keymap.set("t", "<C-v>", "<C-\\><C-n>", { desc = "Terminal normal mode" })
 
 -- Config reload
 vim.keymap.set("n", "<leader>rr", function()
