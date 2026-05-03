@@ -21,9 +21,9 @@ return {
 				prepend_args = { "-l", "postgresql" },
 			},
 		},
-		format_on_save = {
+		format_after_save = {
 			timeout_ms = 3000,
-			lsp_fallback = true,
+			lsp_format = "fallback",
 		},
 	},
 }
