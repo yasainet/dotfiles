@@ -15,6 +15,14 @@ vim.api.nvim_create_autocmd("FileChangedShell", {
 	end,
 })
 
+-- Clear stale diagnostics on LSP detach (workaround for neovim/neovim#30385)
+vim.api.nvim_create_autocmd("LspDetach", {
+	callback = function(ev)
+		local ns = vim.lsp.diagnostic.get_namespace(ev.data.client_id)
+		vim.diagnostic.reset(ns, ev.buf)
+	end,
+})
+
 -- Reload snacks explorer
 vim.api.nvim_create_autocmd("FocusGained", {
 	callback = function()

@@ -14,7 +14,10 @@
     ],
     "ask": [
       "Bash(rm -rf *)",
-      "Bash(git push *)"
+      "Bash(git push *)",
+      "Bash(git push:*)",
+      "Bash(gh pr create:*)",
+      "Bash(gh pr merge:*)"
     ],
     "defaultMode": "auto"
   },

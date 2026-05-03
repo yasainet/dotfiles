@@ -195,7 +195,11 @@ vim.api.nvim_create_autocmd("LspAttach", {
 })
 
 -- LSP Restart
-vim.keymap.set("n", "<leader>lr", "<Cmd>lsp restart<CR>", { desc = "Restart LSP" })
+vim.keymap.set("n", "<leader>lr", function()
+	vim.diagnostic.reset(nil, 0)
+	vim.cmd("checktime")
+	vim.cmd("lsp restart")
+end, { desc = "Restart LSP" })
 
 vim.keymap.set("n", "<leader>li", "<Cmd>checkhealth vim.lsp<CR>", { desc = "LSP info" })
 
