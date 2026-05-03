@@ -112,6 +112,12 @@ vim.keymap.set("n", "<C-l>", function()
 	end
 end, { desc = "Navigate right" })
 
+-- Window navigation (terminal mode)
+vim.keymap.set("t", "<C-h>", [[<C-\><C-n><Cmd>wincmd h<CR>]], { desc = "Navigate left" })
+vim.keymap.set("t", "<C-j>", [[<C-\><C-n><Cmd>wincmd j<CR>]], { desc = "Navigate down" })
+vim.keymap.set("t", "<C-k>", [[<C-\><C-n><Cmd>wincmd k<CR>]], { desc = "Navigate up" })
+vim.keymap.set("t", "<C-l>", [[<C-\><C-n><Cmd>wincmd l<CR>]], { desc = "Navigate right" })
+
 -- Picker
 vim.keymap.set("n", "<leader>ff", function()
 	Snacks.picker.files()
@@ -209,30 +215,6 @@ vim.keymap.set("n", "<leader>yp", function()
 	vim.fn.setreg("+", path)
 	print("Yanked: " .. path)
 end, { desc = "Yank full path" })
-
--- Claude Code
-vim.keymap.set("n", "<leader>cc", function()
-	if _G._claude_pane_id then
-		local ok = vim.fn.system("tmux display-message -p -t " .. _G._claude_pane_id .. ' "#{pane_id}" 2>/dev/null')
-		if vim.v.shell_error == 0 and ok:match("%S") then
-			vim.fn.system("tmux kill-pane -t " .. _G._claude_pane_id)
-			_G._claude_pane_id = nil
-			vim.fn.system("tmux set-hook -uw pane-focus-in")
-			vim.fn.system("tmux set-option -wu allow-rename")
-			vim.fn.system("tmux set-option -w automatic-rename on")
-			return
-		end
-		_G._claude_pane_id = nil
-	end
-	local pane_id = vim.fn.system('tmux split-window -h -l 45% -P -F "#{pane_id}" "claude"')
-	_G._claude_pane_id = vim.trim(pane_id)
-	vim.fn.system("tmux set-option -w allow-rename off")
-	local hook = 'if-shell -F "#{==:#{pane_id},'
-		.. _G._claude_pane_id
-		.. '}" "rename-window claude" "set-option -w automatic-rename on"'
-	vim.fn.system("tmux set-hook -w pane-focus-in '" .. hook .. "'")
-	vim.fn.system("tmux rename-window claude")
-end, { desc = "Claude Code" })
 
 -- Terminal
 local function toggle_terminal()
