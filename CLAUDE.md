@@ -25,7 +25,6 @@ This file provides guidance to Claude Code when working with this repository.
 │   ├── git/          # Git config
 │   ├── github-copilot/ # GitHub Copilot
 │   ├── karabiner/    # Karabiner-Elements
-│   ├── lazygit/      # lazygit
 │   ├── nvim/         # Neovim
 │   ├── tmux/         # tmux
 │   ├── yazi/         # Yazi file manager
