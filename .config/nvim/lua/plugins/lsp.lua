@@ -11,23 +11,7 @@ return {
 			capabilities = capabilities,
 		})
 
-		-- Enable servers
-		vim.lsp.enable({
-			"lua_ls",
-			"denols",
-			"vtsls",
-			"eslint",
-			"cssls",
-			"html",
-			"jsonls",
-			"taplo",
-			"dockerls",
-			"docker_compose_language_service",
-			"basedpyright",
-			"ruff",
-			"tailwindcss",
-			"ruby_lsp",
-		})
+		-- Server enabling is handled by mason-lspconfig (automatic_enable = true)
 
 		-- Diagnostics
 		vim.diagnostic.config({
