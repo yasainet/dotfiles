@@ -33,6 +33,7 @@ return {
 			"ssh_config",
 			"ruby",
 			"embedded_template",
+			"python",
 			"java",
 			"kotlin",
 			"swift",
