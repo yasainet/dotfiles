@@ -31,7 +31,17 @@ return {
 				lualine_x = {
 					{
 						"lsp_status",
+						icon = "",
 						ignore_lsp = { "GitHub Copilot", "eslint", "stylua" },
+						fmt = function(str)
+							if str == "" then
+								return ""
+							end
+							if vim.o.columns < 120 then
+								return "LSP"
+							end
+							return str
+						end,
 					},
 					"encoding",
 					{
@@ -42,7 +52,7 @@ return {
 							mac = "CR",
 						},
 					},
-					"filetype",
+					{ "filetype", icon_only = true },
 				},
 				lualine_y = { "progress" },
 				lualine_z = { "location" },
