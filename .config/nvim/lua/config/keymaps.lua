@@ -74,6 +74,7 @@ vim.keymap.set("n", "<leader>tb", "<Cmd>Gitsigns toggle_current_line_blame<CR>",
 
 -- Diffview
 vim.keymap.set("n", "<leader>gd", "<Cmd>DiffviewOpen<CR>", { desc = "Diffview open" })
+vim.keymap.set("n", "<leader>gD", "<Cmd>DiffviewOpen main...HEAD<CR>", { desc = "Diffview vs main" })
 vim.keymap.set("n", "<leader>gf", "<Cmd>DiffviewFileHistory %<CR>", { desc = "Diffview file history" })
 vim.keymap.set("n", "<leader>gq", "<Cmd>DiffviewClose<CR>", { desc = "Diffview close" })
 
