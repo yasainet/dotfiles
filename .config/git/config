@@ -10,13 +10,6 @@
 
 [core]
 	ignorecase = false
-	pager = delta
-
-[delta]
-	side-by-side = true
-	syntax-theme = tokyonight_night
-	hunk-header-style = omit
-	tabs = 2
 
 [filter "lfs"]
 	process = git-lfs filter-process

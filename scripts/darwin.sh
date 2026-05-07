@@ -35,7 +35,6 @@ install_cli_tools() {
   brew install btop
   brew install uv
   brew install yazi
-  brew install git-delta
 
   # Git Credential Manager
   brew tap microsoft/git
