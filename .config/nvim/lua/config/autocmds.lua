@@ -26,11 +26,17 @@ vim.api.nvim_create_autocmd("LspDetach", {
 -- Reload snacks explorer
 vim.api.nvim_create_autocmd("FocusGained", {
 	callback = function()
+		local ok_g, Git = pcall(require, "snacks.explorer.git")
+		if ok_g then
+			for root in pairs(Git.state) do
+				Git.state[root].last = 0
+			end
+		end
 		local ok, snacks = pcall(require, "snacks")
 		if ok and snacks.picker then
 			for _, picker in ipairs(snacks.picker.get({ source = "explorer" })) do
 				if not picker.closed then
-					picker:find()
+					picker:action("explorer_update")
 				end
 			end
 		end
