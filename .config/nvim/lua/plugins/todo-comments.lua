@@ -8,7 +8,6 @@ return {
 			pattern = {
 				[[.*<(KEYWORDS)\s*:]],
 				[=[.*>\s*\[!TODO\]]=], -- `> [!TODO]`
-				[[.*Todo]], -- `Todo`
 			},
 		},
 		search = {
