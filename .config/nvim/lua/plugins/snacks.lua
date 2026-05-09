@@ -20,6 +20,18 @@ return {
 					hidden = true,
 					layout = { fullscreen = true },
 				},
+				buffers = {
+					layout = { fullscreen = true },
+				},
+				recent = {
+					layout = { fullscreen = true },
+				},
+				help = {
+					layout = { fullscreen = true },
+				},
+				git_status = {
+					layout = { fullscreen = true },
+				},
 				todo_comments = {
 					layout = { fullscreen = true },
 				},

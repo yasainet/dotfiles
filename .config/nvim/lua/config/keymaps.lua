@@ -237,8 +237,8 @@ local function toggle_terminal()
 		win = {
 			position = "float",
 			border = "rounded",
-			width = 0.9,
-			height = 0.9,
+			width = 0.95,
+			height = 0.95,
 		},
 	})
 end
