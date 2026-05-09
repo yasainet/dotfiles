@@ -52,7 +52,7 @@ return {
 							mac = "CR",
 						},
 					},
-					{ "filetype", icon_only = true },
+					{ "filetype" },
 				},
 				lualine_y = { "progress" },
 				lualine_z = { "location" },
