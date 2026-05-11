@@ -46,7 +46,6 @@ macos-option-as-alt = left
 
 # Disable defaults
 keybind = cmd+shift+p=unbind
-keybind = cmd+f=unbind
 
 # ==============================
 # Keybindings for Claude Code
@@ -58,29 +57,8 @@ keybind = shift+enter=text:\x1b\r
 # Keybindings for nvim
 # ==============================
 
-# Cmd+f -> search
-keybind = cmd+f=text:\x1bf
-
-# Cmd+p -> find files
-keybind = cmd+p=text:\x1bp
-
-# Cmd+s -> save
-keybind = cmd+s=text:\x1bs
-
-# Cmd+/ -> comment toggle
-keybind = cmd+/=text:\x1b/
-
 # Cmd+j -> toggle terminal
 keybind = cmd+j=text:\x1bj
-
-# Cmd+Shift+f -> live grep
-keybind = cmd+shift+f=text:\x1bF
-
-# Cmd+Shift+e -> explorer
-keybind = cmd+shift+e=text:\x1be
-
-# Cmd+Shift+g -> diffview
-keybind = cmd+shift+g=text:\x1bG
 
 # ==============================
 # Keybindings for tmux
