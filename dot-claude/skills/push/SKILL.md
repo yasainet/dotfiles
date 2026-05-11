@@ -1,6 +1,6 @@
 ---
 name: push
-description: 現在のブランチを push する。--tag を付けると、最新タグをインクリメントして push する
+description: Push to remote, increment tag
 argument-hint: [--tag]
 allowed-tools: Bash(git *)
 ---
