@@ -1,5 +1,5 @@
 return {
-	"sindrets/diffview.nvim",
+	"dlyongemallo/diffview.nvim",
 	cmd = { "DiffviewOpen", "DiffviewFileHistory", "DiffviewClose" },
 	config = function()
 		local c = require("tokyonight.colors").setup()
