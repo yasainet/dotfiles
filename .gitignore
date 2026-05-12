@@ -1,6 +1,7 @@
 # Directories
 .zsh_sessions/
 .config/tmux/resurrect/
+.config/zsh/completions/
 
 # Files
 *.local

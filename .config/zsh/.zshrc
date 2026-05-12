@@ -140,6 +140,13 @@ else
   [[ -d $HOME/.local/share/zsh/plugins/zsh-completions/src ]] && fpath+=($HOME/.local/share/zsh/plugins/zsh-completions/src)
 fi
 
+# Docker
+if command -v docker &>/dev/null; then
+  mkdir -p "$ZDOTDIR/completions"
+  [[ ! -f "$ZDOTDIR/completions/_docker" ]] && docker completion zsh > "$ZDOTDIR/completions/_docker"
+  fpath=("$ZDOTDIR/completions" $fpath)
+fi
+
 # compinit
 autoload -Uz compinit
 ZSH_COMPDUMP="${ZDOTDIR}/.zcompdump"
