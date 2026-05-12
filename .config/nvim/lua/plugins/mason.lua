@@ -16,8 +16,8 @@ return {
 	{
 		"williamboman/mason-lspconfig.nvim",
 		dependencies = { "williamboman/mason.nvim" },
-		opts = {
-			ensure_installed = {
+		opts = function()
+			local servers = {
 				"lua_ls",
 				"vtsls",
 				"denols",
@@ -31,10 +31,17 @@ return {
 				"basedpyright",
 				"ruff",
 				"tailwindcss",
-				"ruby_lsp",
-			},
-			automatic_enable = true,
-		},
+			}
+
+			if vim.fn.has("mac") == 1 then
+				table.insert(servers, "ruby_lsp")
+			end
+
+			return {
+				ensure_installed = servers,
+				automatic_enable = true,
+			}
+		end,
 	},
 	{
 		"WhoIsSethDaniel/mason-tool-installer.nvim",
