@@ -34,6 +34,16 @@ create_symlinks() {
   # .zshenv
   link "$DOTFILES/.config/zsh/.zshenv" "$HOME/.zshenv"
 
+  # Git: OS-specific credential helper loaded via [include] in .config/git/config
+  case "$OS" in
+    Darwin)
+      link "$DOTFILES/.config/git/config.darwin" "$HOME/.gitconfig.local"
+      ;;
+    Linux)
+      link "$DOTFILES/.config/git/config.linux" "$HOME/.gitconfig.local"
+      ;;
+  esac
+
   # Claude Code
   mkdir -p "$HOME/.claude"
   link "$DOTFILES/dot-claude/CLAUDE.md" "$HOME/.claude/CLAUDE.md"
