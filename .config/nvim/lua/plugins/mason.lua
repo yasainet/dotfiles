@@ -28,13 +28,16 @@ return {
 				"taplo",
 				"dockerls",
 				"docker_compose_language_service",
-				"basedpyright",
-				"ruff",
 				"tailwindcss",
 			}
 
+			-- macOS
 			if vim.fn.has("mac") == 1 then
-				table.insert(servers, "ruby_lsp")
+				vim.list_extend(servers, {
+					"ruby_lsp",
+					"basedpyright",
+					"ruff",
+				})
 			end
 
 			return {
