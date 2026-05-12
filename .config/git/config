@@ -16,6 +16,14 @@
 	required = true
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
+[credential "https://github.com"]
+	helper =
+	helper = !/opt/homebrew/bin/gh auth git-credential
+	username = yasainet
+
+[credential "https://gist.github.com"]
+	helper =
+	helper = !/opt/homebrew/bin/gh auth git-credential
 
 [merge]
 	commit = no
@@ -24,23 +32,16 @@
 	branch = false
 	tag = false
 
-[init]
-	defaultBranch = main
-
 [credential "http://localhost:8929"]
 	provider = generic
-
 [credential "http://127.0.0.1:8929"]
 	provider = generic
-
-[credential "http://127.0.0.1:3030"]
-	provider = generic
-
-[credential "http://host.orb.internal:3030"]
-	provider = generic
-
+[init]
+	defaultBranch = main
+[credential]
+	helper = 
+	helper = /usr/local/share/gcm-core/git-credential-manager
 [credential "https://dev.azure.com"]
 	useHttpPath = true
-
-[include]
-	path = ~/.gitconfig.local
+[credential "http://127.0.0.1:3030"]
+	provider = generic
