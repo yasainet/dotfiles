@@ -23,6 +23,10 @@
     {
       "passKeys": "",
       "pattern": "https?://b.hatena.ne.jp/hotentry*"
+    },
+    {
+      "passKeys": "",
+      "pattern": "http://127.0.0.1:54323/*"
     }
   ],
   "keyMappings": "unmapAll\nmap j scrollDown\nmap k scrollUp\nmap gg scrollToTop\nmap G scrollToBottom",
