@@ -167,7 +167,7 @@
             ]
           },
           {
-            "description": "Cmd+Option+Left/Right -> Toggle window size (1/2 -> 1/4 -> 3/4)",
+            "description": "Cmd+Option+Left/Right -> Globe(Fn)+Control+Left/Right (macOS window tiling)",
             "manipulators": [
               {
                 "from": {
@@ -178,7 +178,8 @@
                 },
                 "to": [
                   {
-                    "shell_command": "/usr/bin/osascript $HOME/.config/karabiner/scripts/window-toggle.applescript left"
+                    "key_code": "left_arrow",
+                    "modifiers": ["fn", "left_control"]
                   }
                 ],
                 "type": "basic"
@@ -192,7 +193,8 @@
                 },
                 "to": [
                   {
-                    "shell_command": "/usr/bin/osascript $HOME/.config/karabiner/scripts/window-toggle.applescript right"
+                    "key_code": "right_arrow",
+                    "modifiers": ["fn", "left_control"]
                   }
                 ],
                 "type": "basic"
