@@ -89,7 +89,7 @@
   "effortLevel": "xhigh",
   "autoUpdatesChannel": "latest",
   "tui": "default",
-  "theme": "dark",
+  "theme": "auto",
   "skipAutoPermissionPrompt": true,
   "voiceEnabled": true
 }
