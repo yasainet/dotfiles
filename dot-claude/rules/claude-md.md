@@ -1,6 +1,8 @@
 ---
 paths:
   - "**/CLAUDE.md"
+  - "!**/.claude/CLAUDE.md"
+  - "!**/dot-claude/CLAUDE.md"
 ---
 
 # CLAUDE.md ルール
