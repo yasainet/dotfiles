@@ -140,6 +140,17 @@ vim.keymap.set("n", "<leader>lf", function()
 	require("conform").format({ async = true, lsp_fallback = true })
 end, { desc = "Format buffer" })
 
+-- Textlint fix
+vim.keymap.set("n", "<leader>lt", function()
+	local file = vim.api.nvim_buf_get_name(0)
+	if file == "" then
+		vim.notify("No file name", vim.log.levels.WARN)
+		return
+	end
+	vim.cmd("silent !textlint --fix " .. vim.fn.shellescape(file))
+	vim.cmd("checktime")
+end, { desc = "Textlint fix" })
+
 -- Todo Comments
 vim.keymap.set("n", "<leader>ft", function()
 	Snacks.picker.todo_comments()

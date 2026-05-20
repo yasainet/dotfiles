@@ -34,6 +34,9 @@ create_symlinks() {
   # .zshenv
   link "$DOTFILES/.config/zsh/.zshenv" "$HOME/.zshenv"
 
+  # textlint (Unsupported XDG)
+  link "$DOTFILES/.config/textlint/.textlintrc.json" "$HOME/.textlintrc.json"
+
   # Claude Code
   mkdir -p "$HOME/.claude"
   link "$DOTFILES/dot-claude/CLAUDE.md" "$HOME/.claude/CLAUDE.md"
@@ -59,6 +62,27 @@ install_nvm() {
   else
     echo "nvm already installed"
   fi
+}
+
+# ====================
+# textlint (global)
+# ====================
+install_textlint() {
+  echo "Installing textlint..."
+
+  export NVM_DIR="$HOME/.nvm"
+  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+
+  if ! command -v npm &> /dev/null; then
+    echo "  [skip] npm not found"
+    return
+  fi
+
+  npm install -g \
+    textlint \
+    textlint-rule-ja-space-between-half-and-full-width
+
+  echo "  [done] textlint setup complete"
 }
 
 # ====================
@@ -96,4 +120,5 @@ setup_bat_theme() {
 post_install() {
   echo "Running post-install setup..."
   setup_bat_theme
+  install_textlint
 }

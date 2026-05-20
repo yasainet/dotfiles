@@ -13,7 +13,7 @@ Personal dotfiles for macOS and Linux.
 - OS: macOS (primary), Linux (secondary)
 - Terminal: Ghostty
 - Shell: Zsh + Pure
-- Editor: Neovim (lazy.nvim) + fd (snacks.nvim explorer dependency)
+- Editor: Neovim + snacks explorer, terminal
 - Multiplexer: tmux
 
 ## Constraints

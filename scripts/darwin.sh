@@ -50,7 +50,7 @@ install_cli_tools() {
   brew install lua-language-server
   brew install tree-sitter-cli
 
-  # Terraform (HashiCorp)
+  # Terraform 
   brew install hashicorp/tap/terraform
 
   # Git Credential Manager
@@ -62,7 +62,7 @@ install_cli_tools() {
   brew install macism
 
   # Stripe
-  brew install stripe/stripe-cli/stripe
+  brew install stripe-cli
 
   # Supabase
   brew install supabase/tap/supabase
