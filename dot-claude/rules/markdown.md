@@ -11,13 +11,9 @@ paths:
 
 ## Styling text
 
-- 100桁以内に抑えよ
+- 80~100桁以内に抑えよ
 - 100桁以上になる場合は `Lists` を利用せよ
-- `Bold`, `Italic` の利用は禁止する
-
-## Links
-
-- リンクは `[text](url)` のインラインリンクを利用せよ
+- **Bold**, _Italic_ の利用は禁止する
 
 ## Lists
 
@@ -50,7 +46,7 @@ paths:
 
 ## Table
 
-- 100桁以上になる場合は、視認性が下がるので `Lists`, `Headings` の利用を検討せよ
+- 100桁以上になる場合は、視認性が下がるので `Lists`, `Headings` を利用せよ
 
 ## TODO
 

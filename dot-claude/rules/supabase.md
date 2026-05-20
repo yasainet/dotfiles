@@ -9,24 +9,20 @@ paths:
 
 ## Migration
 
-- `migrations/*.sql` ファイルを**編集しない**こと
-- `supabase-mcp` で `apply_migration` を**実行しない**こと
-- `supabase db diff` を**実行しない**こと
-- `supabase db reset` を**実行しない**こと
-- `*.schema.sql` 編集後は、ユーザーに `/migrate <name>` を実行するよう**伝える**こと
+- `*.schema.sql` 編集後は、ユーザーに `/migrate <name>` を実行するよう伝えよ
 
 ## Secrets Management
 
-- **Vault Secrets**
+- Vault Secrets
   - 設定場所: `config.toml` `[db.vault]` + ルートの `.env`
   - スコープ: SQL（pg_cron、トリガー、関数）
   - アクセス方法: `vault.decrypted_secrets` view
-- **Edge Functions env**
+- Edge Functions env
   - 設定場所: `supabase/functions/.env`（ローカル）/
     `supabase secrets set`（本番）
   - スコープ: Edge Functions
   - アクセス方法: `Deno.env.get()`
-- **config.toml `env()`**
+- config.toml `env()`
   - 設定場所: ルートの `.env`
   - スコープ: config.toml の値（auth、smtp 等）
   - アクセス方法: `env(VAR_NAME)`
