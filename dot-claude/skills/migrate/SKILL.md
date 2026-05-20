@@ -1,6 +1,6 @@
 ---
 name: migrate
-description: Supabase migration workflow
+description: [Skills] Supabase migration workflow
 argument-hint: <migration-name>
 disable-model-invocation: true
 allowed-tools: Bash(supabase *), Bash(docker compose *), Bash(grep *), Bash(test *)

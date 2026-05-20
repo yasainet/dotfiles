@@ -1,6 +1,6 @@
 ---
 name: issue
-description: Crate issue to GitHub/Gitea
+description: [Skills] Crate issue to GitHub/Gitea
 allowed-tools: Bash(gh *), Bash(tea *), Bash(git remote *), AskUserQuestion
 ---
 

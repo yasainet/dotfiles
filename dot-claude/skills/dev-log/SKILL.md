@@ -1,6 +1,6 @@
 ---
 name: dev-log
-description: Capture logs from development servers in another tmux window.
+description: [Skills] Capture logs from development servers in another tmux window.
 allowed-tools: Bash(tmux *)
 ---
 
