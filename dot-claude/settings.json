@@ -9,11 +9,17 @@
       "Bash(dd if=/dev/*)",
       "Bash(mkfs*)",
       "Bash(diskutil eraseDisk*)",
-      "Bash(diskutil partitionDisk*)"
+      "Bash(diskutil partitionDisk*)",
+      "Edit(**/supabase/migrations/*.sql)",
+      "Write(**/supabase/migrations/*.sql)",
+      "Bash(supabase db diff:*)",
+      "Bash(supabase db reset:*)",
+      "Bash(supabase db push:*)",
+      "mcp__supabase__apply_migration"
     ],
     "ask": [
-      "Bash(rm -rf *)",
-      "Bash(git push *)",
+      "Bash(rm:*)",
+      "Bash(rmdir:*)",
       "Bash(git push:*)",
       "Bash(gh pr create:*)",
       "Bash(gh pr merge:*)"

@@ -1,30 +1,33 @@
 ---
 paths:
   - "**/*.ts"
+  - "**/*.tsx"
+  - "**/*.js"
+  - "**/*.jsx"
   - "**/*.mjs"
 ---
 
 # Comment Rules
 
-## Comment, JSDoc
+## JSDoc
 
-- 実装の詳細ではなく、「なぜ（why）」このコードが存在するのかを記述する
-- JSDoc タグ（`@description`、`@param`、`@example` など）は使わない。コメント本文を直接書く
+- JSDoc tags は禁止する
+- JSDoc の役割は、claude code がコードから理解ができない `Why` を記載せよ
+  - `What`, `How` は、コードが担当している
+- 80桁以内で簡素に記載せよ
 
-> [!NOTE]
-> 人間は JSDoc しか読まず、コードは読まない。Claude Code は意図を JSDoc から、実装の真実をコードから読み取る。
+### Single-line
 
-### Single-line (default)
-
-```js
-/** <description>. */
+```ts
+/** <description> */
 ```
 
 ### Multi-line
 
-関数に独立した条件や挙動が 2 つ以上ある場合は、サマリーを書いた上で箇条書きを続ける。すべての条件を list 形式で列挙すること。
+- 関数に独立した条件や挙動が 2 つ以上ある場合は、Summary を書いた上で Lists を記載せよ
+- Lists には、独立した条件、挙動を記載せよ
 
-```js
+```ts
 /**
  * <summary>:
  *

@@ -4,12 +4,11 @@ This file provides guidance to Claude Code when working with this repository.
 
 ## Environment
 
-- **OS**: macOS (primary), Linux (secondary)
-- **Terminal**: Ghostty
-- **Shell**: Zsh + Pure
-- **Editor**: Neovim (lazy.nvim) + fd (snacks.nvim explorer dependency)
-- **Multiplexer**: tmux
-- **File Manager**: Yazi
+- OS: macOS (primary), Linux (secondary)
+- Terminal: Ghostty
+- Shell: Zsh + Pure
+- Editor: Neovim (lazy.nvim) + fd (snacks.nvim explorer dependency)
+- Multiplexer: tmux
 
 ## Directory Structure
 
