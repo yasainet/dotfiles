@@ -1,9 +1,9 @@
 ---
 paths:
-  - "**/*.md"
+  - "**/CLAUDE.md"
 ---
 
-# CLAUDE.md ルール
+# CLAUDE.md Rules
 
 - CLAUDE.md は `Why` に集中せよ。`What` / `How` はコード・設定ファイルが一次ソース
 - 最大 200 行以内で記述すること
