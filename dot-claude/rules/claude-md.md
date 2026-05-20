@@ -8,6 +8,7 @@ paths:
 # CLAUDE.md ルール
 
 - CLAUDE.md は `Why` に集中せよ。`What` / `How` はコード・設定ファイルが一次ソース
+- 最大 200 行以内で記述すること
 - 以下の構成に従うこと:
 
 ```markdown
