@@ -12,5 +12,5 @@ paths:
 ```markdown README.md
 - `# <Project Name>`: プロジェクト名 / 1行説明
 - `## Setup`: 依存インストール・初期化手順
-- `## Usage`: optional / 起動・基本コマンド（CLAUDE.md の Commands と重複するなら省略可）
+- `## Usage`: optional / 起動・基本コマンド
 ```
