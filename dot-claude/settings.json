@@ -10,11 +10,9 @@
       "Bash(mkfs*)",
       "Bash(diskutil eraseDisk*)",
       "Bash(diskutil partitionDisk*)",
+      "Bash(supabase db reset:*)",
       "Edit(**/supabase/migrations/*.sql)",
       "Write(**/supabase/migrations/*.sql)",
-      "Bash(supabase db diff:*)",
-      "Bash(supabase db reset:*)",
-      "Bash(supabase db push:*)",
       "mcp__supabase__apply_migration"
     ],
     "ask": [
