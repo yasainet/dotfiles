@@ -18,8 +18,7 @@ paths:
   - スコープ: SQL（pg_cron、トリガー、関数）
   - アクセス方法: `vault.decrypted_secrets` view
 - Edge Functions env
-  - 設定場所: `supabase/functions/.env`（ローカル）/
-    `supabase secrets set`（本番）
+  - 設定場所: `supabase/functions/.env` development / `supabase secrets set` production
   - スコープ: Edge Functions
   - アクセス方法: `Deno.env.get()`
 - config.toml `env()`
@@ -42,14 +41,10 @@ sql_paths = [
 ```
 
 - `supabase/seeds/**/*.seed.sql` — シードファイル（`db reset` 時に自動実行）
-- `supabase/seeds/storages/*.storage.seed.sql` — ストレージバケットのシード
-  （RLS ポリシー、バケット作成）
-- `supabase/seeds/scripts/*.local.sql` — ローカル環境セットアップ
-  （`sql_paths` 経由で `db reset` 時に自動実行）
-- `supabase/seeds/scripts/*.production.sql` — 本番環境セットアップ
-  （手動実行のみ、シードからは除外）
-- `supabase/seeds/storages/<bucket_name>/` — ストレージバケット用の
-  シードアセットファイル（画像など）
+- `supabase/seeds/storages/*.storage.seed.sql` — ストレージバケットのシード（RLS ポリシー、バケット作成）
+- `supabase/seeds/scripts/*.local.sql` — ローカル環境セットアップ（`sql_paths` 経由で `db reset` 時に自動実行）
+- `supabase/seeds/scripts/*.production.sql` — 本番環境セットアップ（手動実行のみ、シードからは除外）
+- `supabase/seeds/storages/<bucket_name>/` — ストレージバケット用のシードアセットファイル（画像など）
 
 ## Directory Structure
 
