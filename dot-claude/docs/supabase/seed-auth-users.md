@@ -150,7 +150,7 @@ where
 
 ### 1. auth.identities の INSERT が必須
 
-`auth.users` だけ INSERT しても、`auth.identities` がなければサインインできない。Supabase の認証フローは `identities` テーブルを参照してプロバイダーの照合を行う。
+`auth.users` だけ INSERT しても、`auth.identities` がなければサインインできない。Supabase の認証フローは `identities` テーブルを参照してプロバイダーを照合する。
 
 ### 2. トークン系カラムは空文字を設定
 
@@ -162,7 +162,7 @@ where
 
 ### 4. pgcrypto のスキーマ修飾が必要な場合がある
 
-ローカル環境で `crypt()` や `gen_salt()` が見つからないエラーが出る場合、`extensions.crypt()`, `extensions.gen_salt()` のようにスキーマ修飾が必要。Supabase のバージョンや `search_path` の設定に依存する。
+ローカル環境で `crypt()` や `gen_salt()` が見つからないエラーが出ることがある。その場合は `extensions.crypt()`, `extensions.gen_salt()` のようにスキーマ修飾が必要。Supabase のバージョンや `search_path` の設定に依存する。
 
 ```sql
 -- エラーが出る場合

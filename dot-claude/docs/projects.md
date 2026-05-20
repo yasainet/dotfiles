@@ -72,4 +72,5 @@ project/
 - `paths`: `@/*` → `./src/*`
 - `moduleResolution: "bundler"`
 - `scripts/` can also reference `src/` via `@/` alias (when present in the same project)
-- `supabase/functions/` is excluded from `tsconfig.json` — uses Deno's own `deno.json` import map, no `@/` alias
+- `supabase/functions/` is excluded from `tsconfig.json`
+  - Uses Deno's own `deno.json` import map, no `@/` alias

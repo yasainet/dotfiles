@@ -11,8 +11,12 @@ paths:
 
 ## Styling text
 
-- 100 桁以内に抑えよ
 - 100 桁以上になる場合は `Lists` を利用せよ
+
+  ```json
+  "sentence-length": {"max": 100}
+  ```
+
 - **Bold**, _Italic_ の利用は禁止する
 
 ## Quoting text
@@ -48,7 +52,3 @@ paths:
 > Tasks or action items that need to be completed.
 
 ```
-
-## Table
-
-- 1 行が 100 桁以上になる場合は、視認性が下がるので `Lists`, `Headings` を利用せよ
