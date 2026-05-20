@@ -26,7 +26,15 @@
     },
     {
       "passKeys": "",
+      "pattern": "https?://b.hatena.ne.jp/entrylist*"
+    },
+    {
+      "passKeys": "",
       "pattern": "http://127.0.0.1:54323/*"
+    },
+    {
+      "passKeys": "",
+      "pattern": "http://127.0.0.1:54324/*"
     }
   ],
   "keyMappings": "unmapAll\nmap j scrollDown\nmap k scrollUp\nmap gg scrollToTop\nmap G scrollToBottom",

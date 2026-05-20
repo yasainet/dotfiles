@@ -22,6 +22,7 @@ install_cli_tools() {
   echo "Installing CLI tools..."
 
   brew install git
+  brew install git-lfs
   brew install gh
   brew install glab
   brew install neovim
@@ -31,14 +32,30 @@ install_cli_tools() {
   brew install fd
   brew install tree
   brew install jq
+  brew install yq
   brew install ffmpeg
+  brew install imagemagick
   brew install btop
+  brew install fastfetch
   brew install uv
   brew install yazi
+  brew install tmux
+  brew install mise
+  brew install pnpm
+  brew install ollama
+  brew install firebase-cli
+  brew install tailscale
+  brew install translate-shell
+  brew install yt-dlp
+  brew install lua-language-server
+  brew install tree-sitter-cli
+
+  # Terraform (HashiCorp)
+  brew install hashicorp/tap/terraform
 
   # Git Credential Manager
   brew tap microsoft/git
-  brew install --cask git-credential-manager-core
+  brew install --cask git-credential-manager
 
   # macism
   brew tap laishulu/homebrew
@@ -51,7 +68,7 @@ install_cli_tools() {
   brew install supabase/tap/supabase
 
   # Google Cloud SDK
-  brew install --cask google-cloud-sdk
+  brew install --cask gcloud-cli
 
   # CloudFlare
   brew install cloudflared
@@ -84,7 +101,6 @@ install_gui_apps() {
 
   # Browser
   brew install --cask google-chrome
-  brew install --cask google-chrome@dev
   brew install --cask brave-browser
   brew install --cask tor-browser
 
@@ -97,11 +113,14 @@ install_gui_apps() {
 
   # Development
   brew install --cask orbstack
+  brew install --cask claude
+  brew install --cask ngrok
 
   # Utilities
   brew install --cask karabiner-elements
   brew install --cask keyboardcleantool
   brew install --cask the-unarchiver
+  brew install --cask logi-options+
 
   # Privacy
   brew install --cask protonvpn
