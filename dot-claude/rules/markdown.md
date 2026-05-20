@@ -17,6 +17,7 @@ paths:
   "sentence-length": {"max": 100}
   ```
 
+- `()` の多用を避けて、入れ子にした `Lists` を推奨する
 - **Bold**, _Italic_ の利用は禁止する
 
 ## Quoting text
@@ -30,25 +31,15 @@ paths:
 
 ## Alerts
 
-- ユーザーの成功に不可欠な場合にのみ使用せよ
+- ユーザーの成功に不可欠な場合にのみ、以下のパターンのみ使用せよ
 
 ```Markdown samaple.md
 > [!NOTE]
 > Useful information that users should know, even when skimming content.
 
-> [!TIP]
-> Helpful advice for doing things better or more easily.
-
-> [!IMPORTANT]
-> Key information users need to know to achieve their goal.
-
 > [!WARNING]
 > Urgent info that needs immediate user attention to avoid problems.
 
-> [!CAUTION]
-> Advises about risks or negative outcomes of certain actions.
-
 > [!TODO]
 > Tasks or action items that need to be completed.
-
 ```
