@@ -14,18 +14,27 @@ allowed-tools: Bash(tmux *)
 
 ## 手順
 
-- `tmux list-windows` で window 一覧と名前を確認する
-- 基本的に、`window 1` に `development` の server を起動している
-- `automatic-rename` が適用されていることを、留保せよ
+1. window 一覧と名前を確認する (基本的に `window 1` に development server を起動している、`automatic-rename` の適用に留保せよ）
 
 ```bash
-# 直近 500 行
+tmux list-windows
+```
+
+2. 直近 500 行を取得
+
+```bash
 tmux capture-pane -t :1 -p -S -500
+```
 
-# スクロールバック全体: history-limit 50000
+3. スクロールバック全体を取得 (`history-limit 50000`)
+
+```bash
 tmux capture-pane -t :1 -p -S -
+```
 
-# grep の利用例
+4. grep でフィルタする例
+
+```bash
 tmux capture-pane -t :1 -p -S - | grep -iE "error|warn|failed" | tail -50
 ```
 
