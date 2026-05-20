@@ -1,6 +1,6 @@
 ---
 name: commit
-description: Create commit, review
+description: [Skills] Create commit, review
 allowed-tools: Bash(git *), AskUserQuestion
 ---
 

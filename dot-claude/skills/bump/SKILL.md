@@ -1,6 +1,6 @@
 ---
 name: bump
-description: Bump patch version tag
+description: [Skills] Bump patch version tag
 allowed-tools: Bash(git *)
 ---
 
