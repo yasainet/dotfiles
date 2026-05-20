@@ -28,7 +28,7 @@ paths:
 
 ## Seeds & Scripts
 
-```toml
+```toml supabase/comfig.toml
 [db.migrations]
 schema_paths = ["./schemas/*.sql"]
 

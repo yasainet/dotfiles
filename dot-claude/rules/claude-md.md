@@ -9,7 +9,7 @@ paths:
 - 最大 200 行以内で記述すること
 - 以下の構成に従うこと:
 
-```markdown
+```markdown CLAUDE.md
 - `# CLAUDE.md`: プロジェクト名 / 1行説明
 - `## Summary`: プロジェクトの内容を 3行程度の Lists で説明
 - `## Environments`: `development` / `preview` / `production` の環境、branch の関係性など

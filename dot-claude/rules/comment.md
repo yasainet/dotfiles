@@ -18,7 +18,7 @@ paths:
 
 ### Single-line
 
-```ts
+```ts sample.ts
 /** <description> */
 ```
 
@@ -27,7 +27,7 @@ paths:
 - 関数に独立した条件や挙動が 2 つ以上ある場合は、Summary を書いた上で Lists を記載せよ
 - Lists には、独立した条件、挙動を記載せよ
 
-```ts
+```ts sample.ts
 /**
  * <summary>:
  *
