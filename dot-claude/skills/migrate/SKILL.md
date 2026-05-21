@@ -6,7 +6,9 @@ disable-model-invocation: true
 allowed-tools: Bash(supabase *), Bash(docker compose *), Bash(grep *), Bash(test *)
 ---
 
-# Supabase Migrate
+# Migrate skill
+
+## Steps
 
 1. MinIO 利用の判定
 

@@ -4,14 +4,9 @@ description: [Skills] Crate issue to GitHub/Gitea
 allowed-tools: Bash(gh *), Bash(tea *), Bash(git remote *), AskUserQuestion
 ---
 
-# Issue
+# Issue skill
 
-## ルール
-
-- 本文は HEREDOC (`cat <<'EOF' ... EOF`) で記述せよ
-- `label` / `assignee` / `milestone` など、metadata は付与しない
-
-## 手順
+## Steps
 
 1. 現在の会話のコンテキストを要約し、適切な issue タイトルと本文をドラフトする
 
@@ -37,3 +32,8 @@ tea issues create --remote origin --title "<title>" --description "<body>"
 ```
 
 6. 作成された issue の URL をユーザーに表示する
+
+> [!NOTE]
+>
+> - 本文は HEREDOC `cat <<'EOF' ... EOF` で記述せよ
+> - `label` / `assignee` / `milestone` など、metadata は付与しない

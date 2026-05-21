@@ -5,7 +5,7 @@ paths:
 
 # Supabase Rules
 
-- [Declarative Database Schemas](https://supabase.com/docs/guides/local-development/declarative-database-schemas)
+- Declarative Database Schemas を採用する
 
 ## Migration
 
@@ -40,11 +40,11 @@ sql_paths = [
 ]
 ```
 
-- `supabase/seeds/**/*.seed.sql` — シードファイル（`db reset` 時に自動実行）
-- `supabase/seeds/storages/*.storage.seed.sql` — ストレージバケットのシード（RLS ポリシー、バケット作成）
-- `supabase/seeds/scripts/*.local.sql` — ローカル環境セットアップ（`sql_paths` 経由で `db reset` 時に自動実行）
-- `supabase/seeds/scripts/*.production.sql` — 本番環境セットアップ（手動実行のみ、シードからは除外）
-- `supabase/seeds/storages/<bucket_name>/` — ストレージバケット用のシードアセットファイル（画像など）
+- `supabase/seeds/**/*.seed.sql` — Seed files
+- `supabase/seeds/storages/*.storage.seed.sql` — Storage seed files / RLS policy
+- `supabase/seeds/scripts/*.local.sql` — Setup scripts for development
+- `supabase/seeds/scripts/*.production.sql` — Setup scripts for production (run manually)
+- `supabase/seeds/storages/<bucket_name>/` — Asset files for storage seed
 
 ## Directory Structure
 
@@ -67,7 +67,7 @@ supabase/
     └── .env           # Edge Functions のシークレット（gitignore 対象）
 ```
 
-### Example `.env`
+### Example
 
 ```.env ~/Projects/**/.env
 # Vault Secrets
@@ -90,3 +90,7 @@ ENVIRONMENT=development
 # Production
 # supabase secrets set ENVIRONMENT=production --project-ref <project-id>
 ```
+
+## References
+
+- [Declarative Database Schemas](https://supabase.com/docs/guides/local-development/declarative-database-schemas)

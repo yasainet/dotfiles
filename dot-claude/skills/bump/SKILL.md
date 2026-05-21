@@ -4,7 +4,9 @@ description: [Skills] Bump patch version tag
 allowed-tools: Bash(git *)
 ---
 
-# Bump
+# Bump skill
+
+## Steps
 
 1. 最新 tag を取得
 
