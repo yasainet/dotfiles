@@ -51,8 +51,24 @@ vim.keymap.set("n", "<leader>hb", "<Cmd>Gitsigns blame_line<CR>", { desc = "Blam
 vim.keymap.set("n", "<leader>tb", "<Cmd>Gitsigns toggle_current_line_blame<CR>", { desc = "Toggle line blame" })
 
 -- Diffview
-vim.keymap.set("n", "<leader>gd", "<Cmd>DiffviewOpen<CR>", { desc = "Diffview open" })
-vim.keymap.set("n", "<leader>gD", "<Cmd>DiffviewOpen main...HEAD<CR>", { desc = "Diffview vs main" })
+local function diff_against_origin_head()
+	vim.fn.jobstart({ "git", "fetch", "--quiet" }, {
+		on_exit = function()
+			vim.schedule(function()
+				local ref = vim.fn.system("git symbolic-ref refs/remotes/origin/HEAD 2>/dev/null"):gsub("\n", "")
+				local branch = ref:match("refs/remotes/origin/(.+)")
+				if not branch then
+					vim.notify("No origin/HEAD set", vim.log.levels.WARN)
+					return
+				end
+				vim.cmd("DiffviewOpen origin/" .. branch .. "...HEAD")
+			end)
+		end,
+	})
+end
+
+vim.keymap.set("n", "<leader>gd", "<Cmd>DiffviewOpen<CR>", { desc = "Diff: working tree" })
+vim.keymap.set("n", "<leader>gD", diff_against_origin_head, { desc = "Diff: vs origin default" })
 vim.keymap.set("n", "<leader>gf", "<Cmd>DiffviewFileHistory %<CR>", { desc = "Diffview file history" })
 vim.keymap.set("n", "<leader>gq", "<Cmd>DiffviewClose<CR>", { desc = "Diffview close" })
 
