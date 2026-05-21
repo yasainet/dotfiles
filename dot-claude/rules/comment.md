@@ -12,7 +12,7 @@ paths:
 ## JSDoc
 
 - JSDoc tags は禁止する
-- JSDoc の役割は、claude code がコードから理解ができない `Why` を記載せよ
+- JSDoc の役割は、LLM がコードから理解ができない `Why` を記載せよ
   - `What`, `How` は、コードが担当している
 - 80 桁以内で簡素に記載せよ
 

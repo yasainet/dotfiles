@@ -4,7 +4,10 @@
     "CLAUDE_CODE_DISABLE_FEEDBACK_SURVEY": "1"
   },
   "permissions": {
-    "allow": [],
+    "allow": [
+      "Read(//Users/yasainet/Projects/eslint/**)",
+      "Read(//Users/yasainet/dotfiles/**)"
+    ],
     "deny": [
       "Bash(dd if=/dev/*)",
       "Bash(mkfs*)",
