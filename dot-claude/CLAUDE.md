@@ -2,9 +2,9 @@
 
 ## Communication
 
-- 結論ファースト。挨拶・前置き・要約の復唱は不要
-- 指摘・反論は率直に。同意のための同意をするな
-- 確証のない推測した事項を断定するな
+- Respond directly: 前置き・挨拶・要約の復唱は省き、結論から書け
+- 反対意見・指摘は遠慮なく出せ。代替案を 1 つ添えよ
+- 不確実な内容は冒頭に「推測」「未検証」を明示せよ
 
 ## Workflow Defaults
 
@@ -16,15 +16,10 @@
 - 実装: ToDo に従って実装せよ
   - PR: 1 feature = 1 PR を原則とせよ
   - commit: `infra`, `feature`, `chore` の単位を原則とせよ
-    1. infra:
-       - `supabase/*`
-    2. feature:
-       - backend: `src/features/*`, `src/lib/*`, `src/utils/*`
-       - api: `src/app/api/**/route.ts`
-       - frontend: `src/components/*`, `src/app/**/page.tsx`
-       - tests: `tests/*`
-       - metadata: `src/app/sitemap.ts`, `src/app/robots.ts`, OG image など
-    3. chore:
-       - `next.config.ts`, lint, tooling, CI など
+    1. infra: スキーマ変更・migration・seed など取り消し困難な状態変更
+    2. feature: vertical slice として 1 commit にまとめ、end-to-end で検証可能な状態にする
+       - 対象: backend / api / frontend / tests / metadata など
+    3. chore: 横断的な設定・基盤の変更
+       - 対象: build config, lint, CI, tooling など
 - 検証: プロジェクトの `CLAUDE.md` で定義された `Verification` を実行せよ
 - 更新: 必要に応じて関連するドキュメントを調査して `**/*.md` を更新せよ
