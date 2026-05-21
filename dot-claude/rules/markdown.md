@@ -31,7 +31,7 @@ paths:
 
 ## Alerts
 
-- ユーザーの成功に不可欠な場合にのみ、以下のパターンのみ使用せよ
+- 以下のパターンのみ使用を許可する
 
 ```Markdown samaple.md
 > [!NOTE]
@@ -43,3 +43,8 @@ paths:
 > [!TODO]
 > Tasks or action items that need to be completed.
 ```
+
+## Table
+
+- 1 行の桁数が 80 桁を超える場合は、table の利用を禁止する
+- 80 桁を超える場合は、`Headings`, `Lists` など利用せよ

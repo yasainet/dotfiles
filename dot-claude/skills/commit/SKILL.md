@@ -4,7 +4,9 @@ description: [Skills] Create commit, review
 allowed-tools: Bash(git *), AskUserQuestion
 ---
 
-# Commit
+# Commit skill
+
+## Steps
 
 1. プロジェクト固有の `Verification` が完了している状態であること
 
