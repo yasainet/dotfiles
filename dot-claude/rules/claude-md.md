@@ -11,8 +11,8 @@ paths:
 - 以下の構成に従うこと:
 
 ```markdown CLAUDE.md
-- `# CLAUDE.md`: プロジェクト名 / 1行説明
-- `## Summary`: プロジェクトの内容を 3行程度の Lists で説明
+- `# CLAUDE.md`: プロジェクト名 / 1 行説明
+- `## Summary`: プロジェクトの内容を 3 行程度の Lists で説明
 - `## Environments`: `development` / `preview` / `production` の環境
 - `## Constraints`: 自明でない技術選定・アーキテクチャ判断とその理由
 - `## Commands`: プロジェクト固有のコマンド
