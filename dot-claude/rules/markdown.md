@@ -11,14 +11,8 @@ paths:
 
 ## Styling text
 
-- 100 桁以上になる場合は `Lists` を利用せよ
-
-  ```json
-  "sentence-length": {"max": 100}
-  ```
-
-- `()` の多用を避けて、入れ子にした `Lists` を推奨する
-- **Bold**, _Italic_ の利用は禁止する
+- 1 行 80 桁以内の文章を推奨する
+- **Bold** の利用は禁止する
 
 ## Quoting text
 
@@ -46,5 +40,5 @@ paths:
 
 ## Table
 
-- 1 行の桁数が 80 桁を超える場合は、table の利用を禁止する
+- 1 行 80 桁を超える場合は、table の利用を禁止する
 - 80 桁を超える場合は、`Headings`, `Lists` など利用せよ
