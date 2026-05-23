@@ -2,10 +2,6 @@
   "rules": {
     "ja-space-between-half-and-full-width": {
       "space": "always"
-    },
-    "sentence-length": {
-      "max": 100
-    },
-    "ja-no-redundant-expression": true
+    }
   }
 }

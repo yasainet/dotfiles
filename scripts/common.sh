@@ -81,9 +81,6 @@ install_textlint() {
   npm install -g \
     textlint \
     textlint-rule-ja-space-between-half-and-full-width \
-    textlint-rule-sentence-length \
-    textlint-rule-ja-no-redundant-expression
-
   echo "  [done] textlint setup complete"
 }
 
