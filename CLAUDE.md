@@ -23,9 +23,12 @@ Personal dotfiles for macOS and Linux.
 
 ## Commands
 
-- `./install.sh`: 全体セットアップ（symlinks → packages → nvm → post_install）
+```sh
+./install.sh
+```
 
 ## Verification
 
-- `ls -la ~/.config/` でシンボリックリンクが張られていることを確認
-- `exec zsh` で shell をリロード
+```sh
+exec zsh
+```
