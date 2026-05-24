@@ -100,7 +100,7 @@
   "autoUpdatesChannel": "latest",
   "tui": "default",
   "theme": "auto",
+  "editorMode": "normal",
   "skipAutoPermissionPrompt": true,
-  "voiceEnabled": true,
-  "editorMode": "vim"
+  "voiceEnabled": true
 }
