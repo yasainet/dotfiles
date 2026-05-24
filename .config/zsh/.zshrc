@@ -99,6 +99,18 @@ claude() {
   fi
 }
 
+# llama-server (local uncensored model for opencode)
+llm-serve() {
+  local dir="$HOME/models/HauhauCS-Qwen3.6-35B-A3B-Aggressive"
+  llama-server \
+    -m "$dir/Qwen3.6-35B-A3B-Uncensored-HauhauCS-Aggressive-Q8_K_P.gguf" \
+    --mmproj "$dir/mmproj-Qwen3.6-35B-A3B-Uncensored-HauhauCS-Aggressive-f16.gguf" \
+    --jinja -c 262144 --parallel 1 -ngl 99 -fa on \
+    --temp 0.6 --top-p 0.95 --top-k 20 --presence-penalty 1.5 \
+    -a qwen36-hauhau \
+    --host 127.0.0.1 --port 8080
+}
+
 # yazi
 y() {
   local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
