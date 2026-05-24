@@ -6,7 +6,8 @@
   "permissions": {
     "allow": [
       "Read(//Users/yasainet/Projects/eslint/**)",
-      "Read(//Users/yasainet/dotfiles/**)"
+      "Read(//Users/yasainet/dotfiles/**)",
+      "Read(//Users/yasainet/Documents/**)"
     ],
     "deny": [
       "Bash(dd if=/dev/*)",
@@ -100,5 +101,6 @@
   "tui": "default",
   "theme": "auto",
   "skipAutoPermissionPrompt": true,
-  "voiceEnabled": true
+  "voiceEnabled": true,
+  "editorMode": "vim"
 }
