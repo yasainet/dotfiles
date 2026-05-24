@@ -42,7 +42,6 @@ install_cli_tools() {
   brew install tmux
   brew install mise
   brew install pnpm
-  brew install ollama
   brew install firebase-cli
   brew install tailscale
   brew install translate-shell
@@ -84,6 +83,17 @@ install_cli_tools() {
   brew install zsh-syntax-highlighting
   brew install zsh-completions
   brew install pure
+
+  # Local LLM
+  brew install llama.cpp 
+  brew install hf
+  # Model download is manual (~44GB, intentionally not run here):
+  #   mkdir -p ~/models/HauhauCS-Qwen3.6-35B-A3B-Aggressive
+  #   hf download HauhauCS/Qwen3.6-35B-A3B-Uncensored-HauhauCS-Aggressive \
+  #     Qwen3.6-35B-A3B-Uncensored-HauhauCS-Aggressive-Q8_K_P.gguf \
+  #     mmproj-Qwen3.6-35B-A3B-Uncensored-HauhauCS-Aggressive-f16.gguf \
+  #     --local-dir ~/models/HauhauCS-Qwen3.6-35B-A3B-Aggressive
+  # Launch with the `llm-serve` function defined in .config/zsh/.zshrc
 }
 
 # ====================
