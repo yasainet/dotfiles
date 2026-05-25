@@ -64,6 +64,10 @@
           {
             "type": "command",
             "command": "bash ~/.config/tmux/scripts/agent-state-wrapper.sh --agent claude --state done"
+          },
+          {
+            "type": "command",
+            "command": "bash ~/.config/tmux/scripts/claude-notify.sh --state done"
           }
         ]
       }
@@ -75,6 +79,10 @@
           {
             "type": "command",
             "command": "bash ~/.config/tmux/scripts/agent-state-wrapper.sh --agent claude --state needs-input"
+          },
+          {
+            "type": "command",
+            "command": "bash ~/.config/tmux/scripts/claude-notify.sh --state needs-input"
           },
           {
             "type": "command",
@@ -101,6 +109,7 @@
   "tui": "default",
   "theme": "auto",
   "editorMode": "normal",
+  "preferredNotifChannel": "notifications_disabled",
   "skipAutoPermissionPrompt": true,
   "voiceEnabled": true
 }
