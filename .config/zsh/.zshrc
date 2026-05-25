@@ -111,6 +111,27 @@ llm-serve() {
     --host 127.0.0.1 --port 8080
 }
 
+# opencode: start llama-server on launch, stop it on exit
+opencode() {
+  local started=0
+  if ! curl -sf http://127.0.0.1:8080/health >/dev/null 2>&1; then
+    echo "starting llama-server..."
+    llm-serve >/tmp/llm-serve.log 2>&1 &
+    started=1
+    local i=0
+    until curl -sf http://127.0.0.1:8080/health >/dev/null 2>&1; do
+      sleep 1
+      if (( ++i > 300 )); then
+        echo "llama-server failed to start (see /tmp/llm-serve.log)"
+        return 1
+      fi
+    done
+  fi
+  command opencode "$@"
+  # 自分で起動した時だけ止める（手動起動の llama-server は残す）
+  (( started )) && { echo "stopping llama-server..."; pkill -f 'llama-server.*-a qwen36-hauhau'; }
+}
+
 # yazi
 y() {
   local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
