@@ -10,7 +10,7 @@ matches:
     replace: "TypeScript"
   - trigger: ";ne"
     replace: "Next.js"
-  - trigger: "no"
+  - trigger: ";no"
     replace: "Node.js"
   - trigger: ";su"
     replace: "Supabase"
