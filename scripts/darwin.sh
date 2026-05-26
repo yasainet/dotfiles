@@ -254,6 +254,15 @@ configure_system() {
 }
 
 # ====================
+# Espanso
+# ====================
+# macOS は ~/Library/Application Support/espanso を読む（Linux の ~/.config とは別パス）
+link_espanso() {
+  echo "Linking espanso config..."
+  link "$DOTFILES/.config/espanso" "$HOME/Library/Application Support/espanso"
+}
+
+# ====================
 # Main (macOS)
 # ====================
 install_packages() {
