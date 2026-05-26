@@ -33,6 +33,7 @@ main() {
   post_install
 
   if [ "$OS" = "Darwin" ]; then
+    link_espanso
     configure_system
   fi
 

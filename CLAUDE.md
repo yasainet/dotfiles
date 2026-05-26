@@ -20,6 +20,7 @@ Personal dotfiles for macOS and Linux.
 
 - 設定ファイルは symlink 方式で管理（`scripts/common.sh:create_symlinks`）。実体は repo に残し、リンク先のみホームに展開
 - OS 別処理は `install.sh` から `scripts/{darwin,linux}.sh` を source して切り替え
+- espanso は macOS だけ設定パスが `~/.config` 外のため `scripts/darwin.sh:link_espanso` で個別リンク（Linux は既存ループで対応）
 
 ## Commands
 
