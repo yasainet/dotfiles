@@ -10,12 +10,6 @@ allowed-tools: Bash(git *), AskUserQuestion
 
 1. プロジェクト固有の `Verification` が完了している状態であること
 
-```bash
-npm run lint && npm run type-check
-npm run test:e2e
-npm run build
-```
-
 2. 未コミットの変更を確認。変更がない場合はユーザーに伝えて停止する
 
 ```bash
@@ -42,7 +36,9 @@ git log --oneline -10
 git add <file1> <file2> ...
 ```
 
-7. ステップ 4 のスタイルに従い、簡潔なコミットメッセージを生成する (`Co-Authored-By` や署名トレーラーは含めない)
+7. ステップ 4 のスタイルに従い、簡潔なコミットメッセージを生成する
+   - `Co-Authored-By` や署名トレーラーは含めない
+   - 簡潔な日本語で記載せよ
 
 8. `AskUserQuestion` ツールでユーザーに以下の選択肢を提示する
    - 生成したメッセージを使用する (ラベルにメッセージを表示)
