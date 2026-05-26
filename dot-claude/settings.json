@@ -5,9 +5,9 @@
   },
   "permissions": {
     "allow": [
-      "Read(//Users/yasainet/Projects/eslint/**)",
-      "Read(//Users/yasainet/dotfiles/**)",
-      "Read(//Users/yasainet/Documents/**)"
+      "Read(//Users/yasainet/Projects/**)",
+      "Read(//Users/yasainet/Documents/**)",
+      "Read(//Users/yasainet/dotfiles/**)"
     ],
     "deny": [
       "Bash(dd if=/dev/*)",
