@@ -10,13 +10,13 @@ matches:
     replace: "TypeScript"
   - trigger: ";ne"
     replace: "Next.js"
-  - trigger: ";no"
+  - trigger: ";node"
     replace: "Node.js"
   - trigger: ";su"
     replace: "Supabase"
   - trigger: ";ed"
     replace: "Edge Functions"
-  - trigger: ";po"
+  - trigger: ";pg"
     replace: "PostgreSQL"
   - trigger: ";cf"
     replace: "Cloudflare"
@@ -24,3 +24,28 @@ matches:
     replace: "Claude Code"
   - trigger: ";oc"
     replace: "OpenCode"
+  - trigger: ";dev"
+    replace: "development"
+  - trigger: ";prod"
+    replace: "production"
+  - trigger: ";date"
+    replace: "{{d}}"
+    vars:
+      - name: d
+        type: date
+        params:
+          format: "%Y/%m/%d"
+  - trigger: ";time"
+    replace: "{{d}}"
+    vars:
+      - name: d
+        type: date
+        params:
+          format: "%H:%M:%S"
+  - trigger: ";now"
+    replace: "{{d}}"
+    vars:
+      - name: d
+        type: date
+        params:
+          format: "%Y/%m/%d %H:%M"
