@@ -4,27 +4,27 @@
   "provider": {
     "llamacpp": {
       "npm": "@ai-sdk/openai-compatible",
-      "name": "llama.cpp (local)",
+      "name": "llama.cpp (queen / RTX 4090)",
       "options": {
-        "baseURL": "http://127.0.0.1:8080/v1"
+        "baseURL": "http://100.117.152.63:8080/v1"
       },
       "models": {
-        "qwen3.6-35b-a3b-hauhau": {
-          "name": "Qwen3.6-35B-A3B-Uncensored-HauhauCS-Aggressive (local)",
+        "qwen3.6-35b-a3b": {
+          "name": "Qwen3.6-35B-A3B instruct",
           "limit": {
             "context": 262144,
-            "output": 32768
+            "output": 8192
           },
           "modalities": {
             "input": ["text", "image"],
             "output": ["text"]
           }
         },
-        "qwen3.6-27b": {
-          "name": "Qwen3.6-27B (local)",
+        "qwen3.6-35b-a3b-hauhau": {
+          "name": "Qwen3.6-35B-A3B-Uncensored-HauhauCS-Aggressive",
           "limit": {
             "context": 262144,
-            "output": 32768
+            "output": 8192
           },
           "modalities": {
             "input": ["text", "image"],
@@ -34,8 +34,12 @@
       }
     }
   },
-  "model": "llamacpp/qwen3.6-27b",
+  "model": "llamacpp/qwen3.6-35b-a3b",
   "watcher": {
     "ignore": ["node_modules/**", "dist/**", ".git/**"]
+  },
+  "keybinds": {
+    "messages_half_page_up": "ctrl+u",
+    "messages_half_page_down": "ctrl+d"
   }
 }

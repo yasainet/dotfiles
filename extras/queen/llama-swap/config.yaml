@@ -1,0 +1,43 @@
+healthCheckTimeout: 300
+logLevel: info
+
+models:
+  "qwen3.6-35b-a3b":
+    cmd: |
+      C:\Users\dev\llama\llama-server.exe
+      -m C:\Users\dev\models\Qwen3.6-35B-A3B-instruct\Qwen3.6-35B-A3B-UD-Q6_K.gguf
+      --mmproj C:\Users\dev\models\Qwen3.6-35B-A3B-instruct\mmproj-F16.gguf
+      --no-mmproj-offload
+      -fit off
+      -ngl 99
+      --n-cpu-moe 18
+      -c 262144
+      -fa on
+      -ctk q8_0
+      -ctv q8_0
+      --parallel 1
+      --cache-ram 0
+      --host 127.0.0.1
+      --port ${PORT}
+      -a qwen3.6-35b-a3b
+    ttl: 600
+
+  "qwen3.6-35b-a3b-hauhau":
+    cmd: |
+      C:\Users\dev\llama\llama-server.exe
+      -m C:\Users\dev\models\Qwen3.6-35B-A3B\Qwen3.6-35B-A3B-Uncensored-HauhauCS-Aggressive-Q6_K_P.gguf
+      --mmproj C:\Users\dev\models\Qwen3.6-35B-A3B\mmproj-f16.gguf
+      --no-mmproj-offload
+      -fit off
+      -ngl 99
+      --n-cpu-moe 20
+      -c 262144
+      -fa on
+      -ctk q8_0
+      -ctv q8_0
+      --parallel 1
+      --cache-ram 0
+      --host 127.0.0.1
+      --port ${PORT}
+      -a qwen3.6-35b-a3b-hauhau
+    ttl: 600

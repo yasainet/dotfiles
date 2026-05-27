@@ -20,8 +20,6 @@ Personal dotfiles for macOS and Linux.
 
 - 設定ファイルは symlink 方式で管理（`scripts/common.sh:create_symlinks`）。実体は repo に残し、リンク先のみホームに展開
 - OS 別処理は `install.sh` から `scripts/{darwin,linux}.sh` を source して切り替え
-- espanso は macOS だけ設定パスが `~/.config` 外のため `scripts/darwin.sh:link_espanso` で個別リンク（Linux は既存ループで対応）
-- ブラウザ自動化は chrome-devtools MCP（Chrome Canary 利用）で代替。純正 Claude-in-Chrome が接続不可なため。`~/.claude.json` は symlink 管理外なので `scripts/darwin.sh:setup_claude_mcp` が `claude mcp add` で登録する
 
 ## Commands
 
