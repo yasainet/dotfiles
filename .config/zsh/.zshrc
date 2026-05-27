@@ -99,24 +99,50 @@ claude() {
   fi
 }
 
-# llama-server (local uncensored model for opencode)
+# llama-server
 llm-serve() {
-  local dir="$HOME/models/HauhauCS-Qwen3.6-35B-A3B-Aggressive"
-  llama-server \
-    -m "$dir/Qwen3.6-35B-A3B-Uncensored-HauhauCS-Aggressive-Q8_K_P.gguf" \
-    --mmproj "$dir/mmproj-Qwen3.6-35B-A3B-Uncensored-HauhauCS-Aggressive-f16.gguf" \
-    --jinja -c 262144 --parallel 1 -ngl 99 -fa on \
-    --temp 0.6 --top-p 0.95 --top-k 20 --presence-penalty 1.5 \
-    -a qwen36-hauhau \
-    --host 127.0.0.1 --port 8080
+  local model="${1:-qwen3.6-35b-a3b-hauhau}"
+  case "$model" in
+    qwen3.6-35b-a3b-hauhau)
+      local dir="$HOME/models/Qwen3.6-35B-A3B-Uncensored-HauhauCS-Aggressive"
+      llama-server \
+        -m "$dir/Qwen3.6-35B-A3B-Uncensored-HauhauCS-Aggressive-Q8_K_P.gguf" \
+        --mmproj "$dir/mmproj-Qwen3.6-35B-A3B-Uncensored-HauhauCS-Aggressive-f16.gguf" \
+        --jinja -c 262144 --parallel 1 -ngl 99 -fa on \
+        --temp 0.6 --top-p 0.95 --top-k 20 --presence-penalty 1.5 \
+        -a qwen3.6-35b-a3b-hauhau \
+        --host 127.0.0.1 --port 8080
+      ;;
+    qwen3.6-27b)
+      local dir="$HOME/models/Qwen3.6-27B"
+      llama-server \
+        -m "$dir/Qwen3.6-27B-Q8_0.gguf" \
+        --mmproj "$dir/mmproj-F16.gguf" \
+        --jinja -c 262144 --parallel 1 -ngl 99 -fa on \
+        --temp 0.6 --top-p 0.95 --top-k 20 --presence-penalty 1.5 \
+        -a qwen3.6-27b \
+        --host 127.0.0.1 --port 8080
+      ;;
+    *)
+      echo "llm-serve: unknown model '$model' (use 'qwen3.6-35b-a3b-hauhau' or 'qwen3.6-27b')" >&2
+      return 1
+      ;;
+  esac
 }
 
-# opencode: start llama-server on launch, stop it on exit
+# OpenCode
 opencode() {
+  local model="${LLM_MODEL:-qwen3.6-27b}"
+  local oc_model
+  case "$model" in
+    qwen3.6-35b-a3b-hauhau) oc_model="llamacpp/qwen3.6-35b-a3b-hauhau" ;;
+    qwen3.6-27b)            oc_model="llamacpp/qwen3.6-27b" ;;
+    *) echo "opencode: unknown LLM_MODEL '$model' (use 'qwen3.6-35b-a3b-hauhau' or 'qwen3.6-27b')" >&2; return 1 ;;
+  esac
   local started=0
   if ! curl -sf http://127.0.0.1:8080/health >/dev/null 2>&1; then
-    echo "starting llama-server..."
-    llm-serve >/tmp/llm-serve.log 2>&1 &
+    echo "starting llama-server ($model)..."
+    llm-serve "$model" >/tmp/llm-serve.log 2>&1 &
     started=1
     local i=0
     until curl -sf http://127.0.0.1:8080/health >/dev/null 2>&1; do
@@ -127,9 +153,8 @@ opencode() {
       fi
     done
   fi
-  command opencode "$@"
-  # 自分で起動した時だけ止める（手動起動の llama-server は残す）
-  (( started )) && { echo "stopping llama-server..."; pkill -f 'llama-server.*-a qwen36-hauhau'; }
+  command opencode --model "$oc_model" "$@"
+  (( started )) && { echo "stopping llama-server..."; pkill -f 'llama-server.*--port 8080'; }
 }
 
 # yazi
