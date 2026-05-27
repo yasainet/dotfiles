@@ -4,7 +4,7 @@
   "provider": {
     "llamacpp": {
       "npm": "@ai-sdk/openai-compatible",
-      "name": "llama.cpp (queen / RTX 4090)",
+      "name": "llama.cpp",
       "options": {
         "baseURL": "http://100.117.152.63:8080/v1"
       },
