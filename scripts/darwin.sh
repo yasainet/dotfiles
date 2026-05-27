@@ -87,13 +87,17 @@ install_cli_tools() {
   # Local LLM
   brew install llama.cpp 
   brew install hf
-  # Model download is manual (~44GB, intentionally not run here):
-  #   mkdir -p ~/models/HauhauCS-Qwen3.6-35B-A3B-Aggressive
+  # Model download is manual (intentionally not run here):
+  #   mkdir -p ~/models/Qwen3.6-35B-A3B-Uncensored-HauhauCS-Aggressive
   #   hf download HauhauCS/Qwen3.6-35B-A3B-Uncensored-HauhauCS-Aggressive \
   #     Qwen3.6-35B-A3B-Uncensored-HauhauCS-Aggressive-Q8_K_P.gguf \
   #     mmproj-Qwen3.6-35B-A3B-Uncensored-HauhauCS-Aggressive-f16.gguf \
-  #     --local-dir ~/models/HauhauCS-Qwen3.6-35B-A3B-Aggressive
-  # Launch with the `llm-serve` function defined in .config/zsh/.zshrc
+  #     --local-dir ~/models/Qwen3.6-35B-A3B-Uncensored-HauhauCS-Aggressive
+  #   mkdir -p ~/models/Qwen3.6-27B
+  #   hf download unsloth/Qwen3.6-27B-GGUF \
+  #     Qwen3.6-27B-Q8_0.gguf mmproj-F16.gguf \
+  #     --local-dir ~/models/Qwen3.6-27B
+  # Launch with the `llm-serve [qwen3.6-35b-a3b-hauhau|qwen3.6-27b]` function defined in .config/zsh/.zshrc
 }
 
 # ====================
@@ -256,7 +260,6 @@ configure_system() {
 # ====================
 # Espanso
 # ====================
-# macOS は ~/Library/Application Support/espanso を読む（Linux の ~/.config とは別パス）
 link_espanso() {
   echo "Linking espanso config..."
   link "$DOTFILES/.config/espanso" "$HOME/Library/Application Support/espanso"

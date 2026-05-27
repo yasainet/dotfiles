@@ -9,8 +9,19 @@
         "baseURL": "http://127.0.0.1:8080/v1"
       },
       "models": {
-        "qwen36-hauhau": {
-          "name": "Qwen3.6 35B-A3B HauhauCS (local)",
+        "qwen3.6-35b-a3b-hauhau": {
+          "name": "Qwen3.6-35B-A3B-Uncensored-HauhauCS-Aggressive (local)",
+          "limit": {
+            "context": 262144,
+            "output": 32768
+          },
+          "modalities": {
+            "input": ["text", "image"],
+            "output": ["text"]
+          }
+        },
+        "qwen3.6-27b": {
+          "name": "Qwen3.6-27B (local)",
           "limit": {
             "context": 262144,
             "output": 32768
@@ -23,7 +34,7 @@
       }
     }
   },
-  "model": "llamacpp/qwen36-hauhau",
+  "model": "llamacpp/qwen3.6-27b",
   "watcher": {
     "ignore": ["node_modules/**", "dist/**", ".git/**"]
   }
