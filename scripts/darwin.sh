@@ -115,6 +115,7 @@ install_gui_apps() {
 
   # Browser
   brew install --cask google-chrome
+  brew install --cask google-chrome@canary  
   brew install --cask brave-browser
   brew install --cask tor-browser
 
@@ -127,7 +128,6 @@ install_gui_apps() {
 
   # Development
   brew install --cask orbstack
-  brew install --cask claude
   brew install --cask ngrok
 
   # Utilities
@@ -263,6 +263,27 @@ configure_system() {
 link_espanso() {
   echo "Linking espanso config..."
   link "$DOTFILES/.config/espanso" "$HOME/Library/Application Support/espanso"
+}
+
+# ====================
+# Claude Code MCP
+# ====================
+# ~/.claude.json is not symlink-managed, so MCP servers are registered via the CLI.
+setup_claude_mcp() {
+  echo "Setting up Claude Code MCP servers..."
+
+  if ! command -v claude &> /dev/null; then
+    echo "  [skip] claude CLI not found"
+    return
+  fi
+
+  # Browser automation. Targets Chrome Canary so it stays visually distinct from daily Chrome.
+  if claude mcp list 2>/dev/null | grep -q "chrome-devtools"; then
+    echo "  [skip] chrome-devtools (already registered)"
+  else
+    claude mcp add chrome-devtools -s user -- npx -y chrome-devtools-mcp@latest --channel canary
+    echo "  [done] chrome-devtools registered"
+  fi
 }
 
 # ====================

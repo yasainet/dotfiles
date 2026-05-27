@@ -35,6 +35,7 @@ main() {
   if [ "$OS" = "Darwin" ]; then
     link_espanso
     configure_system
+    setup_claude_mcp
   fi
 
   echo ""
