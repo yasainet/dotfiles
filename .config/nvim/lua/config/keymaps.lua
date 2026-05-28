@@ -212,7 +212,12 @@ vim.keymap.set("n", "<leader>yp", function()
 end, { desc = "Yank full path" })
 
 -- Claude Code
-local function toggle_claude(size)
+local function pick_size()
+	local width = tonumber(vim.fn.system("tmux display-message -p '#{window_width}'")) or 0
+	return width >= 240 and "50%" or "45%"
+end
+
+local function toggle_claude()
 	if _G._claude_pane_id then
 		local ok = vim.fn.system("tmux display-message -p -t " .. _G._claude_pane_id .. ' "#{pane_id}" 2>/dev/null')
 		if vim.v.shell_error == 0 and ok:match("%S") then
@@ -225,7 +230,7 @@ local function toggle_claude(size)
 		end
 		_G._claude_pane_id = nil
 	end
-	local pane_id = vim.fn.system('tmux split-window -h -l ' .. size .. ' -P -F "#{pane_id}" "claude"')
+	local pane_id = vim.fn.system("tmux split-window -h -l " .. pick_size() .. ' -P -F "#{pane_id}" "claude"')
 	_G._claude_pane_id = vim.trim(pane_id)
 	vim.fn.system("tmux set-option -w allow-rename off")
 	local hook = 'if-shell -F "#{==:#{pane_id},'
@@ -236,12 +241,8 @@ local function toggle_claude(size)
 end
 
 vim.keymap.set("n", "<leader>cc", function()
-	toggle_claude("40%")
-end, { desc = "Claude Code (40%)" })
-
-vim.keymap.set("n", "<leader>cC", function()
-	toggle_claude("50%")
-end, { desc = "Claude Code (50%)" })
+	toggle_claude()
+end, { desc = "Claude Code (auto size)" })
 
 -- Terminal
 local function toggle_terminal()

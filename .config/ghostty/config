@@ -64,14 +64,6 @@ keybind = cmd+j=text:\x1bj
 # Keybindings for tmux
 # ==============================
 
-# --- session ---
-
-# Cmd+` / Cmd+Shift+` -> next/previous session
-keybind = cmd+grave_accent=unbind
-keybind = cmd+grave_accent=text:\x00q
-keybind = cmd+shift+grave_accent=unbind
-keybind = cmd+shift+grave_accent=text:\x00Q
-
 # --- window ---
 
 # Cmd+t -> new window
