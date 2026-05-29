@@ -11,8 +11,10 @@ paths:
 
 ## Styling text
 
-- 1 行 80 桁以内の文章を推奨する
-- **Bold** の利用は禁止する
+- 1 文 1 行、一文一義を原則とせよ
+  - 日本語: 1 文は 60 文字以内を推奨する
+  - English: 1 sentence は 20 words 以内を推奨する
+- `**Bold**` の利用は禁止する
 
 ## Quoting text
 
@@ -41,4 +43,3 @@ paths:
 ## Table
 
 - 1 行 80 桁を超える場合は、table の利用を禁止する
-- 80 桁を超える場合は、`Headings`, `Lists` など利用せよ
