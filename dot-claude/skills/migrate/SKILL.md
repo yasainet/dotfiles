@@ -31,16 +31,16 @@ USE_MINIO=0
 ```bash
 supabase db diff -f $ARGUMENTS
 supabase db push --local
-supabase gen types typescript --local > src/lib/supabase/type.ts
+supabase gen types typescript --local > src/lib/supabase/types.ts
 ```
 
 4. `scripts/`, `supabase/functions/` の check
 
 ```bash
 [ -d scripts/lib/supabase ] \
-  && cp src/lib/supabase/type.ts scripts/lib/supabase/type.ts
+  && cp src/lib/supabase/types.ts scripts/lib/supabase/types.ts
 [ -d supabase/functions/_lib/supabase ] \
-  && cp src/lib/supabase/type.ts supabase/functions/_lib/supabase/type.ts
+  && cp src/lib/supabase/types.ts supabase/functions/_lib/supabase/types.ts
 ```
 
 5. MinIO 起動
