@@ -53,8 +53,7 @@ return {
 			ensure_installed = {
 				-- Formatters
 				"stylua",
-				"prettier",
-				"eslint_d",
+				"prettierd",
 				"sql-formatter",
 				-- Linters
 				"hadolint",
