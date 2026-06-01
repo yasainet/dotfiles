@@ -29,5 +29,5 @@ path-rule (`~/.claude/rules/**/*.md`) を編集するときの作法。
 
 ## hook との結合
 
-- green-field の Write-create は `hooks/inject-path-rule.js` が rule 本文を注入する
+- green-field の Write-create は `hooks/inject-path-rule.mjs` が rule 本文を注入する
 - rule ファイルを移動 / 追加したら、hook の `RULES` の `file` 参照を更新する
