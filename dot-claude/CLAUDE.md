@@ -19,5 +19,6 @@
     1. `infra`: schema / migration / seed など
     2. `feature`: backend / api / frontend / tests など
     3. `chore`: metadata / lint / CI など
+  - JSDoc: queries / services を変更したら `/jsdoc` で Why-not に精査せよ
 - 検証: `~/Projects/**/CLAUDE.md` で定義された `Verification` を実行せよ
 - 更新: 関連するドキュメントを調査して `**/*.md` を更新せよ
