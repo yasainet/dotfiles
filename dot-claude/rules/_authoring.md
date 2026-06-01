@@ -10,7 +10,7 @@ path-rule (`~/.claude/rules/**/*.md`) を編集するときの作法。
 
 ## 構造
 
-- 2 層で書く: **機械ルール**（eslint 転記）と **Why**（eslint に表せない意図）
+- 2 層で書く: 機械ルール（eslint 転記）と Why（eslint に表せない意図）
 - 機械ルールは eslint が正典。冒頭に「ESLint が最終保証、すり抜けるな」を置く
 - Why は `> [!NOTE]` で書く。What / How はコードと eslint が持つので書かない
 - voice はせよ調・1 文 1 義
@@ -23,9 +23,9 @@ path-rule (`~/.claude/rules/**/*.md`) を編集するときの作法。
 
 ## paths の glob
 
-- `paths:` は rule ファイルの場所でなく **project 側ファイル**を狙う（discovery は再帰的）
-- glob は標準だが、**ルート直下狙い / 多段リテラル**は確証がない
-- 新規 rule や glob 変更は **完全新規セッション**で発火確認する（`--continue` は rule を再ロードしない）
+- `paths:` は rule ファイルの場所でなく project 側ファイルを狙う（discovery は再帰的）
+- glob は標準だが、ルート直下狙い / 多段リテラルは確証がない
+- 新規 rule や glob 変更は完全新規セッションで発火確認する（`--continue` は rule を再ロードしない）
 
 ## hook との結合
 

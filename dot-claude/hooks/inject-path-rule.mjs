@@ -18,6 +18,8 @@ const RULES = [
   { match: (p) => p.includes("/src/lib/"), file: "src/lib.md" },
   { match: (p) => p.includes("/queries/"), file: "src/features/queries.md" },
   { match: (p) => p.includes("/services/"), file: "src/features/services.md" },
+  { match: (p) => p.includes(".test.ts"), file: "tests/unit.md" },
+  { match: (p) => p.includes(".spec.ts"), file: "tests/e2e.md" },
 ];
 
 const rulesDir = path.join(os.homedir(), ".claude", "rules");

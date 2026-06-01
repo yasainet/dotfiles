@@ -9,7 +9,7 @@ queries を実装する前に、この規範を理解してから書け。
 ESLint (`@yasainet/eslint`) が最終保証だが、error message をすり抜けるための実装はするな。
 error が出たら「意図」に寄せて直せ。規約の裏をかいて黙らせるな。
 
-queries は features の最薄層。**I/O を 1 回叩き `safe` で `{ data, error }` に畳むだけ**に徹せよ。
+queries は features の最薄層。I/O を 1 回叩き `safe` で `{ data, error }` に畳むだけに徹せよ。
 
 ## 位置
 
@@ -19,12 +19,12 @@ queries は features の最薄層。**I/O を 1 回叩き `safe` で `{ data, er
 
 ## 禁止構文
 
-- **try-catch 禁止**。error は `{ data, error }` で返す
-- **if 禁止**。条件分岐は services に置く
-- **loop 禁止**。反復は services に置く（queries は薄い CRUD ラッパー）
-- **throw 禁止**。Supabase の `{ data, error }` をそのまま返す
-- **logger 禁止**（entries 以外）。ログ出力は entries に集約
-- **`@/` パスの動的 import 禁止**。内部依存は `queries/<prefix>.ts` を作る（外部 npm の cold-start 遅延 import のみ可）
+- try-catch 禁止。error は `{ data, error }` で返す
+- if 禁止。条件分岐は services に置く
+- loop 禁止。反復は services に置く（queries は薄い CRUD ラッパー）
+- throw 禁止。Supabase の `{ data, error }` をそのまま返す
+- logger 禁止（entries 以外）。ログ出力は entries に集約
+- `@/` パスの動的 import 禁止。内部依存は `queries/<prefix>.ts` を作る（外部 npm の cold-start 遅延 import のみ可）
 
 > [!NOTE]
 > queries を薄く・分岐なしに保つのは、error 経路を 1 本に保つため。
