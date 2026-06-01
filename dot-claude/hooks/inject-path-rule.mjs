@@ -9,9 +9,9 @@
 // 注意: glob の再実装は native engine と食い違うため避ける。
 // path 判定は単純な substring に留め、rule 本文だけ rule ファイルから動的に読む。
 
-const fs = require("fs");
-const os = require("os");
-const path = require("path");
+import fs from "node:fs";
+import os from "node:os";
+import path from "node:path";
 
 // { 対象 path の substring 判定, 注入する rule ファイル }
 const RULES = [

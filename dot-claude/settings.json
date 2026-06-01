@@ -37,7 +37,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "node ~/dotfiles/dot-claude/hooks/inject-path-rule.js"
+            "command": "node ~/dotfiles/dot-claude/hooks/inject-path-rule.mjs"
           }
         ]
       }
