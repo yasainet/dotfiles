@@ -31,6 +31,17 @@
   },
   "enableAllProjectMcpServers": true,
   "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node ~/dotfiles/dot-claude/hooks/inject-path-rule.js"
+          }
+        ]
+      }
+    ],
     "UserPromptSubmit": [
       {
         "matcher": "",
@@ -103,7 +114,7 @@
     "ruby-lsp@claude-plugins-official": true
   },
   "language": "Japanese",
-  "effortLevel": "xhigh",
+  "effortLevel": "high",
   "autoUpdatesChannel": "latest",
   "tui": "default",
   "voice": {
