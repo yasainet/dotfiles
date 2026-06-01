@@ -9,7 +9,7 @@ services を実装する前に、この規範を理解してから書け。
 ESLint (`@yasainet/eslint`) が最終保証だが、error message をすり抜けるための実装はするな。
 error が出たら「意図」に寄せて直せ。規約の裏をかいて黙らせるな。
 
-services は features の orchestration 層。**分岐・合成・複数 I/O をまとめる**のが責務。
+services は features の orchestration 層。分岐・合成・複数 I/O をまとめるのが責務。
 
 ## 位置
 
@@ -19,12 +19,12 @@ services は features の orchestration 層。**分岐・合成・複数 I/O を
 
 ## 禁止構文
 
-- **try-catch 禁止**。error 処理は entries に集約する
-- **throw 禁止**。失敗は値で返す:
+- try-catch 禁止。error 処理は entries に集約する
+- throw 禁止。失敗は値で返す:
   - `T | null` / `{ data, error }` / 空デフォルト のいずれか
   - lib の native 例外は entry の catch に自動伝播する（services で握るな）
-- **logger 禁止**（entries 以外）。ログ出力は entries に集約
-- **`@/` パスの動的 import 禁止**。内部依存は `services/<prefix>.ts` を作る（外部 npm の cold-start 遅延 import のみ可）
+- logger 禁止（entries 以外）。ログ出力は entries に集約
+- `@/` パスの動的 import 禁止。内部依存は `services/<prefix>.ts` を作る（外部 npm の cold-start 遅延 import のみ可）
 
 ## dead fallback の禁止
 
