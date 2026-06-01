@@ -19,7 +19,7 @@ path-rule (`~/.claude/rules/**/*.md`) を編集するときの作法。
 
 - `src/` 配下は project 構造ミラー（`src/lib.md`, `src/features/queries.md`）
 - 横断的ルール（lint / md / supabase 等）は `rules/` 直下
-- メタ rule は `_` 接頭辞（`_authoring.md`, `_eslint-authoring.md`）
+- メタ rule は `_` 接頭辞（`_authoring.md`, `_eslint.md`）
 
 ## paths の glob
 
