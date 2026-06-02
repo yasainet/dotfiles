@@ -3,7 +3,7 @@ paths:
   - "**/*.md"
 ---
 
-# Markdown Rules
+# Format Rules
 
 ## Headings
 
@@ -18,7 +18,7 @@ paths:
 
 ## Quoting text
 
-- 後述する `Alerts` の活用を推奨する
+- 装飾目的の引用を禁止する
 
 ## Task lists
 

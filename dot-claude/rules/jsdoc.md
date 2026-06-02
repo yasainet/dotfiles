@@ -1,10 +1,7 @@
 ---
 paths:
-  - "**/*.ts"
-  - "**/*.tsx"
-  - "**/*.js"
-  - "**/*.jsx"
-  - "**/*.mjs"
+  - "**/services/*.ts"
+  - "**/queries/*.ts"
 ---
 
 # JSDoc Rules
