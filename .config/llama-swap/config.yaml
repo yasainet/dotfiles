@@ -12,7 +12,7 @@ healthCheckTimeout: 600
 
 models:
   "qwen3.6-35b-a3b":
-    name: "Qwen3.6-35B-A3B (official)"
+    name: "Qwen3.6-35B-A3B"
     cmd: >-
       ${llama-server}
       -m ${model-dir}/Qwen3.6-35B-A3B/Qwen3.6-35B-A3B-Q8_0.gguf
