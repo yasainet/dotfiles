@@ -1,0 +1,28 @@
+macros:
+  model-dir: "/Users/yasainet/models"
+  llama-server: >-
+    /opt/homebrew/bin/llama-server
+    --port ${PORT}
+    -ngl 99
+    -fa on
+    --jinja
+    --ctx-size 65536
+
+healthCheckTimeout: 600
+
+models:
+  "qwen3.6-35b-a3b":
+    name: "Qwen3.6-35B-A3B (official)"
+    cmd: >-
+      ${llama-server}
+      -m ${model-dir}/Qwen3.6-35B-A3B/Qwen3.6-35B-A3B-Q8_0.gguf
+      --mmproj ${model-dir}/Qwen3.6-35B-A3B/mmproj-F16.gguf
+    ttl: 1800
+
+  "qwen3.6-35b-a3b-hauhau":
+    name: "Qwen3.6-35B-A3B-Uncensored-HauhauCS-Aggressive"
+    cmd: >-
+      ${llama-server}
+      -m ${model-dir}/Qwen3.6-35B-A3B-Uncensored-HauhauCS-Aggressive/Qwen3.6-35B-A3B-Uncensored-HauhauCS-Aggressive-Q8_K_P.gguf
+      --mmproj ${model-dir}/Qwen3.6-35B-A3B-Uncensored-HauhauCS-Aggressive/mmproj-Qwen3.6-35B-A3B-Uncensored-HauhauCS-Aggressive-f16.gguf
+    ttl: 1800

@@ -88,6 +88,24 @@ eslint() {
   cd $HOME/Projects/eslint
 }
 
+# Local LLM (llama-swap + llama.cpp)
+llm-fetch() {
+  local m repo file subdir
+  for m in \
+    "unsloth/Qwen3.6-35B-A3B-GGUF Qwen3.6-35B-A3B-Q8_0.gguf Qwen3.6-35B-A3B" \
+    "unsloth/Qwen3.6-35B-A3B-GGUF mmproj-F16.gguf Qwen3.6-35B-A3B" \
+    "HauhauCS/Qwen3.6-35B-A3B-Uncensored-HauhauCS-Aggressive Qwen3.6-35B-A3B-Uncensored-HauhauCS-Aggressive-Q8_K_P.gguf Qwen3.6-35B-A3B-Uncensored-HauhauCS-Aggressive" \
+    "HauhauCS/Qwen3.6-35B-A3B-Uncensored-HauhauCS-Aggressive mmproj-Qwen3.6-35B-A3B-Uncensored-HauhauCS-Aggressive-f16.gguf Qwen3.6-35B-A3B-Uncensored-HauhauCS-Aggressive"; do
+    read repo file subdir <<< "$m"
+    curl -L -C - --retry 1000 --retry-delay 3 --retry-all-errors --speed-limit 500000 --speed-time 30 \
+      --create-dirs -o "$HOME/models/$subdir/$file" "https://huggingface.co/$repo/resolve/main/$file"
+  done
+}
+
+llm-serve() {
+  llama-swap --config "$HOME/.config/llama-swap/config.yaml" --listen :8080 "$@"
+}
+
 # claude
 claude() {
   if [ -n "$TMUX" ]; then

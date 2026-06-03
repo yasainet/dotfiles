@@ -2,15 +2,15 @@
   "$schema": "https://opencode.ai/config.json",
   "autoupdate": true,
   "provider": {
-    "llamacpp": {
+    "llamacpp-local": {
       "npm": "@ai-sdk/openai-compatible",
-      "name": "llama.cpp",
+      "name": "llama.cpp (Mac local)",
       "options": {
-        "baseURL": "http://100.117.152.63:8080/v1"
+        "baseURL": "http://127.0.0.1:8080/v1"
       },
       "models": {
         "qwen3.6-35b-a3b": {
-          "name": "Qwen3.6-35B-A3B instruct",
+          "name": "Qwen3.6-35B-A3B",
           "limit": {
             "context": 262144,
             "output": 8192
@@ -32,9 +32,40 @@
           }
         }
       }
+    },
+    "llamacpp": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "llama.cpp (queen fallback)",
+      "options": {
+        "baseURL": "http://100.117.152.63:8080/v1"
+      },
+      "models": {
+        "qwen3.6-35b-a3b": {
+          "name": "Qwen3.6-35B-A3B - queen",
+          "limit": {
+            "context": 262144,
+            "output": 8192
+          },
+          "modalities": {
+            "input": ["text", "image"],
+            "output": ["text"]
+          }
+        },
+        "qwen3.6-35b-a3b-hauhau": {
+          "name": "Qwen3.6-35B-A3B-Uncensored-HauhauCS-Aggressive - queen",
+          "limit": {
+            "context": 262144,
+            "output": 8192
+          },
+          "modalities": {
+            "input": ["text", "image"],
+            "output": ["text"]
+          }
+        }
+      }
     }
   },
-  "model": "llamacpp/qwen3.6-35b-a3b",
+  "model": "llamacpp-local/qwen3.6-35b-a3b",
   "watcher": {
     "ignore": ["node_modules/**", "dist/**", ".git/**"]
   }
