@@ -4,7 +4,7 @@
   "provider": {
     "llamacpp-local": {
       "npm": "@ai-sdk/openai-compatible",
-      "name": "llama.cpp (Mac local)",
+      "name": "llama.cpp",
       "options": {
         "baseURL": "http://127.0.0.1:8080/v1"
       },
@@ -35,7 +35,7 @@
     },
     "llamacpp": {
       "npm": "@ai-sdk/openai-compatible",
-      "name": "llama.cpp (queen fallback)",
+      "name": "llama.cpp",
       "options": {
         "baseURL": "http://100.117.152.63:8080/v1"
       },
