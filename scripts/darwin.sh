@@ -85,19 +85,17 @@ install_cli_tools() {
   brew install pure
 
   # Local LLM
-  brew install llama.cpp 
+  brew install llama.cpp
   brew install hf
-  # Model download is manual (intentionally not run here):
-  #   mkdir -p ~/models/Qwen3.6-35B-A3B-Uncensored-HauhauCS-Aggressive
-  #   hf download HauhauCS/Qwen3.6-35B-A3B-Uncensored-HauhauCS-Aggressive \
-  #     Qwen3.6-35B-A3B-Uncensored-HauhauCS-Aggressive-Q8_K_P.gguf \
-  #     mmproj-Qwen3.6-35B-A3B-Uncensored-HauhauCS-Aggressive-f16.gguf \
-  #     --local-dir ~/models/Qwen3.6-35B-A3B-Uncensored-HauhauCS-Aggressive
-  #   mkdir -p ~/models/Qwen3.6-27B
-  #   hf download unsloth/Qwen3.6-27B-GGUF \
-  #     Qwen3.6-27B-Q8_0.gguf mmproj-F16.gguf \
-  #     --local-dir ~/models/Qwen3.6-27B
-  # Launch with the `llm-serve [qwen3.6-35b-a3b-hauhau|qwen3.6-27b]` function defined in .config/zsh/.zshrc
+
+  if ! command -v llama-swap &>/dev/null; then
+    LLAMA_SWAP_VER="v222"
+    mkdir -p "$HOME/.local/bin"
+    curl -sL "https://github.com/mostlygeek/llama-swap/releases/download/${LLAMA_SWAP_VER}/llama-swap_${LLAMA_SWAP_VER#v}_darwin_arm64.tar.gz" \
+      | tar -xz -C "$HOME/.local/bin" llama-swap
+    chmod +x "$HOME/.local/bin/llama-swap"
+  fi
+
 }
 
 # ====================
