@@ -17,7 +17,3 @@ paths:
 - 該当 rule .md の機械ルール節へ転記する（せよ調・既存 voice に合わせる）
 - そのルールの意図が非自明なら Why を `> [!NOTE]` でドラフトし、人間に確認する
 - rule .md には「ESLint が最終保証、すり抜けるな」を冒頭で明示し続ける
-
-> [!NOTE]
-> 全自動 script にはできない。機械ルールの抽出 (`npm run docs`) は script だが、
-> せよ調への翻訳と Why の起草は判断が要るため Claude Code が担い、Why は人間が承認する。
