@@ -1,6 +1,6 @@
 ---
 paths:
-  - "**/services/*.ts"
+  - "**/src/features/**/services/*.ts"
 ---
 
 # services Rules

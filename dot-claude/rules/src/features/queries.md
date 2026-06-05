@@ -1,6 +1,6 @@
 ---
 paths:
-  - "**/queries/*.ts"
+  - "**/src/features/**/queries/*.ts"
 ---
 
 # queries Rules
