@@ -1,6 +1,6 @@
 ---
 paths:
-  - "**/lib/**/*.ts"
+  - "**/src/lib/**/*.ts"
 ---
 
 # lib Rules

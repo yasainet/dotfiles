@@ -6,28 +6,57 @@
 // Read を踏まず Write 生成する」グリーンフィールド経路だけ。よって対象 path にマッチし、
 // かつ未存在のファイルへの Write のときだけ rule 本文を additionalContext で注入する。
 //
-// 注意: glob の再実装は native engine と食い違うため避ける。
-// path 判定は単純な substring に留め、rule 本文だけ rule ファイルから動的に読む。
+// 対象 path の判定は rule ファイルの frontmatter `paths` (glob) を正本として動的に読む。
+// 旧実装は RULES を substring でハードコードしていたが、frontmatter の glob と二重管理になり
+// ドリフトしていた (rule を足してもフックが追従せず、新規 Write 経路だけ発火しない)。
+// glob は再実装せず Node ネイティブの path.matchesGlob を使い、native engine と同じ意味で判定する。
 
 import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
 
-// { 対象 path の substring 判定, 注入する rule ファイル }
-const RULES = [
-  { match: (p) => p.includes("/src/lib/"), file: "src/lib.md" },
-  { match: (p) => p.includes("/queries/"), file: "src/features/queries.md" },
-  { match: (p) => p.includes("/services/"), file: "src/features/services.md" },
-  { match: (p) => p.includes(".test.ts"), file: "tests/unit.md" },
-  { match: (p) => p.includes(".spec.ts"), file: "tests/e2e.md" },
-];
-
 const rulesDir = path.join(os.homedir(), ".claude", "rules");
 
-/** frontmatter を除いた rule 本文を返す */
-const readRuleBody = (file) => {
-  const raw = fs.readFileSync(path.join(rulesDir, file), "utf8");
-  return raw.replace(/^---\n[\s\S]*?\n---\n?/, "").trim();
+/** frontmatter の `paths:` リスト (glob) を抜き出す */
+const parsePaths = (raw) => {
+  const fm = raw.match(/^---\n([\s\S]*?)\n---/);
+  if (!fm) return [];
+  const out = [];
+  let inPaths = false;
+  for (const line of fm[1].split("\n")) {
+    if (/^paths:\s*$/.test(line)) {
+      inPaths = true;
+      continue;
+    }
+    if (!inPaths) continue;
+    const item = line.match(/^\s*-\s*(.+?)\s*$/);
+    if (item) {
+      out.push(item[1].replace(/^["']|["']$/g, ""));
+    } else if (/^\S/.test(line)) {
+      inPaths = false; // 次の top-level key で paths リスト終了
+    }
+  }
+  return out;
+};
+
+/** rules ディレクトリを走査し { globs, body } を集める */
+const loadRules = () => {
+  let files;
+  try {
+    files = fs.readdirSync(rulesDir, { recursive: true });
+  } catch {
+    return [];
+  }
+  return files
+    .filter((f) => f.endsWith(".md"))
+    .sort() // readdir 順に依存しない決定的な注入順にする
+    .map((f) => {
+      const raw = fs.readFileSync(path.join(rulesDir, f), "utf8");
+      return {
+        globs: parsePaths(raw),
+        body: raw.replace(/^---\n[\s\S]*?\n---\n?/, "").trim(),
+      };
+    });
 };
 
 let input = "";
@@ -49,15 +78,18 @@ if (!filePath) process.exit(0);
 // rule が届くため、ここで再注入すると過剰になる。未存在のときだけ進む。
 if (fs.existsSync(filePath)) process.exit(0);
 
+const matches = (globs) =>
+  globs.some((g) => {
+    try {
+      return path.matchesGlob(filePath, g);
+    } catch {
+      return false;
+    }
+  });
+
 const bodies = [];
-for (const rule of RULES) {
-  if (!rule.match(filePath)) continue;
-  try {
-    const body = readRuleBody(rule.file);
-    if (body) bodies.push(body);
-  } catch {
-    // rule ファイルが無ければ黙ってスキップ
-  }
+for (const rule of loadRules()) {
+  if (rule.body && matches(rule.globs)) bodies.push(rule.body);
 }
 if (bodies.length === 0) process.exit(0);
 

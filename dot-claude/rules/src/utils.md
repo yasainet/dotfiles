@@ -1,0 +1,4 @@
+---
+paths:
+  - "**/src/utils/*.ts"
+---
