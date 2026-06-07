@@ -39,7 +39,6 @@ install_cli_tools() {
   brew install btop
   brew install fastfetch
   brew install uv
-  brew install yazi
   brew install tmux
   brew install mise
   brew install pnpm
@@ -137,7 +136,6 @@ install_gui_apps() {
 
   # Browser
   brew install --cask google-chrome
-  brew install --cask google-chrome@canary  
   brew install --cask brave-browser
   brew install --cask tor-browser
 
@@ -300,11 +298,10 @@ setup_claude_mcp() {
     return
   fi
 
-  # Browser automation. Targets Chrome Canary so it stays visually distinct from daily Chrome.
   if claude mcp list 2>/dev/null | grep -q "chrome-devtools"; then
     echo "  [skip] chrome-devtools (already registered)"
   else
-    claude mcp add chrome-devtools -s user -- npx -y chrome-devtools-mcp@latest --channel canary
+    claude mcp add chrome-devtools -s user -- npx -y chrome-devtools-mcp@latest
     echo "  [done] chrome-devtools registered"
   fi
 }
