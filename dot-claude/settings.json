@@ -124,5 +124,7 @@
   "theme": "auto",
   "editorMode": "normal",
   "preferredNotifChannel": "notifications_disabled",
-  "skipAutoPermissionPrompt": true
+  "skipAutoPermissionPrompt": true,
+  "skipWorkflowUsageWarning": true,
+  "model": "claude-opus-4-7"
 }
