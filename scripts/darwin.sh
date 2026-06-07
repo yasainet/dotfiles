@@ -25,6 +25,7 @@ install_cli_tools() {
   brew install git-lfs
   brew install gh
   brew install glab
+  brew install tea
   brew install neovim
   brew install bat
   brew install fzf
@@ -48,9 +49,28 @@ install_cli_tools() {
   brew install yt-dlp
   brew install lua-language-server
   brew install tree-sitter-cli
+  brew install tailspin
+  brew install taplo
+  brew install gallery-dl
+  brew install git-filter-repo
+  brew install libpq
+  brew install librsvg
 
-  # Terraform 
+  # Terraform
   brew install hashicorp/tap/terraform
+
+  # Deploy tools
+  brew install fujiwara/tap/lambroll
+  brew install kayac/tap/ecspresso
+
+  # Sentry
+  brew install getsentry/tools/sentry-cli
+
+  # RunPod
+  brew install runpod/runpodctl/runpodctl
+
+  # opencode
+  brew install anomalyco/tap/opencode
 
   # Git Credential Manager
   brew tap microsoft/git
@@ -96,6 +116,10 @@ install_cli_tools() {
     chmod +x "$HOME/.local/bin/llama-swap"
   fi
 
+  # Claude Code CLI (native installer)
+  if ! command -v claude &>/dev/null; then
+    curl -fsSL https://claude.ai/install.sh | bash
+  fi
 }
 
 # ====================
@@ -127,6 +151,7 @@ install_gui_apps() {
   # Development
   brew install --cask orbstack
   brew install --cask ngrok
+  brew install --cask espanso
 
   # Utilities
   brew install --cask karabiner-elements
