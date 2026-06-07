@@ -287,26 +287,6 @@ link_espanso() {
 }
 
 # ====================
-# Claude Code MCP
-# ====================
-# ~/.claude.json is not symlink-managed, so MCP servers are registered via the CLI.
-setup_claude_mcp() {
-  echo "Setting up Claude Code MCP servers..."
-
-  if ! command -v claude &> /dev/null; then
-    echo "  [skip] claude CLI not found"
-    return
-  fi
-
-  if claude mcp list 2>/dev/null | grep -q "chrome-devtools"; then
-    echo "  [skip] chrome-devtools (already registered)"
-  else
-    claude mcp add chrome-devtools -s user -- npx -y chrome-devtools-mcp@latest
-    echo "  [done] chrome-devtools registered"
-  fi
-}
-
-# ====================
 # Main (macOS)
 # ====================
 install_packages() {
