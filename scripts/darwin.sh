@@ -169,8 +169,8 @@ install_mas_apps() {
 
   brew install mas
 
-  mas install 539883307  # LINE
-  mas install 497799835  # Xcode
+  mas install 539883307 || true  # LINE
+  mas install 497799835 || true  # Xcode
 }
 
 # ====================
@@ -280,9 +280,9 @@ configure_system() {
   defaults write com.apple.screencapture captureHDR -bool false 
 
   # Restart affected apps
-  killall Dock
-  killall Finder
-  killall SystemUIServer
+  killall Dock || true
+  killall Finder || true
+  killall SystemUIServer || true
 }
 
 # ====================
@@ -341,5 +341,4 @@ install_packages() {
   install_homebrew
   install_cli_tools
   install_gui_apps
-  install_mas_apps
 }
