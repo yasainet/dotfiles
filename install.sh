@@ -38,6 +38,7 @@ main() {
     link_claude_code
     setup_icloud_downloads || true
     configure_system
+    install_mas_apps
   fi
 
   echo ""

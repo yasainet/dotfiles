@@ -20,12 +20,18 @@ Personal dotfiles for macOS and Linux.
 
 - 設定ファイルは symlink 方式で管理（`scripts/common.sh:create_symlinks`）。実体は repo に残し、リンク先のみホームに展開
 - OS 別処理は `install.sh` から `scripts/{darwin,linux}.sh` を source して切り替え
+- リポジトリは `~/dotfiles` 固定。`DOTFILES="$HOME/dotfiles"` をハードコードしており、別パスへ clone すると symlink が壊れる
 
 ## Commands
 
 ```sh
 ./install.sh
 ```
+
+> [!NOTE]
+> macOS の初回セットアップは事前に App Store と iCloud へサインインすること。
+> 未サインインでも install は中断しないが、mas アプリと iCloud Downloads の symlink は生成されない。
+> サインイン後に `./install.sh` を再実行すれば冪等に補完される。
 
 ## Verification
 
