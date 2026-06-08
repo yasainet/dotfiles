@@ -28,8 +28,8 @@ maximize = true
 theme = TokyoNight Night
 
 # Font
-font-family = "UDEV Gothic NFLG"
-font-size = 16
+font-family = "UDEV Gothic 35NFLG"
+font-size = 14
 bold-is-bright= true
 # adjust-cell-width = 0%
 # adjust-cell-height = 0%
