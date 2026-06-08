@@ -277,7 +277,7 @@ configure_system() {
   defaults write com.apple.screencapture location "$HOME/Downloads"
   defaults write com.apple.screencapture type -string "png"
   defaults write com.apple.screencapture show-thumbnail -bool true
-  defaults write com.apple.screencapture captureHDR -bool false  # HDR 有効だと type=png でも実体が HEIC になる
+  defaults write com.apple.screencapture captureHDR -bool false 
 
   # Restart affected apps
   killall Dock
@@ -291,6 +291,47 @@ configure_system() {
 link_espanso() {
   echo "Linking espanso config..."
   link "$DOTFILES/.config/espanso" "$HOME/Library/Application Support/espanso"
+}
+
+# ====================
+# Claude Code
+# ====================
+link_claude_code() {
+  echo "Linking Claude Code config..."
+  mkdir -p "$HOME/.claude"
+  link "$DOTFILES/dot-claude/CLAUDE.md" "$HOME/.claude/CLAUDE.md"
+  link "$DOTFILES/dot-claude/settings.json" "$HOME/.claude/settings.json"
+  link "$DOTFILES/dot-claude/rules" "$HOME/.claude/rules"
+  link "$DOTFILES/dot-claude/skills" "$HOME/.claude/skills"
+  link "$DOTFILES/dot-claude/docs" "$HOME/.claude/docs"
+  link "$DOTFILES/dot-claude/statusline-command.sh" "$HOME/.claude/statusline-command.sh"
+}
+
+# ====================
+# npm globals
+# ====================
+install_npm_globals() {
+  echo "Installing npm global packages..."
+
+  # textlint config (Unsupported XDG)
+  link "$DOTFILES/.config/textlint/.textlintrc.json" "$HOME/.textlintrc.json"
+
+  export NVM_DIR="$HOME/.nvm"
+  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+
+  if ! command -v npm &> /dev/null; then
+    echo "  [skip] npm not found"
+    return
+  fi
+
+  npm install -g \
+    textlint \
+    textlint-rule-ja-space-between-half-and-full-width \
+    google-analytics-cli \
+    vercel \
+    wrangler \
+    @datadog/datadog-ci
+  echo "  [done] npm globals setup complete"
 }
 
 # ====================
