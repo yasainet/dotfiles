@@ -28,7 +28,7 @@ maximize = true
 theme = TokyoNight Night
 
 # Font
-font-family = "UDEV Gothic 35NFLG"
+font-family = "PlemolJP35 Console NF"
 font-size = 14
 bold-is-bright= true
 # adjust-cell-width = 0%

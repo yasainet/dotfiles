@@ -128,7 +128,7 @@ install_gui_apps() {
   echo "Installing GUI applications..."
 
   # Fonts
-  brew install --cask font-udev-gothic-nf
+  brew install --cask font-plemol-jp-nf
 
   # Terminal
   brew install --cask ghostty
