@@ -36,7 +36,6 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
   alias ls='ls -G'
   alias la='ls -laG'
   alias C='pbcopy'
-  find ~ -maxdepth 1 -name "* - Google Drive" -type l -delete 2>/dev/null # Delete Google Drive Symlink
 else
   # Linux
   alias ls='ls --color=auto'
@@ -74,10 +73,6 @@ dot() {
 
 doc() {
   cd $HOME/Documents
-}
-
-drive() {
-  cd "$HOME/Google Drive"
 }
 
 pj() {
