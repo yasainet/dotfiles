@@ -273,9 +273,16 @@ configure_system() {
   defaults write com.apple.finder ShowPathbar -bool true
   defaults write com.apple.finder ShowStatusBar -bool true
 
+  # Screenshots
+  defaults write com.apple.screencapture location "$HOME/Downloads"
+  defaults write com.apple.screencapture type -string "png"
+  defaults write com.apple.screencapture show-thumbnail -bool true
+  defaults write com.apple.screencapture captureHDR -bool false  # HDR 有効だと type=png でも実体が HEIC になる
+
   # Restart affected apps
   killall Dock
   killall Finder
+  killall SystemUIServer
 }
 
 # ====================
