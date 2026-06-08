@@ -29,9 +29,10 @@ theme = TokyoNight Night
 
 # Font
 font-family = "UDEV Gothic NFLG"
-font-size = 14
+font-size = 16
 bold-is-bright= true
-adjust-cell-height = 20%
+# adjust-cell-width = 0%
+# adjust-cell-height = 0%
 
 # Cursor
 cursor-style = block
