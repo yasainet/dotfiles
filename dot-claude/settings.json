@@ -103,6 +103,9 @@
       }
     ]
   },
+  "worktree": {
+    "baseRef": "fresh"
+  },
   "statusLine": {
     "type": "command",
     "command": "sh ~/.claude/statusline-command.sh"
@@ -118,10 +121,9 @@
     "enabled": true,
     "mode": "hold"
   },
+  "skipWorkflowUsageWarning": true,
   "theme": "auto",
   "editorMode": "normal",
   "preferredNotifChannel": "notifications_disabled",
-  "skipAutoPermissionPrompt": true,
-  "skipWorkflowUsageWarning": true,
-  "model": "claude-opus-4-7"
+  "skipAutoPermissionPrompt": true
 }
