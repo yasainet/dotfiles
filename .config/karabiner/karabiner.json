@@ -265,6 +265,32 @@
                 "type": "basic"
               }
             ]
+          },
+          {
+            "description": "Terminal.app: Shift+Enter -> Ctrl+J (LF) for Claude Code newline",
+            "manipulators": [
+              {
+                "conditions": [
+                  {
+                    "bundle_identifiers": ["^com\\.apple\\.Terminal$"],
+                    "type": "frontmost_application_if"
+                  }
+                ],
+                "from": {
+                  "key_code": "return_or_enter",
+                  "modifiers": {
+                    "mandatory": ["shift"]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "j",
+                    "modifiers": ["left_control"]
+                  }
+                ],
+                "type": "basic"
+              }
+            ]
           }
         ]
       },
