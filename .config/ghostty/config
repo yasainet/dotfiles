@@ -32,7 +32,7 @@ font-family = "PlemolJP35 Console NF"
 font-size = 14
 bold-is-bright= true
 # adjust-cell-width = 0%
-# adjust-cell-height = 0%
+adjust-cell-height = 15%
 
 # Cursor
 cursor-style = block
