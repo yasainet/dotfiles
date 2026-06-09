@@ -112,6 +112,23 @@ claude() {
   fi
 }
 
+# opencode
+opencode() {
+  if curl -sf -m1 http://127.0.0.1:8080/health >/dev/null 2>&1; then
+    command opencode "$@"
+    return
+  fi
+
+  (
+    llm-serve >/tmp/llama-swap.log 2>&1 &
+    pid=$!
+    trap 'kill "$pid" 2>/dev/null' EXIT INT TERM
+    curl -sf -m2 --retry 30 --retry-delay 1 --retry-connrefused \
+      http://127.0.0.1:8080/health >/dev/null 2>&1
+    command opencode "$@"
+  )
+}
+
 # Git
 export GIT_MERGE_AUTOEDIT=no
 
