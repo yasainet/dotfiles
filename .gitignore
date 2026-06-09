@@ -9,6 +9,7 @@
 .zcompdump*
 .zsh_history
 .config/github-copilot/apps.json
+.config/espanso/match/private.yml
 
 # opencode
 .config/opencode/node_modules/
