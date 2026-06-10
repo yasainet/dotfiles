@@ -35,6 +35,8 @@ matches:
     replace: "Vercel"
   - trigger: ";se"
     replace: "Sentry"
+  - trigger: ";co"
+    replace: "ComfyUI"
   # Environments
   - trigger: ";dev"
     replace: "development"
