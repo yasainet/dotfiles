@@ -116,6 +116,7 @@
   "enabledPlugins": {
     "context7@claude-plugins-official": true
   },
+  "model": "claude-opus-4-7[1m]",
   "language": "Japanese",
   "effortLevel": "xhigh",
   "autoUpdatesChannel": "latest",
