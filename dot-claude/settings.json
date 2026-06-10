@@ -117,7 +117,7 @@
     "context7@claude-plugins-official": true
   },
   "language": "Japanese",
-  "effortLevel": "high",
+  "effortLevel": "xhigh",
   "autoUpdatesChannel": "latest",
   "tui": "default",
   "voice": {
