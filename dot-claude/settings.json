@@ -1,8 +1,5 @@
 {
-  "env": {
-    "DISABLE_TELEMETRY": "1",
-    "DISABLE_ERROR_REPORTING": "1"
-  },
+  "env": {},
   "permissions": {
     "allow": [
       "Read(//Users/yasainet/Projects/**)",
@@ -49,7 +46,10 @@
       {
         "matcher": "",
         "hooks": [
-          { "type": "command", "command": "bash ~/dotfiles/dot-claude/hooks/on-prompt.sh" }
+          {
+            "type": "command",
+            "command": "bash ~/dotfiles/dot-claude/hooks/on-prompt.sh"
+          }
         ]
       }
     ],
@@ -57,7 +57,10 @@
       {
         "matcher": "",
         "hooks": [
-          { "type": "command", "command": "bash ~/dotfiles/dot-claude/hooks/on-notification.sh" }
+          {
+            "type": "command",
+            "command": "bash ~/dotfiles/dot-claude/hooks/on-notification.sh"
+          }
         ]
       }
     ],
@@ -65,7 +68,10 @@
       {
         "matcher": "",
         "hooks": [
-          { "type": "command", "command": "bash ~/dotfiles/dot-claude/hooks/on-stop.sh" }
+          {
+            "type": "command",
+            "command": "bash ~/dotfiles/dot-claude/hooks/on-stop.sh"
+          }
         ]
       }
     ],
@@ -73,7 +79,10 @@
       {
         "matcher": "",
         "hooks": [
-          { "type": "command", "command": "bash ~/dotfiles/dot-claude/hooks/on-needs-input.sh" }
+          {
+            "type": "command",
+            "command": "bash ~/dotfiles/dot-claude/hooks/on-needs-input.sh"
+          }
         ]
       }
     ]
