@@ -49,14 +49,7 @@
       {
         "matcher": "",
         "hooks": [
-          {
-            "type": "command",
-            "command": "bash ~/.config/tmux/scripts/agent-state-wrapper.sh --agent claude --state running"
-          },
-          {
-            "type": "command",
-            "command": "/opt/homebrew/bin/macism com.apple.keylayout.ABC"
-          }
+          { "type": "command", "command": "bash ~/dotfiles/dot-claude/hooks/on-prompt.sh" }
         ]
       }
     ],
@@ -64,10 +57,7 @@
       {
         "matcher": "",
         "hooks": [
-          {
-            "type": "command",
-            "command": "bash ~/.config/tmux/scripts/agent-state-wrapper.sh --agent claude --state needs-input"
-          }
+          { "type": "command", "command": "bash ~/dotfiles/dot-claude/hooks/on-notification.sh" }
         ]
       }
     ],
@@ -75,14 +65,7 @@
       {
         "matcher": "",
         "hooks": [
-          {
-            "type": "command",
-            "command": "bash ~/.config/tmux/scripts/agent-state-wrapper.sh --agent claude --state done"
-          },
-          {
-            "type": "command",
-            "command": "bash ~/.config/tmux/scripts/claude-notify.sh --state done"
-          }
+          { "type": "command", "command": "bash ~/dotfiles/dot-claude/hooks/on-stop.sh" }
         ]
       }
     ],
@@ -90,18 +73,7 @@
       {
         "matcher": "",
         "hooks": [
-          {
-            "type": "command",
-            "command": "bash ~/.config/tmux/scripts/agent-state-wrapper.sh --agent claude --state needs-input"
-          },
-          {
-            "type": "command",
-            "command": "bash ~/.config/tmux/scripts/claude-notify.sh --state needs-input"
-          },
-          {
-            "type": "command",
-            "command": "/opt/homebrew/bin/macism com.apple.keylayout.ABC"
-          }
+          { "type": "command", "command": "bash ~/dotfiles/dot-claude/hooks/on-needs-input.sh" }
         ]
       }
     ]
