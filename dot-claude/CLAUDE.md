@@ -18,3 +18,7 @@
   - commit: Conventional Commits に従え
 - 検証: `~/Projects/**/CLAUDE.md` で定義された `Verification` を実行せよ
 - 更新: 編集に関連したドキュメントを調査して `**/*.md` を更新せよ
+
+## Git Workflow
+
+- 明示的な指示がない限り `branch`, `PR` の作成をするな
