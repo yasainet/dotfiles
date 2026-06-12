@@ -267,25 +267,29 @@
             ]
           },
           {
-            "description": "Terminal.app: Shift+Enter -> Ctrl+J (LF) for Claude Code newline",
+            "description": "日本語IME（Windows風のキー操作 ON 時）: Ctrl-J でひらがなに戻す（F6 へ転送、ライブ変換の脱・自動変換用）",
             "manipulators": [
               {
                 "conditions": [
                   {
-                    "bundle_identifiers": ["^com\\.apple\\.Terminal$"],
-                    "type": "frontmost_application_if"
+                    "input_sources": [
+                      {
+                        "language": "ja"
+                      }
+                    ],
+                    "type": "input_source_if"
                   }
                 ],
                 "from": {
-                  "key_code": "return_or_enter",
+                  "key_code": "j",
                   "modifiers": {
-                    "mandatory": ["shift"]
+                    "mandatory": ["control"]
                   }
                 },
                 "to": [
                   {
-                    "key_code": "j",
-                    "modifiers": ["left_control"]
+                    "key_code": "f6",
+                    "modifiers": ["fn"]
                   }
                 ],
                 "type": "basic"
