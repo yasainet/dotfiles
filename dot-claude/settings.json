@@ -4,7 +4,7 @@
     "allow": [
       "Read(//Users/yasainet/Projects/**)",
       "Read(//Users/yasainet/Documents/**)",
-      "Read(//Users/yasainet/dotfiles/**)"
+      "Read(//Users/yasainet/ghq/github.com/yasainet/dotfiles/**)"
     ],
     "deny": [
       "Bash(dd if=/dev/*)",
@@ -38,7 +38,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "node ~/dotfiles/dot-claude/hooks/inject-path-rule.mjs"
+            "command": "node ~/ghq/github.com/yasainet/dotfiles/dot-claude/hooks/inject-path-rule.mjs"
           }
         ]
       },
@@ -47,7 +47,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "node ~/dotfiles/dot-claude/hooks/inject-skill.mjs"
+            "command": "node ~/ghq/github.com/yasainet/dotfiles/dot-claude/hooks/inject-skill.mjs"
           }
         ]
       }
@@ -58,11 +58,11 @@
         "hooks": [
           {
             "type": "command",
-            "command": "bash ~/dotfiles/dot-claude/hooks/on-prompt.sh"
+            "command": "bash ~/ghq/github.com/yasainet/dotfiles/dot-claude/hooks/on-prompt.sh"
           },
           {
             "type": "command",
-            "command": "node ~/dotfiles/dot-claude/hooks/inject-skill.mjs"
+            "command": "node ~/ghq/github.com/yasainet/dotfiles/dot-claude/hooks/inject-skill.mjs"
           }
         ]
       }
@@ -73,7 +73,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "bash ~/dotfiles/dot-claude/hooks/on-notification.sh"
+            "command": "bash ~/ghq/github.com/yasainet/dotfiles/dot-claude/hooks/on-notification.sh"
           }
         ]
       }
@@ -84,7 +84,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "bash ~/dotfiles/dot-claude/hooks/on-stop.sh"
+            "command": "bash ~/ghq/github.com/yasainet/dotfiles/dot-claude/hooks/on-stop.sh"
           }
         ]
       }
@@ -95,7 +95,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "bash ~/dotfiles/dot-claude/hooks/on-needs-input.sh"
+            "command": "bash ~/ghq/github.com/yasainet/dotfiles/dot-claude/hooks/on-needs-input.sh"
           }
         ]
       }
