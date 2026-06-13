@@ -15,6 +15,16 @@ install_homebrew() {
   fi
 }
 
+# `brew install` の対話プロンプト（新規依存追加時の y/n 確認など）を自動で y にする
+brew() {
+  if [ "$1" = "install" ]; then
+    shift
+    yes y 2>/dev/null | command brew install "$@"
+  else
+    command brew "$@"
+  fi
+}
+
 # ====================
 # CLI Tools
 # ====================
