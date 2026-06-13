@@ -18,8 +18,29 @@ install_homebrew() {
 # ====================
 # CLI Tools
 # ====================
+trust_third_party_taps() {
+  echo "Trusting third-party Homebrew taps..."
+  local taps=(
+    hashicorp/tap
+    fujiwara/tap
+    kayac/tap
+    getsentry/tools
+    runpod/runpodctl
+    anomalyco/tap
+    microsoft/git
+    laishulu/homebrew
+    supabase/tap
+  )
+  for tap in "${taps[@]}"; do
+    brew tap "$tap"
+    brew trust "$tap" || true
+  done
+}
+
 install_cli_tools() {
   echo "Installing CLI tools..."
+
+  trust_third_party_taps
 
   brew install git
   brew install git-lfs

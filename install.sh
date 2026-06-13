@@ -31,6 +31,7 @@ main() {
   create_symlinks
   install_packages
   install_nvm
+  install_tmux_plugins
   post_install
 
   if [ "$OS" = "Darwin" ]; then
