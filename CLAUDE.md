@@ -20,11 +20,15 @@ Personal dotfiles for macOS and Linux.
 
 - 設定ファイルは symlink 方式で管理（`scripts/common.sh:create_symlinks`）。実体は repo に残し、リンク先のみホームに展開
 - OS 別処理は `install.sh` から `scripts/{darwin,linux}.sh` を source して切り替え
-- リポジトリは `~/dotfiles` 固定。`DOTFILES="$HOME/dotfiles"` をハードコードしており、別パスへ clone すると symlink が壊れる
+- リポジトリは `~/ghq/github.com/yasainet/dotfiles` に配置（両 OS 共通、`ghq` 管理下）
+- `install.sh` は `DOTFILES` をスクリプト自身の場所から自己解決するため、clone 先パスに依存しない
 
 ## Commands
 
 ```sh
+brew install ghq   # macOS、Linux なら sudo apt install ghq
+ghq get https://github.com/yasainet/dotfiles
+cd ~/ghq/github.com/yasainet/dotfiles
 ./install.sh
 ```
 

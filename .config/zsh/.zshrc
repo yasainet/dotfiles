@@ -68,7 +68,7 @@ rm() {
 }
 
 dot() {
-  cd $HOME/dotfiles
+  cd ~/ghq/github.com/yasainet/dotfiles
 }
 
 doc() {
@@ -76,7 +76,26 @@ doc() {
 }
 
 pj() {
-  cd $HOME/Projects
+  local repo dir session
+
+  repo=$(ghq list | fzf --height 40% --reverse --border --prompt='Repo> ') || return
+  session=$(basename "$repo" | tr '.' '_')
+  dir=$(ghq list -p --exact "$repo")
+
+  if tmux has-session -t="$session" 2>/dev/null; then
+    if [[ -n "$TMUX" ]]; then
+      tmux switch-client -t "$session"
+    else
+      tmux attach -t "$session"
+    fi
+  else
+    if [[ -n "$TMUX" ]]; then
+      tmux new-session -ds "$session" -c "$dir"
+      tmux switch-client -t "$session"
+    else
+      tmux new-session -s "$session" -c "$dir"
+    fi
+  fi
 }
 
 eslint() {

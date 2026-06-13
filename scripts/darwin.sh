@@ -29,6 +29,7 @@ install_cli_tools() {
   brew install neovim
   brew install bat
   brew install fzf
+  brew install ghq
   brew install ripgrep
   brew install fd
   brew install tree
