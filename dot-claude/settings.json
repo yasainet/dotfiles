@@ -4,7 +4,7 @@
     "allow": [
       "Read(//Users/yasainet/Projects/**)",
       "Read(//Users/yasainet/Documents/**)",
-      "Read(//Users/yasainet/ghq/github.com/yasainet/dotfiles/**)"
+      "Read(//Users/yasainet/ghq/**)"
     ],
     "deny": [
       "Bash(dd if=/dev/*)",
