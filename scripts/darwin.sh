@@ -104,8 +104,11 @@ install_cli_tools() {
   # Stripe
   brew install stripe-cli
 
-  # Supabase
-  brew install supabase/tap/supabase
+  # Supabase (prefer tap version; uninstall core conflict if needed)
+  brew install supabase/tap/supabase || {
+    brew uninstall --ignore-dependencies supabase 2>/dev/null || true
+    brew install supabase/tap/supabase
+  }
 
   # Google Cloud SDK
   brew install --cask gcloud-cli
