@@ -51,3 +51,5 @@
 
 [credential "http://127.0.0.1:3030"]
 	provider = generic
+[ghq]
+	root = ~/ghq

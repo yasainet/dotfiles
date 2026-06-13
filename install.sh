@@ -2,7 +2,8 @@
 
 set -e
 
-DOTFILES="$HOME/dotfiles"
+DOTFILES="$(cd "$(dirname "$0")" && pwd)"
+export DOTFILES
 OS="$(uname -s)"
 
 echo "=== Dotfiles Installer ==="

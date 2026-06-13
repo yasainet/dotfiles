@@ -2,8 +2,6 @@
 
 # Common functions for all platforms
 
-DOTFILES="$HOME/dotfiles"
-
 # ====================
 # Symlinks
 # ====================
@@ -12,7 +10,14 @@ link() {
   local dest="$2"
 
   if [ -L "$dest" ]; then
-    echo "  [skip] $dest (already linked)"
+    local current
+    current=$(readlink "$dest")
+    if [ "$current" = "$src" ]; then
+      echo "  [skip] $dest (already linked)"
+    else
+      ln -sfn "$src" "$dest"
+      echo "  [relink] $dest -> $src (was: $current)"
+    fi
   elif [ -e "$dest" ]; then
     echo "  [warn] $dest exists (backup and remove manually)"
   else
