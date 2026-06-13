@@ -329,7 +329,8 @@ install_npm_globals() {
     google-analytics-cli \
     vercel \
     wrangler \
-    @datadog/datadog-ci
+    @datadog/datadog-ci \
+    @google/clasp
   echo "  [done] npm globals setup complete"
 }
 
