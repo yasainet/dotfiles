@@ -12,17 +12,18 @@ xcode-select --install
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
-git clone --recursive https://github.com/yasainet/dotfiles.git ~/dotfiles
-cd ~/dotfiles
+brew install ghq
+ghq get --recursive https://github.com/yasainet/dotfiles
+cd ~/ghq/github.com/yasainet/dotfiles
 ./install.sh
 ```
 
 ### Linux (Ubuntu)
 
 ```sh
-sudo apt update && sudo apt install -y git
+sudo apt update && sudo apt install -y git ghq
 
-git clone --recursive https://github.com/yasainet/dotfiles.git ~/dotfiles
-cd ~/dotfiles
+ghq get --recursive https://github.com/yasainet/dotfiles
+cd ~/ghq/github.com/yasainet/dotfiles
 ./install.sh
 ```

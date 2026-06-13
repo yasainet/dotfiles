@@ -3,10 +3,10 @@
 
 matches:
   # Paths
-  - trigger: ";pj"
-    replace: "~/Projects/"
-  - trigger: ";dot"
-    replace: "~/dotfiles/"
+  # - trigger: ";pj"
+  #   replace: "~/Projects/"
+  # - trigger: ";dot"
+  #   replace: "~/ghq/github.com/yasainet/dotfiles/"
   - trigger: ";doc"
     replace: "~/Documents/"
   # Terms
