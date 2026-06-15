@@ -53,13 +53,6 @@ keybind = cmd+shift+p=unbind
 keybind = shift+enter=text:\x1b\r
 
 # ==============================
-# Keybindings for nvim
-# ==============================
-
-# Cmd+j -> toggle terminal
-keybind = cmd+j=text:\x1bj
-
-# ==============================
 # Keybindings for tmux
 # ==============================
 

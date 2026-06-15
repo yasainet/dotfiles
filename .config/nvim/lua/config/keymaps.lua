@@ -72,35 +72,19 @@ vim.keymap.set("n", "<leader>gD", diff_against_origin_head, { desc = "Diff: vs o
 vim.keymap.set("n", "<leader>gf", "<Cmd>DiffviewFileHistory %<CR>", { desc = "Diffview file history" })
 vim.keymap.set("n", "<leader>gq", "<Cmd>DiffviewClose<CR>", { desc = "Diffview close" })
 
--- Window navigation
-vim.keymap.set("n", "<C-h>", function()
-	local win = vim.api.nvim_get_current_win()
-	vim.cmd("wincmd h")
-	if vim.api.nvim_get_current_win() == win and vim.env.TMUX then
-		vim.fn.system("tmux select-pane -L")
-	end
-end, { desc = "Navigate left" })
-vim.keymap.set("n", "<C-j>", function()
-	local win = vim.api.nvim_get_current_win()
-	vim.cmd("wincmd j")
-	if vim.api.nvim_get_current_win() == win and vim.env.TMUX then
-		vim.fn.system("tmux select-pane -D")
-	end
-end, { desc = "Navigate down" })
-vim.keymap.set("n", "<C-k>", function()
-	local win = vim.api.nvim_get_current_win()
-	vim.cmd("wincmd k")
-	if vim.api.nvim_get_current_win() == win and vim.env.TMUX then
-		vim.fn.system("tmux select-pane -U")
-	end
-end, { desc = "Navigate up" })
-vim.keymap.set("n", "<C-l>", function()
-	local win = vim.api.nvim_get_current_win()
-	vim.cmd("wincmd l")
-	if vim.api.nvim_get_current_win() == win and vim.env.TMUX then
-		vim.fn.system("tmux select-pane -R")
-	end
-end, { desc = "Navigate right" })
+-- Window navigation (smart-splits.nvim)
+vim.keymap.set({ "n", "t" }, "<M-h>", function()
+	require("smart-splits").move_cursor_left()
+end, { desc = "Move to left split" })
+vim.keymap.set({ "n", "t" }, "<M-j>", function()
+	require("smart-splits").move_cursor_down()
+end, { desc = "Move to below split" })
+vim.keymap.set({ "n", "t" }, "<M-k>", function()
+	require("smart-splits").move_cursor_up()
+end, { desc = "Move to above split" })
+vim.keymap.set({ "n", "t" }, "<M-l>", function()
+	require("smart-splits").move_cursor_right()
+end, { desc = "Move to right split" })
 
 -- Picker
 vim.keymap.set("n", "<leader>ff", function()
@@ -256,7 +240,8 @@ local function toggle_terminal()
 		},
 	})
 end
-vim.keymap.set({ "n", "t" }, "<M-j>", toggle_terminal, { desc = "Toggle terminal (Cmd+j)" })
+vim.keymap.set({ "n", "t" }, "<C-/>", toggle_terminal, { desc = "Toggle terminal" })
+vim.keymap.set({ "n", "t" }, "<C-_>", toggle_terminal, { desc = "Toggle terminal (C-/ fallback)" })
 
 -- Config reload
 vim.keymap.set("n", "<leader>rr", function()
