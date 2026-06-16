@@ -40,6 +40,7 @@ trust_third_party_taps() {
     microsoft/git
     laishulu/homebrew
     supabase/tap
+    shuntaka9576/tap
   )
   for tap in "${taps[@]}"; do
     brew tap "$tap"
@@ -82,6 +83,8 @@ install_cli_tools() {
   brew install tree-sitter-cli
   brew install tailspin
   brew install taplo
+  brew install glow
+  brew install shuntaka9576/tap/chathist
   brew install gallery-dl
   brew install git-filter-repo
   brew install libpq
