@@ -60,11 +60,11 @@ keybind = shift+enter=text:\x1b\r
 
 # Cmd+t -> new window
 keybind = cmd+t=unbind
-keybind = cmd+t=text:\x00c
+keybind = cmd+t=text:\x1bbc
 
 # Cmd+w -> kill window
 keybind = cmd+w=unbind
-keybind = cmd+w=text:\x00&
+keybind = cmd+w=text:\x1bb&
 
 # Cmd+1~9 -> select window
 keybind = cmd+digit_1=unbind
@@ -76,32 +76,32 @@ keybind = cmd+digit_6=unbind
 keybind = cmd+digit_7=unbind
 keybind = cmd+digit_8=unbind
 keybind = cmd+digit_9=unbind
-keybind = cmd+one=text:\x001
-keybind = cmd+two=text:\x002
-keybind = cmd+three=text:\x003
-keybind = cmd+four=text:\x004
-keybind = cmd+five=text:\x005
-keybind = cmd+six=text:\x006
-keybind = cmd+seven=text:\x007
-keybind = cmd+eight=text:\x008
-keybind = cmd+nine=text:\x009
+keybind = cmd+one=text:\x1bb1
+keybind = cmd+two=text:\x1bb2
+keybind = cmd+three=text:\x1bb3
+keybind = cmd+four=text:\x1bb4
+keybind = cmd+five=text:\x1bb5
+keybind = cmd+six=text:\x1bb6
+keybind = cmd+seven=text:\x1bb7
+keybind = cmd+eight=text:\x1bb8
+keybind = cmd+nine=text:\x1bb9
 
 # Cmd+Shift+[/] -> previous/next window
-keybind = cmd+shift+bracket_left=text:\x00p
-keybind = cmd+shift+bracket_right=text:\x00n
+keybind = cmd+shift+bracket_left=text:\x1bbp
+keybind = cmd+shift+bracket_right=text:\x1bbn
 
 # Cmd+b -> copy mode
-keybind = cmd+b=text:\x00v
+keybind = cmd+b=text:\x1bbv
 
 # --- pane ---
 
 # Cmd+d -> split right
 keybind = cmd+d=unbind
-keybind = cmd+d=text:\x00%
+keybind = cmd+d=text:\x1bb%
 
 # Cmd+Shift+d -> split down
 keybind = cmd+shift+d=unbind
-keybind = cmd+shift+d=text:\x00"
+keybind = cmd+shift+d=text:\x1bb"
 
 # Cmd+k -> clear pane history
-keybind = cmd+k=text:\x00K
+keybind = cmd+k=text:\x1bbK
