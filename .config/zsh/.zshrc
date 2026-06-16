@@ -96,6 +96,16 @@ pj() {
       tmux new-session -s "$session" -c "$dir"
     fi
   fi
+
+  if [[ -n "$TMUX_POPUP" ]]; then
+    exit
+  elif [[ -n "$TMUX" ]]; then
+    local n
+    n=$(tmux display-message -t "$TMUX_PANE" -p '#{session_windows}')
+    if (( n >= 2 )); then
+      tmux kill-pane -t "$TMUX_PANE"
+    fi
+  fi
 }
 
 # Local LLM (llama-swap + llama.cpp)
