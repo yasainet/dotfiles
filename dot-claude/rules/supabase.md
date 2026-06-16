@@ -69,7 +69,7 @@ supabase/
 
 ### Example
 
-```.env ~/Projects/**/.env
+```.env ~/ghq/**/.env
 # Vault Secrets
 VAULT_SUPABASE_URL=
 VAULT_SERVICE_ROLE_KEY=
@@ -81,7 +81,7 @@ VAULT_SERVICE_ROLE_KEY=
 # VAULT_SERVICE_ROLE_KEY=
 ```
 
-```.env ~/Projects/**/supabase/functions/.env
+```.env ~/ghq/**/supabase/functions/.env
 # Edge Function Secrets
 ENVIRONMENT=development
 

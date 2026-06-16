@@ -98,10 +98,6 @@ pj() {
   fi
 }
 
-eslint() {
-  cd $HOME/Projects/eslint
-}
-
 # Local LLM (llama-swap + llama.cpp)
 llm-fetch() {
   local m repo file subdir

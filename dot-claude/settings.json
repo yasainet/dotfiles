@@ -2,7 +2,6 @@
   "env": {},
   "permissions": {
     "allow": [
-      "Read(//Users/yasainet/Projects/**)",
       "Read(//Users/yasainet/Documents/**)",
       "Read(//Users/yasainet/ghq/**)"
     ],
