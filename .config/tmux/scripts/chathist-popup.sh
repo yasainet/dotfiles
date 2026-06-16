@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+# Force input source to ABC (English) for fzf query
+command -v macism >/dev/null 2>&1 && macism com.apple.keylayout.ABC 2>/dev/null || true
+
 TARGET_PANE=$(tmux display-message -p '#{pane_id}' 2>/dev/null || true)
 [ -z "$TARGET_PANE" ] && exit 0
 
