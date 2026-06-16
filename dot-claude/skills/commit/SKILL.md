@@ -1,7 +1,7 @@
 ---
 name: commit
 description: [Skills] Create commit, review
-allowed-tools: Bash(git *), AskUserQuestion
+allowed-tools: Bash(git *)
 ---
 
 # Commit skill
@@ -38,8 +38,7 @@ git add <file1> <file2> ...
 
 7. ステップ 4 のスタイルに従い、簡潔なコミットメッセージを生成する
    - `Co-Authored-By` や署名トレーラーは含めない
-   - 簡潔な日本語で記載せよ
+   - Conventional Commits に従え
 
-8. `AskUserQuestion` ツールでユーザーに以下の選択肢を提示する
-   - 生成したメッセージを使用する (ラベルにメッセージを表示)
-   - キャンセル
+8. 生成したメッセージで `git commit -m "..."` を実行する
+   - `settings.json` の ask permission により、実行前にユーザーへ確認が表示される
