@@ -16,7 +16,7 @@
 - 実装:
   - PR: 1 feature = 1 PR を原則とせよ
   - commit: Conventional Commits に従え
-- 検証: `~/Projects/**/CLAUDE.md` / `~/ghq/**/CLAUDE.md` で定義された `Verification` を実行せよ
+- 検証: `~/ghq/**/CLAUDE.md` で定義された `Verification` を実行せよ
 - 更新: 編集に関連したドキュメントを調査して `**/*.md` を更新せよ
 
 ## Git Workflow
