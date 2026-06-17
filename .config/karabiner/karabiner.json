@@ -295,6 +295,36 @@
                 "type": "basic"
               }
             ]
+          },
+          {
+            "description": "日本語IME（Windows風のキー操作 ON 時）: Ctrl-K でカタカナ変換（F7 へ転送）",
+            "manipulators": [
+              {
+                "conditions": [
+                  {
+                    "input_sources": [
+                      {
+                        "language": "ja"
+                      }
+                    ],
+                    "type": "input_source_if"
+                  }
+                ],
+                "from": {
+                  "key_code": "k",
+                  "modifiers": {
+                    "mandatory": ["control"]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "f7",
+                    "modifiers": ["fn"]
+                  }
+                ],
+                "type": "basic"
+              }
+            ]
           }
         ]
       },
