@@ -85,6 +85,7 @@ install_cli_tools() {
   brew install taplo
   brew install glow
   brew install shuntaka9576/tap/chathist
+  brew install modem-dev/tap/hunk
   brew install gallery-dl
   brew install git-filter-repo
   brew install libpq
@@ -342,6 +343,11 @@ link_claude_code() {
   link "$DOTFILES/dot-claude/skills" "$HOME/.claude/skills"
   link "$DOTFILES/dot-claude/docs" "$HOME/.claude/docs"
   link "$DOTFILES/dot-claude/statusline-command.sh" "$HOME/.claude/statusline-command.sh"
+
+  # Hunk's bundled review skill (resolved against the current brew opt path)
+  if command -v hunk &>/dev/null; then
+    ln -sfn "$(command brew --prefix hunk)/libexec/skills/hunk-review" "$HOME/.claude/skills/hunk-review"
+  fi
 }
 
 # ====================

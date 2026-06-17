@@ -1,6 +1,5 @@
 #!/bin/bash
 
-TMUX_BIN=$(command -v tmux)
 JQ=$(command -v jq)
 
 state=""
@@ -31,13 +30,10 @@ case "$state" in
 esac
 title="Claude Code${proj:+ - $proj}"
 
-sanitize() { printf '%s' "$1" | tr -d '\000-\037' | tr ';' ','; }
+sanitize() { printf '%s' "$1" | tr -d '\000-\037' | tr '"' "'"; }
 title=$(sanitize "$title")
 body=$(sanitize "$body")
 
-if [ -n "$TMUX_PANE" ] && [ -n "$TMUX_BIN" ]; then
-  pane_tty=$("$TMUX_BIN" display-message -p -t "$TMUX_PANE" '#{pane_tty}' 2>/dev/null)
-  if [ -n "$pane_tty" ] && [ -w "$pane_tty" ]; then
-    printf '\ePtmux;\e\e]777;notify;%s;%s\a\e\\' "$title" "$body" > "$pane_tty"
-  fi
+if command -v osascript >/dev/null 2>&1; then
+  osascript -e "display notification \"$body\" with title \"$title\" sound name \"Glass\"" >/dev/null 2>&1 &
 fi
