@@ -17,3 +17,6 @@
 .config/opencode/package-lock.json
 .config/opencode/bun.lock
 
+# hunk
+dot-claude/skills/hunk-review
+
