@@ -27,3 +27,7 @@ ghq get --recursive https://github.com/yasainet/dotfiles
 cd ~/ghq/github.com/yasainet/dotfiles
 ./install.sh
 ```
+
+## Memo
+
+https://chromewebstore.google.com/detail/crx-gcal-url-opener/pjginhohpenlemfdcjbahjbhnpinfnlm
