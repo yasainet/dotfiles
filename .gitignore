@@ -19,4 +19,5 @@
 
 # hunk
 dot-claude/skills/hunk-review
+.config/hunk/state.json
 
