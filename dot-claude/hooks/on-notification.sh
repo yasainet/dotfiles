@@ -1,2 +1,2 @@
 #!/bin/sh
-bash ~/.config/tmux/scripts/agent-state-wrapper.sh --agent claude --state needs-input || true
+bash ~/.config/tmux/scripts/claude-state.sh --state needs-input || true
