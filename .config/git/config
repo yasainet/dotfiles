@@ -10,6 +10,15 @@
 
 [core]
 	ignorecase = false
+	pager = delta
+
+[interactive]
+	diffFilter = delta --color-only
+
+[delta]
+	navigate = true
+	line-numbers = true
+	side-by-side = true
 
 [filter "lfs"]
 	process = git-lfs filter-process
@@ -53,3 +62,6 @@
 	provider = generic
 [ghq]
 	root = ~/ghq
+
+[include]
+	path = ~/.config/git/tokyonight_night.gitconfig

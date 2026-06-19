@@ -1,2 +1,71 @@
-theme = "graphite"
+theme = "custom"
 mode = "auto"
+
+# Tokyo Night (night variant)
+# Diff 配色は tokyonight 公式 delta テーマ (folke/tokyonight.nvim extras/delta/tokyonight_night.gitconfig) を採用
+# Diff 周辺以外 (panel/text/border 等) は ssaunderss/zed-tokyo-night theme JSON の値
+[custom_theme]
+base = "catppuccin-mocha"
+label = "Tokyo Night"
+
+# Surfaces (Zed theme JSON 直)
+background = "#1a1b26"
+panel = "#16161e"
+panelAlt = "#1a1b26"
+border = "#101014"
+accent = "#7dcfff"
+accentMuted = "#202330"
+text = "#a9b1d6"
+muted = "#787c99"
+
+# Diff bg: delta plus-style / minus-style
+addedBg = "#243e4a"
+removedBg = "#4a272f"
+movedAddedBg = "#243e4a"
+movedRemovedBg = "#4a272f"
+contextBg = "#1a1b26"
+
+# Word emph: delta plus-emph-style / minus-emph-style
+addedContentBg = "#2c5a66"
+removedContentBg = "#713137"
+contextContentBg = "#1a1b26"
+
+# Sign bar / +/- 記号: delta line-numbers-{plus,minus}-style
+addedSignColor = "#449dab"
+removedSignColor = "#914c54"
+
+lineNumberBg = "#1a1b26"
+# delta line-numbers-zero-style
+lineNumberFg = "#3b4261"
+selectedHunk = "#1e202e"
+
+# Badge は sign 色と整合 (delta 系)
+badgeAdded = "#449dab"
+badgeRemoved = "#914c54"
+badgeNeutral = "#787c99"
+
+# File status (Zed version_control.* と一致)
+fileNew = "#9ece6a"
+fileDeleted = "#f7768e"
+fileRenamed = "#7dcfff"
+fileModified = "#e0af68"
+fileUntracked = "#9ece6a"
+
+# Note 系は Zed 相当無し、tokyonight 直の値を維持
+noteBorder = "#7aa2f7"
+noteBackground = "#16161e"
+noteTitleBackground = "#1f2335"
+noteTitleText = "#a9b1d6"
+
+# Syntax は Zed 相当キーが別カテゴリのため tokyonight nvim 直の値を維持
+# (Zed の syntax.{string,keyword,...} と概ね一致するが厳密値は別 task)
+[custom_theme.syntax]
+default = "#a9b1d6"
+keyword = "#bb9af7"
+string = "#9ece6a"
+comment = "#565f89"
+number = "#ff9e64"
+function = "#7aa2f7"
+property = "#73daca"
+type = "#2ac3de"
+punctuation = "#a9b1d6"
