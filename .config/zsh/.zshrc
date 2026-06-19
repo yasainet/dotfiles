@@ -76,6 +76,13 @@ doc() {
 }
 
 pj() {
+  local repo dir
+  repo=$(ghq list | fzf --height 40% --reverse --border --prompt='Repo> ') || return
+  dir=$(ghq list -p --exact "$repo")
+  cd "$dir"
+}
+
+pjs() {
   local repo dir session
 
   repo=$(ghq list | fzf --height 40% --reverse --border --prompt='Repo> ') || return
