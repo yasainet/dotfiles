@@ -66,17 +66,6 @@
         ]
       }
     ],
-    "Notification": [
-      {
-        "matcher": "",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "bash ~/ghq/github.com/yasainet/dotfiles/dot-claude/hooks/on-notification.sh"
-          }
-        ]
-      }
-    ],
     "Stop": [
       {
         "matcher": "",
