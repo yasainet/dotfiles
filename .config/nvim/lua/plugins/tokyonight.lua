@@ -25,8 +25,12 @@ return {
 				-- HACK: html
 				hl["@tag.builtin.tsx"] = { fg = c.red }
 				hl["@tag.builtin.javascript"] = { fg = c.red }
+				-- gitsigns
+				hl.GitSignsAdd = { fg = c.green }
+				hl.GitSignsChange = { fg = c.yellow }
+				hl.GitSignsDelete = { fg = c.red }
 				-- snacks explorer
-				hl.SnacksPickerGitStatusUntracked = { fg = c.git.add }
+				hl.SnacksPickerGitStatusUntracked = { fg = c.green }
 				-- Dim panel
 				hl.TroubleNormal = { fg = c.fg, bg = c.bg_dark }
 				hl.TroubleNormalNC = { fg = c.fg, bg = c.bg_dark }
