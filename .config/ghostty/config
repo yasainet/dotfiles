@@ -19,7 +19,7 @@ window-colorspace = display-p3
 window-save-state = always
 window-padding-balance = true
 macos-titlebar-style = transparent
-title = " "
+title = ""
 macos-titlebar-proxy-icon = hidden
 background-opacity = 0.9
 maximize = true
@@ -28,10 +28,9 @@ maximize = true
 theme = TokyoNight Night
 
 # Font
-font-family = "PlemolJP35 Console NF"
-font-size = 14
-# adjust-cell-width = 0%
-adjust-cell-height = 10%
+font-family = "PlemolJP Console NF"
+font-size = 15
+adjust-cell-height = 25%
 
 # Cursor
 cursor-style = block
