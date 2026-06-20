@@ -112,6 +112,8 @@
   "skipWorkflowUsageWarning": true,
   "theme": "auto",
   "editorMode": "normal",
-  "preferredNotifChannel": "notifications_disabled",
+  "preferredNotifChannel": "iterm2",
+  "inputNeededNotifEnabled": true,
+  "agentPushNotifEnabled": true,
   "skipAutoPermissionPrompt": true
 }
