@@ -82,7 +82,7 @@ pj() {
   cd "$dir"
 }
 
-pjs() {
+ts() {
   local repo dir session
 
   repo=$(ghq list | fzf --height 40% --reverse --border --prompt='Repo> ') || return

@@ -40,15 +40,6 @@
             "command": "node ~/ghq/github.com/yasainet/dotfiles/dot-claude/hooks/inject-path-rule.mjs"
           }
         ]
-      },
-      {
-        "matcher": "Bash",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "node ~/ghq/github.com/yasainet/dotfiles/dot-claude/hooks/inject-skill.mjs"
-          }
-        ]
       }
     ],
     "UserPromptSubmit": [
@@ -58,10 +49,6 @@
           {
             "type": "command",
             "command": "bash ~/ghq/github.com/yasainet/dotfiles/dot-claude/hooks/on-prompt.sh"
-          },
-          {
-            "type": "command",
-            "command": "node ~/ghq/github.com/yasainet/dotfiles/dot-claude/hooks/inject-skill.mjs"
           }
         ]
       }
