@@ -10,30 +10,28 @@ while [ $# -gt 0 ]; do
   esac
 done
 
-input=""
-[ ! -t 0 ] && input=$(cat)
+[ -z "$state" ] && exit 0
+[ -z "$TMUX_PANE" ] && exit 0
 
-msg=""
+body="$state"
+
 cwd=""
-if [ -n "$input" ] && [ -n "$JQ" ]; then
-  msg=$(printf '%s' "$input" | "$JQ" -r '.message // empty' 2>/dev/null)
-  cwd=$(printf '%s' "$input" | "$JQ" -r '.cwd // empty' 2>/dev/null)
+if [ ! -t 0 ] && [ -n "$JQ" ]; then
+  cwd=$(cat | "$JQ" -r '.cwd // empty' 2>/dev/null)
 fi
 
 proj=""
 [ -n "$cwd" ] && proj=$(basename "$cwd")
 
-case "$state" in
-  done)        body=${msg:-Task complete} ;;
-  needs-input) body=${msg:-Awaiting your input} ;;
-  *)           body=${msg:-$state} ;;
-esac
-title="Claude Code${proj:+ - $proj}"
+title="Claude Code"
+[ -n "$proj" ] && title="$title - $proj"
 
-sanitize() { printf '%s' "$1" | tr -d '\000-\037' | tr '"' "'"; }
+sanitize() { printf '%s' "$1" | tr -d '\000-\037' | tr ';' ':' | tr '\\' '/'; }
 title=$(sanitize "$title")
 body=$(sanitize "$body")
 
-if command -v osascript >/dev/null 2>&1; then
-  osascript -e "display notification \"$body\" with title \"$title\" sound name \"Glass\"" >/dev/null 2>&1 &
-fi
+tty=$(tmux display-message -p -t "$TMUX_PANE" '#{pane_tty}' 2>/dev/null)
+[ -z "$tty" ] && exit 0
+[ ! -w "$tty" ] && exit 0
+
+printf '\033Ptmux;\033\033]777;notify;%s;%s\007\033\\' "$title" "$body" > "$tty" 2>/dev/null
