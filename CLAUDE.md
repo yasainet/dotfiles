@@ -24,8 +24,3 @@ ghq get https://github.com/yasainet/dotfiles
 cd ~/ghq/github.com/yasainet/dotfiles
 ./install.sh
 ```
-
-> [!NOTE]
-> macOS の初回セットアップは事前に App Store と iCloud へサインインすること。
-> 未サインインでも install は中断しないが、mas アプリと iCloud Downloads の symlink は生成されない。
-> サインイン後に `./install.sh` を再実行すれば冪等に補完される。
