@@ -71,10 +71,6 @@ dot() {
   cd ~/ghq/github.com/yasainet/dotfiles
 }
 
-doc() {
-  cd $HOME/Documents
-}
-
 pj() {
   local repo dir
   repo=$(ghq list | fzf --height 40% --reverse --border --prompt='Repo> ') || return
