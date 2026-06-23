@@ -2,11 +2,6 @@
 # yaml-language-server: $schema=https://raw.githubusercontent.com/espanso/espanso/dev/schemas/match.schema.json
 
 matches:
-  # Paths
-  - trigger: ";dot"
-    replace: "~/ghq/github.com/yasainet/dotfiles/"
-  - trigger: ";doc"
-    replace: "~/Documents/"
   # Terms
   - trigger: ";js"
     replace: "JavaScript"
@@ -16,13 +11,13 @@ matches:
     replace: "Next.js"
   - trigger: ";node"
     replace: "Node.js"
-  - trigger: ";su"
-    replace: "Supabase"
   - trigger: ";ed"
     replace: "Edge Functions"
   - trigger: ";pg"
     replace: "PostgreSQL"
   # Services
+  - trigger: ";su"
+    replace: "Supabase"
   - trigger: ";cf"
     replace: "Cloudflare"
   - trigger: ";cc"
@@ -35,13 +30,6 @@ matches:
     replace: "Sentry"
   - trigger: ";co"
     replace: "ComfyUI"
-  # Environments
-  - trigger: ";dev"
-    replace: "development"
-  - trigger: ";prev"
-    replace: "preview"
-  - trigger: ";prod"
-    replace: "production"
   # Date
   - trigger: ";date"
     replace: "{{d}}"
