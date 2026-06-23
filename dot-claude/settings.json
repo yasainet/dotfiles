@@ -1,7 +1,9 @@
 {
   "env": {},
   "permissions": {
-    "allow": ["Read(//Users/yasainet/ghq/**)"],
+    "allow": [
+      "Read(//Users/yasainet/ghq/**)"
+    ],
     "deny": [
       "Bash(dd if=/dev/*)",
       "Bash(mkfs*)",
