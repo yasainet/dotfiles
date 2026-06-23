@@ -6,9 +6,9 @@ command -v macism >/dev/null 2>&1 && macism com.apple.keylayout.ABC 2>/dev/null 
 TARGET_PANE=$(tmux display-message -p '#{pane_id}' 2>/dev/null || true)
 [ -z "$TARGET_PANE" ] && exit 0
 
-preview='chathist pick {1} --stdout | glow -s dark -w ${FZF_PREVIEW_COLUMNS:-80}'
-preview_w='chathist pick -w {1} --stdout | glow -s dark -w ${FZF_PREVIEW_COLUMNS:-80}'
-preview_a='chathist pick --all {1} --stdout | glow -s dark -w ${FZF_PREVIEW_COLUMNS:-80}'
+preview='chathist pick {1} --stdout | CLICOLOR_FORCE=1 glow -s dark -w ${FZF_PREVIEW_COLUMNS:-80}'
+preview_w='chathist pick -w {1} --stdout | CLICOLOR_FORCE=1 glow -s dark -w ${FZF_PREVIEW_COLUMNS:-80}'
+preview_a='chathist pick --all {1} --stdout | CLICOLOR_FORCE=1 glow -s dark -w ${FZF_PREVIEW_COLUMNS:-80}'
 h='mode: project | C-s:worktree / C-a:all / C-r:project'
 
 selection=$(chathist list \
