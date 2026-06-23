@@ -168,6 +168,8 @@ install_gui_apps() {
 
   # Fonts
   brew install --cask font-plemol-jp-nf
+  brew install --cask font-sf-pro
+  brew install --cask font-sf-mono
 
   # Terminal
   brew install --cask ghostty
