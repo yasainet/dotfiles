@@ -17,12 +17,6 @@
     "ask": [
       "Bash(rm:*)",
       "Bash(rmdir:*)",
-      "Bash(git commit:*)",
-      "Bash(git push:*)",
-      "Bash(git checkout -b:*)",
-      "Bash(git switch -c:*)",
-      "Bash(git worktree add:*)",
-      "Bash(gh pr create:*)",
       "Bash(gh pr merge:*)"
     ],
     "defaultMode": "auto"
