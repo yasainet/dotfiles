@@ -2,6 +2,8 @@
 .zsh_sessions/
 .config/tmux/resurrect/
 .config/zsh/completions/
+.worktrees/
+.superpowers/
 
 # Files
 *.local
