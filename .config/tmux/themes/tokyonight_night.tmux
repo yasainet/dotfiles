@@ -25,9 +25,9 @@ set -g status-left-style NONE
 set -g status-right-style NONE
 
 set -g status-left "#{?pane_in_mode,#[fg=#15161e#,bg=#9ece6a#,nobold] #S #[fg=#9ece6a#,bg=#16161e#,nobold#,nounderscore#,noitalics],#{?client_prefix,#[fg=#15161e#,bg=#e0af68#,nobold] #S #[fg=#e0af68#,bg=#16161e#,nobold#,nounderscore#,noitalics],#{?pane_synchronized,#[fg=#15161e#,bg=#f7768e#,nobold] #S #[fg=#f7768e#,bg=#16161e#,nobold#,nounderscore#,noitalics],#[fg=#15161e#,bg=#7aa2f7#,nobold] #S #[fg=#7aa2f7#,bg=#16161e#,nobold#,nounderscore#,noitalics]}}}"
-set -g status-right "#(#{TMUX_CLAUDE_SIGNAL_DIR}/scripts/cross-session.sh '#{client_session}')#[fg=#3b4261,bg=#16161e,nobold,nounderscore,noitalics]#[fg=#7aa2f7,bg=#3b4261] %Y-%m-%d (%a) %I:%M %p #[fg=#7aa2f7,bg=#3b4261,nobold,nounderscore,noitalics]#[fg=#15161e,bg=#7aa2f7,nobold] #h "
+set -g status-right "#[fg=#3b4261,bg=#16161e,nobold,nounderscore,noitalics]#[fg=#7aa2f7,bg=#3b4261] #(#{TMUX_CLAUDE_SIGNAL_DIR}/scripts/cross-session.sh '#{client_session}')#[fg=#7aa2f7]%m-%d (%a) %I:%M %p "
 if-shell '[ "$(tmux show-option -gqv "clock-mode-style")" == "24" ]' {
-  set -g status-right "#(#{TMUX_CLAUDE_SIGNAL_DIR}/scripts/cross-session.sh '#{client_session}')#[fg=#3b4261,bg=#16161e,nobold,nounderscore,noitalics]#[fg=#7aa2f7,bg=#3b4261] %Y-%m-%d (%a) %H:%M #[fg=#7aa2f7,bg=#3b4261,nobold,nounderscore,noitalics]#[fg=#15161e,bg=#7aa2f7,nobold] #h "
+  set -g status-right "#[fg=#3b4261,bg=#16161e,nobold,nounderscore,noitalics]#[fg=#7aa2f7,bg=#3b4261] #(#{TMUX_CLAUDE_SIGNAL_DIR}/scripts/cross-session.sh '#{client_session}')#[fg=#7aa2f7]%m-%d (%a) %H:%M "
 }
 
 setw -g window-status-activity-style "underscore,fg=#a9b1d6,bg=#16161e"
