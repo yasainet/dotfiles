@@ -33,7 +33,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "bash ~/ghq/github.com/yasainet/dotfiles/dot-claude/hooks/on-tool-start.sh"
+            "command": "\"${TMUX_CLAUDE_SIGNAL_DIR:-$HOME/.tmux/plugins/tmux-claude-signal}\"/scripts/state.sh --state running"
           }
         ]
       }
@@ -45,6 +45,10 @@
           {
             "type": "command",
             "command": "bash ~/ghq/github.com/yasainet/dotfiles/dot-claude/hooks/on-prompt.sh"
+          },
+          {
+            "type": "command",
+            "command": "\"${TMUX_CLAUDE_SIGNAL_DIR:-$HOME/.tmux/plugins/tmux-claude-signal}\"/scripts/state.sh --state off"
           }
         ]
       }
@@ -56,6 +60,10 @@
           {
             "type": "command",
             "command": "bash ~/ghq/github.com/yasainet/dotfiles/dot-claude/hooks/on-stop.sh"
+          },
+          {
+            "type": "command",
+            "command": "\"${TMUX_CLAUDE_SIGNAL_DIR:-$HOME/.tmux/plugins/tmux-claude-signal}\"/scripts/state.sh --state done"
           }
         ]
       }
@@ -67,6 +75,21 @@
           {
             "type": "command",
             "command": "bash ~/ghq/github.com/yasainet/dotfiles/dot-claude/hooks/on-needs-input.sh"
+          },
+          {
+            "type": "command",
+            "command": "\"${TMUX_CLAUDE_SIGNAL_DIR:-$HOME/.tmux/plugins/tmux-claude-signal}\"/scripts/state.sh --state needs-input"
+          }
+        ]
+      }
+    ],
+    "Notification": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash ~/ghq/github.com/yasainet/dotfiles/dot-claude/hooks/on-notification.sh"
           }
         ]
       }
@@ -96,7 +119,7 @@
   "skipWorkflowUsageWarning": true,
   "theme": "auto",
   "editorMode": "normal",
-  "preferredNotifChannel": "iterm2",
+  "preferredNotifChannel": "ghostty",
   "inputNeededNotifEnabled": true,
   "agentPushNotifEnabled": true,
   "skipAutoPermissionPrompt": true
