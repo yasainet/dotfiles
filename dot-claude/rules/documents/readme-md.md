@@ -10,7 +10,7 @@ paths:
 - 以下の構成に従うこと:
 
 ```markdown README.md
-- `# <Project Name>`: プロジェクト名 / 1行説明
+- `# README.md`: プロジェクト名 / 1行説明
 - `## Setup`: 依存インストール・初期化手順
 - `## Usage`: optional / 起動・基本コマンド
 ```
