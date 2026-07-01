@@ -32,15 +32,6 @@
             "command": "node ~/ghq/github.com/yasainet/dotfiles/dot-claude/hooks/inject-path-rule.mjs"
           }
         ]
-      },
-      {
-        "matcher": "",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "\"${TMUX_CLAUDE_SIGNAL_DIR:-$HOME/.tmux/plugins/tmux-claude-signal}\"/scripts/state.sh --state off"
-          }
-        ]
       }
     ],
     "UserPromptSubmit": [
@@ -50,25 +41,6 @@
           {
             "type": "command",
             "command": "bash ~/ghq/github.com/yasainet/dotfiles/dot-claude/hooks/on-prompt.sh"
-          },
-          {
-            "type": "command",
-            "command": "\"${TMUX_CLAUDE_SIGNAL_DIR:-$HOME/.tmux/plugins/tmux-claude-signal}\"/scripts/state.sh --state off"
-          }
-        ]
-      }
-    ],
-    "Stop": [
-      {
-        "matcher": "",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "bash ~/ghq/github.com/yasainet/dotfiles/dot-claude/hooks/on-stop.sh"
-          },
-          {
-            "type": "command",
-            "command": "\"${TMUX_CLAUDE_SIGNAL_DIR:-$HOME/.tmux/plugins/tmux-claude-signal}\"/scripts/state.sh --state done"
           }
         ]
       }
@@ -80,10 +52,6 @@
           {
             "type": "command",
             "command": "bash ~/ghq/github.com/yasainet/dotfiles/dot-claude/hooks/on-needs-input.sh"
-          },
-          {
-            "type": "command",
-            "command": "\"${TMUX_CLAUDE_SIGNAL_DIR:-$HOME/.tmux/plugins/tmux-claude-signal}\"/scripts/state.sh --state needs-input"
           }
         ]
       }
@@ -95,6 +63,18 @@
           {
             "type": "command",
             "command": "bash ~/ghq/github.com/yasainet/dotfiles/dot-claude/hooks/on-notification.sh"
+          }
+        ]
+      }
+    ],
+    "SessionStart": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash ~/ghq/github.com/yasainet/dotfiles/dot-claude/hooks/herdr-agent-state.sh session",
+            "timeout": 10
           }
         ]
       }
