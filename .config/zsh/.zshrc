@@ -74,14 +74,13 @@ pj() {
   cd "$dir"
 }
 
-ts() {
+wn() {
   local repo dir session ws_id
 
   repo=$(ghq list | fzf --height 40% --reverse --border --prompt='Repo> ') || return
   session=$(basename "$repo" | tr '.' '_')
   dir=$(ghq list -p --exact "$repo")
 
-  # 同名 label の herdr workspace を探し、あれば focus・無ければ作成
   ws_id=$(herdr workspace list 2>/dev/null \
     | jq -r --arg l "$session" \
         '.result.workspaces[] | select(.label==$l) | .workspace_id' \

@@ -5,13 +5,31 @@ return {
 		event = "InsertEnter",
 		config = function()
 			require("copilot").setup({
-				suggestion = { enabled = false },
+				suggestion = {
+					enabled = true,
+					auto_trigger = false,
+					keymap = {
+						accept = "<Tab>",
+						accept_word = false,
+						accept_line = false,
+						next = "<M-]>",
+						prev = "<M-[>",
+						dismiss = "<C-]>",
+					},
+				},
 				panel = { enabled = false },
 				filetypes = {
 					["*"] = true,
 					["env"] = false,
 					["gitcommit"] = false,
 				},
+			})
+
+			vim.api.nvim_create_autocmd("FileType", {
+				pattern = "markdown",
+				callback = function()
+					vim.b.copilot_suggestion_auto_trigger = true
+				end,
 			})
 		end,
 	},
