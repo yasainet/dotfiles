@@ -11,6 +11,7 @@
 .zcompdump*
 .zsh_history
 .config/github-copilot/apps.json
+.config/github-copilot/auth.db*
 .config/espanso/match/private.yml
 
 # opencode
