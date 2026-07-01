@@ -194,33 +194,39 @@ vim.keymap.set("n", "<leader>yp", function()
 	print("Yanked: " .. path)
 end, { desc = "Yank full path" })
 
--- Claude Code
--- local function pick_size()
--- 	local width = tonumber(vim.fn.system("tmux display-message -p '#{window_width}'")) or 0
--- 	return width >= 240 and "50%" or "45%"
--- end
+-- Claude Code (herdr pane API)
+local function herdr_pane_id(out)
+	return out and out:match('"pane_id":"([^"]+)"')
+end
 
 local function toggle_claude()
+	-- 既存 Claude ペインがあれば閉じる
 	if _G._claude_pane_id then
-		local ok = vim.fn.system("tmux display-message -p -t " .. _G._claude_pane_id .. ' "#{pane_id}" 2>/dev/null')
-		if vim.v.shell_error == 0 and ok:match("%S") then
-			vim.fn.system("tmux kill-pane -t " .. _G._claude_pane_id)
+		local info = vim.fn.system("herdr pane get " .. _G._claude_pane_id .. " 2>/dev/null")
+		if vim.v.shell_error == 0 and info:match('"pane_id"') then
+			vim.fn.system("herdr pane close " .. _G._claude_pane_id)
 			_G._claude_pane_id = nil
-			vim.fn.system("tmux set-hook -uw pane-focus-in")
-			vim.fn.system("tmux set-option -wu allow-rename")
-			vim.fn.system("tmux set-option -w automatic-rename on")
 			return
 		end
 		_G._claude_pane_id = nil
 	end
-	local pane_id = vim.fn.system('tmux split-window -h -l 50% -P -F "#{pane_id}" "claude"')
-	_G._claude_pane_id = vim.trim(pane_id)
-	vim.fn.system("tmux set-option -w allow-rename off")
-	local hook = 'if-shell -F "#{==:#{pane_id},'
-		.. _G._claude_pane_id
-		.. '}" "rename-window claude" "set-option -w automatic-rename on"'
-	vim.fn.system("tmux set-hook -w pane-focus-in '" .. hook .. "'")
-	vim.fn.system("tmux rename-window claude")
+	-- nvim が走る herdr ペイン（env 優先、無ければ current にフォールバック）
+	local cur = vim.env.HERDR_PANE_ID
+	if not cur or cur == "" then
+		cur = herdr_pane_id(vim.fn.system("herdr pane current"))
+	end
+	if not cur then
+		vim.notify("herdr: current pane 取得失敗", vim.log.levels.ERROR)
+		return
+	end
+	local out = vim.fn.system("herdr pane split " .. cur .. " --direction right --ratio 0.5 --focus")
+	local pid = herdr_pane_id(out)
+	if not pid then
+		vim.notify("herdr: split 失敗: " .. out, vim.log.levels.ERROR)
+		return
+	end
+	_G._claude_pane_id = pid
+	vim.fn.system("herdr pane run " .. pid .. " claude")
 end
 
 vim.keymap.set("n", "<leader>cc", function()
