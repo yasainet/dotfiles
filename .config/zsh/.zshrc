@@ -75,35 +75,22 @@ pj() {
 }
 
 ts() {
-  local repo dir session
+  local repo dir session ws_id
 
   repo=$(ghq list | fzf --height 40% --reverse --border --prompt='Repo> ') || return
   session=$(basename "$repo" | tr '.' '_')
   dir=$(ghq list -p --exact "$repo")
 
-  if tmux has-session -t="$session" 2>/dev/null; then
-    if [[ -n "$TMUX" ]]; then
-      tmux switch-client -t "$session"
-    else
-      tmux attach -t "$session"
-    fi
-  else
-    if [[ -n "$TMUX" ]]; then
-      tmux new-session -ds "$session" -c "$dir"
-      tmux switch-client -t "$session"
-    else
-      tmux new-session -s "$session" -c "$dir"
-    fi
-  fi
+  # 同名 label の herdr workspace を探し、あれば focus・無ければ作成
+  ws_id=$(herdr workspace list 2>/dev/null \
+    | jq -r --arg l "$session" \
+        '.result.workspaces[] | select(.label==$l) | .workspace_id' \
+    | head -n1)
 
-  if [[ -n "$TMUX_POPUP" ]]; then
-    exit
-  elif [[ -n "$TMUX" ]]; then
-    local n
-    n=$(tmux display-message -t "$TMUX_PANE" -p '#{session_windows}')
-    if (( n >= 2 )); then
-      tmux kill-pane -t "$TMUX_PANE"
-    fi
+  if [[ -n "$ws_id" ]]; then
+    herdr workspace focus "$ws_id" >/dev/null
+  else
+    herdr workspace create --cwd "$dir" --label "$session" --focus >/dev/null
   fi
 }
 
