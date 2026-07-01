@@ -23,7 +23,7 @@
 dot-claude/skills/hunk-review
 .config/hunk/state.json
 
-# herdr runtime artifacts (config.toml と scripts/ のみ追跡)
+# herdr
 .config/herdr/*.sock
 .config/herdr/*.log
 .config/herdr/session.json

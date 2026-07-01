@@ -1,9 +1,7 @@
 {
   "env": {},
   "permissions": {
-    "allow": [
-      "Read(//Users/yasainet/ghq/**)"
-    ],
+    "allow": ["Read(//Users/yasainet/ghq/**)"],
     "deny": [
       "Bash(dd if=/dev/*)",
       "Bash(mkfs*)",
@@ -14,13 +12,10 @@
       "Write(**/supabase/migrations/*.sql)",
       "mcp__supabase__apply_migration"
     ],
-    "ask": [
-      "Bash(rm:*)",
-      "Bash(rmdir:*)",
-      "Bash(gh pr merge:*)"
-    ],
+    "ask": ["Bash(rm:*)", "Bash(rmdir:*)", "Bash(gh pr merge:*)"],
     "defaultMode": "auto"
   },
+  "model": "claude-opus-4-7[1m]",
   "enableAllProjectMcpServers": true,
   "hooks": {
     "PreToolUse": [

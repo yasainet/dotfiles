@@ -80,6 +80,8 @@ return {
 			},
 		})
 
+		cmp.setup.filetype("markdown", { enabled = false })
+
 		cmp.setup.cmdline({ "/", "?" }, {
 			mapping = cmp.mapping.preset.cmdline(),
 			sources = {
