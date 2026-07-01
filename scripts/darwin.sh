@@ -73,6 +73,7 @@ install_cli_tools() {
   brew install fastfetch
   brew install uv
   brew install tmux
+  brew install herdr
   brew install mise
   brew install pnpm
   brew install firebase-cli
