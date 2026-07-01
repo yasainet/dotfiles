@@ -74,25 +74,6 @@ pj() {
   cd "$dir"
 }
 
-wn() {
-  local repo dir session ws_id
-
-  repo=$(ghq list | fzf --height 40% --reverse --border --prompt='Repo> ') || return
-  session=$(basename "$repo" | tr '.' '_')
-  dir=$(ghq list -p --exact "$repo")
-
-  ws_id=$(herdr workspace list 2>/dev/null \
-    | jq -r --arg l "$session" \
-        '.result.workspaces[] | select(.label==$l) | .workspace_id' \
-    | head -n1)
-
-  if [[ -n "$ws_id" ]]; then
-    herdr workspace focus "$ws_id" >/dev/null
-  else
-    herdr workspace create --cwd "$dir" --label "$session" --focus >/dev/null
-  fi
-}
-
 # Local LLM (llama-swap + llama.cpp)
 llm-fetch() {
   local m repo file subdir
@@ -109,11 +90,6 @@ llm-fetch() {
 
 llm-serve() {
   llama-swap --config "$HOME/.config/llama-swap/config.yaml" --listen :8080 "$@"
-}
-
-# claude（herdr がペインを自動検出・ラベルするため rename 不要）
-claude() {
-  command claude "$@"
 }
 
 # opencode

@@ -1,7 +1,4 @@
 #!/usr/bin/env bash
-# vim-tmux-navigator 相当の C-hjkl ペイン移動。
-# nvim ペインなら --remote-send で生の <C-hjkl> を再注入し、モード / バッファローカル解決に委譲する。
-# それ以外は herdr pane focus で隣ペインへ移動。
 set -euo pipefail
 
 dir="${1:-}"
