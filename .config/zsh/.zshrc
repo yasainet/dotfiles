@@ -112,15 +112,9 @@ llm-serve() {
   llama-swap --config "$HOME/.config/llama-swap/config.yaml" --listen :8080 "$@"
 }
 
-# claude
+# claude（herdr がペインを自動検出・ラベルするため rename 不要）
 claude() {
-  if [ -n "$TMUX" ]; then
-    tmux rename-window "claude"
-  fi
   command claude "$@"
-  if [ -n "$TMUX" ]; then
-    tmux set-window-option automatic-rename on
-  fi
 }
 
 # opencode

@@ -4,8 +4,8 @@ desktop-notifications = true
 # Shell Integration
 shell-integration = none
 
-# tmux
-command = /bin/sh -c '/opt/homebrew/bin/tmux attach || /opt/homebrew/bin/tmux new-session'
+# herdr（既定）。tmux フォールバックは: open -na Ghostty.app --args -e tmux
+command = /opt/homebrew/bin/herdr
 
 # Clipboard
 clipboard-read = allow
@@ -91,18 +91,18 @@ keybind = cmd+nine=text:\x029
 keybind = cmd+shift+bracket_left=text:\x02p
 keybind = cmd+shift+bracket_right=text:\x02n
 
-# Cmd+b -> copy mode
-keybind = cmd+b=text:\x02v
+# Cmd+b -> scrollback (herdr edit_scrollback)
+keybind = cmd+b=text:\x02e
 
 # --- pane ---
 
-# Cmd+d -> split right
+# Cmd+d -> split right (herdr split_vertical)
 keybind = cmd+d=unbind
-keybind = cmd+d=text:\x02%
+keybind = cmd+d=text:\x02v
 
-# Cmd+Shift+d -> split down
+# Cmd+Shift+d -> split down (herdr split_horizontal)
 keybind = cmd+shift+d=unbind
-keybind = cmd+shift+d=text:\x02"
+keybind = cmd+shift+d=text:\x02-
 
 # Cmd+k -> clear pane history
 keybind = cmd+k=text:\x02K
