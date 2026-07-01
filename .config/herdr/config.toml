@@ -1,1 +1,36 @@
-# herdr configuration (managed in dotfiles)
+# herdr configuration (managed in dotfiles: ~/.config/herdr/config.toml)
+
+[theme]
+# Ghostty の固定 "TokyoNight Night" に合わせ暗色固定（auto_switch はしない）
+name = "tokyo-night"
+
+[terminal]
+shell_mode = "auto"   # macOS = login shell（現状維持）
+new_cwd = "follow"    # tmux の split/new-window の -c "#{pane_current_path}" 相当
+
+[keys]
+prefix = "ctrl+b"     # tmux と同一。既定バインドは現状の Cmd リマップとほぼ一致するため据え置き
+# 参考（既定のまま使う）: new_tab=prefix+c, switch_tab=prefix+1..9,
+#   previous_tab=prefix+p, next_tab=prefix+n, split_vertical=prefix+v,
+#   split_horizontal=prefix+minus, detach=prefix+q, zoom=prefix+z,
+#   focus_pane_left/down/up/right=prefix+h/j/k/l
+
+[ui]
+accent = "cyan"
+
+[ui.toast]
+delivery = "terminal"  # Ghostty のデスクトップ通知へ流す（claude-notify 相当）
+
+[ui.sound]
+enabled = true
+
+[session]
+resume_agents_on_restore = true  # サーバ再起動後に Claude 会話ペインを復帰
+
+[experimental]
+# macism ハック（copy-mode/popup 突入時の ABC 切替）の置き換え:
+#   prefix モード中だけ macOS 入力ソースを ASCII に切替、抜けたら復帰
+switch_ascii_input_source_in_prefix = true
+# Claude Code / codex / opencode 等の TUI で CJK IME 候補ウィンドウを追従
+reveal_hidden_cursor_for_cjk_ime = true
+cjk_ime_agents = ["claude", "codex", "opencode"]
