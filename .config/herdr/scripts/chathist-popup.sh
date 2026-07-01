@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+# TODO: fix
+
 # 注入先: agent=claude のペイン（複数時は最初の claude ペイン。last-focus は herdr に無い）
 TARGET_PANE=$(herdr pane list \
   | jq -r '.result.panes[] | select(.agent=="claude") | .pane_id' | head -n1)

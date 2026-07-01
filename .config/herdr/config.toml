@@ -2,7 +2,9 @@
 name = "tokyo-night"
 
 [theme.custom]
-surface_dim = "#3b4261"
+surface_dim = "#292e42"
+surface0 = "#3b4261"
+surface1 = "#545c7e"
 
 [terminal]
 shell_mode = "auto"
@@ -10,8 +12,9 @@ new_cwd = "follow"
 
 [keys]
 prefix = "ctrl+b"
-navigate_workspace_up = "k"
 navigate_workspace_down = "j"
+navigate_workspace_up = "k"
+detach = "prefix+shift+q"
 
 [ui]
 accent = "cyan"
@@ -46,8 +49,6 @@ key = "prefix+f"
 type = "pane"
 command = "/Users/yasainet/.config/herdr/scripts/file-picker.sh"
 
-# vim-tmux-navigator 相当: nvim ペインなら --remote-send で <C-hjkl> 再注入、
-# それ以外は herdr pane focus。nvim 側は marker file を書き出す。
 [[keys.command]]
 key = "ctrl+h"
 type = "shell"
