@@ -11,7 +11,7 @@ Personal dotfiles for macOS and Linux.
 ## Environments
 
 - OS: macOS (primary), Linux (secondary)
-- Stack: Ghostty → herdr → {nvim, zsh, Claude Code...}（tmux は inert なフォールバック）
+- Stack: Ghostty → herdr → {nvim, zsh, Claude Code...}
 - Shell: Zsh + Pure
 - Editor: Neovim + snacks explorer, terminal
 

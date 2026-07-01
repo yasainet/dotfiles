@@ -359,9 +359,6 @@ link_claude_code() {
 install_npm_globals() {
   echo "Installing npm global packages..."
 
-  # textlint config (Unsupported XDG)
-  link "$DOTFILES/.config/textlint/.textlintrc.json" "$HOME/.textlintrc.json"
-
   export NVM_DIR="$HOME/.nvm"
   [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 
@@ -371,8 +368,6 @@ install_npm_globals() {
   fi
 
   npm install -g \
-    textlint \
-    textlint-rule-ja-space-between-half-and-full-width \
     google-analytics-cli \
     vercel \
     wrangler \

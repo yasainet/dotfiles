@@ -71,19 +71,60 @@ vim.keymap.set("n", "<leader>gD", diff_against_origin_head, { desc = "Diff: vs o
 vim.keymap.set("n", "<leader>gf", "<Cmd>DiffviewFileHistory %<CR>", { desc = "Diffview file history" })
 vim.keymap.set("n", "<leader>gq", "<Cmd>DiffviewClose<CR>", { desc = "Diffview close" })
 
--- Window navigation (smart-splits.nvim)
-vim.keymap.set({ "n", "t" }, "<C-h>", function()
-	require("smart-splits").move_cursor_left()
-end, { desc = "Move to left split" })
-vim.keymap.set({ "n", "t" }, "<C-j>", function()
-	require("smart-splits").move_cursor_down()
-end, { desc = "Move to below split" })
-vim.keymap.set({ "n", "t" }, "<C-k>", function()
-	require("smart-splits").move_cursor_up()
-end, { desc = "Move to above split" })
-vim.keymap.set({ "n", "t" }, "<C-l>", function()
-	require("smart-splits").move_cursor_right()
-end, { desc = "Move to right split" })
+-- Window / pane navigation
+local function nav(dir)
+	local wincmd = ({ left = "h", down = "j", up = "k", right = "l" })[dir]
+	local before = vim.api.nvim_get_current_win()
+	vim.cmd("wincmd " .. wincmd)
+	if vim.api.nvim_get_current_win() == before then
+		vim.system({ "herdr", "pane", "focus", "--direction", dir })
+	end
+end
+
+for key, dir in pairs({ h = "left", j = "down", k = "up", l = "right" }) do
+	vim.keymap.set({ "n", "t" }, "<C-" .. key .. ">", function()
+		nav(dir)
+	end, { desc = "Nav " .. dir .. " (split → pane)" })
+end
+
+-- Marker file
+-- TODO: watch smart-splits.nvim PR #467
+local function herdr_marker_path()
+	local pane = vim.env.HERDR_PANE_ID
+	if not pane or pane == "" then
+		return nil
+	end
+	local cache = vim.env.XDG_CACHE_HOME or (vim.env.HOME .. "/.cache")
+	local dir = cache .. "/nvim-herdr"
+	vim.fn.mkdir(dir, "p")
+	return dir .. "/" .. pane
+end
+
+vim.api.nvim_create_autocmd("VimEnter", {
+	callback = function()
+		local path = herdr_marker_path()
+		if not path then
+			return
+		end
+		local server = vim.v.servername
+		if not server or server == "" then
+			return
+		end
+		pcall(vim.fn.writefile, {
+			"pid=" .. vim.fn.getpid(),
+			"server=" .. server,
+		}, path)
+	end,
+})
+
+vim.api.nvim_create_autocmd("VimLeavePre", {
+	callback = function()
+		local path = herdr_marker_path()
+		if path then
+			pcall(vim.fn.delete, path)
+		end
+	end,
+})
 
 -- Picker
 vim.keymap.set("n", "<leader>ff", function()
@@ -139,24 +180,6 @@ vim.keymap.set("n", "<leader>lf", function()
 	require("conform").format({ async = true, lsp_fallback = true })
 end, { desc = "Format buffer" })
 
--- Textlint fix
-vim.keymap.set("n", "<leader>lt", function()
-	local file = vim.api.nvim_buf_get_name(0)
-	if file == "" then
-		vim.notify("No file name", vim.log.levels.WARN)
-		return
-	end
-	vim.cmd("silent !textlint --fix " .. vim.fn.shellescape(file))
-	vim.cmd("checktime")
-end, { desc = "Textlint fix" })
-
--- Todo Comments
-vim.keymap.set("n", "<leader>ft", function()
-	Snacks.picker.todo_comments()
-end, { desc = "Find todos" })
-vim.keymap.set("n", "]t", '<Cmd>lua require("todo-comments").jump_next()<CR>', { desc = "Next todo" })
-vim.keymap.set("n", "[t", '<Cmd>lua require("todo-comments").jump_prev()<CR>', { desc = "Previous todo" })
-
 -- LSP
 vim.lsp.document_color.enable(false)
 vim.api.nvim_create_autocmd("LspAttach", {
@@ -193,45 +216,6 @@ vim.keymap.set("n", "<leader>yp", function()
 	vim.fn.setreg("+", path)
 	print("Yanked: " .. path)
 end, { desc = "Yank full path" })
-
--- Claude Code (herdr pane API)
-local function herdr_pane_id(out)
-	return out and out:match('"pane_id":"([^"]+)"')
-end
-
-local function toggle_claude()
-	-- 既存 Claude ペインがあれば閉じる
-	if _G._claude_pane_id then
-		local info = vim.fn.system("herdr pane get " .. _G._claude_pane_id .. " 2>/dev/null")
-		if vim.v.shell_error == 0 and info:match('"pane_id"') then
-			vim.fn.system("herdr pane close " .. _G._claude_pane_id)
-			_G._claude_pane_id = nil
-			return
-		end
-		_G._claude_pane_id = nil
-	end
-	-- nvim が走る herdr ペイン（env 優先、無ければ current にフォールバック）
-	local cur = vim.env.HERDR_PANE_ID
-	if not cur or cur == "" then
-		cur = herdr_pane_id(vim.fn.system("herdr pane current"))
-	end
-	if not cur then
-		vim.notify("herdr: current pane 取得失敗", vim.log.levels.ERROR)
-		return
-	end
-	local out = vim.fn.system("herdr pane split " .. cur .. " --direction right --ratio 0.5 --focus")
-	local pid = herdr_pane_id(out)
-	if not pid then
-		vim.notify("herdr: split 失敗: " .. out, vim.log.levels.ERROR)
-		return
-	end
-	_G._claude_pane_id = pid
-	vim.fn.system("herdr pane run " .. pid .. " claude")
-end
-
-vim.keymap.set("n", "<leader>cc", function()
-	toggle_claude()
-end, { desc = "Claude Code (auto size)" })
 
 -- Terminal
 local function toggle_terminal()
