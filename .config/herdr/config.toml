@@ -35,3 +35,16 @@ switch_ascii_input_source_in_prefix = true
 # Claude Code / codex / opencode 等の TUI で CJK IME 候補ウィンドウを追従
 reveal_hidden_cursor_for_cjk_ime = true
 cjk_ime_agents = ["claude", "codex", "opencode"]
+
+# Claude popup（tmux display-popup の置き換え）: prefix+r=チャット履歴 / prefix+f=ファイル
+# type="pane" は一時ペインで実行し終了で閉じる。スクリプトが agent=claude ペインへ注入する。
+# command は絶対パス（~ 展開/argv 分割の挙動差を避けるため単一トークン）。
+[[keys.command]]
+key = "prefix+r"
+type = "pane"
+command = "/Users/yasainet/.config/herdr/scripts/chathist-popup.sh"
+
+[[keys.command]]
+key = "prefix+f"
+type = "pane"
+command = "/Users/yasainet/.config/herdr/scripts/file-picker.sh"
