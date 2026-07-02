@@ -19,7 +19,6 @@
     "ask": ["Bash(rm:*)", "Bash(rmdir:*)", "Bash(gh pr merge:*)"],
     "defaultMode": "auto"
   },
-  "model": "claude-opus-4-7[1m]",
   "enableAllProjectMcpServers": true,
   "hooks": {
     "PreToolUse": [
@@ -78,8 +77,7 @@
   "enabledPlugins": {
     "context7@claude-plugins-official": true,
     "superpowers@claude-plugins-official": true,
-    "commit-commands@claude-plugins-official": true,
-    "frontend-design@claude-plugins-official": true
+    "commit-commands@claude-plugins-official": true
   },
   "language": "Japanese",
   "effortLevel": "xhigh",
