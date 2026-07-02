@@ -58,25 +58,6 @@ install_nvm() {
 }
 
 # ====================
-# tmux plugins (TPM)
-# ====================
-install_tmux_plugins() {
-  echo "Installing tmux plugins..."
-
-  local tpm_dir="$DOTFILES/.config/tmux/plugins/tpm"
-
-  if [ ! -d "$tpm_dir/.git" ]; then
-    rm -rf "$tpm_dir"
-    git clone https://github.com/tmux-plugins/tpm "$tpm_dir"
-    echo "  [done] tpm cloned"
-  else
-    echo "  [skip] tpm (already cloned)"
-  fi
-
-  "$tpm_dir/bin/install_plugins"
-}
-
-# ====================
 # bat theme
 # ====================
 setup_bat_theme() {
