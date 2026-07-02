@@ -4,8 +4,8 @@ desktop-notifications = true
 # Shell Integration
 shell-integration = none
 
-# herdr
-command = /opt/homebrew/bin/herdr
+# herdr (wrapper で CLAUDE_CODE_* 汚染を除去してから launch)
+command = /Users/yasainet/.config/herdr/scripts/herdr-launch.sh
 
 # Clipboard
 clipboard-read = allow
