@@ -14,6 +14,7 @@ detach = "prefix+shift+q"
 
 [ui]
 accent = "cyan"
+sidebar_max_width = 20
 agent_panel_sort = "spaces"
 pane_borders = true
 pane_gaps = true
