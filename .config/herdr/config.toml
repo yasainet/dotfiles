@@ -1,10 +1,10 @@
-[theme]
-name = "tokyo-night"
-
-[theme.custom]
-surface_dim = "#292e42"
-surface0 = "#3b4261"
-surface1 = "#545c7e"
+# [theme]
+# name = "tokyo-night"
+# 
+# [theme.custom]
+# surface_dim = "#292e42"
+# surface0 = "#3b4261"
+# surface1 = "#545c7e"
 
 [terminal]
 shell_mode = "auto"
