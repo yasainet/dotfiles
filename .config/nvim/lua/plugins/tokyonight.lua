@@ -32,6 +32,7 @@ return {
 				-- snacks explorer
 				hl.SnacksPickerGitStatusUntracked = { fg = c.green }
 				-- Dim panel
+				-- TODO: fix
 				hl.TroubleNormal = { fg = c.fg, bg = c.bg_dark }
 				hl.TroubleNormalNC = { fg = c.fg, bg = c.bg_dark }
 			end,
