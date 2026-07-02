@@ -1,7 +1,7 @@
 [theme]
 name = "tokyo-night"
-
 auto_switch = false
+
 [terminal]
 shell_mode = "auto"
 new_cwd = "follow"
