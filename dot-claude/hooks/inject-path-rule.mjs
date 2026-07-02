@@ -1,15 +1,4 @@
 #!/usr/bin/env node
-// PreToolUse(Write) hook — Write-create だけを対象にする。
-//
-// path-rules は Read でしか発火しない。Edit は事前 Read が必須なので Read-trigger で
-// rule が既に発火済み、上書き Write も通常は事前 Read 済み。残る穴は「新規ファイルを
-// Read を踏まず Write 生成する」グリーンフィールド経路だけ。よって対象 path にマッチし、
-// かつ未存在のファイルへの Write のときだけ rule 本文を additionalContext で注入する。
-//
-// 対象 path の判定は rule ファイルの frontmatter `paths` (glob) を正本として動的に読む。
-// 旧実装は RULES を substring でハードコードしていたが、frontmatter の glob と二重管理になり
-// ドリフトしていた (rule を足してもフックが追従せず、新規 Write 経路だけ発火しない)。
-// glob は再実装せず Node ネイティブの path.matchesGlob を使い、native engine と同じ意味で判定する。
 
 import fs from "node:fs";
 import os from "node:os";
