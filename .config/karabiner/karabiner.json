@@ -36,6 +36,30 @@
               },
               {
                 "from": {
+                  "key_code": "q",
+                  "modifiers": {
+                    "mandatory": ["control"]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "q",
+                    "modifiers": ["left_control"]
+                  },
+                  {
+                    "shell_command": "/opt/homebrew/bin/macism com.apple.keylayout.ABC"
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": ["^com\\.mitchellh\\.ghostty$"]
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "from": {
                   "key_code": "t",
                   "modifiers": {
                     "mandatory": ["command"]
