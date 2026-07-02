@@ -36,16 +36,6 @@ cjk_ime_agents = ["claude", "codex"]
 cjk_ime_cursor_shape = "steady_block"
 
 [[keys.command]]
-key = "prefix+r"
-type = "pane"
-command = "/Users/yasainet/.config/herdr/scripts/chathist-popup.sh"
-
-[[keys.command]]
-key = "prefix+f"
-type = "pane"
-command = "/Users/yasainet/.config/herdr/scripts/file-picker.sh"
-
-[[keys.command]]
 key = "ctrl+h"
 type = "shell"
 command = "/Users/yasainet/.config/herdr/scripts/nvim-nav.sh h"
