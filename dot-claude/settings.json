@@ -89,7 +89,7 @@
   "tui": "default",
   "voice": {
     "enabled": true,
-    "mode": "hold"
+    "mode": "tap"
   },
   "skipWorkflowUsageWarning": true,
   "theme": "auto",
