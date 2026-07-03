@@ -74,6 +74,10 @@
     "type": "command",
     "command": "sh ~/.claude/statusline-command.sh"
   },
+  "fileSuggestion": {
+    "type": "command",
+    "command": "bash ~/ghq/github.com/yasainet/dotfiles/dot-claude/scripts/ghq-suggest.sh"
+  },
   "enabledPlugins": {
     "context7@claude-plugins-official": true,
     "superpowers@claude-plugins-official": true,
