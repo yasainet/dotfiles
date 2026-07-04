@@ -99,6 +99,3 @@ keybind = cmd+d=text:\x02v
 # Cmd+Shift+d -> split down (herdr split_horizontal)
 keybind = cmd+shift+d=unbind
 keybind = cmd+shift+d=text:\x02-
-
-# Cmd+k -> clear pane history
-keybind = cmd+k=text:\x02K
