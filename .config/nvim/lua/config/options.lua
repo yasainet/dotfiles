@@ -60,14 +60,12 @@ vim.opt.mousemodel = "popup"
 -- Filetype
 vim.filetype.add({
 	filename = {
-		[".env"] = "sh",
 		["docker-compose.yml"] = "yaml.docker-compose",
 		["docker-compose.yaml"] = "yaml.docker-compose",
 		["compose.yml"] = "yaml.docker-compose",
 		["compose.yaml"] = "yaml.docker-compose",
 	},
 	pattern = {
-		["%.env%..*"] = "sh",
 		[".*git/config"] = "gitconfig",
 		[".*git/ignore"] = "gitignore",
 		[".*%.dockerignore"] = "gitignore",
