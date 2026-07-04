@@ -1,3 +1,5 @@
+onboarding = false
+
 [theme]
 name = "tokyo-night"
 auto_switch = false
@@ -31,6 +33,7 @@ enabled = true
 resume_agents_on_restore = true
 
 [experimental]
+kitty_graphics = true
 switch_ascii_input_source_in_prefix = false
 reveal_hidden_cursor_for_cjk_ime = false
 cjk_ime_agents = ["claude", "opencode"]
