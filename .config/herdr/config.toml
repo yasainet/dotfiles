@@ -12,12 +12,14 @@ new_cwd = "follow"
 prefix = "ctrl+b"
 navigate_workspace_down = "j"
 navigate_workspace_up = "k"
+previous_agent = "prefix+,"
+next_agent = "prefix+."
 detach = "prefix+shift+q"
 
 [ui]
 accent = "cyan"
 sidebar_max_width = 20
-agent_panel_sort = "spaces"
+agent_panel_sort = "priority"
 pane_borders = true
 pane_gaps = true
 show_agent_labels_on_pane_borders = false
