@@ -1,5 +1,9 @@
 # CLAUDE.md
 
+## Identity
+
+- username: `yasainet`
+
 ## Communication
 
 - 前置き、挨拶、要約の復唱は省き、結論から書け
