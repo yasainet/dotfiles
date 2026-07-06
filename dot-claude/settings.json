@@ -1,6 +1,6 @@
 {
   "env": {
-    "ANTHROPIC_DEFAULT_OPUS_MODEL": "claude-opus-4-8[1m]",
+    "ANTHROPIC_DEFAULT_OPUS_MODEL": "claude-opus-4-7[1m]",
     "ANTHROPIC_DEFAULT_SONNET_MODEL": "claude-sonnet-5[1m]",
     "ANTHROPIC_DEFAULT_HAIKU_MODEL": "claude-haiku-4-5"
   },
@@ -39,10 +39,6 @@
           {
             "type": "command",
             "command": "bash ~/ghq/github.com/yasainet/dotfiles/dot-claude/hooks/on-prompt.sh"
-          },
-          {
-            "type": "command",
-            "command": "sh ~/ghq/github.com/yasainet/dotfiles/dot-claude/hooks/inject-anti-court-drift.sh"
           }
         ]
       }
