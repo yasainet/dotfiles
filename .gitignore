@@ -23,10 +23,9 @@
 dot-claude/skills/hunk-review
 .config/hunk/state.json
 
-# herdr
-.config/herdr/*.sock
-.config/herdr/*.log
-.config/herdr/session.json
-.config/herdr/agent-detection/
-.config/herdr/sessions/
+# herdr - config.toml と scripts/ 以外は全部無視
+.config/herdr/*
+!.config/herdr/config.toml
+!.config/herdr/scripts/
+!.config/herdr/scripts/**
 
