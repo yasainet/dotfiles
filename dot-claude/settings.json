@@ -71,6 +71,11 @@
             "type": "command",
             "command": "bash ~/ghq/github.com/yasainet/dotfiles/dot-claude/hooks/herdr-agent-state.sh session",
             "timeout": 10
+          },
+          {
+            "type": "command",
+            "command": "bash ~/ghq/github.com/yasainet/dotfiles/dot-claude/hooks/spawn-hunk-tab.sh",
+            "timeout": 5
           }
         ]
       }
