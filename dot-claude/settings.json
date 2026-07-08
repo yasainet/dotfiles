@@ -32,15 +32,6 @@
         ]
       },
       {
-        "matcher": "Skill",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "bash ~/ghq/github.com/yasainet/dotfiles/dot-claude/hooks/block-superpowers-auto-invoke.sh"
-          }
-        ]
-      },
-      {
         "matcher": "Edit|Write|NotebookEdit",
         "hooks": [
           {
