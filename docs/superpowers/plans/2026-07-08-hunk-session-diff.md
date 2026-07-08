@@ -1,18 +1,16 @@
 # Hunk session-diff Implementation Plan
 
 > [!NOTE]
-> 前 revision (base ファイル + `/session-diff` slash command) は放棄した。
-> `/exit` → 再起動で base が上書きされる欠陥が構造的に避けられなかった。
-> 判断の経緯は commit history を参照。
+> 経緯: base ファイル方式 → SessionStart で hunk tab spawn → 本 revision (lazy PreToolUse) と 3 段階で進化した。
+> 判断の詳細は commit history 参照。
 
-Goal: Claude Code の session 開始と同時に、herdr の新規 tab で `hunk diff <HEAD-at-start> --watch` を起動する。
-起動時の HEAD SHA は hunk プロセス自身が凍結するので、以降 commit しても branch を切り替えても session を再起動しても、hunk の表示は session 開始時点からの累積 diff を保ち続ける。
+Goal: Claude Code の session で初めて Edit / Write / NotebookEdit が発火した瞬間、herdr の新規 tab で `hunk diff <HEAD-at-first-edit> --watch` を起動する。
+起動時の HEAD SHA は hunk プロセス自身が凍結するので、以降 commit しても branch を切り替えても session を再起動しても、hunk の表示は「編集開始点」からの累積 diff を保ち続ける。
 
-Architecture: SessionStart hook が herdr の socket API を叩いて新規 tab を作り、そこで hunk を起動する。
-共有ファイルや slash command は持たない。
-状態は hunk プロセス 1 つに閉じる。
+Architecture: PreToolUse hook が session_id 単位の sentinel ファイルで初回判定を行い、初回のみ herdr の socket API で新規 tab を作って hunk を起動する。
+相談だけの session では tab が生えない。
 
-Tech Stack: bash, Claude Code SessionStart hook, herdr CLI (`herdr tab create`, `herdr pane run`), hunk (`hunk diff <ref> --watch`)。
+Tech Stack: bash, Claude Code PreToolUse hook, herdr CLI (`herdr tab create`, `herdr pane run`), hunk (`hunk diff <ref> --watch`)。
 
 ## Global Constraints
 
@@ -21,117 +19,83 @@ Tech Stack: bash, Claude Code SessionStart hook, herdr CLI (`herdr tab create`, 
 - 独自 DECISIONS.md や CLAUDE.md 追記は作らない (memory rule: feedback-no-dotfiles-decisions)
 - 実体は `~/ghq/github.com/yasainet/dotfiles/dot-claude/...`
 - symlink 先は `~/.claude/...`
-- hook は `HERDR_ENV=1` のときだけ動く。herdr 外の Claude Code では no-op
-- hook は SessionStart で `source == "startup"` のときだけ発火する
-- `resume` と `clear` では tab を作らない
+- hook は `HERDR_ENV=1` のときだけ動く
+- hook は PreToolUse で Edit / Write / NotebookEdit のいずれかにマッチした時に発火する
+- Bash / Skill / Task などは対象外 (ノイズ回避)
+- session_id 単位で 1 回だけ発火する
+- sentinel 格納先: `~/.claude/tmp/hunk-spawned/<session_id>` (空ファイル)
+- sentinel 掃除は行わない (数バイト × session 数、実害ゼロ)
 - git repo 外では tab を作らない
-- 2 tab 目以降の重複は当面許容する (Phase 2 で判断)
+- 2 tab 目以降の重複は当面許容する (Phase 3 で判断)
 
 ## File Structure
 
-Create:
-
-- `dot-claude/hooks/spawn-hunk-tab.sh` — SessionStart hook 本体
-
-Delete:
-
-- `dot-claude/hooks/session-base-record.sh` — 前 revision の hook
-- `dot-claude/scripts/session-diff.sh` — 前 revision の slash command 実装
-- `dot-claude/commands/session-diff.md` — 前 revision の slash command 定義
-
 Modify:
 
-- `dot-claude/settings.json` — SessionStart hooks 配列を差し替え
-- 具体的には `session-base-record.sh` の呼び出しを `spawn-hunk-tab.sh` に置換
+- `dot-claude/hooks/spawn-hunk-on-first-edit.sh` — 前 revision の `spawn-hunk-tab.sh` を rename + 中身刷新
+- `dot-claude/settings.json` — SessionStart から PreToolUse へ配線を移動
 
-## Task 1: 前 revision を撤去する
-
-Files:
-
-- Delete: `dot-claude/hooks/session-base-record.sh`
-- Delete: `dot-claude/scripts/session-diff.sh`
-- Delete: `dot-claude/commands/session-diff.md`
-- Modify: `dot-claude/settings.json` (`session-base-record.sh` の hook エントリを削除)
-
-- [ ] Step 1 — 3 ファイルを削除する
-
-```bash
-cd ~/ghq/github.com/yasainet/dotfiles
-git rm dot-claude/hooks/session-base-record.sh
-git rm dot-claude/scripts/session-diff.sh
-git rm dot-claude/commands/session-diff.md
-rmdir dot-claude/commands 2>/dev/null || true
-```
-
-- [ ] Step 2 — `settings.json` から旧 hook エントリを外す
-
-`hooks.SessionStart[0].hooks` 配列から `session-base-record.sh` のエントリを削除する。
-`herdr-agent-state.sh` は残す。
-
-- [ ] Step 3 — 副産物を掃除する
-
-`~/.claude/tmp/session-base/` は前 revision の base ファイル置き場だった。
-残しても実害はないが、掃除する。
-
-```bash
-rm -rf ~/.claude/tmp/session-base
-```
-
-- [ ] Step 4 — commit する
-
-```bash
-git add -A dot-claude
-git commit -m "revert(claude): base ファイル方式の /session-diff を撤去"
-```
-
-## Task 2: SessionStart hook で hunk tab を spawn する
+## Task 1: SessionStart hook を lazy PreToolUse に置き換える
 
 Files:
 
-- Create: `dot-claude/hooks/spawn-hunk-tab.sh`
-- Modify: `dot-claude/settings.json` (新しい hook エントリを追加)
+- Rename: `dot-claude/hooks/spawn-hunk-tab.sh` → `dot-claude/hooks/spawn-hunk-on-first-edit.sh`
+- Modify: 上記 hook スクリプトの中身
+- Modify: `dot-claude/settings.json`
 
 Interfaces:
 
-- Consumes: Claude Code SessionStart hook が stdin に渡す JSON
-- 必要なフィールドは `source`
+- Consumes: Claude Code PreToolUse hook が stdin に渡す JSON
+- 必要なフィールドは `session_id`
 - 環境変数 `HERDR_ENV` を参照する
-- Produces: 副作用として herdr に新規 tab を作り hunk を起動する
-- 標準出力は使わない (SessionStart hook は Claude 本体には見せない)
+- Produces: 副作用として `~/.claude/tmp/hunk-spawned/<session_id>` を作成する
+- 副作用として herdr に新規 tab を作り hunk を起動する (初回のみ)
+- 標準出力は使わない
 
-- [ ] Step 1 — hook スクリプトを新規作成する
+- [ ] Step 1 — hook ファイルを rename する
 
-`dot-claude/hooks/spawn-hunk-tab.sh` に以下を書く。
+```bash
+cd ~/ghq/github.com/yasainet/dotfiles
+git mv dot-claude/hooks/spawn-hunk-tab.sh dot-claude/hooks/spawn-hunk-on-first-edit.sh
+```
+
+- [ ] Step 2 — hook 本体を書き換える
+
+`dot-claude/hooks/spawn-hunk-on-first-edit.sh` の中身を以下に差し替える。
 
 ```bash
 #!/usr/bin/env bash
-# Claude Code SessionStart hook.
-# Opens a herdr tab that runs `hunk diff <HEAD-at-start> --watch`
-# so the session's cumulative diff is visible from the start.
+# Claude Code PreToolUse hook (Edit / Write / NotebookEdit).
+# On the first file-mutating tool call of a session, opens a herdr tab
+# running `hunk diff <HEAD-at-first-edit> --watch` so the session's
+# cumulative diff is visible from the moment editing begins.
+# Subsequent tool calls in the same session are no-op.
 set -euo pipefail
 
-# herdr 外では何もしない
 [[ "${HERDR_ENV:-}" == "1" ]] || exit 0
 
 payload=$(cat)
-source_kind=$(printf '%s' "$payload" \
-  | /usr/bin/grep -oE '"source"[[:space:]]*:[[:space:]]*"[^"]*"' \
+
+session_id=$(printf '%s' "$payload" \
+  | /usr/bin/grep -oE '"session_id"[[:space:]]*:[[:space:]]*"[^"]*"' \
   | /usr/bin/sed -E 's/.*"([^"]*)"$/\1/' \
   || true)
+[[ -n "$session_id" ]] || exit 0
 
-# resume と clear では tab を作らない
-if [[ "$source_kind" != "startup" && -n "$source_kind" ]]; then
+sentinel_dir="$HOME/.claude/tmp/hunk-spawned"
+mkdir -p "$sentinel_dir"
+sentinel="$sentinel_dir/$session_id"
+
+if ! (set -o noclobber; : > "$sentinel") 2>/dev/null; then
   exit 0
 fi
 
-# git repo 外では tab を作らない
 repo_root=$(git rev-parse --show-toplevel 2>/dev/null || true)
 [[ -n "$repo_root" ]] || exit 0
 
 head_sha=$(git rev-parse HEAD 2>/dev/null || true)
 [[ -n "$head_sha" ]] || exit 0
 
-# 現在の workspace ID を取り出す
 ws_id=$(herdr pane list 2>/dev/null | python3 -c '
 import sys, json
 try:
@@ -145,7 +109,6 @@ for pane in data.get("result", {}).get("panes", []):
 ' || true)
 [[ -n "$ws_id" ]] || exit 0
 
-# 新規 tab を作る (focus は奪わない)
 tab_resp=$(herdr tab create --workspace "$ws_id" --label "hunk" --no-focus 2>/dev/null || true)
 [[ -n "$tab_resp" ]] || exit 0
 
@@ -159,96 +122,104 @@ except Exception:
 ' || true)
 [[ -n "$pane_id" ]] || exit 0
 
-# hunk を起動 (repo に cd してから)
 herdr pane run "$pane_id" "cd '$repo_root' && hunk diff $head_sha --watch"
 ```
 
-実行権限を付ける。
+sentinel の atomic check-and-set は `set -o noclobber` + redirect の失敗で判定している。
+既に sentinel があれば redirect が失敗して `exit 0`、無ければ空ファイルが作られて処理継続する。
 
-```bash
-chmod +x ~/ghq/github.com/yasainet/dotfiles/dot-claude/hooks/spawn-hunk-tab.sh
-```
+- [ ] Step 3 — `settings.json` を書き換える
 
-- [ ] Step 2 — `settings.json` に hook を配線する
-
-`hooks.SessionStart[0].hooks` 配列の末尾に以下エントリを追加する。
+`hooks.SessionStart[0].hooks` から `spawn-hunk-tab.sh` エントリを削除する。
+代わりに `hooks.PreToolUse` 配列末尾に以下エントリを追加する。
 
 ```json
 {
-  "type": "command",
-  "command": "bash ~/ghq/github.com/yasainet/dotfiles/dot-claude/hooks/spawn-hunk-tab.sh",
-  "timeout": 5
+  "matcher": "Edit|Write|NotebookEdit",
+  "hooks": [
+    {
+      "type": "command",
+      "command": "bash ~/ghq/github.com/yasainet/dotfiles/dot-claude/hooks/spawn-hunk-on-first-edit.sh",
+      "timeout": 5
+    }
+  ]
 }
 ```
 
-- [ ] Step 3 — herdr 外での no-op を確認する
+matcher が regex を受け付けない場合は 3 エントリに分割する。
+現時点では regex 前提で書く。
+
+- [ ] Step 4 — no-op 分岐を検証する
 
 以下を実行する。
 
 ```bash
-env -u HERDR_ENV bash ~/ghq/github.com/yasainet/dotfiles/dot-claude/hooks/spawn-hunk-tab.sh <<< '{"source":"startup"}'
-echo "exit=$?"
+# HERDR_ENV なし
+env -u HERDR_ENV bash ~/ghq/github.com/yasainet/dotfiles/dot-claude/hooks/spawn-hunk-on-first-edit.sh <<< '{"session_id":"test-A","tool_name":"Edit"}'
+echo "no HERDR_ENV: exit=$?"
+
+# session_id なし
+HERDR_ENV=1 bash ~/ghq/github.com/yasainet/dotfiles/dot-claude/hooks/spawn-hunk-on-first-edit.sh <<< '{"tool_name":"Edit"}'
+echo "no session_id: exit=$?"
 ```
 
-期待: `exit=0`、herdr の状態変化なし。
+期待: いずれも `exit=0`、tab / sentinel 数変化なし。
 
-- [ ] Step 4 — resume/clear で発火しないことを確認する
+- [ ] Step 5 — 初回発火と idempotency を検証する
 
 以下を実行する。
 
 ```bash
-before=$(herdr tab list --workspace w1H 2>/dev/null | python3 -c 'import sys,json; print(len(json.load(sys.stdin)["result"]["tabs"]))')
-HERDR_ENV=1 bash ~/ghq/github.com/yasainet/dotfiles/dot-claude/hooks/spawn-hunk-tab.sh <<< '{"source":"resume"}'
-HERDR_ENV=1 bash ~/ghq/github.com/yasainet/dotfiles/dot-claude/hooks/spawn-hunk-tab.sh <<< '{"source":"clear"}'
-after=$(herdr tab list --workspace w1H 2>/dev/null | python3 -c 'import sys,json; print(len(json.load(sys.stdin)["result"]["tabs"]))')
-[[ "$before" == "$after" ]] && echo OK-no-new-tab || echo NG-new-tab-created
+rm -rf ~/.claude/tmp/hunk-spawned
+
+# 1st call
+HERDR_ENV=1 bash ~/ghq/github.com/yasainet/dotfiles/dot-claude/hooks/spawn-hunk-on-first-edit.sh <<< '{"session_id":"test-A","tool_name":"Edit"}'
+echo "1st: exit=$?"
+
+# 2nd call, same session_id
+HERDR_ENV=1 bash ~/ghq/github.com/yasainet/dotfiles/dot-claude/hooks/spawn-hunk-on-first-edit.sh <<< '{"session_id":"test-A","tool_name":"Write"}'
+echo "2nd: exit=$?"
+
+# 3rd call, different session_id
+HERDR_ENV=1 bash ~/ghq/github.com/yasainet/dotfiles/dot-claude/hooks/spawn-hunk-on-first-edit.sh <<< '{"session_id":"test-B","tool_name":"Edit"}'
+echo "3rd: exit=$?"
+
+ls ~/.claude/tmp/hunk-spawned/
 ```
 
-期待: `OK-no-new-tab`。
-
-`w1H` の部分は自分の workspace ID で置き換える。
-
-- [ ] Step 5 — startup で tab が生えて hunk が起動することを確認する
-
-以下を実行する。
-
-```bash
-HERDR_ENV=1 bash ~/ghq/github.com/yasainet/dotfiles/dot-claude/hooks/spawn-hunk-tab.sh <<< '{"source":"startup"}'
-```
-
-期待: 新規 tab が現れる。
-tab の中で `hunk diff <SHA> --watch` が走る。
-表示は session 開始時点の HEAD からの diff (working tree との差分)。
+期待: 1st と 3rd で hunk tab が生える。
+2nd では生えない。
+sentinel は `test-A` と `test-B` の 2 つ。
 
 このステップは目視確認項目とする。
-実行者は pass / fail を明示的に報告する。
 
 - [ ] Step 6 — commit する
 
 ```bash
-git add dot-claude/hooks/spawn-hunk-tab.sh dot-claude/settings.json
-git commit -m "add(claude): SessionStart hook で hunk tab を herdr に spawn"
+git add dot-claude/hooks/spawn-hunk-on-first-edit.sh dot-claude/settings.json
+git commit -m "change(claude): SessionStart hook を lazy PreToolUse に置き換え"
 ```
 
 ## Verification
 
 以下がすべて成立したら完了とする。
 
-- [ ] 新規 Claude Code session を開始すると、herdr の新規 tab に hunk が立ち上がる
-- [ ] `/clear` や `--resume` では tab が作られない
-- [ ] git repo 外の session では tab が作られない
-- [ ] herdr 外 (直接ターミナル起動) の Claude Code では tab が作られない
+- [ ] 相談だけの session (Edit / Write / NotebookEdit なし) では tab が作られない
+- [ ] 実装 session の最初の Edit / Write / NotebookEdit で tab が生えて hunk が起動する
+- [ ] 同じ session 内の 2 回目以降の Edit / Write / NotebookEdit では tab が生えない
+- [ ] Bash による git commit や sed -i では tab が生えない
+- [ ] herdr 外の Claude Code では tab が作られない
 - [ ] 生えた hunk tab は session 途中で commit しても表示を維持する
-- [ ] session を `/exit` しても hunk tab は残る (単独プロセスなので)
+- [ ] session を `/exit` しても hunk tab は残る
 
-## Phase 2 判断のための観測ポイント
+## Phase 3 判断のための観測ポイント
 
 以下を体感して次の改善判断材料にする。
 
-- 同じ repo で複数回 startup した時の tab 重複がどれだけ邪魔になるか
-- 相談だけの session で tab が生えるのが邪魔かどうか
-- `git rev-parse HEAD` が空の repo (最初の commit 前) での挙動が問題になるか
-- worktree 経由の session (`GIT_DIR != GIT_COMMON`) での挙動が問題になるか
+- session_id 単位の sentinel でも「同じ repo 複数 session」の tab 重複が起きる
+- その重複がどれだけ邪魔になるか
+- Bash 経由の編集がメインの session (稀) で「tab が生えなくて困った」ケースがあるか
+- sentinel ディレクトリの累積サイズが気になるかどうか
+- worktree 経由の session での挙動が問題になるか
 
-上記が Phase 2 (重複防止、lazy 起動、worktree 対応) の判断材料になる。
-Phase 1 の段階では対策を先取りしない。
+上記が Phase 3 (repo 単位 sentinel、Bash マッチ追加、sentinel TTL、worktree 対応) の判断材料になる。

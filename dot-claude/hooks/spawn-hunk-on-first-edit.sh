@@ -1,18 +1,26 @@
 #!/usr/bin/env bash
-# Claude Code SessionStart hook.
-# Opens a herdr tab that runs `hunk diff <HEAD-at-start> --watch`
-# so the session's cumulative diff is visible from the start.
+# Claude Code PreToolUse hook (Edit / Write / NotebookEdit).
+# On the first file-mutating tool call of a session, opens a herdr tab
+# running `hunk diff <HEAD-at-first-edit> --watch` so the session's
+# cumulative diff is visible from the moment editing begins.
+# Subsequent tool calls in the same session are no-op.
 set -euo pipefail
 
 [[ "${HERDR_ENV:-}" == "1" ]] || exit 0
 
 payload=$(cat)
-source_kind=$(printf '%s' "$payload" \
-  | /usr/bin/grep -oE '"source"[[:space:]]*:[[:space:]]*"[^"]*"' \
+
+session_id=$(printf '%s' "$payload" \
+  | /usr/bin/grep -oE '"session_id"[[:space:]]*:[[:space:]]*"[^"]*"' \
   | /usr/bin/sed -E 's/.*"([^"]*)"$/\1/' \
   || true)
+[[ -n "$session_id" ]] || exit 0
 
-if [[ "$source_kind" != "startup" && -n "$source_kind" ]]; then
+sentinel_dir="$HOME/.claude/tmp/hunk-spawned"
+mkdir -p "$sentinel_dir"
+sentinel="$sentinel_dir/$session_id"
+
+if ! (set -o noclobber; : > "$sentinel") 2>/dev/null; then
   exit 0
 fi
 
