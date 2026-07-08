@@ -74,7 +74,7 @@
           },
           {
             "type": "command",
-            "command": "bash ~/ghq/github.com/yasainet/dotfiles/dot-claude/hooks/spawn-hunk-tab.sh",
+            "command": "bash ~/ghq/github.com/yasainet/dotfiles/dot-claude/hooks/spawn-hunk-pane.sh",
             "timeout": 5
           }
         ]
