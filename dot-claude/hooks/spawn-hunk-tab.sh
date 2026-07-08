@@ -1,8 +1,7 @@
 #!/usr/bin/env bash
 # Claude Code SessionStart hook.
-# Splits the current herdr pane to the right and runs
-# `hunk diff <HEAD-at-start> --watch` so the session's cumulative
-# diff is visible from the start.
+# Opens a herdr tab that runs `hunk diff <HEAD-at-start> --watch`
+# so the session's cumulative diff is visible from the start.
 set -euo pipefail
 
 [[ "${HERDR_ENV:-}" == "1" ]] || exit 0
@@ -23,7 +22,7 @@ repo_root=$(git rev-parse --show-toplevel 2>/dev/null || true)
 head_sha=$(git rev-parse HEAD 2>/dev/null || true)
 [[ -n "$head_sha" ]] || exit 0
 
-current_pane=$(herdr pane list 2>/dev/null | python3 -c '
+ws_id=$(herdr pane list 2>/dev/null | python3 -c '
 import sys, json
 try:
     data = json.load(sys.stdin)
@@ -31,22 +30,22 @@ except Exception:
     sys.exit(0)
 for pane in data.get("result", {}).get("panes", []):
     if pane.get("focused"):
-        print(pane.get("pane_id", ""))
+        print(pane.get("workspace_id", ""))
         break
 ' || true)
-[[ -n "$current_pane" ]] || exit 0
+[[ -n "$ws_id" ]] || exit 0
 
-split_resp=$(herdr pane split "$current_pane" --direction right --no-focus 2>/dev/null || true)
-[[ -n "$split_resp" ]] || exit 0
+tab_resp=$(herdr tab create --workspace "$ws_id" --label "hunk" --no-focus 2>/dev/null || true)
+[[ -n "$tab_resp" ]] || exit 0
 
-new_pane=$(printf '%s' "$split_resp" | python3 -c '
+pane_id=$(printf '%s' "$tab_resp" | python3 -c '
 import sys, json
 try:
     data = json.load(sys.stdin)
-    print(data["result"]["pane"]["pane_id"])
+    print(data["result"]["root_pane"]["pane_id"])
 except Exception:
     pass
 ' || true)
-[[ -n "$new_pane" ]] || exit 0
+[[ -n "$pane_id" ]] || exit 0
 
-herdr pane run "$new_pane" "cd '$repo_root' && hunk diff $head_sha --watch"
+herdr pane run "$pane_id" "cd '$repo_root' && hunk diff $head_sha --watch"
