@@ -39,6 +39,16 @@
             "command": "bash ~/ghq/github.com/yasainet/dotfiles/dot-claude/hooks/block-superpowers-auto-invoke.sh"
           }
         ]
+      },
+      {
+        "matcher": "Edit|Write|NotebookEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash ~/ghq/github.com/yasainet/dotfiles/dot-claude/hooks/spawn-hunk-on-first-edit.sh",
+            "timeout": 5
+          }
+        ]
       }
     ],
     "UserPromptSubmit": [
@@ -71,11 +81,6 @@
             "type": "command",
             "command": "bash ~/ghq/github.com/yasainet/dotfiles/dot-claude/hooks/herdr-agent-state.sh session",
             "timeout": 10
-          },
-          {
-            "type": "command",
-            "command": "bash ~/ghq/github.com/yasainet/dotfiles/dot-claude/hooks/spawn-hunk-tab.sh",
-            "timeout": 5
           }
         ]
       }
