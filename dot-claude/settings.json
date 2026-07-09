@@ -1,4 +1,8 @@
 {
+  "fileSuggestion": {
+    "type": "command",
+    "command": "bash ~/ghq/github.com/yasainet/dotfiles/dot-claude/scripts/ghq-suggest.sh"
+  },
   "env": {
     "ANTHROPIC_DEFAULT_OPUS_MODEL": "claude-opus-4-7[1m]",
     "ANTHROPIC_DEFAULT_SONNET_MODEL": "claude-sonnet-5[1m]",
@@ -84,13 +88,8 @@
     "type": "command",
     "command": "sh ~/.claude/statusline-command.sh"
   },
-  "fileSuggestion": {
-    "type": "command",
-    "command": "bash ~/ghq/github.com/yasainet/dotfiles/dot-claude/scripts/ghq-suggest.sh"
-  },
   "enabledPlugins": {
     "context7@claude-plugins-official": true,
-    "superpowers@claude-plugins-official": true,
     "commit-commands@claude-plugins-official": true
   },
   "language": "Japanese",
