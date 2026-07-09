@@ -1,10 +1,7 @@
 ---
-name: bump
-description: [Skills] Bump patch version tag
+description: patch version tag を bump
 allowed-tools: Bash(git *)
 ---
-
-# Bump skill
 
 ## Steps
 
