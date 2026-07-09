@@ -1,10 +1,7 @@
 ---
-name: issue
-description: [Skills] Crate issue to GitHub/Gitea
+description: GitHub/Gitea に issue を作成
 allowed-tools: Bash(gh *), Bash(tea *), Bash(git remote *), AskUserQuestion
 ---
-
-# Issue skill
 
 ## Steps
 

@@ -40,16 +40,6 @@
             "command": "node ~/ghq/github.com/yasainet/dotfiles/dot-claude/hooks/inject-path-rule.mjs"
           }
         ]
-      },
-      {
-        "matcher": "Edit|Write|NotebookEdit",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "bash ~/ghq/github.com/yasainet/dotfiles/dot-claude/hooks/spawn-hunk-on-first-edit.sh",
-            "timeout": 5
-          }
-        ]
       }
     ],
     "UserPromptSubmit": [
