@@ -102,7 +102,7 @@
   "effortLevel": "xhigh",
   "autoUpdatesChannel": "latest",
   "plansDirectory": "./docs/plans",
-  "tui": "fullscreen",
+  "tui": "default",
   "voice": {
     "enabled": true,
     "mode": "hold"
