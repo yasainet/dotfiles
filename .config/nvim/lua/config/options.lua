@@ -74,12 +74,10 @@ vim.filetype.add({
 
 -- Cursor
 vim.opt.guicursor = {
-	"n-v-c:block-blinkon100",
-	"i-ci:ver25-blinkon100",
-	"r-cr:hor20-blinkon100",
-	"o:hor50",
-	"a:blinkwait700-blinkoff400-blinkon250",
-	"sm:block-blinkon100",
+	"n-v-c-sm:block",
+	"i-ci-ve:ver25",
+	"r-cr-o:hor20",
+	"a:blinkwait500-blinkoff500-blinkon500",
 }
 
 -- Options

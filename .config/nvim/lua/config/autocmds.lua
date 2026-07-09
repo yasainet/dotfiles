@@ -15,7 +15,7 @@ vim.api.nvim_create_autocmd("FileChangedShell", {
 	end,
 })
 
--- Clear stale diagnostics on LSP detach (workaround for neovim/neovim#30385)
+-- Clear stale diagnostics on LSP detach
 vim.api.nvim_create_autocmd("LspDetach", {
 	callback = function(ev)
 		local ns = vim.lsp.diagnostic.get_namespace(ev.data.client_id)
@@ -23,8 +23,7 @@ vim.api.nvim_create_autocmd("LspDetach", {
 	end,
 })
 
--- ESLint: apply `eslint.applyAllFixes` on save (= Zed/VSCode の source.fixAll.eslint)
--- 非同期 code_action は保存に間に合わないため、request_sync で保存前に同期適用する
+-- ESLint
 vim.api.nvim_create_autocmd("BufWritePre", {
 	pattern = { "*.js", "*.jsx", "*.ts", "*.tsx", "*.mjs", "*.cjs" },
 	callback = function(ev)
