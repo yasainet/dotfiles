@@ -16,6 +16,5 @@ npx skills add ogulcancelik/herdr --skill herdr -g
 Check diff:
 
 ```sh
-curl -sL https://raw.githubusercontent.com/ogulcancelik/herdr/master/SKILL.md \
-  | diff - SKILL.md
+curl -sL https://raw.githubusercontent.com/ogulcancelik/herdr/master/SKILL.md | diff - SKILL.md
 ```
