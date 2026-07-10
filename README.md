@@ -13,7 +13,7 @@ xcode-select --install
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
 brew install ghq
-ghq get --recursive https://github.com/yasainet/dotfiles
+ghq get https://github.com/yasainet/dotfiles
 cd ~/ghq/github.com/yasainet/dotfiles
 ./install.sh
 ```
@@ -23,9 +23,22 @@ cd ~/ghq/github.com/yasainet/dotfiles
 ```sh
 sudo apt update && sudo apt install -y git ghq
 
-ghq get --recursive https://github.com/yasainet/dotfiles
+ghq get https://github.com/yasainet/dotfiles
 cd ~/ghq/github.com/yasainet/dotfiles
 ./install.sh
+```
+
+### Rename machine (macOS)
+
+```sh
+NEW="MACHINE_NAME"
+sudo scutil --set ComputerName  "$NEW"
+sudo scutil --set LocalHostName "$NEW"
+sudo scutil --set HostName      "$NEW"
+dscacheutil -flushcache
+
+# Check
+scutil --get ComputerName
 ```
 
 ## Usage
