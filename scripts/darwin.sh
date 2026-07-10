@@ -1,7 +1,5 @@
 #!/bin/bash
 
-# macOS-specific installation
-
 # ====================
 # Homebrew
 # ====================
@@ -15,7 +13,6 @@ install_homebrew() {
   fi
 }
 
-# `brew install` の対話プロンプト（新規依存追加時の y/n 確認など）を自動で y にする
 brew() {
   if [ "$1" = "install" ]; then
     shift
@@ -118,7 +115,7 @@ install_cli_tools() {
   # Stripe
   brew install stripe-cli
 
-  # Supabase (prefer tap version; uninstall core conflict if needed)
+  # Supabase
   brew install supabase/tap/supabase || {
     brew uninstall --ignore-dependencies supabase 2>/dev/null || true
     brew install supabase/tap/supabase
@@ -154,7 +151,7 @@ install_cli_tools() {
     chmod +x "$HOME/.local/bin/llama-swap"
   fi
 
-  # Claude Code CLI (native installer)
+  # Claude Code CLI
   if ! command -v claude &>/dev/null; then
     curl -fsSL https://claude.ai/install.sh | bash
   fi
@@ -168,6 +165,7 @@ install_gui_apps() {
 
   # Fonts
   brew install --cask font-plemol-jp-nf
+  # TODO: fix
   brew install --cask font-sf-pro
   brew install --cask font-sf-mono
 
@@ -214,47 +212,6 @@ install_mas_apps() {
 }
 
 # ====================
-# iCloud Downloads
-# ====================
-setup_icloud_downloads() {
-  echo "Setting up iCloud Downloads..."
-
-  local icloud_drive="$HOME/Library/Mobile Documents/com~apple~CloudDocs"
-  local icloud_downloads="$icloud_drive/Downloads"
-  local local_downloads="$HOME/Downloads"
-
-  # Check if iCloud Drive exists
-  if [[ ! -d "$icloud_drive" ]]; then
-    echo "iCloud Drive not found. Please sign in to iCloud first."
-    return 1
-  fi
-
-  # Skip if already a symlink
-  if [[ -L "$local_downloads" ]]; then
-    echo "~/Downloads is already a symlink. Skipping."
-    return 0
-  fi
-
-  # Create iCloud Downloads folder if not exists
-  if [[ ! -d "$icloud_downloads" ]]; then
-    echo "Creating Downloads folder in iCloud Drive..."
-    mkdir -p "$icloud_downloads"
-  fi
-
-  # Backup existing Downloads if not empty
-  if [[ -d "$local_downloads" ]] && [[ -n "$(ls -A "$local_downloads" 2>/dev/null)" ]]; then
-    echo "Backing up existing Downloads to ~/Downloads.local..."
-    mv "$local_downloads" "$HOME/Downloads.local"
-  else
-    rm -rf "$local_downloads"
-  fi
-
-  # Create symlink
-  ln -s "$icloud_downloads" "$local_downloads"
-  echo "iCloud Downloads setup complete."
-}
-
-# ====================
 # System Preferences
 # ====================
 configure_system() {
@@ -289,8 +246,11 @@ configure_system() {
   defaults write -g InitialKeyRepeat -int 15
   defaults write -g ApplePressAndHoldEnabled -bool false
 
-  # Notification Center shortcut
-  defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 163 "{ enabled = 1; value = { parameters = (65535, 53, 1048576); type = 'standard'; }; }"
+  # Notification Center
+  plutil -replace AppleSymbolicHotKeys.163 \
+    -json '{"enabled":true,"value":{"parameters":[65535,53,1048576],"type":"standard"}}' \
+    ~/Library/Preferences/com.apple.symbolichotkeys.plist
+  /System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u
 
   # Disable two-finger swipe from right edge
   defaults write com.apple.AppleMultitouchTrackpad TrackpadTwoFingerFromRightEdgeSwipeGesture -int 0
@@ -346,7 +306,7 @@ link_claude_code() {
   link "$DOTFILES/dot-claude/docs" "$HOME/.claude/docs"
   link "$DOTFILES/dot-claude/statusline-command.sh" "$HOME/.claude/statusline-command.sh"
 
-  # Hunk's bundled review skill (resolved against the current brew opt path)
+  # hunk
   if command -v hunk &>/dev/null; then
     ln -sfn "$(command brew --prefix hunk)/libexec/skills/hunk-review" "$HOME/.claude/skills/hunk-review"
   fi

@@ -1,7 +1,5 @@
 #!/bin/bash
 
-# Linux-specific installation (Ubuntu/Debian)
-
 # ====================
 # CLI Tools
 # ====================

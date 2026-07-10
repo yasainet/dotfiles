@@ -1,7 +1,5 @@
 #!/bin/bash
 
-# Common functions for all platforms
-
 # ====================
 # Symlinks
 # ====================
