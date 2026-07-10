@@ -226,24 +226,49 @@ configure_system() {
   # Appearance
   defaults write -g AppleInterfaceStyle -string "Dark"                                         # ダークモード固定
 
-  # Menu Bar
-  defaults write -g _HIHideMenuBar -bool true                                                  # メニューバー自動非表示
-
   # Keyboard
-  defaults write NSAutomaticSpellingCorrectionEnabled -bool false                              # 自動スペル修正 OFF
-  defaults write WebAutomaticSpellingCorrectionEnabled -bool false                             # Web ビュー内の自動スペル修正 OFF
-  defaults write NSAutomaticCapitalizationEnabled -bool false                                  # 文頭の自動大文字化 OFF
-  defaults write NSAutomaticPeriodSubstitutionEnabled -bool false                              # スペース 2 回でピリオド挿入 OFF
-  defaults write NSAutomaticDashSubstitutionEnabled -bool false                                # スマートダッシュ (-- → —) OFF
-  defaults write NSAutomaticQuoteSubstitutionEnabled -bool false                               # スマートクォート ("" → "") OFF
-  defaults write -g KeyRepeat -int 2                                                           # キーリピート速度 (小さいほど速い)
-  defaults write -g InitialKeyRepeat -int 15                                                   # リピート開始までの遅延 (小さいほど短い)
+  defaults write -g KeyRepeat -int 2                                                           # キーリピート速度
+  defaults write -g InitialKeyRepeat -int 15                                                   # リピート開始までの遅延
   defaults write -g ApplePressAndHoldEnabled -bool false                                       # 長押しアクセント入力を無効化しキーリピートを優先
 
   # Notification Center
   plutil -replace AppleSymbolicHotKeys.163 \
     -json '{"enabled":true,"value":{"parameters":[65535,53,1048576],"type":"standard"}}' \
     ~/Library/Preferences/com.apple.symbolichotkeys.plist
+
+  # Screenshot hotkeys: swap file/clipboard defaults
+  #   Cmd+Shift+3/4       → クリップボード (macOS default はファイル)
+  #   Ctrl+Cmd+Shift+3/4  → ファイル       (macOS default はクリップボード)
+  plutil -replace AppleSymbolicHotKeys.28 \
+    -json '{"enabled":true,"value":{"parameters":[51,20,1441792],"type":"standard"}}' \
+    ~/Library/Preferences/com.apple.symbolichotkeys.plist   # 画面全体 → ファイル: Ctrl+Cmd+Shift+3
+  plutil -replace AppleSymbolicHotKeys.29 \
+    -json '{"enabled":true,"value":{"parameters":[51,20,1179648],"type":"standard"}}' \
+    ~/Library/Preferences/com.apple.symbolichotkeys.plist   # 画面全体 → クリップボード: Cmd+Shift+3
+  plutil -replace AppleSymbolicHotKeys.30 \
+    -json '{"enabled":true,"value":{"parameters":[52,21,1441792],"type":"standard"}}' \
+    ~/Library/Preferences/com.apple.symbolichotkeys.plist   # 範囲選択 → ファイル: Ctrl+Cmd+Shift+4
+  plutil -replace AppleSymbolicHotKeys.31 \
+    -json '{"enabled":true,"value":{"parameters":[52,21,1179648],"type":"standard"}}' \
+    ~/Library/Preferences/com.apple.symbolichotkeys.plist   # 範囲選択 → クリップボード: Cmd+Shift+4
+
+  # Input Source 切替の hotkey を OFF
+  #   60: Select previous input source (Ctrl+Space)
+  #   61: Select next input source (Ctrl+Opt+Space)
+  plutil -replace AppleSymbolicHotKeys.60 \
+    -json '{"enabled":false,"value":{"parameters":[32,49,262144],"type":"standard"}}' \
+    ~/Library/Preferences/com.apple.symbolichotkeys.plist
+  plutil -replace AppleSymbolicHotKeys.61 \
+    -json '{"enabled":false,"value":{"parameters":[32,49,786432],"type":"standard"}}' \
+    ~/Library/Preferences/com.apple.symbolichotkeys.plist
+
+  # Focus navigation
+  for id in 15 16 17 18 19 20 21 22 23 24 25 26; do
+    plutil -replace "AppleSymbolicHotKeys.$id" \
+      -json '{"enabled":false}' \
+      ~/Library/Preferences/com.apple.symbolichotkeys.plist
+  done
+
   /System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u
 
   # Disable two-finger swipe from right edge
@@ -263,7 +288,7 @@ configure_system() {
 
   # Finder
   defaults write NSGlobalDomain AppleShowAllExtensions -bool true   # 全ての拡張子を表示
-  defaults write com.apple.Finder AppleShowAllFiles -bool true      # 隠しファイルを表示
+  defaults write com.apple.finder AppleShowAllFiles -bool true      # 隠しファイルを表示
   defaults write com.apple.finder ShowPathbar -bool true            # パスバーを表示
   defaults write com.apple.finder ShowStatusBar -bool true          # ステータスバーを表示
 
@@ -277,6 +302,14 @@ configure_system() {
   killall Dock || true
   killall Finder || true
   killall SystemUIServer || true
+}
+
+# ====================
+# Firewall (Application Firewall)
+# ====================
+configure_firewall() {
+  echo "Enabling Application Firewall..."
+  sudo /usr/libexec/ApplicationFirewall/socketfilterfw --setglobalstate on
 }
 
 # ====================
