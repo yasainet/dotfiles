@@ -150,11 +150,14 @@ fi
 # compinit
 autoload -Uz compinit
 ZSH_COMPDUMP="${ZDOTDIR}/.zcompdump"
+_compinit_flags=(-d "$ZSH_COMPDUMP")
+[[ "$OSTYPE" == "darwin"* ]] && _compinit_flags+=(-u)
 if [[ -n "$ZSH_COMPDUMP"(#qN.mh+24) ]] || [[ ! -f "$ZSH_COMPDUMP" ]]; then
-  compinit -d "$ZSH_COMPDUMP"
+  compinit "${_compinit_flags[@]}"
 else
-  compinit -C -d "$ZSH_COMPDUMP"
+  compinit -C "${_compinit_flags[@]}"
 fi
+unset _compinit_flags
 
 # Prompt: Pure
 if [[ "$OSTYPE" != "darwin"* ]]; then

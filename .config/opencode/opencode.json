@@ -66,7 +66,7 @@
       }
     }
   },
-  "model": "llamacpp-local/Qwen3.6-35B-A3B-Uncensored-HauhauCS-Aggressive",
+  "model": "llamacpp-local/qwen3.6-35b-a3b-hauhau",
   "watcher": {
     "ignore": ["node_modules/**", "dist/**", ".git/**"]
   }

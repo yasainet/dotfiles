@@ -1,6 +1,9 @@
 # Notifications
 desktop-notifications = true
 
+# Auto Update
+auto-update = download
+
 # Shell Integration
 shell-integration = none
 
