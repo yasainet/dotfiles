@@ -45,6 +45,16 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 	end,
 })
 
+-- Switch to ABC on nvim startup (macOS).
+if vim.fn.has("mac") == 1 and vim.fn.executable("macism") == 1 then
+	vim.api.nvim_create_autocmd("VimEnter", {
+		group = vim.api.nvim_create_augroup("AutoImeABC", { clear = true }),
+		callback = function()
+			vim.fn.jobstart({ "macism", "com.apple.keylayout.ABC" }, { detach = true })
+		end,
+	})
+end
+
 -- Reload snacks explorer
 vim.api.nvim_create_autocmd("FocusGained", {
 	callback = function()
