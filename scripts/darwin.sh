@@ -3,6 +3,8 @@
 # ====================
 # Homebrew
 # ====================
+export HOMEBREW_NO_ASK=1
+
 install_homebrew() {
   if ! command -v brew &> /dev/null; then
     echo "Installing Homebrew..."
@@ -10,15 +12,6 @@ install_homebrew() {
     eval "$(/opt/homebrew/bin/brew shellenv)"
   else
     echo "Homebrew already installed"
-  fi
-}
-
-brew() {
-  if [ "$1" = "install" ]; then
-    shift
-    yes y 2>/dev/null | command brew install "$@"
-  else
-    command brew "$@"
   fi
 }
 
