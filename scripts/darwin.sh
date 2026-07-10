@@ -53,7 +53,6 @@ install_cli_tools() {
   brew install git
   brew install git-lfs
   brew install gh
-  brew install glab
   brew install tea
   brew install neovim
   brew install bat
@@ -74,17 +73,14 @@ install_cli_tools() {
   brew install pnpm
   brew install firebase-cli
   brew install tailscale
-  brew install translate-shell
   brew install yt-dlp
   brew install lua-language-server
   brew install tree-sitter-cli
   brew install tailspin
   brew install taplo
   brew install glow
-  brew install shuntaka9576/tap/chathist
   brew install modem-dev/tap/hunk
   brew install gallery-dl
-  brew install git-filter-repo
   brew install libpq
   brew install librsvg
 
@@ -165,8 +161,6 @@ install_gui_apps() {
 
   # Fonts
   brew install --cask font-plemol-jp-nf
-  # TODO: fix
-  brew install --cask font-sf-pro
   brew install --cask font-sf-mono
 
   # Terminal
@@ -218,33 +212,33 @@ configure_system() {
   echo "Configuring system preferences..."
 
   # Trackpad
-  defaults write -g com.apple.trackpad.scaling -float 3.0
-  defaults write com.apple.AppleMultitouchTrackpad TrackpadThreeFingerDrag -bool true
-  defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadThreeFingerDrag -bool true
-  defaults write com.apple.AppleMultitouchTrackpad Clicking -bool true
-  defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
+  defaults write -g com.apple.trackpad.scaling -float 3.0                                      # カーソル移動速度 (最大 3.0)
+  defaults write com.apple.AppleMultitouchTrackpad TrackpadThreeFingerDrag -bool true          # 内蔵: 三本指ドラッグ
+  defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadThreeFingerDrag -bool true  # Bluetooth: 三本指ドラッグ
+  defaults write com.apple.AppleMultitouchTrackpad Clicking -bool true                         # 内蔵: タップでクリック
+  defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true        # Bluetooth: タップでクリック
 
   # Mouse
-  defaults write -g com.apple.mouse.scaling -float 3.0
-  defaults write -g com.apple.scrollwheel.scaling -float 1.0
-  defaults write -g com.apple.swipescrolldirection -bool true
+  defaults write -g com.apple.mouse.scaling -float 3.0                                         # マウスカーソル移動速度 (最大 3.0)
+  defaults write -g com.apple.scrollwheel.scaling -float 1.0                                   # スクロールホイール速度
+  defaults write -g com.apple.swipescrolldirection -bool true                                  # ナチュラルスクロール ON
 
   # Appearance
-  defaults write -g AppleInterfaceStyle -string "Dark"
+  defaults write -g AppleInterfaceStyle -string "Dark"                                         # ダークモード固定
 
   # Menu Bar
-  defaults write -g _HIHideMenuBar -bool true
+  defaults write -g _HIHideMenuBar -bool true                                                  # メニューバー自動非表示
 
   # Keyboard
-  defaults write NSAutomaticSpellingCorrectionEnabled -bool false
-  defaults write WebAutomaticSpellingCorrectionEnabled -bool false
-  defaults write NSAutomaticCapitalizationEnabled -bool false
-  defaults write NSAutomaticPeriodSubstitutionEnabled -bool false
-  defaults write NSAutomaticDashSubstitutionEnabled -bool false
-  defaults write NSAutomaticQuoteSubstitutionEnabled -bool false
-  defaults write -g KeyRepeat -int 2
-  defaults write -g InitialKeyRepeat -int 15
-  defaults write -g ApplePressAndHoldEnabled -bool false
+  defaults write NSAutomaticSpellingCorrectionEnabled -bool false                              # 自動スペル修正 OFF
+  defaults write WebAutomaticSpellingCorrectionEnabled -bool false                             # Web ビュー内の自動スペル修正 OFF
+  defaults write NSAutomaticCapitalizationEnabled -bool false                                  # 文頭の自動大文字化 OFF
+  defaults write NSAutomaticPeriodSubstitutionEnabled -bool false                              # スペース 2 回でピリオド挿入 OFF
+  defaults write NSAutomaticDashSubstitutionEnabled -bool false                                # スマートダッシュ (-- → —) OFF
+  defaults write NSAutomaticQuoteSubstitutionEnabled -bool false                               # スマートクォート ("" → "") OFF
+  defaults write -g KeyRepeat -int 2                                                           # キーリピート速度 (小さいほど速い)
+  defaults write -g InitialKeyRepeat -int 15                                                   # リピート開始までの遅延 (小さいほど短い)
+  defaults write -g ApplePressAndHoldEnabled -bool false                                       # 長押しアクセント入力を無効化しキーリピートを優先
 
   # Notification Center
   plutil -replace AppleSymbolicHotKeys.163 \
@@ -253,31 +247,31 @@ configure_system() {
   /System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u
 
   # Disable two-finger swipe from right edge
-  defaults write com.apple.AppleMultitouchTrackpad TrackpadTwoFingerFromRightEdgeSwipeGesture -int 0
-  defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadTwoFingerFromRightEdgeSwipeGesture -int 0
+  defaults write com.apple.AppleMultitouchTrackpad TrackpadTwoFingerFromRightEdgeSwipeGesture -int 0                # 内蔵: 右端 2 本指スワイプで通知センターを開くジェスチャー OFF
+  defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadTwoFingerFromRightEdgeSwipeGesture -int 0  # Bluetooth: 同上
 
   # Dock
-  defaults write com.apple.dock persistent-apps -array
-  defaults write com.apple.dock wvous-tl-corner -int 0
-  defaults write com.apple.dock wvous-tl-modifier -int 0
-  defaults write com.apple.dock wvous-tr-corner -int 0
-  defaults write com.apple.dock wvous-tr-modifier -int 0
-  defaults write com.apple.dock wvous-bl-corner -int 0
-  defaults write com.apple.dock wvous-bl-modifier -int 0
-  defaults write com.apple.dock wvous-br-corner -int 0
-  defaults write com.apple.dock wvous-br-modifier -int 0
+  defaults write com.apple.dock persistent-apps -array           # Dock の常駐アプリを空に
+  defaults write com.apple.dock wvous-tl-corner -int 0           # ホットコーナー 左上 無効化
+  defaults write com.apple.dock wvous-tl-modifier -int 0         # 左上 修飾キー無し
+  defaults write com.apple.dock wvous-tr-corner -int 0           # 右上 無効化
+  defaults write com.apple.dock wvous-tr-modifier -int 0         # 右上 修飾キー無し
+  defaults write com.apple.dock wvous-bl-corner -int 0           # 左下 無効化
+  defaults write com.apple.dock wvous-bl-modifier -int 0         # 左下 修飾キー無し
+  defaults write com.apple.dock wvous-br-corner -int 0           # 右下 無効化
+  defaults write com.apple.dock wvous-br-modifier -int 0         # 右下 修飾キー無し
 
   # Finder
-  defaults write NSGlobalDomain AppleShowAllExtensions -bool true
-  defaults write com.apple.Finder AppleShowAllFiles -bool true
-  defaults write com.apple.finder ShowPathbar -bool true
-  defaults write com.apple.finder ShowStatusBar -bool true
+  defaults write NSGlobalDomain AppleShowAllExtensions -bool true   # 全ての拡張子を表示
+  defaults write com.apple.Finder AppleShowAllFiles -bool true      # 隠しファイルを表示
+  defaults write com.apple.finder ShowPathbar -bool true            # パスバーを表示
+  defaults write com.apple.finder ShowStatusBar -bool true          # ステータスバーを表示
 
   # Screenshots
-  defaults write com.apple.screencapture location "$HOME/Downloads"
-  defaults write com.apple.screencapture type -string "png"
-  defaults write com.apple.screencapture show-thumbnail -bool true
-  defaults write com.apple.screencapture captureHDR -bool false 
+  defaults write com.apple.screencapture location "$HOME/Downloads" # 保存先を Downloads に
+  defaults write com.apple.screencapture type -string "png"         # フォーマットを PNG に
+  defaults write com.apple.screencapture show-thumbnail -bool true  # 撮影後のフローティングサムネイル表示
+  defaults write com.apple.screencapture captureHDR -bool false     # HDR キャプチャ OFF (SDR で保存)
 
   # Restart affected apps
   killall Dock || true
