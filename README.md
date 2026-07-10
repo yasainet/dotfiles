@@ -31,7 +31,7 @@ cd ~/ghq/github.com/yasainet/dotfiles
 ### Rename machine (macOS)
 
 ```sh
-NEW="MACHINE_NAME"
+NEW="MACHINE_NAME" # Macbook-Pro-yyyy, Macbook-Air-yyyy
 sudo scutil --set ComputerName  "$NEW"
 sudo scutil --set LocalHostName "$NEW"
 sudo scutil --set HostName      "$NEW"
