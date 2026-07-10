@@ -1,12 +1,12 @@
 #!/bin/bash
 #
-#   ./scripts/ghq-envs.sh backup    # ghq → iCloud
-#   ./scripts/ghq-envs.sh restore   # iCloud → ghq
+#   ./scripts/sync-envs.sh backup    # ghq → iCloud
+#   ./scripts/sync-envs.sh restore   # iCloud → ghq
 
 set -euo pipefail
 
 GHQ_ROOT="${GHQ_ROOT:-$HOME/ghq}"
-BACKUP_ROOT="$HOME/Library/Mobile Documents/com~apple~CloudDocs/Documents/.envs"
+SYNC_ROOT="$HOME/Library/Mobile Documents/com~apple~CloudDocs/Documents/.envs"
 
 find_env_files() {
   local root="$1"
@@ -19,26 +19,26 @@ find_env_files() {
 
 backup() {
   [ -d "$GHQ_ROOT" ] || { echo "ghq root not found: $GHQ_ROOT" >&2; exit 1; }
-  mkdir -p "$BACKUP_ROOT"
+  mkdir -p "$SYNC_ROOT"
   local count=0
   while IFS= read -r src; do
     local rel="${src#"$GHQ_ROOT"/}"
-    local dst="$BACKUP_ROOT/$rel"
+    local dst="$SYNC_ROOT/$rel"
     mkdir -p "$(dirname "$dst")"
     cp -p "$src" "$dst"
     echo "backed up: $rel"
     count=$((count + 1))
   done < <(find_env_files "$GHQ_ROOT")
   echo "---"
-  echo "Total: $count files → $BACKUP_ROOT"
+  echo "Total: $count files → $SYNC_ROOT"
 }
 
 restore() {
-  [ -d "$BACKUP_ROOT" ] || { echo "backup not found: $BACKUP_ROOT" >&2; exit 1; }
+  [ -d "$SYNC_ROOT" ] || { echo "sync root not found: $SYNC_ROOT" >&2; exit 1; }
   mkdir -p "$GHQ_ROOT"
   local restored=0 skipped=0
   while IFS= read -r src; do
-    local rel="${src#"$BACKUP_ROOT"/}"
+    local rel="${src#"$SYNC_ROOT"/}"
     local dst="$GHQ_ROOT/$rel"
     local proj_dir
     proj_dir="$(dirname "$dst")"
@@ -50,7 +50,7 @@ restore() {
       echo "skip (no project dir): $rel"
       skipped=$((skipped + 1))
     fi
-  done < <(find_env_files "$BACKUP_ROOT")
+  done < <(find_env_files "$SYNC_ROOT")
   echo "---"
   echo "Restored: $restored, Skipped: $skipped"
   [ "$skipped" -eq 0 ] || echo "→ run \`ghq get\` to clone the missing projects, then re-run restore"
