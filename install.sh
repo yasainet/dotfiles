@@ -40,11 +40,9 @@ main() {
   post_install
 
   if [ "$OS" = "Darwin" ]; then
-    # TODO: fix
     install_npm_globals
     link_espanso
     link_claude_code
-    setup_icloud_downloads || true
     configure_system
     install_mas_apps
   fi
