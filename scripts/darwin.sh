@@ -404,13 +404,8 @@ link_claude_code() {
   link "$DOTFILES/dot-claude/settings.json" "$HOME/.claude/settings.json"
   link "$DOTFILES/dot-claude/rules" "$HOME/.claude/rules"
   link "$DOTFILES/dot-claude/skills" "$HOME/.claude/skills"
-  link "$DOTFILES/dot-claude/docs" "$HOME/.claude/docs"
+  link "$DOTFILES/dot-claude/commands" "$HOME/.claude/commands"
   link "$DOTFILES/dot-claude/statusline-command.sh" "$HOME/.claude/statusline-command.sh"
-
-  # hunk
-  if command -v hunk &>/dev/null; then
-    ln -sfn "$(command brew --prefix hunk)/libexec/skills/hunk-review" "$HOME/.claude/skills/hunk-review"
-  fi
 }
 
 # ====================
