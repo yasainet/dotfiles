@@ -28,6 +28,11 @@ esac
 # Main
 # ====================
 main() {
+  if [ "$OS" = "Darwin" ]; then
+    sudo -v
+    configure_firewall
+  fi
+
   create_symlinks
   install_packages
   install_nvm
