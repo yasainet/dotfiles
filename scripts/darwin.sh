@@ -215,6 +215,14 @@ configure_system() {
   defaults write com.apple.AppleMultitouchTrackpad Clicking -bool true
   # Bluetooth: タップでクリック
   defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
+  # 内蔵: トラックパッドでのドラッグ (Accessibility)
+  defaults write com.apple.AppleMultitouchTrackpad Dragging -bool true
+  # Bluetooth: トラックパッドでのドラッグ (Accessibility)
+  defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Dragging -bool true
+  # 内蔵: ドラッグスタイル Without Drag Lock (ドラッグロック無効)
+  defaults write com.apple.AppleMultitouchTrackpad DragLock -bool false
+  # Bluetooth: ドラッグスタイル Without Drag Lock (ドラッグロック無効)
+  defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad DragLock -bool false
 
   # Mouse
   # マウスカーソル移動速度 (最大 3.0)
@@ -341,6 +349,20 @@ configure_system() {
   defaults write com.apple.screencapture show-thumbnail -bool true
   # HDR キャプチャ OFF (SDR で保存)
   defaults write com.apple.screencapture captureHDR -bool false
+
+  # Lock Screen
+  # ディスプレイスリープ (バッテリー): 30 分
+  sudo pmset -b displaysleep 30
+  # ディスプレイスリープ (電源アダプタ): 30 分
+  sudo pmset -c displaysleep 30
+  # パスワードヒントを表示: OFF
+  sudo defaults write /Library/Preferences/com.apple.loginwindow RetriesUntilHint -int 0
+  # ロック時のメッセージ: 非表示
+  sudo defaults delete /Library/Preferences/com.apple.loginwindow LoginwindowText 2>/dev/null || true
+  # ログイン画面: 名前とパスワード入力
+  sudo defaults write /Library/Preferences/com.apple.loginwindow SHOWFULLNAME -bool true
+  # スリープ・再起動・シャットダウンボタンを表示
+  sudo defaults write /Library/Preferences/com.apple.loginwindow PowerOffDisabled -bool false
 
   # Restart affected apps
   killall Dock || true
