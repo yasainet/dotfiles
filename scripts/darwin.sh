@@ -31,6 +31,7 @@ trust_third_party_taps() {
     laishulu/homebrew
     supabase/tap
     shuntaka9576/tap
+    ysmx/cooviewer
   )
   for tap in "${taps[@]}"; do
     brew tap "$tap"
@@ -181,6 +182,7 @@ install_gui_apps() {
   brew install --cask keyboardcleantool
   brew install --cask the-unarchiver
   brew install --cask logi-options+
+  brew install --cask ysmx/cooviewer/cooviewer
 
   # Privacy
   brew install --cask protonvpn
