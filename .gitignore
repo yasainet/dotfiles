@@ -20,10 +20,9 @@
 .config/opencode/bun.lock
 
 # hunk
-dot-claude/skills/hunk-review
 .config/hunk/state.json
 
-# herdr - config.toml と scripts/ 以外は全部無視
+# herdr
 .config/herdr/*
 !.config/herdr/config.toml
 !.config/herdr/scripts/
