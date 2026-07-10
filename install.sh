@@ -30,6 +30,7 @@ esac
 main() {
   if [ "$OS" = "Darwin" ]; then
     sudo -v
+    accept_xcode_license
     configure_firewall
   fi
 
@@ -39,6 +40,7 @@ main() {
   post_install
 
   if [ "$OS" = "Darwin" ]; then
+    # TODO: fix
     install_npm_globals
     link_espanso
     link_claude_code

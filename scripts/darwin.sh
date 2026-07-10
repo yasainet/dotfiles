@@ -205,24 +205,39 @@ configure_system() {
   echo "Configuring system preferences..."
 
   # Trackpad
-  defaults write -g com.apple.trackpad.scaling -float 3.0                                      # カーソル移動速度 (最大 3.0)
-  defaults write com.apple.AppleMultitouchTrackpad TrackpadThreeFingerDrag -bool true          # 内蔵: 三本指ドラッグ
-  defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadThreeFingerDrag -bool true  # Bluetooth: 三本指ドラッグ
-  defaults write com.apple.AppleMultitouchTrackpad Clicking -bool true                         # 内蔵: タップでクリック
-  defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true        # Bluetooth: タップでクリック
+  # カーソル移動速度 (最大 3.0)
+  defaults write -g com.apple.trackpad.scaling -float 3.0
+  # 内蔵: 三本指ドラッグ
+  defaults write com.apple.AppleMultitouchTrackpad TrackpadThreeFingerDrag -bool true
+  # Bluetooth: 三本指ドラッグ
+  defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadThreeFingerDrag -bool true
+  # 内蔵: タップでクリック
+  defaults write com.apple.AppleMultitouchTrackpad Clicking -bool true
+  # Bluetooth: タップでクリック
+  defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
 
   # Mouse
-  defaults write -g com.apple.mouse.scaling -float 3.0                                         # マウスカーソル移動速度 (最大 3.0)
-  defaults write -g com.apple.scrollwheel.scaling -float 1.0                                   # スクロールホイール速度
-  defaults write -g com.apple.swipescrolldirection -bool true                                  # ナチュラルスクロール ON
+  # マウスカーソル移動速度 (最大 3.0)
+  defaults write -g com.apple.mouse.scaling -float 3.0
+  # スクロールホイール速度
+  defaults write -g com.apple.scrollwheel.scaling -float 1.0
+  # ナチュラルスクロール ON
+  defaults write -g com.apple.swipescrolldirection -bool true
 
   # Appearance
-  defaults write -g AppleInterfaceStyle -string "Dark"                                         # ダークモード固定
+  # ダークモード固定
+  defaults write -g AppleInterfaceStyle -string "Dark"
 
   # Keyboard
-  defaults write -g KeyRepeat -int 2                                                           # キーリピート速度
-  defaults write -g InitialKeyRepeat -int 15                                                   # リピート開始までの遅延
-  defaults write -g ApplePressAndHoldEnabled -bool false                                       # 長押しアクセント入力を無効化しキーリピートを優先
+  # キーリピート速度
+  defaults write -g KeyRepeat -int 2
+  # リピート開始までの遅延
+  defaults write -g InitialKeyRepeat -int 15
+  # 長押しアクセント入力を無効化しキーリピートを優先
+  defaults write -g ApplePressAndHoldEnabled -bool false
+
+  # plutil
+  killall cfprefsd 2>/dev/null || true
 
   # Notification Center
   plutil -replace AppleSymbolicHotKeys.163 \
@@ -230,22 +245,26 @@ configure_system() {
     ~/Library/Preferences/com.apple.symbolichotkeys.plist
 
   # Screenshot hotkeys: swap file/clipboard defaults
-  #   Cmd+Shift+3/4       → クリップボード (macOS default はファイル)
-  #   Ctrl+Cmd+Shift+3/4  → ファイル       (macOS default はクリップボード)
+  #   Cmd+Shift+3/4       → クリップボード
+  #   Ctrl+Cmd+Shift+3/4  → ファイル
+  # 画面全体 → ファイル: Ctrl+Cmd+Shift+3
   plutil -replace AppleSymbolicHotKeys.28 \
     -json '{"enabled":true,"value":{"parameters":[51,20,1441792],"type":"standard"}}' \
-    ~/Library/Preferences/com.apple.symbolichotkeys.plist   # 画面全体 → ファイル: Ctrl+Cmd+Shift+3
+    ~/Library/Preferences/com.apple.symbolichotkeys.plist
+  # 画面全体 → クリップボード: Cmd+Shift+3
   plutil -replace AppleSymbolicHotKeys.29 \
     -json '{"enabled":true,"value":{"parameters":[51,20,1179648],"type":"standard"}}' \
-    ~/Library/Preferences/com.apple.symbolichotkeys.plist   # 画面全体 → クリップボード: Cmd+Shift+3
+    ~/Library/Preferences/com.apple.symbolichotkeys.plist
+  # 範囲選択 → ファイル: Ctrl+Cmd+Shift+4
   plutil -replace AppleSymbolicHotKeys.30 \
     -json '{"enabled":true,"value":{"parameters":[52,21,1441792],"type":"standard"}}' \
-    ~/Library/Preferences/com.apple.symbolichotkeys.plist   # 範囲選択 → ファイル: Ctrl+Cmd+Shift+4
+    ~/Library/Preferences/com.apple.symbolichotkeys.plist
+  # 範囲選択 → クリップボード: Cmd+Shift+4
   plutil -replace AppleSymbolicHotKeys.31 \
     -json '{"enabled":true,"value":{"parameters":[52,21,1179648],"type":"standard"}}' \
-    ~/Library/Preferences/com.apple.symbolichotkeys.plist   # 範囲選択 → クリップボード: Cmd+Shift+4
+    ~/Library/Preferences/com.apple.symbolichotkeys.plist
 
-  # Input Source 切替の hotkey を OFF
+  # Input Source
   #   60: Select previous input source (Ctrl+Space)
   #   61: Select next input source (Ctrl+Opt+Space)
   plutil -replace AppleSymbolicHotKeys.60 \
@@ -262,34 +281,66 @@ configure_system() {
       ~/Library/Preferences/com.apple.symbolichotkeys.plist
   done
 
+  killall cfprefsd 2>/dev/null || true
   /System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u
 
   # Disable two-finger swipe from right edge
-  defaults write com.apple.AppleMultitouchTrackpad TrackpadTwoFingerFromRightEdgeSwipeGesture -int 0                # 内蔵: 右端 2 本指スワイプで通知センターを開くジェスチャー OFF
-  defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadTwoFingerFromRightEdgeSwipeGesture -int 0  # Bluetooth: 同上
+  # 内蔵: 右端 2 本指スワイプで通知センターを開くジェスチャー OFF
+  defaults write com.apple.AppleMultitouchTrackpad TrackpadTwoFingerFromRightEdgeSwipeGesture -int 0
+  # Bluetooth: 同上
+  defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadTwoFingerFromRightEdgeSwipeGesture -int 0
 
   # Dock
-  defaults write com.apple.dock persistent-apps -array           # Dock の常駐アプリを空に
-  defaults write com.apple.dock wvous-tl-corner -int 0           # ホットコーナー 左上 無効化
-  defaults write com.apple.dock wvous-tl-modifier -int 0         # 左上 修飾キー無し
-  defaults write com.apple.dock wvous-tr-corner -int 0           # 右上 無効化
-  defaults write com.apple.dock wvous-tr-modifier -int 0         # 右上 修飾キー無し
-  defaults write com.apple.dock wvous-bl-corner -int 0           # 左下 無効化
-  defaults write com.apple.dock wvous-bl-modifier -int 0         # 左下 修飾キー無し
-  defaults write com.apple.dock wvous-br-corner -int 0           # 右下 無効化
-  defaults write com.apple.dock wvous-br-modifier -int 0         # 右下 修飾キー無し
+  # Dock の常駐アプリを空に
+  defaults write com.apple.dock persistent-apps -array
+  # Dock アイコンサイズ 最小 (16px)
+  defaults write com.apple.dock tilesize -int 16
+  # マウスオーバー時の拡大 OFF
+  defaults write com.apple.dock magnification -bool false
+  # Dock 自動非表示 ON
+  defaults write com.apple.dock autohide -bool true
+  # Dock 位置 右
+  defaults write com.apple.dock orientation -string "right"
+  # 最近使ったアプリ OFF
+  defaults write com.apple.dock show-recents -bool false
+  # タイトルバーダブルクリックでウィンドウを画面いっぱいに広げる
+  defaults write -g AppleActionOnDoubleClick -string "Fill"
+  # ホットコーナー 左上 無効化
+  defaults write com.apple.dock wvous-tl-corner -int 0
+  # 左上 修飾キー無し
+  defaults write com.apple.dock wvous-tl-modifier -int 0
+  # 右上 無効化
+  defaults write com.apple.dock wvous-tr-corner -int 0
+  # 右上 修飾キー無し
+  defaults write com.apple.dock wvous-tr-modifier -int 0
+  # 左下 無効化
+  defaults write com.apple.dock wvous-bl-corner -int 0
+  # 左下 修飾キー無し
+  defaults write com.apple.dock wvous-bl-modifier -int 0
+  # 右下 無効化
+  defaults write com.apple.dock wvous-br-corner -int 0
+  # 右下 修飾キー無し
+  defaults write com.apple.dock wvous-br-modifier -int 0
 
   # Finder
-  defaults write NSGlobalDomain AppleShowAllExtensions -bool true   # 全ての拡張子を表示
-  defaults write com.apple.finder AppleShowAllFiles -bool true      # 隠しファイルを表示
-  defaults write com.apple.finder ShowPathbar -bool true            # パスバーを表示
-  defaults write com.apple.finder ShowStatusBar -bool true          # ステータスバーを表示
+  # 全ての拡張子を表示
+  defaults write NSGlobalDomain AppleShowAllExtensions -bool true
+  # 隠しファイルを表示
+  defaults write com.apple.finder AppleShowAllFiles -bool true
+  # パスバーを表示
+  defaults write com.apple.finder ShowPathbar -bool true
+  # ステータスバーを表示
+  defaults write com.apple.finder ShowStatusBar -bool true
 
   # Screenshots
-  defaults write com.apple.screencapture location "$HOME/Downloads" # 保存先を Downloads に
-  defaults write com.apple.screencapture type -string "png"         # フォーマットを PNG に
-  defaults write com.apple.screencapture show-thumbnail -bool true  # 撮影後のフローティングサムネイル表示
-  defaults write com.apple.screencapture captureHDR -bool false     # HDR キャプチャ OFF (SDR で保存)
+  # 保存先を Downloads に
+  defaults write com.apple.screencapture location "$HOME/Downloads"
+  # フォーマットを PNG に
+  defaults write com.apple.screencapture type -string "png"
+  # 撮影後のフローティングサムネイル表示
+  defaults write com.apple.screencapture show-thumbnail -bool true
+  # HDR キャプチャ OFF (SDR で保存)
+  defaults write com.apple.screencapture captureHDR -bool false
 
   # Restart affected apps
   killall Dock || true
@@ -303,6 +354,14 @@ configure_system() {
 configure_firewall() {
   echo "Enabling Application Firewall..."
   sudo /usr/libexec/ApplicationFirewall/socketfilterfw --setglobalstate on
+}
+
+# ====================
+# Xcode license
+# ====================
+accept_xcode_license() {
+  echo "Accepting Xcode license..."
+  sudo xcodebuild -license accept 2>/dev/null || true
 }
 
 # ====================
