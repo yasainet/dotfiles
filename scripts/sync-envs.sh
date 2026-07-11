@@ -12,7 +12,7 @@ SYNC_ROOT="$HOME/Library/Mobile Documents/com~apple~CloudDocs/Documents/.envs"
 find_env_files() {
   local root="$1"
   find "$root" -type f \
-    \( -name '.env' -o -name '.env.*' \) \
+    \( -name '.env' -o -name '.env.*' -o -name '.envrc' \) \
     ! -name '*.example' \
     ! -path '*/node_modules/*' \
     ! -path '*/.git/*'
