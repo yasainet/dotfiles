@@ -1,65 +1,65 @@
 ---
-description: 現在の会話を 200 行以内の引き継ぎ markdown に保存する (次回 /compact 前に実行)
+description: Save the current conversation as a handoff markdown within 200 lines (run before the next /compact)
 allowed-tools: Bash(mkdir *), Bash(date *), Bash(wc *), Write(**/docs/compacts/*.md)
 ---
 
 # handoff
 
-現在の会話状態を分析し、次回セッションが引き継ぐべき情報を 200 行以内の markdown として保存する。
-保存先は `./docs/compacts/YYYY-MM-DD-HHMMSS.md`。
-`YYYY-MM-DD-HHMMSS` は Bash で `date +%Y-%m-%d-%H%M%S` を叩いた値を使う。
+Analyze the current conversation state and save the info the next session should inherit as markdown within 200 lines.
+Save it to `./docs/compacts/YYYY-MM-DD-HHMMSS.md`.
+For `YYYY-MM-DD-HHMMSS`, use the value from running `date +%Y-%m-%d-%H%M%S` in Bash.
 
-## 出力する markdown 構成
+## Markdown structure to output
 
 ```markdown
-# handoff — <セッションのテーマ 1 行>
+# handoff — <one-line session theme>
 
-## 進行中のタスク
+## In-progress tasks
 
-- 今何をしている途中か
-- どこまで進んだか
+- What you are in the middle of doing
+- How far you have progressed
 
-## 決定事項 (と Why)
+## Decisions (and Why)
 
-- 決めたこと、その理由
+- What was decided and the reason
 
-## 未解決の問い / 次のステップ
+## Open questions / Next steps
 
-- 次にやること
-- 判断が保留の点
+- What to do next
+- Points still pending a decision
 
-## 触れたファイル・コマンド
+## Files and commands touched
 
-- 具体的なパス、実行したコマンド、エラー文言はそのまま残す
+- Keep concrete paths, commands run, and error messages as-is
 ```
 
-## ルール
+## Rules
 
-- 200 行を厳守する (人間の可読限界)
-- 超えそうなら重要度で切る
-- 情報は具体的に残す (パス、コマンド、エラー文言はそのまま)
-- 主観的要約 (「うまくいった」「順調」等) は書かない
-- 事実ベースで書く
-- 該当なしの節は省いてよい
-- Format Rules (`dot-claude/rules/docs/format.md`) に従う
-  - 1 文 1 行、日本語 60 字以内
-  - `**Bold**` 禁止
-  - 見出し前後の `---` 禁止
+- Strictly keep within 200 lines (human readability limit)
+- If it might exceed, cut by importance
+- Keep info concrete (paths, commands, error messages as-is)
+- Do not write subjective summaries ("went well", "smooth", etc.)
+- Write on a factual basis
+- Omit sections that do not apply
+- Follow the Format Rules (`dot-claude/rules/docs/format.md`)
+  - One sentence per line, within 20 words for English
+  - No `**Bold**`
+  - No `---` around headings
 
-## 実行手順
+## Steps
 
-1. Bash で `mkdir -p ./docs/compacts` を実行
-2. Bash で `date +%Y-%m-%d-%H%M%S` を叩き変数化
-3. Write ツールで上記構成の markdown を `./docs/compacts/<timestamp>.md` に書き出す
-4. Bash で `wc -l` を叩き行数を確認
-5. 生成ファイルパスと行数を 1 行で報告
+1. Run `mkdir -p ./docs/compacts` in Bash
+2. Run `date +%Y-%m-%d-%H%M%S` in Bash and store it in a variable
+3. Write the markdown with the structure above to `./docs/compacts/<timestamp>.md` with the Write tool
+4. Run `wc -l` in Bash to check the line count
+5. Report the generated file path and line count in one line
 
-## 報告フォーマット
+## Report format
 
-作業完了後の user への報告は 1 行のみ。
+After the work is done, report to the user in one line only.
 
 ```
 docs/compacts/<filename>.md (N lines)
 ```
 
-他のコメントは書かない。
+Do not write any other comment.
