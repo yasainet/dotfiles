@@ -74,16 +74,6 @@
             "timeout": 10
           }
         ]
-      },
-      {
-        "matcher": "compact",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "bash ~/ghq/github.com/yasainet/dotfiles/dot-claude/hooks/session-start-compact.sh",
-            "timeout": 5
-          }
-        ]
       }
     ]
   },
