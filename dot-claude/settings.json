@@ -9,7 +9,9 @@
     "ANTHROPIC_DEFAULT_HAIKU_MODEL": "claude-haiku-4-5"
   },
   "permissions": {
-    "allow": ["Read(//Users/yasainet/ghq/**)"],
+    "allow": [
+      "Read(//Users/yasainet/ghq/**)"
+    ],
     "deny": [
       "Bash(dd if=/dev/*)",
       "Bash(mkfs*)",
@@ -20,7 +22,11 @@
       "Write(**/supabase/migrations/*.sql)",
       "mcp__supabase__apply_migration"
     ],
-    "ask": ["Bash(rm:*)", "Bash(rmdir:*)", "Bash(gh pr merge:*)"],
+    "ask": [
+      "Bash(rm:*)",
+      "Bash(rmdir:*)",
+      "Bash(gh pr merge:*)"
+    ],
     "defaultMode": "auto"
   },
   "enableAllProjectMcpServers": true,
@@ -101,6 +107,7 @@
     "enabled": true,
     "mode": "hold"
   },
+  "autoMemoryEnabled": false,
   "skipWorkflowUsageWarning": true,
   "theme": "auto",
   "editorMode": "normal",
@@ -108,5 +115,5 @@
   "inputNeededNotifEnabled": false,
   "agentPushNotifEnabled": false,
   "skipAutoPermissionPrompt": true,
-  "autoMemoryEnabled": false
+  "model": "claude-fable-5[1m]"
 }
