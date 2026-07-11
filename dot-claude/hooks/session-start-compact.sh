@@ -1,5 +1,5 @@
 #!/bin/bash
-# SessionStart hook (matcher: compact): 直前 compact の引き継ぎメモを additionalContext で注入
+# SessionStart hook (matcher: compact): inject the last compact handoff note via additionalContext
 set -eu
 
 pass() { echo '{}'; exit 0; }
@@ -17,7 +17,7 @@ latest="$(ls -1t "$cwd/docs/compacts"/*.md 2>/dev/null | head -1 || true)"
 content="$(cat "$latest" 2>/dev/null || true)"
 [ -n "$content" ] || pass
 
-jq -n --arg ctx "以下は /handoff で保存された、圧縮直前の引き継ぎメモです。文脈を継続する際の参考にしてください。
+jq -n --arg ctx "Below is the handoff note saved by /handoff just before compaction. Use it as a reference to continue the context.
 
 $content" '{
   hookSpecificOutput: {
