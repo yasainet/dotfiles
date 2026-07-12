@@ -29,6 +29,7 @@
     ],
     "defaultMode": "auto"
   },
+  "model": "claude-fable-5[1m]",
   "enableAllProjectMcpServers": true,
   "hooks": {
     "PreToolUse": [
@@ -104,6 +105,5 @@
   "preferredNotifChannel": "ghostty",
   "inputNeededNotifEnabled": false,
   "agentPushNotifEnabled": false,
-  "skipAutoPermissionPrompt": true,
-  "model": "claude-fable-5[1m]"
+  "skipAutoPermissionPrompt": true
 }
