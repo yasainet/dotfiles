@@ -93,20 +93,28 @@ llm-serve() {
 }
 
 # opencode
-opencode() {
-  if curl -sf -m1 http://127.0.0.1:8080/health >/dev/null 2>&1; then
-    command opencode "$@"
-    return
-  fi
+LLM_HOST="MacBook-Pro-2023"
+LLM_URL="http://100.71.212.109:8080"
 
-  (
-    llm-serve >/tmp/llama-swap.log 2>&1 &
-    pid=$!
-    trap 'kill "$pid" 2>/dev/null' EXIT INT TERM
-    curl -sf -m2 --retry 30 --retry-delay 1 --retry-connrefused \
-      http://127.0.0.1:8080/health >/dev/null 2>&1
-    command opencode "$@"
-  )
+opencode() {
+  if ! curl -sf -m2 "$LLM_URL/health" >/dev/null 2>&1; then
+    if [[ "$HOST" == "$LLM_HOST"* ]]; then
+      nohup llama-swap --config "$HOME/.config/llama-swap/config.yaml" --listen :8080 \
+        >/tmp/llama-swap.log 2>&1 &!
+    else
+      echo "Starting llama-swap on $LLM_HOST..."
+      ssh "$LLM_HOST" 'nohup "$HOME/.local/bin/llama-swap" --config "$HOME/.config/llama-swap/config.yaml" --listen :8080 >/tmp/llama-swap.log 2>&1 & disown' || {
+        echo "Failed to reach $LLM_HOST via ssh" >&2
+        return 1
+      }
+    fi
+    curl -sf -m2 --retry 30 --retry-delay 1 --retry-connrefused --retry-all-errors \
+      "$LLM_URL/health" >/dev/null 2>&1 || {
+      echo "llama-swap did not become healthy at $LLM_URL" >&2
+      return 1
+    }
+  fi
+  command opencode "$@"
 }
 
 # Git

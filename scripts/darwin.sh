@@ -129,18 +129,6 @@ install_cli_tools() {
   brew install zsh-completions
   brew install pure
 
-  # Local LLM
-  brew install llama.cpp
-  brew install hf
-
-  if ! command -v llama-swap &>/dev/null; then
-    LLAMA_SWAP_VER="v222"
-    mkdir -p "$HOME/.local/bin"
-    curl -sL "https://github.com/mostlygeek/llama-swap/releases/download/${LLAMA_SWAP_VER}/llama-swap_${LLAMA_SWAP_VER#v}_darwin_arm64.tar.gz" \
-      | tar -xz -C "$HOME/.local/bin" llama-swap
-    chmod +x "$HOME/.local/bin/llama-swap"
-  fi
-
   # Claude Code CLI
   if ! command -v claude &>/dev/null; then
     curl -fsSL https://claude.ai/install.sh | bash
