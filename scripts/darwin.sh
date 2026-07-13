@@ -77,6 +77,7 @@ install_cli_tools() {
   brew install gallery-dl
   brew install libpq
   brew install librsvg
+  brew install mysql-client
 
   # Terraform
   brew install hashicorp/tap/terraform
@@ -396,6 +397,19 @@ link_claude_code() {
   link "$DOTFILES/dot-claude/skills" "$HOME/.claude/skills"
   link "$DOTFILES/dot-claude/commands" "$HOME/.claude/commands"
   link "$DOTFILES/dot-claude/statusline-command.sh" "$HOME/.claude/statusline-command.sh"
+}
+
+# ====================
+# Bundler (Ruby)
+# ====================
+configure_bundler() {
+  echo "Configuring bundler..."
+
+  mkdir -p "$HOME/.bundle"
+  [ -s "$HOME/.bundle/config" ] || printf -- "---\n" > "$HOME/.bundle/config"
+  if ! grep -q "^BUNDLE_BUILD__MYSQL2:" "$HOME/.bundle/config"; then
+    echo 'BUNDLE_BUILD__MYSQL2: "--with-mysql-config=/opt/homebrew/opt/mysql-client/bin/mysql_config --with-ldflags=-L/opt/homebrew/opt/zstd/lib"' >> "$HOME/.bundle/config"
+  fi
 }
 
 # ====================
