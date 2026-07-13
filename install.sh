@@ -41,6 +41,7 @@ main() {
 
   if [ "$OS" = "Darwin" ]; then
     install_npm_globals
+    configure_bundler
     link_espanso
     link_claude_code
     configure_system
