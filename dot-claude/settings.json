@@ -32,17 +32,6 @@
   "model": "claude-fable-5[1m]",
   "enableAllProjectMcpServers": true,
   "hooks": {
-    "PreToolUse": [
-      {
-        "matcher": "Write",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "node ~/ghq/github.com/yasainet/dotfiles/dot-claude/hooks/inject-path-rule.mjs"
-          }
-        ]
-      }
-    ],
     "UserPromptSubmit": [
       {
         "matcher": "",

@@ -2,9 +2,6 @@
 .zsh_sessions/
 .config/zsh/completions/
 .worktrees/
-.superpowers/
-docs/compacts/
-docs/plans/
 
 # Files
 *.local
