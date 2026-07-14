@@ -32,7 +32,7 @@ font-family = "PlemolJP Console NF"
 font-codepoint-map = U+2190-U+21FF=SF Mono
 font-codepoint-map = U+2300-U+23FF=SF Mono
 font-size = 15
-adjust-cell-height = 25%
+adjust-cell-height = 38%
 
 # Cursor
 cursor-style = block
