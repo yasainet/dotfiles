@@ -167,6 +167,7 @@ install_gui_apps() {
   brew install --cask espanso
 
   # Utilities
+  brew install --cask snapzy
   brew install --cask karabiner-elements
   brew install --cask keyboardcleantool
   brew install --cask the-unarchiver
@@ -243,25 +244,17 @@ configure_system() {
     -json '{"enabled":true,"value":{"parameters":[65535,53,1048576],"type":"standard"}}' \
     ~/Library/Preferences/com.apple.symbolichotkeys.plist
 
-  # Screenshot hotkeys: swap file/clipboard defaults
-  #   Cmd+Shift+3/4       → クリップボード
-  #   Ctrl+Cmd+Shift+3/4  → ファイル
-  # 画面全体 → ファイル: Ctrl+Cmd+Shift+3
-  plutil -replace AppleSymbolicHotKeys.28 \
-    -json '{"enabled":true,"value":{"parameters":[51,20,1441792],"type":"standard"}}' \
-    ~/Library/Preferences/com.apple.symbolichotkeys.plist
-  # 画面全体 → クリップボード: Cmd+Shift+3
-  plutil -replace AppleSymbolicHotKeys.29 \
-    -json '{"enabled":true,"value":{"parameters":[51,20,1179648],"type":"standard"}}' \
-    ~/Library/Preferences/com.apple.symbolichotkeys.plist
-  # 範囲選択 → ファイル: Ctrl+Cmd+Shift+4
-  plutil -replace AppleSymbolicHotKeys.30 \
-    -json '{"enabled":true,"value":{"parameters":[52,21,1441792],"type":"standard"}}' \
-    ~/Library/Preferences/com.apple.symbolichotkeys.plist
-  # 範囲選択 → クリップボード: Cmd+Shift+4
-  plutil -replace AppleSymbolicHotKeys.31 \
-    -json '{"enabled":true,"value":{"parameters":[52,21,1179648],"type":"standard"}}' \
-    ~/Library/Preferences/com.apple.symbolichotkeys.plist
+  # Screenshot
+  #   28: 画面全体 → ファイル (Cmd+Shift+3)
+  #   29: 画面全体 → クリップボード (Ctrl+Cmd+Shift+3)
+  #   30: 範囲選択 → ファイル (Cmd+Shift+4)
+  #   31: 範囲選択 → クリップボード (Ctrl+Cmd+Shift+4)
+  #  184: 撮影・録画オプション (Cmd+Shift+5)
+  for id in 28 29 30 31 184; do
+    plutil -replace "AppleSymbolicHotKeys.$id" \
+      -json '{"enabled":false}' \
+      ~/Library/Preferences/com.apple.symbolichotkeys.plist
+  done
 
   # Input Source
   #   60: Select previous input source (Ctrl+Space)
