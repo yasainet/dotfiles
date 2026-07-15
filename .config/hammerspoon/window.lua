@@ -100,7 +100,13 @@ local function moveToScreen(direction)
   if not win then return end
 
   local screen = win:screen()
-  local target = (direction == "up") and screen:toNorth() or screen:toSouth()
+  -- and-or イディオムは toNorth() が nil のとき toSouth() へフォールスルーするため使わない
+  local target
+  if direction == "up" then
+    target = screen:toNorth()
+  else
+    target = screen:toSouth()
+  end
   -- その方向にディスプレイが無ければ何もしない (単一ディスプレイ時も no-op)
   if not target then return end
 
