@@ -59,9 +59,9 @@ open_annotate = false
 upload_to_cloud = false
 
 [recording]
-format = "mov"
+format = "mp4"
 quality = "high"
-fps = 30
+fps = 60
 output_mode = "video"
 capture_system_audio = true
 capture_microphone = false
@@ -140,7 +140,7 @@ expire_time = "7d"
 uploads_window_position = "center"
 
 [annotate]
-clipboard_image_open_behavior = "ask"
+clipboard_image_open_behavior = "loadAutomatically"
 close_after_drag = true
 bring_forward_after_drag = false
 quick_properties_sync = true

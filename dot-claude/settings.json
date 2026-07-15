@@ -19,7 +19,6 @@
       "Bash(diskutil partitionDisk*)",
       "Bash(supabase db reset --linked*)",
       "Edit(**/supabase/migrations/*.sql)",
-      "Write(**/supabase/migrations/*.sql)",
       "mcp__supabase__apply_migration"
     ],
     "ask": [
@@ -76,7 +75,8 @@
   },
   "enabledPlugins": {
     "context7@claude-plugins-official": true,
-    "commit-commands@claude-plugins-official": true
+    "commit-commands@claude-plugins-official": true,
+    "superpowers@claude-plugins-official": true
   },
   "language": "Japanese",
   "effortLevel": "xhigh",
