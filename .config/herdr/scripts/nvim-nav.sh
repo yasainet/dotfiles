@@ -15,6 +15,12 @@ esac
 
 herdr_bin="${HERDR_BIN_PATH:-herdr}"
 
+# ペイン移動は ABC 起点 (操作イベントでの IME 強制リセット)
+# 同期実行すると実測 ~40ms がペイン移動レイテンシに乗るためバックグラウンド化
+if [ -x /opt/homebrew/bin/macism ]; then
+	/opt/homebrew/bin/macism com.apple.keylayout.ABC >/dev/null 2>&1 &
+fi
+
 pane_id="${HERDR_ACTIVE_PANE_ID:-${HERDR_PANE_ID:-}}"
 if [ -z "$pane_id" ] && [ -n "${HERDR_PLUGIN_CONTEXT_JSON:-}" ]; then
 	pane_id="$(printf '%s' "$HERDR_PLUGIN_CONTEXT_JSON" \

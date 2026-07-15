@@ -3,7 +3,8 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = ","
 
 -- Search
-vim.keymap.set("n", "<Esc>", ":noh<CR>", { silent = true })
+-- <Cmd> 形式にしないと cmdline mode を経由し CmdlineLeave (IME リセット) が毎 Esc で発火する
+vim.keymap.set("n", "<Esc>", "<Cmd>noh<CR>", { silent = true })
 
 -- Quit
 vim.keymap.set("n", "<leader>q", "<Cmd>qa!<CR>", { desc = "Quit all" })
