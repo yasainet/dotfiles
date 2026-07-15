@@ -168,6 +168,7 @@ install_gui_apps() {
 
   # Utilities
   brew install --cask snapzy
+  brew install --cask hammerspoon
   brew install --cask karabiner-elements
   brew install --cask keyboardcleantool
   brew install --cask the-unarchiver
@@ -227,6 +228,10 @@ configure_system() {
   # Appearance
   # ダークモード固定
   defaults write -g AppleInterfaceStyle -string "Dark"
+
+  # Hammerspoon
+  # 設定ファイルを ~/.config 配下から読む
+  defaults write org.hammerspoon.Hammerspoon MJConfigFile "~/.config/hammerspoon/init.lua"
 
   # Keyboard
   # キーリピート速度
