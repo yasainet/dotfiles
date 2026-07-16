@@ -29,5 +29,10 @@ gui:
       - "#db4b4b"
     defaultFgColor:
       - "#c0caf5"
+git:
+  pagers:
+    - name: hunk
+      colorArg: always
+      pager: hunk pager --mode split
 os:
   editPreset: "nvim"
