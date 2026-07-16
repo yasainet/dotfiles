@@ -90,8 +90,8 @@ keybind = cmd+shift+bracket_right=text:\x02n
 # Cmd+b -> copy mode (herdr prefix+[)
 keybind = cmd+b=text:\x02[
 
-# Ctrl+q -> workspace selector (herdr prefix+g)
-keybind = ctrl+q=text:\x02g
+# Ctrl+q -> workspace selector (herdr goto = prefix+alt+g)
+keybind = ctrl+q=text:\x02\x1bg
 
 # --- pane ---
 

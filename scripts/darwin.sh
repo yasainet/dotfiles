@@ -48,6 +48,7 @@ install_cli_tools() {
   brew install git-lfs
   brew install gh
   brew install tea
+  brew install lazygit
   brew install neovim
   brew install bat
   brew install fzf
