@@ -2,7 +2,6 @@
 .zsh_sessions/
 .config/zsh/completions/
 .worktrees/
-dot-claude/tmp
 
 # Files
 *.local
