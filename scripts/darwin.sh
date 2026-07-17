@@ -162,6 +162,10 @@ install_gui_apps() {
   brew install --cask telegram
   brew install --cask signal
 
+  # AI
+  brew install --cask claude
+  brew install --cask chatgpt
+
   # Development
   brew install --cask orbstack
   brew install --cask ngrok
