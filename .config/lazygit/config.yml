@@ -36,8 +36,11 @@ git:
       pager: hunk pager --mode split
 os:
   editPreset: "nvim"
+keybinding:
+  files:
+    commitChanges: "<disabled>"
 customCommands:
-  - key: "<c-a>"
+  - key: "c"
     context: "files"
     description: "AI commit (stage all + generate message)"
     command: sh -c "~/.config/lazygit/ai-commit-msg.sh"
