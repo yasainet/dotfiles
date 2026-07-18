@@ -399,6 +399,7 @@ link_claude_code() {
   link "$DOTFILES/dot-claude/rules" "$HOME/.claude/rules"
   link "$DOTFILES/dot-claude/skills" "$HOME/.claude/skills"
   link "$DOTFILES/dot-claude/commands" "$HOME/.claude/commands"
+  link "$DOTFILES/dot-claude/output-styles" "$HOME/.claude/output-styles"
   link "$DOTFILES/dot-claude/statusline-command.sh" "$HOME/.claude/statusline-command.sh"
 }
 

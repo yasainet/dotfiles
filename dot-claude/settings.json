@@ -68,6 +68,7 @@
     "commit-commands@claude-plugins-official": true,
     "superpowers@claude-plugins-official": true
   },
+  "outputStyle": "ja",
   "language": "Japanese",
   "effortLevel": "xhigh",
   "autoUpdatesChannel": "latest",
