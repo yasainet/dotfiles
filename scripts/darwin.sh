@@ -74,6 +74,7 @@ install_cli_tools() {
   brew install tailspin
   brew install taplo
   brew install glow
+  brew install hf
   brew install modem-dev/tap/hunk
   brew install gallery-dl
   brew install libpq

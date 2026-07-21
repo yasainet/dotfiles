@@ -9,13 +9,18 @@
     "ANTHROPIC_DEFAULT_HAIKU_MODEL": "claude-haiku-4-5"
   },
   "permissions": {
-    "allow": ["Read(//Users/yasainet/ghq/**)"],
+    "allow": [
+      "Read(//Users/yasainet/ghq/**)"
+    ],
     "deny": [
       "Bash(supabase db reset --linked*)",
       "Edit(**/supabase/migrations/*.sql)",
       "mcp__supabase__apply_migration"
     ],
-    "ask": ["Bash(rm:*)", "Bash(gh pr merge:*)"],
+    "ask": [
+      "Bash(rm:*)",
+      "Bash(gh pr merge:*)"
+    ],
     "defaultMode": "auto"
   },
   "model": "claude-fable-5[1m]",
