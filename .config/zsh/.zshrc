@@ -74,6 +74,15 @@ pj() {
   cd "$dir"
 }
 
+y() {
+  local tmp cwd
+  tmp="$(mktemp -t yazi-cwd.XXXXXX)"
+  yazi "$@" --cwd-file="$tmp"
+  IFS= read -r -d '' cwd < "$tmp"
+  [[ -n "$cwd" && "$cwd" != "$PWD" ]] && cd "$cwd"
+  rm -f -- "$tmp"
+}
+
 # Local LLM (llama-swap + llama.cpp)
 llm-fetch() {
   local m repo file subdir
