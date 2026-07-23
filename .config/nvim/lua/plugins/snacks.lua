@@ -42,7 +42,7 @@ return {
 					git_status = true,
 					diagnostics = false,
 					config = function(opts)
-						-- config は explorer を開くたびに実行されるため、多重ラップをガードする
+						-- HACK: Gird against multi-wrap
 						local actions = require("snacks.explorer.actions")
 						if not actions._confirm_patched then
 							actions._confirm_patched = true
@@ -56,27 +56,17 @@ return {
 							end
 						end
 
-						-- Upstream bug: Git._update は node.status / ignored をクリアするが
-						-- dir_status をクリアしない。untracked だった directory を commit すると
-						-- 子 item に古い "??" が継承され続け、u や再オープンでも直らない。
-						-- git status 更新のたびに dir_status を先にクリアして回避する
+						-- HACK: Fix git status
 						local Git = require("snacks.explorer.git")
 						local Tree = require("snacks.explorer.tree")
 						if not Git._dir_status_patched then
 							Git._dir_status_patched = true
 							local original_update = Git._update
-							if type(original_update) == "function" then
-								function Git._update(cwd, ...)
-									Tree:walk(Tree:find(cwd), function(n)
-										n.dir_status = nil
-									end, { all = true })
-									return original_update(cwd, ...)
-								end
-							else
-								vim.notify(
-									"snacks.lua: Git._update が見つからないため dir_status ワークアラウンドを適用できません(snacks.nvim の更新で API が変わった可能性)",
-									vim.log.levels.WARN
-								)
+							function Git._update(cwd, ...)
+								Tree:walk(Tree:find(cwd), function(n)
+									n.dir_status = nil
+								end, { all = true })
+								return original_update(cwd, ...)
 							end
 						end
 
