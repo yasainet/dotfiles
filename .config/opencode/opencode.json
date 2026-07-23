@@ -36,6 +36,10 @@
     }
   },
   "model": "llamacpp/qwen3.6-35b-a3b-hauhau",
+  "plugin": [
+    "file:///Users/yasainet/.config/opencode/plugins/abc-layout.js"
+  ],
+  "logLevel": "DEBUG",
   "watcher": {
     "ignore": ["node_modules/**", "dist/**", ".git/**"]
   }
