@@ -1,6 +1,6 @@
 ---
-name: ja
-description: Output for the Terminal
+name: standard
+description: Concise Japanese output
 keep-coding-instructions: true
 ---
 
