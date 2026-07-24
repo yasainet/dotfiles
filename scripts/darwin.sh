@@ -397,6 +397,7 @@ link_claude_code() {
   echo "Linking Claude Code config..."
   mkdir -p "$HOME/.claude"
   link "$DOTFILES/dot-claude/CLAUDE.md" "$HOME/.claude/CLAUDE.md"
+  link "$DOTFILES/dot-claude/docs" "$HOME/.claude/docs"
   link "$DOTFILES/dot-claude/settings.json" "$HOME/.claude/settings.json"
   link "$DOTFILES/dot-claude/rules" "$HOME/.claude/rules"
   link "$DOTFILES/dot-claude/skills" "$HOME/.claude/skills"
