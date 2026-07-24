@@ -5,3 +5,6 @@
 
 # disable Alt+Space
 search_shortcut: off
+
+# hide the menu bar icon
+show_icon: false
