@@ -4,7 +4,7 @@
     "command": "bash ~/ghq/github.com/yasainet/dotfiles/dot-claude/scripts/ghq-suggest.sh"
   },
   "env": {
-    "ANTHROPIC_DEFAULT_OPUS_MODEL": "claude-opus-4-8[1m]",
+    "ANTHROPIC_DEFAULT_OPUS_MODEL": "claude-opus-5[1m]",
     "ANTHROPIC_DEFAULT_SONNET_MODEL": "claude-sonnet-5[1m]",
     "ANTHROPIC_DEFAULT_HAIKU_MODEL": "claude-haiku-4-5"
   },
@@ -23,7 +23,7 @@
     ],
     "defaultMode": "auto"
   },
-  "model": "sonnet",
+  "model": "opus[1m]",
   "enableAllProjectMcpServers": true,
   "hooks": {
     "UserPromptSubmit": [
@@ -73,7 +73,7 @@
     "commit-commands@claude-plugins-official": true,
     "superpowers@claude-plugins-official": true
   },
-  "outputStyle": "ja",
+  "outputStyle": "standard",
   "language": "Japanese",
   "effortLevel": "xhigh",
   "autoUpdatesChannel": "latest",
