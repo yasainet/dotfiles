@@ -1,6 +1,25 @@
 #!/bin/bash
 
 # ====================
+# Symlinks
+# ====================
+# Linux hosts are headless (no display manager, no DISPLAY/WAYLAND_DISPLAY),
+# so GUI configs are dead weight even where the app has a Linux build.
+SKIP_LINKS=(
+  # macOS-only apps
+  hammerspoon # Hammerspoon
+  karabiner   # Karabiner-Elements
+  snapzy      # Snapzy (screenshot app)
+
+  # GUI apps: no display server here
+  ghostty # config is macos-*/cmd+ specific anyway
+  espanso # needs an X11/Wayland session
+
+  # macOS-only paths: /opt/homebrew, /Users/yasainet/models (see scripts/llm-host.sh)
+  llama-swap
+)
+
+# ====================
 # CLI Tools
 # ====================
 install_cli_tools() {
