@@ -16,7 +16,11 @@ generate() {
     git branch --show-current
     echo "- Recent commits:"
     git log --oneline -10
-  } | claude -p --model haiku "Based on the above changes, create a single git commit message for the staged changes. Output only the commit message on a single line, following the style of the recent commits. Do not send any other text besides the message."
+  } | MAX_THINKING_TOKENS=0 claude \
+    -p "Based on the above changes, create a single git commit message for the staged changes. Output only the commit message on a single line, following the style of the recent commits. Do not send any other text besides the message." \
+    --model haiku \
+    --disallowed-tools "Bash,Read,Write,Edit,Glob,Grep,WebFetch,WebSearch,Task,Skill" \
+    --strict-mcp-config --mcp-config '{"mcpServers":{}}'
 }
 
 while :; do
