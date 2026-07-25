@@ -1,6 +1,7 @@
 # Superpowers Skills
 
-`~/.claude/plugins/cache/claude-plugins-official/superpowers/<version>/skills/<name>/SKILL.md`
+Superpowers Skills の説明。
+原典: `~/.claude/plugins/cache/claude-plugins-official/superpowers/<version>/skills/<name>/SKILL.md`
 
 ## The Basic Workflow
 
