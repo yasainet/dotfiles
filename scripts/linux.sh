@@ -13,8 +13,8 @@ install_cli_tools() {
   sudo apt install -y locales
   sudo locale-gen en_US.UTF-8
 
-  sudo apt install -y curl wget zsh software-properties-common
-  sudo apt install -y bat btop fd-find fzf ghq ripgrep tree jq
+  sudo apt install -y curl wget unzip zsh software-properties-common
+  sudo apt install -y bat btop fd-find fzf ripgrep tree jq
   sudo apt install -y zsh-autosuggestions zsh-syntax-highlighting
 
   # Neovim
@@ -26,6 +26,43 @@ install_cli_tools() {
   fi
   sudo apt install -y ffmpeg
   sudo apt install -y xclip
+}
+
+# ====================
+# ghq (no apt package on Ubuntu)
+# ====================
+GHQ_VERSION="v1.10.1"
+
+install_ghq() {
+  if command -v ghq &> /dev/null; then
+    echo "ghq already installed"
+    return
+  fi
+
+  local arch
+  case "$(uname -m)" in
+    x86_64)  arch="amd64" ;;
+    aarch64) arch="arm64" ;;
+    *)
+      echo "  [skip] ghq (unsupported arch: $(uname -m))"
+      return
+      ;;
+  esac
+
+  echo "Installing ghq $GHQ_VERSION..."
+
+  local name="ghq_linux_${arch}"
+  local tmp
+  tmp="$(mktemp -d)"
+  curl -fsSL -o "$tmp/ghq.zip" \
+    "https://github.com/x-motemen/ghq/releases/download/${GHQ_VERSION}/${name}.zip"
+  unzip -q "$tmp/ghq.zip" -d "$tmp"
+
+  mkdir -p "$HOME/.local/bin"
+  install -m 755 "$tmp/$name/ghq" "$HOME/.local/bin/ghq"
+  rm -rf "$tmp"
+
+  echo "  [done] ghq -> $HOME/.local/bin/ghq"
 }
 
 # ====================
@@ -69,6 +106,7 @@ install_zsh_plugins() {
 # ====================
 install_packages() {
   install_cli_tools
+  install_ghq
   set_default_shell
   install_zsh_plugins
 }
