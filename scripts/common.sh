@@ -3,6 +3,11 @@
 # ====================
 # Symlinks
 # ====================
+
+# .config entries this OS does not use. Overridden in scripts/{darwin,linux}.sh,
+# which are sourced after this file.
+SKIP_LINKS=()
+
 link() {
   local src="$1"
   local dest="$2"
@@ -24,6 +29,41 @@ link() {
   fi
 }
 
+is_skipped_link() {
+  local name="$1"
+  local skip
+
+  for skip in "${SKIP_LINKS[@]}"; do
+    [ "$name" = "$skip" ] && return 0
+  done
+  return 1
+}
+
+# Drop an entry this OS does not use, removing a stale link left by an older run.
+# Only unlinks symlinks pointing into $DOTFILES; anything else is left alone.
+skip_link() {
+  local name="$1"
+  local dest="$HOME/.config/$name"
+
+  if [ -L "$dest" ]; then
+    local current
+    current=$(readlink "$dest")
+    case "$current" in
+      "$DOTFILES"/*)
+        rm -f "$dest"
+        echo "  [unlink] $dest (not used on $OS)"
+        return
+        ;;
+      *)
+        echo "  [warn] $dest points outside dotfiles (left as-is)"
+        return
+        ;;
+    esac
+  fi
+
+  echo "  [skip] $name (not used on $OS)"
+}
+
 create_symlinks() {
   echo "Creating symlinks..."
   mkdir -p "$HOME/.config"
@@ -31,6 +71,12 @@ create_symlinks() {
   for dir in "$DOTFILES/.config/"*/; do
     [ -d "$dir" ] || continue
     name=$(basename "$dir")
+
+    if is_skipped_link "$name"; then
+      skip_link "$name"
+      continue
+    fi
+
     link "$dir" "$HOME/.config/$name"
   done
 
