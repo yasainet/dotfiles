@@ -16,12 +16,11 @@ brew install ghq
 ghq get https://github.com/yasainet/dotfiles
 cd ~/ghq/github.com/yasainet/dotfiles
 ./install.sh
+
+exex zsh
 ```
 
 ### Linux (Ubuntu)
-
-`ghq` は apt に無いため、`install.sh` が release binary を `~/.local/bin` に入れる。
-初回だけ `git clone` で ghq のディレクトリ構成に合わせて配置する。
 
 ```sh
 sudo apt update && sudo apt install -y git
@@ -29,9 +28,9 @@ sudo apt update && sudo apt install -y git
 git clone https://github.com/yasainet/dotfiles ~/ghq/github.com/yasainet/dotfiles
 cd ~/ghq/github.com/yasainet/dotfiles
 ./install.sh
-```
 
-`install.sh` は `chsh` で zsh を default shell にする。反映には再ログインが必要。
+exec zsh
+```
 
 ### Rename machine (macOS)
 
@@ -51,9 +50,9 @@ scutil --get ComputerName
 ### Sync ghq project .env files across machines
 
 ```sh
-# Old machine: back up
+# Back up
 ./scripts/sync-envs.sh backup
 
-# New machine: `ghq get` the projects first, then restore
+# Restore
 ./scripts/sync-envs.sh restore
 ```
