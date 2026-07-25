@@ -34,6 +34,7 @@ install_cli_tools() {
 
   sudo apt install -y curl wget unzip zsh software-properties-common
   sudo apt install -y bat btop fd-find fzf ripgrep tree jq
+  sudo apt install -y nvtop
   sudo apt install -y trash-cli
   sudo apt install -y zsh-autosuggestions zsh-syntax-highlighting
 
