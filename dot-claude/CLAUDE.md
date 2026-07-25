@@ -8,7 +8,3 @@
 ## GitHub
 
 @docs/github.md
-
-## Superpowers
-
-@docs/superpowers.md
