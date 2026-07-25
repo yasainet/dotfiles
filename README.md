@@ -17,7 +17,7 @@ ghq get https://github.com/yasainet/dotfiles
 cd ~/ghq/github.com/yasainet/dotfiles
 ./install.sh
 
-exex zsh
+exec zsh
 ```
 
 ### Linux (Ubuntu)
