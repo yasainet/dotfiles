@@ -11,11 +11,12 @@
   "permissions": {
     "allow": ["Read(//Users/yasainet/ghq/**)"],
     "deny": [
+      "Bash(rm:*)",
       "Bash(supabase db reset --linked*)",
       "Edit(**/supabase/migrations/*.sql)",
       "mcp__supabase__apply_migration"
     ],
-    "ask": ["Bash(rm:*)", "Bash(gh pr merge:*)"],
+    "ask": ["Bash(gh pr merge:*)"],
     "defaultMode": "auto"
   },
   "model": "opus[1m]",
