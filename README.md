@@ -16,16 +16,20 @@ brew install ghq
 ghq get https://github.com/yasainet/dotfiles
 cd ~/ghq/github.com/yasainet/dotfiles
 ./install.sh
+
+exec zsh
 ```
 
 ### Linux (Ubuntu)
 
 ```sh
-sudo apt update && sudo apt install -y git ghq
+sudo apt update && sudo apt install -y git
 
-ghq get https://github.com/yasainet/dotfiles
+git clone https://github.com/yasainet/dotfiles ~/ghq/github.com/yasainet/dotfiles
 cd ~/ghq/github.com/yasainet/dotfiles
 ./install.sh
+
+exec zsh
 ```
 
 ### Rename machine (macOS)
@@ -45,15 +49,10 @@ scutil --get ComputerName
 
 ### Sync ghq project .env files across machines
 
-`.env*` files under `~/ghq/**` are not tracked by git.
-The helper script mirrors them through iCloud Drive.
-
 ```sh
-# Old machine: back up
+# Back up
 ./scripts/sync-envs.sh backup
 
-# New machine: `ghq get` the projects first, then restore
+# Restore
 ./scripts/sync-envs.sh restore
 ```
-
-Destination: `~/Library/Mobile Documents/com~apple~CloudDocs/Documents/.envs/`
