@@ -15,6 +15,10 @@ Personal dotfiles for macOS and Linux.
 - Shell: Zsh + Pure
 - Editor: Neovim + snacks explorer, terminal
 
+## GitHub
+
+Only use `main` branch.
+
 ## Commands
 
 ```sh
