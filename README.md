@@ -20,13 +20,18 @@ cd ~/ghq/github.com/yasainet/dotfiles
 
 ### Linux (Ubuntu)
 
-```sh
-sudo apt update && sudo apt install -y git ghq
+`ghq` は apt に無いため、`install.sh` が release binary を `~/.local/bin` に入れる。
+初回だけ `git clone` で ghq のディレクトリ構成に合わせて配置する。
 
-ghq get https://github.com/yasainet/dotfiles
+```sh
+sudo apt update && sudo apt install -y git
+
+git clone https://github.com/yasainet/dotfiles ~/ghq/github.com/yasainet/dotfiles
 cd ~/ghq/github.com/yasainet/dotfiles
 ./install.sh
 ```
+
+`install.sh` は `chsh` で zsh を default shell にする。反映には再ログインが必要。
 
 ### Rename machine (macOS)
 
@@ -45,9 +50,6 @@ scutil --get ComputerName
 
 ### Sync ghq project .env files across machines
 
-`.env*` files under `~/ghq/**` are not tracked by git.
-The helper script mirrors them through iCloud Drive.
-
 ```sh
 # Old machine: back up
 ./scripts/sync-envs.sh backup
@@ -55,5 +57,3 @@ The helper script mirrors them through iCloud Drive.
 # New machine: `ghq get` the projects first, then restore
 ./scripts/sync-envs.sh restore
 ```
-
-Destination: `~/Library/Mobile Documents/com~apple~CloudDocs/Documents/.envs/`
