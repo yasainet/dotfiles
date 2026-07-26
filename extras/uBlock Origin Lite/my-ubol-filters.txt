@@ -1,0 +1,1 @@
+x.com##div[role][data-keep-composer-open] > button[aria-label][role][type]
