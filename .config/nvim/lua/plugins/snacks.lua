@@ -98,6 +98,9 @@ return {
 							keys = {
 								["<C-v>"] = { "edit_vsplit", mode = { "n" } },
 								["<C-s>"] = { "edit_split", mode = { "n" } },
+								-- false は keymap 自体を作らないため pane 移動へ落ちる ("none" は dead key)
+								["<C-j>"] = false,
+								["<C-k>"] = false,
 								["P"] = "none", -- Disable preview
 								["<esc>"] = "none",
 							},
