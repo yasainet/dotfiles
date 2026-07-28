@@ -139,6 +139,22 @@ type = "plugin_action"
 command = "yasainet.quote.quote-selection"
 ```
 
+README で案内するのは `prefix+shift+y` とする。herdr の既定と衝突しない数少ないキーであるため。
+
+なお本リポジトリの dotfiles では `prefix+shift+p` を割り当てている。nvim の `y` → `p`（yank したものを paste する）に揃えるためで、既定の `rename_pane` を意図的に潰している。
+
+キー選定にあたって調べた事実:
+
+| キー | herdr の既定 |
+| --- | --- |
+| `prefix+p` | `previous_tab` |
+| `prefix+shift+p` | `rename_pane` |
+| `prefix+shift+y` | 未使用 |
+
+`herdr config check` は衝突を検出せず `config: ok` を返す。警告は一切出ない。
+
+実際に押して確認したところ、**カスタムの `[[keys.command]]` が既定のアクションに勝った**（`prefix+shift+p` でプラグインが起動し、`rename_pane` は発火しなかった）。ただし検証したのはこの1組だけであり、herdr が優先順位を保証しているかは確認していない。既定と衝突するキーを割り当てるときは、config check に頼らず実際に押して確かめること。
+
 ### データフロー
 
 1. ユーザーが herdr の copy mode でテキストを選択し `y` で yank する（この時点でクリップボードに入る）
