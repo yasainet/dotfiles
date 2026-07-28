@@ -7,7 +7,11 @@
 #
 #   ./scripts/llm-host.sh
 #
-# セットアップ後、モデルの取得は llm-fetch、起動は llm-serve (共に .zshrc で定義)。
+# セットアップ後の運用:
+#   ./scripts/llm-fetch.sh  モデル取得
+#   ./scripts/llm-serve.sh  llama-swap 起動
+#
+# クライアント側 (opencode の接続先と自動起動) は .config/zsh/conf.d/llm.zsh。
 
 set -e
 
@@ -29,4 +33,4 @@ fi
 
 echo ""
 echo "=== LLM host setup complete! ==="
-echo "Next: llm-fetch (download models), llm-serve (start server)"
+echo "Next: ./scripts/llm-fetch.sh (download models), ./scripts/llm-serve.sh (start server)"

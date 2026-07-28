@@ -10,10 +10,12 @@
   },
   "permissions": {
     "allow": [
-      "Read(//Users/yasainet/ghq/**)"
+      "Read(//Users/yasainet/ghq/**)",
+      "Bash(trash:*)"
     ],
     "deny": [
       "Bash(rm:*)",
+      "Bash(sudo rm:*)",
       "Bash(supabase db reset --linked*)",
       "Edit(**/supabase/migrations/*.sql)",
       "mcp__supabase__apply_migration"
