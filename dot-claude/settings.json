@@ -20,7 +20,6 @@
     "ask": ["Bash(gh pr merge:*)", "Bash(supabase db push:*)"],
     "defaultMode": "plan"
   },
-  "model": "opusplan",
   "fallbackModel": [],
   "enableAllProjectMcpServers": true,
   "hooks": {
