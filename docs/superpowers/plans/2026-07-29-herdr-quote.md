@@ -477,7 +477,7 @@ herdr api plugin.log_list 2>/dev/null || herdr plugin log
 
 ```bash
 git add quote.sh
-git commit -m "feat: read selection from plugin context and inject into pane"
+git commit -m "feat: read the clipboard and inject the quote into the focused pane"
 ```
 
 ---
