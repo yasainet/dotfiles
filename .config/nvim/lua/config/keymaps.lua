@@ -73,59 +73,49 @@ vim.keymap.set("n", "<leader>gf", "<Cmd>DiffviewFileHistory %<CR>", { desc = "Di
 vim.keymap.set("n", "<leader>gq", "<Cmd>DiffviewClose<CR>", { desc = "Diffview close" })
 
 -- Window / pane navigation
-local function nav(dir)
-	local wincmd = ({ left = "h", down = "j", up = "k", right = "l" })[dir]
+local dirs = {
+	h = { name = "left", axis = 2, sign = -1 },
+	j = { name = "down", axis = 1, sign = 1 },
+	k = { name = "up", axis = 1, sign = -1 },
+	l = { name = "right", axis = 2, sign = 1 },
+}
+
+local function win_in_dir(from, dir)
+	local pos = vim.api.nvim_win_get_position(from)[dir.axis]
+	local best, best_dist = nil, math.huge
+	for _, win in ipairs(vim.api.nvim_tabpage_list_wins(0)) do
+		if win ~= from and not Snacks.util.is_float(win) then
+			local dist = (vim.api.nvim_win_get_position(win)[dir.axis] - pos) * dir.sign
+			if dist > 0 and dist < best_dist then
+				best, best_dist = win, dist
+			end
+		end
+	end
+	return best
+end
+
+local function nav(key, dir)
 	local before = vim.api.nvim_get_current_win()
-	vim.cmd("wincmd " .. wincmd)
+
+	if Snacks.util.is_float(before) then
+		local target = win_in_dir(before, dir)
+		if target then
+			vim.api.nvim_set_current_win(target)
+		end
+	else
+		vim.cmd("wincmd " .. key)
+	end
+
 	if vim.api.nvim_get_current_win() == before then
-		vim.system({ "herdr", "pane", "focus", "--direction", dir })
+		vim.system({ "herdr", "pane", "focus", "--direction", dir.name })
 	end
 end
 
-for key, dir in pairs({ h = "left", j = "down", k = "up", l = "right" }) do
+for key, dir in pairs(dirs) do
 	vim.keymap.set({ "n", "t" }, "<C-" .. key .. ">", function()
-		nav(dir)
-	end, { desc = "Nav " .. dir .. " (split → pane)" })
+		nav(key, dir)
+	end, { desc = "Nav " .. dir.name .. " (split → pane)" })
 end
-
--- Marker file
--- TODO: watch smart-splits.nvim PR #467
-local function herdr_marker_path()
-	local pane = vim.env.HERDR_PANE_ID
-	if not pane or pane == "" then
-		return nil
-	end
-	local cache = vim.env.XDG_CACHE_HOME or (vim.env.HOME .. "/.cache")
-	local dir = cache .. "/nvim-herdr"
-	vim.fn.mkdir(dir, "p")
-	return dir .. "/" .. pane
-end
-
-vim.api.nvim_create_autocmd("VimEnter", {
-	callback = function()
-		local path = herdr_marker_path()
-		if not path then
-			return
-		end
-		local server = vim.v.servername
-		if not server or server == "" then
-			return
-		end
-		pcall(vim.fn.writefile, {
-			"pid=" .. vim.fn.getpid(),
-			"server=" .. server,
-		}, path)
-	end,
-})
-
-vim.api.nvim_create_autocmd("VimLeavePre", {
-	callback = function()
-		local path = herdr_marker_path()
-		if path then
-			pcall(vim.fn.delete, path)
-		end
-	end,
-})
 
 -- Picker
 vim.keymap.set("n", "<leader>ff", function()
