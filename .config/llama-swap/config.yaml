@@ -1,5 +1,5 @@
 macros:
-  model-dir: "/Users/yasainet/models"
+  model-dir: "${env.HOME}/models"
   llama-server: >-
     /opt/homebrew/bin/llama-server
     --port ${PORT}
