@@ -37,11 +37,19 @@ fi
 しかし「移動したら入力ソースをリセットする」は navigation とは独立した横断的関心事である。
 script に置く限り、pane 移動と nvim へのキー転送のどちらで効かせたいのかを構造的に表現できない。
 
-## 復活させる場合
+## 決着
 
-まず herdr 本体の設定を検討する。
-`.config/herdr/config.toml` に `switch_ascii_input_source_in_prefix` があり、現在は `false` である。
-prefix 操作に限れば herdr 本体で同等のことができる。
+Hammerspoon 層で復活させた。
+`.config/hammerspoon/ime.lua` の `ctrlKeys` に `h/j/k/l` を追加している。
 
-herdr 本体で足りない場合に限り、外部コマンドの呼び出しを検討する。
-その際も navigation script ではなく、独立した層に置くこと。
+この層には「あらゆる操作は ABC 起点」という不変条件が既にあり、Ctrl+B (herdr prefix) などが同じ仕組みで動いていた。
+つまり navigation script の `macism` は、既存の方針をシェルで二重実装したものだった。
+
+きっかけは snacks explorer である。
+explorer は単キーが操作に割り当てられているため、日本語入力の状態では何もできない。
+`<leader>e` からの経路は考慮不要である。
+leader は Space で、日本語入力中の Space は変換キーなので、その状態では押せない。
+穴が開いていたのは C-hjkl の経路だけだった。
+
+Hammerspoon はイベントを消費せず素通しし、切り替えは同期 API で行う。
+シェルから非同期に外部コマンドを叩いていた元の実装と違い、キー配送と競合しない。
