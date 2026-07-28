@@ -19,7 +19,10 @@ generate() {
   } | MAX_THINKING_TOKENS=0 claude \
     -p "Based on the above changes, create a single git commit message for the staged changes. Output only the commit message on a single line, following the style of the recent commits. Do not send any other text besides the message." \
     --model haiku \
-    --disallowed-tools "Bash,Read,Write,Edit,Glob,Grep,WebFetch,WebSearch,Task,Skill" \
+    --safe-mode \
+    --permission-mode manual \
+    --tools "" \
+    --no-session-persistence \
     --strict-mcp-config --mcp-config '{"mcpServers":{}}'
 }
 

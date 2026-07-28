@@ -9,10 +9,7 @@
     "ANTHROPIC_DEFAULT_HAIKU_MODEL": "claude-haiku-4-5"
   },
   "permissions": {
-    "allow": [
-      "Read(//Users/yasainet/ghq/**)",
-      "Bash(trash:*)"
-    ],
+    "allow": ["Read(//Users/yasainet/ghq/**)", "Bash(trash:*)"],
     "deny": [
       "Bash(rm:*)",
       "Bash(sudo rm:*)",
@@ -20,12 +17,11 @@
       "Edit(**/supabase/migrations/*.sql)",
       "mcp__supabase-production__apply_migration"
     ],
-    "ask": [
-      "Bash(gh pr merge:*)",
-      "Bash(supabase db push:*)"
-    ],
-    "defaultMode": "auto"
+    "ask": ["Bash(gh pr merge:*)", "Bash(supabase db push:*)"],
+    "defaultMode": "plan"
   },
+  "model": "opusplan",
+  "fallbackModel": [],
   "enableAllProjectMcpServers": true,
   "hooks": {
     "UserPromptSubmit": [
@@ -73,15 +69,13 @@
   "enabledPlugins": {
     "context7@claude-plugins-official": true,
     "commit-commands@claude-plugins-official": true,
-    "superpowers@claude-plugins-official": true
+    "superpowers@claude-plugins-official": false
   },
   "outputStyle": "concise",
   "language": "Japanese",
   "effortLevel": "high",
-  "fallbackModel": [],
-  "switchModelsOnFlag": false,
   "autoUpdatesChannel": "latest",
-  "plansDirectory": "./docs/plans",
+  "plansDirectory": ".claude/plans",
   "tui": "default",
   "voice": {
     "enabled": true,
@@ -92,6 +86,7 @@
   "theme": "auto",
   "editorMode": "normal",
   "preferredNotifChannel": "ghostty",
+  "switchModelsOnFlag": false,
   "inputNeededNotifEnabled": false,
   "agentPushNotifEnabled": false,
   "skipAutoPermissionPrompt": true
