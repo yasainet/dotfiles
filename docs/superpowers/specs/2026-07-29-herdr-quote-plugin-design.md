@@ -36,11 +36,12 @@ herdr 0.7.5 / protocol 17 のバンドル API スキーマ（`herdr api schema -
   ```
   PluginActionContext = ["global", "workspace", "tab", "pane", "selection"]
   ```
-- 起動時に渡る context に選択テキストとフォーカス中ペインが含まれる
+- 起動時に渡る context の型定義には選択テキストの欄がある
   ```
   PluginInvocationContext = { selected_text, focused_pane_id, focused_pane_agent,
                               focused_pane_cwd, tab_id, workspace_id, ... }
   ```
+- 環境変数 `HERDR_PANE_ID` にフォーカス中ペインの ID が直接入る（JSON をパースせずに取れる）
 - プラグインは任意の言語で書け、`herdr-plugin.toml` で宣言し、GitHub の `owner/repo` 形式で配布できる
 - `HERDR_BIN_PATH` 経由で herdr 本体を呼び戻せる
 
@@ -57,9 +58,35 @@ Claude Code v2.1.220 を herdr のペインで起動し、`herdr pane send-text`
 
 両方式とも動作したが、`\x1b\r` を採用する。Claude Code が明示的に「入力欄内の改行」として解釈するシーケンスであり（Ghostty の `keybind = shift+enter=text:\x1b\r` と同じもの）、バイトの到着タイミングに依存しないため。
 
+### 実機検証で否定された前提（重要）
+
+当初はテキスト源を context の `selected_text` にする設計だった。実際にプラグインを herdr に登録してキーバインドから発火させたところ、**`selected_text` は context に入ってこなかった**。
+
+```
+HERDR_PLUGIN_CONTEXT_JSON={"workspace_id":"wV", ..., "focused_pane_id":"wV:pBM",
+  "focused_pane_agent":"claude","focused_pane_status":"idle",
+  "invocation_source":"keybinding","correlation_id":"keybinding"}
+```
+
+アクション自体は発火しており、ペイン ID もエージェント種別も入っている。欠けているのは選択テキストだけである。herdr のバイナリに含まれる `invocation_source` の値は `keybinding` / `link_click` / `selection_menu` の3種で、`selected_text` が付くのは `selection_menu` 経由の起動に限られるとみられる。
+
+一方 herdr は `copy_on_select = true` が既定で、**選択した時点でクリップボードへ yank される**。想定利用者の操作は「copy mode に入る → `v` で選択 → `y` で yank」であり、アクションを発火する時点で対象テキストは必ずクリップボードにある。
+
+したがってテキスト源をクリップボードに変更する。結果として設計はむしろ単純になる。
+
+| | 当初 | 変更後 |
+| --- | --- | --- |
+| テキスト源 | context の `selected_text` | クリップボード |
+| ペイン ID | context JSON をパース | 環境変数 `HERDR_PANE_ID` |
+| 依存 | `jq` または `python3` | 不要（JSON パースが消える） |
+| 追加依存 | なし | `pbpaste` / `wl-paste` / `xclip` |
+| 注入 | `pane send-text` + `\x1b\r` | 変更なし |
+
+クリップボードは読むだけで書き換えない。yank した内容は壊れない。
+
 ## スコープ
 
-**やること** — herdr 上で選択したテキストを markdown 引用に変換し、選択したペイン自身のエージェント入力欄へ挿入する。
+**やること** — クリップボードの内容（herdr で yank した直後の選択テキスト）を markdown 引用に変換し、フォーカス中のペインのエージェント入力欄へ挿入する。
 
 **やらないこと**（初版では意図的に外す）
 
@@ -94,12 +121,14 @@ description = "Quote the selected text into the agent prompt of the same pane"
 [[actions]]
 id = "quote-selection"
 title = "Quote selection into prompt"
-contexts = ["selection"]
+contexts = ["pane"]
 command = ["bash", "quote.sh"]
 platforms = ["macos", "linux"]
 ```
 
 `platforms` に `windows` を含めないのは本体を bash で書くため。将来必要になれば移植を検討する。
+
+`contexts` が `pane` なのは、`selection` を宣言しても keybinding 起動では選択テキストが渡らないため（上記の検証結果）。テキストはクリップボードから取る。
 
 ### 利用者側の設定
 
@@ -112,9 +141,9 @@ command = "yasainet.quote.quote-selection"
 
 ### データフロー
 
-1. ユーザーが herdr のペインでテキストを選択し、割り当てたキーを押す
-2. herdr が `quote.sh` を起動し、context を渡す
-3. `quote.sh` が `selected_text` と `focused_pane_id` を読む
+1. ユーザーが herdr の copy mode でテキストを選択し `y` で yank する（この時点でクリップボードに入る）
+2. 割り当てたキーを押すと herdr が `quote.sh` を起動する
+3. `quote.sh` がクリップボードを読み、`HERDR_PANE_ID` から対象ペインを得る
 4. `quote_lines()` が変換する
    - 各行頭に `> ` を付ける
    - 空行にも `> ` を付ける（引用ブロックを途切れさせないため）
@@ -158,8 +187,9 @@ command = "yasainet.quote.quote-selection"
 
 | 条件 | 挙動 |
 | --- | --- |
-| `selected_text` が空 or 未設定 | 何もせず exit 0（無言。誤爆時にノイズを出さない） |
-| `focused_pane_id` が未設定 | stderr にメッセージを出して exit 1（herdr の plugin log に残る） |
+| クリップボードが空 | 何もせず exit 0（無言。誤爆時にノイズを出さない） |
+| クリップボード読み取りコマンドが無い | stderr にメッセージを出して exit 1（herdr の plugin log に残る） |
+| `HERDR_PANE_ID` が未設定 | stderr にメッセージを出して exit 1 |
 | `send-text` が失敗 | herdr の終了コードをそのまま返す |
 | 巨大な選択 | 上限を設けず素通しする |
 
@@ -178,9 +208,9 @@ CI は GitHub Actions で `bash test/quote_test.sh` を macOS と Ubuntu の両�
 
 ## 未確定リスク
 
-`selected_text` にターミナルの折り返し（soft wrap）由来の改行が含まれるかは未確認である。含まれる場合、見た目の行ごとに `> ` が付き、本来1つの段落が複数行の引用に割れる。
+herdr の copy mode で yank したテキストに、ターミナルの折り返し（soft wrap）由来の改行が含まれるかは未確認である。含まれる場合、見た目の行ごとに `> ` が付き、本来1つの段落が複数行の引用に割れる。
 
-実装の最初のステップで実データを確認し、折り返しが混入するなら unwrap 処理を足す。混入しないなら何もしない。この判断は実装計画の Step 1 に置く。
+これは herdr 側のコピー実装に依存し、本プラグインからは制御できない。実装後に実際の使用で観察し、問題になるようなら unwrap 処理の追加を別途検討する。初版では何もしない（YAGNI）。
 
 ## OSS 化の見立て
 
