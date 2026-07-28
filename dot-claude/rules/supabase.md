@@ -9,7 +9,35 @@ paths:
 
 ## Migration
 
-- `*.schema.sql` 編集後は、ユーザーに `/migrate <name>` を実行するよう伝えよ
+- `*.schema.sql` を編集したら、`/supabase:migrate <name>` を自ら実行せよ
+
+### Basic Workflow
+
+1. 宣言 — `supabase/schemas/*.schema.sql` に「あるべき状態」を書く
+2. 生成 — 停止した状態で `db diff` し、`supabase/migrations/` へ出力する
+3. 適用 — 起動して `migration up` でローカルに適用し、型定義を再生成する
+4. 反映 — 本番へは `supabase db push`。人間の承認が必要。LLM は実行するな
+
+手順の実体は `/supabase:migrate` に集約する。ここに bash を書くな（二重メンテを避けよ）。
+
+### Limitations
+
+`db diff` は live DB を読まない。`supabase/schemas/` と `supabase/migrations/` を比較するだけである。
+
+以下は `db diff` が拾わないため、migration へ手書きする必要がある。
+
+- DML（insert / update / delete）
+- materialized view
+- view の ownership / security invoker 設定
+- RLS policy の ALTER 文、column privileges
+- schema privileges、comment、partition
+- domain 文、publication へのテーブル追加
+- default privileges 由来の重複 grant
+
+### Rollback
+
+- 開発中: `supabase db reset` で作り直せ
+- 本番: `*.schema.sql` を戻して前進 migration を生成せよ。適用済み migration の削除・改変はデータ損失を招く
 
 ## Secrets Management
 
@@ -28,7 +56,7 @@ paths:
 
 ## Seeds & Scripts
 
-```toml supabase/comfig.toml
+```toml supabase/config.toml
 [db.migrations]
 schema_paths = ["./schemas/*.sql"]
 
@@ -89,6 +117,28 @@ ENVIRONMENT=development
 #
 # Production
 # supabase secrets set ENVIRONMENT=production --project-ref <project-id>
+```
+
+## MCP
+
+- サーバー名は `supabase-development` / `supabase-production` に統一せよ
+  - `deny` は tool 名の完全一致で効く。規約を外れると production が無防備になる
+- 両方に `read_only=true` を付けよ
+  - migration は CLI（`/supabase:migrate`）で行うため、MCP 経由の書き込みは不要
+
+```json .mcp.json
+{
+  "mcpServers": {
+    "supabase-development": {
+      "type": "http",
+      "url": "http://localhost:54321/mcp?read_only=true"
+    },
+    "supabase-production": {
+      "type": "http",
+      "url": "https://mcp.supabase.com/mcp?project_ref=<project-id>&read_only=true"
+    }
+  }
+}
 ```
 
 ## References
