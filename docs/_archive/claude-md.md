@@ -5,6 +5,11 @@ paths:
 
 # CLAUDE.md Rules
 
+> [!IMPORTANT]
+>
+> - CLAUDE.md は、LLM 向けに記述せよ
+> - README.md は、人間向けに記述せよ
+
 - CLAUDE.md は `Why` に集中せよ。`What` / `How` はコード・設定ファイルが一次ソース
 - 最大 200 行以内で記述すること
   - 200 行を超える場合は、`docs/**/*.md` を利用せよ

@@ -5,8 +5,12 @@ paths:
 
 # README.md Rules
 
-- README.md は人間向けに記述せよ
-- AI 向けの制約・設計判断は CLAUDE.md に寄せ、二重メンテを避けよ
+> [!IMPORTANT]
+>
+> - CLAUDE.md は、LLM 向けに記述せよ
+> - README.md は、人間向けに記述せよ
+> - CLAUDE.md, README.md の二重メンテを避けよ
+
 - 以下の構成に従うこと:
 
 ```markdown README.md
