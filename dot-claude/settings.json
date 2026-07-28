@@ -18,10 +18,11 @@
       "Bash(sudo rm:*)",
       "Bash(supabase db reset --linked*)",
       "Edit(**/supabase/migrations/*.sql)",
-      "mcp__supabase__apply_migration"
+      "mcp__supabase-production__apply_migration"
     ],
     "ask": [
-      "Bash(gh pr merge:*)"
+      "Bash(gh pr merge:*)",
+      "Bash(supabase db push:*)"
     ],
     "defaultMode": "auto"
   },
