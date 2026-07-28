@@ -27,3 +27,5 @@
 !.config/herdr/scripts/
 !.config/herdr/scripts/**
 
+# superpowers
+.superpowers/
