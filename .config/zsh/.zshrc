@@ -53,18 +53,22 @@ cd() {
   [[ "$PWD" != "$HOME" ]] && la
 }
 
+# rm (macOS: trash / Linux: trash-cli)
 rm() {
-  if [[ "$@" == *"-rf"* || "$@" == *"-fr"* ]]; then
-    echo -n "Execute 'rm -rf'? [y/N]: "
-    read answer
-    if [[ ! "$answer" =~ ^[Yy] ]]; then
-      echo "Canceled."
-      return 1
+  local -a files
+  local endopts=0 arg
+  for arg in "$@"; do
+    if (( ! endopts )); then
+      [[ "$arg" == "--" ]] && { endopts=1; continue; }
+      [[ "$arg" == -* ]] && continue
     fi
-    command rm "$@"
-  else
-    command rm -i "$@"
-  fi
+    [[ -e "$arg" || -L "$arg" ]] || continue 
+    [[ "$arg" == -* ]] && arg="./$arg"
+    files+=("$arg")
+  done
+
+  (( ${#files} )) || return 0
+  trash "${files[@]}"
 }
 
 pj() {
@@ -80,37 +84,7 @@ y() {
   yazi "$@" --cwd-file="$tmp"
   IFS= read -r -d '' cwd < "$tmp"
   [[ -n "$cwd" && "$cwd" != "$PWD" ]] && cd "$cwd"
-  rm -f -- "$tmp"
-}
-
-# Local LLM (llama-swap + llama.cpp)
-llm-fetch() {
-  local m repo file subdir
-  for m in \
-    "unsloth/Qwen3.6-35B-A3B-GGUF Qwen3.6-35B-A3B-Q8_0.gguf Qwen3.6-35B-A3B" \
-    "unsloth/Qwen3.6-35B-A3B-GGUF mmproj-F16.gguf Qwen3.6-35B-A3B" \
-    "HauhauCS/Qwen3.6-35B-A3B-Uncensored-HauhauCS-Aggressive Qwen3.6-35B-A3B-Uncensored-HauhauCS-Aggressive-Q8_K_P.gguf Qwen3.6-35B-A3B-Uncensored-HauhauCS-Aggressive" \
-    "HauhauCS/Qwen3.6-35B-A3B-Uncensored-HauhauCS-Aggressive mmproj-Qwen3.6-35B-A3B-Uncensored-HauhauCS-Aggressive-f16.gguf Qwen3.6-35B-A3B-Uncensored-HauhauCS-Aggressive"; do
-    read repo file subdir <<< "$m"
-    curl -L -C - --retry 1000 --retry-delay 3 --retry-all-errors --speed-limit 500000 --speed-time 30 \
-      --create-dirs -o "$HOME/models/$subdir/$file" "https://huggingface.co/$repo/resolve/main/$file"
-  done
-}
-
-llm-serve() {
-  llama-swap --config "$HOME/.config/llama-swap/config.yaml" --listen :8080 "$@"
-}
-
-# opencode (LLM host: MacBook-Pro-2023 via tailscale)
-LLM_URL="http://100.71.212.109:8080"
-
-opencode() {
-  if ! curl -sf -m2 "$LLM_URL/health" >/dev/null 2>&1; then
-    ssh MacBook-Pro-2023 'nohup ~/.local/bin/llama-swap --config ~/.config/llama-swap/config.yaml --listen :8080 >/tmp/llama-swap.log 2>&1 & disown'
-    curl -sf -m2 --retry 30 --retry-delay 1 --retry-connrefused --retry-all-errors \
-      "$LLM_URL/health" >/dev/null 2>&1
-  fi
-  command opencode "$@"
+  command rm -f -- "$tmp"
 }
 
 # Git
@@ -226,3 +200,9 @@ fi
 if [[ "$OSTYPE" == "darwin"* ]] && command -v mise &>/dev/null; then
   eval "$(mise activate zsh)"
 fi
+
+# conf.d (用途別の設定を分割して読み込む。既存設定を上書きできるよう末尾)
+for _conf in "$ZDOTDIR"/conf.d/*.zsh(N); do
+  source "$_conf"
+done
+unset _conf

@@ -8,8 +8,12 @@
 ## Commands
 
 ```sh
-# deny
-rm # use `trash`
+# deny (one-way door)
+rm
+sudo rm
+
+# allow (two-way door)
+trash
 ```
 
 ## GitHub

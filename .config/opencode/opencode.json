@@ -7,7 +7,7 @@
       "npm": "@ai-sdk/openai-compatible",
       "name": "llama.cpp",
       "options": {
-        "baseURL": "http://100.71.212.109:8080/v1"
+        "baseURL": "{env:LLM_URL}/v1"
       },
       "models": {
         "qwen3.6-35b-a3b": {
