@@ -4,9 +4,9 @@
 
 **Goal:** herdr のペインで選択したテキストを markdown 引用に変換し、同じペインのエージェント入力欄へ挿入する herdr プラグインを作り、OSS として公開する。
 
-**Architecture:** herdr のプラグイン API の `selection` アクションコンテキストを使う。herdr が選択テキストを `HERDR_PLUGIN_CONTEXT_JSON` に入れてプラグインプロセスを起動するので、bash スクリプトがそれを読んで各行に `> ` を付け、`herdr pane send-text` で選択元ペインへ書き戻す。クリップボードは経由しない。
+**Architecture:** herdr は `copy_on_select` が既定で有効なので、ユーザーが copy mode で yank した時点でテキストはクリップボードにある。プラグインはキーバインドから起動され、クリップボードを読み、各行に `> ` を付け、`herdr pane send-text` で `HERDR_PANE_ID` のペインへ書き戻す。クリップボードは読むだけで書き換えない。
 
-**Tech Stack:** bash（本体）、jq または python3（JSON パース）、herdr 0.7+ のプラグイン API、GitHub Actions（CI）
+**Tech Stack:** bash（本体）、pbpaste / wl-paste / xclip（クリップボード読み取り）、herdr 0.7+ のプラグイン API、GitHub Actions（CI）
 
 ## Global Constraints
 
@@ -18,7 +18,10 @@
 - ライセンスは MIT、著作権者は `yasainet`
 - 引用形式は「各行頭に `> `、空行は `>` 単体（末尾スペースなし）、全体の末尾に空行を1つ」
 - ペインへ送る改行は `\n` ではなく `\x1b\r`（ESC + CR）を使う
-- JSON パースは `jq` を優先し、無ければ `python3` にフォールバックする。どちらも無ければエラー終了する
+- テキスト源はクリップボード。読み取りコマンドは `pbpaste` → `wl-paste` → `xclip -selection clipboard -o` の順に探し、見つかった最初のものを使う。どれも無ければエラー終了する。**クリップボードへの書き込みは行わない**
+- 対象ペインは環境変数 `HERDR_PANE_ID` から取る（JSON パースはしない。`jq` にも `python3` にも依存しない）
+- マニフェストの `contexts` は `["pane"]`。`["selection"]` は keybinding 起動で `selected_text` が渡らないため使わない
+- マニフェストにはトップレベルの `platforms` も書く（`[[actions]]` 側だけだと herdr が "manifest does not declare platforms" と警告する）
 - コミットメッセージは英語、Conventional Commits 形式
 
 ---
@@ -58,15 +61,18 @@ id = "yasainet.quote"
 name = "Quote"
 version = "0.1.0"
 min_herdr_version = "0.7.0"
-description = "Quote the selected text into the agent prompt of the same pane"
+description = "Quote the clipboard into the agent prompt of the focused pane"
+platforms = ["macos", "linux"]
 
 [[actions]]
 id = "quote-selection"
 title = "Quote selection into prompt"
-contexts = ["selection"]
+contexts = ["pane"]
 command = ["bash", "quote.sh"]
 platforms = ["macos", "linux"]
 ```
+
+トップレベルの `platforms` を省くと herdr が "manifest does not declare platforms; platform support unknown" と警告する。
 
 - [ ] **Step 4: context をダンプするだけの `quote.sh` を書く**
 
@@ -115,21 +121,19 @@ command = "yasainet.quote.quote-selection"
 herdr server reload-config
 ```
 
-- [ ] **Step 7: 実際に選択して発火し、ダンプを読む**
+- [x] **Step 7: 実際に発火してダンプを読む（実施済み・結果は下記）**
 
-herdr のペインで **意図的に折り返しが起きる長い行を含む複数行**をドラッグ選択し、`prefix+shift+y` を押す。そのあと:
+人間が選択して `prefix+shift+y` を押し、`${TMPDIR:-/tmp}/herdr-quote-context.json` を読んだ。
 
-```bash
-cat "${TMPDIR:-/tmp}/herdr-quote-context.json"
-```
+結果: **`selected_text` は context に入ってこなかった。** `invocation_source` は `"keybinding"`。`focused_pane_id` と `HERDR_PANE_ID` はどちらも入っており、値は一致していた（`wV:pBM`）。
 
-確認すること:
+herdr のバイナリに含まれる `invocation_source` の値は `keybinding` / `link_click` / `selection_menu` の3種で、`selected_text` が付くのは `selection_menu` 経由に限られるとみられる。想定利用者は copy mode で `v` / `y` を使うワークフローであり、選択メニューは経由しない。
 
-1. `HERDR_PLUGIN_CONTEXT_JSON` に `selected_text` が入っているか
-2. `focused_pane_id` が入っているか。入っていなければ `HERDR_PANE_ID` が使えるか
-3. **`selected_text` の中で、折り返した長い行が1行のままか、複数行に割れているか**
+この結果を受けて設計をクリップボード方式に変更した（spec の「実機検証で否定された前提」節を参照）。`quote_lines` の前段に unwrap 処理は入れない。
 
-3 で割れていた場合のみ、Task 2 の `quote_lines` の前段に unwrap 処理を足す判断をする。割れていなければ何もしない。この結果を Step 8 のコミットメッセージ本文に書き残す。
+- [ ] **Step 7b: マニフェストを変更後の設計に合わせる**
+
+Step 3 のマニフェストは既に更新済みの内容になっている。既にファイルを書いてしまっている場合は、`contexts` を `["pane"]` に、トップレベルの `platforms` を追加した状態に直し、`herdr plugin link` し直して `herdr plugin list` に警告が出ないことを確認する。
 
 - [ ] **Step 8: コミット**
 
@@ -319,7 +323,7 @@ git commit -m "feat: add quote_lines conversion with tests"
 
 ---
 
-### Task 3: context の読み取りとペインへの注入
+### Task 3: クリップボードの読み取りとペインへの注入
 
 `quote_lines` を herdr に繋ぐ。ここで初めて副作用が入る。
 
@@ -329,74 +333,58 @@ git commit -m "feat: add quote_lines conversion with tests"
 **Interfaces:**
 - Consumes: Task 2 の `quote_lines <text> [separator]` と `QUOTE_LIB_ONLY`
 - Produces:
-  - `json_field <json> <field>` — JSON 文字列から指定したトップレベル文字列フィールドを取り出して標準出力に書く。値が無ければ何も書かずに終了コード 0 を返す。
-  - `main` — context を読み、変換し、`herdr pane send-text` を呼ぶ。
+  - `read_clipboard` — クリップボードの内容を標準出力に書く。読み取りコマンドが1つも無ければ終了コード 127 を返す。
+  - `main` — クリップボードを読み、変換し、`herdr pane send-text` を呼ぶ。
 
-- [ ] **Step 1: `json_field` と `main` を `quote.sh` の末尾に足す**
+- [ ] **Step 1: `read_clipboard` と `main` を `quote.sh` の末尾に足す**
 
 Task 2 で書いた `quote_lines` の下に追記する。
 
 ```bash
-# json_field <json> <field>
+# read_clipboard
 #
-# トップレベルの文字列フィールドを取り出す。jq を優先し、無ければ python3 を使う。
-# どちらも無ければ終了コード 127 で落ちる。
-json_field() {
-  local json="$1" field="$2"
-
-  if command -v jq > /dev/null 2>&1; then
-    printf '%s' "$json" | jq -r --arg f "$field" '.[$f] // empty'
+# クリップボードの内容を標準出力に書く。macOS の pbpaste、Wayland の wl-paste、
+# X11 の xclip をこの順に試す。どれも無ければ終了コード 127。
+# 書き込みは一切行わない。
+read_clipboard() {
+  if command -v pbpaste > /dev/null 2>&1; then
+    pbpaste
     return 0
   fi
 
-  if command -v python3 > /dev/null 2>&1; then
-    printf '%s' "$json" | python3 -c '
-import json, sys
-field = sys.argv[1]
-try:
-    data = json.load(sys.stdin)
-except ValueError:
-    sys.exit(0)
-value = data.get(field)
-if isinstance(value, str):
-    sys.stdout.write(value)
-' "$field"
+  if command -v wl-paste > /dev/null 2>&1; then
+    wl-paste --no-newline
     return 0
   fi
 
-  echo "herdr-quote: neither jq nor python3 is available" >&2
+  if command -v xclip > /dev/null 2>&1; then
+    xclip -selection clipboard -o
+    return 0
+  fi
+
+  echo "herdr-quote: no clipboard reader found (need pbpaste, wl-paste or xclip)" >&2
   return 127
 }
 
 main() {
-  local context="${HERDR_PLUGIN_CONTEXT_JSON:-}"
-  if [ -z "$context" ]; then
-    echo "herdr-quote: HERDR_PLUGIN_CONTEXT_JSON is not set" >&2
+  local pane="${HERDR_PANE_ID:-}"
+  if [ -z "$pane" ]; then
+    echo "herdr-quote: HERDR_PANE_ID is not set" >&2
     return 1
   fi
 
-  local selected
-  selected="$(json_field "$context" selected_text)" || return $?
+  local text
+  text="$(read_clipboard)" || return $?
 
-  # 選択が空なら黙って終わる。誤爆時にノイズを出さないため。
-  if [ -z "$selected" ]; then
+  # クリップボードが空なら黙って終わる。誤爆時にノイズを出さないため。
+  if [ -z "$text" ]; then
     return 0
-  fi
-
-  local pane
-  pane="$(json_field "$context" focused_pane_id)" || return $?
-  if [ -z "$pane" ]; then
-    pane="${HERDR_PANE_ID:-}"
-  fi
-  if [ -z "$pane" ]; then
-    echo "herdr-quote: no target pane in context" >&2
-    return 1
   fi
 
   local herdr_bin="${HERDR_BIN_PATH:-herdr}"
 
   local payload
-  payload="$(quote_lines "$selected" $'\x1b\r')"
+  payload="$(quote_lines "$text" $'\x1b\r')"
 
   "$herdr_bin" pane send-text "$pane" "$payload"
 }
@@ -405,6 +393,8 @@ if [ -z "${QUOTE_LIB_ONLY:-}" ]; then
   main "$@"
 fi
 ```
+
+注意: `text="$(read_clipboard)"` はコマンド置換なので末尾の改行が落ちる。`quote_lines` は末尾の改行を1つ落とす処理を持っているが、二重に落ちても結果は変わらない（どちらも「末尾の空行を引用しない」という同じ意図）。
 
 - [ ] **Step 2: 既存のテストが壊れていないことを確認する**
 
@@ -416,15 +406,19 @@ bash test/quote_test.sh
 
 - [ ] **Step 3: `main` のエラー経路を手で確認する**
 
+クリップボードの現在の内容は壊さないこと。読むだけなので書き戻しは不要。
+
 ```bash
 cd /Users/yasainet/ghq/github.com/yasainet/herdr-quote
 
-# context 無し
-bash quote.sh; echo "exit=$?"
-# 期待: "herdr-quote: HERDR_PLUGIN_CONTEXT_JSON is not set" / exit=1
+# ペイン ID 無し
+env -u HERDR_PANE_ID bash quote.sh; echo "exit=$?"
+# 期待: "herdr-quote: HERDR_PANE_ID is not set" / exit=1
 
-# 選択が空
-HERDR_PLUGIN_CONTEXT_JSON='{"selected_text":"","focused_pane_id":"x"}' bash quote.sh; echo "exit=$?"
+# クリップボードが空のとき（read_clipboard を差し替えて確認する）
+QUOTE_LIB_ONLY=1 . ./quote.sh
+read_clipboard() { printf ''; }
+HERDR_PANE_ID=dummy main; echo "exit=$?"
 # 期待: 何も出力せず exit=0
 ```
 
@@ -440,13 +434,14 @@ herdr pane run "$PANE" "claude"
 sleep 12
 ```
 
-そのペインを狙って注入する。
+そのペインを狙って注入する。ユーザーのクリップボードを壊さないよう、`read_clipboard` を差し替えて実行する。
 
 ```bash
-HERDR_PLUGIN_CONTEXT_JSON="$(jq -nc --arg t 'テストは全件通過しました。
-
-ただし flaky なものが1件あります。' --arg p "$PANE" '{selected_text:$t, focused_pane_id:$p}')" \
-  bash quote.sh
+QUOTE_LIB_ONLY=1 . ./quote.sh
+read_clipboard() {
+  printf 'テストは全件通過しました。\n\nただし flaky なものが1件あります。\n'
+}
+HERDR_PANE_ID="$PANE" main
 sleep 2
 herdr pane read "$PANE" --source visible --lines 20
 ```
@@ -468,9 +463,9 @@ herdr pane read "$PANE" --source visible --lines 20
 herdr tab close "$(printf '%s' "$TAB_JSON" | jq -r '.result.tab.tab_id')"
 ```
 
-- [ ] **Step 5: 実際に選択して発火させる**
+- [ ] **Step 5: 実際に yank して発火させる**
 
-Task 1 で入れたキーバインドはそのまま使える。herdr のペインで Claude Code の出力を選択し、`prefix+shift+y` を押す。入力欄に引用が入ることを目視で確認する。
+このステップは人間が行う。Task 1 で入れたキーバインドはそのまま使える。herdr の copy mode に入り、Claude Code の出力を `v` で選択して `y` で yank し、`prefix+shift+y` を押す。入力欄に引用が入ることを目視で確認する。
 
 うまくいかない場合は herdr のプラグインログを見る。
 
@@ -513,7 +508,7 @@ Copyright (c) 2026 yasainet
 
 Quote the selected text into the agent prompt of the same pane.
 
-Select any text in a [herdr](https://herdr.dev) pane, hit a key, and it comes
+Copy any text in a [herdr](https://herdr.dev) pane, hit a key, and it comes
 back into that pane's prompt as a markdown blockquote.
 
 ## Why
@@ -553,7 +548,10 @@ Reload:
 
 ## Usage
 
-Select text in a pane, press your key. That's it.
+Copy text in a pane — herdr yanks to the clipboard on select, and copy mode's
+`y` does too — then press your key. That's it.
+
+The clipboard is only read, never written, so your yank survives intact.
 
 Input:
 
@@ -573,7 +571,7 @@ with the cursor on a fresh line below, so you can add your own words.
 
 - herdr 0.7.0+
 - bash
-- `jq` or `python3`
+- `pbpaste` (macOS), `wl-paste` (Wayland) or `xclip` (X11)
 - macOS or Linux
 
 ## License
