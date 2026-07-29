@@ -19,6 +19,10 @@ sudo rm
 trash
 ```
 
+## Plan
+
+@docs/plan.md
+
 ## GitHub
 
 @docs/github.md
