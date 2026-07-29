@@ -29,3 +29,7 @@
 
 # superpowers
 .superpowers/
+
+# claude code
+.claude/plans/
+.claude/worktrees/
