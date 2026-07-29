@@ -18,7 +18,7 @@
       "mcp__supabase-production__apply_migration"
     ],
     "ask": ["Bash(gh pr merge:*)", "Bash(supabase db push:*)"],
-    "defaultMode": "plan"
+    "defaultMode": "auto"
   },
   "fallbackModel": [],
   "enableAllProjectMcpServers": true,
@@ -41,28 +41,6 @@
           {
             "type": "command",
             "command": "bash ~/ghq/github.com/yasainet/dotfiles/dot-claude/hooks/on-needs-input.sh"
-          }
-        ]
-      }
-    ],
-    "PreToolUse": [
-      {
-        "matcher": "ExitPlanMode",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "bash ~/ghq/github.com/yasainet/dotfiles/dot-claude/hooks/plan-hold.sh"
-          }
-        ]
-      }
-    ],
-    "Stop": [
-      {
-        "matcher": "",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "bash ~/ghq/github.com/yasainet/dotfiles/dot-claude/hooks/plan-push.sh"
           }
         ]
       }
