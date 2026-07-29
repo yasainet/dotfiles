@@ -8,7 +8,6 @@ plan mode が書き出す `.claude/plans/*.md` のルールを記述する
 - 承認が終われば役目を終える。成果物ではない
 - 人間が読むのは Summary だけ。それ以降は LLM 向け
 - why は commit message の body に書け。plan file に決定を蓄積するな
-- `user` が行頭で `;go` と書くまで plan を提示するな。hook が `ExitPlanMode` を止める
 
 ## Format
 
