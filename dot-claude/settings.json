@@ -17,8 +17,17 @@
       "Edit(**/supabase/migrations/*.sql)",
       "mcp__supabase-production__apply_migration"
     ],
-    "ask": ["Bash(gh pr merge:*)", "Bash(supabase db push:*)"],
+    "ask": [
+      "Bash(gh pr merge:*)",
+      "Bash(supabase db push:*)",
+      "Bash(kill:*)",
+      "Bash(pkill:*)",
+      "Bash(killall:*)"
+    ],
     "defaultMode": "auto"
+  },
+  "autoMode": {
+    "classifyAllShell": false
   },
   "fallbackModel": [],
   "enableAllProjectMcpServers": true,
