@@ -443,6 +443,13 @@ install_npm_globals() {
 }
 
 # ====================
+# Manual setup
+# ====================
+#
+# # iCloud
+# System Settings -> Apple Account -> iCloud -> Drive -> Desktop & Documents Folder: On
+
+# ====================
 # Main (macOS)
 # ====================
 install_packages() {
