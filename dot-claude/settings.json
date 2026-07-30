@@ -84,6 +84,7 @@
   "skipWorkflowUsageWarning": true,
   "theme": "auto",
   "editorMode": "normal",
+  "externalEditorContext": true,
   "preferredNotifChannel": "ghostty",
   "switchModelsOnFlag": false,
   "inputNeededNotifEnabled": false,
