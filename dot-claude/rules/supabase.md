@@ -69,7 +69,7 @@ sql_paths = [
 ```
 
 - `supabase/seeds/**/*.seed.sql` — Seed files
-- `supabase/seeds/storages/*.storage.seed.sql` — Storage seed files / RLS policy
+- `supabase/seeds/storages/*.storage.seed.sql` — Storage seed files（object insertion only）
 - `supabase/seeds/scripts/*.local.sql` — Setup scripts for development
 - `supabase/seeds/scripts/*.production.sql` — Setup scripts for production (run manually)
 - `supabase/seeds/storages/<bucket_name>/` — Asset files for storage seed
