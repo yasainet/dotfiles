@@ -69,6 +69,7 @@ vim.filetype.add({
 		[".*git/config"] = "gitconfig",
 		[".*git/ignore"] = "gitignore",
 		[".*%.dockerignore"] = "gitignore",
+		[".*/claude%-prompt%-[^/]*%.md"] = { "text", { priority = 10 } },
 	},
 })
 
