@@ -14,10 +14,10 @@
       "Bash(rm:*)",
       "Bash(sudo rm:*)",
       "Bash(supabase db reset --linked*)",
-      "Edit(**/supabase/migrations/*.sql)",
       "mcp__supabase-production__apply_migration"
     ],
     "ask": [
+      "Edit(**/supabase/migrations/*.sql)",
       "Bash(gh pr merge:*)",
       "Bash(supabase db push:*)",
       "Bash(kill:*)",
