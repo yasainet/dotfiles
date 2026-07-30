@@ -32,6 +32,18 @@ cd ~/ghq/github.com/yasainet/dotfiles
 exec zsh
 ```
 
+## Usage
+
+### Sync ghq project .env files across machines
+
+```sh
+# Back up
+./scripts/sync-envs.sh backup
+
+# Restore
+./scripts/sync-envs.sh restore
+```
+
 ### Rename machine (macOS)
 
 ```sh
@@ -43,16 +55,4 @@ dscacheutil -flushcache
 
 # Check
 scutil --get ComputerName
-```
-
-## Usage
-
-### Sync ghq project .env files across machines
-
-```sh
-# Back up
-./scripts/sync-envs.sh backup
-
-# Restore
-./scripts/sync-envs.sh restore
 ```
