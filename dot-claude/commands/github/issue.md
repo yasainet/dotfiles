@@ -1,6 +1,6 @@
 ---
 description: GitHub/Gitea に issue を作成
-allowed-tools: Bash(gh *), Bash(tea *), Bash(git remote *), AskUserQuestion
+allowed-tools: Bash(gh *), Bash(tea *), Bash(git remote *)
 ---
 
 ## Steps
@@ -15,22 +15,23 @@ allowed-tools: Bash(gh *), Bash(tea *), Bash(git remote *), AskUserQuestion
 git remote get-url origin
 ```
 
-4. GitHub の場合は issue を作成し、Personal Project #2 (Board) に紐付ける
+4. issue を作成する
+
+- GitHub:
 
 ```bash
-URL=$(gh issue create --title "<title>" --body "<body>")
-gh project item-add 2 --owner yasainet --url "$URL"
+gh issue create --title "<title>" --body "<body>"
 ```
 
-5. Gitea の場合は issue を作成する
+- Gitea:
 
 ```bash
 tea issues create --remote origin --title "<title>" --description "<body>"
 ```
 
-6. 作成された issue の URL をユーザーに表示する
+5. 作成された issue の URL をユーザーに表示する
 
 > [!NOTE]
 >
 > - 本文は HEREDOC `cat <<'EOF' ... EOF` で記述せよ
-> - `label` / `assignee` / `milestone` など、metadata は付与しない
+> - metadata は付与しない
