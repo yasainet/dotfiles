@@ -18,6 +18,10 @@ sudo rm
 trash
 ```
 
+## Notes
+
+@docs/notes.md
+
 ## Plan
 
 @docs/plan.md
