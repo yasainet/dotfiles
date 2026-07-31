@@ -15,10 +15,8 @@ generate() {
     git branch --show-current
     echo "- Recent commits:"
     git log --oneline -10
-  } | MAX_THINKING_TOKENS=0 claude \
-    -p "Based on the above changes, create a single git commit message for the staged changes. Output only the commit message on a single line, following the style of the recent commits. Do not send any other text besides the message." \
-    --model haiku \
-    --safe-mode \
+  } | claude \
+    -p "Based on the above changes, create a single git commit message for the staged changes. Follow the Commit format in your loaded instructions. Output only the raw commit message, with no code fence and no other text." \
     --permission-mode manual \
     --tools "" \
     --no-session-persistence \
