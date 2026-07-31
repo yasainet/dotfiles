@@ -13,16 +13,4 @@ Personal dotfiles for macOS and Linux.
 - OS: macOS (primary), Linux (secondary)
 - Stack: Ghostty → herdr → {nvim, zsh, Claude Code...}
 - Shell: Zsh + Pure
-- Editor: Neovim + snacks explorer, terminal
-
-## GitHub
-
-Only use `main` branch.
-
-## Commands
-
-```sh
-ghq get https://github.com/yasainet/dotfiles
-cd ~/ghq/github.com/yasainet/dotfiles
-./install.sh
-```
+- Editor: Neovim + snacks explorer, snacks terminal

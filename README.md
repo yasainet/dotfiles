@@ -7,16 +7,20 @@ Personal dotfiles for macOS and Linux.
 ### macOS
 
 ```sh
+# Xcode
 xcode-select --install
 
+# Homebrew
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
+# Install
 brew install ghq
 ghq get https://github.com/yasainet/dotfiles
 cd ~/ghq/github.com/yasainet/dotfiles
 ./install.sh
 
+# Reload shell
 exec zsh
 ```
 
@@ -29,15 +33,16 @@ git clone https://github.com/yasainet/dotfiles ~/ghq/github.com/yasainet/dotfile
 cd ~/ghq/github.com/yasainet/dotfiles
 ./install.sh
 
+# Reload shell
 exec zsh
 ```
 
 ## Usage
 
-### Sync ghq project .env files across machines
+### Backup and Restore of .env files in ghq projects
 
 ```sh
-# Back up
+# Backup
 ./scripts/sync-envs.sh backup
 
 # Restore
@@ -47,7 +52,7 @@ exec zsh
 ### Rename machine (macOS)
 
 ```sh
-NEW="MACHINE_NAME" # Macbook-Pro-yyyy, Macbook-Air-yyyy
+NEW="<MACHINE_NAME>" # Macbook-Pro-yyyy, Macbook-Air-yyyy
 sudo scutil --set ComputerName  "$NEW"
 sudo scutil --set LocalHostName "$NEW"
 sudo scutil --set HostName      "$NEW"
