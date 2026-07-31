@@ -31,6 +31,8 @@ return {
 				hl.GitSignsDelete = { fg = c.red }
 				-- snacks explorer
 				hl.SnacksPickerGitStatusUntracked = { fg = c.green }
+				-- render-markdown: update inline code
+				hl["@markup.raw.markdown_inline"] = { fg = c.blue }
 				-- Dim panel
 				-- TODO: fix
 				hl.TroubleNormal = { fg = c.fg, bg = c.bg_dark }
