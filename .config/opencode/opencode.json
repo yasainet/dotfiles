@@ -35,11 +35,22 @@
             "input": ["text", "image"],
             "output": ["text"]
           }
+        },
+        "qwen3.6-27b-hauhau-balanced": {
+          "name": "qwen3.6-27b-hauhau-balanced",
+          "limit": {
+            "context": 262144,
+            "output": 32768
+          },
+          "modalities": {
+            "input": ["text", "image"],
+            "output": ["text"]
+          }
         }
       }
     }
   },
-  "model": "llamacpp/qwen3.6-35b-a3b-hauhau",
+  "model": "llamacpp/qwen3.6-27b-hauhau-balanced",
   "plugin": ["file:///Users/yasainet/.config/opencode/plugins/abc-layout.js"],
   "logLevel": "DEBUG",
   "watcher": {
