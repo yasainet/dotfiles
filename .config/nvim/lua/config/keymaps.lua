@@ -71,6 +71,17 @@ vim.keymap.set("n", "<leader>gD", diff_against_origin_head, { desc = "Diff: vs o
 vim.keymap.set("n", "<leader>gf", "<Cmd>DiffviewFileHistory %<CR>", { desc = "Diffview file history" })
 vim.keymap.set("n", "<leader>gq", "<Cmd>DiffviewClose<CR>", { desc = "Diffview close" })
 
+-- Octo
+vim.keymap.set("n", "<leader>oo", "<Cmd>Octo<CR>", { desc = "Octo actions" })
+vim.keymap.set("n", "<leader>oi", "<Cmd>Octo issue list<CR>", { desc = "List issues" })
+vim.keymap.set("n", "<leader>oc", "<Cmd>Octo issue create<CR>", { desc = "Create issue" })
+vim.keymap.set("n", "<leader>op", "<Cmd>Octo pr list<CR>", { desc = "List pull requests" })
+vim.keymap.set("n", "<leader>od", "<Cmd>Octo discussion list<CR>", { desc = "List discussions" })
+vim.keymap.set("n", "<leader>on", "<Cmd>Octo notification list<CR>", { desc = "List notifications" })
+vim.keymap.set("n", "<leader>os", function()
+	require("octo.utils").create_base_search_command({ include_current_repo = true })
+end, { desc = "Search GitHub" })
+
 -- Window / pane navigation
 local dirs = {
 	h = { name = "left", axis = 2, sign = -1 },
