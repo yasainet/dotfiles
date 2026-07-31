@@ -46,7 +46,6 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 })
 
 -- Switch to ABC on nvim startup and on leaving insert/terminal/cmdline (macOS).
--- あらゆる操作は ABC 起点: 日本語を入力できるモードを抜けた瞬間に IME を戻す
 if vim.fn.has("mac") == 1 and vim.fn.executable("macism") == 1 then
 	vim.api.nvim_create_autocmd({ "VimEnter", "InsertLeave", "TermLeave", "CmdlineLeave" }, {
 		group = vim.api.nvim_create_augroup("AutoImeABC", { clear = true }),
