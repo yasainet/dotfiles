@@ -9,6 +9,9 @@ vim.keymap.set("n", "<Esc>", "<Cmd>noh<CR>", { silent = true })
 vim.api.nvim_create_user_command("W", "w", {})
 vim.api.nvim_create_user_command("Q", "q", {})
 
+-- Quit
+vim.keymap.set("n", "<leader>qq", "<Cmd>qa<CR>", { desc = "Quit all" })
+
 -- Insert mode Emacs-style
 vim.keymap.set("i", "<C-a>", "<Home>", { desc = "Beginning of line" })
 vim.keymap.set("i", "<C-e>", "<End>", { desc = "End of line" })
