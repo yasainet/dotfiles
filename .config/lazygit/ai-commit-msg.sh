@@ -30,7 +30,7 @@ while :; do
     echo "claude returned an empty message" >&2
     exit 1
   fi
-  printf '\n  %s\n\n' "$MSG"
+  printf '\n%s\n\n' "$MSG" | sed 's/^./  &/'
   printf '[Enter] commit  [e] edit  [r] regenerate  [q] cancel > '
   read -r ans
   case "$ans" in
