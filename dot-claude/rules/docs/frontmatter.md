@@ -1,6 +1,8 @@
 ---
 paths:
+  - "**/docs/*.md"
   - "**/docs/**/*.md"
+  - "**/notes/*.md"
   - "**/notes/**/*.md"
 ---
 
