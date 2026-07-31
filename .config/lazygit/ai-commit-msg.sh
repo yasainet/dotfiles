@@ -1,7 +1,6 @@
 #!/bin/sh
-git add -A
 if git diff --cached --quiet; then
-  echo "nothing to commit" >&2
+  echo "nothing staged" >&2
   exit 1
 fi
 
