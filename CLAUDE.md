@@ -13,4 +13,5 @@ Personal dotfiles for macOS and Linux.
 - OS: macOS (primary), Linux (secondary)
 - Stack: Ghostty → herdr → {nvim, zsh, Claude Code...}
 - Shell: Zsh + Pure
+- Filer: yazi
 - Editor: Neovim + snacks explorer, snacks terminal
