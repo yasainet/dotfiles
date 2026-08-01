@@ -7,6 +7,31 @@
   ],
   "lsp": true,
   "autoupdate": true,
+  // 他者と LLM ホスト (MacBook-Pro-2023 / M3 Max 128GB) を共用する場合の前提。
+  // 未対応なので、必要になったら以下を満たすこと。
+  //
+  // 1. 到達性
+  //    LLM_URL は tailnet 内の IP (.config/zsh/.zshenv)。
+  //    Tailscale の node sharing で MBP を共有すれば同じ IP で引けるため、
+  //    LLM_URL は据え置きでよい。
+  //
+  // 2. llama-swap の自動起動
+  //    .config/zsh/conf.d/llm.zsh の ssh フォールバックは共有相手からは効かない。
+  //    MBP 側で llama-swap を常駐 (launchd) させ、
+  //    到達不能時は curl --retry 30 を待たず即諦める形にする。
+  //
+  // 3. モデルを 1 つに揃える
+  //    llama-swap は 1 モデルしか載せない。別々のモデルを選ぶと
+  //    リクエストごとに unload/load が走って実用にならない。
+  //    groups + swap: false で共存もできるが、下の並列度問題は解決しない。
+  //
+  // 4. 並列度
+  //    .config/llama-swap/config.yaml の llama-server に -np 指定がなく既定 1。
+  //    同一モデルでもリクエストは直列化し、片方の生成中はもう片方が待つ。
+  //    --parallel 2 を足すこと。
+  //    ただし --ctx-size は全スロットの合計なので 1 人あたり 131072 になる。
+  //    262144 を維持するなら --ctx-size 524288 だが、KV cache が倍になるため
+  //    メモリ実測が先。
   "provider": {
     "llamacpp": {
       "npm": "@ai-sdk/openai-compatible",
