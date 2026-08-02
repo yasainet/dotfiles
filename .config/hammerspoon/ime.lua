@@ -12,12 +12,13 @@ local GHOSTTY_BUNDLE = "com.mitchellh.ghostty"
 --   Cmd+D: 右分割 / Cmd+Shift+D: 下分割 / Cmd+Shift+[ ]: 前後のウィンドウ
 --   Ctrl+B: herdr prefix / Ctrl+Q: ワークスペースセレクタ
 --   Ctrl+H/J/K/L: pane・window 移動 (snacks explorer は単キー操作のため ABC 必須)
+--   Ctrl+O: Claude Code transcript mode (j/k/space/b/g/G も単キー操作)
 local cmdKeys = { t = true, d = true, b = true }
 for i = 1, 9 do
   cmdKeys[tostring(i)] = true
 end
 local cmdShiftKeys = { d = true, ["["] = true, ["]"] = true }
-local ctrlKeys = { b = true, q = true, h = true, j = true, k = true, l = true }
+local ctrlKeys = { b = true, q = true, h = true, j = true, k = true, l = true, o = true }
 
 local function setABC()
   hs.keycodes.currentSourceID(ABC)
