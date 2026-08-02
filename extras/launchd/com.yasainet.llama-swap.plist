@@ -6,7 +6,7 @@
   ~/Library/LaunchAgents/ へ書き出す。plist はチルダを展開しないため直接使えない。
 
   LaunchDaemon ではなく LaunchAgent なのは、llama-server が Metal を使うため。
-  ログイン中しか動かないので、蓋を閉じた運用では自動ログインを有効にすること。
+  GUI にログインするまで起動しない。再起動後の復旧は docs/llm/setup.md を参照。
 -->
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
