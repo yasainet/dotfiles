@@ -1,11 +1,20 @@
 #!/bin/bash
 
 # ====================
+# Profile
+# ====================
+# プロファイル固有の後処理。既定は何もしない。
+# llm.sh が上書きする。
+setup_profile() {
+  :
+}
+
+# ====================
 # Symlinks
 # ====================
 
-# .config entries this OS does not use. Overridden in scripts/{darwin,linux}.sh,
-# which are sourced after this file.
+# .config entries this OS or profile does not use.
+# Set in {darwin,linux}.sh and llm.sh, sourced after this file.
 SKIP_LINKS=()
 
 link() {

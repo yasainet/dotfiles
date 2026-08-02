@@ -15,7 +15,7 @@ SKIP_LINKS=(
   ghostty # config is macos-*/cmd+ specific anyway
   espanso # needs an X11/Wayland session
 
-  # macOS-only paths: /opt/homebrew, /Users/yasainet/models (see scripts/llm-host.sh)
+  # macOS-only paths: /opt/homebrew, /Users/yasainet/models (see llm.sh)
   llama-swap
 )
 

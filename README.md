@@ -24,6 +24,12 @@ cd ~/ghq/github.com/yasainet/dotfiles
 exec zsh
 ```
 
+### macOS (LLM host)
+
+```sh
+DOTFILES_PROFILE=llm ./install.sh
+```
+
 ### Linux (Ubuntu)
 
 ```sh
@@ -37,16 +43,14 @@ cd ~/ghq/github.com/yasainet/dotfiles
 exec zsh
 ```
 
-## Usage
-
 ### Backup and Restore of .env files in ghq projects
 
 ```sh
 # Backup
-./scripts/sync-envs.sh backup
+./scripts/sync/envs.sh backup
 
 # Restore
-./scripts/sync-envs.sh restore
+./scripts/sync/envs.sh restore
 ```
 
 ### Rename machine (macOS)

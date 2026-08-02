@@ -99,11 +99,9 @@ install_cli_tools() {
   brew install anomalyco/tap/opencode
 
   # Git Credential Manager
-  brew tap microsoft/git
   brew install --cask git-credential-manager
 
   # macism
-  brew tap laishulu/homebrew
   brew install macism
 
   # Stripe
