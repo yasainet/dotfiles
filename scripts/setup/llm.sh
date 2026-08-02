@@ -115,7 +115,7 @@ link_espanso() {
 # ====================
 # llama-swap を常駐させる。
 # LaunchDaemon ではなく LaunchAgent なのは、Metal がユーザーセッションを要るため。
-# 蓋を閉じたまま運用するので、自動ログインを有効にしておくこと。
+# GUI にログインするまで起動しない。再起動後の復旧は docs/llm/setup.md を参照。
 link_llama_swap_agent() {
   echo "Installing llama-swap LaunchAgent..."
 
@@ -162,7 +162,7 @@ setup_profile() {
 #
 # 1. マシン名を MacBook-Pro-2023 にする (README の Rename machine を参照)
 # 2. tailscale up
-# 3. 自動ログイン: System Settings -> Users & Groups -> Automatically log in as
-#    LaunchAgent はログイン中しか動かないため、蓋を閉じた運用ではこれが要る
+# 3. 画面共有: System Settings -> General -> Sharing -> Screen Sharing
+#    再起動後、GUI にログインしないと llama-swap が上がらないため
 # 4. ./scripts/llm/fetch.sh でモデルを取得
 # 5. DeepSeek-V4-Flash は手動 (docs/llm-host.md を参照)

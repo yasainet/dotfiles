@@ -52,9 +52,9 @@ install.sh が代行できない設定。
 1. マシン名を `MacBook-Pro-2023` にする (README の Rename machine)
 2. `tailscale up` で tailnet に参加する
    daemon は install.sh が `sudo brew services start tailscale` で常駐させる
-3. 自動ログインを有効にする
-   System Settings → Users & Groups → Automatically log in as
-   LaunchAgent はログイン中しか動かないため、蓋を閉じた運用では必須
+3. 画面共有を有効にする
+   System Settings → General → Sharing → Screen Sharing
+   再起動後の復旧に使う (下記)
 4. リモートログインの確認
    `systemsetup -setremotelogin on` はフルディスク アクセスが無いと失敗する。
    失敗した場合は System Settings → General → Sharing → Remote Login を ON にする
@@ -86,6 +86,17 @@ ioreg -n IOPMrootDomain -r -d 1 | grep SleepDisabled  # Yes なら閉じてよ�
 ```
 
 `disablesleep` は `pmset -g` に出ない。実効値は ioreg で見る。
+
+## 再起動後の復旧
+
+llama-swap は LaunchAgent なので、GUI にログインするまで起動しない。
+自動ログインはセキュリティ上使わない。
+
+macOS のアップデートや停電で再起動が挟まったら、画面共有で繋いでログインする。
+ログイン画面の状態でも接続できる。ログインすれば LaunchAgent が自動で上がる。
+
+LaunchDaemon にして root 常駐させれば解決するが、そうしない。
+GUI セッションが無いと Metal デバイスを取得できず、CPU 推論に落ちるため。
 
 ## 再構築後の追随
 
