@@ -19,6 +19,9 @@ ulimit -n 10240
 # Emacs
 bindkey -e
 
+# Typo
+bindkey '\e[27;5;13~' accept-line
+
 # Aliases - Common
 alias ff='find . -type f -name'
 alias fd='find . -type d -name'
