@@ -39,6 +39,7 @@ resume_agents_on_restore = true
 
 [experimental]
 kitty_graphics = true
+pane_history = true
 switch_ascii_input_source_in_prefix = false
 reveal_hidden_cursor_for_cjk_ime = false
 cjk_ime_agents = ["claude", "opencode"]
@@ -65,10 +66,34 @@ type = "shell"
 command = "/Users/yasainet/.config/herdr/scripts/nvim-nav.sh l"
 
 [[keys.command]]
-key = "prefix+g"
+key = "prefix+ctrl+g"
 type = "popup"
 command = "lazygit"
 description = "lazygit"
+width = "100%"
+height = "100%"
+
+[[keys.command]]
+key = "prefix+ctrl+h"
+type = "popup"
+command = "hunk diff"
+description = "hunk"
+width = "100%"
+height = "100%"
+
+[[keys.command]]
+key = "prefix+ctrl+/"
+type = "popup"
+command = "zsh"
+description = "terminal"
+width = "100%"
+height = "100%"
+
+[[keys.command]]
+key = "prefix+ctrl+y"
+type = "popup"
+command = "yazi"
+description = "yazi"
 width = "100%"
 height = "100%"
 
