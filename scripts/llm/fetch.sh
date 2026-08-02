@@ -5,11 +5,15 @@
 # ====================
 # LLM ホスト (MacBook-Pro-2023) でのみ実行する。install.sh からは呼ばれない。
 #
-#   ./scripts/llm-fetch.sh
+#   ./scripts/llm/fetch.sh
 #
 # モデルは ~/models/<subdir>/<file> に配置する。
 # 配置先は .config/llama-swap/config.yaml の model-dir と対応する。
 # 中断しても再実行でレジューム (curl -C -) する。
+#
+# config.yaml の deepseek-v4-flash はここに無い。
+# 独自の ds4-server を使い GGUF も入手元が特定できないため、手動で入れる。
+# 詳細は docs/llm-host.md を参照。
 
 set -e
 
@@ -18,6 +22,8 @@ MODELS=(
   "unsloth/Qwen3.6-35B-A3B-GGUF mmproj-F16.gguf Qwen3.6-35B-A3B"
   "HauhauCS/Qwen3.6-35B-A3B-Uncensored-HauhauCS-Aggressive Qwen3.6-35B-A3B-Uncensored-HauhauCS-Aggressive-Q8_K_P.gguf Qwen3.6-35B-A3B-Uncensored-HauhauCS-Aggressive"
   "HauhauCS/Qwen3.6-35B-A3B-Uncensored-HauhauCS-Aggressive mmproj-Qwen3.6-35B-A3B-Uncensored-HauhauCS-Aggressive-f16.gguf Qwen3.6-35B-A3B-Uncensored-HauhauCS-Aggressive"
+  "HauhauCS/Qwen3.6-27B-Uncensored-HauhauCS-Balanced Qwen3.6-27B-Uncensored-HauhauCS-Balanced-Q8_K_P.gguf Qwen3.6-27B-Uncensored-HauhauCS-Balanced"
+  "HauhauCS/Qwen3.6-27B-Uncensored-HauhauCS-Balanced mmproj-Qwen3.6-27B-Uncensored-HauhauCS-Balanced-f16.gguf Qwen3.6-27B-Uncensored-HauhauCS-Balanced"
 )
 
 echo "=== Fetching models into $HOME/models ==="

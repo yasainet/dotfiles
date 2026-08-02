@@ -1,8 +1,8 @@
 #!/bin/bash
 #
 # Usage:
-# - ./scripts/sync-envs.sh backup    # ghq → iCloud
-# - ./scripts/sync-envs.sh restore   # iCloud → ghq
+# - ./scripts/sync/envs.sh backup    # ghq → iCloud
+# - ./scripts/sync/envs.sh restore   # iCloud → ghq
 
 set -euo pipefail
 

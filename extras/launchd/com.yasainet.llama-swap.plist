@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  llama-swap を常駐させる LaunchAgent のテンプレート。
+
+  @HOME@ は scripts/setup/llm.sh の link_llama_swap_agent が展開し、
+  ~/Library/LaunchAgents/ へ書き出す。plist はチルダを展開しないため直接使えない。
+
+  LaunchDaemon ではなく LaunchAgent なのは、llama-server が Metal を使うため。
+  ログイン中しか動かないので、蓋を閉じた運用では自動ログインを有効にすること。
+-->
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>com.yasainet.llama-swap</string>
+
+  <key>ProgramArguments</key>
+  <array>
+    <string>@HOME@/.local/bin/llama-swap</string>
+    <string>--config</string>
+    <string>@HOME@/.config/llama-swap/config.yaml</string>
+    <string>--listen</string>
+    <string>:8080</string>
+  </array>
+
+  <key>RunAtLoad</key>
+  <true/>
+
+  <key>KeepAlive</key>
+  <true/>
+
+  <!-- config.yaml が llama-server と ds4-server を絶対パスで呼ぶが、
+       それらが参照する dylib のために Homebrew の bin を通しておく -->
+  <key>EnvironmentVariables</key>
+  <dict>
+    <key>PATH</key>
+    <string>@HOME@/.local/bin:/opt/homebrew/bin:/usr/bin:/bin:/usr/sbin:/sbin</string>
+    <key>HOME</key>
+    <string>@HOME@</string>
+  </dict>
+
+  <key>StandardOutPath</key>
+  <string>/tmp/llama-swap.log</string>
+  <key>StandardErrorPath</key>
+  <string>/tmp/llama-swap.log</string>
+</dict>
+</plist>

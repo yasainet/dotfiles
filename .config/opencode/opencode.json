@@ -14,8 +14,9 @@
   //    LLM_URL は据え置きでよい。
   //
   // 2. llama-swap の自動起動
-  //    .config/zsh/conf.d/llm.zsh の ssh フォールバックは共有相手からは効かない。
-  //    MBP 側で llama-swap を常駐 (launchd) させ、
+  //    MBP 側の常駐は LaunchAgent (com.yasainet.llama-swap) で対応済み。
+  //    残るのは .config/zsh/conf.d/llm.zsh の復旧経路。
+  //    ssh フォールバックは共有相手からは効かないため、
   //    到達不能時は curl --retry 30 を待たず即諦める形にする。
   //
   // 3. モデルを 1 つに揃える
