@@ -25,26 +25,12 @@ models:
       --mmproj ${model-dir}/Qwen3.6-35B-A3B/mmproj-F16.gguf
     ttl: 1800
 
-  "qwen3.6-35b-a3b-hauhau":
+  "qwen3.6-35b-a3b-hauhau-aggressive":
     name: "Qwen3.6-35B-A3B-Uncensored-HauhauCS-Aggressive"
     cmd: >-
       ${llama-server}
       -m ${model-dir}/Qwen3.6-35B-A3B-Uncensored-HauhauCS-Aggressive/Qwen3.6-35B-A3B-Uncensored-HauhauCS-Aggressive-Q8_K_P.gguf
       --mmproj ${model-dir}/Qwen3.6-35B-A3B-Uncensored-HauhauCS-Aggressive/mmproj-Qwen3.6-35B-A3B-Uncensored-HauhauCS-Aggressive-f16.gguf
-    ttl: 1800
-
-  "deepseek-v4-flash":
-    name: "DeepSeek-V4-Flash-0731"
-    cmd: >-
-      ${env.HOME}/src/ds4/ds4-server
-      --chdir ${env.HOME}/src/ds4
-      --port ${PORT}
-      --metal
-      -m ${model-dir}/DeepSeek-V4-Flash/DeepSeek-V4-Flash-Layers37-42Q4KExperts-OtherExpertLayersIQ2XXSGateUp-Q2KDown-AProjQ8-SExpQ8-OutQ8-chat-v2-imatrix-fixed-0731.gguf
-      --ctx 262144
-      --kv-disk-dir ${env.HOME}/.ds4/server-kv
-      --kv-disk-space-mb 8192
-    checkEndpoint: /v1/models
     ttl: 1800
 
   "qwen3.6-27b-hauhau-balanced":

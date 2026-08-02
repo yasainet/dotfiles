@@ -29,8 +29,8 @@
   <key>KeepAlive</key>
   <true/>
 
-  <!-- config.yaml が llama-server と ds4-server を絶対パスで呼ぶが、
-       それらが参照する dylib のために Homebrew の bin を通しておく -->
+  <!-- config.yaml が llama-server を絶対パスで呼ぶが、
+       それが参照する dylib のために Homebrew の bin を通しておく -->
   <key>EnvironmentVariables</key>
   <dict>
     <key>PATH</key>

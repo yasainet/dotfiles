@@ -3,9 +3,9 @@ created: 2026-08-02
 updated: 2026-08-02
 ---
 
-# LLM host
+# LLM Setup
 
-MacBook-Pro-2023 (M3 Max 128GB) をローカル LLM 専用機として構築・運用する手順。
+MacBook-Pro-2023 (M3 Max 128GB) を LLM 専用機として構築・運用する手順。
 
 ## 構成
 
@@ -59,8 +59,6 @@ install.sh が代行できない設定。
    `systemsetup -setremotelogin on` はフルディスク アクセスが無いと失敗する。
    失敗した場合は System Settings → General → Sharing → Remote Login を ON にする
 5. クライアントの公開鍵を `~/.ssh/authorized_keys` に置く
-6. DeepSeek-V4-Flash は旧機から `~/src/ds4` と `~/models/DeepSeek-V4-Flash` を移す
-   `ds4-server` の入手元が不明なため、`scripts/llm/fetch.sh` では取得できない
 
 ## 運用
 
