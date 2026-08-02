@@ -51,6 +51,7 @@ install.sh が代行できない設定。
 
 1. マシン名を `MacBook-Pro-2023` にする (README の Rename machine)
 2. `tailscale up` で tailnet に参加する
+   daemon は install.sh が `sudo brew services start tailscale` で常駐させる
 3. 自動ログインを有効にする
    System Settings → Users & Groups → Automatically log in as
    LaunchAgent はログイン中しか動かないため、蓋を閉じた運用では必須

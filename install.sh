@@ -63,6 +63,7 @@ main() {
   post_install
 
   if [ "$OS" = "Darwin" ]; then
+    start_tailscaled
     install_npm_globals
     configure_bundler
     link_espanso
