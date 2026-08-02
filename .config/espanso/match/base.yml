@@ -13,7 +13,7 @@ matches:
     replace: "Node.js"
   - trigger: ";su"
     replace: "Supabase"
-  - trigger: ";ed"
+  - trigger: ";ef"
     replace: "Edge Functions"
   - trigger: ";pg"
     replace: "PostgreSQL"
@@ -26,6 +26,8 @@ matches:
     replace: "OpenCode"
   - trigger: ";co"
     replace: "ComfyUI"
+  - trigger: ";sh"
+    replace: "shadcn/ui"
   # Date
   - trigger: ";date"
     replace: "{{d}}"
