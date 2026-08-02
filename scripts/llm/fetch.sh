@@ -10,10 +10,6 @@
 # モデルは ~/models/<subdir>/<file> に配置する。
 # 配置先は .config/llama-swap/config.yaml の model-dir と対応する。
 # 中断しても再実行でレジューム (curl -C -) する。
-#
-# config.yaml の deepseek-v4-flash はここに無い。
-# 独自の ds4-server を使い GGUF も入手元が特定できないため、手動で入れる。
-# 詳細は docs/llm-host.md を参照。
 
 set -e
 
