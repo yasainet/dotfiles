@@ -6,8 +6,6 @@ DOTFILES="$(cd "$(dirname "$0")" && pwd)"
 export DOTFILES
 OS="$(uname -s)"
 
-# full: 通常の作業マシン (既定)
-# llm:  ローカル LLM ホスト専用
 DOTFILES_PROFILE="${DOTFILES_PROFILE:-full}"
 export DOTFILES_PROFILE
 
@@ -38,7 +36,6 @@ case "$OS" in
     ;;
 esac
 
-# プロファイル固有の定義。OS 側を上書きするため最後に読む。
 if [ "$DOTFILES_PROFILE" = "llm" ]; then
   if [ "$OS" != "Darwin" ]; then
     echo "Profile llm is macOS only"
