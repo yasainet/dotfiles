@@ -17,9 +17,9 @@ matches:
     replace: "Edge Functions"
   - trigger: ";pg"
     replace: "PostgreSQL"
-  - trigger: "cmd"
+  - trigger: ";cmd"
     replace: "CLAUDE.md"
-  - trigger: "rmd"
+  - trigger: ";rmd"
     replace: "README.md"
   # Services
   - trigger: ";cf"
