@@ -18,16 +18,15 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 brew install ghq
 ghq get https://github.com/yasainet/dotfiles
 cd ~/ghq/github.com/yasainet/dotfiles
+
+# Full
 ./install.sh
+
+# LLM
+DOTFILES_PROFILE=llm ./install.sh
 
 # Reload shell
 exec zsh
-```
-
-### macOS (LLM host)
-
-```sh
-DOTFILES_PROFILE=llm ./install.sh
 ```
 
 ### Linux (Ubuntu)
