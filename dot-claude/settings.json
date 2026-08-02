@@ -9,7 +9,10 @@
     "ANTHROPIC_DEFAULT_HAIKU_MODEL": "claude-haiku-4-5"
   },
   "permissions": {
-    "allow": ["Read(//Users/yasainet/ghq/**)", "Bash(trash:*)"],
+    "allow": [
+      "Read(//Users/yasainet/ghq/**)",
+      "Bash(trash:*)"
+    ],
     "deny": [
       "Bash(rm:*)",
       "Bash(sudo rm:*)",
@@ -25,9 +28,6 @@
       "Bash(killall:*)"
     ],
     "defaultMode": "auto"
-  },
-  "autoMode": {
-    "classifyAllShell": false
   },
   "fallbackModel": [],
   "enableAllProjectMcpServers": true,
@@ -106,7 +106,7 @@
   "effortLevel": "high",
   "autoUpdatesChannel": "latest",
   "plansDirectory": ".claude/plans",
-  "tui": "default",
+  "tui": "fullscreen",
   "voice": {
     "enabled": true,
     "mode": "hold"
@@ -119,5 +119,8 @@
   "switchModelsOnFlag": false,
   "inputNeededNotifEnabled": false,
   "agentPushNotifEnabled": false,
-  "skipAutoPermissionPrompt": true
+  "skipAutoPermissionPrompt": true,
+  "autoMode": {
+    "classifyAllShell": false
+  }
 }
