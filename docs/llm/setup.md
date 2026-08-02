@@ -60,6 +60,55 @@ install.sh が代行できない設定。
    失敗した場合は System Settings → General → Sharing → Remote Login を ON にする
 5. クライアントの公開鍵を `~/.ssh/authorized_keys` に置く
 
+## 確認
+
+```sh
+# モデル一覧
+curl -s $LLM_URL/v1/models | jq -r '.data[].id'
+
+# 推論 (初回はモデルのロードに時間がかかる)
+curl -s $LLM_URL/v1/chat/completions -H "Content-Type: application/json" \
+  -d '{"model":"qwen3.6-35b-a3b-hauhau-aggressive","messages":[{"role":"user","content":"ping"}]}' \
+  | jq -r '.choices[0].message.content'
+```
+
+一覧の ID は `.config/llama-swap/config.yaml` と `.config/opencode/opencode.json`
+の両方に同じものを書く。片方だけ変えると opencode からモデルを選べない。
+
+## 電源
+
+蓋を閉じて放置するため、install.sh が AC 接続時のスリープを止める。
+バッテリー駆動時は通常どおりスリープする。持ち出した時に電池を使い切らないため。
+
+```sh
+pmset -g custom                                       # AC Power が sleep 0
+ioreg -n IOPMrootDomain -r -d 1 | grep SleepDisabled  # Yes なら閉じてよい
+```
+
+`disablesleep` は `pmset -g` に出ない。実効値は ioreg で見る。
+
+## 再構築後の追随
+
+tailnet に入り直すと IP が変わる。クライアント側の 2 箇所を書き換える。
+
+- `.config/zsh/.zshenv` の `LLM_URL`
+- `~/.ssh/config` の `Host mbp2023` (dotfiles 管理外)
+
+古いノードは admin console から削除する。同じ名前を再取得できる。
+
+## 共有
+
+他の人に使わせる場合、OS ユーザーは作らない。
+
+- admin console で mbp2023 ノードだけを share する
+- 相手は opencode の provider に `baseURL` を書き、mbp2023 の IP を向ける
+- 使うモデルは 1 つに揃える
+
+llama-swap は 1 モデルしか載せない。別々のモデルを選ぶと毎回入れ替えが走る。
+
+`-np` が既定 1 のためリクエストは直列化する。待ちが問題になったら
+`--parallel 2` を足す。`--ctx-size` が全スロットの合計になる点に注意する。
+
 ## 運用
 
 ```sh
