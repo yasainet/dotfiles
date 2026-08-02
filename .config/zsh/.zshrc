@@ -121,13 +121,6 @@ else
   [[ -d $HOME/.local/share/zsh/plugins/zsh-completions/src ]] && fpath+=($HOME/.local/share/zsh/plugins/zsh-completions/src)
 fi
 
-# Docker
-if command -v docker &>/dev/null; then
-  mkdir -p "$ZDOTDIR/completions"
-  [[ ! -f "$ZDOTDIR/completions/_docker" ]] && docker completion zsh > "$ZDOTDIR/completions/_docker"
-  fpath=("$ZDOTDIR/completions" $fpath)
-fi
-
 # compinit
 autoload -Uz compinit
 ZSH_COMPDUMP="${ZDOTDIR}/.zcompdump"
@@ -140,14 +133,6 @@ else
 fi
 unset _compinit_flags
 
-# Prompt: Pure
-if [[ "$OSTYPE" != "darwin"* ]]; then
-  [[ -d $HOME/.local/share/zsh/plugins/pure ]] && fpath+=($HOME/.local/share/zsh/plugins/pure)
-  export PROMPT_PURE_SSH_CONNECTION=1
-fi
-autoload -U promptinit; promptinit
-prompt pure
-
 # Plugins
 if [[ "$OSTYPE" == "darwin"* ]]; then
   source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
@@ -156,6 +141,21 @@ else
   [[ -f /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]] && source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
   [[ -f /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]] && source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi
+
+# Docker
+if command -v docker &>/dev/null; then
+  mkdir -p "$ZDOTDIR/completions"
+  [[ ! -f "$ZDOTDIR/completions/_docker" ]] && docker completion zsh > "$ZDOTDIR/completions/_docker"
+  fpath=("$ZDOTDIR/completions" $fpath)
+fi
+
+# Prompt: Pure
+if [[ "$OSTYPE" != "darwin"* ]]; then
+  [[ -d $HOME/.local/share/zsh/plugins/pure ]] && fpath+=($HOME/.local/share/zsh/plugins/pure)
+  export PROMPT_PURE_SSH_CONNECTION=1
+fi
+autoload -U promptinit; promptinit
+prompt pure
 
 # nvm (lazy load)
 export NVM_DIR="$HOME/.nvm"
@@ -204,7 +204,7 @@ if [[ "$OSTYPE" == "darwin"* ]] && command -v mise &>/dev/null; then
   eval "$(mise activate zsh)"
 fi
 
-# conf.d (用途別の設定を分割して読み込む。既存設定を上書きできるよう末尾)
+# conf.d
 for _conf in "$ZDOTDIR"/conf.d/*.zsh(N); do
   source "$_conf"
 done
