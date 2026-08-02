@@ -77,11 +77,3 @@ key = "prefix+shift+p"
 type = "plugin_action"
 command = "yasainet.quote.quote-selection"
 description = "quote selection into prompt"
-
-[[keys.command]]
-key = "prefix+o"
-type = "popup"
-command = "/Users/yasainet/.config/herdr/scripts/agent-transcript.sh"
-description = "read agent transcript in nvim"
-width = "100%"
-height = "100%"
