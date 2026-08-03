@@ -1,6 +1,6 @@
 ---
 created: 2026-08-02
-updated: 2026-08-02
+updated: 2026-08-04
 ---
 
 # LLM Setup
@@ -68,7 +68,7 @@ curl -s $LLM_URL/v1/models | jq -r '.data[].id'
 
 # 推論 (初回はモデルのロードに時間がかかる)
 curl -s $LLM_URL/v1/chat/completions -H "Content-Type: application/json" \
-  -d '{"model":"qwen3.6-35b-a3b-hauhau-aggressive","messages":[{"role":"user","content":"ping"}]}' \
+  -d '{"model":"qwen3.6-27b-hauhau-balanced","messages":[{"role":"user","content":"ping"}]}' \
   | jq -r '.choices[0].message.content'
 ```
 

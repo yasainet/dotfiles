@@ -11,7 +11,7 @@ macros:
     --top-p 0.95
     --top-k 20
     --min-p 0
-    --presence-penalty 0
+    --presence-penalty 1.5
     --repeat-penalty 1.0
 
 healthCheckTimeout: 600
@@ -23,6 +23,8 @@ models:
       ${llama-server}
       -m ${model-dir}/Qwen3.6-35B-A3B/Qwen3.6-35B-A3B-Q8_0.gguf
       --mmproj ${model-dir}/Qwen3.6-35B-A3B/mmproj-F16.gguf
+    env:
+      - 'LLAMA_ARG_CHAT_TEMPLATE_KWARGS={"preserve_thinking": true}'
     ttl: 1800
 
   "qwen3.6-35b-a3b-hauhau-aggressive":
@@ -31,6 +33,8 @@ models:
       ${llama-server}
       -m ${model-dir}/Qwen3.6-35B-A3B-Uncensored-HauhauCS-Aggressive/Qwen3.6-35B-A3B-Uncensored-HauhauCS-Aggressive-Q8_K_P.gguf
       --mmproj ${model-dir}/Qwen3.6-35B-A3B-Uncensored-HauhauCS-Aggressive/mmproj-Qwen3.6-35B-A3B-Uncensored-HauhauCS-Aggressive-f16.gguf
+    env:
+      - 'LLAMA_ARG_CHAT_TEMPLATE_KWARGS={"preserve_thinking": true}'
     ttl: 1800
 
   "qwen3.6-27b-hauhau-balanced":
@@ -39,4 +43,6 @@ models:
       ${llama-server}
       -m ${model-dir}/Qwen3.6-27B-Uncensored-HauhauCS-Balanced/Qwen3.6-27B-Uncensored-HauhauCS-Balanced-Q8_K_P.gguf
       --mmproj ${model-dir}/Qwen3.6-27B-Uncensored-HauhauCS-Balanced/mmproj-Qwen3.6-27B-Uncensored-HauhauCS-Balanced-f16.gguf
+    env:
+      - 'LLAMA_ARG_CHAT_TEMPLATE_KWARGS={"preserve_thinking": true}'
     ttl: 1800
