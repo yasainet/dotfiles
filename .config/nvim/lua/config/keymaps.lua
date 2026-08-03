@@ -10,7 +10,7 @@ vim.api.nvim_create_user_command("W", "w", {})
 vim.api.nvim_create_user_command("Q", "q", {})
 
 -- Quit
-vim.keymap.set("n", "<leader>qq", "<Cmd>qa<CR>", { desc = "Quit all" })
+vim.keymap.set("n", "<leader>qq", "<Cmd>qa!<CR>", { desc = "Quit all (force)" })
 
 -- Insert mode Emacs-style
 vim.keymap.set("i", "<C-a>", "<Home>", { desc = "Beginning of line" })
