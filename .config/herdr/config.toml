@@ -108,3 +108,11 @@ key = "prefix+ctrl+p"
 type = "plugin_action"
 command = "yasainet.quote.quote-selection"
 description = "quote selection into prompt"
+
+# HACK: Ghostty が Cmd+Backspace を alt+u として送ってくる
+# pane が claude かどうかで送るキーを振り分ける
+[[keys.command]]
+key = "alt+u"
+type = "shell"
+command = "/Users/yasainet/.config/herdr/scripts/cmd-backspace.sh"
+description = "Cmd+Backspace の行頭削除を復元する"
