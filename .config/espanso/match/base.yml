@@ -21,8 +21,6 @@ matches:
     replace: "CLAUDE.md"
   - trigger: ";rmd"
     replace: "README.md"
-  - trigger: ";se"
-    replace: "snacks explore"
   # Services
   - trigger: ";cf"
     replace: "Cloudflare"
