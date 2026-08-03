@@ -162,7 +162,7 @@ rules = [
 
 [icon]
 
-prepend_globs = [{ url = ".env*", text = "\uf462", fg = "#faf743" }]
+prepend_globs = [{ url = "**/.env*", text = "\uf462", fg = "#faf743" }]
 
 prepend_exts = [
   { name = "yaml", text = "\ue8eb", fg = "#d70000" },
