@@ -126,9 +126,13 @@ return {
 		},
 		image = {
 			enabled = true,
-			backend = "kitty",
 			doc = {
 				enabled = false,
+			},
+			convert = {
+				magick = {
+					default = { "{src}[0]", "-scale", "1920x1080>", "-define", "png:compression-level=1" },
+				},
 			},
 		},
 		input = {
