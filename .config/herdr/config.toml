@@ -78,6 +78,14 @@ width = "100%"
 height = "100%"
 
 [[keys.command]]
+key = "prefix+ctrl+r"
+type = "popup"
+command = "/Users/yasainet/.config/herdr/scripts/claude-resume.sh --send"
+description = "claude resume"
+width = "100%"
+height = "100%"
+
+[[keys.command]]
 key = "prefix+ctrl+/"
 type = "popup"
 command = "zsh"
