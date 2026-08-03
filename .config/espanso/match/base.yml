@@ -34,6 +34,8 @@ matches:
     replace: "ComfyUI"
   - trigger: ";sh"
     replace: "shadcn/ui"
+  - trigger: ";gos"
+    replace: "GrapheneOS"
   # Date
   - trigger: ";date"
     replace: "{{d}}"
