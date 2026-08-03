@@ -91,11 +91,17 @@ height = "100%"
 
 [[keys.command]]
 key = "prefix+ctrl+y"
-type = "popup"
+# HACK: popup は Kitty graphics を描画せず yazi の画像プレビューが出ないため、
+# 一時 pane で代用する。popup が対応したら type = "popup" に戻す
+type = "pane"
 command = "yazi"
 description = "yazi"
-width = "100%"
-height = "100%"
+
+[[keys.command]]
+key = "prefix+ctrl+v"
+type = "pane"
+command = "nvim"
+description = "nvim"
 
 [[keys.command]]
 key = "prefix+ctrl+p"
