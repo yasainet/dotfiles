@@ -50,11 +50,6 @@ macos-option-as-alt = left
 
 keybind = shift+enter=text:\x1b\r
 
-# HACK: Cmd+Backspace の既定は text:\x15 で、Ctrl+U と同一バイトになる
-# Claude Code 側で Ctrl+U を scroll へ割り当てた結果、行頭削除が奪われた
-# 区別を付けるため alt+u として送り、herdr の cmd-backspace.sh で振り分ける
-keybind = super+backspace=text:\x1bu
-
 # ==============================
 # Keybindings for herdr
 # ==============================
