@@ -160,3 +160,20 @@ rules = [
   { url = "*", fg = "#c0caf5" },
 ]
 
+[icon]
+
+prepend_globs = [{ url = ".env*", text = "\uf462", fg = "#faf743" }]
+
+prepend_exts = [
+  { name = "yaml", text = "\ue8eb", fg = "#d70000" },
+  { name = "yml", text = "\ue8eb", fg = "#d70000" },
+]
+
+prepend_files = [
+  { name = "vite.config.cjs", text = "\ue8d7", fg = "#8040ff" },
+  { name = "vite.config.cts", text = "\ue8d7", fg = "#8040ff" },
+  { name = "vite.config.js", text = "\ue8d7", fg = "#8040ff" },
+  { name = "vite.config.mjs", text = "\ue8d7", fg = "#8040ff" },
+  { name = "vite.config.mts", text = "\ue8d7", fg = "#8040ff" },
+  { name = "vite.config.ts", text = "\ue8d7", fg = "#8040ff" },
+]
