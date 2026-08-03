@@ -11,6 +11,13 @@ return {
 			hidden = true,
 			ignored = false,
 			exclude = { "node_modules", ".git", ".next", ".vercel", "package-lock.json" },
+			icons = {
+				files = {
+					dir = "\u{e5ff} ",
+					dir_open = "\u{e5fe} ",
+					file = "\u{f15b} ",
+				},
+			},
 			sources = {
 				files = {
 					hidden = true,
