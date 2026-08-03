@@ -6,7 +6,6 @@ branch=$(git -C "$current_dir" --no-optional-locks rev-parse --abbrev-ref HEAD 2
 context_pct=$(echo "$input" | jq -r '.context_window.used_percentage // empty')
 model=$(echo "$input" | jq -r '.model.display_name // empty')
 effort=$(echo "$input" | jq -r '.effort.level // empty')
-vim_mode=$(echo "$input" | jq -r '.vim.mode // empty')
 
 ctx=""
 if [ -n "$context_pct" ]; then
@@ -35,18 +34,8 @@ for part in "$model" "$effort" "$ctx"; do
   fi
 done
 
-badge=""
-if [ -n "$vim_mode" ]; then
-  case "$vim_mode" in
-    NORMAL) mode_bg="38;2;122;162;247" ;;
-    INSERT) mode_bg="38;2;158;206;106" ;;
-    *) mode_bg="38;2;187;154;247" ;;
-  esac
-  badge=$(printf "\033[1;%sm%s\033[0m " "$mode_bg" "$vim_mode")
-fi
-
 if [ -n "$line2" ]; then
-  printf "%s%s\n\033[38;2;86;95;137m%s\033[0m" "$badge" "$line1" "$line2"
+  printf "%s\n\033[38;2;86;95;137m%s\033[0m" "$line1" "$line2"
 else
-  printf "%s%s" "$badge" "$line1"
+  printf "%s" "$line1"
 fi
