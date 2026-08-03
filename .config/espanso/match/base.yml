@@ -32,7 +32,7 @@ matches:
     replace: "OpenCode"
   - trigger: ";hf"
     replace: "Hugging Face"
-  - trigger: ";co"
+  - trigger: ";cui"
     replace: "ComfyUI"
   - trigger: ";sh"
     replace: "shadcn/ui"
