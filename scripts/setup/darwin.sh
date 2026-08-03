@@ -408,6 +408,7 @@ link_claude_code() {
   link "$DOTFILES/dot-claude/CLAUDE.md" "$HOME/.claude/CLAUDE.md"
   link "$DOTFILES/dot-claude/docs" "$HOME/.claude/docs"
   link "$DOTFILES/dot-claude/settings.json" "$HOME/.claude/settings.json"
+  link "$DOTFILES/dot-claude/keybindings.json" "$HOME/.claude/keybindings.json"
   link "$DOTFILES/dot-claude/rules" "$HOME/.claude/rules"
   link "$DOTFILES/dot-claude/skills" "$HOME/.claude/skills"
   link "$DOTFILES/dot-claude/commands" "$HOME/.claude/commands"

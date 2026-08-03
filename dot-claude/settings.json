@@ -94,7 +94,8 @@
   },
   "statusLine": {
     "type": "command",
-    "command": "sh ~/.claude/statusline-command.sh"
+    "command": "sh ~/.claude/statusline-command.sh",
+    "hideVimModeIndicator": true
   },
   "enabledPlugins": {
     "context7@claude-plugins-official": true,
@@ -114,7 +115,7 @@
   "autoMemoryEnabled": false,
   "skipWorkflowUsageWarning": true,
   "theme": "auto",
-  "editorMode": "normal",
+  "editorMode": "vim",
   "preferredNotifChannel": "ghostty",
   "switchModelsOnFlag": false,
   "inputNeededNotifEnabled": false,
