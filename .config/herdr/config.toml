@@ -10,8 +10,6 @@ new_cwd = "follow"
 
 [keys]
 prefix = "ctrl+b"
-detach = "prefix+shift+q"
-goto = "prefix+alt+g"
 navigate_workspace_down = "j"
 navigate_workspace_up = "k"
 previous_agent = "prefix+,"
