@@ -18,6 +18,10 @@ sudo rm
 trash
 ```
 
+## Workflow
+
+@docs/workflow.md
+
 ## Notes
 
 @docs/notes.md
