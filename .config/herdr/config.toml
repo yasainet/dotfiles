@@ -112,6 +112,14 @@ width = "100%"
 height = "100%"
 
 [[keys.command]]
+key = "prefix+ctrl+d"
+type = "popup"
+command = "gh dash"
+description = "gh dash"
+width = "100%"
+height = "100%"
+
+[[keys.command]]
 key = "prefix+ctrl+/"
 type = "popup"
 command = "zsh"
