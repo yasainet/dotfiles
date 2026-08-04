@@ -41,9 +41,9 @@ local function snap(side)
     lastActions[id] = nil
   end
 
-  local isRepeat = last and last.action == side
   local target
-  if not isRepeat then
+  local count = 1
+  if not last or last.action ~= side then
     target = sideRect(screenFrame, side, cycleSizes[1])
   else
     -- n 回目の連打は count % 3 番目のサイズ。
@@ -55,6 +55,7 @@ local function snap(side)
       if not rectsEqual(current, target) then break end
       index = (index + 1) % #cycleSizes
     end
+    count = last.count + 1
   end
 
   win:setFrame(target)
@@ -63,7 +64,7 @@ local function snap(side)
     action = side,
     -- セル単位で丸めるアプリ (ターミナル等) があるため適用後の実測値を記録
     rect = win:frame(),
-    count = isRepeat and (last.count + 1) or 1,
+    count = count,
   }
 end
 
