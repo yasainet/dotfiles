@@ -78,10 +78,19 @@ width = "100%"
 height = "100%"
 
 [[keys.command]]
-key = "prefix+d"
+key = "prefix+ctrl+shift+h"
 type = "popup"
 command = "/Users/yasainet/.config/herdr/scripts/hunk-session.sh"
 description = "hunk (claude session)"
+width = "100%"
+height = "100%"
+
+[[keys.command]]
+key = "prefix+ctrl+m"
+type = "popup"
+# 他端末や CI が進めた分を古い ref で見ないよう fetch を挟む
+command = "git fetch -q origin main; hunk diff origin/main"
+description = "hunk (vs origin/main)"
 width = "100%"
 height = "100%"
 
