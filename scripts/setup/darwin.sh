@@ -164,7 +164,6 @@ install_gui_apps() {
 
   # AI
   brew install --cask claude
-  brew install --cask chatgpt
 
   # Development
   brew install --cask orbstack
