@@ -25,6 +25,7 @@ return {
 				"cssls",
 				"html",
 				"jsonls",
+				"yamlls",
 				"taplo",
 				"dockerls",
 				"docker_compose_language_service",
