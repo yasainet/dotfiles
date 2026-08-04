@@ -56,7 +56,7 @@ install_cli_tools() {
   brew install tailspin
   brew install direnv
   brew install tailscale
-  brew install modem-dev/tap/hunk
+  brew install hunk
 
   # opencode
   brew install anomalyco/tap/opencode

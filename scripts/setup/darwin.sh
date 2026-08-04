@@ -76,7 +76,7 @@ install_cli_tools() {
   brew install glow
   brew install hf
   brew install yazi
-  brew install modem-dev/tap/hunk
+  brew install hunk
   brew install gallery-dl
   brew install libpq
   brew install librsvg
