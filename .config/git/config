@@ -8,6 +8,9 @@
 [push]
 	default = current
 
+[pull]
+	ff = only
+
 [core]
 	ignorecase = false
 
