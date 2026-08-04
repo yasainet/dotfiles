@@ -135,9 +135,6 @@ install_cli_tools() {
   if ! command -v claude &>/dev/null; then
     curl -fsSL https://claude.ai/install.sh | bash
   fi
-
-  # gh extensions
-  gh extension install dlvhdr/gh-dash 2>/dev/null || true
 }
 
 # ====================
@@ -415,7 +412,6 @@ link_claude_code() {
   link "$DOTFILES/dot-claude/rules" "$HOME/.claude/rules"
   link "$DOTFILES/dot-claude/skills" "$HOME/.claude/skills"
   link "$DOTFILES/dot-claude/commands" "$HOME/.claude/commands"
-  link "$DOTFILES/dot-claude/agents" "$HOME/.claude/agents"
   link "$DOTFILES/dot-claude/output-styles" "$HOME/.claude/output-styles"
   link "$DOTFILES/dot-claude/statusline-command.sh" "$HOME/.claude/statusline-command.sh"
 }
