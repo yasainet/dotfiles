@@ -134,6 +134,13 @@ command = "nvim"
 description = "nvim"
 
 [[keys.command]]
+key = "prefix+ctrl+o"
+# popup では Kitty graphics が出ず、issue 本文の画像が表示されない
+type = "pane"
+command = "nvim -c 'Octo issue list'"
+description = "octo"
+
+[[keys.command]]
 key = "prefix+ctrl+p"
 type = "plugin_action"
 command = "yasainet.quote.quote-selection"

@@ -10,6 +10,7 @@ return {
 		picker = {
 			hidden = true,
 			ignored = false,
+			layout = { fullscreen = true }, -- octo
 			exclude = { "node_modules", ".git", ".next", ".vercel", "package-lock.json" },
 			icons = {
 				files = {
@@ -91,6 +92,7 @@ return {
 						return ret
 					end,
 					layout = {
+						fullscreen = false, -- octo
 						hidden = { "input" },
 						auto_hide = { "input" },
 						preview = false,
