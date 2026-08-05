@@ -1,4 +1,4 @@
-# README
+# Claude Code
 
 agent / skill / hooks について。
 
