@@ -23,7 +23,7 @@ README.md, CLAUDE.md のルール集。
 tagline
 ```
 
-## README.md sample formart
+## README.md sample format
 
 ````markdown
 # Service name
@@ -53,7 +53,7 @@ tagline
 > [!NOTE]
 >
 > - deploy 先に応じて変わる
-> - sameple として Vercel の場合を記載
+> - sample として Vercel の場合を記載
 
 | env        | branch | url                                     |
 | ---------- | ------ | --------------------------------------- |
