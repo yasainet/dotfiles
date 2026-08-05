@@ -58,10 +58,13 @@ Deployments:
 | preview    | PR     | https://example-git-<branch>.vercel.app |
 | develop    | local  | http://127.0.0.1:3000                   |
 
-Stakcs:
+Stacks:
 
-| env         | Next.js | DB             | Storage |
-| ----------- | ------- | -------------- | ------- |
-| production  | Vercel  | Supabase Cloud | R2      |
-| development | Mac     | Supabase CLI   | MinIO   |
+| layer   | production       | development        |
+| ------- | ---------------- | ------------------ |
+| Next.js | Vercel           | Mac                |
+| DB      | Supabase Cloud   | Supabase CLI       |
+| Storage | Supabase Storage | Supabase Storage   |
+| Auth    | Supabase Auth    | Supabase Auth      |
+| Mail    | Resend           | Supabase (Mailpit) |
 ````
