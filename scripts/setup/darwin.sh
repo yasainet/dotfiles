@@ -332,6 +332,8 @@ configure_system() {
   defaults write com.apple.finder ShowPathbar -bool true
   # ステータスバーを表示
   defaults write com.apple.finder ShowStatusBar -bool true
+  # Cmd+Q で Finder を終了できるようにする (終了中は Cmd+Tab にも現れない)
+  defaults write com.apple.finder QuitMenuItem -bool true
 
   # Screenshots
   # 保存先を Downloads に
