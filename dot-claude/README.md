@@ -73,13 +73,13 @@ built-in / plugin / custom の違い。
 
 `skills/` に置く。
 
-| name                     | use                            |
-| ------------------------ | ------------------------------ |
-| `/claude-yolo`           | 直前の回答を平易に書き直す     |
-| `/claude-get-session-id` | session id を表示する          |
-| `/git-bump`              | patch version tag を bump する |
-| `/git-issue`             | GitHub / Gitea に issue を作る |
-| `/supabase-migrate`      | Supabase の migration を通す   |
+| name                | use                            |
+| ------------------- | ------------------------------ |
+| `/claude-fuck`      | 直前の回答を平易に書き直す     |
+| `/claude-session`   | session id を表示する          |
+| `/git-bump`         | patch version tag を bump する |
+| `/git-issue`        | GitHub / Gitea に issue を作る |
+| `/supabase-migrate` | Supabase の migration を通す   |
 
 > [!TIP]
 > `disable-model-invocation: true` で明示起動だけに限れる。5 個とも付けてある。
@@ -88,10 +88,17 @@ built-in / plugin / custom の違い。
 
 ツール側が `skills/` に置いていくもの。
 
-| name           | use                             |
-| -------------- | ------------------------------- |
-| `/herdr`       | terminal multiplexer を操作する |
-| `/hunk-review` | 差分レビュー session を操作する |
+| name           | use                             | 追従                              |
+| -------------- | ------------------------------- | --------------------------------- |
+| `/herdr`       | terminal multiplexer を操作する | 手動。CLI 出力を写す              |
+| `/hunk-review` | 差分レビュー session を操作する | 自動。Homebrew の実体への symlink |
+
+herdr:
+
+```sh
+herdr --skill | diff - ~/.claude/skills/herdr/SKILL.md  # 差分を見る
+herdr --skill > ~/.claude/skills/herdr/SKILL.md         # 更新する
+```
 
 ## hooks
 
