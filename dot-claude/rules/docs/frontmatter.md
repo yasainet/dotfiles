@@ -4,14 +4,13 @@ paths:
   - "**/docs/**/*.md"
   - "**/notes/*.md"
   - "**/notes/**/*.md"
+  - "!**/.claude/**"
+  - "!**/dot-claude/**"
 ---
 
 # Frontmatter Rules
 
-- 以下のディレクトリは除外する
-  - `~/.claude/**/*.md`
-  - `~/ghq/github.com/yasainet/dotfiles/dot-claude/**/*.md`
-- 項目は `created` と `updated` の2つ
+項目は `created` と `updated` の2つ。
 
 ```md
 ---

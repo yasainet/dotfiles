@@ -1,27 +1,23 @@
 ---
 paths:
   - "**/README.md"
+  - "**/AGENTS.md"
   - "**/CLAUDE.md"
+  - "!**/.claude/**"
+  - "!**/dot-claude/**"
 ---
 
-# README.md, CLAUDE.md Rules
+# Root Docs Rules
 
-README.md, CLAUDE.md のルール集。
+repo root に置く README.md, AGENTS.md, CLAUDE.md のルール集。
 
 ## Rules
 
-- README.md は、人間向けに記述せよ
-- CLAUDE.md は、LLM 向けに記述せよ
-- 最大 200 行以内で記述すること
+- README.md は 人間向けに記述せよ
+- AGENTS.md は agent 向けに記述せよ
+- CLAUDE.md は `@AGENTS.md`, `@README.md` を @import のみ記述せよ
+- 各ファイル 200 行以内に収めよ
   - 200 行を超える場合は、`docs/**/*.md` を利用せよ
-
-## CLAUDE.md sample format / wip
-
-```markdown
-# CLAUDE.md
-
-tagline
-```
 
 ## README.md sample format
 
@@ -42,7 +38,7 @@ tagline
 # setup commands
 npm ci
 supabase start
-docker compose up -d # etc...
+docker compose up -d
 ```
 
 ## Commands
@@ -50,8 +46,16 @@ docker compose up -d # etc...
 ```sh
 # usage commands
 npm run dev
+npm run build
+
+# verification
 npm run lint
-npm run build # etc...
+npm run type-check
+npm run knip
+
+# tests
+npm run test
+npm run test:e2e
 ```
 
 ## Environments
@@ -74,3 +78,24 @@ Stacks:
 | Auth    | Supabase Auth    | Supabase Auth      |
 | Mail    | Resend           | Supabase (Mailpit) |
 ````
+
+## AGENTS.md sample format
+
+```markdown
+@README.md
+
+# AGENTS.md
+
+## Constraints
+
+- list
+- list
+- list
+```
+
+## CLAUDE.md sample format
+
+```markdown
+@AGENTS.md
+@README.md
+```
