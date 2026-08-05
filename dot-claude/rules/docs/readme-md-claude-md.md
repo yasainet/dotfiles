@@ -50,6 +50,11 @@ tagline
 
 ## Environments
 
+> [!NOTE]
+>
+> - deploy 先に応じて変わる
+> - sameple として Vercel の場合を記載
+
 | env        | branch | url                                     |
 | ---------- | ------ | --------------------------------------- |
 | production | `main` | https://example.com                     |
