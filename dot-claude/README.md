@@ -32,7 +32,7 @@ built-in / plugin / custom の違い。
 | `@Explore`         | 読み取り専用の広域検索。多数のファイルを走査して結論だけ返す |
 | `@general-purpose` | 汎用。多段タスクや当てにくい検索に使う                       |
 | `@Plan`            | 実装計画を立てる。手順と critical file を返す                |
-| `/code-review`     | 手元の差分をレビューする。`ultra` で multi-agent 版          |
+| `/code-review`     | 手元の差分をレビューする                                     |
 | `/review`          | GitHub の PR をレビューする                                  |
 | `/security-review` | branch の変更を security 観点でレビューする                  |
 | `/simplify`        | 変更箇所を整理して適用する。bug は探さない                   |
@@ -67,7 +67,7 @@ built-in / plugin / custom の違い。
 | commit-commands | `/commit-commands:commit`         | commit を作る                               |
 | commit-commands | `/commit-commands:commit-push-pr` | commit から push、PR 作成まで通す           |
 | commit-commands | `/commit-commands:clean_gone`     | remote で消えた branch を worktree ごと消す |
-| context7        | N/A                               | library の最新ドキュメントを引く            |
+| context7        | -                                 | library の最新ドキュメントを引く            |
 
 ## custom (dot-claude/)
 

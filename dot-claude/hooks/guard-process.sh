@@ -24,6 +24,9 @@ JQ=/opt/homebrew/bin/jq
 LSOF=/usr/sbin/lsof
 [ -x "$LSOF" ] || LSOF=lsof
 
+# shellcheck source=lib/mask.sh
+. "${BASH_SOURCE[0]%/*}/lib/mask.sh" || exit 0
+
 IFS= read -rd '' input
 
 # 見張る名前が 1 つも無ければ即抜ける。Bash 呼び出しの大半はここで終わり、
@@ -85,35 +88,6 @@ Do not stop it. HMR picks up your edits, so curl that server to verify. If you t
 
   [ "$port" -ge "$AGENT_PORT_MIN" ] && [ "$port" -le "$AGENT_PORT_MAX" ] && return 0
   decide ask "Port $port belongs to the user. Agent servers must use $AGENT_PORT_MIN-$AGENT_PORT_MAX, e.g. PORT=$AGENT_PORT_MIN. If this exact port is required, say why and get approval."
-}
-
-# quote 内と heredoc 本体を X で潰す。grep 'pkill' や commit message 中の文字列を
-# コマンドと誤認しないため。位置がずれないよう長さは保つ
-mask() {
-  awk '
-    BEGIN { hd = ""; sq = "\047"; dq = "\042"
-            hdre = "<<-?[[:space:]]*[" sq dq "]?[A-Za-z_][A-Za-z0-9_]*[" sq dq "]?" }
-    {
-      line = $0
-      if (hd != "") { if (line == hd || line == hd ";") hd = ""; print ""; next }
-      probe = line; gsub(/<<</, "@@@", probe)
-      if (match(probe, hdre)) {
-        d = substr(probe, RSTART, RLENGTH)
-        gsub("^<<-?[[:space:]]*[" sq dq "]?|[" sq dq "]$", "", d); hd = d
-      }
-      out = ""; q = ""
-      for (i = 1; i <= length(line); i++) {
-        c = substr(line, i, 1)
-        if (q == "") {
-          if (c == sq || c == dq) { q = c; out = out "X" } else out = out c
-        } else {
-          if (c == q) q = ""
-          out = out "X"
-        }
-      }
-      print out
-    }
-  '
 }
 
 allow_kill=
