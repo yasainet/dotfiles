@@ -40,12 +40,18 @@ tagline
 
 ```sh
 # setup commands
+npm ci
+supabase start
+docker compose up -d # etc...
 ```
 
 ## Commands
 
 ```sh
 # usage commands
+npm run dev
+npm run lint
+npm run build # etc...
 ```
 
 ## Environments
