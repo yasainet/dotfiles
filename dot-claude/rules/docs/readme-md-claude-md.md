@@ -42,7 +42,7 @@ tagline
 # setup commands
 ```
 
-## Usage
+## Commands
 
 ```sh
 # usage commands
