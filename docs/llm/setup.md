@@ -1,8 +1,3 @@
----
-created: 2026-08-02
-updated: 2026-08-04
----
-
 # LLM Setup
 
 MacBook-Pro-2023 (M3 Max 128GB) を LLM 専用機として構築・運用する手順。
@@ -116,6 +111,36 @@ tailnet に入り直すと IP が変わる。クライアント側の 2 箇所�
 - 使うモデルは 1 つに揃える
 
 llama-swap は 1 モデルしか載せない。別々のモデルを選ぶと毎回入れ替えが走る。
+
+### ACL
+
+node share はマシン単位で、既定の ACL では全ポートが相手に開く。
+共有先を 8080 だけに絞る。admin console の Access controls に書く。
+
+```diff
+ "grants": [
+-  {"src": ["*"], "dst": ["*"], "ip": ["*"]},
++  {"src": ["autogroup:member"], "dst": ["*"], "ip": ["*"]},
++  {"src": ["autogroup:shared"], "dst": ["*"], "ip": ["tcp:8080"]},
+ ],
+```
+
+既定の `{"src": ["*"], "dst": ["*"], "ip": ["*"]}` を上の 2 行に置き換える。
+`autogroup:shared` は招待を受けた全員を指す。相手のメールを書かなくてよい。
+
+旧い `acls` 構文ではなく `grants` を使う。この tailnet は既に grants 形式。
+
+適用後は mbp2023 で確認する。共有先の src が 8080 だけに現れる。
+
+```sh
+tailscale debug netmap | jq -c '.PacketFilter[] | {Srcs, Dsts}'
+```
+
+API key は付けていない。片方だけ止めるのは admin console の共有解除でできる。
+持ち出さないので LAN からの到達も無い。相手に設定変更を求める得が小さい。
+
+llama-swap の `/logs` と `/ui/` は 8080 上にあり、共有先から見える。
+接続元 IP、モデル名、時刻が読まれる。プロンプト本文は出ない。
 
 `-np` が既定 1 のためリクエストは直列化する。待ちが問題になったら
 `--parallel 2` を足す。`--ctx-size` が全スロットの合計になる点に注意する。

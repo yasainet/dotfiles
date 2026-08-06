@@ -1,3 +1,21 @@
+local function relative_time(ts)
+	local diff = os.time() - (tonumber(ts) or os.time())
+	local units = {
+		{ 31536000, "y" },
+		{ 2592000, "mo" },
+		{ 604800, "w" },
+		{ 86400, "d" },
+		{ 3600, "h" },
+		{ 60, "m" },
+	}
+	for _, unit in ipairs(units) do
+		if diff >= unit[1] then
+			return string.format("%d%s ago", math.floor(diff / unit[1]), unit[2])
+		end
+	end
+	return "just now"
+end
+
 return {
 	"lewis6991/gitsigns.nvim",
 	config = function()
@@ -37,7 +55,22 @@ return {
 				virt_text_priority = 100,
 				use_focus = true,
 			},
-			current_line_blame_formatter = "<author>, <author_time:%R> - <summary>",
+			current_line_blame_formatter = function(name, blame_info)
+				if blame_info.author == name or blame_info.author == "Not Committed Yet" then
+					return {}
+				end
+				return {
+					{
+						string.format(
+							" %s, %s - %s",
+							blame_info.author,
+							relative_time(blame_info.author_time),
+							blame_info.summary
+						),
+						"GitSignsCurrentLineBlame",
+					},
+				}
+			end,
 			sign_priority = 6,
 			update_debounce = 100,
 			status_formatter = nil,
