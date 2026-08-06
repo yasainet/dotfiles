@@ -63,8 +63,9 @@ keybind = shift+enter=text:\x1b\r
 # Cmd+w -> unbind
 keybind = cmd+w=unbind
 
-# Cmd+b -> copy mode (herdr prefix+[)
-keybind = cmd+b=text:\x02[
+# Cmd+[ -> copy mode (herdr prefix+[)
+keybind = cmd+bracket_left=unbind
+keybind = cmd+[=text:\x02[
 
 # --- tab ---
 
@@ -105,3 +106,32 @@ keybind = cmd+d=text:\x02v
 # Cmd+Shift+d -> split horizontal
 keybind = cmd+shift+d=unbind
 keybind = cmd+shift+d=text:\x02-
+
+# --- popup ---
+
+# Cmd+g -> lazygit (herdr prefix+ctrl+g)
+keybind = cmd+g=unbind
+keybind = cmd+g=text:\x02\x07
+
+# Cmd+r -> claude resume (herdr prefix+ctrl+r)
+keybind = cmd+r=text:\x02\x12
+
+# Cmd+f -> claude @file (herdr prefix+ctrl+f)
+keybind = cmd+f=unbind
+keybind = cmd+f=text:\x02\x06
+
+# Cmd+y -> yazi (herdr prefix+ctrl+y)
+keybind = cmd+y=text:\x02\x19
+
+# Cmd+o -> octo (herdr prefix+ctrl+o)
+keybind = cmd+o=text:\x02\x0f
+
+# Cmd+p -> quote selection (herdr prefix+ctrl+p)
+keybind = cmd+p=text:\x02\x10
+
+# Cmd+/ -> terminal (herdr prefix+ctrl+u)
+keybind = cmd+slash=text:\x02\x15
+
+# Cmd+h -> hunk diff (herdr prefix+ctrl+h)
+keybind = cmd+h=unbind
+keybind = performable:cmd+h=text:\x02\x08
