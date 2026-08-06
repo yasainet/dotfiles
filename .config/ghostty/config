@@ -60,16 +60,19 @@ keybind = shift+enter=text:\x1b\r
 # Keybindings for herdr
 # ==============================
 
-# --- window ---
+# Cmd+w -> unbind
+keybind = cmd+w=unbind
 
-# Cmd+t -> new window
+# Cmd+b -> copy mode (herdr prefix+[)
+keybind = cmd+b=text:\x02[
+
+# --- tab ---
+
+# Cmd+t -> heder new tab
 keybind = cmd+t=unbind
 keybind = cmd+t=text:\x02c
 
-# Cmd+w -> no-op
-keybind = cmd+w=unbind
-
-# Cmd+1~9 -> select window
+# Cmd+1~9 -> switch tab 1..9
 keybind = cmd+digit_1=unbind
 keybind = cmd+digit_2=unbind
 keybind = cmd+digit_3=unbind
@@ -89,19 +92,16 @@ keybind = cmd+seven=text:\x027
 keybind = cmd+eight=text:\x028
 keybind = cmd+nine=text:\x029
 
-# Cmd+Shift+[/] -> previous/next window
+# Cmd+Shift+[/] -> previous/next tab
 keybind = cmd+shift+bracket_left=text:\x02p
 keybind = cmd+shift+bracket_right=text:\x02n
 
-# Cmd+b -> copy mode (herdr prefix+[)
-keybind = cmd+b=text:\x02[
-
 # --- pane ---
 
-# Cmd+d -> split right (herdr split_vertical)
+# Cmd+d -> split vertical)
 keybind = cmd+d=unbind
 keybind = cmd+d=text:\x02v
 
-# Cmd+Shift+d -> split down (herdr split_horizontal)
+# Cmd+Shift+d -> split horizontal)
 keybind = cmd+shift+d=unbind
 keybind = cmd+shift+d=text:\x02-
