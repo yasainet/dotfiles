@@ -63,7 +63,7 @@ paths:
 
 dev と prod で値が割れる key は、`.env` に prod をコメントで併記し、push の前に入れ替えよ。
 
-```.env supabase/.env
+```env supabase/.env
 VAULT_SUPABASE_URL=http://127.0.0.1:54321
 
 # Run the Terminal
@@ -163,7 +163,7 @@ supabase/
 
 ### Example
 
-```.env ~/ghq/**/supabase/.env.sample
+```env ~/ghq/**/supabase/.env.sample
 # SMTP
 RESEND_API_KEY=
 
@@ -172,7 +172,7 @@ VAULT_SUPABASE_URL=
 VAULT_SERVICE_ROLE_KEY=
 ```
 
-```.env ~/ghq/**/supabase/.env
+```env ~/ghq/**/supabase/.env
 # SMTP
 RESEND_API_KEY=
 
@@ -187,12 +187,12 @@ VAULT_SERVICE_ROLE_KEY=
 # VAULT_SERVICE_ROLE_KEY=
 ```
 
-```.env ~/ghq/**/supabase/functions/.env.sample
+```env ~/ghq/**/supabase/functions/.env.sample
 # Edge Function Secrets
 ENVIRONMENT=
 ```
 
-```.env ~/ghq/**/supabase/functions/.env
+```env ~/ghq/**/supabase/functions/.env
 # Edge Function Secrets
 ENVIRONMENT=development
 
