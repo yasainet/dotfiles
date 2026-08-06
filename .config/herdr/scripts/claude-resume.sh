@@ -135,8 +135,12 @@ fi
 # tabstop を 1 にする。既定の 8 だと区切りの tab が次の 8 桁まで飛び、桁を
 # 揃える仕組みが jq のパディングと二重にかかって本文の幅を食う。揃えるのは
 # jq の側だけにする。
+#
+# hscroll は切る。既定では match した位置を見せるために行が左へ流れ、その行
+# だけ日時と repo が押し出される。当たった箇所は preview で読めるので、桁が
+# 揃っている方を取る。
 selected=$("$SELF" --list repo | fzf \
-  --delimiter='\t' --with-nth='2..' --tabstop=1 \
+  --delimiter='\t' --with-nth='2..' --tabstop=1 --no-hscroll \
   --height=100% --reverse --prompt='Repo> ' \
   --footer='C-r → All' \
   --preview="'$SELF' --preview {1}" \
