@@ -17,7 +17,7 @@ next_agent = "prefix+."
 
 [ui]
 accent = "cyan"
-sidebar_max_width = 20
+# sidebar_max_width = 20
 sidebar_collapsed_mode = "hidden"
 agent_panel_sort = "spaces"
 pane_borders = true
@@ -47,23 +47,43 @@ cjk_ime_cursor_shape = "block"
 
 [[keys.command]]
 key = "ctrl+h"
-type = "shell"
-command = "/Users/yasainet/.config/herdr/scripts/nvim-nav.sh h"
+type = "plugin_action"
+command = "herdr-splits.nav-left"
 
 [[keys.command]]
 key = "ctrl+j"
-type = "shell"
-command = "/Users/yasainet/.config/herdr/scripts/nvim-nav.sh j"
+type = "plugin_action"
+command = "herdr-splits.nav-down"
 
 [[keys.command]]
 key = "ctrl+k"
-type = "shell"
-command = "/Users/yasainet/.config/herdr/scripts/nvim-nav.sh k"
+type = "plugin_action"
+command = "herdr-splits.nav-up"
 
 [[keys.command]]
 key = "ctrl+l"
-type = "shell"
-command = "/Users/yasainet/.config/herdr/scripts/nvim-nav.sh l"
+type = "plugin_action"
+command = "herdr-splits.nav-right"
+
+[[keys.command]]
+key = "alt+h"
+type = "plugin_action"
+command = "herdr-splits.resize-left"
+
+[[keys.command]]
+key = "alt+j"
+type = "plugin_action"
+command = "herdr-splits.resize-down"
+
+[[keys.command]]
+key = "alt+k"
+type = "plugin_action"
+command = "herdr-splits.resize-up"
+
+[[keys.command]]
+key = "alt+l"
+type = "plugin_action"
+command = "herdr-splits.resize-right"
 
 [[keys.command]]
 key = "prefix+ctrl+g"

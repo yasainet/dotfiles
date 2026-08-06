@@ -60,50 +60,7 @@ vim.keymap.set("n", "<leader>os", function()
 	require("octo.utils").create_base_search_command({ include_current_repo = true })
 end, { desc = "Search GitHub" })
 
--- Window / pane navigation
-local dirs = {
-	h = { name = "left", axis = 2, sign = -1 },
-	j = { name = "down", axis = 1, sign = 1 },
-	k = { name = "up", axis = 1, sign = -1 },
-	l = { name = "right", axis = 2, sign = 1 },
-}
-
-local function win_in_dir(from, dir)
-	local pos = vim.api.nvim_win_get_position(from)[dir.axis]
-	local best, best_dist = nil, math.huge
-	for _, win in ipairs(vim.api.nvim_tabpage_list_wins(0)) do
-		if win ~= from and not Snacks.util.is_float(win) then
-			local dist = (vim.api.nvim_win_get_position(win)[dir.axis] - pos) * dir.sign
-			if dist > 0 and dist < best_dist then
-				best, best_dist = win, dist
-			end
-		end
-	end
-	return best
-end
-
-local function nav(key, dir)
-	local before = vim.api.nvim_get_current_win()
-
-	if Snacks.util.is_float(before) then
-		local target = win_in_dir(before, dir)
-		if target then
-			vim.api.nvim_set_current_win(target)
-		end
-	else
-		vim.cmd("wincmd " .. key)
-	end
-
-	if vim.api.nvim_get_current_win() == before then
-		vim.system({ "herdr", "pane", "focus", "--direction", dir.name })
-	end
-end
-
-for key, dir in pairs(dirs) do
-	vim.keymap.set({ "n", "t" }, "<C-" .. key .. ">", function()
-		nav(key, dir)
-	end, { desc = "Nav " .. dir.name .. " (split → pane)" })
-end
+-- Window / pane navigation は herdr-splits.nvim が持つ (lua/plugins/herdr-splits.lua)
 
 -- Picker
 vim.keymap.set("n", "<leader>ff", function()
