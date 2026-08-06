@@ -30,6 +30,11 @@ close できるものを `docs/` に置くな。issue か PR に書け
 
 第一階層は Diátaxis の 4 分類とする。domain は第二階層に置く。
 
+|      | 習得 (at study) | 応用 (at work) |
+| ---- | --------------- | -------------- |
+| 行動 | tutorials       | how-to         |
+| 認識 | explanation     | reference      |
+
 ```
 docs/
   README.md         # 索引
