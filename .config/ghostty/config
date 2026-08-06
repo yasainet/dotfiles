@@ -68,7 +68,7 @@ keybind = cmd+b=text:\x02[
 
 # --- tab ---
 
-# Cmd+t -> heder new tab
+# Cmd+t -> herdr new tab
 keybind = cmd+t=unbind
 keybind = cmd+t=text:\x02c
 
@@ -98,10 +98,10 @@ keybind = cmd+shift+bracket_right=text:\x02n
 
 # --- pane ---
 
-# Cmd+d -> split vertical)
+# Cmd+d -> split vertical
 keybind = cmd+d=unbind
 keybind = cmd+d=text:\x02v
 
-# Cmd+Shift+d -> split horizontal)
+# Cmd+Shift+d -> split horizontal
 keybind = cmd+shift+d=unbind
 keybind = cmd+shift+d=text:\x02-
