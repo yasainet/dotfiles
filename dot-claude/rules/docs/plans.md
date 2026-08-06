@@ -1,4 +1,9 @@
-# Plan
+---
+paths:
+  - "**/.claude/plans/*.md"
+---
+
+# Plans Rules
 
 plan mode が書き出す `.claude/plans/*.md` のルールを記述する
 
@@ -6,6 +11,7 @@ plan mode が書き出す `.claude/plans/*.md` のルールを記述する
 
 - plan は承認票である。人間の承認のために存在する
 - 承認が終われば役目を終える。成果物ではない
+- 使い捨て文書なので `.claude/plans/` に置き、git 管理はしない
 - 人間が読むのは Summary だけ。それ以降は LLM 向け
 - why は commit message の body に書け。plan file に決定を蓄積するな
 
