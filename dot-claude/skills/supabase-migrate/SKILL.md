@@ -3,6 +3,8 @@ description: Supabase migration workflow
 argument-hint: <migration-name>
 allowed-tools: Bash(supabase *), Bash(docker compose *), Bash(grep *), Bash(test *), Bash(cp *), Bash(mkdir *)
 disable-model-invocation: true
+context: fork
+background: false
 ---
 
 ## Steps
