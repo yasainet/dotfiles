@@ -1,6 +1,13 @@
-wip
+---
+paths:
+  - "**/.env"
+  - "**/.env.*"
+---
 
-# env
+> [!NOTE]
+> this document is WIP.
+
+# Env Rules
 
 `.env`, `.env.*` の基本ルールを記述する。
 
