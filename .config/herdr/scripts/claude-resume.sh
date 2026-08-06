@@ -9,7 +9,7 @@
 # {display, timestamp, project, sessionId} を持つ。独自の index は作らない。
 # preview は ~/.claude/projects/<cwd>/<id>.jsonl を読む。
 #
-# 一覧の範囲は fzf の中で C-r で切り替える。いまの repo と全 repo を往復する。
+# 一覧の範囲は fzf の中で C-t で切り替える。いまの repo と全 repo を往復する。
 # git root は worktree ごとに別パスなので、repo スコープは worktree 単位の
 # 絞り込みも兼ねる。
 #
@@ -124,9 +124,13 @@ if [[ "${1:-}" == "--list" ]]; then
 fi
 
 # --- picker ------------------------------------------------------------------
-# C-r 1 つで往復させる。scope を 2 つのキーに割ると片方が C-a になり、fzf の
+# C-t 1 つで往復させる。scope を 2 つのキーに割ると片方が C-a になり、fzf の
 # 既定 (入力欄の行頭へ移動) を潰す。いまの scope は prompt が持っているので、
 # transform で $FZF_PROMPT を読んで次の行き先を決める。
+#
+# キーは claude-mention の mode 切替と揃える。切り替えるものは scope と mode で
+# 違うが、押す側から見れば「一覧の対象を変える」1 つの操作でしかない。C-t は
+# fzf の既定が使っていない。
 #
 # キー案内は footer に置く。lazygit と同じ位置で、prompt と一覧の領域を
 # 削らない。出すのは現在地ではなく次の行き先。現在地は prompt が既に
@@ -142,14 +146,14 @@ fi
 selected=$("$SELF" --list repo | fzf \
   --delimiter='\t' --with-nth='2..' --tabstop=1 --no-hscroll \
   --height=100% --reverse --prompt='Repo> ' \
-  --footer='C-r → All' \
+  --footer='C-t → All' \
   --preview="'$SELF' --preview {1}" \
   --preview-window='right:50%:wrap' \
-  --bind="ctrl-r:transform:
+  --bind="ctrl-t:transform:
     if [[ \$FZF_PROMPT == Repo* ]]; then
-      echo 'change-prompt(All> )+change-footer(C-r → Repo)+reload(\"$SELF\" --list all)'
+      echo 'change-prompt(All> )+change-footer(C-t → Repo)+reload(\"$SELF\" --list all)'
     else
-      echo 'change-prompt(Repo> )+change-footer(C-r → All)+reload(\"$SELF\" --list repo)'
+      echo 'change-prompt(Repo> )+change-footer(C-t → All)+reload(\"$SELF\" --list repo)'
     fi")
 
 id="${selected%%$'\t'*}"
