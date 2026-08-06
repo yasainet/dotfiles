@@ -129,8 +129,8 @@ keybind = cmd+o=text:\x02\x0f
 # Cmd+p -> quote selection (herdr prefix+ctrl+p)
 keybind = cmd+p=text:\x02\x10
 
-# Cmd+/ -> terminal (herdr prefix+ctrl+u)
-keybind = cmd+slash=text:\x02\x15
+# Cmd+/ -> terminal (herdr prefix+ctrl+_)
+keybind = cmd+slash=text:\x02\x1f
 
 # Cmd+h -> hunk diff (herdr prefix+ctrl+h)
 keybind = cmd+h=unbind
