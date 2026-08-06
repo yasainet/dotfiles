@@ -37,7 +37,7 @@ close できるものを `docs/` に置くな。issue か PR に書け
 
 ```
 docs/
-  README.md         # 索引
+  INDEX.md          # 索引
   tutorials/        # 学ぶための手順
   how-to/           # 目的を達成するための手順
   reference/        # 引くための事実
@@ -55,12 +55,12 @@ docs/
 
 ## 索引
 
-- `docs/README.md` を 1 つだけ置け
+- `docs/INDEX.md` を 1 つだけ置け
 - 索引を他に作るな。複数あると必ず片方が腐る
 - 索引には file への link と 1 行の説明だけを書け。内容を写すな
 
 ## 命名
 
 - kebab-case で書け
-- ALL_CAPS は `README.md`, `AGENTS.md`, `CLAUDE.md` のみ許す
+- ALL_CAPS は `README.md`, CLAUDE.md` のみ許す
 - 大文字を含む固有名詞も小文字にせよ (`LoRA/` ではなく `lora/`)

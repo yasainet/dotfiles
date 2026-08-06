@@ -1,7 +1,6 @@
 ---
 paths:
   - "**/README.md"
-  - "**/AGENTS.md"
   - "**/CLAUDE.md"
   - "!**/.claude/**"
   - "!**/dot-claude/**"
@@ -11,15 +10,12 @@ paths:
 
 # Root Docs Rules
 
-repo root に置く README.md, AGENTS.md, CLAUDE.md のルール集。
-
-`docs/README.md` は索引であり、このルールの対象外とする。`rules/docs/docs.md` を見よ。
+repo root に置く README.md, CLAUDE.md のルール集。
 
 ## Rules
 
 - README.md は 人間向けに記述せよ
-- AGENTS.md は agent 向けに記述せよ
-- CLAUDE.md は `@AGENTS.md`, `@README.md` を @import のみ記述せよ
+- CLAUDE.md は agent 向けに記述せよ
 - 各ファイル 200 行以内に収めよ
   - 200 行を超える場合は、`docs/**/*.md` を利用せよ
 
@@ -83,23 +79,18 @@ Stacks:
 | Mail    | Resend           | Supabase (Mailpit) |
 ````
 
-## AGENTS.md sample format
-
-```markdown
-@README.md
-
-# AGENTS.md
-
-## Constraints
-
-- list
-- list
-- list
-```
-
 ## CLAUDE.md sample format
 
-```markdown
-@AGENTS.md
+````markdown
 @README.md
+
+# CLAUDE.md
+
+tagline
+
+## Summary
+
+```sh
+# some commands
 ```
+````
