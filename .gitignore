@@ -12,6 +12,8 @@
 .config/github-copilot/apps.json
 .config/github-copilot/auth.db*
 .config/espanso/match/private.yml
+.config/gh/hosts.yml
+.config/btop/btop.log
 
 # opencode
 .config/opencode/node_modules/
