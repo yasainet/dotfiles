@@ -82,8 +82,6 @@ Stacks:
 ## CLAUDE.md sample format
 
 ````markdown
-@README.md
-
 # CLAUDE.md
 
 tagline
