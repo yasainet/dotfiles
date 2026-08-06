@@ -17,7 +17,6 @@ next_agent = "prefix+."
 
 [ui]
 accent = "cyan"
-# sidebar_max_width = 20
 sidebar_collapsed_mode = "hidden"
 agent_panel_sort = "spaces"
 pane_borders = true
