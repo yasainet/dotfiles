@@ -2,6 +2,12 @@
 	name = yasainet
 	email = mail@yasainet.com
 
+[init]
+	defaultBranch = main
+
+[core]
+	ignorecase = false
+
 [color]
 	ui = auto
 
@@ -11,15 +17,26 @@
 [pull]
 	ff = only
 
-[core]
-	ignorecase = false
+[merge]
+	commit = no
+
+[pager]
+	branch = false
+	tag = false
+
+[ghq]
+	root = ~/ghq
 
 [filter "lfs"]
 	process = git-lfs filter-process
 	required = true
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
-  
+
+[credential]
+	helper =
+	helper = /usr/local/share/gcm-core/git-credential-manager
+
 [credential "https://github.com"]
 	helper =
 	helper = !/opt/homebrew/bin/gh auth git-credential
@@ -28,28 +45,3 @@
 [credential "https://gist.github.com"]
 	helper =
 	helper = !/opt/homebrew/bin/gh auth git-credential
-
-[merge]
-	commit = no
-
-[pager]
-	branch = false
-	tag = false
-
-[credential "http://localhost:8929"]
-	provider = generic
-
-[credential "http://127.0.0.1:8929"]
-	provider = generic
-
-[init]
-	defaultBranch = main
-[credential "http://127.0.0.1:3030"]
-	provider = generic
-[ghq]
-	root = ~/ghq
-[credential]
-	helper = 
-	helper = /usr/local/share/gcm-core/git-credential-manager
-[credential "https://dev.azure.com"]
-	useHttpPath = true
