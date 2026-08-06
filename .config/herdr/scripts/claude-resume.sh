@@ -9,10 +9,15 @@
 # {display, timestamp, project, sessionId} を持つ。独自の index は作らない。
 # preview は ~/.claude/projects/<cwd>/<id>.jsonl を読む。
 #
+# 一覧の範囲は fzf の中で C-r で切り替える。いまの repo と全 repo を往復する。
+# git root は worktree ごとに別パスなので、repo スコープは worktree 単位の
+# 絞り込みも兼ねる。
+#
 # 引数なし   : 選んだ session を claude --resume で開く (端末から直接使う)
 # --send     : 呼び出し元 pane の prompt 欄に `/resume <id>` を差し込む。
 #              herdr の popup keybind から使う経路。新しい claude を起動せず、
 #              いまの session がその場で切り替わる。Enter は人間が押す。
+# --list     : fzf が reload で呼ぶ。単体で使うものではない。
 # --preview  : fzf が内部で呼ぶ。単体で使うものではない。
 set -uo pipefail
 
@@ -67,32 +72,81 @@ if [[ "${1:-}" == "--preview" ]]; then
   exit 0
 fi
 
-# --- picker ------------------------------------------------------------------
 HISTORY="$HOME/.claude/history.jsonl"
-[[ -f "$HISTORY" ]] || { echo "claude-resume: $HISTORY がない" >&2; exit 1; }
 
-root=$(git rev-parse --show-toplevel 2>/dev/null) || root="$PWD"
-
+# --- list --------------------------------------------------------------------
 # session ごとに集約する。最終更新でソートし、初回プロンプトを見出しにする。
 # `/resume` のような slash command 一発で終わった session は除く。
-selected=$(jq -sr --arg root "$root" '
-  map(select(.project == $root or (.project | startswith($root + "/"))))
-  | group_by(.sessionId)
-  | map({
-      id:    .[0].sessionId,
-      t:     (map(.timestamp) | max),
-      n:     length,
-      first: (.[0].display | split("\n") | map(select(. != "")) | first // "(empty)")
-    })
-  | map(select(.n > 1 or (.first | startswith("/") | not)))
-  | sort_by(-.t)
-  | .[]
-  | [.id, (.t / 1000 | strflocaltime("%m-%d %H:%M")), "[\(.n)]", .first] | @tsv
-' "$HISTORY" | fzf \
-  --delimiter='\t' --with-nth='2..' \
-  --height=100% --reverse --prompt='Session> ' \
+#
+# all のときだけ repo 名のカラムを足す。カラム数が変わっても fzf の
+# --with-nth='2..' は追随するので、fzf 側に分岐は要らない。tab は桁を
+# 揃えないので、repo 名は jq の側で最長に合わせて詰める。
+#
+# repo 名は ghq の <host>/<owner>/<repo> から拾う。末尾 2 階層を取ると
+# repo の中で起動した session が別物として並ぶ。Claude Code の worktree は
+# .claude/worktrees/<name> に作られるので、そのまま出しても持ち主が
+# 分からないうえ、開発が終われば消える名前が居座る。
+#
+# 発言数は出さない。session の長短は選ぶ手がかりにならず、桁が揺れて
+# 後続のカラムをずらすわりに、本文の幅を食う。
+if [[ "${1:-}" == "--list" ]]; then
+  [[ -f "$HISTORY" ]] || { echo "claude-resume: $HISTORY がない" >&2; exit 1; }
+
+  if [[ "${2:-repo}" == "all" ]]; then
+    root=""
+  else
+    root=$(git rev-parse --show-toplevel 2>/dev/null) || root="$PWD"
+  fi
+
+  jq -sr --arg root "$root" '
+    map(select($root == "" or .project == $root
+               or (.project | startswith($root + "/"))))
+    | group_by(.sessionId)
+    | map({
+        id:    .[0].sessionId,
+        t:     (map(.timestamp) | max),
+        n:     length,
+        repo:  (.[0].project as $p
+                | ($p | capture("/ghq/[^/]+/(?<o>[^/]+)/(?<r>[^/]+)") | "\(.o)/\(.r)")
+                  // ($p | split("/") | last)),
+        first: (.[0].display | split("\n") | map(select(. != "")) | first // "(empty)")
+      })
+    | map(select(.n > 1 or (.first | startswith("/") | not)))
+    | sort_by(-.t)
+    | (map(.repo | length) | max // 0) as $w
+    | .[]
+    | [.id, (.t / 1000 | strflocaltime("%m-%d %H:%M"))]
+      + (if $root == "" then [.repo + (" " * ($w - (.repo | length) + 1))] else [] end)
+      + [.first]
+    | @tsv
+  ' "$HISTORY"
+  exit 0
+fi
+
+# --- picker ------------------------------------------------------------------
+# C-r 1 つで往復させる。scope を 2 つのキーに割ると片方が C-a になり、fzf の
+# 既定 (入力欄の行頭へ移動) を潰す。いまの scope は prompt が持っているので、
+# transform で $FZF_PROMPT を読んで次の行き先を決める。
+#
+# キー案内は footer に置く。lazygit と同じ位置で、prompt と一覧の領域を
+# 削らない。出すのは現在地ではなく次の行き先。現在地は prompt が既に
+# 言っているので、重ねても案内にならない。
+#
+# tabstop を 1 にする。既定の 8 だと区切りの tab が次の 8 桁まで飛び、桁を
+# 揃える仕組みが jq のパディングと二重にかかって本文の幅を食う。揃えるのは
+# jq の側だけにする。
+selected=$("$SELF" --list repo | fzf \
+  --delimiter='\t' --with-nth='2..' --tabstop=1 \
+  --height=100% --reverse --prompt='Repo> ' \
+  --footer='C-r → All' \
   --preview="'$SELF' --preview {1}" \
-  --preview-window='right:55%:wrap')
+  --preview-window='right:50%:wrap' \
+  --bind="ctrl-r:transform:
+    if [[ \$FZF_PROMPT == Repo* ]]; then
+      echo 'change-prompt(All> )+change-footer(C-r → Repo)+reload(\"$SELF\" --list all)'
+    else
+      echo 'change-prompt(Repo> )+change-footer(C-r → All)+reload(\"$SELF\" --list repo)'
+    fi")
 
 id="${selected%%$'\t'*}"
 [[ -n "$id" ]] || exit 0
