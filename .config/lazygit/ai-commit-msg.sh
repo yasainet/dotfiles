@@ -25,7 +25,7 @@ generate() {
 
 while :; do
   echo "Generating commit message..."
-  MSG=$(generate)
+  MSG=$(generate | sed '/^```/d')
   if [ -z "$MSG" ]; then
     echo "claude returned an empty message" >&2
     exit 1
