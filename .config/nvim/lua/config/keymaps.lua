@@ -60,8 +60,6 @@ vim.keymap.set("n", "<leader>os", function()
 	require("octo.utils").create_base_search_command({ include_current_repo = true })
 end, { desc = "Search GitHub" })
 
--- Window / pane navigation は herdr-splits.nvim が持つ (lua/plugins/herdr-splits.lua)
-
 -- Picker
 vim.keymap.set("n", "<leader>ff", function()
 	Snacks.picker.files()

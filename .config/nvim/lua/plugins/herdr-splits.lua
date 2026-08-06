@@ -4,7 +4,6 @@ return {
 	event = "VeryLazy",
 	opts = {},
 	keys = {
-		-- mode に t を含め、snacks terminal からも pane へ抜けられるようにする
 		{
 			"<C-h>",
 			function()
