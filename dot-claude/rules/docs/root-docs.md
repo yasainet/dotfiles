@@ -5,11 +5,15 @@ paths:
   - "**/CLAUDE.md"
   - "!**/.claude/**"
   - "!**/dot-claude/**"
+  - "!**/docs/**"
+  - "!**/notes/**"
 ---
 
 # Root Docs Rules
 
 repo root に置く README.md, AGENTS.md, CLAUDE.md のルール集。
+
+`docs/README.md` は索引であり、このルールの対象外とする。`rules/docs/docs.md` を見よ。
 
 ## Rules
 
