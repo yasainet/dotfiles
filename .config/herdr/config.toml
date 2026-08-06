@@ -12,6 +12,8 @@ new_cwd = "follow"
 prefix = "ctrl+b"
 navigate_workspace_down = "j"
 navigate_workspace_up = "k"
+previous_agent = "prefix+,"
+next_agent = "prefix+."
 
 [ui]
 accent = "cyan"
