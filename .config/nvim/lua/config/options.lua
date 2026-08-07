@@ -69,8 +69,6 @@ vim.filetype.add({
 		[".*git/config"] = "gitconfig",
 		[".*git/ignore"] = "gitignore",
 		[".*%.dockerignore"] = "gitignore",
-		-- HACK: nvim launched with C-g in Claude Code
-		-- [".*/claude%-prompt%-[^/]*%.md"] = { "text", { priority = 10 } },
 	},
 })
 
