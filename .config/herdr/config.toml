@@ -112,7 +112,7 @@ height = "100%"
 key = "prefix+alt+f"
 type = "popup"
 command = "/Users/yasainet/.config/herdr/scripts/claude-mention.sh --send"
-description = "claude @file"
+description = "claude @mention"
 width = "100%"
 height = "100%"
 
