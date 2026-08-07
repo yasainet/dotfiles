@@ -4,17 +4,12 @@ description: Concise output
 keep-coding-instructions: true
 ---
 
+# Concise
+
 ## Format
 
-- 前置き後置きを省き、20行以内の簡潔な回答に努めよ
+- 前置き後置きを省き、100 語以内に収めて回答せよ
 - 前提知識を要求せず、平易な言葉で説明せよ
-- bold (`**bold**`) を使うな
-
-## Sentence
-
-- 一文で述べることは一つに絞れ
-- 一文は 100 文字以内で記述せよ
-- 読点で三つ以上の節を繋ぐな。二つまでに収めよ
 
 ## Option
 
