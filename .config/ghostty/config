@@ -109,29 +109,29 @@ keybind = cmd+shift+d=text:\x02-
 
 # --- popup ---
 
-# Cmd+g -> lazygit (herdr prefix+ctrl+g)
+# Cmd+g -> lazygit (herdr prefix+alt+g)
 keybind = cmd+g=unbind
-keybind = cmd+g=text:\x02\x07
+keybind = cmd+g=text:\x02\x1bg
 
-# Cmd+r -> claude resume (herdr prefix+ctrl+r)
-keybind = cmd+r=text:\x02\x12
+# Cmd+r -> claude resume (herdr prefix+alt+r)
+keybind = cmd+r=text:\x02\x1br
 
-# Cmd+f -> claude @file (herdr prefix+ctrl+f)
+# Cmd+f -> claude @file (herdr prefix+alt+f)
 keybind = cmd+f=unbind
-keybind = cmd+f=text:\x02\x06
+keybind = cmd+f=text:\x02\x1bf
 
-# Cmd+y -> yazi (herdr prefix+ctrl+y)
-keybind = cmd+y=text:\x02\x19
+# Cmd+y -> yazi (herdr prefix+alt+y)
+keybind = cmd+y=text:\x02\x1by
 
-# Cmd+o -> octo (herdr prefix+ctrl+o)
-keybind = cmd+o=text:\x02\x0f
+# Cmd+o -> octo (herdr prefix+alt+o)
+keybind = cmd+o=text:\x02\x1bo
 
-# Cmd+p -> quote selection (herdr prefix+ctrl+p)
-keybind = cmd+p=text:\x02\x10
+# Cmd+p -> quote selection (herdr prefix+alt+p)
+keybind = cmd+p=text:\x02\x1bp
 
-# Cmd+/ -> terminal (herdr prefix+ctrl+_)
-keybind = cmd+slash=text:\x02\x1f
+# Cmd+/ -> terminal (herdr prefix+alt+slash)
+keybind = cmd+slash=text:\x02\x1b/
 
-# Cmd+h -> hunk diff (herdr prefix+ctrl+h)
+# Cmd+h -> hunk diff (herdr prefix+alt+h)
 keybind = cmd+h=unbind
-keybind = performable:cmd+h=text:\x02\x08
+keybind = performable:cmd+h=text:\x02\x1bh
