@@ -1,22 +1,3 @@
--- snacks.image の穴を埋める
---
--- どちらも snacks の内部に手を入れる。更新して画像が出なくなったらここを疑う。
---
--- 1. 動画のポスター表示
---    snacks は formats に mp4 等を含むが、変換は magick 固定である。
---    magick の video delegate は ffmpeg を噛ませる作りで、実際には復号に失敗する。
---    buf.attach を包み、動画なら ffmpeg で起こした PNG に差し替える。
---    explorer のプレビューと Enter は共に buf.attach を通るため、これ一箇所で足りる。
---
--- 2. 閉じた画像の再送
---    snacks は Image をファイル単位で使い回す。placement が全て閉じると
---    端末側の画像は削除されるが、sent フラグは立ったままになる。
---    そのため同じ画像を再び開いても再送されず、プレースホルダだけが残る。
---
--- 3. 開き直したバッファへの再アタッチ
---    2 度目に開くバッファは読み込み済みなので BufReadCmd が発火せず、
---    消えた placement が作り直されない。extmark が空なら張り直す。
-
 local video = { mp4 = true, mov = true, avi = true, mkv = true, webm = true }
 
 local cache = vim.fn.stdpath("cache") .. "/video-poster"
@@ -56,7 +37,7 @@ local function poster(src, cb)
 		return cb(png)
 	end
 	if vim.fn.executable("ffmpeg") == 0 then
-		return cb(nil, "`ffmpeg` が見つかりません")
+		return cb(nil, "`ffmpeg` not found")
 	end
 
 	vim.fn.mkdir(cache, "p")
@@ -72,7 +53,6 @@ local function poster(src, cb)
 		"1",
 		"-vf",
 		"scale='min(1920,iw)':-2",
-		-- PNG は端末へ送る前に base64 化されるので圧縮しても無駄
 		"-compression_level",
 		"1",
 		png,
@@ -129,12 +109,10 @@ local function patch_reattach()
 			if not ok or not placement.ns then
 				return
 			end
-			-- 描画は debounce される。落ち着いてから見ないと直前の状態を拾う
 			vim.defer_fn(function()
 				if not vim.api.nvim_buf_is_valid(ev.buf) then
 					return
 				end
-				-- extmark と行数は残るが、中身が空文字列になることがある
 				local marks = vim.api.nvim_buf_get_extmarks(ev.buf, placement.ns, 0, -1, { details = true })
 				for _, m in ipairs(marks) do
 					local d = m[4] or {}
@@ -159,8 +137,6 @@ end
 
 return {
 	"folke/snacks.nvim",
-	-- opts は setup の直前に呼ばれる。BufReadCmd の登録は setup の中なので、
-	-- ここで包めば起動引数に動画を渡した場合も間に合う
 	opts = function(_, opts)
 		patch_video()
 		patch_resend()
