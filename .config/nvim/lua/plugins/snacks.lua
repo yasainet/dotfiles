@@ -107,8 +107,8 @@ return {
 							keys = {
 								["<C-v>"] = { "edit_vsplit", mode = { "n" } },
 								["<C-s>"] = { "edit_split", mode = { "n" } },
-								["<C-j>"] = false,
-								["<C-k>"] = false,
+								["<C-j>"] = false, -- Move herdr pane
+								["<C-k>"] = false, -- Move herdr pane
 								["P"] = "none", -- Disable preview
 								["<esc>"] = "none",
 							},
