@@ -85,7 +85,7 @@ type = "plugin_action"
 command = "herdr-splits.resize-right"
 
 [[keys.command]]
-key = "prefix+ctrl+g"
+key = "prefix+alt+g"
 type = "popup"
 command = "lazygit"
 description = "lazygit"
@@ -93,7 +93,7 @@ width = "100%"
 height = "100%"
 
 [[keys.command]]
-key = "prefix+ctrl+h"
+key = "prefix+alt+h"
 type = "popup"
 command = "hunk diff"
 description = "hunk"
@@ -101,7 +101,7 @@ width = "100%"
 height = "100%"
 
 [[keys.command]]
-key = "prefix+ctrl+r"
+key = "prefix+alt+r"
 type = "popup"
 command = "/Users/yasainet/.config/herdr/scripts/claude-resume.sh --send"
 description = "claude resume"
@@ -109,7 +109,7 @@ width = "100%"
 height = "100%"
 
 [[keys.command]]
-key = "prefix+ctrl+f"
+key = "prefix+alt+f"
 type = "popup"
 command = "/Users/yasainet/.config/herdr/scripts/claude-mention.sh --send"
 description = "claude @file"
@@ -117,7 +117,7 @@ width = "100%"
 height = "100%"
 
 [[keys.command]]
-key = "prefix+ctrl+_"
+key = "prefix+alt+slash"
 type = "popup"
 command = "zsh"
 description = "terminal"
@@ -125,21 +125,21 @@ width = "100%"
 height = "100%"
 
 [[keys.command]]
-key = "prefix+ctrl+y"
+key = "prefix+alt+y"
 # HACK: popup doesn’t support Kitty graphics.
 type = "pane"
 command = "yazi"
 description = "yazi"
 
 [[keys.command]]
-key = "prefix+ctrl+o"
+key = "prefix+alt+o"
 # HACK: popup doesn’t support Kitty graphics.
 type = "pane"
 command = "nvim -c 'Octo issue list'"
 description = "octo"
 
 [[keys.command]]
-key = "prefix+ctrl+p"
+key = "prefix+alt+p"
 type = "plugin_action"
 command = "yasainet.quote.quote-selection"
 description = "quote selection into prompt"
