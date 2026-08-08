@@ -31,7 +31,7 @@ built-in / plugin / custom の違い。
 
 ### built-in — develop
 
-開発作業に利用する。`docs/workflow.md` で利用方法を定める。
+開発作業に利用する。呼ぶ phase は `simplepowers-*` の workflow で定める。
 
 | name               | use                                         |
 | ------------------ | ------------------------------------------- |
@@ -84,6 +84,19 @@ built-in / plugin / custom の違い。
 > [!TIP]
 > `disable-model-invocation: true`: `user` が実行した時のみ、有効になる。
 
+### simplepowers
+
+phase workflow を定める。bootstrap は SessionStart hook が注入するので、`user` は呼ばない。
+
+| name                     | phase    | 出口                   |
+| ------------------------ | -------- | ---------------------- |
+| `simplepowers-bootstrap` | —        | 宣言と Red Flags       |
+| `/simplepowers-explore`  | 調査     | `/simplepowers-plan`   |
+| `/simplepowers-plan`     | 設計     | `/simplepowers-build`  |
+| `/simplepowers-build`    | 実装     | `/simplepowers-verify` |
+| `/simplepowers-verify`   | 検証     | `/simplepowers-review` |
+| `/simplepowers-review`   | レビュー | 記録                   |
+
 ### vendor
 
 ツール側が `skills/` に置いていくもの。
@@ -106,10 +119,11 @@ herdr --skill > ~/.claude/skills/herdr/SKILL.md         # 更新する
 
 ### custom
 
-| name                | event             | use                     |
-| ------------------- | ----------------- | ----------------------- |
-| `on-prompt.sh`      | UserPromptSubmit  | 入力ソースを ABC に戻す |
-| `on-needs-input.sh` | PermissionRequest | 入力ソースを ABC に戻す |
+| name                | event             | use                           |
+| ------------------- | ----------------- | ----------------------------- |
+| `on-prompt.sh`      | UserPromptSubmit  | 入力ソースを ABC に戻す       |
+| `on-needs-input.sh` | PermissionRequest | 入力ソースを ABC に戻す       |
+| `simplepowers.sh`   | SessionStart      | bootstrap を context へ入れる |
 
 ### vendor
 
