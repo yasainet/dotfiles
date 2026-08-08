@@ -5,7 +5,7 @@ description: 実装 phase。コードを書く、ファイルを作る、設定�
 
 # 実装
 
-冒頭で `[実装]` と宣言せよ。
+冒頭で `[Build]` と宣言せよ。
 
 ## 入口
 
@@ -15,7 +15,7 @@ description: 実装 phase。コードを書く、ファイルを作る、設定�
 
 - 承認された設計の範囲だけを作れ。広げるな
 - 周囲のコードに合わせよ。comment の量、命名、書き方を揃えよ
-- DB schema を変えたなら `/supabase-migrate` で migration と型定義を通せ
+- DB schema を変えたなら、`/supabase-migrate` の実行を `user` に依頼せよ。自分では呼べない
 - 途中で設計の穴に気付いたら、手を止めて `user` に伝えよ。黙って設計を変えるな
 
 ## 出口
