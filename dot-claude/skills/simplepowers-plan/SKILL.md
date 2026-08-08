@@ -11,7 +11,7 @@ description: [Plan] phase: 実装方針を決めるときに使え。調査の�
 
 調査を終えたか確認せよ。足りないなら `simplepowers-explore` skill へ戻れ。
 
-## やること
+## Scope
 
 - 案を並べるな。推奨を 1 つ出せ
 - 却下した案があるなら、理由を 1 行で添えよ
