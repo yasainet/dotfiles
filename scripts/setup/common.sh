@@ -3,8 +3,6 @@
 # ====================
 # Profile
 # ====================
-# プロファイル固有の後処理。既定は何もしない。
-# llm.sh が上書きする。
 setup_profile() {
   :
 }
@@ -12,9 +10,6 @@ setup_profile() {
 # ====================
 # Symlinks
 # ====================
-
-# .config entries this OS or profile does not use.
-# Set in {darwin,linux}.sh and llm.sh, sourced after this file.
 SKIP_LINKS=()
 
 link() {
@@ -48,8 +43,6 @@ is_skipped_link() {
   return 1
 }
 
-# Drop an entry this OS does not use, removing a stale link left by an older run.
-# Only unlinks symlinks pointing into $DOTFILES; anything else is left alone.
 skip_link() {
   local name="$1"
   local dest="$HOME/.config/$name"

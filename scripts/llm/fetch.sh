@@ -1,16 +1,5 @@
 #!/bin/bash
 
-# ====================
-# Fetch GGUF models
-# ====================
-# LLM ホスト (MacBook-Pro-2023) でのみ実行する。install.sh からは呼ばれない。
-#
-#   ./scripts/llm/fetch.sh
-#
-# モデルは ~/models/<subdir>/<file> に配置する。
-# 配置先は .config/llama-swap/config.yaml の model-dir と対応する。
-# 中断しても再実行でレジューム (curl -C -) する。
-
 set -e
 
 MODELS=(
