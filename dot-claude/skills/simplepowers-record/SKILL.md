@@ -1,9 +1,9 @@
 ---
 name: simplepowers-record
-description: 記録 phase。レビューを通した後、commit や PR を残すときに使え
+description: [Record] phase: レビューを通した後、commit や PR を残すときに使え
 ---
 
-# 記録
+# Record
 
 冒頭で `[Record]` と宣言せよ。
 
