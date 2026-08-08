@@ -101,17 +101,10 @@ phase workflow を定める。bootstrap は SessionStart hook が注入するの
 
 ツール側が `skills/` に置いていくもの。
 
-| name           | use                             | 追従                              |
-| -------------- | ------------------------------- | --------------------------------- |
-| `/herdr`       | terminal multiplexer を操作する | 手動。CLI 出力を写す              |
-| `/hunk-review` | 差分レビュー session を操作する | 自動。Homebrew の実体への symlink |
-
-herdr:
-
-```sh
-herdr --skill | diff - ~/.claude/skills/herdr/SKILL.md  # 差分を見る
-herdr --skill > ~/.claude/skills/herdr/SKILL.md         # 更新する
-```
+| name           | use                             |
+| -------------- | ------------------------------- |
+| `/herdr`       | terminal multiplexer を操作する |
+| `/hunk-review` | 差分レビュー session を操作する |
 
 ## hooks
 
