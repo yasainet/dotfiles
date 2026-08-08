@@ -369,9 +369,6 @@ configure_system() {
 # ====================
 # Tailscale
 # ====================
-# brew install だけでは tailscaled が動かず、tailscale up が接続できない。
-# root の LaunchDaemon として常駐させる。
-# tailnet への参加は対話認証が要るため、tailscale up は手動で実行する。
 start_tailscaled() {
   echo "Starting tailscaled..."
   sudo brew services start tailscale

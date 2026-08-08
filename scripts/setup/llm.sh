@@ -1,29 +1,16 @@
 #!/bin/bash
 
 # ====================
-# LLM host profile
-# ====================
-# DOTFILES_PROFILE=llm のときに install.sh が読む。macOS 専用。
-# common.sh と darwin.sh の後に読まれ、そこで定義された関数を上書きする。
-#
-# darwin.sh とパッケージが重複するが、条件分岐で削るより一覧を並べる方が読みやすい。
-# 入れる物を変えたい時はこのファイルのリストだけ見ればよい。
-#
-# 運用手順は docs/llm-host.md を参照。
-
-# ====================
 # Symlinks
 # ====================
-# GUI アプリを入れないため、その設定もリンクしない。
 SKIP_LINKS+=(
-  ghostty     # Ghostty (ssh 越しに使うので不要)
-  espanso     # Espanso
-  hammerspoon # Hammerspoon
-  karabiner   # Karabiner-Elements
-  snapzy      # Snapzy (screenshot app)
+  ghostty
+  espanso
+  hammerspoon
+  karabiner
+  snapzy
 )
 
-# llama-swap のバージョン。更新時はここだけ変える。
 LLAMA_SWAP_VER="v222"
 
 # ====================
@@ -72,7 +59,6 @@ install_cli_tools() {
     curl -fsSL https://claude.ai/install.sh | bash
   fi
 
-  # 推論エンジンとモデル取得
   brew install llama.cpp
   brew install hf
   install_llama_swap
@@ -113,16 +99,12 @@ link_espanso() {
 # ====================
 # LLM host
 # ====================
-# llama-swap を常駐させる。
-# LaunchDaemon ではなく LaunchAgent なのは、Metal がユーザーセッションを要るため。
-# GUI にログインするまで起動しない。再起動後の復旧は docs/llm/setup.md を参照。
 link_llama_swap_agent() {
   echo "Installing llama-swap LaunchAgent..."
 
   local plist="$HOME/Library/LaunchAgents/com.yasainet.llama-swap.plist"
   mkdir -p "$HOME/Library/LaunchAgents"
 
-  # $HOME を展開して書き出す。plist はチルダ展開しない。
   sed -e "s|@HOME@|$HOME|g" \
     "$DOTFILES/extras/launchd/com.yasainet.llama-swap.plist" > "$plist"
 
@@ -131,7 +113,6 @@ link_llama_swap_agent() {
   echo "  [done] com.yasainet.llama-swap"
 }
 
-# 常時稼働させるための電源とリモートアクセス設定。
 setup_profile() {
   echo "Configuring LLM host..."
 
@@ -147,7 +128,6 @@ setup_profile() {
   sudo pmset -c womp 1
 
   # リモートログイン (ssh) を有効化。
-  # ターミナルにフルディスク アクセスが無いと失敗するため、その場合は手動で入れる。
   if ! sudo systemsetup -setremotelogin on 2>/dev/null; then
     echo "  [warn] systemsetup -setremotelogin に失敗した"
     echo "         System Settings -> General -> Sharing -> Remote Login を手動で ON にすること"
@@ -165,4 +145,3 @@ setup_profile() {
 # 3. 画面共有: System Settings -> General -> Sharing -> Screen Sharing
 #    再起動後、GUI にログインしないと llama-swap が上がらないため
 # 4. ./scripts/llm/fetch.sh でモデルを取得
-# 5. DeepSeek-V4-Flash は手動 (docs/llm-host.md を参照)

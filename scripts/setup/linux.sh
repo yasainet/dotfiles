@@ -3,8 +3,6 @@
 # ====================
 # Symlinks
 # ====================
-# Linux hosts are headless (no display manager, no DISPLAY/WAYLAND_DISPLAY),
-# so GUI configs are dead weight even where the app has a Linux build.
 SKIP_LINKS=(
   # macOS-only apps
   hammerspoon # Hammerspoon
