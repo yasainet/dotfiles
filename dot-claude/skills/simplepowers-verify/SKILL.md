@@ -17,15 +17,13 @@ description: [Verify] phase: 完了、修正済み、通ったと言う前に必
 
 このターンで検証コマンドを実行していないなら、通ったとは言えない。
 
-1. その主張を裏付けるコマンドを特定せよ。repo root の README.md の Verify を見よ
-2. 省略せずに実行せよ
-3. 出力と exit code を最後まで読め
-4. 出力が主張を裏付けているか確かめよ
+1. repo root の README.md の Verify コマンドを実行せよ
+2. app の挙動を確認する必要がある場合は `/run` を実行せよ
 
-- test で足りるなら test を走らせろ
-- app の挙動を目で見る必要があるときだけ `/run` を使え
+- 出力と exit code を最後まで読め
 - 失敗したなら、出力をそのまま示せ。隠すな
 - 飛ばした検証があるなら、飛ばしたと言え
+- Verify section が無いなら、コマンドを自分で特定し、section の追加を `user` に促せ
 
 ## Next phase
 
