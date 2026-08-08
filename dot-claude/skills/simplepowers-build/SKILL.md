@@ -11,7 +11,7 @@ description: [Build] phase:  コードを書く、ファイルを作る、設定
 
 `user` が実装を指示したか確認せよ。指示が無いなら `simplepowers-plan` skill へ戻れ。
 
-## やること
+## Scope
 
 - 承認された設計の範囲だけを作れ。広げるな
 - 周囲のコードに合わせよ。comment の量、命名、書き方を揃えよ

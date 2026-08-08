@@ -11,7 +11,7 @@ description: [Review] phase: 検証の後、commit や PR の前に必ず使え
 
 検証を通したか確認せよ。通していないなら `simplepowers-verify` skill へ戻れ。
 
-## 選び方
+## Scope
 
 該当する行を全て掛けよ。
 
@@ -23,7 +23,7 @@ description: [Review] phase: 検証の後、commit や PR の前に必ず使え
 | bug ではなく整理が目的 | `/simplify`            |
 | GitHub の PR           | `/code-review PR #<N>` |
 
-## rules review
+### rules review
 
 ドキュメントだけの変更に `/code-review` を掛けるな。読む code が無い。
 

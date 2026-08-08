@@ -7,7 +7,7 @@ description: [Explore] phase: コード、仕様、原因を調べる前に必�
 
 冒頭で `[Explore]` と宣言せよ。
 
-## やること
+## Scope
 
 - 3 ファイル以内で済むなら自分で読め
 - 探索範囲が repo 全体や他の repo に及ぶなら `@Explore` を呼べ

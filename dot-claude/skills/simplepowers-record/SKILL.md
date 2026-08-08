@@ -11,7 +11,12 @@ description: [Record] phase: レビューを通した後、commit や PR を残�
 
 レビューを通したか確認せよ。通していないなら `simplepowers-review` skill へ戻れ。
 
-## 使うもの
+## Scope
+
+- commit の hash と変更規模を報告せよ
+- push していないなら、していないと言え
+
+### 使うもの
 
 | やること        | 使うもの                          | 呼ぶ人 |
 | --------------- | --------------------------------- | ------ |
@@ -22,11 +27,6 @@ description: [Record] phase: レビューを通した後、commit や PR を残�
 
 `user` の欄は自分では呼べない。実行を依頼せよ。
 
-## 書き方
+### 書き方
 
 commit する前に `~/.claude/docs/github.md` を読め。type、scope、body の規約がある。
-
-## やること
-
-- commit の hash と変更規模を報告せよ
-- push していないなら、していないと言え
