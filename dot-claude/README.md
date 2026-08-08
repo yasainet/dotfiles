@@ -94,7 +94,8 @@ phase workflow を定める。bootstrap は SessionStart hook が注入するの
 | `/simplepowers-plan`     | `[Plan]`    | `/simplepowers-build`  |
 | `/simplepowers-build`    | `[Build]`   | `/simplepowers-verify` |
 | `/simplepowers-verify`   | `[Verify]`  | `/simplepowers-review` |
-| `/simplepowers-review`   | `[Review]`  | 記録                   |
+| `/simplepowers-review`   | `[Review]`  | `/simplepowers-record` |
+| `/simplepowers-record`   | `[Record]`  | 終わり                 |
 
 ### vendor
 
