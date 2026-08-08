@@ -7,6 +7,10 @@ description: [Review] phase: 検証の後、commit や PR の前に必ず使え
 
 冒頭で `[Review]` と宣言せよ。
 
+## Previous phase
+
+検証を通したか確認せよ。通していないなら `simplepowers-verify` skill へ戻れ。
+
 ## 選び方
 
 該当する行を全て掛けよ。

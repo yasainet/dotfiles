@@ -7,9 +7,9 @@ description: [Record] phase: レビューを通した後、commit や PR を残�
 
 冒頭で `[Record]` と宣言せよ。
 
-## 入口
+## Previous phase
 
-レビューを通したか確認せよ。通していないなら `simplepowers-review` へ戻れ。
+レビューを通したか確認せよ。通していないなら `simplepowers-review` skill へ戻れ。
 
 ## 使うもの
 

@@ -7,9 +7,9 @@ description: [Build] phase:  コードを書く、ファイルを作る、設定
 
 冒頭で `[Build]` と宣言せよ。
 
-## 入口
+## Previous phase
 
-`user` が実装を指示したか確認せよ。指示が無いなら戻れ。
+`user` が実装を指示したか確認せよ。指示が無いなら `simplepowers-plan` skill へ戻れ。
 
 ## やること
 
