@@ -1,13 +1,4 @@
 #!/bin/bash
-#
-# nvim-web-devicons のアイコンを lazygit の customIcons に写す
-#
-# lazygit は独自のアイコンセットを内蔵しており、devicons とは 6 割ほどしか
-# 一致しない。customIcons は上書きしかできず削除はできないので、devicons に
-# 無いキーには汎用ファイルアイコンを充てて潰す。
-#
-# Usage:
-# - ./scripts/gen/lazygit-icons.sh   # .config/lazygit/icons.yml を再生成
 
 set -euo pipefail
 
@@ -20,8 +11,6 @@ trap 'rm -rf "$TMP"' EXIT
 command -v nvim >/dev/null || { echo "nvim not found" >&2; exit 1; }
 command -v python3 >/dev/null || { echo "python3 not found" >&2; exit 1; }
 
-# lazygit 側のキー一覧。内蔵アイコンを残さず潰すために要る。
-# ファイル名は case sensitive なので Cargo.toml のような正しい綴りもここから拾う
 curl -fsSL "$SRC" -o "$TMP/file_icons.go" || { echo "failed to fetch $SRC" >&2; exit 1; }
 
 python3 - "$TMP/file_icons.go" "$TMP/targets.json" <<'PY'
@@ -45,9 +34,6 @@ for line in lines:
 json.dump({"names": names, "exts": exts}, open(dst, "w"))
 PY
 
-# devicons が実際に表示する glyph と色を吐く
-# 色は table の値ではなく highlight group から引く
-# 同じ group を共有する拡張子があり、table の値とは食い違うため
 nvim --headless -c "lua
 local dv = require('nvim-web-devicons')
 local lg = vim.json.decode(table.concat(vim.fn.readfile('$TMP/targets.json'), ''))
@@ -80,10 +66,9 @@ import json, sys
 src, dst = sys.argv[1], sys.argv[2]
 d = json.load(open(src))
 
-# devicons に無いキー。lazygit の内蔵アイコンを消せないので汎用アイコンで潰す
 FALLBACK = ["\uf15b", "#878787"]
 
-# lazygit に glob は無いので、よく使う .env の派生を並べる
+
 ENV_VARIANTS = [
     ".env.local", ".env.sample", ".env.example", ".env.test",
     ".env.development", ".env.production", ".envrc",
@@ -94,8 +79,6 @@ def norm(m):
 
 files, exts = norm(d["files"]), norm(d["exts"])
 
-# devicons のキーは小文字だが lazygit のファイル名照合は大小を区別する
-# Jenkinsfile や README.md のような実際の綴りを足す
 for key in list(files):
     stem, dot, ext = key.partition(".")
     if not stem:
