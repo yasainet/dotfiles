@@ -1,9 +1,9 @@
 ---
 name: simplepowers-explore
-description: 調査 phase。コード、仕様、原因を調べる前に必ず使え。設計や実装より先に来る
+description: [Explore] phase: コード、仕様、原因を調べる前に必ず使え。設計や実装より先に来る
 ---
 
-# 調査
+# Explore
 
 冒頭で `[Explore]` と宣言せよ。
 

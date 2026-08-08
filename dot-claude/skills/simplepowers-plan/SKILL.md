@@ -1,9 +1,9 @@
 ---
 name: simplepowers-plan
-description: 設計 phase。実装方針を決めるときに使え。調査の後、実装の前に来る
+description: [Plan] phase: 実装方針を決めるときに使え。調査の後、実装の前に来る
 ---
 
-# 設計
+# Plan
 
 冒頭で `[Plan]` と宣言せよ。
 

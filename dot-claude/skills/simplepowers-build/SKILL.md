@@ -1,9 +1,9 @@
 ---
 name: simplepowers-build
-description: 実装 phase。コードを書く、ファイルを作る、設定を変えるときに使え。設計の承認を得た後に来る
+description: [Build] phase:  コードを書く、ファイルを作る、設定を変えるときに使え。設計の承認を得た後に来る
 ---
 
-# 実装
+# Build
 
 冒頭で `[Build]` と宣言せよ。
 

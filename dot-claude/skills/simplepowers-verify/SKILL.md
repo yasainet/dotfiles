@@ -1,9 +1,9 @@
 ---
 name: simplepowers-verify
-description: 検証 phase。完了、修正済み、通ったと言う前に必ず使え。実装の後、レビューの前に来る
+description: [Verify] phase: 完了、修正済み、通ったと言う前に必ず使え。実装の後、レビューの前に来る
 ---
 
-# 検証
+# Verify
 
 冒頭で `[Verify]` と宣言せよ。
 

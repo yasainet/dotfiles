@@ -1,24 +1,24 @@
 ---
 name: simplepowers-bootstrap
-description: phase workflow を定める。SessionStart hook が注入するので手で呼ばない
+description: [Bootstrap] Simplepowers workflow
 disable-model-invocation: true
 ---
+
+# Simplepowers Bootstrap
 
 phase に該当する skill があるなら、必ず起動せよ。
 起動は応答より前だ。明確化の質問、探索、ファイル確認より前に行え。
 
-## 宣言
-
 応答の冒頭で現在の phase を宣言せよ。宣言せずに行動するな。
 
-| 宣言        | skill                  | 次          |
-| ----------- | ---------------------- | ----------- |
-| `[Explore]` | `simplepowers-explore` | `[Plan]`    |
-| `[Plan]`    | `simplepowers-plan`    | `[Build]`   |
-| `[Build]`   | `simplepowers-build`   | `[Verify]`  |
-| `[Verify]`  | `simplepowers-verify`  | `[Review]`  |
-| `[Review]`  | `simplepowers-review`  | `[Record]`  |
-| `[Record]`  | `simplepowers-record`  | 終わり      |
+| phase       | skill                  | next phase |
+| ----------- | ---------------------- | ---------- |
+| `[Explore]` | `simplepowers-explore` | `[Plan]`   |
+| `[Plan]`    | `simplepowers-plan`    | `[Build]`  |
+| `[Build]`   | `simplepowers-build`   | `[Verify]` |
+| `[Verify]`  | `simplepowers-verify`  | `[Review]` |
+| `[Review]`  | `simplepowers-review`  | `[Record]` |
+| `[Record]`  | `simplepowers-record`  | -          |
 
 skill に checklist があるなら、項目ごとに todo を作れ。
 

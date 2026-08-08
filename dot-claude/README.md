@@ -80,22 +80,12 @@ built-in / plugin / custom の違い。
 | `/git-issue`        | GitHub / Gitea に issue を作る |
 | `/supabase-migrate` | Supabase の migration を通す   |
 
-> [!TIP]
+> [!NOTE]
 > `disable-model-invocation: true`: `user` が実行した時のみ、有効になる。
 
-### simplepowers
+### Simplepowers
 
-phase workflow を定める。bootstrap は SessionStart hook が注入するので、`user` は呼ばない。
-
-| name                     | 宣言        | 出口                   |
-| ------------------------ | ----------- | ---------------------- |
-| `simplepowers-bootstrap` | —           | 宣言と Red Flags       |
-| `/simplepowers-explore`  | `[Explore]` | `/simplepowers-plan`   |
-| `/simplepowers-plan`     | `[Plan]`    | `/simplepowers-build`  |
-| `/simplepowers-build`    | `[Build]`   | `/simplepowers-verify` |
-| `/simplepowers-verify`   | `[Verify]`  | `/simplepowers-review` |
-| `/simplepowers-review`   | `[Review]`  | `/simplepowers-record` |
-| `/simplepowers-record`   | `[Record]`  | 終わり                 |
+@skills/simplepowers-bootstrap/SKILL.md
 
 ### vendor
 

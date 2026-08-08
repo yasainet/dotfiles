@@ -1,9 +1,9 @@
 ---
 name: simplepowers-review
-description: レビュー phase。検証の後、commit や PR の前に必ず使え
+description: [Review] phase: 検証の後、commit や PR の前に必ず使え
 ---
 
-# レビュー
+# Review
 
 冒頭で `[Review]` と宣言せよ。
 
@@ -11,13 +11,13 @@ description: レビュー phase。検証の後、commit や PR の前に必ず�
 
 該当する行を全て掛けよ。
 
-| 対象                   | 掛けるもの            |
-| ---------------------- | --------------------- |
-| ドキュメントだけ       | rules review          |
-| code を触った          | `/code-review`        |
-| 認証や外部入力を触った | `/security-review`    |
-| bug ではなく整理が目的 | `/simplify`           |
-| GitHub の PR           | `/code-review <番号>` |
+| 対象                   | 掛けるもの             |
+| ---------------------- | ---------------------- |
+| ドキュメントだけ       | rules review           |
+| code を触った          | `/code-review`         |
+| 認証や外部入力を触った | `/security-review`     |
+| bug ではなく整理が目的 | `/simplify`            |
+| GitHub の PR           | `/code-review PR #<N>` |
 
 ## rules review
 
