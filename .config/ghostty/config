@@ -69,11 +69,11 @@ keybind = cmd+[=text:\x02[
 
 # --- tab ---
 
-# Cmd+t -> herdr new tab
+# Cmd+t -> new tab (herdr prefix+c)
 keybind = cmd+t=unbind
 keybind = cmd+t=text:\x02c
 
-# Cmd+1~9 -> switch tab 1..9
+# Cmd+1~9 -> switch tab 1..9 (herdr prefix+1~9)
 keybind = cmd+digit_1=unbind
 keybind = cmd+digit_2=unbind
 keybind = cmd+digit_3=unbind
@@ -93,19 +93,23 @@ keybind = cmd+seven=text:\x027
 keybind = cmd+eight=text:\x028
 keybind = cmd+nine=text:\x029
 
-# Cmd+Shift+[/] -> previous/next tab
+# Cmd+Shift+[/] -> previous/next tab (herdr prefix+p / prefix+n)
 keybind = cmd+shift+bracket_left=text:\x02p
 keybind = cmd+shift+bracket_right=text:\x02n
 
 # --- pane ---
 
-# Cmd+d -> split vertical
+# Cmd+d -> split vertical (herdr prefix+v)
 keybind = cmd+d=unbind
 keybind = cmd+d=text:\x02v
 
-# Cmd+Shift+d -> split horizontal
+# Cmd+Shift+d -> split horizontal (herdr prefix+-)
 keybind = cmd+shift+d=unbind
 keybind = cmd+shift+d=text:\x02-
+
+# Cmd+z -> zoom toggle (herdr prefix+z)
+keybind = cmd+z=unbind
+keybind = cmd+z=text:\x02z
 
 # --- popup ---
 
