@@ -1,4 +1,7 @@
 #!/bin/bash
+#
+# Usage:
+# - ./scripts/llm/serve.sh    # llama-swap を :8080 で起動
 
 set -e
 
