@@ -69,6 +69,7 @@ install_cli_tools() {
   brew install firebase-cli
   brew install tailscale
   brew install yt-dlp
+  brew install mpv
   brew install lua-language-server
   brew install tree-sitter-cli
   brew install tailspin
@@ -449,7 +450,8 @@ install_npm_globals() {
     vercel \
     wrangler \
     @datadog/datadog-ci \
-    @google/clasp
+    @google/clasp \
+    @involvex/youtube-music-cli
   echo "  [done] npm globals setup complete"
 }
 
