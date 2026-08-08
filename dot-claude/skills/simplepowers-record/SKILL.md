@@ -26,6 +26,7 @@ description: [Record] phase: レビューを通した後、commit や PR を残�
 
 commit する前に `~/.claude/docs/github.md` を読め。type、scope、body の規約がある。
 
-## 出口
+## やること
 
-commit の hash と変更規模を報告せよ。push していないなら、していないと言え。
+- commit の hash と変更規模を報告せよ
+- push していないなら、していないと言え
