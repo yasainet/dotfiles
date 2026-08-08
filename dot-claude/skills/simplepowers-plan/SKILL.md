@@ -7,6 +7,10 @@ description: [Plan] phase: 実装方針を決めるときに使え。調査の�
 
 冒頭で `[Plan]` と宣言せよ。
 
+## Previous phase
+
+調査を終えたか確認せよ。足りないなら `simplepowers-explore` skill へ戻れ。
+
 ## やること
 
 - 案を並べるな。推奨を 1 つ出せ

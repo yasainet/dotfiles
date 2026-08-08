@@ -7,6 +7,10 @@ description: [Verify] phase: 完了、修正済み、通ったと言う前に必
 
 冒頭で `[Verify]` と宣言せよ。
 
+## Previous phase
+
+実装を終えたか確認せよ。終えていないなら `simplepowers-build` skill へ戻れ。
+
 ## 鉄則
 
 証拠なしに完了と言うな。
