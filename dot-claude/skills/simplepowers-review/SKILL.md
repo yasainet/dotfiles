@@ -27,6 +27,6 @@ description: [Review] phase: 検証の後、commit や PR の前に必ず使え
 
 規約の項目ごとに、変更した行が満たしているか確かめよ。違反は直し、直した箇所を報告せよ。
 
-## 出口
+## Next phase
 
 レビューを通したら `simplepowers-record` skill へ進め。

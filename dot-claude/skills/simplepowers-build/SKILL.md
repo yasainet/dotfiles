@@ -17,9 +17,9 @@ description: [Build] phase:  コードを書く、ファイルを作る、設定
 - 周囲のコードに合わせよ。comment の量、命名、書き方を揃えよ
 - DB schema を変えたなら、`/supabase-migrate` の実行を `user` に依頼せよ。自分では呼べない
 - 途中で設計の穴に気付いたら、手を止めて `user` に伝えよ。黙って設計を変えるな
+- 作ったものを列挙せよ
+- 動いたと言うな。検証は次の phase の仕事だ
 
-## 出口
+## Next phase
 
-作ったものを列挙し、`simplepowers-verify` skill へ進め。
-
-動いたと言うな。検証は次の phase の仕事だ。
+`simplepowers-verify` skill へ進め。
