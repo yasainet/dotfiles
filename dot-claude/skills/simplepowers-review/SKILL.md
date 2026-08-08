@@ -9,13 +9,23 @@ description: レビュー phase。検証の後、commit や PR の前に必ず�
 
 ## 選び方
 
-`/code-review` は必ず掛けよ。他は対象に応じて足せ。
+該当する行を全て掛けよ。
 
-| 対象                   | 足すもの              |
+| 対象                   | 掛けるもの            |
 | ---------------------- | --------------------- |
+| ドキュメントだけ       | rules review          |
+| code を触った          | `/code-review`        |
 | 認証や外部入力を触った | `/security-review`    |
 | bug ではなく整理が目的 | `/simplify`           |
 | GitHub の PR           | `/code-review <番号>` |
+
+## rules review
+
+ドキュメントだけの変更に `/code-review` を掛けるな。読む code が無い。
+
+変更した file の path に該当する `~/.claude/rules/**/*.md` を読め。該当は frontmatter の `paths` が決める。
+
+規約の項目ごとに、変更した行が満たしているか確かめよ。違反は直し、直した箇所を報告せよ。
 
 ## 出口
 
