@@ -143,3 +143,9 @@ key = "prefix+alt+p"
 type = "plugin_action"
 command = "yasainet.quote.quote-selection"
 description = "quote selection into prompt"
+
+[[keys.command]]
+key = "prefix+alt+k"
+type = "shell"
+command = 'herdr pane send-keys "$HERDR_ACTIVE_PANE_ID" ctrl+l'
+description = "clear screen"

@@ -139,3 +139,7 @@ keybind = cmd+slash=text:\x02\x1b/
 # Cmd+h -> hunk diff (herdr prefix+alt+h)
 keybind = cmd+h=unbind
 keybind = performable:cmd+h=text:\x02\x1bh
+
+# Cmd+k -> clear screen (herdr prefix+alt+k)
+keybind = cmd+k=unbind
+keybind = cmd+k=text:\x02\x1bk
