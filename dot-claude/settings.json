@@ -61,6 +61,16 @@
             "timeout": 10
           }
         ]
+      },
+      {
+        "matcher": "startup|clear|compact",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash ~/ghq/github.com/yasainet/dotfiles/dot-claude/hooks/simplepowers.sh",
+            "timeout": 10
+          }
+        ]
       }
     ]
   },
