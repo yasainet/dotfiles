@@ -7,6 +7,8 @@ matches:
     replace: "JavaScript"
   - trigger: ";ts"
     replace: "TypeScript"
+  - trigger: ";as"
+    replace: "AppleScript"
   - trigger: ";next"
     replace: "Next.js"
   - trigger: ";node"
