@@ -35,8 +35,7 @@ built-in / plugin / custom の違い。
 
 | name               | use                                         |
 | ------------------ | ------------------------------------------- |
-| `/code-review`     | 手元の差分をレビューする                    |
-| `/review`          | GitHub の PR をレビューする                 |
+| `/code-review`     | 差分、PR、branch、path をレビューする       |
 | `/security-review` | branch の変更を security 観点でレビューする |
 | `/simplify`        | 変更箇所を整理して適用する。bug は探さない  |
 | `/run`             | app を起動して変更の動作を確認する          |
@@ -88,14 +87,14 @@ built-in / plugin / custom の違い。
 
 phase workflow を定める。bootstrap は SessionStart hook が注入するので、`user` は呼ばない。
 
-| name                     | phase    | 出口                   |
-| ------------------------ | -------- | ---------------------- |
-| `simplepowers-bootstrap` | —        | 宣言と Red Flags       |
-| `/simplepowers-explore`  | 調査     | `/simplepowers-plan`   |
-| `/simplepowers-plan`     | 設計     | `/simplepowers-build`  |
-| `/simplepowers-build`    | 実装     | `/simplepowers-verify` |
-| `/simplepowers-verify`   | 検証     | `/simplepowers-review` |
-| `/simplepowers-review`   | レビュー | 記録                   |
+| name                     | 宣言        | 出口                   |
+| ------------------------ | ----------- | ---------------------- |
+| `simplepowers-bootstrap` | —           | 宣言と Red Flags       |
+| `/simplepowers-explore`  | `[Explore]` | `/simplepowers-plan`   |
+| `/simplepowers-plan`     | `[Plan]`    | `/simplepowers-build`  |
+| `/simplepowers-build`    | `[Build]`   | `/simplepowers-verify` |
+| `/simplepowers-verify`   | `[Verify]`  | `/simplepowers-review` |
+| `/simplepowers-review`   | `[Review]`  | 記録                   |
 
 ### vendor
 

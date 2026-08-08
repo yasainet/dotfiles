@@ -7,7 +7,7 @@ JQ=/opt/homebrew/bin/jq
 BOOTSTRAP="${BASH_SOURCE[0]%/*}/../skills/simplepowers-bootstrap/SKILL.md"
 [ -f "$BOOTSTRAP" ] || exit 0
 
-body=$(cat "$BOOTSTRAP") || exit 0
+body=$(awk 'NR==1 && $0=="---" {fm=1; next} fm && $0=="---" {fm=0; next} !fm' "$BOOTSTRAP") || exit 0
 [ -z "$body" ] && exit 0
 
 "$JQ" -n --arg c "<EXTREMELY_IMPORTANT>
