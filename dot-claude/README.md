@@ -82,7 +82,7 @@ built-in / plugin / custom の違い。
 | `/supabase-migrate` | Supabase の migration を通す   |
 
 > [!TIP]
-> `disable-model-invocation: true` で明示起動だけに限れる。5 個とも付けてある。
+> `disable-model-invocation: true`: `user` が実行した時のみ、有効になる。
 
 ### vendor
 
@@ -106,12 +106,10 @@ herdr --skill > ~/.claude/skills/herdr/SKILL.md         # 更新する
 
 ### custom
 
-| name                | event             | use                                       |
-| ------------------- | ----------------- | ----------------------------------------- |
-| `guard-process.sh`  | PreToolUse(Bash)  | process と port を、所有者を見て止める    |
-| `guard-delete.sh`   | PreToolUse(Bash)  | ファイル削除を `rm` から `trash` へ寄せる |
-| `on-prompt.sh`      | UserPromptSubmit  | 入力ソースを ABC に戻す                   |
-| `on-needs-input.sh` | PermissionRequest | 入力ソースを ABC に戻す                   |
+| name                | event             | use                     |
+| ------------------- | ----------------- | ----------------------- |
+| `on-prompt.sh`      | UserPromptSubmit  | 入力ソースを ABC に戻す |
+| `on-needs-input.sh` | PermissionRequest | 入力ソースを ABC に戻す |
 
 ### vendor
 
