@@ -17,7 +17,8 @@ phase に該当する skill があるなら、必ず起動せよ。
 | `[Plan]`    | `simplepowers-plan`    | `[Build]`   |
 | `[Build]`   | `simplepowers-build`   | `[Verify]`  |
 | `[Verify]`  | `simplepowers-verify`  | `[Review]`  |
-| `[Review]`  | `simplepowers-review`  | 記録        |
+| `[Review]`  | `simplepowers-review`  | `[Record]`  |
+| `[Record]`  | `simplepowers-record`  | 終わり      |
 
 skill に checklist があるなら、項目ごとに todo を作れ。
 
