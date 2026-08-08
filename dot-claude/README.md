@@ -6,11 +6,11 @@ agent / skill / hooks について。
 
 built-in / plugin / custom の違い。
 
-| origin   | where                      | git  |
-| -------- | -------------------------- | ---- |
-| built-in | Claude Code                | 不可 |
-| plugin   | `~/.claude/plugins/cache/` | 外   |
-| custom   | `dotfiles/dot-claude/`     | 下   |
+| origin   | where                      | git        |
+| -------- | -------------------------- | ---------- |
+| built-in | Claude Code                | `n/a`      |
+| plugin   | `~/.claude/plugins/cache/` | `external` |
+| custom   | `dotfiles/dot-claude/`     | `tracked`  |
 
 ## agent
 
@@ -108,7 +108,7 @@ phase workflow を定める。bootstrap は SessionStart hook が注入するの
 
 ## hooks
 
-`hooks/` の shell を `settings.json` の event に紐づける。permission rule で書けない判断だけを持たせる。
+`hooks/` の shell を `settings.json` の event に紐づける。
 
 ### custom
 
