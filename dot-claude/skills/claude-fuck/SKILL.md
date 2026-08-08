@@ -4,4 +4,3 @@ disable-model-invocation: true
 ---
 
 - Keep it short. 4 lines at most.
-- Do not hand the decision back to the user. State what you recommend.
