@@ -47,15 +47,19 @@ docker compose up -d
 # usage commands
 npm run dev
 npm run build
+```
 
-# verification
+## Verify
+
+```sh
 npm run lint
 npm run type-check
 npm run knip
 
-# tests
 npm run test
 npm run test:e2e
+
+npm run build
 ```
 
 ## Environments
