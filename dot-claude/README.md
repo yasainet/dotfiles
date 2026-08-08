@@ -106,13 +106,12 @@ herdr --skill > ~/.claude/skills/herdr/SKILL.md         # 更新する
 
 ### custom
 
-| name                | event             | use                                            |
-| ------------------- | ----------------- | ---------------------------------------------- |
-| `guard-process.sh`  | PreToolUse(Bash)  | process と port を、所有者を見て止める         |
-| `guard-delete.sh`   | PreToolUse(Bash)  | ファイル削除を `rm` から `trash` へ寄せる      |
-| `inject-rules.sh`   | PreToolUse(W/E)   | 書き込み前に `rules/` の path 別規約を注入する |
-| `on-prompt.sh`      | UserPromptSubmit  | 入力ソースを ABC に戻す                        |
-| `on-needs-input.sh` | PermissionRequest | 入力ソースを ABC に戻す                        |
+| name                | event             | use                                       |
+| ------------------- | ----------------- | ----------------------------------------- |
+| `guard-process.sh`  | PreToolUse(Bash)  | process と port を、所有者を見て止める    |
+| `guard-delete.sh`   | PreToolUse(Bash)  | ファイル削除を `rm` から `trash` へ寄せる |
+| `on-prompt.sh`      | UserPromptSubmit  | 入力ソースを ABC に戻す                   |
+| `on-needs-input.sh` | PermissionRequest | 入力ソースを ABC に戻す                   |
 
 ### vendor
 

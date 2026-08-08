@@ -47,16 +47,6 @@
             "timeout": 10
           }
         ]
-      },
-      {
-        "matcher": "Write|Edit",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "bash ~/ghq/github.com/yasainet/dotfiles/dot-claude/hooks/inject-rules.sh",
-            "timeout": 10
-          }
-        ]
       }
     ],
     "UserPromptSubmit": [
