@@ -70,12 +70,12 @@ scutil --get ComputerName
 ## Verify
 
 ```sh
-# zsh の構文が通る
+# zsh
 git ls-files '*.zsh' '.config/zsh/.zshenv' '.config/zsh/.zprofile' '.config/zsh/.zshrc' | xargs -n1 zsh -n
 
-# shell script の構文が通る
+# shell script
 git ls-files '*.sh' | xargs -n1 bash -n
 
-# JSON が壊れていない
+# JSON
 git ls-files '*.json' | xargs -n1 jq empty
 ```
