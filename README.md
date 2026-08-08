@@ -42,6 +42,8 @@ cd ~/ghq/github.com/yasainet/dotfiles
 exec zsh
 ```
 
+## Commands
+
 ### Backup and Restore of .env files in ghq projects
 
 ```sh
@@ -63,4 +65,17 @@ dscacheutil -flushcache
 
 # Check
 scutil --get ComputerName
+```
+
+## Verify
+
+```sh
+# zsh の構文が通る
+git ls-files '*.zsh' '.config/zsh/.zshenv' '.config/zsh/.zprofile' '.config/zsh/.zshrc' | xargs -n1 zsh -n
+
+# shell script の構文が通る
+git ls-files '*.sh' | xargs -n1 bash -n
+
+# JSON が壊れていない
+git ls-files '*.json' | xargs -n1 jq empty
 ```
