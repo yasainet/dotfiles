@@ -1,4 +1,7 @@
 #!/bin/bash
+#
+# Usage:
+# - ./scripts/llm/fetch.sh    # GGUF を ~/models へ取得
 
 set -e
 
