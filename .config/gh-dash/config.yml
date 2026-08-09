@@ -3,10 +3,10 @@ defaults:
 
 keybindings:
   prs:
-    - key: o
+    - key: enter
       name: octo
       command: cd {{.RepoPath}} && nvim -c 'Octo pr edit {{.PrNumber}}'
   issues:
-    - key: o
+    - key: enter
       name: octo
       command: cd {{.RepoPath}} && nvim -c 'Octo issue edit {{.IssueNumber}}'
