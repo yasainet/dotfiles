@@ -6,10 +6,10 @@ disable-model-invocation: true
 
 # Simplepowers Bootstrap
 
-phase に該当する skill があるなら、必ず起動せよ。
-起動は応答より前だ。明確化の質問、探索、ファイル確認より前に行え。
-
-応答の冒頭で現在の phase を宣言せよ。宣言せずに行動するな。
+> [!IMPORTANT]
+>
+> - 該当する phase の skill を起動せよ。
+> - 応答の冒頭で、現在の phase を宣言せよ。
 
 | phase       | skill                  | next phase |
 | ----------- | ---------------------- | ---------- |
@@ -20,11 +20,8 @@ phase に該当する skill があるなら、必ず起動せよ。
 | `[Review]`  | `simplepowers-review`  | `[Record]` |
 | `[Record]`  | `simplepowers-record`  | -          |
 
-skill に checklist があるなら、項目ごとに todo を作れ。
-
-`[Build]` に入るには `user` の指示が要る。`[Explore]` や `[Plan]` から自分で移るな。
-
-`[Build]` より後の連鎖は自分で進めてよい。自分の成果物を検証し、レビューに掛けよ。
+- `[Build]` に入るには `user` の指示が要る。`[Explore]` や `[Plan]` から自分で移るな
+- `[Build]` より後の連鎖は自分で進めてよい。自分の成果物を検証し、レビューに掛けよ。
 
 ## Red Flags
 
@@ -42,3 +39,14 @@ skill に checklist があるなら、項目ごとに todo を作れ。
 ## 優先順位
 
 `user` の直接の指示が最も強い。次が skill。既定の振る舞いは最も弱い。
+
+## 対応表
+
+| English     | Japanese         |
+| ----------- | ---------------- |
+| `[Explore]` | `調査`, `相談`   |
+| `[Plan]`    | `設計`, `方針`   |
+| `[Build]`   | `実装`, `修正`   |
+| `[Verify]`  | `検証`, `確認`   |
+| `[Review]`  | `レビュー`       |
+| `[Record]`  | `記録`, `commit` |

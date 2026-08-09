@@ -18,14 +18,12 @@ description: [Record] phase: レビューを通した後、commit や PR を残�
 
 ### 使うもの
 
-| やること        | 使うもの                          | 呼ぶ人 |
-| --------------- | --------------------------------- | ------ |
-| commit          | `/commit-commands:commit`         | 自分   |
-| push と PR まで | `/commit-commands:commit-push-pr` | 自分   |
-| release tag     | `/git-bump`                       | `user` |
-| 積み残し        | `/git-issue`                      | `user` |
-
-`user` の欄は自分では呼べない。実行を依頼せよ。
+| やること        | 使うもの                          |
+| --------------- | --------------------------------- |
+| commit          | `/commit-commands:commit`         |
+| push と PR まで | `/commit-commands:commit-push-pr` |
+| release tag     | `/git-bump`                       |
+| 積み残し        | `/git-issue`                      |
 
 ### 書き方
 
