@@ -13,8 +13,8 @@ disable-model-invocation: true
 
 ## Basic Workflow
 
-| phase       | skill                  | next phase | optional |
-| ----------- | ---------------------- | ---------- | -------- |
+| phase       | skill                     | next phase | optional |
+| ----------- | ------------------------- | ---------- | -------- |
 | `[Explore]` | `simplepowers-01-explore` | `[Plan]`   |          |
 | `[Plan]`    | `simplepowers-02-plan`    | `[Build]`  |          |
 | `[Build]`   | `simplepowers-03-build`   | `[Verify]` |          |
