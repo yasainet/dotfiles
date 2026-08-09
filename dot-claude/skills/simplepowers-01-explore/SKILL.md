@@ -1,5 +1,5 @@
 ---
-name: simplepowers-explore
+name: simplepowers-01-explore
 description: [Explore] phase: コード、仕様、原因を調べる前に必ず使え。設計や実装より先に来る
 ---
 
@@ -28,4 +28,4 @@ description: [Explore] phase: コード、仕様、原因を調べる前に必�
 
 ## Next phase
 
-`user` が指示したら `simplepowers-plan` skill へ進め。他へは進むな。
+`user` が指示したら `simplepowers-02-plan` skill へ進め。他へは進むな。

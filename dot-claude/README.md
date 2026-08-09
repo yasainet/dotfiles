@@ -85,7 +85,7 @@ built-in / plugin / custom の違い。
 
 ### Simplepowers
 
-@skills/simplepowers-bootstrap/SKILL.md
+@skills/simplepowers-00-bootstrap/SKILL.md
 
 ### vendor
 

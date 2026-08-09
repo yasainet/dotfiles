@@ -1,5 +1,5 @@
 ---
-name: simplepowers-plan
+name: simplepowers-02-plan
 description: [Plan] phase: 実装方針を決めるときに使え。調査の後、実装の前に来る
 ---
 
@@ -9,7 +9,7 @@ description: [Plan] phase: 実装方針を決めるときに使え。調査の�
 
 ## Previous phase
 
-調査を終えたか確認せよ。足りないなら `simplepowers-explore` skill へ戻れ。
+調査を終えたか確認せよ。足りないなら `simplepowers-01-explore` skill へ戻れ。
 
 ## Scope
 
@@ -23,8 +23,8 @@ description: [Plan] phase: 実装方針を決めるときに使え。調査の�
 
 設計を 1 つ提示し、`user` の承認を得よ。
 
-承認を得るまで、code を書くな。file を作るな。`simplepowers-build` skill を呼ぶな。
+承認を得るまで、code を書くな。file を作るな。`simplepowers-03-build` skill を呼ぶな。
 
 ## Next phase
 
-承認が出たら `simplepowers-build` skill へ進め。
+承認が出たら `simplepowers-03-build` skill へ進め。

@@ -1,6 +1,6 @@
 ---
-name: simplepowers-verify
-description: [Verify] phase: 完了、修正済み、通ったと言う前に必ず使え。実装の後、レビューの前に来る
+name: simplepowers-04-verify
+description: [Verify] phase: user が検証を指示したときに使え。実装の後、レビューの前に来る
 ---
 
 # Verify
@@ -9,7 +9,7 @@ description: [Verify] phase: 完了、修正済み、通ったと言う前に必
 
 ## Previous phase
 
-実装を終えたか確認せよ。終えていないなら `simplepowers-build` skill へ戻れ。
+実装を終えたか確認せよ。終えていないなら `simplepowers-03-build` skill へ戻れ。
 
 ## Scope
 
@@ -27,8 +27,8 @@ description: [Verify] phase: 完了、修正済み、通ったと言う前に必
 
 このターンで検証コマンドを実行していないなら、通ったとは言えない。
 
-全ての検証が通ったとき、次へ移れ。失敗が残るなら `simplepowers-build` skill へ戻れ。
+失敗が残るなら `simplepowers-03-build` skill へ戻れ。
 
 ## Next phase
 
-通ったら `simplepowers-review` skill へ進め。
+通ったらここで止まれ。`user` の指示を待て。
