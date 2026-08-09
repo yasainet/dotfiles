@@ -38,24 +38,6 @@ GA_ID=
 
 ```
 
-## Supabase
-
-```env ~/ghq/**/supabase/.env.sample
-
-```
-
-```env ~/ghq/**/supabase/.env
-
-```
-
-```env ~/ghq/**/supabase/functions/.env.sample
-
-```
-
-```env ~/ghq/**/supabase/functions/.env
-
-```
-
 ## Docker
 
 ```env ~/ghq/**/docker/.env.sample
