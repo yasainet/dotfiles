@@ -4,9 +4,6 @@ desktop-notifications = true
 # Auto Update
 auto-update = download
 
-# Startup
-command = /bin/zsh -lc "herdr || exec /bin/zsh -l"
-
 # Shell Integration
 shell-integration = none
 

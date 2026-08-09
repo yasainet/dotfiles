@@ -161,19 +161,10 @@ supabase/
     └── .env           # その値（gitignore 対象）
 ```
 
-### Example
+## env
 
 ```env ~/ghq/**/supabase/.env.sample
-# SMTP
-RESEND_API_KEY=
-
-# Vault Secrets
-VAULT_SUPABASE_URL=
-VAULT_SERVICE_ROLE_KEY=
-```
-
-```env ~/ghq/**/supabase/.env
-# SMTP
+# Resend
 RESEND_API_KEY=
 
 # Vault Secrets
@@ -187,12 +178,11 @@ VAULT_SERVICE_ROLE_KEY=
 # VAULT_SERVICE_ROLE_KEY=
 ```
 
-```env ~/ghq/**/supabase/functions/.env.sample
-# Edge Function Secrets
-ENVIRONMENT=
+```env ~/ghq/**/supabase/.env
+
 ```
 
-```env ~/ghq/**/supabase/functions/.env
+```env ~/ghq/**/supabase/functions/.env.sample
 # Edge Function Secrets
 ENVIRONMENT=development
 
@@ -202,26 +192,8 @@ ENVIRONMENT=development
 # supabase secrets set ENVIRONMENT=production --project-ref <project-id>
 ```
 
-## MCP
+```env ~/ghq/**/supabase/functions/.env
 
-- サーバー名は `supabase-develop` / `supabase-production` に統一せよ
-  - `deny` は tool 名の完全一致で効く。規約を外れると production が無防備になる
-- 両方に `read_only=true` を付けよ
-  - migration は CLI（`/supabase:migrate`）で行うため、MCP 経由の書き込みは不要
-
-```json .mcp.json
-{
-  "mcpServers": {
-    "supabase-develop": {
-      "type": "http",
-      "url": "http://localhost:54321/mcp?read_only=true"
-    },
-    "supabase-production": {
-      "type": "http",
-      "url": "https://mcp.supabase.com/mcp?project_ref=<project-id>&read_only=true"
-    }
-  }
-}
 ```
 
 ## References
