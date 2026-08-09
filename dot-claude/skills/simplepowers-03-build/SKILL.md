@@ -1,5 +1,5 @@
 ---
-name: simplepowers-build
+name: simplepowers-03-build
 description: [Build] phase:  コードを書く、ファイルを作る、設定を変えるときに使え。設計の承認を得た後に来る
 ---
 
@@ -9,7 +9,7 @@ description: [Build] phase:  コードを書く、ファイルを作る、設定
 
 ## Previous phase
 
-`user` が実装を指示したか確認せよ。指示が無いなら `simplepowers-plan` skill へ戻れ。
+`user` が実装を指示したか確認せよ。指示が無いなら `simplepowers-02-plan` skill へ戻れ。
 
 ## Scope
 
@@ -25,4 +25,6 @@ description: [Build] phase:  コードを書く、ファイルを作る、設定
 
 ## Next phase
 
-`simplepowers-verify` skill へ進め。
+ここで止まれ。`user` の指示を待て。
+
+`[Verify]` と `[Review]` は optional だ。自分から掛けるな。

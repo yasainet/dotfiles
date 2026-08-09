@@ -1,15 +1,11 @@
 ---
-name: simplepowers-review
-description: [Review] phase: 検証の後、commit や PR の前に必ず使え
+name: simplepowers-05-review
+description: [Review] phase: user がレビューを指示したときに使え。検証の後、記録の前に来る
 ---
 
 # Review
 
 冒頭で `[Review]` と宣言せよ。
-
-## Previous phase
-
-検証を通したか確認せよ。通していないなら `simplepowers-verify` skill へ戻れ。
 
 ## Scope
 
@@ -39,4 +35,4 @@ description: [Review] phase: 検証の後、commit や PR の前に必ず使え
 
 ## Next phase
 
-レビューを通したら `simplepowers-record` skill へ進め。
+レビューを通したらここで止まれ。`user` の指示を待て。
