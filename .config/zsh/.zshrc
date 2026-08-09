@@ -32,7 +32,6 @@ alias cat='bat'
 alias v='nvim'
 alias vi='nvim'
 alias vim='nvim'
-alias vn='NVIM_APPNAME=nvim-next nvim'
 alias sudo='sudo '
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
