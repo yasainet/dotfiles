@@ -14,7 +14,20 @@ paths:
 ## Next.js
 
 ```env ~/ghq/**/root/.env.sample
+# Environment
+APP_ENV=development
+APP_URL=http://127.0.0.1:3000
 
+# Supabase
+NEXT_PUBLIC_SUPABASE_URL=http://127.0.0.1:54321
+NEXT_PUBLIC_SUPABASE_ANON_KEY=
+SUPABASE_SERVICE_ROLE_KEY=
+
+# Resend
+RESEND_API_KEY=
+
+# Google Analytics
+GA_ID=
 ```
 
 ```env ~/ghq/**/root/.env.local
