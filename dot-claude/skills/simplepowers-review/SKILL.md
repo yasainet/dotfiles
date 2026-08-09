@@ -29,7 +29,13 @@ description: [Review] phase: 検証の後、commit や PR の前に必ず使え
 
 変更した file の path に該当する `~/.claude/rules/**/*.md` を読め。該当は frontmatter の `paths` が決める。
 
-規約の項目ごとに、変更した行が満たしているか確かめよ。違反は直し、直した箇所を報告せよ。
+規約の項目ごとに、変更した行が満たしているか確かめよ。
+
+## Goal
+
+該当する review を全て掛け、指摘を全て潰せ。
+
+直した箇所を報告せよ。残した指摘があるなら、残したと言え。
 
 ## Next phase
 
