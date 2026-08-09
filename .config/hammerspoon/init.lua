@@ -6,6 +6,7 @@ hs.autoLaunch(true)
 
 require("window")
 require("ime")
+require("space")
 
 -- 設定ファイル変更時に自動リロード
 -- (configdir は dotfiles への symlink のため、実体パスに解決してから監視する)
