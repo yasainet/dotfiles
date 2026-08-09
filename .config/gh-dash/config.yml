@@ -1,0 +1,12 @@
+defaults:
+  view: issues
+
+keybindings:
+  prs:
+    - key: o
+      name: octo
+      command: cd {{.RepoPath}} && nvim -c 'Octo pr edit {{.PrNumber}}'
+  issues:
+    - key: o
+      name: octo
+      command: cd {{.RepoPath}} && nvim -c 'Octo issue edit {{.IssueNumber}}'

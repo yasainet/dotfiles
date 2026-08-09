@@ -127,7 +127,7 @@ keybind = cmd+f=text:\x02\x1bf
 # Cmd+y -> yazi (herdr prefix+alt+y)
 keybind = cmd+y=text:\x02\x1by
 
-# Cmd+o -> octo (herdr prefix+alt+o)
+# Cmd+o -> gh dash (herdr prefix+alt+o)
 keybind = cmd+o=text:\x02\x1bo
 
 # Cmd+p -> quote selection (herdr prefix+alt+p)
