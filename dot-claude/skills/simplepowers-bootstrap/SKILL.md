@@ -39,11 +39,11 @@ disable-model-invocation: true
 
 ## 対応表
 
-| English     | Japanese         |
-| ----------- | ---------------- |
-| `[Explore]` | `調査`, `相談`   |
-| `[Plan]`    | `設計`, `方針`   |
-| `[Build]`   | `実装`, `修正`   |
-| `[Verify]`  | `検証`, `確認`   |
-| `[Review]`  | `レビュー`       |
-| `[Record]`  | `記録`, `commit` |
+| English     | Japanese               |
+| ----------- | ---------------------- |
+| `[Explore]` | `調査`, `相談`, `協議` |
+| `[Plan]`    | `設計`, `方針`         |
+| `[Build]`   | `実装`, `修正`         |
+| `[Verify]`  | `検証`, `確認`         |
+| `[Review]`  | `レビュー`             |
+| `[Record]`  | `記録`, `commit`       |
