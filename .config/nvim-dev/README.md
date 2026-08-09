@@ -1,13 +1,12 @@
 # nvim-dev
 
-すっぴんの Neovim から始めて、必要な設定だけを 1 つずつ積む作業場。完成したら
+すっぴんの Neovim から始めて、公式どおりの最小構成を 1 つずつ積む作業場。完成したら
 `.config/nvim` と入れ替える。
 
 ## Summary
 
 - `NVIM_APPNAME=nvim-dev` で起動する。alias は `vimdev`
-- 初期状態は `lazy.nvim` の bootstrap だけ。plugin はゼロ
-- `options.lua`, `keymaps.lua`, `autocmds.lua` は必要になった時に作る
+- plugin は公式 README の最小構成で入れる。凝った設定は後回しにする
 - plugin は `~/.local/share/nvim-dev/` に入る。`nvim` とも `lazyvim` とも共有しない
 
 ## Commands
@@ -25,25 +24,43 @@ NVIM_APPNAME=nvim-dev nvim --headless "+Lazy! sync" +qa
 | alias | 設定 | 役割 |
 | ------- | ------ | ------ |
 | `v` | `.config/nvim` | 日常業務。完成まで触らない |
-| `lazyvim` | `.config/lazyvim` | 辞書。何を移植するか探す |
+| `lazyvim` | `.config/lazyvim` | 辞書。不満が出たときだけ引く |
 | `vimdev` | `.config/nvim-dev` | ここ。理想形を積む |
 
-## 移植の 1 サイクル
+## 積む 1 サイクル
 
-1. `lazyvim` で触り、気に入った挙動を見つける
-2. `:Lazy` からその plugin の spec 定義元へ飛ぶ
-3. 読んで、何がその挙動を作っているか特定する
+1. 公式 README の Installation 節どおりに spec を書く
+2. 動くのに要る最小の Setup だけ足す
+3. `vimdev` で動作を確認する
+4. commit する
+
+何を最低限とするかは、毎回この線で切る。
+
+| 含める | 含めない |
+| ------ | ------ |
+| 公式の Installation | 公式の Advanced setup |
+| 動くのに要る最小の Setup | 任意の機能 |
+| 既定のキーマップ | 自分好みの keymap |
+
+1 plugin を 1 commit にする。body には入れた理由を書く。
+
+## 深掘りの 1 サイクル
+
+使っていて不満が出たときだけ入る。不満が無ければ最小構成のまま置く。
+
+1. 何に困ったかを 1 行で書く
+2. `lazyvim` で同じ操作を試し、挙動が違うか見る
+3. 違えば `:Lazy` から spec 定義元へ飛び、原因を特定する
 4. `nvim-dev` に自分の言葉で書く。spec をコピーしない
-5. `vimdev` で確認する
-6. commit する
+5. commit する
 
-1 plugin を 1 commit にする。body には入れた理由と、LazyVim の設定を採らなかった
-理由を書く。移植の判断は `git log` にしか残らない。
+1 不満を 1 commit にする。body には困った内容と、LazyVim の設定を採らなかった理由を
+書く。判断は `git log` にしか残らない。
 
 LazyVim の既定 spec は `~/.local/share/lazyvim/lazy/LazyVim/lua/lazyvim/plugins/`
 にある。
 
-## 移植の順序
+## 積む順序
 
 依存の少ない順に進めると手戻りが出ない。
 
@@ -58,7 +75,7 @@ LazyVim の既定 spec は `~/.local/share/lazyvim/lazy/LazyVim/lua/lazyvim/plug
 | 7 | UI | 最後。好みの領域 |
 
 LSP は方式が 2 つある。`.config/nvim` は Neovim 0.11 の `lsp/*.lua` 方式、LazyVim は
-nvim-lspconfig 経由。どちらを採るか移植時に決める。
+nvim-lspconfig 経由。どちらを採るか積むときに決める。
 
 ## 完成したとき
 
