@@ -13,9 +13,6 @@ description: [Record] phase: レビューを通した後、commit や PR を残�
 
 ## Scope
 
-- commit の hash と変更規模を報告せよ
-- push していないなら、していないと言え
-
 ### 使うもの
 
 | やること        | 使うもの                          |
@@ -28,3 +25,9 @@ description: [Record] phase: レビューを通した後、commit や PR を残�
 ### 書き方
 
 commit する前に `~/.claude/docs/github.md` を読め。type、scope、body の規約がある。
+
+## Goal
+
+commit を残せ。hash と変更規模を報告せよ。
+
+push していないなら、していないと言え。

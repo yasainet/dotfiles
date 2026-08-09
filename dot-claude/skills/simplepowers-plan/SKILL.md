@@ -18,9 +18,12 @@ description: [Plan] phase: 実装方針を決めるときに使え。調査の�
 - one-way door を含むなら `user` と協議せよ。two-way door に変える設計を提示せよ
 - 実装後に覆せない選択を含むときだけ `@Plan` を呼べ
 - plan mode を使ってよい。設計はその本来の用途だ
-- 設計を提示し、`user` の承認を得よ
-- 承認を得るまで、コードを書くな。ファイルを作るな
-- 承認を得るまで、`simplepowers-build` skill を呼ぶな
+
+## Goal
+
+設計を 1 つ提示し、`user` の承認を得よ。
+
+承認を得るまで、code を書くな。file を作るな。`simplepowers-build` skill を呼ぶな。
 
 ## Next phase
 
