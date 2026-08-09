@@ -5,7 +5,7 @@
 ## Summary
 
 - 出発点は [LazyVim/starter](https://github.com/LazyVim/starter)
-- `NVIM_APPNAME=lazyvim` で起動する。alias は `vl`
+- `NVIM_APPNAME=lazyvim` で起動する。alias は `lazyvim`
 - plugin は `~/.local/share/lazyvim/` に入る。`.config/nvim` とは共有しない
 - mason と treesitter parser も別に入る。重複は許容している
 
@@ -13,7 +13,7 @@
 
 ```sh
 # 起動
-vl
+lazyvim
 
 # plugin 更新
 NVIM_APPNAME=lazyvim nvim --headless "+Lazy! sync" +qa
@@ -49,7 +49,10 @@ category ごと外すなら `lua/config/lazy.lua` の `import` を書き換え�
 
 ```sh
 git revert <hash>
-trash ~/.config/lazyvim ~/.local/share/lazyvim ~/.local/state/lazyvim ~/.cache/lazyvim
+unlink ~/.config/lazyvim
+trash ~/.local/share/lazyvim ~/.local/state/lazyvim ~/.cache/lazyvim
 ```
 
-`.zshrc` の `vl` alias も消す。
+`~/.config/lazyvim` は repo への symlink。revert で参照先が消えるので link だけ外す。
+
+`.zshrc` の `lazyvim` alias も消す。
