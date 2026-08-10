@@ -3,8 +3,17 @@ return {
   lazy = false,
   priority = 1000,
   opts = {
+    styles = {
+      comments = { italic = false },
+      keywords = { italic = false },
+    },
     on_highlights = function(hl, c)
-      hl.FloatBorder = { bg = c.bg_float, fg = "#589ED7" } --Picker
+      -- picker
+      hl.FloatBorder = { bg = c.bg_float, fg = "#589ED7" }
+      -- gitsigns
+      hl.GitSignsAdd = { fg = c.green }
+      hl.GitSignsChange = { fg = c.yellow }
+      hl.GitSignsDelete = { fg = c.red }
     end,
   },
   config = function(_, opts)
