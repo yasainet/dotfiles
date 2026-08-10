@@ -91,7 +91,6 @@ export GIT_MERGE_AUTOEDIT=no
 # Less
 export LESSHISTFILE=-
 
-# TODO: research
 # psql
 export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 
@@ -154,6 +153,22 @@ autoload -U promptinit
 promptinit
 prompt pure
 
+# opencode (llama-swap)
+opencode() {
+  local agent="com.yasainet.llama-swap"
+
+  if ! curl -sf -m2 "$LLM_URL/health" >/dev/null 2>&1; then
+    if command -v llama-swap &>/dev/null; then
+      launchctl kickstart -k "gui/$UID/$agent" 2>/dev/null
+    else
+      ssh MacBook-Pro-2023 "launchctl kickstart -k gui/\$(id -u)/$agent" 2>/dev/null
+    fi
+    curl -sf -m2 --retry 30 --retry-delay 1 --retry-connrefused --retry-all-errors \
+      "$LLM_URL/health" >/dev/null 2>&1
+  fi
+  command opencode "$@"
+}
+
 # nvm (lazy load)
 export NVM_DIR="$HOME/.nvm"
 export NODE_NO_WARNINGS=1
@@ -212,9 +227,3 @@ fi
 if [[ "$OSTYPE" == "darwin"* ]] && command -v mise &>/dev/null; then
   eval "$(mise activate zsh)"
 fi
-
-# conf.d
-for _conf in "$ZDOTDIR"/conf.d/*.zsh(N); do
-  source "$_conf"
-done
-unset _conf
