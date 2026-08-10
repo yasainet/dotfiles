@@ -25,6 +25,7 @@ alias cp='cp -i'
 alias mv='mv -i'
 alias cat='bat'
 alias vim='nvim'
+alias lazyvim='NVIM_APPNAME=lazyvim nvim'
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
   # macOS
