@@ -21,11 +21,11 @@ NVIM_APPNAME=nvim-dev nvim --headless "+Lazy! sync" +qa
 
 ## 3 つの環境
 
-| alias | 設定 | 役割 |
-| ------- | ------ | ------ |
-| `v` | `.config/nvim` | 日常業務。完成まで触らない |
-| `lazyvim` | `.config/lazyvim` | 辞書。不満が出たときだけ引く |
-| `vimdev` | `.config/nvim-dev` | ここ。理想形を積む |
+| alias     | 設定               | 役割                         |
+| --------- | ------------------ | ---------------------------- |
+| `v`       | `.config/nvim`     | 日常業務。完成まで触らない   |
+| `lazyvim` | `.config/lazyvim`  | 辞書。不満が出たときだけ引く |
+| `vimdev`  | `.config/nvim-dev` | ここ。理想形を積む           |
 
 ## 積む 1 サイクル
 
@@ -36,11 +36,11 @@ NVIM_APPNAME=nvim-dev nvim --headless "+Lazy! sync" +qa
 
 何を最低限とするかは、毎回この線で切る。
 
-| 含める | 含めない |
-| ------ | ------ |
-| 公式の Installation | 公式の Advanced setup |
-| 動くのに要る最小の Setup | 任意の機能 |
-| 既定のキーマップ | 自分好みの keymap |
+| 含める                   | 含めない              |
+| ------------------------ | --------------------- |
+| 公式の Installation      | 公式の Advanced setup |
+| 動くのに要る最小の Setup | 任意の機能            |
+| 既定のキーマップ         | 自分好みの keymap     |
 
 1 plugin を 1 commit にする。body には入れた理由を書く。
 
@@ -64,15 +64,15 @@ LazyVim の既定 spec は `~/.local/share/lazyvim/lazy/LazyVim/lua/lazyvim/plug
 
 依存の少ない順に進めると手戻りが出ない。
 
-| 順 | 対象 | 理由 |
-| --- | ------ | ------ |
-| 1 | options, keymaps | plugin 不要。土台 |
-| 2 | treesitter | 他の plugin が前提にする |
-| 3 | picker | 移動手段。入ると作業が速くなる |
-| 4 | LSP | 方式の選択が要る。下記参照 |
-| 5 | completion | LSP の後 |
-| 6 | formatter, linter | 独立 |
-| 7 | UI | 最後。好みの領域 |
+| 順  | 対象              | 理由                           |
+| --- | ----------------- | ------------------------------ |
+| 1   | options, keymaps  | plugin 不要。土台              |
+| 2   | treesitter        | 他の plugin が前提にする       |
+| 3   | picker            | 移動手段。入ると作業が速くなる |
+| 4   | LSP               | 方式の選択が要る。下記参照     |
+| 5   | completion        | LSP の後                       |
+| 6   | formatter, linter | 独立                           |
+| 7   | UI                | 最後。好みの領域               |
 
 LSP は方式が 2 つある。`.config/nvim` は Neovim 0.11 の `lsp/*.lua` 方式、LazyVim は
 nvim-lspconfig 経由。どちらを採るか積むときに決める。

@@ -8,10 +8,10 @@ vim.opt.fileencoding = "utf-8"
 
 -- Cursor
 vim.opt.guicursor = {
-	"n-v-c-sm:block",
-	"i-ci-ve:ver25",
-	"r-cr-o:hor20",
-	"a:blinkwait500-blinkoff500-blinkon500",
+  "n-v-c-sm:block",
+  "i-ci-ve:ver25",
+  "r-cr-o:hor20",
+  "a:blinkwait500-blinkoff500-blinkon500",
 }
 
 -- Mouse
