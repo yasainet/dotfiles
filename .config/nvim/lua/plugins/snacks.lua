@@ -52,7 +52,7 @@ return {
     {
       "<leader>ft",
       function()
-        Snacks.picker.todo_comments()
+        Snacks.picker.todo_comments({ hidden = true })
       end,
       desc = "Todo Comments",
     },
