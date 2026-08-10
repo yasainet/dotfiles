@@ -3,7 +3,19 @@ return {
   lazy = false,
   build = ":TSUpdate",
   config = function()
-    require("nvim-treesitter").install({ "html", "css", "javascript", "typescript", "tsx", "yaml", "sql" })
+    require("nvim-treesitter").install({
+      "html",
+      "css",
+      "javascript",
+      "typescript",
+      "tsx",
+      "yaml",
+      "sql",
+      "bash",
+      "zsh",
+    })
+
+    vim.treesitter.language.register("bash", "sh")
 
     vim.api.nvim_create_autocmd("FileType", {
       callback = function(args)

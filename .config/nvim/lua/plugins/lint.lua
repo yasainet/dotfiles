@@ -5,7 +5,7 @@ return {
     local lint = require("lint")
 
     lint.linters_by_ft = {
-      sh = { "shellcheck" },
+      zsh = { "zsh" },
       markdown = { "markdownlint-cli2" },
     }
 
