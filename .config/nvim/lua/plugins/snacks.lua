@@ -1,153 +1,67 @@
 return {
-	"folke/snacks.nvim",
-	priority = 1000,
-	lazy = false,
-	opts = {
-		explorer = {
-			enabled = true,
-			replace_netrw = true,
-		},
-		picker = {
-			hidden = true,
-			ignored = false,
-			layout = { fullscreen = true }, -- octo
-			exclude = { "node_modules", ".git", ".next", ".vercel", "package-lock.json" },
-			icons = {
-				files = {
-					dir = "\u{e5ff} ",
-					dir_open = "\u{e5fe} ",
-					file = "\u{f15b} ",
-				},
-			},
-			sources = {
-				files = {
-					hidden = true,
-					layout = { fullscreen = true },
-				},
-				grep = {
-					hidden = true,
-					layout = { fullscreen = true },
-				},
-				buffers = {
-					layout = { fullscreen = true },
-				},
-				recent = {
-					layout = { fullscreen = true },
-				},
-				help = {
-					layout = { fullscreen = true },
-				},
-				git_status = {
-					layout = { fullscreen = true },
-				},
-				todo_comments = {
-					layout = { fullscreen = true },
-				},
-				explorer = {
-					hidden = true,
-					ignored = false,
-					follow_file = true,
-					git_status = true,
-					diagnostics = false,
-					config = function(opts)
-						-- HACK: Gird against multi-wrap
-						local actions = require("snacks.explorer.actions")
-						if not actions._confirm_patched then
-							actions._confirm_patched = true
-							local original_confirm = actions.actions.confirm
-							function actions.actions.confirm(picker, item, action)
-								local was_searching = picker.input.filter.meta.searching
-								original_confirm(picker, item, action)
-								if was_searching then
-									vim.cmd("stopinsert")
-								end
-							end
-						end
-
-						-- HACK: Fix git status
-						local Git = require("snacks.explorer.git")
-						local Tree = require("snacks.explorer.tree")
-						if not Git._dir_status_patched then
-							Git._dir_status_patched = true
-							local original_update = Git._update
-							function Git._update(cwd, ...)
-								Tree:walk(Tree:find(cwd), function(n)
-									n.dir_status = nil
-								end, { all = true })
-								return original_update(cwd, ...)
-							end
-						end
-
-						return require("snacks.picker.source.explorer").setup(opts)
-					end,
-					format = function(item, picker)
-						local ret = {}
-						if item.parent then
-							vim.list_extend(ret, Snacks.picker.format.tree(item, picker))
-						end
-						if item.status then
-							Snacks.picker.format.file_git_status(item, picker)
-						end
-						vim.list_extend(ret, Snacks.picker.format.filename(item, picker))
-						return ret
-					end,
-					layout = {
-						fullscreen = false, -- octo
-						hidden = { "input" },
-						auto_hide = { "input" },
-						preview = false,
-						layout = {
-							position = "left",
-							width = 25,
-						},
-					},
-					exclude = { ".DS_Store" },
-					win = {
-						list = {
-							keys = {
-								["<C-v>"] = { "edit_vsplit", mode = { "n" } },
-								["<C-s>"] = { "edit_split", mode = { "n" } },
-								["<C-j>"] = false, -- Move herdr pane
-								["<C-k>"] = false, -- Move herdr pane
-								["P"] = "none", -- Disable preview
-								["<esc>"] = "none",
-							},
-						},
-					},
-				},
-			},
-		},
-		indent = {
-			enabled = true,
-			indent = {
-				char = "│",
-			},
-			scope = {
-				enabled = false,
-			},
-		},
-		image = {
-			enabled = true,
-			doc = {
-				enabled = false,
-			},
-			convert = {
-				magick = {
-					default = { "{src}[0]", "-scale", "1920x1080>", "-define", "png:compression-level=1" },
-				},
-			},
-		},
-		input = {
-			enabled = true,
-		},
-		bigfile = {
-			enabled = true,
-		},
-		quickfile = {
-			enabled = true,
-		},
-		terminal = {
-			enabled = true,
-		},
-	},
+  "folke/snacks.nvim",
+  priority = 1000,
+  lazy = false,
+  keys = {
+    {
+      "<leader>e",
+      function()
+        Snacks.explorer()
+      end,
+      desc = "File Explorer",
+    },
+    {
+      "<leader>fb",
+      function()
+        Snacks.picker.buffers()
+      end,
+      desc = "Buffers",
+    },
+    {
+      "<leader>ff",
+      function()
+        Snacks.picker.files()
+      end,
+      desc = "Find Files",
+    },
+    {
+      "<leader>fr",
+      function()
+        Snacks.picker.recent()
+      end,
+      desc = "Recent",
+    },
+  },
+  opts = {
+    explorer = { enabled = true },
+    indent = {
+      enabled = true,
+      scope = { enabled = false },
+    },
+    picker = {
+      enabled = true,
+      icons = {
+        git = {
+          staged = "",
+          added = "",
+          deleted = "",
+          ignored = "",
+          modified = "",
+          renamed = "",
+          unmerged = "",
+          untracked = "",
+        },
+      },
+      sources = {
+        explorer = {
+          hidden = true,
+          layout = {
+            hidden = { "input" },
+            layout = { width = 26, min_width = 26 },
+          },
+        },
+        files = { hidden = true },
+      },
+    },
+  },
 }

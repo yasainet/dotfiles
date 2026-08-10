@@ -1,62 +1,37 @@
 return {
-	"nvim-lualine/lualine.nvim",
-	dependencies = {
-		"nvim-tree/nvim-web-devicons",
-	},
-	event = "VeryLazy",
-	config = function()
-		require("lualine").setup({
-			tabline = {
-				lualine_a = { "tabs" },
-			},
-			options = {
-				always_show_tabline = false,
-				theme = "tokyonight",
-				globalstatus = true,
-				component_separators = "",
-				section_separators = "",
-				refresh = {
-					statusline = 1000,
-					tabline = 1000,
-					winbar = 1000,
-				},
-			},
-			sections = {
-				lualine_c = {
-					{
-						"filename",
-						path = 1,
-					},
-				},
-				lualine_x = {
-					{
-						"lsp_status",
-						icon = "",
-						ignore_lsp = { "GitHub Copilot", "eslint", "stylua" },
-						fmt = function(str)
-							if str == "" then
-								return ""
-							end
-							if vim.o.columns < 120 then
-								return "LSP"
-							end
-							return str
-						end,
-					},
-					"encoding",
-					{
-						"fileformat",
-						symbols = {
-							unix = "LF",
-							dos = "CRLF",
-							mac = "CR",
-						},
-					},
-					{ "filetype", icon_only = true },
-				},
-				lualine_y = { "progress" },
-				lualine_z = { "location" },
-			},
-		})
-	end,
+  "nvim-lualine/lualine.nvim",
+  dependencies = { "nvim-tree/nvim-web-devicons" },
+  opts = {
+    options = {
+      component_separators = { left = "", right = "" },
+      section_separators = { left = "", right = "" },
+    },
+    sections = {
+      lualine_b = { "branch" },
+      lualine_c = {
+        { "filetype", icon_only = true, separator = "", padding = { left = 1, right = 0 } },
+        { "filename", path = 1 },
+      },
+      lualine_x = {
+        {
+          "diff",
+          symbols = { added = "+", modified = "~", removed = "-" },
+          source = function()
+            local gitsigns = vim.b.gitsigns_status_dict
+            if gitsigns then
+              return {
+                added = gitsigns.added,
+                modified = gitsigns.changed,
+                removed = gitsigns.removed,
+              }
+            end
+          end,
+        },
+        {
+          "diagnostics",
+          symbols = { error = "E:", warn = "W:", info = "I:", hint = "H:" },
+        },
+      },
+    },
+  },
 }
