@@ -6,7 +6,7 @@
 export HOMEBREW_NO_ASK=1
 
 install_homebrew() {
-  if ! command -v brew &> /dev/null; then
+  if ! command -v brew &>/dev/null; then
     echo "Installing Homebrew..."
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     eval "$(/opt/homebrew/bin/brew shellenv)"
@@ -196,8 +196,8 @@ install_mas_apps() {
 
   brew install mas
 
-  mas install 539883307 || true  # LINE
-  mas install 497799835 || true  # Xcode
+  mas install 539883307 || true # LINE
+  mas install 497799835 || true # Xcode
 }
 
 # ====================
@@ -426,9 +426,9 @@ configure_bundler() {
   echo "Configuring bundler..."
 
   mkdir -p "$HOME/.bundle"
-  [ -s "$HOME/.bundle/config" ] || printf -- "---\n" > "$HOME/.bundle/config"
+  [ -s "$HOME/.bundle/config" ] || printf -- "---\n" >"$HOME/.bundle/config"
   if ! grep -q "^BUNDLE_BUILD__MYSQL2:" "$HOME/.bundle/config"; then
-    echo 'BUNDLE_BUILD__MYSQL2: "--with-mysql-config=/opt/homebrew/opt/mysql-client/bin/mysql_config --with-ldflags=-L/opt/homebrew/opt/zstd/lib"' >> "$HOME/.bundle/config"
+    echo 'BUNDLE_BUILD__MYSQL2: "--with-mysql-config=/opt/homebrew/opt/mysql-client/bin/mysql_config --with-ldflags=-L/opt/homebrew/opt/zstd/lib"' >>"$HOME/.bundle/config"
   fi
 }
 
@@ -441,7 +441,7 @@ install_npm_globals() {
   export NVM_DIR="$HOME/.nvm"
   [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 
-  if ! command -v npm &> /dev/null; then
+  if ! command -v npm &>/dev/null; then
     echo "  [skip] npm not found"
     return
   fi

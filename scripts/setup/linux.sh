@@ -37,7 +37,7 @@ install_cli_tools() {
   sudo apt install -y zsh-autosuggestions zsh-syntax-highlighting
 
   # Neovim
-  if ! command -v nvim &> /dev/null || [[ "$(nvim --version | head -1)" < "NVIM v0.10" ]]; then
+  if ! command -v nvim &>/dev/null || [[ "$(nvim --version | head -1)" < "NVIM v0.10" ]]; then
     echo "Installing Neovim from PPA..."
     sudo add-apt-repository -y ppa:neovim-ppa/unstable
     sudo apt update
@@ -53,19 +53,19 @@ install_cli_tools() {
 GHQ_VERSION="v1.10.1"
 
 install_ghq() {
-  if command -v ghq &> /dev/null; then
+  if command -v ghq &>/dev/null; then
     echo "ghq already installed"
     return
   fi
 
   local arch
   case "$(uname -m)" in
-    x86_64)  arch="amd64" ;;
-    aarch64) arch="arm64" ;;
-    *)
-      echo "  [skip] ghq (unsupported arch: $(uname -m))"
-      return
-      ;;
+  x86_64) arch="amd64" ;;
+  aarch64) arch="arm64" ;;
+  *)
+    echo "  [skip] ghq (unsupported arch: $(uname -m))"
+    return
+    ;;
   esac
 
   echo "Installing ghq $GHQ_VERSION..."

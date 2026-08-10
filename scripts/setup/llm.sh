@@ -71,8 +71,8 @@ install_llama_swap() {
   fi
 
   mkdir -p "$HOME/.local/bin"
-  curl -sL "https://github.com/mostlygeek/llama-swap/releases/download/${LLAMA_SWAP_VER}/llama-swap_${LLAMA_SWAP_VER#v}_darwin_arm64.tar.gz" \
-    | tar -xz -C "$HOME/.local/bin" llama-swap
+  curl -sL "https://github.com/mostlygeek/llama-swap/releases/download/${LLAMA_SWAP_VER}/llama-swap_${LLAMA_SWAP_VER#v}_darwin_arm64.tar.gz" |
+    tar -xz -C "$HOME/.local/bin" llama-swap
   chmod +x "$HOME/.local/bin/llama-swap"
   echo "  [install] llama-swap ${LLAMA_SWAP_VER}"
 }
@@ -106,7 +106,7 @@ link_llama_swap_agent() {
   mkdir -p "$HOME/Library/LaunchAgents"
 
   sed -e "s|@HOME@|$HOME|g" \
-    "$DOTFILES/extras/launchd/com.yasainet.llama-swap.plist" > "$plist"
+    "$DOTFILES/extras/launchd/com.yasainet.llama-swap.plist" >"$plist"
 
   launchctl bootout "gui/$(id -u)/com.yasainet.llama-swap" 2>/dev/null || true
   launchctl bootstrap "gui/$(id -u)" "$plist"
