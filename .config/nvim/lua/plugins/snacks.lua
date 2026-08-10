@@ -49,6 +49,13 @@ return {
       desc = "Visual selection or word",
       mode = { "n", "x" },
     },
+    {
+      "<leader>ft",
+      function()
+        Snacks.picker.todo_comments()
+      end,
+      desc = "Todo Comments",
+    },
     -- gh
     {
       "<leader>gi",
@@ -147,6 +154,7 @@ return {
     notifier = { enabled = true },
     picker = {
       enabled = true,
+      layout = { fullscreen = true },
       icons = {
         git = {
           staged = "",
@@ -165,11 +173,13 @@ return {
           diagnostics = false,
           exclude = { ".DS_Store" },
           layout = {
+            fullscreen = false,
             hidden = { "input" },
             layout = { width = 26, min_width = 26 },
           },
         },
         files = { hidden = true, exclude = { ".DS_Store" } },
+        select = { layout = { fullscreen = false } },
       },
     },
   },
