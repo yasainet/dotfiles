@@ -4,6 +4,11 @@ return {
 	lazy = false,
 	opts = {
 		explorer = { enabled = true },
-		picker = { enabled = true },
+		picker =  {enabled = true ,
+    sources = {
+      explorer = {hidden = true},
+      files = {hidden = true}
+    }
+  }
 	},
 }
