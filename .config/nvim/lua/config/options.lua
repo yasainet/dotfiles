@@ -55,6 +55,8 @@ vim.opt.smartcase = true
 vim.opt.incsearch = true
 vim.opt.hlsearch = true
 
--- Options
--- TODO: research
-vim.deprecate = function() end
+-- Diagnostics
+vim.diagnostic.config({
+  virtual_text = true,
+  severity_sort = true,
+})
