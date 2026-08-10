@@ -53,16 +53,19 @@ rm() {
   local -a files
   local endopts=0 arg
   for arg in "$@"; do
-    if (( ! endopts )); then
-      [[ "$arg" == "--" ]] && { endopts=1; continue; }
+    if ((!endopts)); then
+      [[ "$arg" == "--" ]] && {
+        endopts=1
+        continue
+      }
       [[ "$arg" == -* ]] && continue
     fi
-    [[ -e "$arg" || -L "$arg" ]] || continue 
+    [[ -e "$arg" || -L "$arg" ]] || continue
     [[ "$arg" == -* ]] && arg="./$arg"
     files+=("$arg")
   done
 
-  (( ${#files} )) || return 0
+  ((${#files})) || return 0
   trash "${files[@]}"
 }
 
@@ -77,7 +80,7 @@ y() {
   local tmp cwd
   tmp="$(mktemp -t yazi-cwd.XXXXXX)"
   yazi "$@" --cwd-file="$tmp"
-  IFS= read -r -d '' cwd < "$tmp"
+  IFS= read -r -d '' cwd <"$tmp"
   [[ -n "$cwd" && "$cwd" != "$PWD" ]] && cd "$cwd"
   command rm -f -- "$tmp"
 }
@@ -138,7 +141,7 @@ fi
 # Docker
 if command -v docker &>/dev/null; then
   mkdir -p "$ZDOTDIR/completions"
-  [[ ! -f "$ZDOTDIR/completions/_docker" ]] && docker completion zsh > "$ZDOTDIR/completions/_docker"
+  [[ ! -f "$ZDOTDIR/completions/_docker" ]] && docker completion zsh >"$ZDOTDIR/completions/_docker"
   fpath=("$ZDOTDIR/completions" $fpath)
 fi
 
@@ -147,7 +150,8 @@ if [[ "$OSTYPE" != "darwin"* ]]; then
   [[ -d $HOME/.local/share/zsh/plugins/pure ]] && fpath+=($HOME/.local/share/zsh/plugins/pure)
   export PROMPT_PURE_SSH_CONNECTION=1
 fi
-autoload -U promptinit; promptinit
+autoload -U promptinit
+promptinit
 prompt pure
 
 # nvm (lazy load)
@@ -156,7 +160,7 @@ export NODE_NO_WARNINGS=1
 if [[ -f "$NVM_DIR/alias/default" ]]; then
   _nvm_ver=$(cat "$NVM_DIR/alias/default")
   _nvm_dirs=("$NVM_DIR/versions/node/v${_nvm_ver}"*(N/))
-  (( ${#_nvm_dirs} )) && export PATH="${_nvm_dirs[1]}/bin:$PATH"
+  ((${#_nvm_dirs})) && export PATH="${_nvm_dirs[1]}/bin:$PATH"
   unset _nvm_ver _nvm_dirs
 fi
 _load_nvm() {
@@ -164,10 +168,22 @@ _load_nvm() {
   [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
   [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 }
-nvm()  { _load_nvm; nvm "$@"; }
-node() { _load_nvm; node "$@"; }
-npm()  { _load_nvm; npm "$@"; }
-npx()  { _load_nvm; npx "$@"; }
+nvm() {
+  _load_nvm
+  nvm "$@"
+}
+node() {
+  _load_nvm
+  node "$@"
+}
+npm() {
+  _load_nvm
+  npm "$@"
+}
+npx() {
+  _load_nvm
+  npx "$@"
+}
 
 # fzf
 if [[ "$OSTYPE" == "darwin"* ]]; then

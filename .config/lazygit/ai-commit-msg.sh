@@ -34,9 +34,12 @@ while :; do
   printf '[Enter] commit  [e] edit  [r] regenerate  [q] cancel > '
   read -r ans
   case "$ans" in
-    "" | y) git commit -m "$MSG" && break ;;
-    e) git commit -e -m "$MSG" && break ;;
-    r) continue ;;
-    *) echo "canceled"; break ;;
+  "" | y) git commit -m "$MSG" && break ;;
+  e) git commit -e -m "$MSG" && break ;;
+  r) continue ;;
+  *)
+    echo "canceled"
+    break
+    ;;
   esac
 done
