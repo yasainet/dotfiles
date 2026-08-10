@@ -38,6 +38,7 @@ return {
       enabled = true,
       scope = { enabled = false },
     },
+    notifier = { enabled = true },
     picker = {
       enabled = true,
       icons = {
@@ -55,6 +56,7 @@ return {
       sources = {
         explorer = {
           hidden = true,
+          diagnostics = false,
           exclude = { ".DS_Store" },
           layout = {
             hidden = { "input" },
