@@ -86,6 +86,34 @@ return {
       desc = "Todo Comments",
     },
     {
+      "<leader>sk",
+      function()
+        Snacks.picker.keymaps()
+      end,
+      desc = "Keymaps",
+    },
+    {
+      "<leader>sh",
+      function()
+        Snacks.picker.help()
+      end,
+      desc = "Help Pages",
+    },
+    {
+      "<leader>su",
+      function()
+        Snacks.picker.undo()
+      end,
+      desc = "Undo History",
+    },
+    {
+      "<leader>sn",
+      function()
+        Snacks.picker.notifications()
+      end,
+      desc = "Notifications",
+    },
+    {
       "<leader>sR",
       function()
         Snacks.picker.resume()
