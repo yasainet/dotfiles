@@ -166,6 +166,17 @@ return {
             hidden = { "input" },
             layout = { width = 26, min_width = 26 },
           },
+          win = {
+            list = {
+              keys = {
+                -- Preview
+                ["P"] = false,
+                -- herdr
+                ["<c-j>"] = false,
+                ["<c-k>"] = false,
+              },
+            },
+          },
         },
         files = { hidden = true, exclude = { ".DS_Store" } },
         select = { layout = { fullscreen = false } },
