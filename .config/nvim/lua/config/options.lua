@@ -6,18 +6,6 @@ vim.cmd("language en_US.UTF-8")
 vim.opt.encoding = "utf-8"
 vim.opt.fileencoding = "utf-8"
 
--- Cursor
-vim.opt.guicursor = {
-  "n-v-c-sm:block",
-  "i-ci-ve:ver25",
-  "r-cr-o:hor20",
-  "a:blinkwait500-blinkoff500-blinkon500",
-}
-
--- Mouse
-vim.opt.mouse = "a"
-vim.opt.mousemodel = "popup"
-
 -- History
 vim.opt.history = 10000
 
@@ -46,6 +34,18 @@ vim.opt.shiftwidth = 2
 vim.opt.expandtab = true
 vim.opt.autoindent = true
 vim.opt.smartindent = true
+
+-- Cursor
+vim.opt.guicursor = {
+  "n-v-c-sm:block",
+  "i-ci-ve:ver25",
+  "r-cr-o:hor20",
+  "a:blinkwait500-blinkoff500-blinkon500",
+}
+
+-- Mouse
+vim.opt.mouse = "a"
+vim.opt.mousemodel = "popup"
 
 -- Search
 vim.opt.ignorecase = true
