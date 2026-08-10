@@ -19,7 +19,10 @@ find_env_files() {
 }
 
 backup() {
-  [ -d "$GHQ_ROOT" ] || { echo "ghq root not found: $GHQ_ROOT" >&2; exit 1; }
+  [ -d "$GHQ_ROOT" ] || {
+    echo "ghq root not found: $GHQ_ROOT" >&2
+    exit 1
+  }
   mkdir -p "$SYNC_ROOT"
   local count=0
   while IFS= read -r src; do
@@ -35,7 +38,10 @@ backup() {
 }
 
 restore() {
-  [ -d "$SYNC_ROOT" ] || { echo "sync root not found: $SYNC_ROOT" >&2; exit 1; }
+  [ -d "$SYNC_ROOT" ] || {
+    echo "sync root not found: $SYNC_ROOT" >&2
+    exit 1
+  }
   mkdir -p "$GHQ_ROOT"
   local restored=0 skipped=0
   while IFS= read -r src; do
@@ -58,7 +64,10 @@ restore() {
 }
 
 case "${1:-}" in
-  backup)  backup ;;
-  restore) restore ;;
-  *) echo "Usage: $0 {backup|restore}" >&2; exit 1 ;;
+backup) backup ;;
+restore) restore ;;
+*)
+  echo "Usage: $0 {backup|restore}" >&2
+  exit 1
+  ;;
 esac

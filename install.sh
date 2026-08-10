@@ -10,11 +10,11 @@ DOTFILES_PROFILE="${DOTFILES_PROFILE:-full}"
 export DOTFILES_PROFILE
 
 case "$DOTFILES_PROFILE" in
-  full | llm) ;;
-  *)
-    echo "Unknown DOTFILES_PROFILE: $DOTFILES_PROFILE (use full or llm)"
-    exit 1
-    ;;
+full | llm) ;;
+*)
+  echo "Unknown DOTFILES_PROFILE: $DOTFILES_PROFILE (use full or llm)"
+  exit 1
+  ;;
 esac
 
 echo "=== Dotfiles Installer ==="
@@ -24,16 +24,16 @@ echo "Profile: $DOTFILES_PROFILE"
 source "$DOTFILES/scripts/setup/common.sh"
 
 case "$OS" in
-  Darwin)
-    source "$DOTFILES/scripts/setup/darwin.sh"
-    ;;
-  Linux)
-    source "$DOTFILES/scripts/setup/linux.sh"
-    ;;
-  *)
-    echo "Unsupported OS: $OS"
-    exit 1
-    ;;
+Darwin)
+  source "$DOTFILES/scripts/setup/darwin.sh"
+  ;;
+Linux)
+  source "$DOTFILES/scripts/setup/linux.sh"
+  ;;
+*)
+  echo "Unsupported OS: $OS"
+  exit 1
+  ;;
 esac
 
 if [ "$DOTFILES_PROFILE" = "llm" ]; then
