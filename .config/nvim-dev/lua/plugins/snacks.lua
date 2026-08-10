@@ -34,6 +34,10 @@ return {
   },
   opts = {
     explorer = { enabled = true },
+    indent = {
+      enabled = true,
+      scope = { enabled = false },
+    },
     picker = {
       enabled = true,
       sources = {
