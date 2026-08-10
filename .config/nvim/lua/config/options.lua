@@ -38,8 +38,6 @@ vim.opt.splitbelow = true
 vim.opt.laststatus = 3
 vim.opt.list = true
 vim.opt.listchars = { tab = "→ ", trail = "·", extends = "»", precedes = "«", nbsp = "␣" }
--- TODO: research
--- vim.opt.fillchars:append({ diff = "╱" })
 
 -- Indent
 vim.g.markdown_recommended_style = 0
@@ -54,9 +52,3 @@ vim.opt.ignorecase = true
 vim.opt.smartcase = true
 vim.opt.incsearch = true
 vim.opt.hlsearch = true
-
--- Diagnostics
-vim.diagnostic.config({
-  virtual_text = true,
-  severity_sort = true,
-})
