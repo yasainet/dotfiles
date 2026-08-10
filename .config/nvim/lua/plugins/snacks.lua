@@ -11,7 +11,6 @@ return {
       end,
       desc = "File Explorer",
     },
-
     -- find & grep
     {
       "<leader>fb",
