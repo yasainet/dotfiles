@@ -28,16 +28,16 @@ vim.keymap.set("n", "<leader>l", "<Cmd>Lazy<CR>", { desc = "Lazy" })
 
 -- Explorer
 vim.keymap.set("n", "<leader>e", function()
-	Snacks.explorer()
+  Snacks.explorer()
 end, { desc = "File Explorer" })
 
 -- Picker
 vim.keymap.set("n", "<leader>fb", function()
-	Snacks.picker.buffers()
+  Snacks.picker.buffers()
 end, { desc = "Buffers" })
 vim.keymap.set("n", "<leader>ff", function()
-	Snacks.picker.files()
+  Snacks.picker.files()
 end, { desc = "Find Files" })
 vim.keymap.set("n", "<leader>fr", function()
-	Snacks.picker.recent()
+  Snacks.picker.recent()
 end, { desc = "Recent" })
