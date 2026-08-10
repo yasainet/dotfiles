@@ -13,9 +13,12 @@ return {
       "sql",
       "bash",
       "zsh",
+      "dockerfile",
+      "json",
     })
 
     vim.treesitter.language.register("bash", "sh")
+    vim.treesitter.language.register("json", "jsonc")
 
     vim.api.nvim_create_autocmd("FileType", {
       callback = function(args)
