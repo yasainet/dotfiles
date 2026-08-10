@@ -134,6 +134,7 @@ return {
   },
   opts = {
     explorer = { enabled = true },
+    gh = { wo = { foldlevel = 99 } },
     image = { enabled = true },
     indent = {
       enabled = true,
