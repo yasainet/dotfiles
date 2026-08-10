@@ -3,7 +3,7 @@ return {
   lazy = false,
   build = ":TSUpdate",
   config = function()
-    require("nvim-treesitter").install({ "html", "css", "javascript", "typescript", "tsx", "yaml" })
+    require("nvim-treesitter").install({ "html", "css", "javascript", "typescript", "tsx", "yaml", "sql" })
 
     vim.api.nvim_create_autocmd("FileType", {
       callback = function(args)
