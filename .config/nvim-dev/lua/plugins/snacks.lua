@@ -43,7 +43,10 @@ return {
       sources = {
         explorer = {
           hidden = true,
-          layout = { layout = { width = 26, min_width = 26 } },
+          layout = {
+            hidden = { "input" },
+            layout = { width = 26, min_width = 26 },
+          },
         },
         files = { hidden = true },
       },
