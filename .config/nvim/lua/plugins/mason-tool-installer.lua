@@ -2,6 +2,15 @@ return {
   "WhoIsSethDaniel/mason-tool-installer.nvim",
   dependencies = { "mason-org/mason.nvim" },
   opts = {
-    ensure_installed = { "stylua", "prettierd", "shellcheck", "markdownlint-cli2", "taplo", "shfmt" },
+    ensure_installed = {
+      "stylua",
+      "prettierd",
+      "shellcheck",
+      "markdownlint-cli2",
+      "taplo",
+      "shfmt",
+      "hadolint",
+      "actionlint",
+    },
   },
 }

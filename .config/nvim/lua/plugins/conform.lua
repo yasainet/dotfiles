@@ -15,8 +15,10 @@ return {
       css = { "prettierd" },
       markdown = { "prettierd" },
       toml = { "taplo" },
+      yaml = { "prettierd" },
       sh = { "shfmt" },
       zsh = { "shfmt_zsh" },
+      dockerfile = { "dockerfmt" },
     },
     formatters = {
       shfmt_zsh = {

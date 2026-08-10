@@ -74,6 +74,7 @@ install_cli_tools() {
   brew install tree-sitter-cli
   brew install tailspin
   brew install taplo
+  brew install dockerfmt
   brew install glow
   brew install hf
   brew install yazi

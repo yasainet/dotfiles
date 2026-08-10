@@ -7,6 +7,8 @@ return {
     lint.linters_by_ft = {
       zsh = { "zsh" },
       markdown = { "markdownlint-cli2" },
+      dockerfile = { "hadolint" },
+      ["yaml.ghaction"] = { "actionlint" },
     }
 
     vim.api.nvim_create_autocmd({ "BufWritePost" }, {
