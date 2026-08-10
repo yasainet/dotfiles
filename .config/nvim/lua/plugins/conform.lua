@@ -10,9 +10,11 @@ return {
       javascriptreact = { "prettierd" },
       typescriptreact = { "prettierd" },
       json = { "prettierd" },
+      jsonc = { "prettierd" },
       html = { "prettierd" },
       css = { "prettierd" },
       markdown = { "prettierd" },
+      toml = { "taplo" },
     },
     default_format_opts = {
       lsp_format = "fallback",

@@ -3,6 +3,7 @@ return {
   priority = 1000,
   lazy = false,
   keys = {
+    -- Explorer
     {
       "<leader>e",
       function()
@@ -10,6 +11,8 @@ return {
       end,
       desc = "File Explorer",
     },
+
+    -- find & grep
     {
       "<leader>fb",
       function()
@@ -31,6 +34,109 @@ return {
       end,
       desc = "Recent",
     },
+    {
+      "<leader>fg",
+      function()
+        Snacks.picker.grep()
+      end,
+      desc = "Grep",
+    },
+    {
+      "<leader>fw",
+      function()
+        Snacks.picker.grep_word()
+      end,
+      desc = "Visual selection or word",
+      mode = { "n", "x" },
+    },
+    -- gh
+    {
+      "<leader>gi",
+      function()
+        Snacks.picker.gh_issue()
+      end,
+      desc = "GitHub Issues (open)",
+    },
+    {
+      "<leader>gI",
+      function()
+        Snacks.picker.gh_issue({ state = "all" })
+      end,
+      desc = "GitHub Issues (all)",
+    },
+    {
+      "<leader>gp",
+      function()
+        Snacks.picker.gh_pr()
+      end,
+      desc = "GitHub Pull Requests (open)",
+    },
+    {
+      "<leader>gP",
+      function()
+        Snacks.picker.gh_pr({ state = "all" })
+      end,
+      desc = "GitHub Pull Requests (all)",
+    },
+    -- LSP
+    {
+      "gd",
+      function()
+        Snacks.picker.lsp_definitions()
+      end,
+      desc = "Goto Definition",
+    },
+    {
+      "gai",
+      function()
+        Snacks.picker.lsp_incoming_calls()
+      end,
+      desc = "C[a]lls Incoming",
+    },
+    {
+      "gao",
+      function()
+        Snacks.picker.lsp_outgoing_calls()
+      end,
+      desc = "C[a]lls Outgoing",
+    },
+    -- Other
+    {
+      "<leader>bd",
+      function()
+        Snacks.bufdelete()
+      end,
+      desc = "Delete Buffer",
+    },
+    {
+      "<leader>cR",
+      function()
+        Snacks.rename.rename_file()
+      end,
+      desc = "Rename File",
+    },
+    -- TODO: あとで整理する
+    -- {
+    --   "<leader>gg",
+    --   function()
+    --     Snacks.lazygit()
+    --   end,
+    --   desc = "Lazygit",
+    -- },
+    -- {
+    --   "<c-/>",
+    --   function()
+    --     Snacks.terminal()
+    --   end,
+    --   desc = "Toggle Terminal",
+    -- },
+    -- {
+    --   "<c-_>",
+    --   function()
+    --     Snacks.terminal()
+    --   end,
+    --   desc = "which_key_ignore",
+    -- },
   },
   opts = {
     explorer = { enabled = true },
