@@ -11,8 +11,16 @@ vim.g.maplocalleader = ","
 -- vim.keymap.set("i", "<C-n>", "<Down>", { desc = "Next line" })
 -- vim.keymap.set("i", "<C-p>", "<Up>", { desc = "Previous line" })
 
+-- Search
+vim.keymap.set("n", "<Esc>", "<Cmd>noh<CR>", { silent = true })
+
 -- Quit
 vim.keymap.set({ "n", "x" }, "<leader>qq", "<Cmd>qa!<CR>", { desc = "Quit all (force)" })
+
+-- ====================
+-- lazy.nvim
+-- ====================
+vim.keymap.set("n", "<leader>l", "<Cmd>Lazy<CR>", { desc = "Lazy" })
 
 -- ====================
 -- snacks.nvim
