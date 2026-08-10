@@ -55,12 +55,13 @@ return {
       sources = {
         explorer = {
           hidden = true,
+          exclude = { ".DS_Store" },
           layout = {
             hidden = { "input" },
             layout = { width = 26, min_width = 26 },
           },
         },
-        files = { hidden = true },
+        files = { hidden = true, exclude = { ".DS_Store" } },
       },
     },
   },
