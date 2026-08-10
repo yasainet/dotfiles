@@ -8,8 +8,10 @@ return {
       keywords = { italic = false },
     },
     on_highlights = function(hl, c)
-      -- picker
+      -- snacks picker
       hl.FloatBorder = { bg = c.bg_float, fg = "#589ED7" }
+      -- snacks explorer
+      hl.SnacksPickerGitStatusUntracked = { fg = c.green }
       -- gitsigns
       hl.GitSignsAdd = { fg = c.green }
       hl.GitSignsChange = { fg = c.yellow }
