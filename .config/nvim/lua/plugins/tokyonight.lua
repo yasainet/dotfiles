@@ -12,6 +12,8 @@ return {
       hl.FloatBorder = { bg = c.bg_float, fg = "#589ED7" }
       -- snacks explorer
       hl.SnacksPickerGitStatusUntracked = { fg = c.green }
+      -- render-markdown
+      hl["@markup.raw.markdown_inline"] = { fg = c.blue }
       -- gitsigns
       hl.GitSignsAdd = { fg = c.green }
       hl.GitSignsChange = { fg = c.yellow }
