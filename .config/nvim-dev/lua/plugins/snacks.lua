@@ -40,6 +40,18 @@ return {
     },
     picker = {
       enabled = true,
+      icons = {
+        git = {
+          staged = "",
+          added = "",
+          deleted = "",
+          ignored = "",
+          modified = "",
+          renamed = "",
+          unmerged = "",
+          untracked = "",
+        },
+      },
       sources = {
         explorer = {
           hidden = true,
