@@ -17,27 +17,6 @@ vim.keymap.set("n", "<Esc>", "<Cmd>noh<CR>", { silent = true })
 -- Quit
 vim.keymap.set({ "n", "x" }, "<leader>qq", "<Cmd>qa!<CR>", { desc = "Quit all (force)" })
 
--- ====================
 -- lazy.nvim
--- ====================
+-- plugin manager 自身なので spec を持たない。ここに置く
 vim.keymap.set("n", "<leader>l", "<Cmd>Lazy<CR>", { desc = "Lazy" })
-
--- ====================
--- snacks.nvim
--- ====================
-
--- Explorer
-vim.keymap.set("n", "<leader>e", function()
-  Snacks.explorer()
-end, { desc = "File Explorer" })
-
--- Picker
-vim.keymap.set("n", "<leader>fb", function()
-  Snacks.picker.buffers()
-end, { desc = "Buffers" })
-vim.keymap.set("n", "<leader>ff", function()
-  Snacks.picker.files()
-end, { desc = "Find Files" })
-vim.keymap.set("n", "<leader>fr", function()
-  Snacks.picker.recent()
-end, { desc = "Recent" })
