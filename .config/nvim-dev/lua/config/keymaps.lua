@@ -18,5 +18,4 @@ vim.keymap.set("n", "<Esc>", "<Cmd>noh<CR>", { silent = true })
 vim.keymap.set({ "n", "x" }, "<leader>qq", "<Cmd>qa!<CR>", { desc = "Quit all (force)" })
 
 -- lazy.nvim
--- plugin manager 自身なので spec を持たない。ここに置く
 vim.keymap.set("n", "<leader>l", "<Cmd>Lazy<CR>", { desc = "Lazy" })
