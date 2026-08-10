@@ -48,13 +48,6 @@ return {
       desc = "Visual selection or word",
       mode = { "n", "x" },
     },
-    {
-      "<leader>ft",
-      function()
-        Snacks.picker.todo_comments({ hidden = true })
-      end,
-      desc = "Todo Comments",
-    },
     -- gh
     {
       "<leader>gi",
@@ -83,6 +76,21 @@ return {
         Snacks.picker.gh_pr({ state = "all" })
       end,
       desc = "GitHub Pull Requests (all)",
+    },
+    -- search
+    {
+      "<leader>st",
+      function()
+        Snacks.picker.todo_comments({ hidden = true })
+      end,
+      desc = "Todo Comments",
+    },
+    {
+      "<leader>sR",
+      function()
+        Snacks.picker.resume()
+      end,
+      desc = "Resume",
     },
     -- LSP
     {
