@@ -51,15 +51,15 @@ skip_link() {
     local current
     current=$(readlink "$dest")
     case "$current" in
-      "$DOTFILES"/*)
-        rm -f "$dest"
-        echo "  [unlink] $dest (not used on $OS)"
-        return
-        ;;
-      *)
-        echo "  [warn] $dest points outside dotfiles (left as-is)"
-        return
-        ;;
+    "$DOTFILES"/*)
+      rm -f "$dest"
+      echo "  [unlink] $dest (not used on $OS)"
+      return
+      ;;
+    *)
+      echo "  [warn] $dest points outside dotfiles (left as-is)"
+      return
+      ;;
     esac
   fi
 
@@ -110,9 +110,9 @@ setup_bat_theme() {
   echo "Setting up bat theme..."
 
   # Determine bat command (macOS: bat, Linux: batcat)
-  if command -v bat &> /dev/null; then
+  if command -v bat &>/dev/null; then
     BAT_CMD="bat"
-  elif command -v batcat &> /dev/null; then
+  elif command -v batcat &>/dev/null; then
     BAT_CMD="batcat"
   else
     echo "  [skip] bat not installed"
