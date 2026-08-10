@@ -32,9 +32,6 @@ alias cat='bat'
 alias v='nvim'
 alias vi='nvim'
 alias vim='nvim'
-alias lazyvim='NVIM_APPNAME=lazyvim nvim'
-alias vimdev='NVIM_APPNAME=nvim-dev nvim'
-alias sudo='sudo '
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
   # macOS

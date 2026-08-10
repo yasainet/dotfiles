@@ -1,18 +1,8 @@
 return {
-	"MeanderingProgrammer/render-markdown.nvim",
-	dependencies = {
-		"nvim-treesitter/nvim-treesitter",
-		"nvim-tree/nvim-web-devicons",
-	},
-	ft = { "markdown", "octo" },
-	opts = {
-		file_types = { "markdown", "octo" },
-		sign = { enabled = false },
-		code = { priority = 0 },
-		heading = { icons = { "", "", "", "", "", "" }, position = "inline" },
-	},
-	config = function(_, opts)
-		vim.treesitter.language.register("markdown", "octo")
-		require("render-markdown").setup(opts)
-	end,
+  "MeanderingProgrammer/render-markdown.nvim",
+  dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-tree/nvim-web-devicons" },
+  opts = {
+    sign = { enabled = false },
+    heading = { icons = {} },
+  },
 }
