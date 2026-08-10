@@ -38,6 +38,7 @@ vim.opt.splitbelow = true
 vim.opt.laststatus = 3
 vim.opt.list = true
 vim.opt.listchars = { tab = "→ ", trail = "·", extends = "»", precedes = "«", nbsp = "␣" }
+-- TODO: research
 -- vim.opt.fillchars:append({ diff = "╱" })
 
 -- Indent
@@ -55,5 +56,5 @@ vim.opt.incsearch = true
 vim.opt.hlsearch = true
 
 -- Options
--- TODO: explore
+-- TODO: research
 vim.deprecate = function() end
