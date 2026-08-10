@@ -113,20 +113,20 @@ LazyVim が入れる 32 個を、採ったかどうかで並べる。状態は �
 | todo-comments.nvim          | TODO の強調と一覧                 | ✅   |
 | trouble.nvim                | 診断と参照の一覧                  | ✅   |
 | mini.pairs                  | 括弧の自動補完                    | ✅   |
-| mini.ai                     | テキストオブジェクトの拡張        | ❌   |
-| ts-comments.nvim            | filetype ごとのコメント記号       | ❌   |
+| mini.ai                     | テキストオブジェクトの拡張        | ✅   |
+| ts-comments.nvim            | filetype ごとのコメント記号       | ✅   |
 | nvim-ts-autotag             | HTML タグの自動閉じ               | ✅   |
-| nvim-treesitter-textobjects | 関数や引数の単位で選択する        | ❌   |
+| nvim-treesitter-textobjects | 関数や引数の単位で選択する        | ✅   |
 | lazydev.nvim                | Neovim 設定を書くときの lua 補完  | ❌   |
 | bufferline.nvim             | buffer をタブ風に並べる           | ❌   |
-| noice.nvim                  | コマンドラインと通知の見た目      | ❌   |
+| noice.nvim                  | コマンドラインと通知の見た目      | ✅   |
 | persistence.nvim            | session を復元する                | ❌   |
 | grug-far.nvim               | 一括置換                          | ❌   |
 | mini.icons                  | アイコン。devicons と役割が重なる | ❌   |
 | friendly-snippets           | snippet 集                        | ❌   |
 | LazyVim                     | framework 本体。積む対象ではない  | ➖   |
 | catppuccin                  | colorscheme の予備                | ➖   |
-| nui.nvim                    | noice の依存                      | ➖   |
+| nui.nvim                    | noice の依存                      | ✅   |
 | plenary.nvim                | 他の plugin の依存                | ➖   |
 
 nvim-dev だけに入っているものもある。
