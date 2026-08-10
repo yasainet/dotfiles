@@ -11,6 +11,9 @@ vim.g.maplocalleader = ","
 -- vim.keymap.set("i", "<C-n>", "<Down>", { desc = "Next line" })
 -- vim.keymap.set("i", "<C-p>", "<Up>", { desc = "Previous line" })
 
+-- Quit
+vim.keymap.set({ "n", "x" }, "<leader>qq", "<Cmd>qa!<CR>", { desc = "Quit all (force)" })
+
 -- ====================
 -- snacks.nvim
 -- ====================

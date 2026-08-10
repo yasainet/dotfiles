@@ -40,6 +40,14 @@ vim.opt.list = true
 vim.opt.listchars = { tab = "→ ", trail = "·", extends = "»", precedes = "«", nbsp = "␣" }
 vim.opt.fillchars:append({ diff = "╱" })
 
+-- Indent
+vim.g.markdown_recommended_style = 0
+vim.opt.tabstop = 2
+vim.opt.shiftwidth = 2
+vim.opt.expandtab = true
+vim.opt.autoindent = true
+vim.opt.smartindent = true
+
 -- Search
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
@@ -47,4 +55,5 @@ vim.opt.incsearch = true
 vim.opt.hlsearch = true
 
 -- Options
+-- TODO: explore
 vim.deprecate = function() end
