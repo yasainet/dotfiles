@@ -107,6 +107,23 @@ return {
       end,
       desc = "C[a]lls Outgoing",
     },
+    -- Terminal
+    {
+      "<c-/>",
+      function()
+        Snacks.terminal()
+      end,
+      desc = "Toggle Terminal",
+      mode = { "n", "t" },
+    },
+    {
+      "<c-_>",
+      function()
+        Snacks.terminal()
+      end,
+      desc = "which_key_ignore",
+      mode = { "n", "t" },
+    },
     -- Other
     {
       "<leader>bd",
@@ -122,28 +139,6 @@ return {
       end,
       desc = "Rename File",
     },
-    -- TODO: あとで整理する
-    -- {
-    --   "<leader>gg",
-    --   function()
-    --     Snacks.lazygit()
-    --   end,
-    --   desc = "Lazygit",
-    -- },
-    -- {
-    --   "<c-/>",
-    --   function()
-    --     Snacks.terminal()
-    --   end,
-    --   desc = "Toggle Terminal",
-    -- },
-    -- {
-    --   "<c-_>",
-    --   function()
-    --     Snacks.terminal()
-    --   end,
-    --   desc = "which_key_ignore",
-    -- },
   },
   opts = {
     explorer = { enabled = true },
@@ -180,6 +175,12 @@ return {
         },
         files = { hidden = true, exclude = { ".DS_Store" } },
         select = { layout = { fullscreen = false } },
+      },
+    },
+    terminal = {
+      win = {
+        position = "float",
+        border = "rounded",
       },
     },
   },
