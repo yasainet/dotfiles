@@ -227,7 +227,6 @@ return {
   },
   config = function(_, opts)
     require("snacks").setup(opts)
-
     -- picker icon
     local util = require("snacks.util")
     local icon = util.icon
