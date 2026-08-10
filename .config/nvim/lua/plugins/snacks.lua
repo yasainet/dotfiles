@@ -94,18 +94,11 @@ return {
       desc = "Goto Definition",
     },
     {
-      "gai",
+      "grr",
       function()
-        Snacks.picker.lsp_incoming_calls()
+        Snacks.picker.lsp_references()
       end,
-      desc = "C[a]lls Incoming",
-    },
-    {
-      "gao",
-      function()
-        Snacks.picker.lsp_outgoing_calls()
-      end,
-      desc = "C[a]lls Outgoing",
+      desc = "References",
     },
     -- Terminal
     {
@@ -142,6 +135,7 @@ return {
   },
   opts = {
     explorer = { enabled = true },
+    image = { enabled = true },
     indent = {
       enabled = true,
       scope = { enabled = false },
