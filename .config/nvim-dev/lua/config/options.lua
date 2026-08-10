@@ -38,7 +38,7 @@ vim.opt.splitbelow = true
 vim.opt.laststatus = 3
 vim.opt.list = true
 vim.opt.listchars = { tab = "→ ", trail = "·", extends = "»", precedes = "«", nbsp = "␣" }
-vim.opt.fillchars:append({ diff = "╱" })
+-- vim.opt.fillchars:append({ diff = "╱" })
 
 -- Indent
 vim.g.markdown_recommended_style = 0
