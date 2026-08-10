@@ -19,18 +19,11 @@ ulimit -n 10240
 # Emacs
 bindkey -e
 
-# Typo
-bindkey '\e[27;5;13~' accept-line
-
 # Aliases - Common
-alias ff='find . -type f -name'
-alias fd='find . -type d -name'
 alias mkdir='mkdir -p'
 alias cp='cp -i'
 alias mv='mv -i'
 alias cat='bat'
-alias v='nvim'
-alias vi='nvim'
 alias vim='nvim'
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
@@ -95,6 +88,7 @@ export GIT_MERGE_AUTOEDIT=no
 # Less
 export LESSHISTFILE=-
 
+# TODO: research
 # psql
 export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 
