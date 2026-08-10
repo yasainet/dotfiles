@@ -10,3 +10,23 @@ vim.g.maplocalleader = ","
 -- vim.keymap.set("i", "<C-k>", "<C-o>D", { desc = "Kill to end of line" })
 -- vim.keymap.set("i", "<C-n>", "<Down>", { desc = "Next line" })
 -- vim.keymap.set("i", "<C-p>", "<Up>", { desc = "Previous line" })
+
+-- ====================
+-- snacks.nvim
+-- ====================
+
+-- Explorer
+vim.keymap.set("n", "<leader>e", function()
+	Snacks.explorer()
+end, { desc = "File Explorer" })
+
+-- Picker
+vim.keymap.set("n", "<leader>fb", function()
+	Snacks.picker.buffers()
+end, { desc = "Buffers" })
+vim.keymap.set("n", "<leader>ff", function()
+	Snacks.picker.files()
+end, { desc = "Find Files" })
+vim.keymap.set("n", "<leader>fr", function()
+	Snacks.picker.recent()
+end, { desc = "Recent" })
