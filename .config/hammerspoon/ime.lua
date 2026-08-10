@@ -8,12 +8,12 @@ local ABC = "com.apple.keylayout.ABC"
 local GHOSTTY_BUNDLE = "com.mitchellh.ghostty"
 
 -- 対象キー (Ghostty の herdr マクロ + prefix 入口)
---   Cmd+T: 新規ウィンドウ / Cmd+1-9: ウィンドウ選択 / Cmd+B: コピーモード
+--   Cmd+T: 新規ウィンドウ / Cmd+1-9: ウィンドウ選択 / Cmd+[: コピーモード
 --   Cmd+D: 右分割 / Cmd+Shift+D: 下分割 / Cmd+Shift+[ ]: 前後のウィンドウ
 --   Ctrl+B: herdr prefix
 --   Ctrl+H/J/K/L: pane・window 移動 (snacks explorer は単キー操作のため ABC 必須)
 --   Ctrl+O: Claude Code transcript mode (j/k/space/b/g/G も単キー操作)
-local cmdKeys = { t = true, d = true, b = true }
+local cmdKeys = { t = true, d = true, ["["] = true }
 for i = 1, 9 do
   cmdKeys[tostring(i)] = true
 end
