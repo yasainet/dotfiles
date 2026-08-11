@@ -147,6 +147,7 @@ install_gui_apps() {
 
   # Fonts
   brew install --cask font-plemol-jp-nf
+  brew install --cask font-udev-gothic-nf
   brew install --cask font-sf-mono
 
   # Terminal

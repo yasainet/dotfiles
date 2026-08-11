@@ -37,7 +37,10 @@ theme = TokyoNight Night
 font-family = "PlemolJP Console NF"
 font-codepoint-map = U+2190-U+21FF=SF Mono
 font-codepoint-map = U+2300-U+23FF=SF Mono
-font-size = 15
+font-codepoint-map = U+3000-U+30FF=UDEV Gothic NF
+font-codepoint-map = U+4E00-U+9FFF=UDEV Gothic NF
+font-codepoint-map = U+FF00-U+FFEF=UDEV Gothic NF
+font-size = 14
 adjust-cell-height = 37.7%
 
 # Cursor
