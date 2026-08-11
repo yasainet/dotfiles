@@ -133,10 +133,11 @@ description = "yazi"
 
 [[keys.command]]
 key = "prefix+alt+o"
-# HACK: popup doesn’t support Kitty graphics.
-type = "pane"
-command = "gh dash"
-description = "gh dash"
+type = "popup"
+command = "nvim -c \"Octo issue list\""
+description = "octo issue list"
+width = "100%"
+height = "100%"
 
 [[keys.command]]
 key = "prefix+alt+p"
