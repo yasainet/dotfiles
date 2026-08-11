@@ -132,6 +132,13 @@ return {
       desc = "Delete Buffer",
     },
     {
+      "<leader>bD",
+      function()
+        Snacks.bufdelete.all({ wipe = true })
+      end,
+      desc = "Delete All Buffers",
+    },
+    {
       "<leader>cR",
       function()
         Snacks.rename.rename_file()
