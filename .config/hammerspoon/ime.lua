@@ -1,20 +1,13 @@
 -- Forces the input source to ABC when a herdr shortcut is pressed in Ghostty.
 --
---   Cmd+T           new window
---   Cmd+1-9         select window
+--   Cmd+T           new tab
+--   Cmd+1-9         select tab
+--   Cmd+Shift+[ ]   previous / next tab
+--   Cmd+D           split vertical
+--   Cmd+Shift+D     split horizontal
 --   Cmd+[           copy mode
---   Cmd+D           split right
---   Cmd+Shift+D     split down
---   Cmd+Shift+[ ]   previous / next window
---   Cmd+Z           zoom toggle
---   Cmd+G           lazygit
---   Cmd+H           hunk diff
---   Cmd+R           claude resume
---   Cmd+F           claude @file
---   Cmd+Y           yazi
---   Cmd+O           gh dash
---   Cmd+/           terminal
 --   Cmd+K           clear screen
+--   Cmd+P           quote selection
 --   Ctrl+B          herdr prefix
 --   Ctrl+H/J/K/L    move between panes and windows
 --   Ctrl+O          Claude Code transcript mode
@@ -27,15 +20,8 @@ local cmdKeys = {
 	t = true,
 	d = true,
 	["["] = true,
-	z = true,
-	g = true,
-	h = true,
-	r = true,
-	f = true,
-	y = true,
-	o = true,
-	["/"] = true,
 	k = true,
+	p = true,
 }
 for i = 1, 9 do
 	cmdKeys[tostring(i)] = true
