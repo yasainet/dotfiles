@@ -101,7 +101,7 @@ width = "100%"
 height = "100%"
 
 [[keys.command]]
-key = "prefix+ctrl+_"
+key = "prefix+ctrl+slash"
 type = "popup"
 command = "zsh"
 description = "terminal"
