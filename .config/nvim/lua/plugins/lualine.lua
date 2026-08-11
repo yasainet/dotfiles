@@ -23,6 +23,15 @@ local function lsp_color()
   return hl_fg(group)
 end
 
+local function bold_filename(status, component)
+  local bold = component:format_hl(component:create_hl({ gui = "bold" }, "filename"))
+  local dir, name = status:match("^(.*/)([^/]*)$")
+  if not dir then
+    return bold .. status .. component:get_default_hl()
+  end
+  return dir .. bold .. name .. component:get_default_hl()
+end
+
 local function copilot_ok()
   local client = package.loaded["copilot.client"]
   if not client or client.is_disabled() or not client.get() then
@@ -74,7 +83,7 @@ return {
           symbols = { error = "E:", warn = "W:", info = "I:", hint = "H:" },
         },
         { "filetype", icon_only = true, separator = "", padding = { left = 1, right = 0 } },
-        { "filename", path = 1 },
+        { "filename", path = 1, shorting_target = 60, fmt = bold_filename },
       },
       lualine_x = {
         {
