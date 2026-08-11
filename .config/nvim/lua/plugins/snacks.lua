@@ -175,6 +175,8 @@ return {
           win = {
             list = {
               keys = {
+                -- Close
+                ["<Esc>"] = false,
                 -- Preview
                 ["P"] = false,
                 -- herdr
