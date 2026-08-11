@@ -4,7 +4,7 @@ return {
   opts = {
     completion = {
       ghost_text = {
-        enabled = true,
+        enabled = false,
       },
       menu = {
         border = "none",
@@ -13,6 +13,20 @@ return {
     keymap = {
       preset = "default",
       ["<CR>"] = { "accept", "fallback" },
+      ["<Tab>"] = {
+        "snippet_forward",
+        function()
+          if not package.loaded["copilot"] then
+            return
+          end
+          local suggestion = require("copilot.suggestion")
+          if suggestion.is_visible() then
+            suggestion.accept()
+            return true
+          end
+        end,
+        "fallback",
+      },
     },
   },
   config = function(_, opts)
