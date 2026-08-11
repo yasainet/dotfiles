@@ -84,9 +84,6 @@ install_cli_tools() {
   brew install librsvg
   brew install mysql-client
 
-  # gh extensions
-  gh extension install dlvhdr/gh-dash 2>/dev/null || true
-
   # Terraform
   brew install hashicorp/tap/terraform
 
