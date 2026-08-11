@@ -214,6 +214,7 @@ else
   [ -f /usr/share/doc/fzf/examples/key-bindings.zsh ] && source /usr/share/doc/fzf/examples/key-bindings.zsh
   [ -f /usr/share/doc/fzf/examples/completion.zsh ] && source /usr/share/doc/fzf/examples/completion.zsh
 fi
+[ -f ~/.config/fzf/themes/tokyonight_night.sh ] && source ~/.config/fzf/themes/tokyonight_night.sh
 
 # OrbStack
 [ -f ~/.orbstack/shell/init.zsh ] && source ~/.orbstack/shell/init.zsh
