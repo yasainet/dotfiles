@@ -1,3 +1,11 @@
+local function hl_fg(group)
+  local fg = vim.api.nvim_get_hl(0, { name = group, link = false }).fg
+  if not fg then
+    return nil
+  end
+  return { fg = string.format("#%06x", fg) }
+end
+
 local function lsp_hl()
   if vim.lsp.status() ~= "" then
     return "DiagnosticWarn"
@@ -12,11 +20,22 @@ local function lsp_color()
   if not group then
     return nil
   end
-  local fg = vim.api.nvim_get_hl(0, { name = group, link = false }).fg
-  if not fg then
+  return hl_fg(group)
+end
+
+local function copilot_ok()
+  local client = package.loaded["copilot.client"]
+  if not client or client.is_disabled() or not client.get() then
+    return false
+  end
+  return package.loaded["copilot.status"].data.status ~= "Warning"
+end
+
+local function copilot_color()
+  if copilot_ok() then
     return nil
   end
-  return { fg = string.format("#%06x", fg) }
+  return hl_fg("DiagnosticError")
 end
 
 return {
@@ -29,6 +48,18 @@ return {
         vim.cmd.redrawstatus()
       end,
     })
+    vim.api.nvim_create_autocmd("User", {
+      pattern = "LazyLoad",
+      group = vim.api.nvim_create_augroup("lualine_copilot_status", { clear = true }),
+      callback = function(ev)
+        if ev.data ~= "copilot.lua" then
+          return
+        end
+        require("copilot.status").register_status_notification_handler(function()
+          vim.cmd.redrawstatus()
+        end)
+      end,
+    })
   end,
   opts = {
     options = {
@@ -38,6 +69,10 @@ return {
     sections = {
       lualine_b = { "branch" },
       lualine_c = {
+        {
+          "diagnostics",
+          symbols = { error = "E:", warn = "W:", info = "I:", hint = "H:" },
+        },
         { "filetype", icon_only = true, separator = "", padding = { left = 1, right = 0 } },
         { "filename", path = 1 },
       },
@@ -58,16 +93,21 @@ return {
         },
         {
           function()
+            return ""
+          end,
+          color = copilot_color,
+          on_click = function()
+            vim.cmd.Copilot("status")
+          end,
+        },
+        {
+          function()
             return "⚡︎"
           end,
           color = lsp_color,
           on_click = function()
             vim.cmd.checkhealth("vim.lsp")
           end,
-        },
-        {
-          "diagnostics",
-          symbols = { error = "E:", warn = "W:", info = "I:", hint = "H:" },
         },
       },
     },
