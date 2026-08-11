@@ -1,2 +1,57 @@
 mode = "auto"
-theme = "github-dark-default"
+theme = "tokyonight-night"
+
+# Source: folke/tokyonight.nvim lua/tokyonight/colors/{storm,night,init}.lua
+# base = "tokyo-night" keeps Shiki's own syntax highlighting; the 33 chrome
+# colors below replace the ones Hunk derives from background/foreground/diff.
+[themes.tokyonight-night]
+base = "tokyo-night"
+
+background = "#1a1b26"
+contextBg = "#1a1b26"
+contextContentBg = "#1a1b26"
+lineNumberBg = "#1a1b26"
+
+panel = "#16161e"
+noteBackground = "#16161e"
+
+panelAlt = "#292e42"
+selectedHunk = "#292e42"
+noteTitleBackground = "#292e42"
+
+border = "#3b4261"
+lineNumberFg = "#3b4261"
+
+accent = "#7aa2f7"
+fileRenamed = "#7aa2f7"
+accentMuted = "#283457"
+
+text = "#c0caf5"
+noteTitleText = "#c0caf5"
+
+muted = "#565f89"
+badgeNeutral = "#565f89"
+
+# blend(green2, .25) / blend(red1, .25) / blend(blue7, .15) over bg
+addedBg = "#243e4a"
+removedBg = "#4a272f"
+movedAddedBg = "#1f2231"
+movedRemovedBg = "#1f2231"
+
+# blend(green2, .45) / blend(red1, .45) over bg
+addedContentBg = "#2c5a66"
+removedContentBg = "#713137"
+
+# Matches the GitSignsAdd/Change/Delete overrides in nvim/lua/plugins/tokyonight.lua
+addedSignColor = "#9ece6a"
+badgeAdded = "#9ece6a"
+fileNew = "#9ece6a"
+fileUntracked = "#9ece6a"
+
+removedSignColor = "#f7768e"
+badgeRemoved = "#f7768e"
+fileDeleted = "#f7768e"
+
+fileModified = "#e0af68"
+
+noteBorder = "#bb9af7"
