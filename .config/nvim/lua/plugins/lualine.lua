@@ -9,7 +9,7 @@ end
 local function lsp_hl()
   if vim.lsp.status() ~= "" then
     return "DiagnosticWarn"
-  elseif #vim.lsp.get_clients({ bufnr = 0 }) > 0 then
+  elseif vim.bo.buftype ~= "" or #vim.lsp.get_clients({ bufnr = 0 }) > 0 then
     return nil
   end
   return "DiagnosticError"
