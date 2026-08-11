@@ -9,7 +9,7 @@ end
 local function lsp_hl()
   if vim.lsp.status() ~= "" then
     return "DiagnosticWarn"
-  elseif vim.bo.buftype ~= "" or #vim.lsp.get_clients({ bufnr = 0 }) > 0 then
+  elseif vim.bo.buftype ~= "" or vim.api.nvim_buf_get_name(0) == "" or #vim.lsp.get_clients({ bufnr = 0 }) > 0 then
     return nil
   end
   return "DiagnosticError"
@@ -34,7 +34,10 @@ end
 
 local function copilot_ok()
   local client = package.loaded["copilot.client"]
-  if not client or client.is_disabled() or not client.get() then
+  if not client then
+    return true
+  end
+  if client.is_disabled() or not client.get() then
     return false
   end
   return package.loaded["copilot.status"].data.status ~= "Warning"
