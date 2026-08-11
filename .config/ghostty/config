@@ -70,6 +70,13 @@ keybind = cmd+w=unbind
 keybind = cmd+bracket_left=unbind
 keybind = cmd+[=text:\x02[
 
+# Cmd+k -> clear screen (herdr prefix+ctrl+k)
+keybind = cmd+k=unbind
+keybind = cmd+k=text:\x02\x0b
+
+# Cmd+p -> quote selection (herdr prefix+ctrl+p)
+keybind = cmd+p=text:\x02\x10
+
 # --- tab ---
 
 # Cmd+t -> new tab (herdr prefix+c)
@@ -109,40 +116,3 @@ keybind = cmd+d=text:\x02v
 # Cmd+Shift+d -> split horizontal (herdr prefix+-)
 keybind = cmd+shift+d=unbind
 keybind = cmd+shift+d=text:\x02-
-
-# Cmd+z -> zoom toggle (herdr prefix+z)
-keybind = cmd+z=unbind
-keybind = cmd+z=text:\x02z
-
-# --- popup ---
-
-# Cmd+g -> lazygit (herdr prefix+alt+g)
-keybind = cmd+g=unbind
-keybind = cmd+g=text:\x02\x1bg
-
-# Cmd+r -> claude resume (herdr prefix+alt+r)
-keybind = cmd+r=text:\x02\x1br
-
-# Cmd+f -> claude @file (herdr prefix+alt+f)
-keybind = cmd+f=unbind
-keybind = cmd+f=text:\x02\x1bf
-
-# Cmd+y -> yazi (herdr prefix+alt+y)
-keybind = cmd+y=text:\x02\x1by
-
-# Cmd+o -> octo issue list (herdr prefix+alt+o)
-keybind = cmd+o=text:\x02\x1bo
-
-# Cmd+p -> quote selection (herdr prefix+alt+p)
-keybind = cmd+p=text:\x02\x1bp
-
-# Cmd+/ -> terminal (herdr prefix+alt+slash)
-keybind = cmd+slash=text:\x02\x1b/
-
-# Cmd+h -> hunk diff (herdr prefix+alt+h)
-keybind = cmd+h=unbind
-keybind = performable:cmd+h=text:\x02\x1bh
-
-# Cmd+k -> clear screen (herdr prefix+alt+k)
-keybind = cmd+k=unbind
-keybind = cmd+k=text:\x02\x1bk
