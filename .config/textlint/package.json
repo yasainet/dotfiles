@@ -1,0 +1,9 @@
+{
+  "name": "textlint-config",
+  "private": true,
+  "dependencies": {
+    "textlint": "^15.8.0",
+    "textlint-rule-max-ten": "^5.0.0",
+    "textlint-rule-sentence-length": "^5.0.0"
+  }
+}

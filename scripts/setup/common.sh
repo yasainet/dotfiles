@@ -104,6 +104,24 @@ install_nvm() {
 }
 
 # ====================
+# textlint
+# ====================
+install_textlint() {
+  echo "Installing textlint..."
+
+  export NVM_DIR="$HOME/.nvm"
+  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+
+  if ! command -v npm &>/dev/null; then
+    echo "  [skip] npm not found"
+    return
+  fi
+
+  (cd "$HOME/.config/textlint" && npm install --no-fund --no-audit)
+  echo "  [done] textlint setup complete"
+}
+
+# ====================
 # bat theme
 # ====================
 setup_bat_theme() {
