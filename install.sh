@@ -57,6 +57,7 @@ main() {
   create_symlinks
   install_packages
   install_nvm
+  install_textlint
   post_install
 
   if [ "$OS" = "Darwin" ]; then

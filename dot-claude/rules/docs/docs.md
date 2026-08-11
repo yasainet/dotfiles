@@ -21,7 +21,7 @@ paths:
 | 行動 | tutorials       | how-to         |
 | 認識 | explanation     | reference      |
 
-```
+```txt
 docs/
   INDEX.md          # 索引
   tutorials/        # 学ぶための手順
