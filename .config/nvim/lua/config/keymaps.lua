@@ -14,6 +14,13 @@ vim.keymap.set("i", "<C-p>", "<Up>", { desc = "Previous line" })
 -- Search
 vim.keymap.set("n", "<Esc>", "<Cmd>noh<CR>", { silent = true })
 
+-- Yank
+vim.keymap.set("n", "<leader>y", function()
+  local path = vim.fn.expand("%:p")
+  vim.fn.setreg("+", path)
+  vim.notify(path, vim.log.levels.INFO, { title = "Yanked full path" })
+end, { desc = "Yank full path" })
+
 -- Quit
 vim.keymap.set({ "n", "x" }, "<leader>qq", "<Cmd>qa!<CR>", { desc = "Quit all (force)" })
 
