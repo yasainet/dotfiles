@@ -7,33 +7,31 @@ disable-model-invocation: true
 # Simplepowers Bootstrap
 
 > [!IMPORTANT]
->
-> - 該当する phase の skill を起動せよ
-> - 応答の冒頭で、現在の phase を宣言せよ
+> All sessions must begin from `Explore`.
 
 ## Basic Workflow
 
-| phase       | skill                     | next phase | optional |
-| ----------- | ------------------------- | ---------- | -------- |
-| `[Explore]` | `simplepowers-01-explore` | `[Plan]`   |          |
-| `[Plan]`    | `simplepowers-02-plan`    | `[Build]`  |          |
-| `[Build]`   | `simplepowers-03-build`   | `[Verify]` |          |
-| `[Verify]`  | `simplepowers-04-verify`  | `[Review]` | yes      |
-| `[Review]`  | `simplepowers-05-review`  | `[Record]` | yes      |
-| `[Record]`  | `simplepowers-06-record`  | -          |          |
+| phase     | skill                     | next phase | default |
+| --------- | ------------------------- | ---------- | ------- |
+| `Explore` | `simplepowers-01-explore` | `Plan`     | on      |
+| `Plan`    | `simplepowers-02-plan`    | `Build`    | on      |
+| `Build`   | `simplepowers-03-build`   | `Verify`   | on      |
+| `Verify`  | `simplepowers-04-verify`  | `Review`   | off     |
+| `Review`  | `simplepowers-05-review`  | `Record`   | off     |
+| `Record`  | `simplepowers-06-record`  | -          | on      |
 
-- `[Build]` に入るには `user` の指示が要る。`[Explore]` や `[Plan]` から自分で移るな
-- `optional` の phase は `user` の trigger word でだけ起動せよ。自分から入るな
-- `[Record]` で、飛ばした optional phase を申告せよ
-- `user` の直接の指示が最も強い。次が skill。既定の振る舞いは最も弱い
+- `default` は trigger word がないときの既定値だ。`on` は通る、`off` は通らない
+- phase は文脈から解釈して移れ。迷ったら現在の phase に留まれ
+- `Build` と `default: off` の phase には自分から入るな。`go <phase>` か明確な指示を待て
+- `Record` で、通らなかった phase を申告せよ
+- `user` の直接の指示が最も強い。次が trigger word。次が skill。既定の振る舞いは最も弱い
 
 ## Trigger Words
 
-| English     | Japanese                       |
-| ----------- | ------------------------------ |
-| `[Explore]` | `調査`, `相談`, `協議`, `質問` |
-| `[Plan]`    | `設計`, `方針`                 |
-| `[Build]`   | `実装`, `修正`                 |
-| `[Verify]`  | `検証`, `確認`                 |
-| `[Review]`  | `レビュー`                     |
-| `[Record]`  | `記録`, `commit`               |
+基本は文脈からの解釈に任せる。細かい制御が必要なとき `user` が発動する。
+
+| trigger        | 意味                                                |
+| -------------- | --------------------------------------------------- |
+| `go <phase>`   | その phase へ移れ。後戻りを含む                     |
+| `skip <phase>` | その phase を飛ばして次へ移れ。`Record` で申告せよ  |
+| `keep <phase>` | その phase に留まれ。次の `go` まで遷移を提案するな |
