@@ -4,16 +4,16 @@ paths:
   - "**/.env.*"
 ---
 
+# Env Rules
+
 > [!NOTE]
 > this document is WIP.
-
-# Env Rules
 
 `.env`, `.env.*` の基本ルールを記述する。
 
 ## Next.js
 
-```env ~/ghq/**/root/.env.sample
+```env ~/ghq/**/root/.env.example
 # Environment
 APP_ENV=development
 APP_URL=http://127.0.0.1:3000
@@ -40,7 +40,7 @@ GA_ID=
 
 ## Docker
 
-```env ~/ghq/**/docker/.env.sample
+```env ~/ghq/**/docker/.env.example
 
 ```
 
