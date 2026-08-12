@@ -1,13 +1,12 @@
 #!/usr/bin/env bash
 # Claude Code の session を fzf で選ぶ。
 #
-# Claude Code の /resume は session を「最初の数十文字 + 経過時間」でしか
-# 出さないため、どれがどれか判別しづらい。ここでは初回プロンプトを一覧に、
-# 会話の user 発言全文を preview に出す。
+# Claude Code の /resume は repo を跨げず、preview も無い。ここでは session の
+# title を一覧に、会話の全文を preview に出し、repo を跨いで選ぶ。
 #
 # 一覧のデータ元は ~/.claude/history.jsonl。1 プロンプト 1 行で
 # {display, timestamp, project, sessionId} を持つ。独自の index は作らない。
-# preview は ~/.claude/projects/<cwd>/<id>.jsonl を読む。
+# title と preview は ~/.claude/projects/<cwd>/<id>.jsonl を読む。
 #
 # 一覧の範囲は fzf の中で C-t で切り替える。いまの repo と全 repo を往復する。
 # git root は worktree ごとに別パスなので、repo スコープは worktree 単位の
@@ -75,8 +74,11 @@ fi
 HISTORY="$HOME/.claude/history.jsonl"
 
 # --- list --------------------------------------------------------------------
-# session ごとに集約する。最終更新でソートし、初回プロンプトを見出しにする。
-# `/resume` のような slash command 一発で終わった session は除く。
+# session ごとに集約する。最終更新でソートし、Claude Code が付けた title を
+# 見出しにする。`/resume` のような slash command 一発で終わった session は除く。
+#
+# 見出しに初回プロンプトを使わない。preview の先頭がそれなので、一覧に置くと
+# 同じ文が 2 度並ぶ。title は要約なので、一行に収まる分だけ手がかりが多い。
 #
 # all のときだけ repo 名のカラムを足す。カラム数が変わっても fzf の
 # --with-nth='2..' は追随するので、fzf 側に分岐は要らない。tab は桁を
@@ -98,7 +100,37 @@ if [[ "${1:-}" == "--list" ]]; then
     root=$(git rev-parse --show-toplevel 2>/dev/null) || root="$PWD"
   fi
 
-  jq -sr --arg root "$root" '
+  # title は transcript に entry として残る。history.jsonl には無いので、
+  # projects/ を総当たりして {sessionId: title} を作る。独自の index は持たない。
+  #
+  # grep ではなく rg を使う。同じ走査に BSD grep は 7.6 秒かかり、popup が開く
+  # までの待ちになる。rg なら 0.2 秒で、fzf や bat と同じく setup が入れている。
+  #
+  # 手動の /rename (custom-title) を自動生成 (ai-title) より優先する。どちらも
+  # 更新のたび追記されるので、最後の 1 件を取る。title は数ターン経ってから
+  # 付くため、無い session は初回プロンプトに落とす。
+  #
+  # jq の stderr は握り潰さない。壊れた行が 1 つあるだけで map 全体が空になり、
+  # 一覧は「title が 1 つも無い」と見分けが付かないため。popup では fzf が
+  # 画面を取るので読めない。切り分けは端末から --list を直に叩く。
+  titles=$(rg --no-line-number --no-filename --glob='*.jsonl' \
+    -e '"type":"custom-title"' -e '"type":"ai-title"' "$HOME/.claude/projects" 2>/dev/null |
+    jq -s '
+      map(select(.sessionId))
+      | group_by(.sessionId)
+      | map({
+          key:   .[0].sessionId,
+          value: (((map(select(.type == "custom-title")) | last)
+                   // (map(select(.type == "ai-title")) | last))
+                  | (.customTitle // .aiTitle // "")
+                  | gsub("\\s+"; " ") | ltrimstr(" ") | rtrimstr(" "))
+        })
+      | map(select(.value != ""))
+      | from_entries
+    ')
+  [[ -n "$titles" ]] || titles='{}'
+
+  jq -sr --arg root "$root" --argjson titles "$titles" '
     map(select($root == "" or .project == $root
                or (.project | startswith($root + "/"))))
     | group_by(.sessionId)
@@ -109,6 +141,7 @@ if [[ "${1:-}" == "--list" ]]; then
         repo:  (.[0].project as $p
                 | ($p | capture("/ghq/[^/]+/(?<o>[^/]+)/(?<r>[^/]+)") | "\(.o)/\(.r)")
                   // ($p | split("/") | last)),
+        title: $titles[.[0].sessionId],
         first: (.[0].display | split("\n") | map(select(. != "")) | first // "(empty)")
       })
     | map(select(.n > 1 or (.first | startswith("/") | not)))
@@ -117,7 +150,7 @@ if [[ "${1:-}" == "--list" ]]; then
     | .[]
     | [.id, (.t / 1000 | strflocaltime("%m-%d %H:%M"))]
       + (if $root == "" then [.repo + (" " * ($w - (.repo | length) + 1))] else [] end)
-      + [.first]
+      + [(.title // .first)]
     | @tsv
   ' "$HISTORY"
   exit 0
