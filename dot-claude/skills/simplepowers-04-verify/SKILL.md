@@ -1,11 +1,11 @@
 ---
 name: simplepowers-04-verify
-description: [Verify] phase: user が検証を指示したときに使え。実装の後、レビューの前に来る
+description: [Verify] user が検証を指示したときに使え。実装の後、レビューの前に来る
 ---
 
 # Verify
 
-冒頭で `[Verify]` と宣言せよ。
+Start by declaring `[Verify]`.
 
 ## Previous phase
 
@@ -20,10 +20,10 @@ description: [Verify] phase: user が検証を指示したときに使え。実�
 
 ## Tools
 
-| 状況                 | 使うもの                              |
-| -------------------- | ------------------------------------- |
+| When                   | Tools                                 |
+| ---------------------- | ------------------------------------- |
 | 検証コマンドを実行する | repo root README.md の Verify section |
-| app の挙動を確認する | `/run`                                |
+| app の挙動を確認する   | `/run`                                |
 
 ## Goal
 
