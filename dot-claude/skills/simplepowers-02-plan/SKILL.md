@@ -1,11 +1,11 @@
 ---
 name: simplepowers-02-plan
-description: [Plan] phase: 実装方針を決めるときに使え。調査の後、実装の前に来る
+description: [Plan] 実装方針を決めるときに使え。調査の後、実装の前に来る
 ---
 
 # Plan
 
-冒頭で `[Plan]` と宣言せよ。
+Start by declaring `[Plan]`.
 
 ## Previous phase
 
@@ -19,7 +19,7 @@ description: [Plan] phase: 実装方針を決めるときに使え。調査の�
 
 ## Tools
 
-| 状況                       | 使うもの  |
+| When                       | Tools     |
 | -------------------------- | --------- |
 | 実装後に覆せない選択を含む | `@Plan`   |
 | 設計を練って提示する       | plan mode |

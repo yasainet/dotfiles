@@ -1,11 +1,12 @@
 ---
 name: simplepowers-06-record
-description: [Record] phase: commit や PR を残すときに使え
+description: [Record] commit や PR を残すときに使え
+allowed-tools: Bash(git *)
 ---
 
 # Record
 
-冒頭で `[Record]` と宣言せよ。
+Start by declaring `[Record]`.
 
 ## Scope
 
@@ -13,7 +14,7 @@ description: [Record] phase: commit や PR を残すときに使え
 
 ## Tools
 
-| 状況            | 使うもの                          |
+| When            | Tools                             |
 | --------------- | --------------------------------- |
 | commit          | `/commit-commands:commit`         |
 | push と PR まで | `/commit-commands:commit-push-pr` |

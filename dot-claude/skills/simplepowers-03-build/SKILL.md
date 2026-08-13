@@ -1,11 +1,11 @@
 ---
 name: simplepowers-03-build
-description: [Build] phase:  コードを書く、ファイルを作る、設定を変えるときに使え。設計の承認を得た後に来る
+description: [Build] コードを書く、ファイルを作る、設定を変えるときに使え。設計の承認を得た後に来る
 ---
 
 # Build
 
-冒頭で `[Build]` と宣言せよ。
+Start by declaring `[Build]`.
 
 ## Previous phase
 

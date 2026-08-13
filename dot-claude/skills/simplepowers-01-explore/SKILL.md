@@ -1,11 +1,11 @@
 ---
 name: simplepowers-01-explore
-description: [Explore] phase: コード、仕様、原因を調べる前に必ず使え。設計や実装より先に来る
+description: [Explore] コード、仕様、原因を調べる前に必ず使え。設計や実装より先に来る
 ---
 
 # Explore
 
-冒頭で `[Explore]` と宣言せよ。
+Start by declaring `[Explore]`.
 
 ## Scope
 
@@ -16,13 +16,16 @@ description: [Explore] phase: コード、仕様、原因を調べる前に必�
 
 ## Tools
 
-| 状況                                   | 使うもの                |
-| -------------------------------------- | ----------------------- |
-| 3 ファイル以内で済む                   | 自分で読め              |
-| 探索範囲が repo 全体や他の repo に及ぶ | `@Explore`              |
-| 命名規則が複数あり、横断的に洗い出す   | `@Explore`              |
-| 当てが付かず試行錯誤が要る             | `@general-purpose`      |
-| library の仕様を引く                   | `context7` とウェブ検索 |
+| When                                   | Tools                                 |
+| -------------------------------------- | ------------------------------------- |
+| 3 ファイル以内で済む                   | `Glob`, `Grep`, `Read`, `LSP`, `Bash` |
+| 探索範囲が repo 全体や他の repo に及ぶ | `@Explore`                            |
+| 命名規則が複数あり、横断的に洗い出す   | `@Explore`                            |
+| 当てが付かず試行錯誤が要る             | `@general-purpose`                    |
+| library の仕様を引く                   | `context7`, `WebSearch`               |
+| URL が分かっている page を読む         | `WebFetch`                            |
+| Claude Code の仕様を引く               | `claude-code-guide`                   |
+| 様々な事例を深く調べる                 | `deep-research`                       |
 
 ## Goal
 

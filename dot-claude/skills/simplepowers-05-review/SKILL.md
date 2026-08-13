@@ -1,11 +1,11 @@
 ---
 name: simplepowers-05-review
-description: [Review] phase: user がレビューを指示したときに使え。検証の後、記録の前に来る
+description: [Review] user がレビューを指示したときに使え。検証の後、記録の前に来る
 ---
 
 # Review
 
-冒頭で `[Review]` と宣言せよ。
+Start by declaring `[Review]`.
 
 ## Scope
 
@@ -14,7 +14,7 @@ description: [Review] phase: user がレビューを指示したときに使え�
 
 ## Tools
 
-| 状況                   | 使うもの               |
+| When                   | Tools                  |
 | ---------------------- | ---------------------- |
 | ドキュメントだけ       | rules review           |
 | code を触った          | `/code-review`         |

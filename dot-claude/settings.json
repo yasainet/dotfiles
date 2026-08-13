@@ -106,5 +106,6 @@
   "skipAutoPermissionPrompt": true,
   "autoMode": {
     "classifyAllShell": false
-  }
+  },
+  "model": "claude-fable-5[1m]"
 }

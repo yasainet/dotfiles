@@ -79,3 +79,10 @@ git ls-files '*.sh' | xargs -n1 bash -n
 # JSON
 git ls-files '*.json' | xargs -n1 jq empty
 ```
+
+---
+
+## TODO
+
+- [x] udpate simplepowers: go, keep, skip `<phase>`
+- [ ] `<leader>fr` では、別の repo, pj まで対象になる問題について考える
