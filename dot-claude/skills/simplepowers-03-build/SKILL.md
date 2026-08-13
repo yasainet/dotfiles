@@ -17,6 +17,10 @@ description: [Build] phase:  コードを書く、ファイルを作る、設定
 - 周囲のコードに合わせよ。comment の量、命名、書き方を揃えよ
 - 途中で設計の穴に気付いたら、手を止めて `user` に伝えよ。黙って設計を変えるな
 
+## Tools
+
+wip
+
 ## Goal
 
 承認された設計を全て作り終えよ。作ったものを列挙せよ。
@@ -27,4 +31,4 @@ description: [Build] phase:  コードを書く、ファイルを作る、設定
 
 ここで止まれ。`user` の指示を待て。
 
-`[Verify]` と `[Review]` は optional だ。自分から掛けるな。
+`Verify` と `Review` は `default: off` だ。自分から入るな。
