@@ -13,13 +13,17 @@ description: [Verify] phase: user が検証を指示したときに使え。実�
 
 ## Scope
 
-1. repo root の README.md の Verify コマンドを実行せよ
-2. app の挙動を確認する必要がある場合は `/run` を実行せよ
-
 - 出力と exit code を最後まで読め
 - 失敗したなら、出力をそのまま示せ。隠すな
 - 飛ばした検証があるなら、飛ばしたと言え
-- Verify section が無いなら、コマンドを自分で特定し、section の追加を `user` に促せ
+- README.md に Verify section が無いなら、コマンドを自分で特定し、section の追加を `user` に促せ
+
+## Tools
+
+| 状況                 | 使うもの                              |
+| -------------------- | ------------------------------------- |
+| 検証コマンドを実行する | repo root README.md の Verify section |
+| app の挙動を確認する | `/run`                                |
 
 ## Goal
 
