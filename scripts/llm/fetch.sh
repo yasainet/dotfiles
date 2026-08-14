@@ -12,6 +12,9 @@ MODELS=(
   "HauhauCS/Qwen3.6-35B-A3B-Uncensored-HauhauCS-Aggressive mmproj-Qwen3.6-35B-A3B-Uncensored-HauhauCS-Aggressive-f16.gguf Qwen3.6-35B-A3B-Uncensored-HauhauCS-Aggressive"
   "HauhauCS/Qwen3.6-27B-Uncensored-HauhauCS-Balanced Qwen3.6-27B-Uncensored-HauhauCS-Balanced-Q8_K_P.gguf Qwen3.6-27B-Uncensored-HauhauCS-Balanced"
   "HauhauCS/Qwen3.6-27B-Uncensored-HauhauCS-Balanced mmproj-Qwen3.6-27B-Uncensored-HauhauCS-Balanced-f16.gguf Qwen3.6-27B-Uncensored-HauhauCS-Balanced"
+  "unsloth/Qwen3.8-27B-GGUF BF16/Qwen3.8-27B-BF16-00001-of-00002.gguf Qwen3.8-27B"
+  "unsloth/Qwen3.8-27B-GGUF BF16/Qwen3.8-27B-BF16-00002-of-00002.gguf Qwen3.8-27B"
+  "unsloth/Qwen3.8-27B-GGUF mmproj-BF16.gguf Qwen3.8-27B"
 )
 
 echo "=== Fetching models into $HOME/models ==="
