@@ -33,3 +33,4 @@
 # claude code
 .claude/plans/
 .claude/worktrees/
+dot-claude/settings.json
