@@ -1,17 +1,16 @@
-local function bold_filename(status, component)
+local function pretty_path(status, component)
   component.hl_cache = component.hl_cache or {}
-  if not component.hl_cache.bold then
+  if not component.hl_cache.file then
     local utils = require("lualine.utils.utils")
-    component.hl_cache.bold =
-      component:create_hl({ fg = utils.extract_highlight_colors("Bold", "fg"), gui = "bold" }, "filename")
+    component.hl_cache.file = component:create_hl({ fg = utils.extract_highlight_colors("Bold", "fg") }, "filename")
     component.hl_cache.dir = component:create_hl({ fg = utils.extract_highlight_colors("NonText", "fg") }, "dirname")
   end
-  local bold = component:format_hl(component.hl_cache.bold)
+  local file = component:format_hl(component.hl_cache.file)
   local dir, name = status:match("^(.*/)([^/]*)$")
   if not dir then
-    return bold .. status .. component:get_default_hl()
+    return file .. status .. component:get_default_hl()
   end
-  return component:format_hl(component.hl_cache.dir) .. dir .. bold .. name .. component:get_default_hl()
+  return component:format_hl(component.hl_cache.dir) .. dir .. file .. name .. component:get_default_hl()
 end
 
 return {
@@ -30,7 +29,7 @@ return {
           symbols = { error = "E:", warn = "W:", info = "I:", hint = "H:" },
         },
         { "filetype", icon_only = true, separator = "", padding = { left = 1, right = 0 } },
-        { "filename", path = 1, shorting_target = 60, fmt = bold_filename },
+        { "filename", path = 1, shorting_target = 60, fmt = pretty_path },
       },
       lualine_x = {
         {
