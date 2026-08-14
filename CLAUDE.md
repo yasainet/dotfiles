@@ -4,14 +4,17 @@ Personal dotfiles for macOS and Linux.
 
 ## Summary
 
-- `.config/` 配下を `~/.config/` にシンボリックリンクして管理
-- `install.sh` が OS 検出後、`scripts/{darwin,linux}.sh` を source して環境別セットアップ
-- `dot-claude/` を `~/.claude/` にリンクし、Claude Code の設定も dotfiles 管理下に置く
+- `~/dotfils/.config/` 配下を `~/.config/` に symlink して管理
+- `install.sh` が OS 検出後、`scripts/{darwin,linux}.sh` を source して環境別にセットアップ
+- `~/dotfiles/dot-claude/` を `~/.claude/` にリンクし、Claude Code の設定を dotfiles 管理下に置く
 
 ## Environments
 
 - OS: macOS (primary), Linux (secondary)
 - Stack: Ghostty → herdr → {nvim, zsh, Claude Code...}
-- Shell: Zsh + Pure
+- Terminal: Ghostty
+- Multiplexer: herdr
+- Shell: zsh
 - Filer: yazi
-- Editor: Neovim + snacks explorer, snacks terminal
+- Diff: hunk
+- Editor: Neovim + oil, snacks explorer, snacks terminal
