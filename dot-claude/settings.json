@@ -27,6 +27,7 @@
     ],
     "defaultMode": "auto"
   },
+  "model": "claude-fable-5[1m]",
   "fallbackModel": [],
   "enableAllProjectMcpServers": true,
   "hooks": {
@@ -106,6 +107,5 @@
   "skipAutoPermissionPrompt": true,
   "autoMode": {
     "classifyAllShell": false
-  },
-  "model": "claude-fable-5[1m]"
+  }
 }
