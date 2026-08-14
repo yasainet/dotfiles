@@ -4,6 +4,6 @@ return {
   opts = {
     file_types = { "markdown", "octo" },
     sign = { enabled = false },
-    heading = { icons = {} },
+    heading = { icons = { "" }, position = "inline" },
   },
 }
