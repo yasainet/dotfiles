@@ -7,12 +7,16 @@ description: [Review] user がレビューを指示したときに使え。検�
 
 Start by declaring `[Review]`.
 
+## Purpose
+
+該当する review を全て掛け、指摘を潰し切る。
+
 ## Scope
 
-- Tools の該当する行を全て掛けよ
+- 検証を終えてから適用する。終えていないなら `Verify` へ戻れ
 - ドキュメントだけの変更に `/code-review` を掛けるな。読む code が無い
 
-## Tools
+## Responsibilities
 
 | When                   | Tools                  |
 | ---------------------- | ---------------------- |
@@ -22,12 +26,8 @@ Start by declaring `[Review]`.
 | bug ではなく整理が目的 | `/simplify`            |
 | GitHub の PR           | `/code-review PR #<N>` |
 
-## Goal
+## Procedure
 
-該当する review を全て掛け、指摘を全て潰せ。
-
-直した箇所を報告せよ。残した指摘があるなら、残したと言え。
-
-## Next phase
-
-レビューを通したらここで止まれ。`user` の指示を待て。
+1. Responsibilities の該当する行を全て掛けよ
+2. 指摘を潰せ。残すなら、残したと言え
+3. 直した箇所を報告して止まれ。`user` の指示を待て
