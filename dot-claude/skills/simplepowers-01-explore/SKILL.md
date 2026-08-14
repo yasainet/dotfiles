@@ -7,14 +7,18 @@ description: [Explore] コード、仕様、原因を調べる前に必ず使え
 
 Start by declaring `[Explore]`.
 
+## Purpose
+
+`user` の問いに答える。答えた時点で完了。Explore は終点になりうる。
+
 ## Scope
 
-- library の仕様を記憶で答えるな
+- 全ての session はここから始まる
 - 聞かれたことにだけ答えよ。修正案を添えるな
 - 選択肢は `user` が決定を求めたときだけ出せ
 - 次の phase へ誘導するな。設計に進むか聞くな
 
-## Tools
+## Responsibilities
 
 | When                                   | Tools                                 |
 | -------------------------------------- | ------------------------------------- |
@@ -27,14 +31,8 @@ Start by declaring `[Explore]`.
 | Claude Code の仕様を引く               | `claude-code-guide`                   |
 | 様々な事例を深く調べる                 | `deep-research`                       |
 
-## Goal
+## Procedure
 
-`user` の問いに答えたら、そこで止まれ。Explore は終点になりうる。
-
-`user` が設計や実装を指示したときだけ、次へ移れ。移る前に、この session の目的を 1 行で示せ。
-
-目的の提示が合意と移行を兼ねる。会話に置くだけでよい。file に残すな。
-
-## Next phase
-
-`user` が指示したら `simplepowers-02-plan` skill へ進め。他へは進むな。
+1. library の仕様は記憶で答えず、Responsibilities の該当 tool で引け
+2. 答えたら止まれ。`user` の指示を待て
+3. `user` が設計や実装を指示したら、session の目的を 1 行で会話に示してから次へ移れ。file に残すな

@@ -7,29 +7,25 @@ description: [Plan] 実装方針を決めるときに使え。調査の後、実
 
 Start by declaring `[Plan]`.
 
-## Previous phase
+## Purpose
 
-調査を終えたか確認せよ。足りないなら `simplepowers-01-explore` skill へ戻れ。
+実装方針を 1 つに決め、`user` の承認を得る。承認が完了条件。
 
 ## Scope
 
+- 調査を終えてから適用する。足りないなら `Explore` へ戻れ
+- 承認を得るまで、code を書くな。file を作るな
 - 案を並べるな。推奨を 1 つ出せ
-- 却下した案があるなら、理由を 1 行で添えよ
-- one-way door を含むなら `user` と協議せよ。two-way door に変える設計を提示せよ
 
-## Tools
+## Responsibilities
 
 | When                       | Tools     |
 | -------------------------- | --------- |
 | 実装後に覆せない選択を含む | `@Plan`   |
 | 設計を練って提示する       | plan mode |
 
-## Goal
+## Procedure
 
-設計を 1 つ提示し、`user` の承認を得よ。
-
-承認を得るまで、code を書くな。file を作るな。`simplepowers-03-build` skill を呼ぶな。
-
-## Next phase
-
-承認が出たら `simplepowers-03-build` skill へ進め。
+1. one-way door を含むなら `user` と協議し、two-way door に変える設計を提示せよ
+2. 設計を 1 つ提示せよ。却下した案があるなら、理由を 1 行で添えよ
+3. `user` の承認を待て。承認なしに `Build` へ進むな

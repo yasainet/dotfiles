@@ -11,17 +11,16 @@ disable-model-invocation: true
 
 ## Basic Workflow
 
-| Phase     | Skill                     | Next Phase | Default |
-| --------- | ------------------------- | ---------- | ------- |
-| `Explore` | `simplepowers-01-explore` | `Plan`     | on      |
-| `Plan`    | `simplepowers-02-plan`    | `Build`    | on      |
-| `Build`   | `simplepowers-03-build`   | `Verify`   | on      |
-| `Verify`  | `simplepowers-04-verify`  | `Review`   | off     |
-| `Review`  | `simplepowers-05-review`  | `Record`   | off     |
-| `Record`  | `simplepowers-06-record`  | -          | on      |
+| Phase     | Skill                     | Next Phase |
+| --------- | ------------------------- | ---------- |
+| `Explore` | `simplepowers-01-explore` | `Plan`     |
+| `Plan`    | `simplepowers-02-plan`    | `Build`    |
+| `Build`   | `simplepowers-03-build`   | `Verify`   |
+| `Verify`  | `simplepowers-04-verify`  | `Review`   |
+| `Review`  | `simplepowers-05-review`  | `Record`   |
+| `Record`  | `simplepowers-06-record`  | -          |
 
-- `Default` は Trigger がないときの既定値だ。`on` は通る、`off` は通らない
-- `Build` と `Default: off` の Phase には自分から入るな。`go <Phase>` か明確な指示を待て
+- `Build`, `Verify`, `Review` には自分から入るな。`go <Phase>` か明確な指示を待て
 - `user` の直接の指示が最も強い。次が Trigger。次が Skill。既定の振る舞いは最も弱い
 
 ## Trigger
