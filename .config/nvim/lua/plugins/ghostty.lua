@@ -1,0 +1,6 @@
+return {
+  dir = (vim.env.GHOSTTY_RESOURCES_DIR or "") .. "/../vim/vimfiles",
+  name = "ghostty",
+  lazy = false,
+  cond = vim.env.GHOSTTY_RESOURCES_DIR ~= nil,
+}
