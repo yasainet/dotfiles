@@ -9,9 +9,13 @@ Start by declaring `[Plan]`.
 
 ## Purpose
 
-実装方針を 1 つに決め、`user` の承認を得る。承認が完了条件。
+`Explore` で合意した Goal を `Plan` として提示して、`user` が承認する。
 
 ## Scope
+
+In Scope:
+
+Out of Scope:
 
 - 調査を終えてから適用する。足りないなら `Explore` へ戻れ
 - 承認を得るまで、code を書くな。file を作るな
@@ -19,13 +23,16 @@ Start by declaring `[Plan]`.
 
 ## Responsibilities
 
-| When                       | Tools     |
-| -------------------------- | --------- |
-| 実装後に覆せない選択を含む | `@Plan`   |
-| 設計を練って提示する       | plan mode |
+| When                               | Tools   |
+| ---------------------------------- | ------- |
+| `user` が `@Plan` の指示をした場合 | `@Plan` |
 
 ## Procedure
 
 1. one-way door を含むなら `user` と協議し、two-way door に変える設計を提示せよ
 2. 設計を 1 つ提示せよ。却下した案があるなら、理由を 1 行で添えよ
 3. `user` の承認を待て。承認なしに `Build` へ進むな
+
+## References
+
+N/A
