@@ -9,7 +9,7 @@ Start by declaring `[Review]`.
 
 ## Purpose
 
-該当する review を全て掛け、指摘を潰し切る。
+`Build` して `Verify` した該当部分に `Review` を行え。
 
 ## Scope
 
@@ -18,16 +18,17 @@ Start by declaring `[Review]`.
 
 ## Responsibilities
 
-| When                   | Tools                  |
-| ---------------------- | ---------------------- |
-| ドキュメントだけ       | rules review           |
-| code を触った          | `/code-review`         |
-| 認証や外部入力を触った | `/security-review`     |
-| bug ではなく整理が目的 | `/simplify`            |
-| GitHub の PR           | `/code-review PR #<N>` |
+| When            | Tools                  |
+| --------------- | ---------------------- |
+| Only Documents  | rules review           |
+| Developments    | `/code-review`         |
+| Auth, API, etc. | `/security-review`     |
+| Code Cleanup    | `/simplify`            |
+| GitHub PR       | `/code-review PR #<N>` |
 
 ## Procedure
 
 1. Responsibilities の該当する行を全て掛けよ
 2. 指摘を潰せ。残すなら、残したと言え
 3. 直した箇所を報告して止まれ。`user` の指示を待て
+4. `Record` へ移行せよ
