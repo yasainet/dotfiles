@@ -24,6 +24,7 @@ alias mkdir='mkdir -p'
 alias cp='cp -i'
 alias mv='mv -i'
 alias cat='bat'
+alias v='nvim'
 alias vim='nvim'
 alias lazyvim='NVIM_APPNAME=lazyvim nvim'
 
