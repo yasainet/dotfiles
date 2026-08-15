@@ -9,20 +9,29 @@ Start by declaring `[Build]`.
 
 ## Purpose
 
-承認された設計を作り切る。検証はしない。
+`Plan` で承認した設計を実装する。
 
 ## Scope
 
-- `user` が実装を指示してから適用する。指示が無いなら `Plan` へ戻れ
-- 承認された設計の範囲だけを作れ。広げるな
-- 動いたと言うな。検証は `Verify` の仕事だ
+- `Plan` で承認した設計を実装せよ
+- `Plan` にはない変更がある場合は `user` に伝えて、`Explore` に戻れ
+
+## Responsibilities
+
+N/A
 
 ## Procedure
 
-1. 期待挙動を assertion として書ける変更は、`tdd.md` の手順に従え
-2. 周囲のコードに合わせよ。comment の量、命名、書き方を揃えよ
-3. 設計の穴に気付いたら、手を止めて `user` に伝えよ。黙って設計を変えるな
-4. 作ったものを列挙して止まれ。`user` の指示を待て
+Documents:
+
+1. `Plan` に従って更新せよ
+2. `Verify` へ移行せよ
+
+Developments:
+
+1. `tdd.md` の手順に従え
+2. `Plan` にはない変更がある場合は `user` に伝えて、`Explore` に戻れ
+3. `Verify` へ移行せよ
 
 ## References
 
