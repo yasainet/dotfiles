@@ -71,7 +71,7 @@
       }
     }
   },
-  "model": "llamacpp/qwen3.8-27b",
+  "model": "llamacpp/qwen3.8-27b-uncensored",
   "plugin": ["file:///Users/yasainet/.config/opencode/plugins/abc-layout.js"],
   "logLevel": "DEBUG",
   "watcher": {
