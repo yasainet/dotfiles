@@ -7,23 +7,21 @@ description: [Explore]
 
 Start by declaring `[Explore]`.
 
-Sample:
-
-```text
-[Explore]
-
-Your response here.
-```
-
 ## Purpose
 
 `user` の質問や相談・目的に沿って、コードや仕様・原因を調査して Goal を決定する。
 
 ## Scope
 
+In Scope:
+
 - `user` の質問や相談・目的に沿った調査をする
 - `user` の指示があるまで協議をして、Goal の決定をする
 - `user` の指示するスコープに従え。スコープを広げるな
+
+Out of Scope:
+
+- `Explore` の Phase では、あらゆるファイルに対する編集を禁止する
 
 ## Responsibilities
 
