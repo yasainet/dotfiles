@@ -13,13 +13,11 @@ Start by declaring `[Plan]`.
 
 ## Scope
 
-In Scope:
-
-Out of Scope:
-
-- 調査を終えてから適用する。足りないなら `Explore` へ戻れ
-- 承認を得るまで、code を書くな。file を作るな
-- 案を並べるな。推奨を 1 つ出せ
+- `Explore` で合意した Goal を `Plan` として提示せよ
+  - 変更対象が軽微である: markdown diff を利用して該当部分を提示せよ
+  - 変更対象が軽微ではない: `@Plan` を利用せよ
+- `Plan` では、あらゆるファイルに対する編集を禁止する
+  - `@Plan` では、`./.claude/plans/*.md` に書き込みせよ
 
 ## Responsibilities
 
@@ -29,9 +27,8 @@ Out of Scope:
 
 ## Procedure
 
-1. one-way door を含むなら `user` と協議し、two-way door に変える設計を提示せよ
-2. 設計を 1 つ提示せよ。却下した案があるなら、理由を 1 行で添えよ
-3. `user` の承認を待て。承認なしに `Build` へ進むな
+1. `Explore` で合意した Goal を `Plan` として提示せよ
+2. `user` が承認をした場合にのみ、`Build` へ移行せよ
 
 ## References
 
