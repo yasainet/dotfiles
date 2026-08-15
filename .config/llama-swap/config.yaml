@@ -56,3 +56,13 @@ models:
     env:
       - 'LLAMA_ARG_CHAT_TEMPLATE_KWARGS={"preserve_thinking": true}'
     ttl: 1800
+
+  "qwen3.8-27b-uncensored":
+    name: "Qwen3.8-27B-Uncensored"
+    cmd: >-
+      ${llama-server}
+      -m ${model-dir}/Qwen3.8-27B-Uncensored/Qwen3.8-27B-Uncensored-Q8_0.gguf
+      --mmproj ${model-dir}/Qwen3.8-27B-Uncensored/Qwen3.8-27B-Uncensored-vision-f16.gguf
+    env:
+      - 'LLAMA_ARG_CHAT_TEMPLATE_KWARGS={"preserve_thinking": true}'
+    ttl: 1800

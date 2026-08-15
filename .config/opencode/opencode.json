@@ -56,6 +56,17 @@
             "input": ["text", "image"],
             "output": ["text"]
           }
+        },
+        "qwen3.8-27b-uncensored": {
+          "name": "qwen3.8-27b-uncensored",
+          "limit": {
+            "context": 262144,
+            "output": 32768
+          },
+          "modalities": {
+            "input": ["text", "image"],
+            "output": ["text"]
+          }
         }
       }
     }
