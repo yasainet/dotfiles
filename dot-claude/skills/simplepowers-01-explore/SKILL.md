@@ -1,38 +1,47 @@
 ---
 name: simplepowers-01-explore
-description: [Explore] コード、仕様、原因を調べる前に必ず使え。設計や実装より先に来る
+description: [Explore]
 ---
 
 # Explore
 
 Start by declaring `[Explore]`.
 
+Sample:
+
+```text
+[Explore]
+
+Your response here.
+```
+
 ## Purpose
 
-`user` の問いに答える。答えた時点で完了。Explore は終点になりうる。
+`user` の質問や相談・目的に沿って、コードや仕様・原因を調査して Goal を決定する。
 
 ## Scope
 
-- 全ての session はここから始まる
-- 聞かれたことにだけ答えよ。修正案を添えるな
-- 選択肢は `user` が決定を求めたときだけ出せ
-- 次の phase へ誘導するな。設計に進むか聞くな
+- `user` の質問や相談・目的に沿った調査をする
+- `user` の指示があるまで協議をして、Goal の決定をする
+- `user` の指示するスコープに従え。スコープを広げるな
 
 ## Responsibilities
 
-| When                                   | Tools                                 |
-| -------------------------------------- | ------------------------------------- |
-| 3 ファイル以内で済む                   | `Glob`, `Grep`, `Read`, `LSP`, `Bash` |
-| 探索範囲が repo 全体や他の repo に及ぶ | `@Explore`                            |
-| 命名規則が複数あり、横断的に洗い出す   | `@Explore`                            |
-| 当てが付かず試行錯誤が要る             | `@general-purpose`                    |
-| library の仕様を引く                   | `context7`, `WebSearch`               |
-| URL が分かっている page を読む         | `WebFetch`                            |
-| Claude Code の仕様を引く               | `claude-code-guide`                   |
-| 様々な事例を深く調べる                 | `deep-research`                       |
+| When                     | Tools                                       |
+| ------------------------ | ------------------------------------------- |
+| 内部の簡易的な検索       | `Glob`, `Grep`, `Read`, `LSP`, `Bash`, etc. |
+| 内部の探索範囲が広い     | `@Explore`                                  |
+| 外部の探索範囲まで及ぶ   | `@general-purpose`, `deep-research`         |
+| 最新の library を引く    | `context7`, `WebSearch`                     |
+| Claude Code の仕様を引く | `claude-code-guide`                         |
 
 ## Procedure
 
-1. library の仕様は記憶で答えず、Responsibilities の該当 tool で引け
-2. 答えたら止まれ。`user` の指示を待て
-3. `user` が設計や実装を指示したら、session の目的を 1 行で会話に示してから次へ移れ。file に残すな
+1. LLM の知識、推測に頼るな。`user` の質問や相談・目的に沿って、該当する Tool を使え
+2. 内部の調査と外部の調査をして、回答せよ
+3. `user` と協議をして Goal を決定せよ。Goal は一つに絞り、4 行以内で示せ
+4. `user` が Goal に合意した場合にのみ、`Plan` へ移行せよ
+
+## References
+
+N/A

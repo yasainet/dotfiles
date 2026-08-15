@@ -1,6 +1,6 @@
 ---
 name: simplepowers-04-verify
-description: [Verify] user が検証を指示したときに使え。実装の後、レビューの前に来る
+description: [Verify]
 ---
 
 # Verify

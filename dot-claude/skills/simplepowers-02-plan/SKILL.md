@@ -1,6 +1,6 @@
 ---
 name: simplepowers-02-plan
-description: [Plan] 実装方針を決めるときに使え。調査の後、実装の前に来る
+description: [Plan]
 ---
 
 # Plan
