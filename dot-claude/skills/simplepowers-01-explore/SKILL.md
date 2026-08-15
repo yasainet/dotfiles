@@ -13,15 +13,10 @@ Start by declaring `[Explore]`.
 
 ## Scope
 
-In Scope:
-
 - `user` の質問や相談・目的に沿った調査をする
 - `user` の指示があるまで協議をして、Goal の決定をする
 - `user` の指示するスコープに従え。スコープを広げるな
-
-Out of Scope:
-
-- `Explore` の Phase では、あらゆるファイルに対する編集を禁止する
+- `Explore` では、あらゆるファイルに対する編集を禁止する
 
 ## Responsibilities
 
