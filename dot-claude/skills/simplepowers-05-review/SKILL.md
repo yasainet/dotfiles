@@ -1,6 +1,6 @@
 ---
 name: simplepowers-05-review
-description: [Review] user がレビューを指示したときに使え。検証の後、記録の前に来る
+description: [Review]
 ---
 
 # Review

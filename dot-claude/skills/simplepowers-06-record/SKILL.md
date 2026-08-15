@@ -1,6 +1,6 @@
 ---
 name: simplepowers-06-record
-description: [Record] commit や PR を残すときに使え
+description: [Record]
 allowed-tools: Bash(git *)
 ---
 

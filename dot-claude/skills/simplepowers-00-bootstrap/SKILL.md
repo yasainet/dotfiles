@@ -9,7 +9,7 @@ disable-model-invocation: true
 Simeplepowers は、Superpowers から着想を得たシンプルなワークフローである。
 
 > [!IMPORTANT]
-> All sessions must begin from `Explore`.
+> すべての回答は、必ず `Explore` から開始せよ。
 
 ## Basic Workflow
 
@@ -23,6 +23,18 @@ Simplepowers は、以下の順番に従って Phase を進める。
 | `Verify`  | `simplepowers-04-verify`  | `Review`   |
 | `Review`  | `simplepowers-05-review`  | `Record`   |
 | `Record`  | `simplepowers-06-record`  | -          |
+
+## SOP (Standard Operating Procedure)
+
+Simeplepowers は、Phase ごとに SOP を定めている。
+
+| Section          | Description            |
+| ---------------- | ---------------------- |
+| Purpose          | Phase の目的を示す     |
+| Scope            | Phase の適用範囲を示す |
+| Responsibilities | Phase の責務を示す     |
+| Procedure        | Phase の手順を示す     |
+| References       | Phase の参考情報を示す |
 
 ## Trigger
 
