@@ -54,6 +54,9 @@ models:
       ${llama-server}
       -m ${model-dir}/Qwen3.8-27B/BF16/Qwen3.8-27B-BF16-00001-of-00002.gguf
       --mmproj ${model-dir}/Qwen3.8-27B/mmproj-BF16.gguf
+      --spec-type draft-mtp
+      --spec-draft-n-max 2
+      --spec-draft-p-min 0.65
     env:
       - 'LLAMA_ARG_CHAT_TEMPLATE_KWARGS={"preserve_thinking": true}'
     ttl: 1800
@@ -64,6 +67,9 @@ models:
       ${llama-server}
       -m ${model-dir}/Qwen3.8-27B-Uncensored/Qwen3.8-27B-Uncensored-Q8_0.gguf
       --mmproj ${model-dir}/Qwen3.8-27B-Uncensored/Qwen3.8-27B-Uncensored-vision-f16.gguf
+      --spec-type draft-mtp
+      --spec-draft-n-max 2
+      --spec-draft-p-min 0.65
     env:
       - 'LLAMA_ARG_CHAT_TEMPLATE_KWARGS={"preserve_thinking": true}'
     ttl: 1800
