@@ -10,7 +10,7 @@ return {
       javascriptreact = { "prettierd" },
       typescriptreact = { "prettierd" },
       json = { "prettierd" },
-      jsonc = { "prettierd" },
+      jsonc = { "prettierd_jsonc" },
       html = { "prettierd" },
       css = { "prettierd" },
       markdown = { "prettierd" },
@@ -21,6 +21,10 @@ return {
       dockerfile = { "dockerfmt" },
     },
     formatters = {
+      prettierd_jsonc = {
+        inherit = "prettierd",
+        prepend_args = { "--trailing-comma=none" },
+      },
       shfmt_zsh = {
         inherit = "shfmt",
         prepend_args = { "-ln", "zsh" },

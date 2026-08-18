@@ -41,3 +41,14 @@
 
 [url "git@github.com:"]
 	insteadOf = https://github.com/
+
+[credential "http://localhost:3030"]
+	helper = 
+	helper = !tea login helper
+
+[includeIf "gitdir:~/ghq/localhost/"]
+	path = ~/.local/share/gitea/gitconfig
+
+[includeIf "gitdir:~/ghq/localhost:3030/"]
+	path = ~/.local/share/gitea/gitconfig
+
