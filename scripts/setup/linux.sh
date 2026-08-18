@@ -3,6 +3,7 @@
 # ====================
 # Symlinks
 # ====================
+# shellcheck disable=SC2034
 SKIP_LINKS=(
   # macOS-only apps
   hammerspoon # Hammerspoon
