@@ -6,7 +6,7 @@ macros:
     -ngl 99
     -fa on
     --parallel 1
-    --ctx-size 65536
+    --ctx-size 131072
     --cache-type-k q8_0
     --cache-type-v q8_0
     --jinja
