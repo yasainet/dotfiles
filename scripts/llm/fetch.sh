@@ -6,16 +6,6 @@
 set -e
 
 MODELS=(
-  "unsloth/Qwen3.6-35B-A3B-GGUF Qwen3.6-35B-A3B-Q8_0.gguf Qwen3.6-35B-A3B"
-  "unsloth/Qwen3.6-35B-A3B-GGUF mmproj-F16.gguf Qwen3.6-35B-A3B"
-  "HauhauCS/Qwen3.6-35B-A3B-Uncensored-HauhauCS-Aggressive Qwen3.6-35B-A3B-Uncensored-HauhauCS-Aggressive-Q8_K_P.gguf Qwen3.6-35B-A3B-Uncensored-HauhauCS-Aggressive"
-  "HauhauCS/Qwen3.6-35B-A3B-Uncensored-HauhauCS-Aggressive mmproj-Qwen3.6-35B-A3B-Uncensored-HauhauCS-Aggressive-f16.gguf Qwen3.6-35B-A3B-Uncensored-HauhauCS-Aggressive"
-  "HauhauCS/Qwen3.6-27B-Uncensored-HauhauCS-Balanced Qwen3.6-27B-Uncensored-HauhauCS-Balanced-Q8_K_P.gguf Qwen3.6-27B-Uncensored-HauhauCS-Balanced"
-  "HauhauCS/Qwen3.6-27B-Uncensored-HauhauCS-Balanced mmproj-Qwen3.6-27B-Uncensored-HauhauCS-Balanced-f16.gguf Qwen3.6-27B-Uncensored-HauhauCS-Balanced"
-  "unsloth/Qwen3.8-27B-GGUF BF16/Qwen3.8-27B-BF16-00001-of-00002.gguf Qwen3.8-27B"
-  "unsloth/Qwen3.8-27B-GGUF BF16/Qwen3.8-27B-BF16-00002-of-00002.gguf Qwen3.8-27B"
-  "unsloth/Qwen3.8-27B-GGUF mmproj-BF16.gguf Qwen3.8-27B"
-  "JonathanColetti/Qwen3.8-27B-Uncensored-GGUF Qwen3.8-27B-Uncensored-Q8_0.gguf Qwen3.8-27B-Uncensored"
   "JonathanColetti/Qwen3.8-27B-Uncensored-GGUF Qwen3.8-27B-Uncensored-Q4_K_M.gguf Qwen3.8-27B-Uncensored"
   "JonathanColetti/Qwen3.8-27B-Uncensored-GGUF Qwen3.8-27B-Uncensored-vision-f16.gguf Qwen3.8-27B-Uncensored"
 )
