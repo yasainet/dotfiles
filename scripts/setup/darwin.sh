@@ -233,8 +233,7 @@ configure_system() {
   defaults write -g AppleInterfaceStyle -string "Dark"
 
   # Hammerspoon
-  # 設定ファイルを ~/.config 配下から読む
-  defaults write org.hammerspoon.Hammerspoon MJConfigFile "~/.config/hammerspoon/init.lua"
+  defaults write org.hammerspoon.Hammerspoon MJConfigFile "$HOME/.config/hammerspoon/init.lua"
 
   # Keyboard
   # キーリピート速度
@@ -443,6 +442,7 @@ install_npm_globals() {
   echo "Installing npm global packages..."
 
   export NVM_DIR="$HOME/.nvm"
+  # shellcheck source=/dev/null
   [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 
   if ! command -v npm &>/dev/null; then
