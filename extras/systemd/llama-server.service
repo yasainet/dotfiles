@@ -1,5 +1,5 @@
 [Unit]
-Description=llama-server (Qwen3.8-27B)
+Description=llama-server
 After=network.target
 
 [Service]
