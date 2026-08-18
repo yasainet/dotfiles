@@ -16,7 +16,6 @@ MODELS=(
   "unsloth/Qwen3.8-27B-GGUF BF16/Qwen3.8-27B-BF16-00002-of-00002.gguf Qwen3.8-27B"
   "unsloth/Qwen3.8-27B-GGUF mmproj-BF16.gguf Qwen3.8-27B"
   "JonathanColetti/Qwen3.8-27B-Uncensored-GGUF Qwen3.8-27B-Uncensored-Q8_0.gguf Qwen3.8-27B-Uncensored"
-  "JonathanColetti/Qwen3.8-27B-Uncensored-GGUF Qwen3.8-27B-Uncensored-IQ4_XS.gguf Qwen3.8-27B-Uncensored"
   "JonathanColetti/Qwen3.8-27B-Uncensored-GGUF Qwen3.8-27B-Uncensored-vision-f16.gguf Qwen3.8-27B-Uncensored"
 )
 

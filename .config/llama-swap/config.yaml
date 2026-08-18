@@ -68,15 +68,3 @@ models:
       --spec-draft-p-min 0.65
     env:
       - 'LLAMA_ARG_CHAT_TEMPLATE_KWARGS={"preserve_thinking": true}'
-
-  "qwen3.8-27b-uncensored-iq4xs":
-    name: "Qwen3.8-27B-Uncensored-IQ4_XS"
-    cmd: >-
-      ${llama-server}
-      -m ${model-dir}/Qwen3.8-27B-Uncensored/Qwen3.8-27B-Uncensored-IQ4_XS.gguf
-      --mmproj ${model-dir}/Qwen3.8-27B-Uncensored/Qwen3.8-27B-Uncensored-vision-f16.gguf
-      --spec-type draft-mtp
-      --spec-draft-n-max 2
-      --spec-draft-p-min 0.65
-    env:
-      - 'LLAMA_ARG_CHAT_TEMPLATE_KWARGS={"preserve_thinking": true}'
