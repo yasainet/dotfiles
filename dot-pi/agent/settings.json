@@ -4,5 +4,10 @@
   "hideThinkingBlock": true,
   "defaultProvider": "llamacpp",
   "defaultModel": "Qwen3.8-27B-Uncensored-Q4_K_M",
-  "skills": ["~/.claude/skills"]
+  "skills": ["~/.claude/skills"],
+  "editorPaddingX": 1,
+  "defaultProjectTrust": "ask",
+  "tuiMode": "fullscreen",
+  "fullscreenExitOutput": "transcript",
+  "fullscreenScrollbar": "hidden"
 }
