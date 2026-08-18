@@ -74,8 +74,8 @@ built-in / plugin / custom の違い。
 
 | name                | use                            |
 | ------------------- | ------------------------------ |
-| `/claude-fuck`      | 直前の回答を平易に書き直す     |
-| `/claude-session`   | session id を表示する          |
+| `/agents-fuck`      | 直前の回答を平易に書き直す     |
+| `/agents-session`   | session id を表示する          |
 | `/git-bump`         | patch version tag を bump する |
 | `/git-issue`        | GitHub / Gitea に issue を作る |
 | `/supabase-migrate` | Supabase の migration を通す   |
