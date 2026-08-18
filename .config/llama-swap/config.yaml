@@ -26,7 +26,6 @@ models:
       --mmproj ${model-dir}/Qwen3.6-35B-A3B/mmproj-F16.gguf
     env:
       - 'LLAMA_ARG_CHAT_TEMPLATE_KWARGS={"preserve_thinking": true}'
-    ttl: 1800
 
   "qwen3.6-35b-a3b-hauhau-aggressive":
     name: "Qwen3.6-35B-A3B-Uncensored-HauhauCS-Aggressive"
@@ -36,7 +35,6 @@ models:
       --mmproj ${model-dir}/Qwen3.6-35B-A3B-Uncensored-HauhauCS-Aggressive/mmproj-Qwen3.6-35B-A3B-Uncensored-HauhauCS-Aggressive-f16.gguf
     env:
       - 'LLAMA_ARG_CHAT_TEMPLATE_KWARGS={"preserve_thinking": true}'
-    ttl: 1800
 
   "qwen3.6-27b-hauhau-balanced":
     name: "Qwen3.6-27B-Uncensored-HauhauCS-Balanced"
@@ -46,7 +44,6 @@ models:
       --mmproj ${model-dir}/Qwen3.6-27B-Uncensored-HauhauCS-Balanced/mmproj-Qwen3.6-27B-Uncensored-HauhauCS-Balanced-f16.gguf
     env:
       - 'LLAMA_ARG_CHAT_TEMPLATE_KWARGS={"preserve_thinking": true}'
-    ttl: 1800
 
   "qwen3.8-27b":
     name: "Qwen3.8-27B"
@@ -59,7 +56,6 @@ models:
       --spec-draft-p-min 0.65
     env:
       - 'LLAMA_ARG_CHAT_TEMPLATE_KWARGS={"preserve_thinking": true}'
-    ttl: 1800
 
   "qwen3.8-27b-uncensored":
     name: "Qwen3.8-27B-Uncensored"
@@ -72,4 +68,15 @@ models:
       --spec-draft-p-min 0.65
     env:
       - 'LLAMA_ARG_CHAT_TEMPLATE_KWARGS={"preserve_thinking": true}'
-    ttl: 1800
+
+  "qwen3.8-27b-uncensored-iq4xs":
+    name: "Qwen3.8-27B-Uncensored-IQ4_XS"
+    cmd: >-
+      ${llama-server}
+      -m ${model-dir}/Qwen3.8-27B-Uncensored/Qwen3.8-27B-Uncensored-IQ4_XS.gguf
+      --mmproj ${model-dir}/Qwen3.8-27B-Uncensored/Qwen3.8-27B-Uncensored-vision-f16.gguf
+      --spec-type draft-mtp
+      --spec-draft-n-max 2
+      --spec-draft-p-min 0.65
+    env:
+      - 'LLAMA_ARG_CHAT_TEMPLATE_KWARGS={"preserve_thinking": true}'
