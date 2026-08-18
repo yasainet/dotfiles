@@ -3,7 +3,7 @@ Description=llama-swap (LLM model proxy)
 After=network.target
 
 [Service]
-ExecStart=%h/.local/bin/llama-swap --config %h/.config/llama-swap/config.linux.yaml --listen :8080
+ExecStart=%h/.local/bin/llama-swap --config %h/.config/llama-swap/config.yaml --listen :8080
 Restart=on-failure
 RestartSec=5
 
