@@ -20,7 +20,7 @@ macros:
 healthCheckTimeout: 600
 
 models:
-  "qwen3.8-27b-uncensored":
+  "Qwen3.8-27B-Uncensored-Q4_K_M":
     name: "Qwen3.8-27B-Uncensored-Q4_K_M"
     cmd: >-
       ${llama-server}

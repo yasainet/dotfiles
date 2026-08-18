@@ -13,8 +13,8 @@
         "baseURL": "{env:LLM_URL}/v1"
       },
       "models": {
-        "qwen3.8-27b-uncensored": {
-          "name": "qwen3.8-27b-uncensored",
+        "Qwen3.8-27B-Uncensored-Q4_K_M": {
+          "name": "Qwen3.8-27B-Uncensored-Q4_K_M",
           "limit": {
             "context": 131072,
             "output": 32768
@@ -27,7 +27,7 @@
       }
     }
   },
-  "model": "llamacpp/qwen3.8-27b-uncensored",
+  "model": "llamacpp/Qwen3.8-27B-Uncensored-Q4_K_M",
   "plugin": ["file:///Users/yasainet/.config/opencode/plugins/abc-layout.js"],
   "logLevel": "DEBUG",
   "watcher": {
