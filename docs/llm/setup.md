@@ -100,6 +100,9 @@ tailnet に入り直すと IP が変わる。クライアント側の 2 箇所�
 - `.config/zsh/.zshenv` の `LLM_URL`
 - `~/.ssh/config` の `Host mbp2023` (dotfiles 管理外)
 
+`dot-pi/agent/models.json` の `baseUrl` は MagicDNS 名 (`http://queen:8080`) を
+使うため IP 変更の影響を受けない (pi は env 展開非対応のため直書きしている)。
+
 古いノードは admin console から削除する。同じ名前を再取得できる。
 
 ## 共有

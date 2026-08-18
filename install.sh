@@ -66,6 +66,7 @@ main() {
     configure_bundler
     link_espanso
     link_claude_code
+    link_pi
     configure_system
     install_mas_apps
   fi

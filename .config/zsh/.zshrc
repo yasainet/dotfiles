@@ -158,14 +158,25 @@ autoload -U promptinit
 promptinit
 prompt pure
 
-# opencode (llama-swap on queen)
-opencode() {
+# llama-swap on queen
+_ensure_llm() {
   if ! curl -sf -m2 "$LLM_URL/health" >/dev/null 2>&1; then
     ssh queen "systemctl --user start llama-swap" 2>/dev/null
     curl -sf -m2 --retry 30 --retry-delay 1 --retry-connrefused --retry-all-errors \
       "$LLM_URL/health" >/dev/null 2>&1
   fi
+}
+
+opencode() {
+  (( $+commands[opencode] )) || { echo "opencode: command not found" >&2; return 127; }
+  _ensure_llm
   command opencode "$@"
+}
+
+pi() {
+  (( $+commands[pi] )) || { echo "pi: command not found" >&2; return 127; }
+  _ensure_llm
+  command pi "$@"
 }
 
 # nvm (lazy load)

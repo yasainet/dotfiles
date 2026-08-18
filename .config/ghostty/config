@@ -54,12 +54,6 @@ mouse-hide-while-typing = true
 macos-option-as-alt = left
 
 # ==============================
-# Keybindings for Claude Code
-# ==============================
-
-keybind = shift+enter=text:\x1b\r
-
-# ==============================
 # Keybindings for herdr
 # ==============================
 
