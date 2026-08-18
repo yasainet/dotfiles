@@ -34,3 +34,6 @@
 # claude code
 .claude/plans/
 .claude/worktrees/
+
+# pi extensions
+dot-pi/agent/extensions/node_modules/
