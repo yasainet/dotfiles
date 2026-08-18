@@ -4,9 +4,10 @@ MacBook-Pro-2023 (M3 Max 128GB) を LLM 専用機として構築・運用する�
 
 ## 構成
 
-- llama-swap が :8080 で待ち受け、モデルをリクエストに応じて入れ替える
+- llama-server が :8080 で待ち受ける。モデルは 1 つ固定 (`scripts/llm/serve.sh` 参照)
 - クライアント (MacBook-Air-2026) は tailscale 経由で `$LLM_URL` に繋ぐ
-- llama-swap は LaunchAgent `com.yasainet.llama-swap` が常駐させる
+- 常駐はしない。pi の `llm-server` 拡張が起動時に start、quit 時に stop する
+  (queen で ComfyUI と VRAM を共有するため)
 
 ## Setup
 
@@ -34,7 +35,7 @@ DOTFILES_PROFILE=llm ./install.sh
 入れる物の一覧はそこにあり、`darwin.sh` の定義を上書きする。
 
 - GUI アプリ、App Store アプリ、npm globals は入れない
-- 代わりに llama.cpp、llama-swap、hf を入れる
+- 代わりに llama.cpp、hf を入れる
 - node (nvm) は入れる。小さな script を動かすため
 
 `darwin.sh` と重複する `brew install` が並ぶ。
@@ -67,8 +68,8 @@ curl -s $LLM_URL/v1/chat/completions -H "Content-Type: application/json" \
   | jq -r '.choices[0].message.content'
 ```
 
-一覧の ID は `.config/llama-swap/config.yaml` と `.config/opencode/opencode.json`
-の両方に同じものを書く。片方だけ変えると opencode からモデルを選べない。
+モデル ID は `scripts/llm/serve.sh` (`--alias` 未指定なら gguf 名) と
+`dot-pi/agent/models.json` で揃える。片方だけ変えると pi からモデルを選べない。
 
 ## 電源
 
@@ -113,7 +114,7 @@ tailnet に入り直すと IP が変わる。クライアント側の 2 箇所�
 - 相手は opencode の provider に `baseURL` を書き、mbp2023 の IP を向ける
 - 使うモデルは 1 つに揃える
 
-llama-swap は 1 モデルしか載せない。別々のモデルを選ぶと毎回入れ替えが走る。
+llama-server は 1 モデルしか載せない。
 
 ### ACL
 
@@ -142,23 +143,26 @@ tailscale debug netmap | jq -c '.PacketFilter[] | {Srcs, Dsts}'
 API key は付けていない。片方だけ止めるのは admin console の共有解除でできる。
 持ち出さないので LAN からの到達も無い。相手に設定変更を求める得が小さい。
 
-llama-swap の `/logs` と `/ui/` は 8080 上にあり、共有先から見える。
-接続元 IP、モデル名、時刻が読まれる。プロンプト本文は出ない。
+llama-server の Web UI は 8080 上にあり、共有先から見える。
 
 `-np` が既定 1 のためリクエストは直列化する。待ちが問題になったら
 `--parallel 2` を足す。`--ctx-size` が全スロットの合計になる点に注意する。
 
 ## 運用
 
+queen 上で行う。通常は pi が start/stop するため手動操作は不要。
+
 ```sh
 # 状態
-launchctl print gui/$(id -u)/com.yasainet.llama-swap
-tail -f /tmp/llama-swap.log
+systemctl --user status llama-server
+journalctl --user -u llama-server -f
 
-# 再起動 (config.yaml を変えた後)
-launchctl kickstart -k gui/$(id -u)/com.yasainet.llama-swap
+# 再起動 (serve.sh を変えた後)
+systemctl --user restart llama-server
+
+# 停止し損ねた時 (pi のクラッシュ後など)
+systemctl --user stop llama-server
 
 # 手動起動 (ログを直接見たい時)
-launchctl bootout gui/$(id -u)/com.yasainet.llama-swap
 ./scripts/llm/serve.sh
 ```
