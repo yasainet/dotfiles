@@ -423,6 +423,7 @@ link_pi() {
   echo "Linking pi config..."
   mkdir -p "$HOME/.pi/agent"
   link "$DOTFILES/dot-pi/agent/models.json" "$HOME/.pi/agent/models.json"
+  link "$DOTFILES/dot-pi/agent/extensions" "$HOME/.pi/agent/extensions"
 }
 
 # ====================
