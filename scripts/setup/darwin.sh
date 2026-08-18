@@ -417,6 +417,15 @@ link_claude_code() {
 }
 
 # ====================
+# pi
+# ====================
+link_pi() {
+  echo "Linking pi config..."
+  mkdir -p "$HOME/.pi/agent"
+  link "$DOTFILES/dot-pi/agent/models.json" "$HOME/.pi/agent/models.json"
+}
+
+# ====================
 # Bundler (Ruby)
 # ====================
 configure_bundler() {
