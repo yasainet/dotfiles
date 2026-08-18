@@ -2,7 +2,6 @@
 # yaml-language-server: $schema=https://raw.githubusercontent.com/espanso/espanso/dev/schemas/match.schema.json
 
 matches:
-  # Development
   - trigger: ";js"
     replace: "JavaScript"
   - trigger: ";ts"
@@ -39,7 +38,6 @@ matches:
     replace: "shadcn/ui"
   - trigger: ";gos"
     replace: "GrapheneOS"
-  # Date
   - trigger: ";date"
     replace: "{{d}}"
     vars:

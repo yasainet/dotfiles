@@ -31,7 +31,6 @@ body は LLM が why を辿るための記録である
 - subject と body の間に空行を 1 行入れよ
 - subject は 1 行で完結させよ
 - scope は変更したディレクトリ名を書け。複数はカンマで繋げ
-- 日本語で書け
 
 type は `add` `change` `remove` `fix` `feat` `docs` `chore` `style` `revert` から選べ
 
