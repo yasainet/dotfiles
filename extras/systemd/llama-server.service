@@ -1,0 +1,11 @@
+[Unit]
+Description=llama-server (Qwen3.8-27B)
+After=network.target
+
+[Service]
+ExecStart=%h/ghq/github.com/yasainet/dotfiles/scripts/llm/serve.sh
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=default.target
