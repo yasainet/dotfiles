@@ -1,5 +1,6 @@
 # Directories
 .zsh_sessions/
+.config/zsh/.zcompcache/
 .config/zsh/completions/
 .worktrees/
 .config/ghostty/images/
@@ -33,4 +34,3 @@
 # claude code
 .claude/plans/
 .claude/worktrees/
-dot-claude/settings.json
