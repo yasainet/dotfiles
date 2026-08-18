@@ -8,7 +8,7 @@
       "models": [
         {
           "id": "Qwen3.8-27B-Uncensored-Q4_K_M",
-          "contextWindow": 131072,
+          "contextWindow": 204800,
           "maxTokens": 32768,
           "input": ["text", "image"]
         }

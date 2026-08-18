@@ -1,6 +1,6 @@
 ---
 name: simplepowers-00-bootstrap
-description: [Bootstrap] Simplepowers workflow
+description: "[Bootstrap] Simplepowers workflow"
 disable-model-invocation: true
 ---
 

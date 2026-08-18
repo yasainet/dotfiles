@@ -1,0 +1,8 @@
+{
+  "lastChangelogVersion": "0.84.2",
+  "theme": "dark",
+  "hideThinkingBlock": true,
+  "defaultProvider": "llamacpp",
+  "defaultModel": "Qwen3.8-27B-Uncensored-Q4_K_M",
+  "skills": ["~/.claude/skills"]
+}

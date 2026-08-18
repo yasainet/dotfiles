@@ -1,6 +1,6 @@
 ---
 name: simplepowers-03-build
-description: [Build]
+description: Build
 ---
 
 # Build

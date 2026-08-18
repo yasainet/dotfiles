@@ -1,6 +1,6 @@
 ---
 name: simplepowers-01-explore
-description: [Explore]
+description: Explore
 ---
 
 # Explore
