@@ -16,12 +16,6 @@
 .config/gh/hosts.yml
 .config/btop/btop.log
 
-# opencode
-.config/opencode/node_modules/
-.config/opencode/package.json
-.config/opencode/package-lock.json
-.config/opencode/bun.lock
-
 # hunk
 .config/hunk/state.json
 

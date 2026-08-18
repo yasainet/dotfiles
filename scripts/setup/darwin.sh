@@ -97,9 +97,6 @@ install_cli_tools() {
   # RunPod
   brew install runpod/runpodctl/runpodctl
 
-  # opencode
-  brew install anomalyco/tap/opencode
-
   # Git Credential Manager
   brew install --cask git-credential-manager
 

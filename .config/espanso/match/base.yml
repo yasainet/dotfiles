@@ -31,8 +31,6 @@ matches:
     replace: "Cloudflare"
   - trigger: ";cc"
     replace: "Claude Code"
-  - trigger: ";oc"
-    replace: "OpenCode"
   - trigger: ";hf"
     replace: "Hugging Face"
   - trigger: ";cui"
