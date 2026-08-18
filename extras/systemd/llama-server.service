@@ -6,6 +6,3 @@ After=network.target
 ExecStart=%h/ghq/github.com/yasainet/dotfiles/scripts/llm/serve.sh
 Restart=on-failure
 RestartSec=5
-
-[Install]
-WantedBy=default.target
