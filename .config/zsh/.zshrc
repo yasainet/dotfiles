@@ -118,6 +118,16 @@ else
   [[ -d $HOME/.local/share/zsh/plugins/zsh-completions/src ]] && fpath+=($HOME/.local/share/zsh/plugins/zsh-completions/src)
 fi
 
+# Generated completions
+mkdir -p "$ZDOTDIR/completions"
+for _tool in docker supabase; do
+  if command -v "$_tool" &>/dev/null && [[ ! -f "$ZDOTDIR/completions/_$_tool" ]]; then
+    "$_tool" completion zsh >"$ZDOTDIR/completions/_$_tool"
+  fi
+done
+unset _tool
+fpath=("$ZDOTDIR/completions" $fpath)
+
 # compinit
 autoload -Uz compinit
 ZSH_COMPDUMP="${ZDOTDIR}/.zcompdump"
@@ -137,13 +147,6 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 else
   [[ -f /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]] && source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
   [[ -f /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]] && source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-fi
-
-# Docker
-if command -v docker &>/dev/null; then
-  mkdir -p "$ZDOTDIR/completions"
-  [[ ! -f "$ZDOTDIR/completions/_docker" ]] && docker completion zsh >"$ZDOTDIR/completions/_docker"
-  fpath=("$ZDOTDIR/completions" $fpath)
 fi
 
 # Prompt: Pure
