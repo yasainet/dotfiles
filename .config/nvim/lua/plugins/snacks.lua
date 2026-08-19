@@ -151,6 +151,7 @@ return {
     image = { enabled = true },
     indent = {
       enabled = true,
+      animate = { enabled = false },
       scope = { enabled = true },
     },
     notifier = { enabled = true },
