@@ -219,5 +219,14 @@ return {
       end
       return icon(name, cat, o)
     end
+    -- explorer
+    vim.api.nvim_create_autocmd("FocusGained", {
+      group = vim.api.nvim_create_augroup("snacks_explorer_refresh", { clear = true }),
+      callback = function()
+        for _, picker in ipairs(Snacks.picker.get({ source = "explorer" })) do
+          picker:action("explorer_update")
+        end
+      end,
+    })
   end,
 }
