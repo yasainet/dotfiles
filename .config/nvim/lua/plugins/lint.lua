@@ -45,9 +45,15 @@ return {
       ["yaml.ghaction"] = { "actionlint" },
     }
 
-    vim.api.nvim_create_autocmd({ "BufWritePost" }, {
-      callback = function()
-        lint.try_lint()
+    -- FileChangedShellPost
+    vim.api.nvim_create_autocmd({ "BufReadPost", "BufWritePost", "FileChangedShellPost" }, {
+      group = vim.api.nvim_create_augroup("lint", { clear = true }),
+      callback = function(args)
+        if vim.api.nvim_buf_is_valid(args.buf) then
+          vim.api.nvim_buf_call(args.buf, function()
+            lint.try_lint()
+          end)
+        end
       end,
     })
   end,

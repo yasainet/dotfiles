@@ -5,7 +5,7 @@ hs.autoLaunch(true)
 
 require("window")
 require("ime")
-require("space")
+-- require("space")
 
 ConfigWatcher = hs.pathwatcher.new(hs.fs.pathToAbsolute(hs.configdir), hs.reload):start()
 hs.alert.show("Hammerspoon: config loaded")
