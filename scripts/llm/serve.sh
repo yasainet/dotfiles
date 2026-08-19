@@ -17,7 +17,7 @@ export LLAMA_ARG_CHAT_TEMPLATE_KWARGS='{"preserve_thinking": true, "reasoning_ef
 exec "$HOME/.local/bin/llama-server" \
   -m "$MODEL_DIR/Qwen3.8-27B-Uncensored-Q4_K_M.gguf" \
   --alias "Qwen3.8-27B-Uncensored-Q4_K_M" \
-  --mmproj "$MODEL_DIR/Qwen3.8-27B-Uncensored-vision-f16.gguf" \
+  --mmproj "$MODEL_DIR/mmproj-Qwen3.8-27B-Uncensored-f16.gguf" \
   --host 0.0.0.0 \
   --port 8080 \
   -ngl 99 \
