@@ -8,5 +8,6 @@
   "skills": ["~/.claude/skills"],
   "editorPaddingX": 1,
   "defaultProjectTrust": "ask",
-  "tuiMode": "regular"
+  "tuiMode": "regular",
+  "packages": ["npm:pi-web-access"]
 }
