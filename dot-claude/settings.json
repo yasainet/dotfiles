@@ -10,7 +10,10 @@
     "CLAUDE_CODE_DISABLE_ALTERNATE_SCREEN": "1"
   },
   "permissions": {
-    "allow": ["Read(//Users/yasainet/ghq/**)", "Bash(trash:*)"],
+    "allow": [
+      "Read(//Users/yasainet/ghq/**)",
+      "Bash(trash:*)"
+    ],
     "deny": [
       "Bash(rm:*)",
       "Bash(sudo rm:*)",
@@ -27,7 +30,7 @@
     ],
     "defaultMode": "auto"
   },
-  "model": "claude-fable-5[1m]",
+  "model": "sonnet",
   "fallbackModel": [],
   "enableAllProjectMcpServers": true,
   "hooks": {
@@ -70,6 +73,16 @@
           {
             "type": "command",
             "command": "bash ~/ghq/github.com/yasainet/dotfiles/dot-claude/hooks/simplepowers.sh",
+            "timeout": 10
+          }
+        ]
+      },
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash '/Users/yasainet/.claude/hooks/herdr-agent-state.sh' session",
             "timeout": 10
           }
         ]
