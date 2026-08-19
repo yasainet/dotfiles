@@ -8,6 +8,8 @@ return {
       keywords = { italic = false },
     },
     on_highlights = function(hl, c)
+      -- snacks indent scope
+      hl.SnacksIndentScope = { fg = c.dark3, nocombine = true }
       -- snacks picker
       hl.FloatBorder = { bg = c.bg_float, fg = "#589ED7" }
       -- snacks explorer

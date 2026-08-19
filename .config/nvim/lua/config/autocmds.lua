@@ -38,3 +38,14 @@ vim.api.nvim_create_autocmd({ "BufEnter", "FocusGained" }, {
     end
   end,
 })
+
+-- ESLint autofix on save
+vim.api.nvim_create_autocmd("BufWritePre", {
+  group = vim.api.nvim_create_augroup("eslint_fix", { clear = true }),
+  callback = function(args)
+    local clients = vim.lsp.get_clients({ bufnr = args.buf, name = "eslint" })
+    if #clients > 0 then
+      vim.cmd("LspEslintFixAll")
+    end
+  end,
+})
