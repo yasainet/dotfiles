@@ -1,6 +1,6 @@
 {
   "providers": {
-    "llamacpp-mbp2023": {
+    "llamacpp": {
       "name": "llama.cpp",
       "baseUrl": "http://macbook-pro-2023:8080/v1",
       "api": "openai-completions",
