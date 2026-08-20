@@ -10,10 +10,7 @@
     "CLAUDE_CODE_DISABLE_ALTERNATE_SCREEN": "1"
   },
   "permissions": {
-    "allow": [
-      "Read(//Users/yasainet/ghq/**)",
-      "Bash(trash:*)"
-    ],
+    "allow": ["Read(//Users/yasainet/ghq/**)", "Bash(trash:*)"],
     "deny": [
       "Bash(rm:*)",
       "Bash(sudo rm:*)",
@@ -30,7 +27,7 @@
     ],
     "defaultMode": "auto"
   },
-  "model": "sonnet",
+  "model": "claude-fable-5[1m]",
   "fallbackModel": [],
   "enableAllProjectMcpServers": true,
   "hooks": {
