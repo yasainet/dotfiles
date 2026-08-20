@@ -1,14 +1,14 @@
 {
   "providers": {
-    "llamacpp": {
+    "llamacpp-mbp2023": {
       "name": "llama.cpp",
-      "baseUrl": "http://queen:8080/v1",
+      "baseUrl": "http://macbook-pro-2023:8080/v1",
       "api": "openai-completions",
       "apiKey": "dummy",
       "models": [
         {
-          "id": "Qwen3.8-27B-Uncensored-Q4_K_M",
-          "contextWindow": 204800,
+          "id": "Qwen3.8-27B-Uncensored-Q8_0",
+          "contextWindow": 262144,
           "maxTokens": 32768,
           "input": ["text", "image"]
         }
