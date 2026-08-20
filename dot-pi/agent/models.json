@@ -2,7 +2,7 @@
   "providers": {
     "llamacpp": {
       "name": "llama.cpp",
-      "baseUrl": "http://macbook-pro-2023:8080/v1",
+      "baseUrl": "http://100.68.179.125:8080/v1",
       "api": "openai-completions",
       "apiKey": "dummy",
       "models": [
