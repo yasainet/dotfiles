@@ -2,10 +2,15 @@
 #
 # Usage:
 # - ./scripts/llm/serve.sh    # llama-server を :8080 で起動
+#
 
 set -e
 
 MODEL_DIR="$HOME/models/Qwen3.8-27B-Uncensored"
+QUANT="${LLM_QUANT:-Q8_0}"
+CTX_SIZE="${LLM_CTX_SIZE:-262144}"
+CACHE_TYPE="${LLM_CACHE_TYPE:-f16}"
+HOST="${LLM_HOST:-127.0.0.1}"
 
 if ! command -v "$HOME/.local/bin/llama-server" &>/dev/null; then
   echo "llama-server not found. Run DOTFILES_PROFILE=llm ./install.sh first."
@@ -15,17 +20,19 @@ fi
 export LLAMA_ARG_CHAT_TEMPLATE_KWARGS='{"preserve_thinking": true, "reasoning_effort": "medium"}'
 
 exec "$HOME/.local/bin/llama-server" \
-  -m "$MODEL_DIR/Qwen3.8-27B-Uncensored-Q4_K_M.gguf" \
-  --alias "Qwen3.8-27B-Uncensored-Q4_K_M" \
+  -m "$MODEL_DIR/Qwen3.8-27B-Uncensored-${QUANT}.gguf" \
+  --alias "Qwen3.8-27B-Uncensored-${QUANT}" \
   --mmproj "$MODEL_DIR/mmproj-Qwen3.8-27B-Uncensored-f16.gguf" \
-  --host 0.0.0.0 \
+  --host "$HOST" \
   --port 8080 \
   -ngl 99 \
   -fa on \
   --parallel 1 \
-  --ctx-size 204800 \
-  --cache-type-k q4_0 \
-  --cache-type-v q4_0 \
+  --ctx-size "$CTX_SIZE" \
+  --cache-type-k "$CACHE_TYPE" \
+  --cache-type-v "$CACHE_TYPE" \
+  --load-mode mlock \
+  -ub 2048 \
   --jinja \
   --temp 0.6 \
   --top-p 0.95 \

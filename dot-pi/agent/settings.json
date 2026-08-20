@@ -3,11 +3,15 @@
   "theme": "dark",
   "quietStartup": true,
   "hideThinkingBlock": true,
-  "defaultProvider": "llamacpp",
-  "defaultModel": "Qwen3.8-27B-Uncensored-Q4_K_M",
-  "skills": ["~/.claude/skills"],
+  "defaultProvider": "llamacpp-mbp2023",
+  "defaultModel": "Qwen3.8-27B-Uncensored-Q8_0",
+  "skills": [
+    "~/.claude/skills"
+  ],
   "editorPaddingX": 1,
   "defaultProjectTrust": "ask",
   "tuiMode": "regular",
-  "packages": ["npm:pi-web-access"]
+  "packages": [
+    "npm:pi-web-access"
+  ]
 }

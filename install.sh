@@ -37,8 +37,8 @@ Linux)
 esac
 
 if [ "$DOTFILES_PROFILE" = "llm" ]; then
-  if [ "$OS" != "Linux" ]; then
-    echo "Profile llm is Linux only (NVIDIA GPU host)"
+  if [ "$OS" != "Darwin" ]; then
+    echo "Profile llm is macOS only (Metal host)"
     exit 1
   fi
   source "$DOTFILES/scripts/setup/llm.sh"

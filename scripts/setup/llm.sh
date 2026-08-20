@@ -1,12 +1,12 @@
 #!/bin/bash
 #
-# LLM host profile (Linux / NVIDIA GPU).
+# LLM host profile (macOS / Metal).
 #
 
 LLAMA_CPP_VER="b10472"
 
 # ====================
-# llama.cpp (CUDA build)
+# llama.cpp (Metal build)
 # ====================
 build_llama_cpp() {
   if [ -x "$HOME/.local/bin/llama-server" ]; then
@@ -14,42 +14,27 @@ build_llama_cpp() {
     return
   fi
 
-  command -v nvcc >/dev/null 2>&1 || sudo apt-get install -y nvidia-cuda-toolkit
-  command -v cmake >/dev/null 2>&1 || sudo apt-get install -y cmake
+  command -v cmake >/dev/null 2>&1 || brew install cmake
 
   rm -rf "$HOME/llama.cpp-build"
   git clone -q --depth 1 -b "$LLAMA_CPP_VER" \
     https://github.com/ggml-org/llama.cpp "$HOME/llama.cpp-build"
 
   cmake -S "$HOME/llama.cpp-build" -B "$HOME/llama.cpp-build/build" \
-    -DGGML_CUDA=ON -DCMAKE_BUILD_TYPE=Release -DLLAMA_CURL=OFF
-  cmake --build "$HOME/llama.cpp-build/build" --target llama-server -j "$(nproc)"
+    -DGGML_METAL=ON -DCMAKE_BUILD_TYPE=Release -DLLAMA_CURL=OFF
+  cmake --build "$HOME/llama.cpp-build/build" --target llama-server -j "$(sysctl -n hw.ncpu)"
 
   mkdir -p "$HOME/.local/bin"
   cp "$HOME/llama.cpp-build/build/bin/llama-server" "$HOME/.local/bin/"
-  echo "  [build] llama-server ${LLAMA_CPP_VER} (CUDA)"
-}
-
-# ====================
-# systemd user service
-# ====================
-link_llama_server_service() {
-  echo "Installing llama-server systemd user service..."
-
-  mkdir -p "$HOME/.config/systemd/user"
-  ln -sfn "$DOTFILES/extras/systemd/llama-server.service" \
-    "$HOME/.config/systemd/user/llama-server.service"
-
-  systemctl --user daemon-reload
-  loginctl enable-linger "$USER"
-  echo "  [done] llama-server.service"
+  echo "  [build] llama-server ${LLAMA_CPP_VER} (Metal)"
 }
 
 setup_profile() {
-  echo "Configuring LLM host (Linux/CUDA)..."
+  echo "Configuring LLM host (macOS/Metal)..."
   build_llama_cpp
-  link_llama_server_service
 
   echo ""
   echo "  models: ./scripts/llm/fetch.sh で取得する"
+  echo "  serve: ./scripts/llm/serve.sh で起動する"
+  echo "  expose: tailscale serve --bg --tcp=8080 tcp://127.0.0.1:8080 で tailnet へ公開する"
 }
