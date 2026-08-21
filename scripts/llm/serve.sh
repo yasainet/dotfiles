@@ -32,7 +32,9 @@ exec "$HOME/.local/bin/llama-server" \
   --cache-type-k "$CACHE_TYPE" \
   --cache-type-v "$CACHE_TYPE" \
   --load-mode mlock \
-  -ub 2048 \
+  -b 4096 \
+  -ub 4096 \
+  --metrics \
   --jinja \
   --temp 0.6 \
   --top-p 0.95 \
