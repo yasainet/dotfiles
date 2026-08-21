@@ -243,6 +243,10 @@ configure_system() {
   defaults write -g InitialKeyRepeat -int 15
   # 長押しアクセント入力を無効化しキーリピートを優先
   defaults write -g ApplePressAndHoldEnabled -bool false
+  # スペルの自動修正 OFF
+  defaults write -g NSAutomaticSpellingCorrectionEnabled -bool false
+  # 単語の自動大文字化 OFF
+  defaults write -g NSAutomaticCapitalizationEnabled -bool false
 
   # plutil
   killall cfprefsd 2>/dev/null || true
