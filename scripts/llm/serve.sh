@@ -40,7 +40,7 @@ exec "$HOME/.local/bin/llama-server" \
   --top-p 0.95 \
   --top-k 20 \
   --min-p 0 \
-  --presence-penalty 1.5 \
+  --presence-penalty 0.5 \
   --repeat-penalty 1.0 \
   --spec-type draft-mtp \
   --spec-draft-n-max 4 \
