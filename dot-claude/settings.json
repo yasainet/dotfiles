@@ -97,7 +97,6 @@
     "context7@claude-plugins-official": true,
     "commit-commands@claude-plugins-official": true
   },
-  "outputStyle": "concise",
   "language": "Japanese",
   "effortLevel": "high",
   "autoUpdatesChannel": "latest",
