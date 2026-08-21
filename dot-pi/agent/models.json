@@ -1,5 +1,18 @@
 {
   "providers": {
+    "openrouter": {
+      "models": [
+        {
+          "id": "stealth/ox-alpha",
+          "name": "Ox Alpha (stealth)",
+          "reasoning": true,
+          "input": ["text", "image"],
+          "contextWindow": 1048576,
+          "maxTokens": 131072,
+          "cost": { "input": 0, "output": 0, "cacheRead": 0, "cacheWrite": 0 }
+        }
+      ]
+    },
     "llamacpp": {
       "name": "llama.cpp",
       "baseUrl": "http://100.68.179.125:8080/v1",
