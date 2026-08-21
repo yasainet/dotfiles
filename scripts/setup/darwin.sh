@@ -81,6 +81,7 @@ install_cli_tools() {
   brew install hunk
   brew install gallery-dl
   brew install libpq
+  brew install rainfrog
   brew install librsvg
   brew install mysql-client
 
