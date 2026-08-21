@@ -125,7 +125,6 @@ description = "yazi"
 [[keys.command]]
 key = "prefix+ctrl+d"
 type = "popup"
-# NOTE: zsh -c 経由で .zshenv の RAINFROG_CONFIG を渡す
 command = "zsh -c rainfrog"
 description = "rainfrog"
 width = "100%"
