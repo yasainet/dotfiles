@@ -1,5 +1,3 @@
-[settings]
-
 [db]
-supabase = { host = "127.0.0.1", driver = "postgres", port = 54322, database = "postgres", username = "postgres", default = true }
+supabase = { host = "127.0.0.1", driver = "postgres", port = 54322, database = "postgres", username = "postgres" }
 ehdb = { host = "127.0.0.1", driver = "postgres", port = 5432, database = "ehentai_db", username = "ehdb" }
