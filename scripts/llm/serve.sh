@@ -43,6 +43,6 @@ exec "$HOME/.local/bin/llama-server" \
   --presence-penalty 1.5 \
   --repeat-penalty 1.0 \
   --spec-type draft-mtp \
-  --spec-draft-n-max 2 \
-  --spec-draft-p-min 0.65 \
+  --spec-draft-n-max 4 \
+  --spec-draft-p-min 0.5 \
   "$@"
