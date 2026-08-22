@@ -41,10 +41,101 @@ paths:
 
 ## Declarative database schemas / 宣言的データベーススキーマ
 
-[Declarative database schema](https://supabase.com/docs/guides/local-development/declarative-database-schemas) を利用せよ。
+Declarative database schema を利用せよ。
 
 1. 宣言: `supabase/schemas/<schema>/<NN>_<name>.sql` に宣言せよ
    - 拡張は `supabase/schemas/_cluster/extensions/<extension>.sql`
 2. 生成: `supabase db schema declarative sync --name <name> --apply` で生成せよ
 3. 型生成: `supabase gen types typescript --local > src/lib/supabase/types.ts` を生成せよ
 4. 反映: `supabase db push` で反映せよ
+
+## Schema Template
+
+`supabase/schemas/<schema>/<NN>_<name>.sql` は、以下の雛形に従え。
+
+```sql
+-- Types
+create type public.user_gender as enum('male', 'female');
+
+-- Table
+create table public.users (
+  id uuid primary key references auth.users (id) on delete cascade,
+  username text not null unique,
+  avatar_path text,
+  gender public.user_gender,
+  created_at timestamp with time zone not null default now(),
+  updated_at timestamp with time zone not null default now(),
+  deleted_at timestamp with time zone
+);
+
+-- Index
+create index users_created_at_idx on public.users (created_at desc);
+
+-- Function
+create function public.handle_updated_at()
+returns trigger
+language plpgsql
+security definer
+set search_path = ''
+as $$
+begin
+  new.updated_at = now();
+  return new;
+end;
+$$;
+
+-- Trigger
+create trigger users_handle_updated_at
+  before update on public.users
+  for each row
+  execute function public.handle_updated_at();
+
+-- RLS
+alter table public.users enable row level security;
+
+-- RLS for anon
+create policy "Users are viewable by everyone" on public.users
+  for select to anon
+  using (true);
+
+create policy "Anon users cannot insert users" on public.users
+  for insert to anon
+  with check (false);
+
+create policy "Anon users cannot update users" on public.users
+  for update to anon
+  using (false);
+
+create policy "Anon users cannot delete users" on public.users
+  for delete to anon
+  using (false);
+
+-- RLS for authenticated
+create policy "Users are viewable by authenticated users" on public.users
+  for select to authenticated
+  using (true);
+
+create policy "Users can insert their own profile" on public.users
+  for insert to authenticated
+  with check ((select auth.uid()) = id);
+
+create policy "Users can update their own profile" on public.users
+  for update to authenticated
+  using ((select auth.uid()) = id)
+  with check ((select auth.uid()) = id);
+
+create policy "Users can delete their own profile" on public.users
+  for delete to authenticated
+  using ((select auth.uid()) = id);
+
+-- GRANT
+grant select on table public.users to anon;
+grant select, insert, update, delete on table public.users to authenticated;
+grant all on table public.users to service_role;
+```
+
+## References
+
+- [Declarative database schemas](https://supabase.com/docs/guides/local-development/declarative-database-schemas)
+- [Securing your Data API](https://supabase.com/docs/guides/api/securing-your-api)
+- [Database: Create RLS policies](https://github.com/supabase/supabase/blob/master/examples/prompts/database-rls-policies.md)
