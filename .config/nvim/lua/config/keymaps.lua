@@ -24,5 +24,6 @@ end, { desc = "Yank full path" })
 -- Quit
 vim.keymap.set({ "n", "x" }, "<leader>qq", "<Cmd>qa!<CR>", { desc = "Quit all (force)" })
 
--- lazy.nvim
-vim.keymap.set("n", "<leader>l", "<Cmd>Lazy<CR>", { desc = "Lazy" })
+-- LSP
+vim.keymap.set("n", "<leader>lr", "<Cmd>lsp restart<CR>", { desc = "Restart LSP" })
+vim.keymap.set("n", "<leader>li", "<Cmd>checkhealth vim.lsp<CR>", { desc = "LSP Info" })
