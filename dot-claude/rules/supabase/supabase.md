@@ -48,6 +48,8 @@ Declarative database schema を利用せよ。
 2. 生成: `supabase db schema declarative sync --name <name> --apply` で生成せよ
 3. 型生成: `supabase gen types typescript --local > src/lib/supabase/types.ts` を生成せよ
 4. 反映: `supabase db push` で反映せよ
+   - develop: `supabase db push --local`
+   - prod: `supabase db push --linked`
 
 ## Schema Template
 
