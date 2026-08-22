@@ -55,7 +55,21 @@ Declarative database schema を利用せよ。
 
 `supabase/schemas/<schema>/<NN>_<name>.sql` は、以下の雛形に従え。
 
-```sql
+```sql 00_common.sql
+-- Function
+create function public.update_updated_at_column()
+returns trigger
+language plpgsql
+set search_path to ''
+as $function$
+begin
+  new.updated_at = now();
+  return new;
+end;
+$function$;
+```
+
+```sql 01_users.sql
 -- Types
 create type public.user_gender as enum('male', 'female');
 
@@ -74,23 +88,20 @@ create table public.users (
 create index users_created_at_idx on public.users (created_at desc);
 
 -- Function
-create function public.handle_updated_at()
-returns trigger
+create function public.soft_delete_user()
+returns void
 language plpgsql
-security definer
-set search_path = ''
+set search_path to ''
 as $$
 begin
-  new.updated_at = now();
-  return new;
+  update public.users
+  set deleted_at = now()
+  where id = (select auth.uid());
 end;
 $$;
 
 -- Trigger
-create trigger users_handle_updated_at
-  before update on public.users
-  for each row
-  execute function public.handle_updated_at();
+create trigger users_update_updated_at before update on public.users for each row execute function public.update_updated_at_column();
 
 -- RLS
 alter table public.users enable row level security;
@@ -98,7 +109,7 @@ alter table public.users enable row level security;
 -- RLS for anon
 create policy "Users are viewable by everyone" on public.users
   for select to anon
-  using (true);
+  using (deleted_at is null);
 
 create policy "Anon users cannot insert users" on public.users
   for insert to anon
@@ -115,7 +126,7 @@ create policy "Anon users cannot delete users" on public.users
 -- RLS for authenticated
 create policy "Users are viewable by authenticated users" on public.users
   for select to authenticated
-  using (true);
+  using (deleted_at is null);
 
 create policy "Users can insert their own profile" on public.users
   for insert to authenticated
@@ -126,14 +137,15 @@ create policy "Users can update their own profile" on public.users
   using ((select auth.uid()) = id)
   with check ((select auth.uid()) = id);
 
-create policy "Users can delete their own profile" on public.users
+create policy "Authenticated users cannot delete users" on public.users
   for delete to authenticated
-  using ((select auth.uid()) = id);
+  using (false);
 
 -- GRANT
 grant select on table public.users to anon;
-grant select, insert, update, delete on table public.users to authenticated;
+grant select, insert, update on table public.users to authenticated;
 grant all on table public.users to service_role;
+grant execute on function public.soft_delete_user() to authenticated;
 ```
 
 ## References
