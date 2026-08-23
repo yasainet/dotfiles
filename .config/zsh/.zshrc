@@ -96,6 +96,9 @@ export LESSHISTFILE=-
 # psql
 export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 
+# adb (android-commandlinetools)
+export PATH="/opt/homebrew/share/android-commandlinetools/platform-tools:$PATH"
+
 # .zsh history
 export HISTFILE="$ZDOTDIR/.zsh_history"
 export ZSH_SESSION_DIR="$ZDOTDIR/.zsh_sessions"

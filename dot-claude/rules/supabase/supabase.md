@@ -148,8 +148,47 @@ grant all on table public.users to service_role;
 grant execute on function public.soft_delete_user() to authenticated;
 ```
 
+## View Template
+
+`supabase/schemas/<schema>/<NN>_<name>.sql` (view) は、以下の雛形に従え。
+
+```sql <NN>_<name>.sql
+create view public.<name>
+with (security_invoker = true) as
+select ...;
+
+grant SELECT on table public.<name> to anon, authenticated;
+grant all on table public.<name> to service_role;
+```
+
+- app が読む view を追加したら `src/lib/supabase/database.ts` の override に追記せよ
+- app は `Database` を `types.ts` からではなく `database.ts` から import せよ
+- type-fest の MergeDeep で上書きせよ
+
+```ts src/lib/supabase/database.ts
+import type { MergeDeep } from "type-fest";
+
+import type { Database as DatabaseGenerated } from "./types";
+
+export type Database = MergeDeep<
+  DatabaseGenerated,
+  {
+    public: {
+      Views: {
+        <view_name>: {
+          Row: {
+            // view の実際の型
+          };
+        };
+      };
+    };
+  }
+>;
+```
+
 ## References
 
 - [Declarative database schemas](https://supabase.com/docs/guides/local-development/declarative-database-schemas)
 - [Securing your Data API](https://supabase.com/docs/guides/api/securing-your-api)
 - [Database: Create RLS policies](https://github.com/supabase/supabase/blob/master/examples/prompts/database-rls-policies.md)
+- [Generating TypeScript Types](https://supabase.com/docs/guides/api/rest/generating-types)

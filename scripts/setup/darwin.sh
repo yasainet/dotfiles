@@ -84,6 +84,7 @@ install_cli_tools() {
   brew install rainfrog
   brew install librsvg
   brew install mysql-client
+  brew install scrcpy
 
   # Terraform
   brew install hashicorp/tap/terraform
