@@ -124,14 +124,6 @@ command = "yazi"
 description = "yazi"
 
 [[keys.command]]
-key = "prefix+ctrl+d"
-type = "popup"
-command = "zsh -c rainfrog"
-description = "rainfrog"
-width = "100%"
-height = "100%"
-
-[[keys.command]]
 key = "prefix+ctrl+o"
 type = "popup"
 command = "nvim -c \"Octo issue list\""

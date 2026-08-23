@@ -71,6 +71,7 @@ rm() {
   trash "${files[@]}"
 }
 
+# ghq fzf
 pj() {
   local repo dir
   repo=$(ghq list | fzf --height 40% --reverse --border --prompt='Repo> ') || return
@@ -78,6 +79,7 @@ pj() {
   cd "$dir"
 }
 
+# yazi
 y() {
   local tmp cwd
   tmp="$(mktemp -t yazi-cwd.XXXXXX)"
@@ -96,7 +98,7 @@ export LESSHISTFILE=-
 # psql
 export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 
-# adb (android-commandlinetools)
+# adb
 export PATH="/opt/homebrew/share/android-commandlinetools/platform-tools:$PATH"
 
 # .zsh history
@@ -216,7 +218,10 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
   eval "$(direnv hook zsh)"
 fi
 
-# mise (Ruby etc.)
+# mise
 if [[ "$OSTYPE" == "darwin"* ]] && command -v mise &>/dev/null; then
   eval "$(mise activate zsh)"
 fi
+
+# Local (not tracked)
+[ -f "$ZDOTDIR/.zshrc.local" ] && source "$ZDOTDIR/.zshrc.local"
