@@ -50,6 +50,7 @@ Declarative database schema を利用せよ。
 4. 反映: `supabase db push` で反映せよ
    - develop: `supabase db push --local`
    - prod: `supabase db push --linked`
+5. 更新: `supabase/schemas/.pgdelta-export.json` を更新せよ
 
 ## Schema Template
 
