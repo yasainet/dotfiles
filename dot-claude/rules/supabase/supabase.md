@@ -45,12 +45,12 @@ Declarative database schema を利用せよ。
 
 1. 宣言: `supabase/schemas/<schema>/<NN>_<name>.sql` に宣言せよ
    - 拡張は `supabase/schemas/_cluster/extensions/<extension>.sql`
+   - 新規ファイルは `supabase/schemas/.pgdelta-export.json` の `files` 配列にパスを追記せよ（`declarative generate` で再生成するな。手書きの SQL が上書きされる）
 2. 生成: `supabase db schema declarative sync --name <name> --apply` で生成せよ
 3. 型生成: `supabase gen types typescript --local > src/lib/supabase/types.ts` を生成せよ
 4. 反映: `supabase db push` で反映せよ
    - develop: `supabase db push --local`
    - prod: `supabase db push --linked`
-5. 更新: `supabase/schemas/.pgdelta-export.json` を更新せよ
 
 ## Schema Template
 
@@ -178,7 +178,8 @@ export type Database = MergeDeep<
       Views: {
         <view_name>: {
           Row: {
-            // view の実際の型
+            // gen types は view の全列を nullable にする。
+            // 実際は NOT NULL の列だけを書け。全列を書き写すな（MergeDeep は deep merge）
           };
         };
       };
