@@ -85,6 +85,10 @@ install_cli_tools() {
   brew install mysql-client
   brew install scrcpy
 
+  # adb
+  brew install --cask android-commandlinetools
+  sdkmanager --install "platform-tools"
+
   # Terraform
   brew install hashicorp/tap/terraform
 
