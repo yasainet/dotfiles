@@ -123,7 +123,7 @@ autoload -Uz compinit
 ZSH_COMPDUMP="${ZDOTDIR}/.zcompdump"
 _compinit_flags=(-d "$ZSH_COMPDUMP")
 [[ "$OSTYPE" == "darwin"* ]] && _compinit_flags+=(-u)
-if [[ -n "$ZSH_COMPDUMP"(#qN.mh+24) ]] || [[ ! -f "$ZSH_COMPDUMP" ]]; then
+if [[ -n $ZSH_COMPDUMP(#qN.mh+24) ]] || [[ ! -f "$ZSH_COMPDUMP" ]]; then
   compinit "${_compinit_flags[@]}"
 else
   compinit -C "${_compinit_flags[@]}"
