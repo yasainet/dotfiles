@@ -1,25 +1,37 @@
 # Path
+typeset -U path PATH
 export PATH="$HOME/.local/bin:$PATH"
+export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
+export PATH="/opt/homebrew/share/android-commandlinetools/platform-tools:$PATH"
 
-# Terminal
+# Environment
+export LANG='en_US.UTF-8'
+export LC_ALL='en_US.UTF-8'
+export LC_CTYPE='en_US.UTF-8'
+export GIT_MERGE_AUTOEDIT=no
+export LESSHISTFILE=-
+export NODE_NO_WARNINGS=1
 if [[ "$OSTYPE" != "darwin"* ]] && ! infocmp "$TERM" &>/dev/null 2>&1; then
   export TERM=xterm-256color
 fi
 
-DISABLE_AUTO_TITLE="true"
-
-# Language
-export LANG='en_US.UTF-8'
-export LC_ALL='en_US.UTF-8'
-export LC_CTYPE='en_US.UTF-8'
-
-# Limits
+# Options
+setopt AUTO_CD
 ulimit -n 10240
-
-# Emacs
 bindkey -e
 
-# Aliases - Common
+# History
+export HISTFILE="$ZDOTDIR/.zsh_history"
+export SAVEHIST=10000
+export HISTSIZE=10000
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_SAVE_NO_DUPS
+setopt HIST_FIND_NO_DUPS
+setopt HIST_IGNORE_SPACE
+setopt SHARE_HISTORY
+setopt HIST_REDUCE_BLANKS
+
+# Aliases
 alias mkdir='mkdir -p'
 alias cp='cp -i'
 alias mv='mv -i'
@@ -27,7 +39,6 @@ alias cat='bat'
 alias v='nvim'
 alias vim='nvim'
 alias lazyvim='NVIM_APPNAME=lazyvim nvim'
-
 if [[ "$OSTYPE" == "darwin"* ]]; then
   # macOS
   alias ls='ls -G'
@@ -40,9 +51,6 @@ else
   alias C='xclip -selection clipboard'
   alias bat='batcat'
 fi
-
-# tree
-NODE_IGNORE='"node_modules|.next"'
 
 # Functions
 cd() {
@@ -89,36 +97,13 @@ y() {
   command rm -f -- "$tmp"
 }
 
-# Git
-export GIT_MERGE_AUTOEDIT=no
-
-# Less
-export LESSHISTFILE=-
-
-# psql
-export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
-
-# adb
-export PATH="/opt/homebrew/share/android-commandlinetools/platform-tools:$PATH"
-
-# .zsh history
-export HISTFILE="$ZDOTDIR/.zsh_history"
-export ZSH_SESSION_DIR="$ZDOTDIR/.zsh_sessions"
-export SAVEHIST=10000
-export HISTSIZE=10000
-setopt AUTO_CD
-setopt HIST_IGNORE_ALL_DUPS
-setopt HIST_SAVE_NO_DUPS
-setopt HIST_FIND_NO_DUPS
-setopt HIST_IGNORE_SPACE
-setopt SHARE_HISTORY
-setopt HIST_REDUCE_BLANKS
-
 # Completions
 if [[ "$OSTYPE" == "darwin"* ]]; then
+  # macOS
   fpath=(/opt/homebrew/share/zsh-completions $fpath)
   fpath=(/opt/homebrew/share/zsh/site-functions $fpath)
 else
+  # Linux
   [[ -d /usr/share/zsh-completions ]] && fpath=(/usr/share/zsh-completions $fpath)
   [[ -d $HOME/.local/share/zsh/plugins/zsh-completions/src ]] && fpath+=($HOME/.local/share/zsh/plugins/zsh-completions/src)
 fi
@@ -145,27 +130,8 @@ else
 fi
 unset _compinit_flags
 
-# Plugins
-if [[ "$OSTYPE" == "darwin"* ]]; then
-  source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-  source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-else
-  [[ -f /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]] && source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-  [[ -f /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]] && source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-fi
-
-# Prompt: Pure
-if [[ "$OSTYPE" != "darwin"* ]]; then
-  [[ -d $HOME/.local/share/zsh/plugins/pure ]] && fpath+=($HOME/.local/share/zsh/plugins/pure)
-  export PROMPT_PURE_SSH_CONNECTION=1
-fi
-autoload -U promptinit
-promptinit
-prompt pure
-
 # nvm (lazy load)
 export NVM_DIR="$HOME/.nvm"
-export NODE_NO_WARNINGS=1
 if [[ -f "$NVM_DIR/alias/default" ]]; then
   _nvm_ver=$(cat "$NVM_DIR/alias/default")
   _nvm_dirs=("$NVM_DIR/versions/node/v${_nvm_ver}"*(N/))
@@ -209,9 +175,6 @@ else
 fi
 [ -f ~/.config/fzf/themes/tokyonight_night.sh ] && source ~/.config/fzf/themes/tokyonight_night.sh
 
-# OrbStack
-[ -f ~/.orbstack/shell/init.zsh ] && source ~/.orbstack/shell/init.zsh
-
 # direnv
 if [[ "$OSTYPE" == "darwin"* ]]; then
   # macOS
@@ -220,7 +183,29 @@ fi
 
 # mise
 if [[ "$OSTYPE" == "darwin"* ]] && command -v mise &>/dev/null; then
+  # macOS
   eval "$(mise activate zsh)"
+fi
+
+# Prompt: Pure
+if [[ "$OSTYPE" != "darwin"* ]]; then
+  # Linux
+  [[ -d $HOME/.local/share/zsh/plugins/pure ]] && fpath+=($HOME/.local/share/zsh/plugins/pure)
+  export PROMPT_PURE_SSH_CONNECTION=1
+fi
+autoload -U promptinit
+promptinit
+prompt pure
+
+# Plugins
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  # macOS
+  source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+  source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+else
+  # Linux
+  [[ -f /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]] && source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+  [[ -f /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]] && source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi
 
 # Local (not tracked)
