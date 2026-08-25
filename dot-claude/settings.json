@@ -98,6 +98,7 @@
     "commit-commands@claude-plugins-official": true
   },
   "language": "Japanese",
+  "outputStyle": "Concise",
   "effortLevel": "high",
   "autoUpdatesChannel": "latest",
   "plansDirectory": ".claude/plans",

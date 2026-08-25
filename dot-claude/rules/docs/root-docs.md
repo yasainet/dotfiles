@@ -64,35 +64,43 @@ npm run build
 
 ## Environments
 
-Deployments:
+Vercel:
 
-| env        | branch | url                                     |
-| ---------- | ------ | --------------------------------------- |
-| production | `main` | https://example.com                     |
-| preview    | PR     | https://example-git-<branch>.vercel.app |
-| develop    | local  | http://127.0.0.1:3000                   |
+|                 | Production          | Preview                                 | Development           |
+| --------------- | ------------------- | --------------------------------------- | --------------------- |
+| Branch Tracking | `main`              | All unassigned git branches             | Accessible via CLI    |
+| Domains         | https://example.com | https://example-git-<branch>.vercel.app | http://127.0.0.1:3000 |
+| Next.js         | Vercel              | Vercel                                  | Mac                   |
+| DB              | Supabase Cloud      | Supabase Cloud                          | Supabase CLI          |
+| Storage         | Supabase Storage    | Supabase Storage                        | Supabase Storage      |
+| Auth            | Supabase Auth       | Supabase Auth                           | Supabase Auth         |
+| Mail            | Resend              | Resend                                  | Supabase (Mailpit)    |
 
-Stacks:
+VPS:
 
-| layer   | production       | development        |
-| ------- | ---------------- | ------------------ |
-| Next.js | Vercel           | Mac                |
-| DB      | Supabase Cloud   | Supabase CLI       |
-| Storage | Supabase Storage | Supabase Storage   |
-| Auth    | Supabase Auth    | Supabase Auth      |
-| Mail    | Resend           | Supabase (Mailpit) |
+|                 | Production          | Staging                     | Development           |
+| --------------- | ------------------- | --------------------------- | --------------------- |
+| Branch Tracking | `main`              | `staging`                   | Accessible via CLI    |
+| Domains         | https://example.com | https://staging.example.com | http://127.0.0.1:3000 |
+| Next.js         | VPS (Docker)        | VPS (Docker)                | Mac                   |
+| DB              | Supabase (Docker)   | Supabase (Docker)           | Supabase CLI          |
+| Storage         | Garage (Docker)     | Garage (Docker)             | Garage (Docker)       |
+| Auth            | Supabase Auth       | Supabase Auth               | Supabase Auth         |
+| Mail            | Resend              | Resend                      | Supabase (Mailpit)    |
 ````
 
 ## CLAUDE.md sample format
 
-````markdown
+```markdown
 # CLAUDE.md
 
 tagline
 
 ## Summary
 
-```sh
-# some commands
+- list
+
+## Rules
+
+- list
 ```
-````
