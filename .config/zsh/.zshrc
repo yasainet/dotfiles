@@ -2,7 +2,6 @@
 typeset -U path PATH
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
-export PATH="/opt/homebrew/share/android-commandlinetools/platform-tools:$PATH"
 
 # Environment
 export LANG='en_US.UTF-8'

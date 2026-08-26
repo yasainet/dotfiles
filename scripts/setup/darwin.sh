@@ -86,8 +86,7 @@ install_cli_tools() {
   brew install scrcpy
 
   # adb
-  brew install --cask android-commandlinetools
-  sdkmanager --install "platform-tools"
+  brew install --cask android-platform-tools
 
   # Terraform
   brew install hashicorp/tap/terraform
