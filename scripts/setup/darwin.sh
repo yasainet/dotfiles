@@ -116,6 +116,9 @@ install_cli_tools() {
     brew install supabase/tap/supabase
   }
 
+  # Gitea Actions runner
+  brew install gitea-runner
+
   # Google Cloud SDK
   brew install --cask gcloud-cli
 
