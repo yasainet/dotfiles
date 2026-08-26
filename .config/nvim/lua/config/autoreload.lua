@@ -18,6 +18,24 @@ local function reload(buf)
   vim.cmd("silent! checktime " .. buf)
 end
 
+local refresh_timer = assert(vim.uv.new_timer())
+
+local function refresh_explorer()
+  refresh_timer:start(
+    100,
+    0,
+    vim.schedule_wrap(function()
+      local ok, Snacks = pcall(require, "snacks")
+      if not ok then
+        return
+      end
+      for _, picker in ipairs(Snacks.picker.get({ source = "explorer" })) do
+        picker:action("explorer_update")
+      end
+    end)
+  )
+end
+
 local function stop(buf)
   local handle = watchers[buf]
   if not handle then
@@ -60,13 +78,10 @@ local function start(buf)
       if fname and fname ~= name then
         return
       end
-      if status and status.rename then
-        vim.defer_fn(function()
-          reload(buf)
-        end, 50)
-        return
-      end
-      reload(buf)
+      vim.defer_fn(function()
+        reload(buf)
+        refresh_explorer()
+      end, status and status.rename and 50 or 0)
     end)
   )
 
