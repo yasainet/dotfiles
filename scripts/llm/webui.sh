@@ -1,7 +1,7 @@
 #!/bin/bash
 #
 # Usage:
-# - ./scripts/llm/webui.sh
+# - ./scripts/llm/webui.sh    # Open WebUI を :3000 で起動(llama-server :8080 に接続)
 #
 
 set -e
@@ -12,7 +12,7 @@ if ! command -v uvx &>/dev/null; then
 fi
 
 export DATA_DIR="$HOME/.open-webui"
-export OPENAI_API_BASE_URL="http://127.0.0.1:${WEBUI_LLM_PORT:-8081}/v1"
+export OPENAI_API_BASE_URL="http://127.0.0.1:8080/v1"
 export OPENAI_API_KEY="dummy"
 export ENABLE_OLLAMA_API=false
 export ENABLE_WEB_SEARCH=true
