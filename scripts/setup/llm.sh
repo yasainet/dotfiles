@@ -47,8 +47,9 @@ setup_profile() {
   install_uv
 
   echo ""
-  echo "  models: ./scripts/llm/fetch.sh で取得する"
-  echo "  serve: ./scripts/llm/serve.sh で起動する"
+  echo "  models: ./scripts/llm/fetch.sh で取得する(Q8_0)、LLM_QUANT=Q4_K_M ./scripts/llm/fetch.sh(webui 用)"
+  echo "  serve: ./scripts/llm/serve.sh で起動する(pi 用 :8080 Q8_0)"
+  echo "  serve webui: ./scripts/llm/serve-webui.sh で起動する(Open WebUI 用 :8081 Q4_K_M)"
   echo "  expose: tailscale serve --bg --tcp=8080 tcp://127.0.0.1:8080 で tailnet へ公開する"
   echo "  webui: ./scripts/llm/webui.sh で起動する"
   echo "  webui expose: tailscale serve --bg --tcp=3000 tcp://127.0.0.1:3000 で tailnet へ公開する"
