@@ -31,4 +31,3 @@
 
 # pi extensions
 dot-pi/agent/extensions/node_modules/
-scripts/llm/webui/.env
