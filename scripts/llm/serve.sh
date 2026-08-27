@@ -1,7 +1,9 @@
 #!/bin/bash
 #
 # Usage:
-# - ./scripts/llm/serve.sh    # llama-server を :8080 で起動
+# - ./scripts/llm/serve.sh    # llama-server を :8080 で起動(pi 用: Q8_0, ctx 262144)
+#
+# Env: LLM_QUANT, LLM_CTX_SIZE, LLM_CACHE_TYPE, LLM_HOST, LLM_PORT
 #
 
 set -e
@@ -11,6 +13,7 @@ QUANT="${LLM_QUANT:-Q8_0}"
 CTX_SIZE="${LLM_CTX_SIZE:-262144}"
 CACHE_TYPE="${LLM_CACHE_TYPE:-f16}"
 HOST="${LLM_HOST:-127.0.0.1}"
+PORT="${LLM_PORT:-8080}"
 
 if ! command -v "$HOME/.local/bin/llama-server" &>/dev/null; then
   echo "llama-server not found. Run DOTFILES_PROFILE=llm ./install.sh first."
@@ -24,7 +27,7 @@ exec "$HOME/.local/bin/llama-server" \
   --alias "Qwen3.8-27B-Uncensored-${QUANT}" \
   --mmproj "$MODEL_DIR/mmproj-Qwen3.8-27B-Uncensored-f16.gguf" \
   --host "$HOST" \
-  --port 8080 \
+  --port "$PORT" \
   -ngl 99 \
   -fa on \
   --parallel 1 \
