@@ -1,0 +1,16 @@
+# SearXNG (Open WebUI 内部利用専用)
+use_default_settings: true
+
+general:
+  instance_name: "searxng"
+
+server:
+  # secret_key は環境変数 SEARXNG_SECRET(webui/.env)で注入する
+  limiter: false
+  image_proxy: false
+
+search:
+  safe_search: 0
+  formats:
+    - html
+    - json
