@@ -186,7 +186,7 @@ install_gui_apps() {
   brew install --cask ysmx/cooviewer/cooviewer
 
   # Privacy
-  brew install --cask protonvpn
+  brew install --cask mullvad-vpn
 }
 
 # ====================
