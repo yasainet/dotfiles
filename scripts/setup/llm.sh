@@ -29,27 +29,12 @@ build_llama_cpp() {
   echo "  [build] llama-server ${LLAMA_CPP_VER} (Metal)"
 }
 
-# ====================
-# uv (Open WebUI 用)
-# ====================
-install_uv() {
-  if command -v uv >/dev/null 2>&1; then
-    echo "  [skip] uv already installed"
-    return
-  fi
-  brew install uv
-  echo "  [install] uv"
-}
-
 setup_profile() {
   echo "Configuring LLM host (macOS/Metal)..."
   build_llama_cpp
-  install_uv
 
   echo ""
   echo "  models: ./scripts/llm/fetch.sh で取得する"
   echo "  serve: ./scripts/llm/serve.sh で起動する"
   echo "  expose: tailscale serve --bg --tcp=8080 tcp://127.0.0.1:8080 で tailnet へ公開する"
-  echo "  webui: ./scripts/llm/webui.sh で起動する"
-  echo "  webui expose: tailscale serve --bg --tcp=3000 tcp://127.0.0.1:3000 で tailnet へ公開する"
 }
