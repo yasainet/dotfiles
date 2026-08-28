@@ -11,7 +11,7 @@ QUANT="${LLM_QUANT:-Q8_0}"
 CTX_SIZE="${LLM_CTX_SIZE:-262144}"
 CACHE_TYPE="${LLM_CACHE_TYPE:-f16}"
 HOST="${LLM_HOST:-127.0.0.1}"
-SLEEP_IDLE_SECONDS="${LLM_SLEEP_IDLE_SECONDS:-3600}"
+SLEEP_IDLE_SECONDS="${LLM_SLEEP_IDLE_SECONDS:-1800}"
 
 if ! command -v "$HOME/.local/bin/llama-server" &>/dev/null; then
   echo "llama-server not found. Run DOTFILES_PROFILE=llm ./install.sh first."
