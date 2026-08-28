@@ -3,6 +3,9 @@ typeset -U path PATH
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 
+# Darkbloom
+[[ -d "$HOME/.darkbloom/bin" ]] && export PATH="$HOME/.darkbloom/bin:$PATH"
+
 # Environment
 export LANG='en_US.UTF-8'
 export LC_ALL='en_US.UTF-8'
