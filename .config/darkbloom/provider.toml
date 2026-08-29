@@ -6,11 +6,12 @@ enabled_models = [
   "gemma-4-26b-qat-4bit",
   "qwen3.5-35b-a3b",
   "qwen3.6-35b-a3b-vl-mtp-mxfp8",
+  "qwen3-vl-30b-a3b-instruct",
 ]
 engine_v2_kv_backend = 'auto'
 engine_v2_max_concurrent = 4
 idle_timeout_mins = 60
-max_model_slots = 4
+max_model_slots = 5
 mtp_mode = 'auto'
 port = 8100
 preload_models = [
@@ -18,6 +19,7 @@ preload_models = [
   "gemma-4-26b-qat-4bit",
   "qwen3.5-35b-a3b",
   "qwen3.6-35b-a3b-vl-mtp-mxfp8",
+  "qwen3-vl-30b-a3b-instruct",
 ]
 startup_preload = true
 startup_preload_timeout_secs = 120
