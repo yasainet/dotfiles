@@ -1,4 +1,3 @@
-# Darkbloom provider config
 config_version = 3
 
 [backend]
