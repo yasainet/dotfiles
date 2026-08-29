@@ -1,10 +1,7 @@
 # Darkbloom provider config
-# Schema: `darkbloom autoupdate enable --config <path>` が生成するデフォルトを基に作成
-# 公式 docs は [schedule] しか記載がない (https://docs.darkbloom.dev/provider/scheduling.md)
 config_version = 3
 
 [backend]
-# ローカルモデルのフィルタ。`darkbloom start` のピッカーと daemon の対象がここに限定される
 enabled_models = [
   "gpt-oss-20b",
   "qwen3.6-35b-a3b-vl-mtp-mxfp8",
@@ -43,6 +40,5 @@ weighted_r1 = true
 auto_restart = true
 auto_update = true
 memory_reserve_gb = 4
-# マシン固有。mbp2023 (Mac15,8) の coordinator 上の表示名
 name = 'darkbloom-mac15-8'
 update_jitter_seconds = 300
