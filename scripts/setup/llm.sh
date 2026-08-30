@@ -47,7 +47,7 @@ install_gui_apps() {
 # ====================
 build_llama_cpp() {
   if [ -x "$HOME/.local/bin/llama-server" ] \
-    && "$HOME/.local/bin/llama-server" --version 2>&1 | grep -q "$LLAMA_CPP_VER"; then
+    && [ "$(git -C "$HOME/llama.cpp-build" describe --tags 2>/dev/null)" = "$LLAMA_CPP_VER" ]; then
     echo "  [skip] llama-server ${LLAMA_CPP_VER} already built"
     return
   fi
@@ -56,14 +56,14 @@ build_llama_cpp() {
 
   rm -rf "$HOME/llama.cpp-build"
   git clone -q --depth 1 -b "$LLAMA_CPP_VER" \
-    https://github.com/ggml-org/llama.cpp "$HOME/llama.cpp-build"
+    https://github.com/ggml-org/llama.cpp "$HOME/llama.cpp-build" || return 1
 
   cmake -S "$HOME/llama.cpp-build" -B "$HOME/llama.cpp-build/build" \
-    -DGGML_METAL=ON -DCMAKE_BUILD_TYPE=Release -DLLAMA_CURL=OFF
-  cmake --build "$HOME/llama.cpp-build/build" --target llama-server -j "$(sysctl -n hw.ncpu)"
+    -DGGML_METAL=ON -DCMAKE_BUILD_TYPE=Release -DLLAMA_CURL=OFF || return 1
+  cmake --build "$HOME/llama.cpp-build/build" --target llama-server -j "$(sysctl -n hw.ncpu)" || return 1
 
   mkdir -p "$HOME/.local/bin"
-  cp "$HOME/llama.cpp-build/build/bin/llama-server" "$HOME/.local/bin/"
+  cp "$HOME/llama.cpp-build/build/bin/llama-server" "$HOME/.local/bin/" || return 1
   echo "  [build] llama-server ${LLAMA_CPP_VER} (Metal)"
 }
 
