@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>PayloadType</key>
+  <string>Configuration</string>
+  <key>PayloadVersion</key>
+  <integer>1</integer>
+  <key>PayloadIdentifier</key>
+  <string>net.mullvad.brave-proxy</string>
+  <key>PayloadUUID</key>
+  <string>B5039ECF-A2D9-4E84-A032-EA074888566F</string>
+  <key>PayloadDisplayName</key>
+  <string>Brave via Mullvad (wireproxy SOCKS5)</string>
+  <key>PayloadDescription</key>
+  <string>Forces Brave Browser to use socks5://127.0.0.1:1080 (wireproxy -> Mullvad). Disables non-proxied WebRTC UDP and DNS-over-HTTPS.</string>
+  <key>PayloadOrganization</key>
+  <string>dotfiles</string>
+  <key>PayloadScope</key>
+  <string>User</string>
+  <key>PayloadRemovalDisallowed</key>
+  <false/>
+  <key>PayloadContent</key>
+  <array>
+    <dict>
+      <key>PayloadType</key>
+      <string>com.brave.Browser</string>
+      <key>PayloadVersion</key>
+      <integer>1</integer>
+      <key>PayloadIdentifier</key>
+      <string>net.mullvad.brave-proxy.policy</string>
+      <key>PayloadUUID</key>
+      <string>A1BE3FD4-2ADF-464C-99E9-84019EEF9CF4</string>
+      <key>PayloadDisplayName</key>
+      <string>Brave Browser policies</string>
+      <key>PayloadEnabled</key>
+      <true/>
+      <key>ProxySettings</key>
+      <dict>
+        <key>ProxyMode</key>
+        <string>fixed_servers</string>
+        <key>ProxyServer</key>
+        <string>socks5://127.0.0.1:1080</string>
+      </dict>
+      <key>WebRtcIPHandling</key>
+      <string>disable_non_proxied_udp</string>
+      <key>DnsOverHttpsMode</key>
+      <string>off</string>
+    </dict>
+  </array>
+</dict>
+</plist>

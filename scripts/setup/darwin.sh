@@ -391,6 +391,94 @@ configure_firewall() {
 }
 
 # ====================
+# wireproxy (Mullvad WireGuard -> local SOCKS5 for Brave)
+# ====================
+WIREPROXY_VERSION="v1.1.3"
+WIREPROXY_DATA="$HOME/.local/share/wireproxy"
+WIREPROXY_PLIST="$HOME/Library/LaunchAgents/net.mullvad.wireproxy.plist"
+
+install_wireproxy() {
+  echo "Installing wireproxy..."
+  local bin="$HOME/.local/bin/wireproxy"
+
+  # `wireproxy -v` prints "wireproxy, version 1.1.3" (no "v" prefix)
+  if [ -x "$bin" ] && "$bin" -v 2>/dev/null | grep -q "version ${WIREPROXY_VERSION#v}\$"; then
+    echo "  wireproxy $WIREPROXY_VERSION already installed"
+    return
+  fi
+
+  local arch
+  case "$(uname -m)" in
+  arm64) arch=arm64 ;;
+  x86_64) arch=amd64 ;;
+  *)
+    echo "  [skip] unsupported arch: $(uname -m)"
+    return
+    ;;
+  esac
+
+  local url="https://github.com/windtf/wireproxy/releases/download/${WIREPROXY_VERSION}/wireproxy_darwin_${arch}.tar.gz"
+  local tmp
+  tmp=$(mktemp -d) || return 1
+  if ! curl -fsSL -o "$tmp/wireproxy.tar.gz" "$url"; then
+    echo "  [error] download failed: $url"
+    trash "$tmp"
+    return 1
+  fi
+  tar -xzf "$tmp/wireproxy.tar.gz" -C "$tmp" wireproxy || {
+    echo "  [error] extract failed"
+    trash "$tmp"
+    return 1
+  }
+  mkdir -p "$HOME/.local/bin"
+  install -m 755 "$tmp/wireproxy" "$bin"
+  trash "$tmp"
+  echo "  [done] wireproxy $WIREPROXY_VERSION -> $bin"
+}
+
+setup_wireproxy() {
+  echo "Configuring wireproxy..."
+  mkdir -p "$WIREPROXY_DATA" "$HOME/Library/LaunchAgents" "$HOME/Library/Logs"
+  chmod 700 "$WIREPROXY_DATA"
+
+  sed "s|__HOME__|$HOME|g" "$DOTFILES/.config/wireproxy/wireproxy.conf.template" >"$WIREPROXY_DATA/wireproxy.conf"
+  sed "s|__HOME__|$HOME|g" "$DOTFILES/.config/wireproxy/net.mullvad.wireproxy.plist.template" >"$WIREPROXY_PLIST"
+
+  if [ ! -f "$WIREPROXY_DATA/mullvad.conf" ]; then
+    echo "  [warn] $WIREPROXY_DATA/mullvad.conf not found"
+    echo "         Download a WireGuard config from https://mullvad.net/account and place it there,"
+    echo "         then run: launchctl kickstart -k gui/$(id -u)/net.mullvad.wireproxy"
+  fi
+
+  launchctl bootout "gui/$(id -u)/net.mullvad.wireproxy" 2>/dev/null || true
+  launchctl bootstrap "gui/$(id -u)" "$WIREPROXY_PLIST"
+  echo "  [done] launchd agent net.mullvad.wireproxy loaded"
+}
+
+# ====================
+# Brave (always via wireproxy SOCKS5, mandatory policy via configuration profile)
+# ====================
+# `defaults write` only yields "Recommended" level, which Chromium does not enforce
+# for ProxySettings. A configuration profile makes it "Mandatory".
+setup_brave_policy() {
+  echo "Configuring Brave proxy policy..."
+
+  # Clean up any leftover recommended-level values
+  for key in ProxySettings WebRtcIPHandling DnsOverHttpsMode; do
+    defaults delete com.brave.Browser "$key" 2>/dev/null || true
+  done
+
+  if profiles list 2>/dev/null | grep -q "net.mullvad.brave-proxy"; then
+    echo "  profile net.mullvad.brave-proxy already installed"
+    return
+  fi
+
+  open "$DOTFILES/.config/brave/net.mullvad.brave-proxy.mobileconfig"
+  echo "  [todo] approve the profile: System Settings > General > Device Management"
+  echo "         then restart Brave and check brave://policy (Level: Mandatory)"
+}
+
+# ====================
 # Xcode license
 # ====================
 accept_xcode_license() {

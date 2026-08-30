@@ -67,6 +67,9 @@ main() {
     link_espanso
     link_claude_code
     link_pi
+    install_wireproxy
+    setup_wireproxy
+    setup_brave_policy
     configure_system
     install_mas_apps
   fi
