@@ -21,7 +21,7 @@ Start by declaring `[Review]`.
 | When            | Tools                  |
 | --------------- | ---------------------- |
 | Only Documents  | rules review           |
-| Developments    | `/code-review`         |
+| Developments    | `/code-review <path>`  |
 | Auth, API, etc. | `/security-review`     |
 | Code Cleanup    | `/simplify`            |
 | GitHub PR       | `/code-review PR #<N>` |
@@ -29,6 +29,7 @@ Start by declaring `[Review]`.
 ## Procedure
 
 1. Responsibilities の該当する行を全て掛けよ
+   - `<path>` は `Build` で変更した file を渡せ。`git status` で確認できる。省略すると未 push の commit も全て対象になる
 2. 指摘を潰せ。残すなら、残したと言え
 3. 直した箇所を報告して止まれ。`user` の指示を待て
 4. `Record` へ移行せよ
