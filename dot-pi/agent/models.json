@@ -20,7 +20,7 @@
       "apiKey": "dummy",
       "models": [
         {
-          "id": "Qwen3.8-27B-Uncensored-Q8_0",
+          "id": "Qwen3.8-Flash-Next-Uncensored-Q3_K_L",
           "contextWindow": 262144,
           "maxTokens": 32768,
           "input": ["text", "image"]

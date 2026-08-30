@@ -6,11 +6,15 @@
 
 set -e
 
-QUANT="${LLM_QUANT:-Q8_0}"
+QUANT="${LLM_QUANT:-Q3_K_L}"
+REPO="orcarouter/Qwen3.8-Flash-Next-Uncensored-GGUF"
+NAME="Qwen3.8-Flash-Next-Uncensored"
 
 MODELS=(
-  "orcarouter/Qwen3.8-27B-Uncensored-GGUF Qwen3.8-27B-Uncensored-${QUANT}.gguf Qwen3.8-27B-Uncensored"
-  "orcarouter/Qwen3.8-27B-Uncensored-GGUF mmproj-Qwen3.8-27B-Uncensored-f16.gguf Qwen3.8-27B-Uncensored"
+  "$REPO ${NAME}-${QUANT}-00001-of-00003.gguf $NAME"
+  "$REPO ${NAME}-${QUANT}-00002-of-00003.gguf $NAME"
+  "$REPO ${NAME}-${QUANT}-00003-of-00003.gguf $NAME"
+  "$REPO mmproj-${NAME}-F16.gguf $NAME"
 )
 
 HF_TOKEN="${HF_TOKEN:-$(cat "$HOME/.cache/huggingface/token" 2>/dev/null || true)}"
