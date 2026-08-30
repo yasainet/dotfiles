@@ -13,7 +13,7 @@
   <key>PayloadDisplayName</key>
   <string>Brave via Mullvad (wireproxy SOCKS5)</string>
   <key>PayloadDescription</key>
-  <string>Forces Brave Browser to use socks5://127.0.0.1:1080 (wireproxy -> Mullvad). Disables non-proxied WebRTC UDP and DNS-over-HTTPS.</string>
+  <string>Forces Brave Browser to use socks5://127.0.0.1:1080 (wireproxy -> Mullvad), except *.orb.local which connects directly. Disables non-proxied WebRTC UDP and DNS-over-HTTPS.</string>
   <key>PayloadOrganization</key>
   <string>dotfiles</string>
   <key>PayloadScope</key>
@@ -41,6 +41,8 @@
         <string>fixed_servers</string>
         <key>ProxyServer</key>
         <string>socks5://127.0.0.1:1080</string>
+        <key>ProxyBypassList</key>
+        <string>*.orb.local</string>
       </dict>
       <key>WebRtcIPHandling</key>
       <string>disable_non_proxied_udp</string>
