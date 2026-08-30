@@ -6,7 +6,7 @@
 
 set -e
 
-QUANT="${LLM_QUANT:-Q3_K_L}"
+QUANT="${LLM_QUANT:-IQ4_XS}"
 REPO="orcarouter/Qwen3.8-Flash-Next-Uncensored-GGUF"
 NAME="Qwen3.8-Flash-Next-Uncensored"
 

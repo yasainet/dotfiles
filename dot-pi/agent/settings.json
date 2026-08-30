@@ -1,10 +1,10 @@
 {
-  "lastChangelogVersion": "0.84.3",
+  "lastChangelogVersion": "0.84.4",
   "theme": "dark",
   "quietStartup": true,
   "hideThinkingBlock": true,
   "defaultProvider": "llamacpp",
-  "defaultModel": "Qwen3.8-Flash-Next-Uncensored-Q3_K_L",
+  "defaultModel": "Qwen3.8-Flash-Next-Uncensored-IQ4_XS",
   "skills": ["~/.claude/skills"],
   "editorPaddingX": 1,
   "defaultProjectTrust": "ask",
