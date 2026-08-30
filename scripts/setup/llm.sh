@@ -3,7 +3,7 @@
 # LLM host profile (macOS / Metal).
 #
 
-LLAMA_CPP_VER="b10472"
+LLAMA_CPP_VER="b10698"
 
 # ====================
 # CLI tools
@@ -46,8 +46,9 @@ install_gui_apps() {
 # llama.cpp (Metal build)
 # ====================
 build_llama_cpp() {
-  if [ -x "$HOME/.local/bin/llama-server" ]; then
-    echo "  [skip] llama-server already built"
+  if [ -x "$HOME/.local/bin/llama-server" ] \
+    && "$HOME/.local/bin/llama-server" --version 2>&1 | grep -q "$LLAMA_CPP_VER"; then
+    echo "  [skip] llama-server ${LLAMA_CPP_VER} already built"
     return
   fi
 
@@ -72,6 +73,6 @@ setup_profile() {
 
   echo ""
   echo "  models: ./scripts/llm/fetch.sh で取得する"
-  echo "  serve: ./scripts/llm/serve.sh で起動する"
+  echo "  serve: darkbloom を停止してから ./scripts/llm/serve.sh で起動する"
   echo "  expose: tailscale serve --bg --tcp=8080 tcp://127.0.0.1:8080 で tailnet へ公開する"
 }
