@@ -67,6 +67,34 @@ dscacheutil -flushcache
 scutil --get ComputerName
 ```
 
+### Brave via Mullvad (macOS)
+
+Brave is forced (configuration profile, mandatory policy) to use a local SOCKS5
+proxy served by wireproxy, a userspace WireGuard client connected to Mullvad.
+Other apps are unaffected. If wireproxy is down, Brave cannot connect (fail-closed).
+
+```sh
+# 1. Approve the profile opened by install.sh:
+#    System Settings > General > Device Management > "Brave via Mullvad" > Install
+#    (re-open with: open .config/brave/net.mullvad.brave-proxy.mobileconfig)
+
+# 2. Download a WireGuard config from https://mullvad.net/account
+#    (WireGuard configuration -> Linux, no multihop) and place it as:
+#    ~/.local/share/wireproxy/mullvad.conf
+
+# 3. Restart wireproxy
+launchctl kickstart -k gui/$(id -u)/net.mullvad.wireproxy
+
+# 4. Check
+curl --socks5-hostname 127.0.0.1:1080 https://am.i.mullvad.net/connected
+open -a "Brave Browser" https://mullvad.net/check   # brave://policy -> Level: Mandatory
+
+# Remove: System Settings > General > Device Management > profile > Remove
+
+# Logs
+tail -f ~/Library/Logs/wireproxy.log
+```
+
 ## Verify
 
 ```sh

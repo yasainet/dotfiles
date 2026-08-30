@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>net.mullvad.wireproxy</string>
+  <key>ProgramArguments</key>
+  <array>
+    <string>__HOME__/.local/bin/wireproxy</string>
+    <string>-c</string>
+    <string>__HOME__/.local/share/wireproxy/wireproxy.conf</string>
+  </array>
+  <key>RunAtLoad</key>
+  <true/>
+  <!-- keep running only while mullvad.conf exists -->
+  <key>KeepAlive</key>
+  <dict>
+    <key>PathState</key>
+    <dict>
+      <key>__HOME__/.local/share/wireproxy/mullvad.conf</key>
+      <true/>
+    </dict>
+  </dict>
+  <key>ThrottleInterval</key>
+  <integer>10</integer>
+  <key>StandardOutPath</key>
+  <string>__HOME__/Library/Logs/wireproxy.log</string>
+  <key>StandardErrorPath</key>
+  <string>__HOME__/Library/Logs/wireproxy.log</string>
+</dict>
+</plist>
