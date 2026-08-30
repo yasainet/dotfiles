@@ -20,10 +20,30 @@
       "apiKey": "dummy",
       "models": [
         {
-          "id": "Qwen3.8-Flash-Next-Uncensored-Q3_K_L",
+          "id": "Qwen3.8-Flash-Next-Uncensored-IQ4_XS",
+          "reasoning": true,
           "contextWindow": 262144,
           "maxTokens": 32768,
-          "input": ["text", "image"]
+          "input": ["text", "image"],
+          "thinkingLevelMap": {
+            "minimal": null,
+            "low": "low",
+            "medium": "medium",
+            "high": "xhigh",
+            "xhigh": null,
+            "max": null
+          },
+          "compat": {
+            "thinkingFormat": "chat-template",
+            "chatTemplateKwargs": {
+              "enable_thinking": {
+                "$var": "thinking.enabled",
+                "omitWhenOff": true
+              },
+              "preserve_thinking": true,
+              "reasoning_effort": { "$var": "thinking.effort" }
+            }
+          }
         }
       ]
     }
