@@ -25,7 +25,8 @@ for m in "${MODELS[@]}"; do
   read -r repo file subdir <<<"$m"
   echo "  [fetch] $subdir/$file"
   curl -L -C - --retry 1000 --retry-delay 3 --retry-all-errors --speed-limit 500000 --speed-time 30 \
-    ${HF_TOKEN:+-H "Authorization: Bearer $HF_TOKEN"} \
+    --fail \
+    ${HF_TOKEN:+--header @<(printf 'Authorization: Bearer %s\n' "$HF_TOKEN")} \
     --create-dirs -o "$HOME/models/$subdir/$file" "https://huggingface.co/$repo/resolve/main/$file"
 done
 
