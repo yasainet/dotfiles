@@ -1,18 +1,5 @@
 {
   "providers": {
-    "openrouter": {
-      "models": [
-        {
-          "id": "stealth/ox-alpha",
-          "name": "Ox Alpha (stealth)",
-          "reasoning": true,
-          "input": ["text", "image"],
-          "contextWindow": 1048576,
-          "maxTokens": 131072,
-          "cost": { "input": 0, "output": 0, "cacheRead": 0, "cacheWrite": 0 }
-        }
-      ]
-    },
     "llamacpp": {
       "name": "llama.cpp",
       "baseUrl": "http://100.68.179.125:8080/v1",
@@ -23,13 +10,13 @@
           "id": "Qwen3.8-Flash-Next-Uncensored-IQ4_XS",
           "reasoning": true,
           "contextWindow": 262144,
-          "maxTokens": 32768,
+          "maxTokens": 65536,
           "input": ["text", "image"],
           "thinkingLevelMap": {
             "minimal": null,
             "low": "low",
             "medium": "medium",
-            "high": "xhigh",
+            "high": "high",
             "xhigh": null,
             "max": null
           },
