@@ -11,10 +11,7 @@
     "CLAUDE_CODE_THRIFTY_SONIC": "0"
   },
   "permissions": {
-    "allow": [
-      "Read(//Users/yasainet/ghq/**)",
-      "Bash(trash:*)"
-    ],
+    "allow": ["Read(//Users/yasainet/ghq/**)", "Bash(trash:*)"],
     "deny": [
       "Bash(rm:*)",
       "Bash(sudo rm:*)",
@@ -128,5 +125,6 @@
     "soft_deny": [],
     "environment": [],
     "classifyAllShell": false
-  }
+  },
+  "feedbackDrafts": "off"
 }
