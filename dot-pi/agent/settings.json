@@ -10,5 +10,5 @@
   "defaultProjectTrust": "ask",
   "tuiMode": "regular",
   "packages": ["npm:pi-web-access"],
-  "defaultThinkingLevel": "medium"
+  "defaultThinkingLevel": "low"
 }
