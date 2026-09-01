@@ -2,6 +2,5 @@
   "workflow": "none",
   "fetch": {
     "timeout": 30
-  },
-  "maxInlineContentChars": 20000
+  }
 }

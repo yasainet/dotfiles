@@ -78,6 +78,7 @@ install_cli_tools() {
   brew install glow
   brew install hf
   brew install yazi
+  brew install agent-browser
   brew install hunk
   brew install gallery-dl
   brew install libpq
@@ -505,8 +506,20 @@ link_claude_code() {
   link "$DOTFILES/dot-claude/settings.json" "$HOME/.claude/settings.json"
   link "$DOTFILES/dot-claude/keybindings.json" "$HOME/.claude/keybindings.json"
   link "$DOTFILES/dot-claude/rules" "$HOME/.claude/rules"
-  link "$DOTFILES/dot-claude/skills" "$HOME/.claude/skills"
+  link_claude_code_skills
   link "$DOTFILES/dot-claude/statusline-command.sh" "$HOME/.claude/statusline-command.sh"
+}
+
+# skills は skills CLI などの外部ツールも書き込むため、ディレクトリごと
+# リンクせず skill 単位でリンクする。ディレクトリごとリンクすると外部
+# ツールが張る相対 symlink が dotfiles 側に解決されて壊れる
+link_claude_code_skills() {
+  mkdir -p "$HOME/.claude/skills"
+  local skill
+  for skill in "$DOTFILES"/dot-claude/skills/*/; do
+    [ -e "$skill" ] || continue
+    link "${skill%/}" "$HOME/.claude/skills/$(basename "$skill")"
+  done
 }
 
 # ====================
