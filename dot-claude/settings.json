@@ -8,27 +8,22 @@
     "ANTHROPIC_DEFAULT_SONNET_MODEL": "claude-sonnet-5[1m]",
     "ANTHROPIC_DEFAULT_HAIKU_MODEL": "claude-haiku-4-5",
     "CLAUDE_CODE_DISABLE_ALTERNATE_SCREEN": "1",
-    "CLAUDE_CODE_THRIFTY_SONIC": "0"
+    "CLAUDE_CODE_THRIFTY_SONIC": ""
   },
   "permissions": {
     "allow": ["Read(//Users/yasainet/ghq/**)", "Bash(trash:*)"],
-    "deny": [
-      "Bash(rm:*)",
-      "Bash(sudo rm:*)",
-      "Bash(supabase db reset --linked*)",
-      "mcp__supabase-production__apply_migration"
-    ],
+    "deny": ["Bash(rm:*)", "Bash(sudo rm:*)"],
     "ask": [
       "Edit(**/supabase/migrations/*.sql)",
       "Bash(gh pr merge:*)",
       "Bash(supabase db push:*)",
+      "Bash(supabase db reset*)",
       "Bash(kill:*)",
       "Bash(pkill:*)",
       "Bash(killall:*)"
     ],
     "defaultMode": "auto"
   },
-  "model": "opus[1m]",
   "fallbackModel": [],
   "enableAllProjectMcpServers": true,
   "hooks": {
@@ -103,11 +98,8 @@
   "feedbackDrafts": "off",
   "effortLevel": "high",
   "modelSettings": {
-    "claude-fable-5": {
-      "effortLevel": "medium"
-    },
     "claude-opus-5": {
-      "effortLevel": "medium"
+      "effortLevel": "high"
     }
   },
   "autoUpdatesChannel": "latest",
