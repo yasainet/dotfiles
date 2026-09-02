@@ -188,6 +188,7 @@ install_gui_apps() {
 
   # Privacy
   brew install --cask mullvad-vpn
+  brew install --cask proton-pass
 }
 
 # ====================
