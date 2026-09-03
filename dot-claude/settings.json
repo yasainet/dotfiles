@@ -111,6 +111,7 @@
   "autoMemoryEnabled": false,
   "skipWorkflowUsageWarning": true,
   "theme": "auto",
+  "timeFormat": "24-hour",
   "editorMode": "normal",
   "preferredNotifChannel": "ghostty",
   "switchModelsOnFlag": false,
