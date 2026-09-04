@@ -1,5 +1,4 @@
 ---
-name: simplepowers-06-record
 description: Record
 allowed-tools: Bash(git *)
 ---

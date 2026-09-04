@@ -1,8 +1,9 @@
 ---
-description: GitHub/Gitea に issue を作成
 allowed-tools: Bash(gh *), Bash(tea *), Bash(git remote *)
 disable-model-invocation: true
 ---
+
+# Git issue
 
 ## Steps
 

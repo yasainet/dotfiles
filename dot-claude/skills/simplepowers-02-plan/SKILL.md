@@ -1,6 +1,5 @@
 ---
 name: simplepowers-02-plan
-description: Plan
 ---
 
 # Plan

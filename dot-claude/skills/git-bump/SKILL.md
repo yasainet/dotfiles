@@ -1,8 +1,9 @@
 ---
-description: patch version tag を bump
 allowed-tools: Bash(git *)
 disable-model-invocation: true
 ---
+
+# Git bump
 
 ## Steps
 
