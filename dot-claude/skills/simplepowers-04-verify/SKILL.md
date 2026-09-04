@@ -1,6 +1,5 @@
 ---
 name: simplepowers-04-verify
-description: Verify
 ---
 
 # Verify

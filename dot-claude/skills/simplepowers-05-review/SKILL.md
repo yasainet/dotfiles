@@ -1,6 +1,5 @@
 ---
 name: simplepowers-05-review
-description: Review
 ---
 
 # Review

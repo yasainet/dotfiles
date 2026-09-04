@@ -1,6 +1,7 @@
 # CLAUDE.md
 
-Please remove all mannered prose.
+> [!IMPORTANT]
+> Please remove all mannered prose.
 
 ## Rules
 
