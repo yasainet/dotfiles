@@ -45,7 +45,7 @@ Declarative database schema を利用せよ。
 
 1. 宣言: `supabase/schemas/<schema>/<NN>_<name>.sql` に宣言せよ
    - 拡張は `supabase/schemas/_cluster/extensions/<extension>.sql`
-   - 新規ファイルは `supabase/schemas/.pgdelta-export.json` の `files` 配列にパスを追記せよ（`declarative generate` で再生成するな。手書きの SQL が上書きされる）
+   - 新規ファイルは `supabase/schemas/.pgdelta-export.json` の `files` 配列にパスを追記せよ
 2. 生成: `supabase db schema declarative sync --name <name> --apply` で生成せよ
 3. 型生成: `supabase gen types typescript --local > src/lib/supabase/types.ts` を生成せよ
 4. 反映: `supabase db push` で反映せよ
@@ -108,37 +108,37 @@ create trigger users_update_updated_at before update on public.users for each ro
 alter table public.users enable row level security;
 
 -- RLS for anon
-create policy "Users are viewable by everyone" on public.users
+create policy "Anon can select users" on public.users
   for select to anon
   using (deleted_at is null);
 
-create policy "Anon users cannot insert users" on public.users
+create policy "Anon cannot insert users" on public.users
   for insert to anon
   with check (false);
 
-create policy "Anon users cannot update users" on public.users
+create policy "Anon cannot update users" on public.users
   for update to anon
   using (false);
 
-create policy "Anon users cannot delete users" on public.users
+create policy "Anon cannot delete users" on public.users
   for delete to anon
   using (false);
 
 -- RLS for authenticated
-create policy "Users are viewable by authenticated users" on public.users
+create policy "Authenticated can select users" on public.users
   for select to authenticated
   using (deleted_at is null);
 
-create policy "Users can insert their own profile" on public.users
+create policy "Authenticated can insert own users" on public.users
   for insert to authenticated
   with check ((select auth.uid()) = id);
 
-create policy "Users can update their own profile" on public.users
+create policy "Authenticated can update own users" on public.users
   for update to authenticated
   using ((select auth.uid()) = id)
   with check ((select auth.uid()) = id);
 
-create policy "Authenticated users cannot delete users" on public.users
+create policy "Authenticated cannot delete users" on public.users
   for delete to authenticated
   using (false);
 
