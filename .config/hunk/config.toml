@@ -4,6 +4,14 @@ theme = "tokyonight-night"
 # Source: folke/tokyonight.nvim lua/tokyonight/colors/{storm,night,init}.lua
 # base = "tokyo-night" keeps Shiki's own syntax highlighting; the 33 chrome
 # colors below replace the ones Hunk derives from background/foreground/diff.
+line_numbers = true
+wrap_lines = false
+hunk_headers = true
+menu_bar = true
+agent_notes = true
+copy_decorations = false
+cursor_line = "row"
+
 [themes.tokyonight-night]
 base = "tokyo-night"
 

@@ -108,10 +108,10 @@
     "enabled": true,
     "mode": "hold"
   },
+  "timeFormat": "24-hour",
   "autoMemoryEnabled": false,
   "skipWorkflowUsageWarning": true,
   "theme": "auto",
-  "timeFormat": "24-hour",
   "editorMode": "normal",
   "preferredNotifChannel": "ghostty",
   "switchModelsOnFlag": false,
@@ -122,5 +122,6 @@
     "soft_deny": [],
     "environment": [],
     "classifyAllShell": false
-  }
+  },
+  "model": "claude-fable-5-1[1m]"
 }

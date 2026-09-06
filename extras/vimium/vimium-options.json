@@ -35,6 +35,10 @@
     {
       "passKeys": "",
       "pattern": "http://127.0.0.1:54324/*"
+    },
+    {
+      "passKeys": "",
+      "pattern": "https?://api.*"
     }
   ],
   "keyMappings": "unmapAll\nmap j scrollDown\nmap k scrollUp\nmap gg scrollToTop\nmap G scrollToBottom",

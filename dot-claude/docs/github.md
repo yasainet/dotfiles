@@ -2,11 +2,6 @@
 
 GitHub 運用のルールを記述する
 
-## GitHub Flow
-
-- GitHub Flow を採用する
-- prod release 前は main へ直接 push してよい
-
 ## Commit
 
 body は LLM が why を辿るための記録である
@@ -14,11 +9,6 @@ body は LLM が why を辿るための記録である
 - ドキュメントは現在の姿しか語らない。決定の履歴は body にしか残らない
 - A を B に変えた理由が残れば、後から A を拾い直す事故を防げる
 - 追記型なので腐らない。`git log`, `git blame` から到達できる
-
-設計判断も body に書け。ADR は採らない
-
-- `docs/decisions/` や `DECISIONS.md` を作るな
-- 決定の記録先を 2 つ持つと、必ず片方が更新されなくなる
 
 ### Format
 
