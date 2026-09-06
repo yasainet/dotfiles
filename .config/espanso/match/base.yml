@@ -59,3 +59,6 @@ matches:
         type: date
         params:
           format: "%Y/%m/%d %H:%M"
+  - trigger: ";gg"
+    replace: "初学者にもわかるように平易な言葉で簡潔に説明してください。"
+    force_mode: clipboard
