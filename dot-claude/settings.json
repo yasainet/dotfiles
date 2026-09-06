@@ -24,6 +24,7 @@
     ],
     "defaultMode": "auto"
   },
+  "model": "claude-fable-5-1[1m]",
   "fallbackModel": [],
   "enableAllProjectMcpServers": true,
   "hooks": {
@@ -114,6 +115,7 @@
   "theme": "auto",
   "editorMode": "normal",
   "preferredNotifChannel": "ghostty",
+  "autoCompactEnabled": true,
   "switchModelsOnFlag": false,
   "inputNeededNotifEnabled": false,
   "agentPushNotifEnabled": false,
@@ -122,6 +124,5 @@
     "soft_deny": [],
     "environment": [],
     "classifyAllShell": false
-  },
-  "model": "claude-fable-5-1[1m]"
+  }
 }
