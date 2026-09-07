@@ -3,6 +3,6 @@ return {
   cmd = { "Vivify" },
   ft = { "markdown" },
   keys = {
-    { "<leader>v", "<cmd>Vivify<cr>", desc = "Vivify" },
+    { "<leader>mp", "<cmd>Vivify<cr>", desc = "Vivify" },
   },
 }
