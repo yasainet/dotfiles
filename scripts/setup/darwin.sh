@@ -32,6 +32,7 @@ trust_third_party_taps() {
     supabase/tap
     shuntaka9576/tap
     ysmx/cooviewer
+    jannis-baum/tap
   )
   for tap in "${taps[@]}"; do
     brew tap "$tap"
@@ -85,6 +86,7 @@ install_cli_tools() {
   brew install librsvg
   brew install mysql-client
   brew install scrcpy
+  brew install jannis-baum/tap/vivify
 
   # adb
   brew install --cask android-platform-tools
