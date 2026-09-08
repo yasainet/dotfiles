@@ -5,10 +5,11 @@
 --   Cmd+Shift+[ ]   previous / next tab
 --   Cmd+D           split vertical
 --   Cmd+Shift+D     split horizontal
---   Cmd+[           copy mode
+--   Cmd+[ ]         previous / next pane
 --   Cmd+K           clear screen
 --   Cmd+P           quote selection
 --   Ctrl+B          herdr prefix
+--   Ctrl+[          copy mode
 --   Ctrl+H/J/K/L    move between panes and windows
 --   Ctrl+G          Claude Code external editor / lazygit popup
 --   Ctrl+O          Claude Code transcript mode
@@ -24,6 +25,7 @@ local cmdKeys = {
 	t = true,
 	d = true,
 	["["] = true,
+	["]"] = true,
 	k = true,
 	p = true,
 }
@@ -31,7 +33,7 @@ for i = 1, 9 do
 	cmdKeys[tostring(i)] = true
 end
 local cmdShiftKeys = { d = true, ["["] = true, ["]"] = true }
-local ctrlKeys = { b = true, f = true, g = true, h = true, j = true, k = true, l = true, o = true, r = true, y = true }
+local ctrlKeys = { b = true, f = true, g = true, h = true, j = true, k = true, l = true, o = true, r = true, y = true, ["["] = true }
 local altKeys = { h = true, j = true, k = true, l = true }
 
 local function setABC()
