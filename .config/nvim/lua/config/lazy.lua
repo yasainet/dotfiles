@@ -21,9 +21,4 @@ require("lazy").setup("plugins", {
     enabled = false,
     notify = false,
   },
-  performance = {
-    rtp = {
-      paths = vim.fn.glob("/usr/lib/*/nvim", true, true),
-    },
-  },
 })

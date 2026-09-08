@@ -65,16 +65,12 @@ main() {
     install_npm_globals
     configure_bundler
     link_espanso
+    link_claude_code
+    link_pi
     setup_brave_policy
     configure_system
     install_mas_apps
-  else
-    install_pi
   fi
-
-  link_claude_code
-  link_pi
-  install_herdr_plugins
 
   setup_profile
 

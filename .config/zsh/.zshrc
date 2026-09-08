@@ -51,6 +51,7 @@ else
   alias ls='ls --color=auto'
   alias la='ls -la --color=auto'
   alias C='xclip -selection clipboard'
+  alias bat='batcat'
 fi
 
 # Functions
@@ -64,7 +65,7 @@ rm() {
   local -a files
   local endopts=0 arg
   for arg in "$@"; do
-    if ((! endopts)); then
+    if ((!endopts)); then
       [[ "$arg" == "--" ]] && {
         endopts=1
         continue
@@ -104,7 +105,7 @@ pi() {
   ssh mbp2023 "$ctl up" || return
   command pi "$@"
   local rc=$?
-  if ! pgrep -f 'pi-coding-agent/.*(libexec/bin/pi|dist/bundle/cli\.js)' >/dev/null; then
+  if ! pgrep -qf 'pi-coding-agent/.*/libexec/bin/pi'; then
     ssh mbp2023 "$ctl down" || echo "pi: ctl.sh down failed; run: ssh mbp2023 $ctl down" >&2
   fi
   return $rc

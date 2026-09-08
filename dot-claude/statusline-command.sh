@@ -1,7 +1,7 @@
 #!/bin/sh
 input=$(cat)
 current_dir=$(echo "$input" | jq -r '.workspace.current_dir // .workspace.project_dir')
-short_dir=$(echo "$current_dir" | sed "s|^$HOME|~|")
+short_dir=$(echo "$current_dir" | sed "s|^/Users/[^/]*|~|")
 branch=$(git -C "$current_dir" --no-optional-locks rev-parse --abbrev-ref HEAD 2>/dev/null)
 context_pct=$(echo "$input" | jq -r '.context_window.used_percentage // empty')
 model=$(echo "$input" | jq -r '.model.display_name // empty')

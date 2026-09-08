@@ -26,7 +26,13 @@ prompt_new_tab_name = false
 hide_tab_bar_when_single_tab = false
 pane_scrollbars = false
 tab_bar_position = "top"
-tab_bar_right = [{ type = "hostname" }]
+# tab_bar_right = [
+#   { type = "zoom" },
+#   { type = "hostname" },
+#   { type = "datetime", format = "%H:%M" },
+#   { type = "command", command = "~/.config/herdr/status.sh", interval_seconds = 5, timeout_seconds = 2 },
+# ]
+# tab_bar_right_separator = " · "
 
 [ui.toast]
 delivery = "terminal"
@@ -126,7 +132,7 @@ height = "100%"
 [[keys.command]]
 key = "prefix+ctrl+r"
 type = "popup"
-command = "$HOME/.config/herdr/scripts/claude-resume.sh --send"
+command = "/Users/yasainet/.config/herdr/scripts/claude-resume.sh --send"
 description = "claude resume"
 width = "100%"
 height = "100%"
@@ -134,7 +140,7 @@ height = "100%"
 [[keys.command]]
 key = "prefix+ctrl+f"
 type = "popup"
-command = "$HOME/.config/herdr/scripts/claude-mention.sh --send"
+command = "/Users/yasainet/.config/herdr/scripts/claude-mention.sh --send"
 description = "claude @mention"
 width = "100%"
 height = "100%"
