@@ -134,6 +134,34 @@ link_pi() {
 }
 
 # ====================
+# herdr plugins
+# ====================
+install_herdr_plugin() {
+  local id="$1" repo="$2" ref="$3"
+
+  if herdr plugin list --plugin "$id" --json 2>/dev/null |
+    jq -e '.result.plugins | length > 0' >/dev/null; then
+    echo "  [skip] $id (already installed)"
+    return
+  fi
+
+  herdr plugin install "$repo" --ref "$ref" --yes || return 1
+  echo "  [done] $id"
+}
+
+install_herdr_plugins() {
+  echo "Installing herdr plugins..."
+
+  if ! command -v herdr &>/dev/null; then
+    echo "  [skip] herdr not found"
+    return
+  fi
+
+  install_herdr_plugin herdr-splits lmilojevicc/herdr-splits.nvim v0.5.3
+  install_herdr_plugin yasainet.quote yasainet/herdr-quote v0.1.0
+}
+
+# ====================
 # bat theme
 # ====================
 setup_bat_theme() {

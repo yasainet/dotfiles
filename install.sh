@@ -74,6 +74,7 @@ main() {
   fi
 
   link_pi
+  install_herdr_plugins
 
   setup_profile
 
