@@ -13,16 +13,17 @@ WIRED_LIMIT_MB="${LLM_WIRED_LIMIT_MB:-118784}"
 CTX_SIZE="${LLM_CTX_SIZE:-262144}"
 CACHE_TYPE="${LLM_CACHE_TYPE:-f16}"
 HOST="${LLM_HOST:-127.0.0.1}"
-SLEEP_IDLE_SECONDS="${LLM_SLEEP_IDLE_SECONDS:-1800}"
 
 if ! command -v "$HOME/.local/bin/llama-server" &>/dev/null; then
   echo "llama-server not found. Run DOTFILES_PROFILE=llm ./install.sh first."
   exit 1
 fi
 
-# Metal wired 上限を拡張する (再起動で既定値に戻る)
 if [ "$(sysctl -n iogpu.wired_limit_mb 2>/dev/null || echo 0)" -lt "$WIRED_LIMIT_MB" ]; then
-  sudo sysctl iogpu.wired_limit_mb="$WIRED_LIMIT_MB"
+  sudo -n sysctl iogpu.wired_limit_mb="$WIRED_LIMIT_MB" || {
+    echo "iogpu.wired_limit_mb < $WIRED_LIMIT_MB. Run: sudo sysctl iogpu.wired_limit_mb=$WIRED_LIMIT_MB" >&2
+    exit 1
+  }
 fi
 
 export LLAMA_ARG_CHAT_TEMPLATE_KWARGS='{"preserve_thinking": true, "reasoning_effort": "medium"}'
@@ -50,5 +51,4 @@ exec "$HOME/.local/bin/llama-server" \
   --min-p 0 \
   --presence-penalty 0.5 \
   --repeat-penalty 1.0 \
-  --sleep-idle-seconds "$SLEEP_IDLE_SECONDS" \
   "$@"
