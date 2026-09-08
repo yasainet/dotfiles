@@ -83,6 +83,51 @@ install_ghq() {
 }
 
 # ====================
+# fzf (apt version is too old for --highlight-line; keep apt one for its shell scripts)
+# ====================
+FZF_VERSION="v0.74.3"
+FZF_MIN_VERSION="0.53.0"
+
+install_fzf() {
+  if command -v fzf &>/dev/null; then
+    local current
+    current="$(fzf --version | awk '{print $1}')"
+    if [[ "$(printf '%s\n%s\n' "$FZF_MIN_VERSION" "$current" | sort -V | head -1)" == "$FZF_MIN_VERSION" ]]; then
+      echo "fzf $current already installed"
+      return
+    fi
+  fi
+
+  local arch
+  case "$(uname -m)" in
+  x86_64) arch="amd64" ;;
+  aarch64) arch="arm64" ;;
+  *)
+    echo "  [skip] fzf (unsupported arch: $(uname -m))"
+    return
+    ;;
+  esac
+
+  echo "Installing fzf $FZF_VERSION..."
+
+  local tmp
+  tmp="$(mktemp -d)"
+  if ! curl -fsSL -o "$tmp/fzf.tar.gz" \
+    "https://github.com/junegunn/fzf/releases/download/${FZF_VERSION}/fzf-${FZF_VERSION#v}-linux_${arch}.tar.gz" ||
+    ! tar -xzf "$tmp/fzf.tar.gz" -C "$tmp"; then
+    echo "  [fail] fzf download/extract failed"
+    rm -rf "$tmp"
+    return 1
+  fi
+
+  mkdir -p "$HOME/.local/bin"
+  install -m 755 "$tmp/fzf" "$HOME/.local/bin/fzf"
+  rm -rf "$tmp"
+
+  echo "  [done] fzf -> $HOME/.local/bin/fzf"
+}
+
+# ====================
 # Set Zsh as Default Shell
 # ====================
 set_default_shell() {
@@ -124,6 +169,7 @@ install_zsh_plugins() {
 install_packages() {
   install_cli_tools
   install_ghq
+  install_fzf
   set_default_shell
   install_zsh_plugins
 }
