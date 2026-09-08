@@ -144,6 +144,9 @@ install_cli_tools() {
   if ! command -v claude &>/dev/null; then
     curl -fsSL https://claude.ai/install.sh | bash
   fi
+
+  # pi
+  brew install pi-coding-agent
 }
 
 # ====================
@@ -457,18 +460,6 @@ link_claude_code_skills() {
     [ -e "$skill" ] || continue
     link "${skill%/}" "$HOME/.claude/skills/$(basename "$skill")"
   done
-}
-
-# ====================
-# pi
-# ====================
-link_pi() {
-  echo "Linking pi config..."
-  mkdir -p "$HOME/.pi/agent"
-  link "$DOTFILES/dot-pi/agent/models.json" "$HOME/.pi/agent/models.json"
-  link "$DOTFILES/dot-pi/agent/extensions" "$HOME/.pi/agent/extensions"
-  link "$DOTFILES/dot-pi/agent/settings.json" "$HOME/.pi/agent/settings.json"
-  link "$DOTFILES/dot-pi/web-search.json" "$HOME/.pi/web-search.json"
 }
 
 # ====================

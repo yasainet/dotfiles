@@ -358,6 +358,43 @@ link_fd() {
 }
 
 # ====================
+# Tailscale
+# ====================
+install_tailscale() {
+  if command -v tailscale &>/dev/null; then
+    echo "tailscale already installed"
+    return
+  fi
+
+  echo "Installing tailscale..."
+  curl -fsSL https://tailscale.com/install.sh | sh
+  echo "  [done] tailscale (run: sudo tailscale up)"
+}
+
+# ====================
+# pi (npm)
+# ====================
+install_pi() {
+  if command -v pi &>/dev/null; then
+    echo "pi already installed"
+    return
+  fi
+
+  export NVM_DIR="$HOME/.nvm"
+  # shellcheck source=/dev/null
+  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+
+  if ! command -v npm &>/dev/null; then
+    echo "  [skip] pi (npm not found)"
+    return
+  fi
+
+  echo "Installing pi..."
+  npm install -g @earendil-works/pi-coding-agent
+  echo "  [done] pi"
+}
+
+# ====================
 # Set Zsh as Default Shell
 # ====================
 set_default_shell() {
@@ -406,6 +443,7 @@ install_packages() {
   install_yazi
   install_vivify
   link_fd
+  install_tailscale
   set_default_shell
   install_zsh_plugins
 }
