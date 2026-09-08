@@ -26,10 +26,7 @@ prompt_new_tab_name = false
 hide_tab_bar_when_single_tab = false
 pane_scrollbars = false
 tab_bar_position = "top"
-tab_bar_right = [
-  { type = "hostname" },
-  { type = "command", command = "~/.config/herdr/status.sh", interval_seconds = 5, timeout_seconds = 2 },
-]
+tab_bar_right = [{ type = "hostname" }]
 
 [ui.toast]
 delivery = "terminal"
