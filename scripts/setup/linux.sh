@@ -358,6 +358,24 @@ link_fd() {
 }
 
 # ====================
+# bat -> batcat (Debian renames it; scripts call bat)
+# ====================
+link_bat() {
+  if command -v bat &>/dev/null; then
+    echo "bat already available"
+    return
+  fi
+  if ! command -v batcat &>/dev/null; then
+    echo "  [skip] bat (batcat not found)"
+    return
+  fi
+
+  mkdir -p "$HOME/.local/bin"
+  ln -sf "$(command -v batcat)" "$HOME/.local/bin/bat"
+  echo "  [done] bat -> $(command -v batcat)"
+}
+
+# ====================
 # Tailscale
 # ====================
 install_tailscale() {
@@ -443,6 +461,7 @@ install_packages() {
   install_yazi
   install_vivify
   link_fd
+  link_bat
   install_tailscale
   set_default_shell
   install_zsh_plugins

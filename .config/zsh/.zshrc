@@ -51,7 +51,6 @@ else
   alias ls='ls --color=auto'
   alias la='ls -la --color=auto'
   alias C='xclip -selection clipboard'
-  alias bat='batcat'
 fi
 
 # Functions
