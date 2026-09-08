@@ -436,33 +436,6 @@ link_espanso() {
 }
 
 # ====================
-# Claude Code
-# ====================
-link_claude_code() {
-  echo "Linking Claude Code config..."
-  mkdir -p "$HOME/.claude"
-  link "$DOTFILES/dot-claude/CLAUDE.md" "$HOME/.claude/CLAUDE.md"
-  link "$DOTFILES/dot-claude/docs" "$HOME/.claude/docs"
-  link "$DOTFILES/dot-claude/settings.json" "$HOME/.claude/settings.json"
-  link "$DOTFILES/dot-claude/keybindings.json" "$HOME/.claude/keybindings.json"
-  link "$DOTFILES/dot-claude/rules" "$HOME/.claude/rules"
-  link_claude_code_skills
-  link "$DOTFILES/dot-claude/statusline-command.sh" "$HOME/.claude/statusline-command.sh"
-}
-
-# skills は skills CLI などの外部ツールも書き込むため、ディレクトリごと
-# リンクせず skill 単位でリンクする。ディレクトリごとリンクすると外部
-# ツールが張る相対 symlink が dotfiles 側に解決されて壊れる
-link_claude_code_skills() {
-  mkdir -p "$HOME/.claude/skills"
-  local skill
-  for skill in "$DOTFILES"/dot-claude/skills/*/; do
-    [ -e "$skill" ] || continue
-    link "${skill%/}" "$HOME/.claude/skills/$(basename "$skill")"
-  done
-}
-
-# ====================
 # Bundler (Ruby)
 # ====================
 configure_bundler() {

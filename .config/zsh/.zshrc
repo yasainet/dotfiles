@@ -64,7 +64,7 @@ rm() {
   local -a files
   local endopts=0 arg
   for arg in "$@"; do
-    if ((!endopts)); then
+    if ((! endopts)); then
       [[ "$arg" == "--" ]] && {
         endopts=1
         continue
