@@ -14,8 +14,9 @@ xcode-select --install
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
-# Install
-brew install ghq
+# Install (repo は private なので先に認証する)
+brew install gh ghq
+gh auth login
 ghq get https://github.com/yasainet/dotfiles
 cd ~/ghq/github.com/yasainet/dotfiles
 
@@ -32,8 +33,10 @@ exec zsh
 ### Linux (Ubuntu)
 
 ```sh
-sudo apt update && sudo apt install -y git
+sudo apt update && sudo apt install -y git gh
 
+# repo は private なので先に認証する
+gh auth login
 git clone https://github.com/yasainet/dotfiles ~/ghq/github.com/yasainet/dotfiles
 cd ~/ghq/github.com/yasainet/dotfiles
 ./install.sh
