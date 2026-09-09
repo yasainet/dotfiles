@@ -15,7 +15,7 @@ end
 
 return {
   "nvim-lualine/lualine.nvim",
-  dependencies = { "nvim-tree/nvim-web-devicons" },
+  dependencies = { "nvim-mini/mini.icons" },
   opts = {
     options = {
       component_separators = { left = "", right = "" },

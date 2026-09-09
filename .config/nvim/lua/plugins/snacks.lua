@@ -2,6 +2,7 @@ return {
   "folke/snacks.nvim",
   priority = 1000,
   lazy = false,
+  dependencies = { "nvim-mini/mini.icons" },
   keys = {
     -- Explorer
     {
@@ -208,17 +209,6 @@ return {
   },
   config = function(_, opts)
     require("snacks").setup(opts)
-    -- picker icon
-    local util = require("snacks.util")
-    local icon = util.icon
-    util.icon = function(name, cat, o)
-      if cat == "file" then
-        name = vim.fs.basename(name)
-        -- .envrc, .env.*
-        name = name:match("^%.env") and ".env" or name
-      end
-      return icon(name, cat, o)
-    end
     -- explorer
     vim.api.nvim_create_autocmd("FocusGained", {
       group = vim.api.nvim_create_augroup("snacks_explorer_refresh", { clear = true }),
