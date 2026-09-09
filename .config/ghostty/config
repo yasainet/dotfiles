@@ -63,11 +63,6 @@ keybind = cmd+w=unbind
 # Ctrl+[ -> copy mode (herdr prefix+[)
 keybind = ctrl+bracket_left=text:\x02[
 
-# Cmd+[ / Cmd+] -> cycle pane previous / next (herdr prefix+shift+tab / prefix+tab)
-# default の cmd+[ / cmd+] (goto_split) と同じ trigger 表記で上書きする。bracket_left 表記だと default が残る
-keybind = cmd+[=text:\x02\x1b[Z
-keybind = cmd+]=text:\x02\t
-
 # Cmd+k -> clear screen (herdr prefix+ctrl+k)
 keybind = cmd+k=unbind
 keybind = cmd+k=text:\x02\x0b
@@ -114,3 +109,7 @@ keybind = cmd+d=text:\x02v
 # Cmd+Shift+d -> split horizontal (herdr prefix+-)
 keybind = cmd+shift+d=unbind
 keybind = cmd+shift+d=text:\x02-
+
+# Cmd+[ / Cmd+] -> cycle pane previous / next (herdr prefix+shift+tab / prefix+tab)
+keybind = cmd+[=text:\x02\x1b[Z
+keybind = cmd+]=text:\x02\t
