@@ -21,12 +21,19 @@ healthy() {
   curl -sf -m 2 "$HEALTH" >/dev/null
 }
 
+loaded() {
+  launchctl print "$DOMAIN/$LABEL" >/dev/null 2>&1
+}
+
 up() {
+  if loaded; then
+    launchctl bootout "$DOMAIN/$LABEL"
+    echo "darkbloom: stopped"
+  fi
   if healthy; then
     echo "llama-server: already up"
     return 0
   fi
-  launchctl bootout "$DOMAIN/$LABEL" 2>/dev/null || true
   nohup "$SERVE" >>"$LOG" 2>&1 &
   local pid=$! i
   for ((i = 0; i < HEALTH_TIMEOUT; i++)); do
@@ -52,6 +59,10 @@ down() {
     pgrep -f "$BIN" >/dev/null || break
     sleep 1
   done
+  if loaded; then
+    echo "darkbloom: already loaded"
+    return 0
+  fi
   launchctl enable "$DOMAIN/$LABEL" 2>/dev/null || true
   launchctl bootstrap "$DOMAIN" "$PLIST"
   echo "darkbloom: started"
@@ -65,7 +76,7 @@ status() {
   else
     echo "llama-server: down"
   fi
-  if launchctl print "$DOMAIN/$LABEL" >/dev/null 2>&1; then
+  if loaded; then
     echo "darkbloom: loaded"
   else
     echo "darkbloom: unloaded"
