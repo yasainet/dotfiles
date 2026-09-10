@@ -21,7 +21,25 @@ retention_days = 3
 
 [menu_bar]
 icon_style = "default"
-item_order = ["captureArea", "captureAreaAnnotate", "captureApplication", "captureFullscreen", "captureActiveWindow", "scrollingCapture", "captureOCR", "captureSmartElement", "captureObjectCutout", "recordScreen", "recordApplication", "openAnnotate", "combineImages", "editVideo", "cloudUploads", "openHistory", "shortcutList"]
+item_order = [
+  "captureArea",
+  "captureAreaAnnotate",
+  "captureApplication",
+  "captureFullscreen",
+  "captureActiveWindow",
+  "scrollingCapture",
+  "captureOCR",
+  "captureSmartElement",
+  "captureObjectCutout",
+  "recordScreen",
+  "recordApplication",
+  "openAnnotate",
+  "combineImages",
+  "editVideo",
+  "cloudUploads",
+  "openHistory",
+  "shortcutList",
+]
 hidden_items = []
 
 [capture]
@@ -112,8 +130,24 @@ swipe_left_action = "dismiss"
 swipe_right_action = "dismiss"
 hide_card_when_window_open = true
 animation_style = "slide"
-actions_order = ["copy", "saveOrOpen", "dismiss", "delete", "edit", "uploadToCloud", "pinToScreen"]
-enabled_actions = ["copy", "delete", "dismiss", "edit", "pinToScreen", "saveOrOpen", "uploadToCloud"]
+actions_order = [
+  "copy",
+  "saveOrOpen",
+  "dismiss",
+  "delete",
+  "edit",
+  "uploadToCloud",
+  "pinToScreen",
+]
+enabled_actions = [
+  "copy",
+  "delete",
+  "dismiss",
+  "edit",
+  "pinToScreen",
+  "saveOrOpen",
+  "uploadToCloud",
+]
 
 [quick_access.slots]
 center_top = "copy"
