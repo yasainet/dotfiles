@@ -3,9 +3,12 @@ return {
   lazy = false,
   priority = 1000,
   opts = {
+    transparent = true,
     styles = {
       comments = { italic = false },
       keywords = { italic = false },
+      -- sidebars = "transparent",
+      -- floats = "transparent",
     },
     on_highlights = function(hl, c)
       -- snacks indent scope
