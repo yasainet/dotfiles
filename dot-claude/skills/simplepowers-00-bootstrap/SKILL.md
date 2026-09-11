@@ -1,5 +1,6 @@
 ---
 name: simplepowers-00-bootstrap
+description: Simplepowers Bootstrap
 disable-model-invocation: true
 ---
 
@@ -42,15 +43,3 @@ Simeplepowers は、Phase ごとに SOP を定めている。
 - `go <Phase>`: 指定した Phase に進め
 - `skip <Phase>`: 指定した Phase をスキップせよ
 - `keep <Phase>`: 指定した Phase を保持せよ
-
-## Declaring
-
-すべての回答の冒頭で、必ず Phase を宣言せよ。
-
-Sample:
-
-```text
-[Explore]
-
-Your response here.
-```
