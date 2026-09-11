@@ -6,12 +6,9 @@ disable-model-invocation: true
 
 # Simplepowers Bootstrap
 
-> [!NOTE]
-> すべての回答は、必ず `Explore` から開始せよ。
-
 ## Basic Workflow
 
-Simplepowers は、以下の順番に従って Phase を進める。
+以下の順番に従って Phase を進める。
 
 | Phase     | Skill                     | Next Phase |
 | --------- | ------------------------- | ---------- |
@@ -24,7 +21,7 @@ Simplepowers は、以下の順番に従って Phase を進める。
 
 ## Template
 
-Simplepowers は、Phase ごとに以下の Section を定めている。
+Phase ごとに以下の Section を定める。
 
 | Section | Description                         |
 | ------- | ----------------------------------- |
@@ -34,7 +31,7 @@ Simplepowers は、Phase ごとに以下の Section を定めている。
 
 ## Trigger
 
-`user` は、Trigger を使用して Phase を指定することができる。
+`user` は、Trigger を使用して Phase を指定する。
 
 - `go <Phase>`: 指定した Phase に進め
 - `skip <Phase>`: 指定した Phase をスキップせよ
