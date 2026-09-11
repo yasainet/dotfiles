@@ -7,15 +7,27 @@ description: Simplepowers Plan
 
 ## Do
 
-- `Explore` で合意した Goal を `Plan` として提示せよ
-  - 変更対象が軽微である: markdown, diff で該当部分を提示せよ
-  - 変更対象が軽微ではない: `@Plan` で `./.claude/plans/*.md` に書け
+- `Explore` で決めた目的 (Goal) を `./.claude/plans/<kebab-case>-<yyyymmdd>.md` として書け
+- 以下のテンプレートに従って書け
 
-### Tools
+```markdown
+# Title
 
-| When                               | Tools   |
-| ---------------------------------- | ------- |
-| `user` が `@Plan` の指示をした場合 | `@Plan` |
+## Summary
+
+- Goal:
+
+## Files
+
+- Create: `path`
+- Modify: `path`
+- Delete: `path`
+```
+
+> [!NOTE]
+>
+> - 出力された `./.claude/plans/*.md` に対して、 `user` は、`>` で注釈を書く
+> - 注釈に従って、`./.claude/plans/*.md` を修正し、再提示せよ
 
 ## Don't
 
@@ -23,4 +35,4 @@ description: Simplepowers Plan
 
 ## Done
 
-`user` が `Plan` を承認したら `Build` へ移行せよ。
+- `user` が `Plan` を承認したら、`Build` へ移行せよ

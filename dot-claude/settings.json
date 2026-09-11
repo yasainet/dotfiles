@@ -103,7 +103,6 @@
     }
   },
   "autoUpdatesChannel": "latest",
-  "plansDirectory": ".claude/plans",
   "voice": {
     "enabled": true,
     "mode": "hold"
