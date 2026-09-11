@@ -5,31 +5,22 @@ description: Simplepowers Plan
 
 # Plan
 
-Start by declaring `[Plan]`.
-
-## Purpose
-
-`Explore` で合意した Goal を `Plan` として提示して、`user` が承認する。
-
-## Scope
+## Do
 
 - `Explore` で合意した Goal を `Plan` として提示せよ
-  - 変更対象が軽微である: markdown diff を利用して該当部分を提示せよ
-  - 変更対象が軽微ではない: `@Plan` を利用せよ
-- `Plan` では、あらゆるファイルに対する編集を禁止する
-  - `@Plan` では、`./.claude/plans/*.md` に書き込みせよ
+  - 変更対象が軽微である: markdown, diff で該当部分を提示せよ
+  - 変更対象が軽微ではない: `@Plan` で `./.claude/plans/*.md` に書け
 
-## Responsibilities
+Tools:
 
 | When                               | Tools   |
 | ---------------------------------- | ------- |
 | `user` が `@Plan` の指示をした場合 | `@Plan` |
 
-## Procedure
+## Don't
 
-1. `Explore` で合意した Goal を `Plan` として提示せよ
-2. `user` が承認をした場合にのみ、`Build` へ移行せよ
+- `./.claude/plans/*.md` 以外のファイルの編集を禁止する
 
-## References
+## Done
 
-N/A
+`user` が `Plan` を承認したら `Build` へ移行せよ。

@@ -5,34 +5,16 @@ description: Simplepowers Build
 
 # Build
 
-Start by declaring `[Build]`.
-
-## Purpose
-
-`Plan` で承認した設計を実装する。
-
-## Scope
+## Do
 
 - `Plan` で承認した設計を実装せよ
-- `Plan` にはない変更がある場合は `user` に伝えて、`Explore` に戻れ
+  - Documents: `Plan` に従って更新せよ
+  - Developments: [tdd.md](tdd.md) の手順に従え
 
-## Responsibilities
+## Don't
 
-N/A
+- `Plan` にはない変更を禁止する。必要なら `user` に伝えて `Explore` に戻れ
 
-## Procedure
+## Done
 
-Documents:
-
-1. `Plan` に従って更新せよ
-2. `Verify` へ移行せよ
-
-Developments:
-
-1. `tdd.md` の手順に従え
-2. `Plan` にはない変更がある場合は `user` に伝えて、`Explore` に戻れ
-3. `Verify` へ移行せよ
-
-## References
-
-- [tdd.md](tdd.md): TDD の手順書
+実装を終えたら `Verify` へ移行せよ。

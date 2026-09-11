@@ -6,18 +6,13 @@ allowed-tools: Bash(git *)
 
 # Record
 
-Start by declaring `[Record]`.
+## Do
 
-## Purpose
+- 作業を commit や PR として残せ。通っていない Phase があっても実行してよい
+  - commit する前に `~/.claude/docs/github.md` を読め。type、scope、body の規約がある
+  - commit の hash と変更規模を報告せよ
 
-作業を commit や PR として残す。
-
-## Scope
-
-- 通っていない phase があっても適用してよい。報告で申告せよ
-- commit と PR だけを扱え。code の修正はここでするな
-
-## Responsibilities
+Tools:
 
 | When            | Tools                             |
 | --------------- | --------------------------------- |
@@ -26,12 +21,12 @@ Start by declaring `[Record]`.
 | release tag     | `/git-bump`                       |
 | 積み残し        | `/git-issue`                      |
 
-## Procedure
+## Don't
 
-1. commit する前に `github.md` を読め。type、scope、body の規約がある
-2. commit の hash と変更規模を報告せよ
-3. 通らなかった phase があるなら、通らなかったと言え。push していないなら、していないと言え
+- code の修正を禁止する。commit と PR だけを扱え
+- 通らなかった Phase を黙るな。通らなかったと言え
+- push していないのに黙るな。していないと言え
 
-## References
+## Done
 
-- `~/.claude/docs/github.md`: commit の type、scope、body の規約
+報告を終えたら止まれ。次の Phase はない。
