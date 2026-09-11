@@ -9,9 +9,8 @@ description: Simplepowers Verify
 
 - `Build` で実装したコード・文章に対して、検証を実行せよ
   - `./README.md` の Verify section に従え。section がなければ `user` に更新を促せ
-  - 出力と exit code を最後まで読め
 
-Tools:
+### Tools
 
 | When             | Tools                           |
 | ---------------- | ------------------------------- |

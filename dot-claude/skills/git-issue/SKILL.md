@@ -1,4 +1,6 @@
 ---
+name: git-issue
+description: Git issue
 allowed-tools: Bash(gh *), Bash(tea *), Bash(git remote *)
 disable-model-invocation: true
 ---

@@ -11,7 +11,7 @@ description: Simplepowers Explore
   - 質問: `user` の理解を深め、疑問を解消する
   - 目的: `user` の Goal を達成する Plan の材料を揃える
 
-Tools:
+### Tools
 
 | When                     | Tools                               |
 | ------------------------ | ----------------------------------- |

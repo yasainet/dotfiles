@@ -173,7 +173,7 @@ return {
       },
       sources = {
         explorer = {
-          auto_close = true,
+          -- auto_close = true,
           hidden = true,
           diagnostics = false,
           exclude = { ".DS_Store" },

@@ -1,4 +1,6 @@
 ---
+name: claude-session
+description: Claude session
 allowed-tools: Bash(echo *)
 disable-model-invocation: true
 ---

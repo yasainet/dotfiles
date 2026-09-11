@@ -1,4 +1,6 @@
 ---
+name: claude-fuck
+description: Claude fuck
 disable-model-invocation: true
 ---
 

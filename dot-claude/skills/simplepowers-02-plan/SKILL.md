@@ -11,7 +11,7 @@ description: Simplepowers Plan
   - 変更対象が軽微である: markdown, diff で該当部分を提示せよ
   - 変更対象が軽微ではない: `@Plan` で `./.claude/plans/*.md` に書け
 
-Tools:
+### Tools
 
 | When                               | Tools   |
 | ---------------------------------- | ------- |

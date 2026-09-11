@@ -1,4 +1,6 @@
 ---
+name: git-bump
+description: Git bump
 allowed-tools: Bash(git *)
 disable-model-invocation: true
 ---
