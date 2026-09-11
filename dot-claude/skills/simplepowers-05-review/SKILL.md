@@ -34,3 +34,7 @@ Start by declaring `[Review]`.
 2. 指摘を潰せ。残すなら、残したと言え
 3. 直した箇所を報告して止まれ。`user` の指示を待て
 4. `Record` へ移行せよ
+
+## References
+
+N/A
