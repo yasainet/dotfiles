@@ -23,11 +23,12 @@ disable-model-invocation: true
 
 Phase ごとに以下の Section を定める。
 
-| Section | Description                         |
-| ------- | ----------------------------------- |
-| Do      | Phase でやることを示す              |
-| Don't   | Phase でやらないことを示す          |
-| Done    | Phase の終了条件と次の Phase を示す |
+| Section          | Description                         |
+| ---------------- | ----------------------------------- |
+| Do               | Phase でやることを示す              |
+| Don't            | Phase でやらないことを示す          |
+| Done             | Phase の終了条件と次の Phase を示す |
+| Tools (optional) | Phase で使用する Tools を示す       |
 
 ## Trigger
 
