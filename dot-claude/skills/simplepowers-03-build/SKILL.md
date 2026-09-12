@@ -7,14 +7,18 @@ description: Simplepowers Build
 
 ## Do
 
-- `Plan` で承認した設計を実装せよ
-  - Documents: `Plan` に従って更新せよ
-  - Developments: [tdd.md](tdd.md) の手順に従え
+- TDD で書け。1 振る舞いごとに以下を繰り返せ
+  - Red: 失敗する test を書き、失敗することを確認せよ
+  - Green: test を通す最小の実装を書け
+  - Refactor: test を通したまま整えよ
+- `TaskCreate` された `Plan` を実装せよ
+- `TaskList`, `TaskUpdate` で進捗を提示せよ
 
 ## Don't
 
 - `Plan` にはない変更を禁止する。必要なら `user` に伝えて `Explore` に戻れ
+- test を通すために test を弱めるな。仕様に寄せて実装を直せ
 
 ## Done
 
-実装を終えたら `Verify` へ移行せよ。
+- 実装を終えたら `Verify` へ移行せよ
