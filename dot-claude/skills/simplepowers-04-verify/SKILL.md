@@ -15,4 +15,4 @@ description: Simplepowers Verify
 
 ## Done
 
-検証が通ったら `Review` へ移行せよ。
+- 検証が通ったら `Review` へ移行せよ

@@ -22,3 +22,10 @@ description: Simplepowers Build
 ## Done
 
 - 実装を終えたら `Verify` へ移行せよ
+
+## Tools
+
+| When         | Tools        |
+| ------------ | ------------ |
+| Tasks を表示 | `TaskList`   |
+| Tasks を更新 | `TaskUpdate` |
