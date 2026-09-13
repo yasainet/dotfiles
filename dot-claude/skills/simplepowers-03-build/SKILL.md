@@ -18,6 +18,7 @@ description: Simplepowers Build
 
 - `Plan` にはない変更を禁止する。必要なら `user` に伝えて `Explore` に戻れ
 - test を通すために test を弱めるな。仕様に寄せて実装を直せ
+- 不要なコメント、JSDoc を追加するな
 
 ## Done
 
