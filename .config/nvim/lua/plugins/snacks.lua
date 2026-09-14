@@ -210,6 +210,16 @@ return {
   config = function(_, opts)
     require("snacks").setup(opts)
     -- explorer
+    -- TODO: PR #2934
+    local Git = require("snacks.explorer.git")
+    local Tree = require("snacks.explorer.tree")
+    local git_update = Git._update
+    Git._update = function(cwd, results)
+      Tree:walk(Tree:find(cwd), function(n)
+        n.dir_status = nil
+      end, { all = true })
+      return git_update(cwd, results)
+    end
     vim.api.nvim_create_autocmd("FocusGained", {
       group = vim.api.nvim_create_augroup("snacks_explorer_refresh", { clear = true }),
       callback = function()

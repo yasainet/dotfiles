@@ -25,5 +25,20 @@ end, { desc = "Yank full path" })
 vim.keymap.set({ "n", "x" }, "<leader>qq", "<Cmd>qa!<CR>", { desc = "Quit all (force)" })
 
 -- LSP
-vim.keymap.set("n", "<leader>lr", "<Cmd>lsp restart<CR>", { desc = "Restart LSP" })
+-- TODO: fix
+vim.keymap.set("n", "<leader>lr", function()
+  local log = vim.fn.stdpath("state") .. "/lsp-restart.log"
+  local lines = {
+    "==== " .. os.date("%Y-%m-%d %H:%M:%S") .. " " .. vim.api.nvim_buf_get_name(0) .. " ft=" .. vim.bo.filetype,
+    "clients: " .. table.concat(
+      vim.tbl_map(function(c)
+        return c.name
+      end, vim.lsp.get_clients({ bufnr = 0 })),
+      ", "
+    ),
+  }
+  vim.list_extend(lines, vim.split(vim.fn.execute("messages"), "\n"))
+  vim.fn.writefile(lines, log, "a")
+  vim.cmd("lsp restart")
+end, { desc = "Restart LSP" })
 vim.keymap.set("n", "<leader>li", "<Cmd>checkhealth vim.lsp<CR>", { desc = "LSP Info" })

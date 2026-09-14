@@ -20,9 +20,9 @@ end
 
 local refresh_timer = assert(vim.uv.new_timer())
 
-local function refresh_explorer()
+local function refresh_explorer(delay)
   refresh_timer:start(
-    100,
+    delay or 100,
     0,
     vim.schedule_wrap(function()
       local ok, Snacks = pcall(require, "snacks")
@@ -92,7 +92,57 @@ local function start(buf)
   end
 end
 
+local git_watchers = {}
+local git_files = {
+  ["index"] = true,
+  ["HEAD"] = true,
+  ["HEAD.lock"] = true,
+  ["ORIG_HEAD"] = true,
+  ["COMMIT_EDITMSG"] = true,
+  ["packed-refs"] = true,
+  ["packed-refs.lock"] = true,
+}
+
+local function watch_git(cwd)
+  local root = vim.fs.root(cwd, ".git")
+  if not root then
+    return
+  end
+  local git_dir = root .. "/.git"
+  if git_watchers[git_dir] or vim.fn.isdirectory(git_dir) == 0 then
+    return
+  end
+
+  local handle = vim.uv.new_fs_event()
+  if not handle then
+    return
+  end
+
+  local started = handle:start(
+    git_dir,
+    {},
+    vim.schedule_wrap(function(err, fname)
+      if err then
+        pcall(handle.close, handle)
+        git_watchers[git_dir] = nil
+        return
+      end
+      if fname and not git_files[fname] then
+        return
+      end
+      refresh_explorer(300)
+    end)
+  )
+
+  if started then
+    git_watchers[git_dir] = handle
+  else
+    handle:close()
+  end
+end
+
 local function update()
+  watch_git(vim.fn.getcwd())
   local loaded = {}
   for _, buf in ipairs(vim.api.nvim_list_bufs()) do
     if vim.api.nvim_buf_is_loaded(buf) and is_file(buf) then
@@ -137,11 +187,21 @@ vim.api.nvim_create_autocmd("BufDelete", {
   end,
 })
 
+vim.api.nvim_create_autocmd("DirChanged", {
+  group = group,
+  callback = function()
+    watch_git(vim.fn.getcwd())
+  end,
+})
+
 vim.api.nvim_create_autocmd("VimLeavePre", {
   group = group,
   callback = function()
     for buf in pairs(watchers) do
       stop(buf)
+    end
+    for _, handle in pairs(git_watchers) do
+      pcall(handle.close, handle)
     end
   end,
 })
