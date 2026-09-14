@@ -35,10 +35,4 @@ description: Simplepowers Plan
 
 ## Done
 
-- `user` が `Plan` を承認したら `TaskCreate` して、`Build` へ移行せよ
-
-## Tools
-
-| When          | Tools        |
-| ------------- | ------------ |
-| `Plan` を承認 | `TaskCreate` |
+- `user` が `Plan` を承認したら、`Build` へ移行せよ
