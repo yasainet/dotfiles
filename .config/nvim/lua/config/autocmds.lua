@@ -2,6 +2,7 @@
 vim.filetype.add({
   extension = {
     mdx = "markdown",
+    gs = "javascript",
   },
   filename = {
     ["docker-compose.yml"] = "yaml.docker-compose",

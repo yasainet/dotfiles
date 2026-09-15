@@ -36,7 +36,14 @@ vim.keymap.set("n", "<leader>lr", function()
       end, vim.lsp.get_clients({ bufnr = 0 })),
       ", "
     ),
+    "on_disk: "
+      .. tostring(vim.uv.fs_stat(vim.api.nvim_buf_get_name(0)) ~= nil)
+      .. " lines="
+      .. vim.api.nvim_buf_line_count(0),
   }
+  for _, d in ipairs(vim.diagnostic.get(0)) do
+    lines[#lines + 1] = string.format("diag L%d:%d [%s] %s", d.lnum + 1, d.col, tostring(d.source), d.message)
+  end
   vim.list_extend(lines, vim.split(vim.fn.execute("messages"), "\n"))
   vim.fn.writefile(lines, log, "a")
   vim.cmd("lsp restart")
