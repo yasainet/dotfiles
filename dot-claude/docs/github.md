@@ -12,7 +12,7 @@ body は LLM が why を辿るための記録である
 
 ### Format
 
-```
+```text
 <type>(<scope>): <subject>
 
 <body>

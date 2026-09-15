@@ -10,8 +10,14 @@
     "CLAUDE_CODE_THRIFTY_SONIC": "0"
   },
   "permissions": {
-    "allow": ["Read(//Users/yasainet/ghq/**)", "Bash(trash:*)"],
-    "deny": ["Bash(rm:*)", "Bash(sudo rm:*)"],
+    "allow": [
+      "Read(//Users/yasainet/ghq/**)",
+      "Bash(trash:*)"
+    ],
+    "deny": [
+      "Bash(rm:*)",
+      "Bash(sudo rm:*)"
+    ],
     "ask": [
       "Edit(**/supabase/migrations/*.sql)",
       "Bash(gh pr merge:*)",
@@ -23,7 +29,6 @@
     ],
     "defaultMode": "auto"
   },
-  "model": "claude-fable-5-1[1m]",
   "fallbackModel": [],
   "enableAllProjectMcpServers": true,
   "hooks": {
@@ -83,6 +88,7 @@
     }
   },
   "autoUpdatesChannel": "latest",
+  "tui": "fullscreen",
   "voice": {
     "enabled": true,
     "mode": "hold"
@@ -103,5 +109,5 @@
     "environment": [],
     "classifyAllShell": false
   },
-  "tui": "fullscreen"
+  "model": "claude-fable-5-1[1m]"
 }
