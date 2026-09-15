@@ -11,30 +11,30 @@ paths:
 
 ```text
   supabase/
-  ├── .env.sample        # config.toml env()
-  ├── .env               # config.toml env()
+  ├── .env.sample
+  ├── .env
   ├── config.toml
   ├── migrations/
-  ├── schemas/           # Declarative database schemas
+  ├── schemas/
   │   ├── .pgdelta-export.json
   │   ├── _cluster/
-  │   │   ├── extensions/        # <extension>.sql
+  │   │   ├── extensions/
   │   │   └── roles.sql
   │   ├── _custom/
-  │   └── <schema>/              #  public/
+  │   └── public/
   │       ├── schema.sql
   │       ├── default_privileges.sql
-  │       └── <NN>_<name>.sql    # ex: 01_users.sql
+  │       └── <NN>_<name>.sql
   ├── seeds/
-  │   ├── *.seed.sql             # ex: 01_users.seed.sql
-  │   ├── storages/              # ex: 01.storage.seed.sql
+  │   ├── *.seed.sql
+  │   ├── storages/
   │   │   └── <bucket_name>/
   │   └── scripts/
-  │       ├── *.local.sql
-  │       └── *.production.sql   # Run manually
+  │       ├── setup.local.sql
+  │       └── setup.production.sql
   ├── snippets/
   ├── templates/
-  └── functions/         # Supabase Edge Functions
+  └── functions/
       ├── .env.sample
       └── .env
 ```
@@ -178,8 +178,6 @@ export type Database = MergeDeep<
       Views: {
         <view_name>: {
           Row: {
-            // gen types は view の全列を nullable にする。
-            // 実際は NOT NULL の列だけを書け。全列を書き写すな（MergeDeep は deep merge）
           };
         };
       };

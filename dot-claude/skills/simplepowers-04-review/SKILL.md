@@ -1,5 +1,5 @@
 ---
-name: simplepowers-05-review
+name: simplepowers-04-review
 description: Simplepowers Review
 ---
 
@@ -15,7 +15,7 @@ description: Simplepowers Review
 
 ## Done
 
-- `user` の指示を受けたら `Record` へ移行せよ
+- `Review` を終えたら `Record` へ移行せよ
 
 ## Tools
 
@@ -24,4 +24,4 @@ description: Simplepowers Review
 | Developments    | `/code-review <path>`  |
 | Auth, API, etc. | `/security-review`     |
 | Code Cleanup    | `/simplify`            |
-| GitHub PR       | `/code-review PR #<N>` |
+| PR              | `/code-review PR #<N>` |

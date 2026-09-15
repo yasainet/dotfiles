@@ -96,10 +96,6 @@ VPS:
 
 tagline
 
-## Summary
-
-- list
-
 ## Rules
 
 - list

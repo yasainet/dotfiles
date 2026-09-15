@@ -1,5 +1,5 @@
 ---
-name: simplepowers-06-record
+name: simplepowers-05-record
 description: Simplepowers Record
 allowed-tools: Bash(git *)
 ---
@@ -15,8 +15,6 @@ allowed-tools: Bash(git *)
 ## Don't
 
 ## Done
-
-- 報告を終えたら止まれ。次の Phase はない
 
 ## Tools
 

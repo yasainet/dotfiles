@@ -6,9 +6,6 @@ paths:
 
 # Env Rules
 
-> [!NOTE]
-> this document is WIP.
-
 `.env`, `.env.*` の基本ルールを記述する。
 
 ## Next.js
