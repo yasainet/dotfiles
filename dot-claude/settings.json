@@ -10,22 +10,13 @@
     "CLAUDE_CODE_THRIFTY_SONIC": "0"
   },
   "permissions": {
-    "allow": [
-      "Read(//Users/yasainet/ghq/**)",
-      "Bash(trash:*)"
-    ],
-    "deny": [
-      "Bash(rm:*)",
-      "Bash(sudo rm:*)"
-    ],
+    "allow": ["Read(//Users/yasainet/ghq/**)"],
+    "deny": ["Bash(rm:*)", "Bash(sudo rm:*)"],
     "ask": [
       "Edit(**/supabase/migrations/*.sql)",
       "Bash(gh pr merge:*)",
       "Bash(supabase db push:*)",
-      "Bash(supabase db reset*)",
-      "Bash(kill:*)",
-      "Bash(pkill:*)",
-      "Bash(killall:*)"
+      "Bash(supabase db reset*)"
     ],
     "defaultMode": "auto"
   },

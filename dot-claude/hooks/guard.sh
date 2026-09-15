@@ -1,9 +1,12 @@
 #!/bin/sh
-command=$(jq -r '.tool_input.command // ""')
-
-case "$command" in
-rm | rm\ *)
-  echo "Don't use rm. Use trash <path> instead." >&2
+deny() {
+  echo "$1" >&2
   exit 2
-  ;;
-esac
+}
+
+jq -r '.tool_input.command // "" | splits("[;&|\n]")' | while read -r first second _; do
+  [ "$first" = sudo ] && first=$second
+  case "${first##*/}" in
+  rm) deny "Don't use rm. Use trash <path> instead." ;;
+  esac
+done
