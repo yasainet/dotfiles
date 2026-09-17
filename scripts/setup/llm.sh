@@ -73,6 +73,6 @@ setup_profile() {
 
   echo ""
   echo "  models: ./scripts/llm/fetch.sh で取得する"
-  echo "  serve: darkbloom を停止してから ./scripts/llm/serve.sh で起動する"
+  echo "  serve: ./scripts/llm/ctl.sh up で起動する"
   echo "  expose: tailscale serve --bg --tcp=8080 tcp://127.0.0.1:8080 で tailnet へ公開する"
 }

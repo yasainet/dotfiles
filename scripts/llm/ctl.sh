@@ -1,16 +1,13 @@
 #!/bin/bash
 #
 # Usage:
-# - ./scripts/llm/ctl.sh up      # darkbloom を止めて llama-server を起動し、health を待つ
-# - ./scripts/llm/ctl.sh down    # llama-server を止めて darkbloom を再開する
-# - ./scripts/llm/ctl.sh status  # 両者の状態を表示する
+# - ./scripts/llm/ctl.sh up      # llama-server を起動し、health を待つ
+# - ./scripts/llm/ctl.sh down    # llama-server を止める
+# - ./scripts/llm/ctl.sh status  # llama-server の状態を表示する
 #
 
 set -e
 
-LABEL="io.darkbloom.provider"
-PLIST="$HOME/Library/LaunchAgents/$LABEL.plist"
-DOMAIN="gui/$(id -u)"
 SERVE="$(cd "$(dirname "$0")" && pwd)/serve.sh"
 BIN="$HOME/.local/bin/llama-server"
 LOG="$HOME/llama-server.log"
@@ -21,15 +18,7 @@ healthy() {
   curl -sf -m 2 "$HEALTH" >/dev/null
 }
 
-loaded() {
-  launchctl print "$DOMAIN/$LABEL" >/dev/null 2>&1
-}
-
 up() {
-  if loaded; then
-    launchctl bootout "$DOMAIN/$LABEL"
-    echo "darkbloom: stopped"
-  fi
   if healthy; then
     echo "llama-server: already up"
     return 0
@@ -59,13 +48,6 @@ down() {
     pgrep -f "$BIN" >/dev/null || break
     sleep 1
   done
-  if loaded; then
-    echo "darkbloom: already loaded"
-    return 0
-  fi
-  launchctl enable "$DOMAIN/$LABEL" 2>/dev/null || true
-  launchctl bootstrap "$DOMAIN" "$PLIST"
-  echo "darkbloom: started"
 }
 
 status() {
@@ -75,11 +57,6 @@ status() {
     echo "llama-server: starting (pid $(pgrep -f "$BIN" | head -1))"
   else
     echo "llama-server: down"
-  fi
-  if loaded; then
-    echo "darkbloom: loaded"
-  else
-    echo "darkbloom: unloaded"
   fi
 }
 
