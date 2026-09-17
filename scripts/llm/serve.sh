@@ -13,6 +13,7 @@ WIRED_LIMIT_MB="${LLM_WIRED_LIMIT_MB:-118784}"
 CTX_SIZE="${LLM_CTX_SIZE:-262144}"
 CACHE_TYPE="${LLM_CACHE_TYPE:-f16}"
 HOST="${LLM_HOST:-127.0.0.1}"
+SLEEP_IDLE="${LLM_SLEEP_IDLE:-600}"
 
 if ! command -v "$HOME/.local/bin/llama-server" &>/dev/null; then
   echo "llama-server not found. Run DOTFILES_PROFILE=llm ./install.sh first."
@@ -39,6 +40,7 @@ exec "$HOME/.local/bin/llama-server" \
   --cache-type-k "$CACHE_TYPE" \
   --cache-type-v "$CACHE_TYPE" \
   --load-mode mlock \
+  --sleep-idle-seconds "$SLEEP_IDLE" \
   -b 4096 \
   -ub 4096 \
   --metrics \
