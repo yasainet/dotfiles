@@ -1,14 +1,10 @@
 #!/bin/bash
-#
-# Usage:
-# - ./scripts/llm/serve.sh    # llama-server を :8080 で起動
-#
 
 set -e
 
 NAME="Qwen3.8-Flash-Next-Uncensored"
 MODEL_DIR="$HOME/models/$NAME"
-QUANT="${LLM_QUANT:-IQ4_XS}"
+QUANT="${LLM_QUANT:-Q4_K_M}"
 WIRED_LIMIT_MB="${LLM_WIRED_LIMIT_MB:-118784}"
 CTX_SIZE="${LLM_CTX_SIZE:-262144}"
 CACHE_TYPE="${LLM_CACHE_TYPE:-f16}"
@@ -20,6 +16,12 @@ if ! command -v "$HOME/.local/bin/llama-server" &>/dev/null; then
   exit 1
 fi
 
+MODEL="$(compgen -G "$MODEL_DIR/${NAME}-${QUANT}-00001-of-*.gguf" | head -1)"
+if [ -z "$MODEL" ]; then
+  echo "${NAME}-${QUANT} not found. Run ./scripts/llm/fetch.sh first."
+  exit 1
+fi
+
 if [ "$(sysctl -n iogpu.wired_limit_mb 2>/dev/null || echo 0)" -lt "$WIRED_LIMIT_MB" ]; then
   sudo -n sysctl iogpu.wired_limit_mb="$WIRED_LIMIT_MB" || {
     echo "iogpu.wired_limit_mb < $WIRED_LIMIT_MB. Run: sudo sysctl iogpu.wired_limit_mb=$WIRED_LIMIT_MB" >&2
@@ -28,7 +30,7 @@ if [ "$(sysctl -n iogpu.wired_limit_mb 2>/dev/null || echo 0)" -lt "$WIRED_LIMIT
 fi
 
 exec "$HOME/.local/bin/llama-server" \
-  -m "$MODEL_DIR/${NAME}-${QUANT}-00001-of-00003.gguf" \
+  -m "$MODEL" \
   --alias "${NAME}-${QUANT}" \
   --mmproj "$MODEL_DIR/mmproj-${NAME}-F16.gguf" \
   --host "$HOST" \
@@ -39,10 +41,10 @@ exec "$HOME/.local/bin/llama-server" \
   --ctx-size "$CTX_SIZE" \
   --cache-type-k "$CACHE_TYPE" \
   --cache-type-v "$CACHE_TYPE" \
-  --load-mode mlock \
+  -fit off \
   --sleep-idle-seconds "$SLEEP_IDLE" \
   -b 4096 \
-  -ub 4096 \
+  -ub 1024 \
   --metrics \
   --jinja \
   --temp 1.0 \

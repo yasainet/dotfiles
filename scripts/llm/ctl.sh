@@ -1,10 +1,4 @@
 #!/bin/bash
-#
-# Usage:
-# - ./scripts/llm/ctl.sh up      # llama-server を起動し、health を待つ
-# - ./scripts/llm/ctl.sh down    # llama-server を止める
-# - ./scripts/llm/ctl.sh status  # llama-server の状態を表示する
-#
 
 set -e
 

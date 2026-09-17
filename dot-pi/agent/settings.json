@@ -4,7 +4,7 @@
   "quietStartup": true,
   "hideThinkingBlock": true,
   "defaultProvider": "llamacpp",
-  "defaultModel": "Qwen3.8-Flash-Next-Uncensored-IQ4_XS",
+  "defaultModel": "Qwen3.8-Flash-Next-Uncensored-Q4_K_M",
   "skills": ["~/.claude/skills"],
   "editorPaddingX": 1,
   "defaultProjectTrust": "ask",

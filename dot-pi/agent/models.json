@@ -7,7 +7,7 @@
       "apiKey": "dummy",
       "models": [
         {
-          "id": "Qwen3.8-Flash-Next-Uncensored-IQ4_XS",
+          "id": "Qwen3.8-Flash-Next-Uncensored-Q4_K_M",
           "reasoning": true,
           "contextWindow": 262144,
           "maxTokens": 65536,
