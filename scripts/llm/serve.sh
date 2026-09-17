@@ -26,8 +26,6 @@ if [ "$(sysctl -n iogpu.wired_limit_mb 2>/dev/null || echo 0)" -lt "$WIRED_LIMIT
   }
 fi
 
-export LLAMA_ARG_CHAT_TEMPLATE_KWARGS='{"preserve_thinking": true, "reasoning_effort": "medium"}'
-
 exec "$HOME/.local/bin/llama-server" \
   -m "$MODEL_DIR/${NAME}-${QUANT}-00001-of-00003.gguf" \
   --alias "${NAME}-${QUANT}" \

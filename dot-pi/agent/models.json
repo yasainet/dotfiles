@@ -23,10 +23,7 @@
           "compat": {
             "thinkingFormat": "chat-template",
             "chatTemplateKwargs": {
-              "enable_thinking": {
-                "$var": "thinking.enabled",
-                "omitWhenOff": true
-              },
+              "enable_thinking": { "$var": "thinking.enabled" },
               "preserve_thinking": true,
               "reasoning_effort": { "$var": "thinking.effort" }
             }
