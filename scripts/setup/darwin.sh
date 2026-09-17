@@ -468,7 +468,7 @@ link_pi() {
   link "$DOTFILES/dot-pi/agent/models.json" "$HOME/.pi/agent/models.json"
   link "$DOTFILES/dot-pi/agent/extensions" "$HOME/.pi/agent/extensions"
   link "$DOTFILES/dot-pi/agent/settings.json" "$HOME/.pi/agent/settings.json"
-  link "$DOTFILES/dot-pi/web-search.json" "$HOME/.pi/web-search.json"
+  link "$DOTFILES/dot-pi/web-search.json" "$HOME/.pi/agent/web-search.json"
 }
 
 # ====================
