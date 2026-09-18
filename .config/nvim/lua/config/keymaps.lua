@@ -25,27 +25,5 @@ end, { desc = "Yank full path" })
 vim.keymap.set({ "n", "x" }, "<leader>qq", "<Cmd>qa!<CR>", { desc = "Quit all (force)" })
 
 -- LSP
--- TODO: fix
-vim.keymap.set("n", "<leader>lr", function()
-  local log = vim.fn.stdpath("state") .. "/lsp-restart.log"
-  local lines = {
-    "==== " .. os.date("%Y-%m-%d %H:%M:%S") .. " " .. vim.api.nvim_buf_get_name(0) .. " ft=" .. vim.bo.filetype,
-    "clients: " .. table.concat(
-      vim.tbl_map(function(c)
-        return c.name
-      end, vim.lsp.get_clients({ bufnr = 0 })),
-      ", "
-    ),
-    "on_disk: "
-      .. tostring(vim.uv.fs_stat(vim.api.nvim_buf_get_name(0)) ~= nil)
-      .. " lines="
-      .. vim.api.nvim_buf_line_count(0),
-  }
-  for _, d in ipairs(vim.diagnostic.get(0)) do
-    lines[#lines + 1] = string.format("diag L%d:%d [%s] %s", d.lnum + 1, d.col, tostring(d.source), d.message)
-  end
-  vim.list_extend(lines, vim.split(vim.fn.execute("messages"), "\n"))
-  vim.fn.writefile(lines, log, "a")
-  vim.cmd("lsp restart")
-end, { desc = "Restart LSP" })
+vim.keymap.set("n", "<leader>lr", "<Cmd>lsp restart<CR>", { desc = "Restart LSP" })
 vim.keymap.set("n", "<leader>li", "<Cmd>checkhealth vim.lsp<CR>", { desc = "LSP Info" })
