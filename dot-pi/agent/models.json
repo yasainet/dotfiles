@@ -30,6 +30,21 @@
           }
         }
       ]
+    },
+    "llamacpp-summary": {
+      "name": "llama.cpp (summary)",
+      "baseUrl": "http://100.68.179.125:8081/v1",
+      "api": "openai-completions",
+      "apiKey": "dummy",
+      "models": [
+        {
+          "id": "gemma-4-26B-A4B-abliterated",
+          "reasoning": false,
+          "contextWindow": 32768,
+          "maxTokens": 4096,
+          "input": ["text"]
+        }
+      ]
     }
   }
 }

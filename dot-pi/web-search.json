@@ -1,6 +1,8 @@
 {
-  "workflow": "none",
+  "workflow": "auto-summary",
   "fetch": {
     "timeout": 30
-  }
+  },
+  "summaryModel": "llamacpp-summary/gemma-4-26B-A4B-abliterated",
+  "summaryGenerationDeadlineMs": 180000
 }
