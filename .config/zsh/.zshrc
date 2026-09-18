@@ -101,11 +101,6 @@ pi() {
   local ctl='~/ghq/github.com/yasainet/dotfiles/scripts/llm/ctl.sh'
   ssh mbp2023 "$ctl up" || return
   command pi "$@"
-  local rc=$?
-  if ! pgrep -qf 'pi-coding-agent/.*/libexec/bin/pi'; then
-    ssh mbp2023 "$ctl down" || echo "pi: ctl.sh down failed; run: ssh mbp2023 $ctl down" >&2
-  fi
-  return $rc
 }
 
 # Completions
