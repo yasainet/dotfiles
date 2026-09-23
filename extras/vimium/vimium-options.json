@@ -39,6 +39,10 @@
     {
       "passKeys": "",
       "pattern": "https?://api.*"
+    },
+    {
+      "passKeys": "",
+      "pattern": "https://www.reddit.com/*"
     }
   ],
   "keyMappings": "unmapAll\nmap j scrollDown\nmap k scrollUp\nmap gg scrollToTop\nmap G scrollToBottom",

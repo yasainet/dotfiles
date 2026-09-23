@@ -3,12 +3,6 @@
     "type": "command",
     "command": "bash ~/ghq/github.com/yasainet/dotfiles/dot-claude/scripts/ghq-suggest.sh"
   },
-  "env": {
-    "ANTHROPIC_DEFAULT_OPUS_MODEL": "claude-opus-5[1m]",
-    "ANTHROPIC_DEFAULT_SONNET_MODEL": "claude-sonnet-5[1m]",
-    "ANTHROPIC_DEFAULT_HAIKU_MODEL": "claude-haiku-4-5",
-    "CLAUDE_CODE_THRIFTY_SONIC": "0"
-  },
   "permissions": {
     "allow": ["Read(//Users/yasainet/ghq/**)"],
     "deny": ["Bash(rm:*)", "Bash(sudo rm:*)"],
@@ -110,6 +104,5 @@
     "soft_deny": [],
     "environment": [],
     "classifyAllShell": false
-  },
-  "model": "claude-fable-5-1[1m]"
+  }
 }
