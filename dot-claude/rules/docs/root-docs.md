@@ -1,7 +1,7 @@
 ---
 paths:
   - "**/README.md"
-  - "**/CLAUDE.md"
+  - "**/AGENTS.md"
   - "!**/.claude/**"
   - "!**/dot-claude/**"
   - "!**/docs/**"
@@ -10,12 +10,12 @@ paths:
 
 # Root Docs Rules
 
-repo root に置く README.md, CLAUDE.md のルール集。
+repo root に置く README.md, AGENTS.md のルール集。
 
 ## Rules
 
 - README.md は 人間向けに記述せよ
-- CLAUDE.md は agent 向けに記述せよ
+- AGENTS.md は agent 向けに記述せよ
 - 各ファイル 200 行以内に収めよ
   - 200 行を超える場合は、`docs/**/*.md` を利用せよ
 
@@ -89,10 +89,10 @@ VPS:
 | Mail            | Resend              | Resend                      | Supabase (Mailpit)    |
 ````
 
-## CLAUDE.md sample format
+## AGENTS.md sample format
 
 ```markdown
-# CLAUDE.md
+# AGENTS.md
 
 tagline
 

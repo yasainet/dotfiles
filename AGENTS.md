@@ -1,4 +1,4 @@
-# CLAUDE.md
+# AGENTS.md
 
 Personal dotfiles for macOS and Linux.
 
