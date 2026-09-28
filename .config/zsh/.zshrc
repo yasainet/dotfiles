@@ -98,7 +98,7 @@ y() {
 
 # pi
 pi() {
-  local ctl='~/.local/bin/llm'
+  local ctl='~/.local/bin/llmctl'
   ssh mbp2023 "$ctl up" || return
   command pi "$@"
 }
