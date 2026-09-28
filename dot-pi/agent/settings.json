@@ -1,14 +1,18 @@
 {
   "lastChangelogVersion": "0.87.1",
   "theme": "dark",
-  "quietStartup": true,
+  "quietStartup": false,
   "hideThinkingBlock": true,
   "defaultProvider": "llamacpp",
   "defaultModel": "main",
-  "skills": ["~/.claude/skills"],
+  "skills": [
+    "~/.claude/skills"
+  ],
   "editorPaddingX": 1,
   "defaultProjectTrust": "ask",
   "tuiMode": "regular",
-  "packages": ["npm:pi-web-access"],
+  "packages": [
+    "npm:pi-web-access"
+  ],
   "defaultThinkingLevel": "low"
 }

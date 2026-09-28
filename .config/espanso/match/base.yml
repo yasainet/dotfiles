@@ -38,6 +38,8 @@ matches:
     replace: "shadcn/ui"
   - trigger: ";gos"
     replace: "GrapheneOS"
+  - trigger: ";gsc"
+    replace: "Google Search Console"
   - trigger: ";date"
     replace: "{{d}}"
     vars:
