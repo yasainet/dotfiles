@@ -20,11 +20,7 @@ gh auth login
 ghq get https://github.com/yasainet/dotfiles
 cd ~/ghq/github.com/yasainet/dotfiles
 
-# Full
 ./install.sh
-
-# Server
-DOTFILES_PROFILE=server ./install.sh
 
 # Reload shell
 exec zsh

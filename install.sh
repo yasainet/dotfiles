@@ -6,20 +6,8 @@ DOTFILES="$(cd "$(dirname "$0")" && pwd)"
 export DOTFILES
 OS="$(uname -s)"
 
-DOTFILES_PROFILE="${DOTFILES_PROFILE:-full}"
-export DOTFILES_PROFILE
-
-case "$DOTFILES_PROFILE" in
-full | server) ;;
-*)
-  echo "Unknown DOTFILES_PROFILE: $DOTFILES_PROFILE (use full or server)"
-  exit 1
-  ;;
-esac
-
 echo "=== Dotfiles Installer ==="
 echo "Detected OS: $OS"
-echo "Profile: $DOTFILES_PROFILE"
 
 source "$DOTFILES/scripts/setup/common.sh"
 
@@ -36,14 +24,6 @@ Linux)
   ;;
 esac
 
-if [ "$DOTFILES_PROFILE" = "server" ]; then
-  if [ "$OS" != "Darwin" ]; then
-    echo "Profile server is macOS only"
-    exit 1
-  fi
-  source "$DOTFILES/scripts/setup/server.sh"
-fi
-
 # ====================
 # Main
 # ====================
@@ -59,20 +39,18 @@ main() {
   install_nvm
   install_textlint
   post_install
+  link_claude_code
+  link_pi
 
   if [ "$OS" = "Darwin" ]; then
     start_tailscaled
     install_npm_globals
     configure_bundler
     link_espanso
-    link_claude_code
-    link_pi
     setup_brave_policy
     configure_system
     install_mas_apps
   fi
-
-  setup_profile
 
   echo ""
   echo "=== Setup complete! ==="
