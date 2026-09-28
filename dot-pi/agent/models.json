@@ -7,7 +7,7 @@
       "apiKey": "dummy",
       "models": [
         {
-          "id": "Qwen3.8-Flash-Next-Uncensored-Q4_K_M",
+          "id": "main",
           "reasoning": true,
           "contextWindow": 262144,
           "maxTokens": 65536,
@@ -38,7 +38,7 @@
       "apiKey": "dummy",
       "models": [
         {
-          "id": "gemma-4-26B-A4B-abliterated",
+          "id": "summary",
           "reasoning": false,
           "contextWindow": 32768,
           "maxTokens": 4096,

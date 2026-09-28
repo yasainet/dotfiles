@@ -23,8 +23,8 @@ cd ~/ghq/github.com/yasainet/dotfiles
 # Full
 ./install.sh
 
-# LLM
-DOTFILES_PROFILE=llm ./install.sh
+# Server
+DOTFILES_PROFILE=server ./install.sh
 
 # Reload shell
 exec zsh

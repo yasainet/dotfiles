@@ -10,9 +10,9 @@ DOTFILES_PROFILE="${DOTFILES_PROFILE:-full}"
 export DOTFILES_PROFILE
 
 case "$DOTFILES_PROFILE" in
-full | llm) ;;
+full | server) ;;
 *)
-  echo "Unknown DOTFILES_PROFILE: $DOTFILES_PROFILE (use full or llm)"
+  echo "Unknown DOTFILES_PROFILE: $DOTFILES_PROFILE (use full or server)"
   exit 1
   ;;
 esac
@@ -36,12 +36,12 @@ Linux)
   ;;
 esac
 
-if [ "$DOTFILES_PROFILE" = "llm" ]; then
+if [ "$DOTFILES_PROFILE" = "server" ]; then
   if [ "$OS" != "Darwin" ]; then
-    echo "Profile llm is macOS only (Metal host)"
+    echo "Profile server is macOS only"
     exit 1
   fi
-  source "$DOTFILES/scripts/setup/llm.sh"
+  source "$DOTFILES/scripts/setup/server.sh"
 fi
 
 # ====================
