@@ -90,6 +90,7 @@ install_nvm() {
     bash /tmp/nvm-install.sh
     rm -f /tmp/nvm-install.sh
     export NVM_DIR="$HOME/.nvm"
+    # shellcheck source=/dev/null
     [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
     nvm install 24
   else
@@ -104,6 +105,7 @@ install_textlint() {
   echo "Installing textlint..."
 
   export NVM_DIR="$HOME/.nvm"
+  # shellcheck source=/dev/null
   [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 
   if ! command -v npm &>/dev/null; then

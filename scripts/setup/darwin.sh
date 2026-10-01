@@ -525,6 +525,7 @@ main() {
   accept_xcode_license
   configure_firewall
 
+  # shellcheck disable=SC2119
   create_symlinks
   install_homebrew
   install_cli_tools
