@@ -94,9 +94,6 @@ link_claude_code() {
   link "$DOTFILES/dot-claude/statusline-command.sh" "$HOME/.claude/statusline-command.sh"
 }
 
-# skills は skills CLI などの外部ツールも書き込むため、ディレクトリごと
-# リンクせず skill 単位でリンクする。ディレクトリごとリンクすると外部
-# ツールが張る相対 symlink が dotfiles 側に解決されて壊れる
 link_claude_code_skills() {
   mkdir -p "$HOME/.claude/skills"
   local skill
@@ -159,7 +156,6 @@ install_textlint() {
 setup_bat_theme() {
   echo "Setting up bat theme..."
 
-  # Determine bat command (macOS: bat, Linux: batcat)
   if command -v bat &>/dev/null; then
     BAT_CMD="bat"
   elif command -v batcat &>/dev/null; then
@@ -172,12 +168,10 @@ setup_bat_theme() {
   BAT_CONFIG_DIR="$($BAT_CMD --config-dir)"
   mkdir -p "$BAT_CONFIG_DIR/themes"
 
-  # Download tokyonight theme
   THEME_URL="https://raw.githubusercontent.com/folke/tokyonight.nvim/main/extras/sublime/tokyonight_night.tmTheme"
   curl -sL "$THEME_URL" -o "$BAT_CONFIG_DIR/themes/tokyonight_night.tmTheme"
   echo "  [download] tokyonight_night.tmTheme"
 
-  # Build cache
   $BAT_CMD cache --build
   echo "  [done] bat theme setup complete"
 }
