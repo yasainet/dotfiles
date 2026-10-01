@@ -1,18 +1,18 @@
 #!/bin/bash
 
+set -e
+
+source "$DOTFILES/scripts/setup/common.sh"
+
 # ====================
 # Symlinks
 # ====================
-# shellcheck disable=SC2034
 SKIP_LINKS=(
-  # macOS-only apps
-  hammerspoon # Hammerspoon
-  karabiner   # Karabiner-Elements
-  snapzy      # Snapzy (screenshot app)
-
-  # GUI apps: no display server here
-  ghostty # config is macos-*/cmd+ specific anyway
-  espanso # needs an X11/Wayland session
+  hammerspoon
+  karabiner
+  snapzy
+  ghostty
+  espanso
 )
 
 # ====================
@@ -46,7 +46,7 @@ install_cli_tools() {
 }
 
 # ====================
-# ghq (no apt package on Ubuntu)
+# ghq
 # ====================
 GHQ_VERSION="v1.10.1"
 
@@ -93,7 +93,7 @@ set_default_shell() {
 }
 
 # ====================
-# Zsh Plugins (git clone fallback)
+# Zsh Plugins
 # ====================
 install_zsh_plugins() {
   echo "Installing Zsh plugins..."
@@ -121,9 +121,15 @@ install_zsh_plugins() {
 # ====================
 # Main (Linux)
 # ====================
-install_packages() {
+main() {
+  create_symlinks "${SKIP_LINKS[@]}"
   install_cli_tools
   install_ghq
   set_default_shell
   install_zsh_plugins
+  install_nvm
+  install_textlint
+  setup_bat_theme
 }
+
+main "$@"

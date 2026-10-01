@@ -1,5 +1,9 @@
 #!/bin/bash
 
+set -e
+
+source "$DOTFILES/scripts/setup/common.sh"
+
 # ====================
 # Homebrew
 # ====================
@@ -471,6 +475,42 @@ install_npm_globals() {
 }
 
 # ====================
+# Claude Code
+# ====================
+link_claude_code() {
+  echo "Linking Claude Code config..."
+  mkdir -p "$HOME/.claude"
+  link "$DOTFILES/dot-claude/CLAUDE.md" "$HOME/.claude/CLAUDE.md"
+  link "$DOTFILES/dot-claude/docs" "$HOME/.claude/docs"
+  link "$DOTFILES/dot-claude/settings.json" "$HOME/.claude/settings.json"
+  link "$DOTFILES/dot-claude/keybindings.json" "$HOME/.claude/keybindings.json"
+  link "$DOTFILES/dot-claude/rules" "$HOME/.claude/rules"
+  link_claude_code_skills
+  link "$DOTFILES/dot-claude/statusline-command.sh" "$HOME/.claude/statusline-command.sh"
+}
+
+link_claude_code_skills() {
+  mkdir -p "$HOME/.claude/skills"
+  local skill
+  for skill in "$DOTFILES"/dot-claude/skills/*/; do
+    [ -e "$skill" ] || continue
+    link "${skill%/}" "$HOME/.claude/skills/$(basename "$skill")"
+  done
+}
+
+# ====================
+# pi
+# ====================
+link_pi() {
+  echo "Linking pi config..."
+  mkdir -p "$HOME/.pi/agent"
+  link "$DOTFILES/dot-pi/agent/models.json" "$HOME/.pi/agent/models.json"
+  link "$DOTFILES/dot-pi/agent/extensions" "$HOME/.pi/agent/extensions"
+  link "$DOTFILES/dot-pi/agent/settings.json" "$HOME/.pi/agent/settings.json"
+  link "$DOTFILES/dot-pi/web-search.json" "$HOME/.pi/agent/web-search.json"
+}
+
+# ====================
 # Manual setup
 # ====================
 #
@@ -480,8 +520,28 @@ install_npm_globals() {
 # ====================
 # Main (macOS)
 # ====================
-install_packages() {
+main() {
+  sudo -v
+  accept_xcode_license
+  configure_firewall
+
+  create_symlinks
   install_homebrew
   install_cli_tools
   install_gui_apps
+  install_nvm
+  install_textlint
+  setup_bat_theme
+  link_claude_code
+  link_pi
+
+  start_tailscaled
+  install_npm_globals
+  configure_bundler
+  link_espanso
+  setup_brave_policy
+  configure_system
+  install_mas_apps
 }
+
+main "$@"

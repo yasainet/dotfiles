@@ -3,8 +3,6 @@
 # ====================
 # Symlinks
 # ====================
-SKIP_LINKS=()
-
 link() {
   local src="$1"
   local dest="$2"
@@ -28,9 +26,10 @@ link() {
 
 is_skipped_link() {
   local name="$1"
+  shift
   local skip
 
-  for skip in "${SKIP_LINKS[@]}"; do
+  for skip in "$@"; do
     [ "$name" = "$skip" ] && return 0
   done
   return 1
@@ -60,6 +59,8 @@ skip_link() {
 }
 
 create_symlinks() {
+  local skips=("$@")
+
   echo "Creating symlinks..."
   mkdir -p "$HOME/.config"
 
@@ -67,7 +68,7 @@ create_symlinks() {
     [ -d "$dir" ] || continue
     name=$(basename "$dir")
 
-    if is_skipped_link "$name"; then
+    if is_skipped_link "$name" "${skips[@]}"; then
       skip_link "$name"
       continue
     fi
@@ -77,42 +78,6 @@ create_symlinks() {
 
   # .zshenv
   link "$DOTFILES/.config/zsh/.zshenv" "$HOME/.zshenv"
-}
-
-# ====================
-# Claude Code
-# ====================
-link_claude_code() {
-  echo "Linking Claude Code config..."
-  mkdir -p "$HOME/.claude"
-  link "$DOTFILES/dot-claude/CLAUDE.md" "$HOME/.claude/CLAUDE.md"
-  link "$DOTFILES/dot-claude/docs" "$HOME/.claude/docs"
-  link "$DOTFILES/dot-claude/settings.json" "$HOME/.claude/settings.json"
-  link "$DOTFILES/dot-claude/keybindings.json" "$HOME/.claude/keybindings.json"
-  link "$DOTFILES/dot-claude/rules" "$HOME/.claude/rules"
-  link_claude_code_skills
-  link "$DOTFILES/dot-claude/statusline-command.sh" "$HOME/.claude/statusline-command.sh"
-}
-
-link_claude_code_skills() {
-  mkdir -p "$HOME/.claude/skills"
-  local skill
-  for skill in "$DOTFILES"/dot-claude/skills/*/; do
-    [ -e "$skill" ] || continue
-    link "${skill%/}" "$HOME/.claude/skills/$(basename "$skill")"
-  done
-}
-
-# ====================
-# pi
-# ====================
-link_pi() {
-  echo "Linking pi config..."
-  mkdir -p "$HOME/.pi/agent"
-  link "$DOTFILES/dot-pi/agent/models.json" "$HOME/.pi/agent/models.json"
-  link "$DOTFILES/dot-pi/agent/extensions" "$HOME/.pi/agent/extensions"
-  link "$DOTFILES/dot-pi/agent/settings.json" "$HOME/.pi/agent/settings.json"
-  link "$DOTFILES/dot-pi/web-search.json" "$HOME/.pi/agent/web-search.json"
 }
 
 # ====================
@@ -174,12 +139,4 @@ setup_bat_theme() {
 
   $BAT_CMD cache --build
   echo "  [done] bat theme setup complete"
-}
-
-# ====================
-# Post-install
-# ====================
-post_install() {
-  echo "Running post-install setup..."
-  setup_bat_theme
 }
