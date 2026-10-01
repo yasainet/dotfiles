@@ -64,16 +64,3 @@ dscacheutil -flushcache
 # Check
 scutil --get ComputerName
 ```
-
-## Verify
-
-```sh
-# zsh
-git ls-files '*.zsh' '.config/zsh/.zshenv' '.config/zsh/.zprofile' '.config/zsh/.zshrc' | xargs -n1 zsh -n
-
-# shell script
-git ls-files '*.sh' | xargs -n1 bash -n
-
-# JSON
-git ls-files '*.json' | xargs -n1 jq empty
-```

@@ -4,10 +4,9 @@ Personal dotfiles for macOS and Linux.
 
 ## Summary
 
-- `~/dotfils/.config/` 配下を `~/.config/` に symlink して管理
-- `install.sh` が OS 検出後、`scripts/setup/{darwin,linux}.sh` を実行して環境別にセットアップ
-- `~/dotfiles/dot-claude/` を `~/.claude/` にリンクし、Claude Code の設定を dotfiles 管理下に置く
-- `~/dotfiles/dot-pi/` を `~/.pi/` にリンクし、pi の設定を dotfiles 管理下に置く
+- `~/dotfiles/.config` -> `~/.config`
+- `~/dotfiles/dot-claude` -> `~/.claude`
+- `~/dotfiles/dot-pi` -> `~/.pi`
 
 ## Environments
 
