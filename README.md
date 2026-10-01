@@ -17,6 +17,7 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 # Install
 brew install gh ghq
 gh auth login
+ssh -T git@github.com
 ghq get https://github.com/yasainet/dotfiles
 cd ~/ghq/github.com/yasainet/dotfiles
 
@@ -32,6 +33,7 @@ exec zsh
 # Install
 sudo apt update && sudo apt install -y git gh
 gh auth login
+ssh -T git@github.com
 git clone https://github.com/yasainet/dotfiles ~/ghq/github.com/yasainet/dotfiles
 cd ~/ghq/github.com/yasainet/dotfiles
 ./install.sh
