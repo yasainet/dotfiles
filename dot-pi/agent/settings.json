@@ -1,5 +1,5 @@
 {
-  "lastChangelogVersion": "0.87.1",
+  "lastChangelogVersion": "1.0.0",
   "theme": "dark",
   "quietStartup": false,
   "hideThinkingBlock": true,
@@ -10,7 +10,7 @@
   ],
   "editorPaddingX": 1,
   "defaultProjectTrust": "ask",
-  "tuiMode": "regular",
+  "tuiMode": "fullscreen",
   "packages": [
     "npm:pi-web-access"
   ],
