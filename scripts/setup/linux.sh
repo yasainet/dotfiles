@@ -130,6 +130,7 @@ main() {
   install_nvm
   install_textlint
   setup_bat_theme
+  install_herdr_plugins
 }
 
 main "$@"

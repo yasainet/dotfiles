@@ -118,6 +118,39 @@ install_textlint() {
 }
 
 # ====================
+# herdr plugins
+# ====================
+install_herdr_plugins() {
+  echo "Installing herdr plugins..."
+
+  if ! command -v herdr &>/dev/null; then
+    echo "  [skip] herdr not installed"
+    return
+  fi
+
+  # <plugin id>=<owner/repo>
+  local plugins=(
+    herdr-splits=lmilojevicc/herdr-splits.nvim
+    yasainet.quote=yasainet/herdr-quote
+  )
+  local installed
+  installed=$(herdr plugin list 2>/dev/null || true)
+
+  local plugin id repo
+  for plugin in "${plugins[@]}"; do
+    id="${plugin%%=*}"
+    repo="${plugin#*=}"
+
+    if grep -qF -- "- $id " <<<"$installed"; then
+      echo "  [skip] $id (already installed)"
+    else
+      herdr plugin install -y "$repo"
+      echo "  [done] $id"
+    fi
+  done
+}
+
+# ====================
 # bat theme
 # ====================
 setup_bat_theme() {

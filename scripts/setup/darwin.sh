@@ -533,6 +533,7 @@ main() {
   install_nvm
   install_textlint
   setup_bat_theme
+  install_herdr_plugins
   link_claude_code
   link_pi
 
