@@ -1,8 +1,4 @@
 {
-  "fileSuggestion": {
-    "type": "command",
-    "command": "bash ~/ghq/github.com/yasainet/dotfiles/dot-claude/scripts/ghq-suggest.sh"
-  },
   "permissions": {
     "allow": ["Read(//Users/yasainet/ghq/**)"],
     "deny": ["Bash(rm:*)", "Bash(sudo rm:*)"],
