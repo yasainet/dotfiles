@@ -14,8 +14,6 @@
 --   Ctrl+G          Claude Code external editor / lazygit popup
 --   Ctrl+O          Claude Code transcript mode
 --   Ctrl+Y          yazi pane
---   Ctrl+R          claude resume popup
---   Ctrl+F          claude @mention popup
 --   Alt+H/J/K/L     resize panes
 
 local ABC = "com.apple.keylayout.ABC"
@@ -33,7 +31,7 @@ for i = 1, 9 do
 	cmdKeys[tostring(i)] = true
 end
 local cmdShiftKeys = { d = true, ["["] = true, ["]"] = true }
-local ctrlKeys = { b = true, f = true, g = true, h = true, j = true, k = true, l = true, o = true, r = true, y = true, ["["] = true }
+local ctrlKeys = { b = true, g = true, h = true, j = true, k = true, l = true, o = true, y = true, ["["] = true }
 local altKeys = { h = true, j = true, k = true, l = true }
 
 local function setABC()
