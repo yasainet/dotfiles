@@ -22,8 +22,6 @@
 # herdr
 .config/herdr/*
 !.config/herdr/config.toml
-!.config/herdr/scripts/
-!.config/herdr/scripts/**
 
 # claude code
 .claude/plans/
