@@ -1,14 +1,18 @@
 {
-  "lastChangelogVersion": "1.0.2",
+  "lastChangelogVersion": "1.0.4",
   "theme": "dark",
   "quietStartup": false,
   "hideThinkingBlock": true,
   "defaultProvider": "llamacpp",
   "defaultModel": "Qwen3.8-Flash-Next-Uncensored",
-  "skills": ["~/.claude/skills"],
+  "skills": [
+    "~/.claude/skills"
+  ],
   "editorPaddingX": 1,
   "defaultProjectTrust": "ask",
   "tuiMode": "fullscreen",
-  "packages": ["npm:pi-web-access"],
+  "packages": [
+    "npm:pi-web-access"
+  ],
   "defaultThinkingLevel": "low"
 }

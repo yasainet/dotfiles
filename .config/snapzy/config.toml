@@ -1,9 +1,10 @@
 schema_version = 1
-snapzy_min_version = "1.31.0"
+snapzy_min_version = "2.0.0"
 
 [general]
 language = "en"
 appearance = "system"
+use_liquid_glass = true
 play_sounds = true
 url_scheme_enabled = true
 show_menu_bar_icon = false
@@ -21,25 +22,7 @@ retention_days = 3
 
 [menu_bar]
 icon_style = "default"
-item_order = [
-  "captureArea",
-  "captureAreaAnnotate",
-  "captureApplication",
-  "captureFullscreen",
-  "captureActiveWindow",
-  "scrollingCapture",
-  "captureOCR",
-  "captureSmartElement",
-  "captureObjectCutout",
-  "recordScreen",
-  "recordApplication",
-  "openAnnotate",
-  "combineImages",
-  "editVideo",
-  "cloudUploads",
-  "openHistory",
-  "shortcutList",
-]
+item_order = ["captureArea", "captureAreaAnnotate", "captureApplication", "captureFullscreen", "captureActiveWindow", "scrollingCapture", "captureOCR", "captureSmartElement", "captureObjectCutout", "captureDelayed", "recordScreen", "recordApplication", "openAnnotate", "combineImages", "editVideo", "cloudUploads", "openHistory", "shortcutList"]
 hidden_items = []
 
 [capture]
@@ -55,6 +38,7 @@ format = "png"
 include_snapzy = false
 show_cursor = false
 freeze_area = false
+delayed_capture_seconds = 3
 show_selection_area_overlay = true
 reverse_magnifier_zoom_direction = false
 show_magnifier_by_default = false
@@ -86,6 +70,7 @@ open_annotate = false
 [recording]
 format = "mp4"
 quality = "high"
+max_resolution = "auto"
 fps = 60
 output_mode = "video"
 capture_system_audio = true
@@ -117,6 +102,7 @@ hold_duration = 0.3
 
 [quick_access]
 enabled = true
+play_sounds = true
 position = "bottomRight"
 auto_dismiss = true
 auto_dismiss_delay = 3.0
@@ -130,24 +116,8 @@ swipe_left_action = "dismiss"
 swipe_right_action = "dismiss"
 hide_card_when_window_open = true
 animation_style = "slide"
-actions_order = [
-  "copy",
-  "saveOrOpen",
-  "dismiss",
-  "delete",
-  "edit",
-  "uploadToCloud",
-  "pinToScreen",
-]
-enabled_actions = [
-  "copy",
-  "delete",
-  "dismiss",
-  "edit",
-  "pinToScreen",
-  "saveOrOpen",
-  "uploadToCloud",
-]
+actions_order = ["copy", "saveOrOpen", "dismiss", "delete", "edit", "uploadToCloud", "pinToScreen"]
+enabled_actions = ["copy", "delete", "dismiss", "edit", "pinToScreen", "saveOrOpen", "uploadToCloud"]
 
 [quick_access.slots]
 center_top = "copy"
@@ -246,6 +216,11 @@ key = ""
 modifiers = []
 
 [shortcuts.global.delete_recording]
+enabled = true
+key = ""
+modifiers = []
+
+[shortcuts.global.delayed_capture]
 enabled = true
 key = ""
 modifiers = []
