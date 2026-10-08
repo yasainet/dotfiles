@@ -30,25 +30,17 @@
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
 
-[credential "https://github.com"]
-	helper =
-	helper = !gh auth git-credential
-	username = yasainet
-
-[credential "https://gist.github.com"]
-	helper =
-	helper = !gh auth git-credential
-
 [url "git@github.com:"]
 	insteadOf = https://github.com/
 
-[credential "http://localhost:3030"]
-	helper = 
-	helper = !tea login helper
+[url "git@gist.github.com:"]
+	insteadOf = https://gist.github.com/
+
+[url "ssh://git@localhost:2222/"]
+	insteadOf = http://localhost:3030/
 
 [includeIf "gitdir:~/ghq/localhost/"]
 	path = ~/.local/share/gitea/gitconfig
 
 [includeIf "gitdir:~/ghq/localhost:3030/"]
 	path = ~/.local/share/gitea/gitconfig
-

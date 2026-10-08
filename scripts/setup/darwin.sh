@@ -108,9 +108,6 @@ install_cli_tools() {
   # RunPod
   brew install runpod/runpodctl/runpodctl
 
-  # Git Credential Manager
-  brew install --cask git-credential-manager
-
   # macism
   brew install macism
 
