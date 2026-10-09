@@ -9,6 +9,9 @@ vim.opt.fileencoding = "utf-8"
 -- History
 vim.opt.history = 10000
 
+-- Swap
+vim.opt.swapfile = false
+
 -- Clipboard
 vim.opt.clipboard = "unnamedplus"
 
