@@ -13,9 +13,9 @@ export function apply(ctx) {
     child.on("error", () => {});
   };
 
-  // pre-step fires on every model step; only a step carrying a user message is a prompt submit
   ctx.on("agent/pre-step", ({ messages }, next) => {
-    if (messages.some((message) => message.source?.kind === "user")) switchToABC();
+    if (messages.some((message) => message.source?.kind === "user"))
+      switchToABC();
     return next();
   });
   ctx.on("approval/request", (_req, next) => {
