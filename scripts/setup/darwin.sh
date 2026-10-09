@@ -496,15 +496,20 @@ link_claude_code_skills() {
 }
 
 # ====================
-# pi
+# dsh
 # ====================
-link_pi() {
-  echo "Linking pi config..."
-  mkdir -p "$HOME/.pi/agent"
-  link "$DOTFILES/dot-pi/agent/models.json" "$HOME/.pi/agent/models.json"
-  link "$DOTFILES/dot-pi/agent/extensions" "$HOME/.pi/agent/extensions"
-  link "$DOTFILES/dot-pi/agent/settings.json" "$HOME/.pi/agent/settings.json"
-  link "$DOTFILES/dot-pi/web-search.json" "$HOME/.pi/agent/web-search.json"
+link_dsh() {
+  echo "Linking dsh config..."
+  mkdir -p "$HOME/.dsh/profiles"
+  link "$DOTFILES/dot-dsh/profiles/dsh-tui" "$HOME/.dsh/profiles/dsh-tui"
+  link "$HOME/.dsh/profiles/node_modules" "$DOTFILES/dot-dsh/profiles/node_modules"
+  if [ -e "$HOME/.dsh/settings.yaml" ]; then
+    echo "  [skip] $HOME/.dsh/settings.yaml (already exists)"
+  else
+    cp "$DOTFILES/dot-dsh/settings.yaml" "$HOME/.dsh/settings.yaml"
+    chmod 600 "$HOME/.dsh/settings.yaml"
+    echo "  [copy] $HOME/.dsh/settings.yaml"
+  fi
 }
 
 # ====================
@@ -532,7 +537,7 @@ main() {
   setup_bat_theme
   install_herdr_plugins
   link_claude_code
-  link_pi
+  link_dsh
 
   start_tailscaled
   install_npm_globals

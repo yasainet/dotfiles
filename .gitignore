@@ -27,5 +27,7 @@
 .claude/plans/
 .claude/worktrees/
 
-# pi extensions
-dot-pi/agent/extensions/node_modules/
+# dsh
+dot-dsh/profiles/node_modules
+dot-dsh/profiles/dsh-tui/node_modules/
+dot-dsh/profiles/dsh-tui/.dsh-module-fallback/

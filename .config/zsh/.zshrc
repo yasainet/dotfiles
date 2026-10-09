@@ -96,12 +96,14 @@ y() {
   command rm -f -- "$tmp"
 }
 
-# pi
-pi() {
+# dsh-tui
+dsh-tui() {
   local ctl='~/.local/bin/llmctl'
   ssh mbp2023 "$ctl up" || return
-  command pi "$@"
+  # llama.cpp takes no auth, but dsh refuses to start a provider without a key
+  LLAMACPP_API_KEY="${LLAMACPP_API_KEY:-dummy}" command dsh-tui "$@"
 }
+dst() { dsh-tui "$@" }
 
 # Completions
 if [[ "$OSTYPE" == "darwin"* ]]; then

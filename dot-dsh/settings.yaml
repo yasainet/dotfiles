@@ -1,0 +1,28 @@
+llm-pi-ai:
+  providers:
+    llamacpp:
+      api: openai-completions
+      baseURL: http://macbook-pro-2023:8080/v1
+      apiKeyEnv: LLAMACPP_API_KEY
+      compat:
+        supportsDeveloperRole: false
+        maxTokensField: max_tokens
+        thinkingFormat: chat-template
+        chatTemplateKwargs:
+          enable_thinking: true
+          preserve_thinking: true
+      models:
+        - id: Qwen3.8-Flash-Next-Uncensored-Q4_K_M
+          input: [text, image]
+          contextWindow: 262144
+          maxTokens: 65536
+          reasoningEfforts:
+            off:
+            low: low
+            medium: medium
+            high: high
+agent-default-model:
+  provider: llamacpp
+  model: Qwen3.8-Flash-Next-Uncensored-Q4_K_M
+ui-onboarding:
+  welcomeNoticeVersion: 2026-08-13.1

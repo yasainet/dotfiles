@@ -6,7 +6,7 @@ Personal dotfiles for macOS and Linux.
 
 - `~/dotfiles/.config` -> `~/.config`
 - `~/dotfiles/dot-claude` -> `~/.claude`
-- `~/dotfiles/dot-pi` -> `~/.pi`
+- `~/dotfiles/dot-dsh` -> `~/.dsh`
 
 ## Environments
 
