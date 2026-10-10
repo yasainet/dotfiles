@@ -416,29 +416,6 @@ configure_firewall() {
 }
 
 # ====================
-# Brave (always via the mullvad VM's SOCKS5, mandatory policy via configuration profile)
-# ====================
-# `defaults write` only yields "Recommended" level, which Chromium does not enforce
-# for ProxySettings. A configuration profile makes it "Mandatory".
-setup_brave_policy() {
-  echo "Configuring Brave proxy policy..."
-
-  # Clean up any leftover recommended-level values
-  for key in ProxySettings WebRtcIPHandling DnsOverHttpsMode; do
-    defaults delete com.brave.Browser "$key" 2>/dev/null || true
-  done
-
-  if profiles list 2>/dev/null | grep -q "net.mullvad.brave-proxy"; then
-    echo "  profile net.mullvad.brave-proxy already installed"
-    return
-  fi
-
-  open "$DOTFILES/.config/brave/net.mullvad.brave-proxy.mobileconfig"
-  echo "  [todo] approve the profile: System Settings > General > Device Management"
-  echo "         then restart Brave and check brave://policy (Level: Mandatory)"
-}
-
-# ====================
 # Xcode license
 # ====================
 accept_xcode_license() {
@@ -559,7 +536,6 @@ main() {
   install_npm_globals
   configure_bundler
   link_espanso
-  setup_brave_policy
   configure_system
   install_mas_apps
 }
