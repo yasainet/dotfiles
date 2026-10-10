@@ -7,6 +7,7 @@ Personal dotfiles for macOS and Linux.
 - `~/dotfiles/.config` -> `~/.config`
 - `~/dotfiles/dot-claude` -> `~/.claude`
 - `~/dotfiles/dot-dsh` -> `~/.dsh`
+  - FYI: `~/ghq/github.com/yasainet/llm`
 
 ## Environments
 
