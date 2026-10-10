@@ -26,3 +26,5 @@ agent-default-model:
   model: Qwen3.8-Flash-Next-Uncensored-Q4_K_M
 ui-onboarding:
   welcomeNoticeVersion: 2026-08-13.1
+dsh-tui:
+  effortDefault: medium
