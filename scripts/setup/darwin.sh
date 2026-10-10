@@ -408,7 +408,7 @@ setup_llm_forward() {
 }
 
 # ====================
-# Firewall (Application Firewall)
+# Firewall
 # ====================
 configure_firewall() {
   echo "Enabling Application Firewall..."
@@ -432,7 +432,7 @@ link_espanso() {
 }
 
 # ====================
-# Bundler (Ruby)
+# Bundler
 # ====================
 configure_bundler() {
   echo "Configuring bundler..."
