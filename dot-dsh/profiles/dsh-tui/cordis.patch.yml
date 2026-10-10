@@ -10,7 +10,7 @@
     providers:
       llamacpp:
         api: openai-completions
-        baseURL: http://macbook-pro-2023:8080/v1
+        baseURL: http://127.0.0.1:8080/v1
         apiKeyEnv: LLAMACPP_API_KEY
         compat:
           supportsDeveloperRole: false
@@ -38,14 +38,14 @@
 - id: dsh-tui
   config:
     provider: llamacpp
-    fullscreen: true
-    terminalImages: true
     effort: medium
-    minimal: true
     preset: !!js process.env.DSH_TUI_PRESET ?? undefined
     workspace: !!js process.env.DSH_TUI_WORKSPACE_TARGET ?? undefined
     sessionId: !!js process.env.DSH_TUI_RESUME_SESSION ?? undefined
     backend: !!js process.env.DSH_TUI_BACKEND || undefined
+    minimal: false
+    fullscreen: true
+    terminalImages: true
 
 - id: web-search-free
   config:

@@ -389,6 +389,25 @@ start_tailscaled() {
 }
 
 # ====================
+# LLM forward
+# ====================
+setup_llm_forward() {
+  echo "Setting up LLM forward..."
+  local label="com.yasainet.llm-forward"
+  local plist="$HOME/Library/LaunchAgents/$label.plist"
+
+  if [ "$(scutil --get LocalHostName | tr '[:upper:]' '[:lower:]')" = "macbook-pro-2023" ]; then
+    echo "  [skip] this host serves llama-server itself"
+    return
+  fi
+
+  mkdir -p "$HOME/Library/LaunchAgents"
+  cp "$DOTFILES/.config/launchd/$label.plist" "$plist"
+  launchctl bootout "gui/$(id -u)/$label" 2>/dev/null || true
+  launchctl bootstrap "gui/$(id -u)" "$plist"
+}
+
+# ====================
 # Firewall (Application Firewall)
 # ====================
 configure_firewall() {
@@ -536,6 +555,7 @@ main() {
   link_dsh
 
   start_tailscaled
+  setup_llm_forward
   install_npm_globals
   configure_bundler
   link_espanso
