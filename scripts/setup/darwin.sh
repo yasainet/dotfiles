@@ -72,6 +72,8 @@ install_cli_tools() {
   brew install mise
   brew install pnpm
   brew install firebase-cli
+  brew install vercel
+  brew install cloudflare-wrangler
   brew install tailscale
   brew install yt-dlp
   brew install mpv
@@ -463,8 +465,7 @@ install_npm_globals() {
 
   npm install -g \
     google-analytics-cli \
-    vercel \
-    wrangler \
+    cf \
     @datadog/datadog-ci \
     @google/clasp \
     @involvex/youtube-music-cli
