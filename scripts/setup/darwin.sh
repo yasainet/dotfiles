@@ -468,6 +468,9 @@ install_npm_globals() {
     @datadog/datadog-ci \
     @google/clasp \
     @involvex/youtube-music-cli
+  npm install -g --allow-remote=all \
+    @deepseek-ai/dsh@0.2.0-rc.2 \
+    @deepseek-harness-tui/dsh-tui@0.14.0
   echo "  [done] npm globals setup complete"
 }
 
@@ -502,14 +505,6 @@ link_dsh() {
   echo "Linking dsh config..."
   mkdir -p "$HOME/.dsh/profiles"
   link "$DOTFILES/dot-dsh/profiles/dsh-tui" "$HOME/.dsh/profiles/dsh-tui"
-  link "$HOME/.dsh/profiles/node_modules" "$DOTFILES/dot-dsh/profiles/node_modules"
-  if [ -e "$HOME/.dsh/settings.yaml" ]; then
-    echo "  [skip] $HOME/.dsh/settings.yaml (already exists)"
-  else
-    cp "$DOTFILES/dot-dsh/settings.yaml" "$HOME/.dsh/settings.yaml"
-    chmod 600 "$HOME/.dsh/settings.yaml"
-    echo "  [copy] $HOME/.dsh/settings.yaml"
-  fi
 }
 
 # ====================

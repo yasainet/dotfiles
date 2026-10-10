@@ -28,6 +28,6 @@
 .claude/worktrees/
 
 # dsh
-dot-dsh/profiles/node_modules
 dot-dsh/profiles/dsh-tui/node_modules/
 dot-dsh/profiles/dsh-tui/.dsh-module-fallback/
+dot-dsh/profiles/dsh-tui/.plugin-manager/

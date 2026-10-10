@@ -4,3 +4,54 @@
 - insert:
     - id: abc-layout
       name: ./plugins/abc-layout.mjs
+
+- id: llm-pi-ai
+  config:
+    providers:
+      llamacpp:
+        api: openai-completions
+        baseURL: http://macbook-pro-2023:8080/v1
+        apiKeyEnv: LLAMACPP_API_KEY
+        compat:
+          supportsDeveloperRole: false
+          maxTokensField: max_tokens
+          thinkingFormat: chat-template
+          chatTemplateKwargs:
+            enable_thinking: true
+            preserve_thinking: true
+        models:
+          - id: Qwen3.8-Flash-Next-Uncensored
+            input: [text, image]
+            contextWindow: 262144
+            maxTokens: 65536
+            reasoningEfforts:
+              off:
+              low: low
+              medium: medium
+              high: high
+
+- id: agent-default-model
+  config:
+    provider: llamacpp
+    model: Qwen3.8-Flash-Next-Uncensored
+
+# A patch replaces a row's whole config, so the bundle's dsh-tui fields are
+# restated here; provider, effort and minimal differ from the bundle defaults.
+- id: dsh-tui
+  config:
+    provider: llamacpp
+    fullscreen: true
+    terminalImages: true
+    effort: medium
+    minimal: true
+    preset: !!js process.env.DSH_TUI_PRESET ?? undefined
+    workspace: !!js process.env.DSH_TUI_WORKSPACE_TARGET ?? undefined
+    sessionId: !!js process.env.DSH_TUI_RESUME_SESSION ?? undefined
+    backend: !!js process.env.DSH_TUI_BACKEND || undefined
+
+# The bundle defaults Bing to the zh-CN market; its other fields are restated.
+- id: web-search-free
+  config:
+    provider: bing
+    disabledEngines: []
+    bingMarket: en-US

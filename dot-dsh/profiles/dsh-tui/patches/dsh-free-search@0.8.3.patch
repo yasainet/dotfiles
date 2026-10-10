@@ -1,0 +1,13 @@
+diff --git a/lib/research.js b/lib/research.js
+index 32ebd4a611e05b07eb5a907a3ecb6fc051cdfe96..abed8c49952dab54d80bbd21b82f19ea8e073cab 100644
+--- a/lib/research.js
++++ b/lib/research.js
+@@ -652,7 +652,7 @@ export function canUseCache(fetchedAtMs, freshness, nowMs = Date.now()) {
+ /** T1 平台 fetch（宿主第二参数支持 signal；deadline abort 在途请求）。 */
+ async function platformFetch(ctx, url, signal) {
+   try {
+-    return await ctx.web.fetch({ url }, signal ? { signal } : undefined);
++    return await ctx.web.fetch({ url }, signal);
+   } catch (e) {
+     if (signal && !signal.aborted && e instanceof TypeError && /argument|parameters/i.test(String(e?.message))) {
+       return await ctx.web.fetch({ url }); // 老宿主不认第二参数：退回单参调用
