@@ -5,7 +5,7 @@ settings:
   excludeLinksFromLockfile: false
 
 patchedDependencies:
-  dsh-free-search@0.8.3: 482f0ddc3538b459924b54544a53e81933718ce41ff96cc66a263de3c9314f64
+  dsh-free-search@0.8.3: 2ca396ea8b67e9ffd8d8eff42e633b86e7b5124a6763523f8b497741c70c950b
 
 importers:
 
@@ -16,7 +16,7 @@ importers:
         version: 0.14.0(@deepseek-ai/schemastery@3.18.4)
       dsh-free-search:
         specifier: github:DDDMUC/dsh-free-search
-        version: https://codeload.github.com/DDDMUC/dsh-free-search/tar.gz/0b122443597a9af7964e59e556541b27d71492fd(patch_hash=482f0ddc3538b459924b54544a53e81933718ce41ff96cc66a263de3c9314f64)
+        version: https://codeload.github.com/DDDMUC/dsh-free-search/tar.gz/0b122443597a9af7964e59e556541b27d71492fd(patch_hash=2ca396ea8b67e9ffd8d8eff42e633b86e7b5124a6763523f8b497741c70c950b)
 
 packages:
 
@@ -901,7 +901,7 @@ snapshots:
 
   diff@8.0.4: {}
 
-  dsh-free-search@https://codeload.github.com/DDDMUC/dsh-free-search/tar.gz/0b122443597a9af7964e59e556541b27d71492fd(patch_hash=482f0ddc3538b459924b54544a53e81933718ce41ff96cc66a263de3c9314f64):
+  dsh-free-search@https://codeload.github.com/DDDMUC/dsh-free-search/tar.gz/0b122443597a9af7964e59e556541b27d71492fd(patch_hash=2ca396ea8b67e9ffd8d8eff42e633b86e7b5124a6763523f8b497741c70c950b):
     dependencies:
       '@deepseek-ai/schemastery': 3.18.4
 
