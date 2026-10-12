@@ -95,6 +95,7 @@ install_cli_tools() {
 
   # adb
   brew install --cask android-platform-tools
+  brew install --cask android-commandlinetools
 
   # Terraform
   brew install hashicorp/tap/terraform
@@ -157,6 +158,7 @@ install_gui_apps() {
   # Fonts
   brew install --cask font-plemol-jp-nf
   brew install --cask font-sf-mono
+  brew install --cask font-udev-gothic-nf
 
   # Terminal
   brew install --cask ghostty
@@ -176,6 +178,9 @@ install_gui_apps() {
   # AI
   brew install --cask claude
 
+  # Creative
+  brew install --cask adobe-creative-cloud
+
   # Development
   brew install --cask orbstack
   brew install --cask ngrok
@@ -192,6 +197,7 @@ install_gui_apps() {
 
   # Privacy
   brew install --cask proton-pass
+  brew install --cask mullvad-vpn
 }
 
 # ====================
