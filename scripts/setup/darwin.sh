@@ -85,7 +85,6 @@ install_cli_tools() {
   brew install glow
   brew install hf
   brew install yazi
-  brew install agent-browser
   brew install hunk
   brew install gallery-dl
   brew install libpq
@@ -164,7 +163,7 @@ install_gui_apps() {
 
   # Browser
   brew install --cask google-chrome
-  brew install --cask brave-browser
+  brew install --cask google-chrome@beta
   brew install --cask tor-browser
 
   # Productivity
