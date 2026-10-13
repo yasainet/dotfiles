@@ -12,5 +12,3 @@ allowBuilds:
 
 minimumReleaseAgeExclude:
   - '@deepseek-harness-tui/dsh-tui@0.14.0'
-patchedDependencies:
-  dsh-free-search@0.8.3: patches/dsh-free-search@0.8.3.patch

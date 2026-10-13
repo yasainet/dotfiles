@@ -3,7 +3,7 @@
   "private": true,
   "dependencies": {
     "@deepseek-harness-tui/dsh-tui": "0.14.0",
-    "dsh-free-search": "github:DDDMUC/dsh-free-search"
+    "dsh-free-search": "github:DDDMUC/dsh-free-search#v0.8.9"
   },
   "dsh": {
     "profile": {

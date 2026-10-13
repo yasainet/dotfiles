@@ -4,9 +4,6 @@ settings:
   autoInstallPeers: false
   excludeLinksFromLockfile: false
 
-patchedDependencies:
-  dsh-free-search@0.8.3: 2ca396ea8b67e9ffd8d8eff42e633b86e7b5124a6763523f8b497741c70c950b
-
 importers:
 
   .:
@@ -15,8 +12,8 @@ importers:
         specifier: 0.14.0
         version: 0.14.0(@deepseek-ai/schemastery@3.18.4)
       dsh-free-search:
-        specifier: github:DDDMUC/dsh-free-search
-        version: https://codeload.github.com/DDDMUC/dsh-free-search/tar.gz/0b122443597a9af7964e59e556541b27d71492fd(patch_hash=2ca396ea8b67e9ffd8d8eff42e633b86e7b5124a6763523f8b497741c70c950b)
+        specifier: github:DDDMUC/dsh-free-search#v0.8.9
+        version: https://codeload.github.com/DDDMUC/dsh-free-search/tar.gz/b9502ec785e29bd5f33c47714550b943337303de
 
 packages:
 
@@ -385,9 +382,9 @@ packages:
     resolution: {integrity: sha512-DPi0FmjiSU5EvQV0++GFDOJ9ASQUVFh5kD+OzOnYdi7n3Wpm9hWWGfB/O2blfHcMVTL5WkQXSnRiK9makhrcnw==}
     engines: {node: '>=0.3.1'}
 
-  dsh-free-search@https://codeload.github.com/DDDMUC/dsh-free-search/tar.gz/0b122443597a9af7964e59e556541b27d71492fd:
-    resolution: {gitHosted: true, integrity: sha512-2OOyAKYPfTImKGrWoYlhuMcQNhEcpvSQ4ddWozF/U1HFNX8RPbyvfwZyU7o0sYfyo7H6ZpmuwMhxgYQRZfEVtA==, tarball: https://codeload.github.com/DDDMUC/dsh-free-search/tar.gz/0b122443597a9af7964e59e556541b27d71492fd}
-    version: 0.8.3
+  dsh-free-search@https://codeload.github.com/DDDMUC/dsh-free-search/tar.gz/b9502ec785e29bd5f33c47714550b943337303de:
+    resolution: {gitHosted: true, integrity: sha512-kkqGEb/WYIXjE5+k3zTn5/DWlq9gLW4JOTg9iH11MKVWf2pFtZfnTcOwTq6/kZhrfX32rjGcbJrgGy9nBF45QQ==, tarball: https://codeload.github.com/DDDMUC/dsh-free-search/tar.gz/b9502ec785e29bd5f33c47714550b943337303de}
+    version: 0.8.9
     engines: {node: '>=20'}
     peerDependencies:
       '@deepseek-ai/cordis': ^4.0.1
@@ -901,7 +898,7 @@ snapshots:
 
   diff@8.0.4: {}
 
-  dsh-free-search@https://codeload.github.com/DDDMUC/dsh-free-search/tar.gz/0b122443597a9af7964e59e556541b27d71492fd(patch_hash=2ca396ea8b67e9ffd8d8eff42e633b86e7b5124a6763523f8b497741c70c950b):
+  dsh-free-search@https://codeload.github.com/DDDMUC/dsh-free-search/tar.gz/b9502ec785e29bd5f33c47714550b943337303de:
     dependencies:
       '@deepseek-ai/schemastery': 3.18.4
 
