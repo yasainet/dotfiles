@@ -80,6 +80,10 @@
     "context7@claude-plugins-official": true,
     "commit-commands@claude-plugins-official": true
   },
+  "outputStyle": "Concise",
+  "language": "Japanese",
+  "feedbackDrafts": "off",
+  "effortLevel": "high",
   "pluginConfigs": {
     "agents-md@builtin": {
       "options": {
@@ -87,10 +91,6 @@
       }
     }
   },
-  "outputStyle": "Concise",
-  "language": "Japanese",
-  "feedbackDrafts": "off",
-  "effortLevel": "high",
   "autoUpdatesChannel": "latest",
   "tui": "fullscreen",
   "voice": {
@@ -105,9 +105,11 @@
   "preferredNotifChannel": "ghostty",
   "autoCompactEnabled": true,
   "switchModelsOnFlag": false,
+  "terminalProgressBarEnabled": true,
   "inputNeededNotifEnabled": false,
   "agentPushNotifEnabled": false,
   "skipAutoPermissionPrompt": true,
+  "useAutoModeDuringPlan": true,
   "autoMode": {
     "soft_deny": [],
     "environment": [],

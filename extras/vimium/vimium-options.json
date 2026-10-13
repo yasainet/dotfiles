@@ -43,6 +43,10 @@
     {
       "passKeys": "",
       "pattern": "https://www.reddit.com/*"
+    },
+    {
+      "passKeys": "",
+      "pattern": "http://127.0.0.1:18000/*"
     }
   ],
   "keyMappings": "unmapAll\nmap j scrollDown\nmap k scrollUp\nmap gg scrollToTop\nmap G scrollToBottom",
